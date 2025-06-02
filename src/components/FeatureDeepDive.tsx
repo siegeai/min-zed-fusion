@@ -57,14 +57,14 @@ const FeatureDeepDive = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              className="bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
-              {/* Feature Image */}
-              <div className="relative h-48 overflow-hidden bg-gray-50">
+              {/* Feature Image with border */}
+              <div className="relative h-48 overflow-hidden bg-gray-50 border-2 border-gray-200 rounded-lg">
                 <img
                   src={feature.image}
                   alt={feature.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-md"
                 />
               </div>
               
