@@ -15,7 +15,8 @@ const Testimonials = () => {
     role: "Project Manager",
     company: "Digital Ventures"
   }];
-  return <div className="py-16 bg-white relative">
+  return (
+    <div id="testimonials" className="py-16 bg-white relative">
       {/* Subtle background layer */}
       <div className="absolute inset-0 bg-gradient-to-b from-green-50/20 via-white to-green-50/10"></div>
       
@@ -30,24 +31,37 @@ const Testimonials = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => <div key={index} className="bg-white/80 backdrop-blur-sm p-8 hover:shadow-lg transition-all duration-300 border border-green-100/50 rounded-2xl">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="bg-white/80 backdrop-blur-sm p-8 hover:shadow-lg transition-all duration-300 border border-green-100/50 rounded-2xl"
+            >
               <blockquote className="text-gray-700 mb-6 leading-relaxed font-light">
                 "{testimonial.quote}"
               </blockquote>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-green-100/40 rounded-full flex items-center justify-center mr-4">
                   <span className="text-green-600/80 font-medium text-lg">
-                    {testimonial.author.split(' ').map(n => n[0]).join('')}
+                    {testimonial.author
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </span>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-900">{testimonial.author}</div>
-                  <div className="text-gray-600 text-sm font-light">{testimonial.role}, {testimonial.company}</div>
+                  <div className="font-medium text-gray-900">
+                    {testimonial.author}
+                  </div>
+                  <div className="text-gray-600 text-sm font-light">
+                    {testimonial.role}, {testimonial.company}
+                  </div>
                 </div>
               </div>
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 export default Testimonials;
