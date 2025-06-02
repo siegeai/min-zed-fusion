@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
 import Features from "@/components/Features";
+import FeatureDeepDive from "@/components/FeatureDeepDive";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
@@ -101,6 +102,9 @@ const Index = () => {
             </div>
           </div>
         </main>
+
+        {/* Feature Deep Dive Section */}
+        <FeatureDeepDive />
 
         {/* Testimonials Section */}
         <div className="pt-16 py-[20px]">
