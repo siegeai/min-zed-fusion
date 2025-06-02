@@ -11,14 +11,23 @@ const VideoDemo = () => {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <div className="relative w-full aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-2xl cursor-pointer group">
-            {/* Screenshot placeholder - you can replace this with an actual screenshot */}
-            <div className="w-full h-full bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
-                  <Play className="w-8 h-8 text-green-600 ml-1" fill="currentColor" />
+            {/* Rick Roll YouTube video screenshot */}
+            <div className="w-full h-full relative">
+              <img 
+                src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" 
+                alt="Rick Roll Video Screenshot"
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Overlay with play button */}
+              <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
+                    <Play className="w-8 h-8 text-green-600 ml-1" fill="currentColor" />
+                  </div>
+                  <p className="mt-4 text-white font-medium drop-shadow-lg">Watch Demo Video</p>
+                  <p className="text-sm text-white/90 drop-shadow-lg">See min in action</p>
                 </div>
-                <p className="mt-4 text-gray-600 font-medium">Watch Demo Video</p>
-                <p className="text-sm text-gray-500">See min in action</p>
               </div>
             </div>
             
