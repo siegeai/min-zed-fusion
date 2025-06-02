@@ -48,25 +48,25 @@ const Index = () => {
           </div>
 
           {/* Video Demo Section */}
-          <div className="relative max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto mb-8">
             <VideoDemo />
-            
-            {/* Stats overlay - positioned at bottom */}
-            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                  <div>
-                    <div className="text-xl font-medium text-gray-900 mb-1">10x</div>
-                    <div className="text-gray-600 text-sm font-light">Faster email processing</div>
-                  </div>
-                  <div>
-                    <div className="text-xl font-medium text-gray-900 mb-1">95%</div>
-                    <div className="text-gray-600 text-sm font-light">Accuracy with AI agents</div>
-                  </div>
-                  <div>
-                    <div className="text-xl font-medium text-gray-900 mb-1">50+</div>
-                    <div className="text-gray-600 text-sm font-light">Integrations available</div>
-                  </div>
+          </div>
+
+          {/* Stats section - positioned below video */}
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="text-xl font-medium text-gray-900 mb-1">10x</div>
+                  <div className="text-gray-600 text-sm font-light">Faster email processing</div>
+                </div>
+                <div>
+                  <div className="text-xl font-medium text-gray-900 mb-1">95%</div>
+                  <div className="text-gray-600 text-sm font-light">Accuracy with AI agents</div>
+                </div>
+                <div>
+                  <div className="text-xl font-medium text-gray-900 mb-1">50+</div>
+                  <div className="text-gray-600 text-sm font-light">Integrations available</div>
                 </div>
               </div>
             </div>
