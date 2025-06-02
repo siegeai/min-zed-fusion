@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="w-full px-6 py-4 bg-white/90 backdrop-blur-md border-b border-green-100/40 sticky top-0 z-50">
+    <header className="w-full px-6 py-4 bg-white/90 backdrop-blur-md border-b border-green-100/40 fixed top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
