@@ -16,6 +16,15 @@ const Index = () => {
         {/* Base gradient layer */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `
+            linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }}></div>
+        
         {/* Subtle dot pattern */}
         <div className="absolute inset-0 opacity-[0.015]" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
