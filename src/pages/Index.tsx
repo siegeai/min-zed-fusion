@@ -52,7 +52,7 @@ const Index = () => {
                 The inbox for what's{" "}
                 <span className="text-green-600/90">next</span>
               </h1>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min is where lean teams and agents get things done - together.</p>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min is where lean teams and agents get sh*t done - together.</p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal">
