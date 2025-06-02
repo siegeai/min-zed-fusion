@@ -40,7 +40,7 @@ const Index = () => {
       
       <div className="relative z-10">
         {/* Header with immediate fade-in */}
-        <div className="opacity-0 animate-[fade-in_0.6s_ease-out_0.1s_forwards]">
+        <div className="opacity-0 animate-[fade-in_0.2s_ease-out_0s_forwards]">
           <Header />
         </div>
         
@@ -48,7 +48,7 @@ const Index = () => {
         <main className="pt-40 pb-8">
           <div className="max-w-7xl mx-auto px-6">
             {/* Hero content with staggered fade-in */}
-            <div className="text-center mb-12 py-[40px] opacity-0 animate-[fade-in_0.8s_ease-out_0.3s_forwards]">
+            <div className="text-center mb-12 py-[40px] opacity-0 animate-[fade-in_0.2s_ease-out_0.05s_forwards]">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 The platform for what's{" "}
                 <span className="text-green-600/90">next</span>
@@ -76,17 +76,17 @@ const Index = () => {
             </div>
 
             {/* Features above video with staggered fade-in */}
-            <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-[fade-in_0.8s_ease-out_0.6s_forwards]">
+            <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-[fade-in_0.2s_ease-out_0.1s_forwards]">
               <Features />
             </div>
 
             {/* Video Demo Section with staggered fade-in */}
-            <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-[fade-in_0.8s_ease-out_0.9s_forwards]">
+            <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-[fade-in_0.2s_ease-out_0.15s_forwards]">
               <VideoDemo />
             </div>
 
             {/* Stats section with staggered fade-in */}
-            <div className="max-w-5xl mx-auto opacity-0 animate-[fade-in_0.8s_ease-out_1.2s_forwards]">
+            <div className="max-w-5xl mx-auto opacity-0 animate-[fade-in_0.2s_ease-out_0.2s_forwards]">
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div>
@@ -108,22 +108,22 @@ const Index = () => {
         </main>
 
         {/* Feature Deep Dive Section with staggered fade-in */}
-        <div className="opacity-0 animate-[fade-in_0.8s_ease-out_1.5s_forwards]">
+        <div className="opacity-0 animate-[fade-in_0.2s_ease-out_0.25s_forwards]">
           <FeatureDeepDive />
         </div>
 
         {/* Testimonials Section with staggered fade-in */}
-        <div id="testimonials" className="pb-10 py-[20px] opacity-0 animate-[fade-in_0.8s_ease-out_1.8s_forwards]">
+        <div id="testimonials" className="pb-10 py-[20px] opacity-0 animate-[fade-in_0.2s_ease-out_0.3s_forwards]">
           <Testimonials />
         </div>
 
         {/* Pricing Section with staggered fade-in */}
-        <div id="pricing" className="pb-20 py-[20px] opacity-0 animate-[fade-in_0.8s_ease-out_2.1s_forwards]">
+        <div id="pricing" className="pb-20 py-[20px] opacity-0 animate-[fade-in_0.2s_ease-out_0.35s_forwards]">
           <Pricing />
         </div>
 
         {/* CTA Section with staggered fade-in */}
-        <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-[fade-in_0.8s_ease-out_2.4s_forwards]">
+        <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-[fade-in_0.2s_ease-out_0.4s_forwards]">
           {/* CTA background layers */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>
@@ -148,7 +148,7 @@ const Index = () => {
         </div>
 
         {/* Footer with final fade-in */}
-        <div className="opacity-0 animate-[fade-in_0.8s_ease-out_2.7s_forwards]">
+        <div className="opacity-0 animate-[fade-in_0.2s_ease-out_0.45s_forwards]">
           <Footer />
         </div>
       </div>
