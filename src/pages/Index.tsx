@@ -73,7 +73,7 @@ const Index = () => {
 
             {/* Stats section - positioned below video */}
             <div className="max-w-5xl mx-auto">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/30 p-8">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div>
                     <div className="text-xl font-medium text-gray-900 mb-1">10x</div>
