@@ -38,7 +38,7 @@ const Testimonials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-8 hover:shadow-lg transition-all duration-300 border border-green-100/30">
+            <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-8 hover:shadow-lg transition-all duration-300 border border-green-100/50">
               <blockquote className="text-gray-700 mb-6 leading-relaxed font-light">
                 "{testimonial.quote}"
               </blockquote>
