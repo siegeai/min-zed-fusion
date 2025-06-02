@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
@@ -7,6 +8,7 @@ import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
+
 const Index = () => {
   return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Multiple layered backgrounds */}
@@ -67,7 +69,7 @@ const Index = () => {
               
               <p className="text-gray-500 text-sm flex items-center justify-center gap-2 font-light">
                 <span>🚀</span>
-                Available for all team sizes, enterprise-ready security
+                Built for teams that automate, not staff up
               </p>
             </div>
 
@@ -165,4 +167,5 @@ const Index = () => {
       </div>
     </div>;
 };
+
 export default Index;
