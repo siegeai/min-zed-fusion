@@ -18,9 +18,9 @@ const Features = () => {
         {features.map((feature, index) => <div key={index} className="bg-white/80 backdrop-blur-sm p-4 shadow-sm border-2 border-green-100/60 hover:bg-white/90 transition-all duration-300 rounded-sm">
             <div className="flex items-center space-x-3 mb-2">
               {feature.icon}
-              <h3 className="text-sm font-medium text-gray-900">{feature.title}</h3>
+              <h3 className="text-gray-900 font-medium text-sm">{feature.title}</h3>
             </div>
-            <p className="text-xs text-gray-600 leading-relaxed">{feature.description}</p>
+            <p className="text-xs text-gray-600 leading-relaxed font-normal">{feature.description}</p>
           </div>)}
       </div>
     </div>;
