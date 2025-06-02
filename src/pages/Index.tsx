@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
@@ -39,7 +40,7 @@ const Index = () => {
         <Header />
         
         {/* Hero Section */}
-        <main className="pt-24 pb-8">
+        <main className="pt-32 pb-8">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12 py-[50px]">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
