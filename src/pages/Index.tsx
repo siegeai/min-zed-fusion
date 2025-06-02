@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
@@ -8,7 +7,6 @@ import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
-
 const Index = () => {
   return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Multiple layered backgrounds */}
@@ -146,12 +144,8 @@ const Index = () => {
           </div>
           
           <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-            <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">
-              Ready to transform your team communication?
-            </h2>
-            <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">
-              Join thousands of teams already using min to streamline their external communication workflow.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to transform your external communication?</h2>
+            <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join thousands of teams already using min to streamline their customer, vendor, partner communication.</p>
             <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal">
               Start your free trial
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -167,5 +161,4 @@ const Index = () => {
       </div>
     </div>;
 };
-
 export default Index;
