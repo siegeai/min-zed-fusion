@@ -1,15 +1,11 @@
-
 const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-white py-16">
+  return <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-green-600 rounded-md flex items-center justify-center">
-                <span className="text-white font-bold text-sm">m</span>
-              </div>
-              <span className="font-semibold text-xl">min</span>
+            <div className="">
+              
+              <span className="font-semibold text-xl">min.</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
               The unified external communication platform that makes it easy for teams to collaborate, 
@@ -48,8 +44,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
