@@ -7,10 +7,7 @@ const Footer = () => {
               
               <span className="font-semibold text-xl">min.</span>
             </div>
-            <p className="text-gray-400 max-w-md leading-relaxed">
-              The unified external communication platform that makes it easy for teams to collaborate, 
-              offload email tasks to AI agents, and manage communication in a super simple interface.
-            </p>
+            <p className="text-gray-400 max-w-md leading-relaxed">The unified external communication platform that makes it easy for teams to collaborate, offload email tasks to AI agents, and manage communication in a super UI</p>
           </div>
 
           <div>
