@@ -7,7 +7,7 @@ const Features = () => {
   }, {
     icon: <MessageCircle className="w-5 h-5 text-green-600/80" />,
     title: "Unified Interface",
-    description: "Manage all communication with the outside worl from one clean, intuitive interface."
+    description: "Manage all communication with the outside world from one clean, spreadsheet like UI."
   }, {
     icon: <Users className="w-5 h-5 text-green-600/80" />,
     title: "Team Collaboration",
