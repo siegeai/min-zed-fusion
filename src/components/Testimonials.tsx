@@ -30,7 +30,7 @@ const Testimonials = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => <div key={index} className="bg-green-100/17 backdrop-blur-sm p-8 border-2 border-grey-100/80 rounded-none">
+          {testimonials.map((testimonial, index) => <div key={index} className="bg-green-100/17 backdrop-blur-sm p-8 border-2 border-grey-100/40 rounded-none">
               <blockquote className="text-gray-700 mb-6 leading-relaxed font-light">
                 "{testimonial.quote}"
               </blockquote>
