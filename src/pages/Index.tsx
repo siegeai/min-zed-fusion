@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
@@ -11,10 +12,8 @@ const Index = () => {
   return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Multiple layered backgrounds */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Base gradient layer */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         
-        {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: `
             linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
@@ -23,25 +22,25 @@ const Index = () => {
         backgroundSize: '40px 40px'
       }}></div>
         
-        {/* Subtle dot pattern */}
         <div className="absolute inset-0 opacity-[0.015]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
         backgroundSize: '24px 24px'
       }}></div>
         
-        {/* Organic shapes */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-green-100/10 rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
         <div className="absolute top-1/3 right-0 w-80 h-80 bg-green-200/8 rounded-full blur-3xl transform translate-x-40"></div>
         <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-green-100/12 rounded-full blur-3xl transform translate-y-36"></div>
       </div>
       
       <div className="relative z-10">
-        <Header />
+        <div className="animate-fade-in-fast">
+          <Header />
+        </div>
         
         {/* Hero Section */}
         <main className="pt-40 pb-8">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12 py-[40px]">
+            <div className="text-center mb-12 py-[40px] animate-fade-in-fast" style={{ animationDelay: '0.05s' }}>
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 The platform for what's{" "}
                 <span className="text-green-600/90">next</span>
@@ -69,17 +68,17 @@ const Index = () => {
             </div>
 
             {/* Features above video */}
-            <div className="max-w-5xl mx-auto mb-6">
+            <div className="max-w-5xl mx-auto mb-6 animate-fade-in-fast" style={{ animationDelay: '0.1s' }}>
               <Features />
             </div>
 
             {/* Video Demo Section */}
-            <div className="max-w-5xl mx-auto mb-6">
+            <div className="max-w-5xl mx-auto mb-6 animate-fade-in-fast" style={{ animationDelay: '0.15s' }}>
               <VideoDemo />
             </div>
 
             {/* Stats section - positioned below video */}
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto animate-fade-in-fast" style={{ animationDelay: '0.2s' }}>
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div>
@@ -101,20 +100,22 @@ const Index = () => {
         </main>
 
         {/* Feature Deep Dive Section */}
-        <FeatureDeepDive />
+        <div className="animate-fade-in-fast" style={{ animationDelay: '0.25s' }}>
+          <FeatureDeepDive />
+        </div>
 
         {/* Testimonials Section */}
-        <div id="testimonials" className="pb-10 py-[20px]">
+        <div id="testimonials" className="pb-10 py-[20px] animate-fade-in-fast" style={{ animationDelay: '0.3s' }}>
           <Testimonials />
         </div>
 
         {/* Pricing Section */}
-        <div id="pricing" className="pb-20 py-[20px]">
+        <div id="pricing" className="pb-20 py-[20px] animate-fade-in-fast" style={{ animationDelay: '0.35s' }}>
           <Pricing />
         </div>
 
         {/* CTA Section */}
-        <div className="py-16 bg-green-600/90 relative overflow-hidden">
+        <div className="py-16 bg-green-600/90 relative overflow-hidden animate-fade-in-fast" style={{ animationDelay: '0.4s' }}>
           {/* CTA background layers */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>
@@ -138,7 +139,9 @@ const Index = () => {
           </div>
         </div>
 
-        <Footer />
+        <div className="animate-fade-in-fast" style={{ animationDelay: '0.45s' }}>
+          <Footer />
+        </div>
       </div>
     </div>;
 };
