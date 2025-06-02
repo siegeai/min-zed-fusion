@@ -1,7 +1,7 @@
 import { Brain, Shield, Zap, Users2, BarChart3, Globe } from "lucide-react";
 const FeatureDeepDive = () => {
   const features = [{
-    icon: <Brain className="w-6 h-6 text-blue-600" />,
+    icon: <Brain className="w-6 h-6 text-green-600" />,
     title: "Smart Email Routing",
     description: "AI automatically categorizes and routes emails to the right team members.",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
@@ -52,7 +52,7 @@ const FeatureDeepDive = () => {
               {/* Feature Content */}
               <div className="p-6 px-0 mr-[30px]">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-blue-50 rounded-lg">
+                  <div className="p-2 rounded-lg bg-slate-50">
                     {feature.icon}
                   </div>
                   <h3 className="text-lg font-medium text-gray-900">
