@@ -102,6 +102,26 @@ const Index = () => {
           </div>
         </main>
 
+        {/* Dedicated Features Section */}
+        <section id="features" className="py-16 bg-white relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-green-50/10 via-white to-green-50/5"></div>
+          
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-medium text-gray-900 mb-4">
+                Everything you need to streamline communication
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+                Powerful features designed to make external communication effortless and efficient
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <Features />
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials Section */}
         <div className="pt-16 py-[20px]">
           <Testimonials />
