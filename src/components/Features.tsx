@@ -3,7 +3,7 @@ const Features = () => {
   const features = [{
     icon: <Zap className="w-5 h-5 text-green-600/80" />,
     title: "Built for Agents",
-    description: "No more copy-paste—AI agents that complete tasks directly in your inbox."
+    description: "No more copy-paste - AI agents that complete tasks directly in your inbox."
   }, {
     icon: <MessageCircle className="w-5 h-5 text-green-600/80" />,
     title: "Easy as Spreadsheets",
