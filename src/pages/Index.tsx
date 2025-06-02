@@ -1,7 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
 import Features from "@/components/Features";
+import FeaturesInDepth from "@/components/FeaturesInDepth";
 import FeaturesDeepDive from "@/components/FeaturesDeepDive";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
@@ -101,6 +103,11 @@ const Index = () => {
             </div>
           </div>
         </main>
+
+        {/* New In-Depth Features Section */}
+        <div className="pt-8">
+          <FeaturesInDepth />
+        </div>
 
         {/* Deep Dive Features Section */}
         <div className="pt-8">
