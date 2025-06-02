@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
@@ -8,10 +7,8 @@ import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+  return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Multiple layered backgrounds */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Base gradient layer */}
@@ -19,18 +16,18 @@ const Index = () => {
         
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `
+        backgroundImage: `
             linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
-        }}></div>
+        backgroundSize: '40px 40px'
+      }}></div>
         
         {/* Subtle dot pattern */}
         <div className="absolute inset-0 opacity-[0.015]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
-          backgroundSize: '24px 24px'
-        }}></div>
+        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
+        backgroundSize: '24px 24px'
+      }}></div>
         
         {/* Organic shapes */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-green-100/10 rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
@@ -39,16 +36,12 @@ const Index = () => {
       </div>
       
       <div className="relative z-10">
-        {/* Header with immediate fade-in */}
-        <div className="opacity-0 animate-[fade-in_0.2s_ease-out_0s_forwards]">
-          <Header />
-        </div>
+        <Header />
         
         {/* Hero Section */}
         <main className="pt-40 pb-8">
           <div className="max-w-7xl mx-auto px-6">
-            {/* Hero content with staggered fade-in */}
-            <div className="text-center mb-12 py-[40px] opacity-0 animate-[fade-in_0.2s_ease-out_0.05s_forwards]">
+            <div className="text-center mb-12 py-[40px]">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 The platform for what's{" "}
                 <span className="text-green-600/90">next</span>
@@ -75,18 +68,18 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Features above video with staggered fade-in */}
-            <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-[fade-in_0.2s_ease-out_0.1s_forwards]">
+            {/* Features above video */}
+            <div className="max-w-5xl mx-auto mb-6">
               <Features />
             </div>
 
-            {/* Video Demo Section with staggered fade-in */}
-            <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-[fade-in_0.2s_ease-out_0.15s_forwards]">
+            {/* Video Demo Section */}
+            <div className="max-w-5xl mx-auto mb-6">
               <VideoDemo />
             </div>
 
-            {/* Stats section with staggered fade-in */}
-            <div className="max-w-5xl mx-auto opacity-0 animate-[fade-in_0.2s_ease-out_0.2s_forwards]">
+            {/* Stats section - positioned below video */}
+            <div className="max-w-5xl mx-auto">
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div>
@@ -107,23 +100,21 @@ const Index = () => {
           </div>
         </main>
 
-        {/* Feature Deep Dive Section with staggered fade-in */}
-        <div className="opacity-0 animate-[fade-in_0.2s_ease-out_0.25s_forwards]">
-          <FeatureDeepDive />
-        </div>
+        {/* Feature Deep Dive Section */}
+        <FeatureDeepDive />
 
-        {/* Testimonials Section with staggered fade-in */}
-        <div id="testimonials" className="pb-10 py-[20px] opacity-0 animate-[fade-in_0.2s_ease-out_0.3s_forwards]">
+        {/* Testimonials Section */}
+        <div id="testimonials" className="pb-10 py-[20px]">
           <Testimonials />
         </div>
 
-        {/* Pricing Section with staggered fade-in */}
-        <div id="pricing" className="pb-20 py-[20px] opacity-0 animate-[fade-in_0.2s_ease-out_0.35s_forwards]">
+        {/* Pricing Section */}
+        <div id="pricing" className="pb-20 py-[20px]">
           <Pricing />
         </div>
 
-        {/* CTA Section with staggered fade-in */}
-        <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-[fade-in_0.2s_ease-out_0.4s_forwards]">
+        {/* CTA Section */}
+        <div className="py-16 bg-green-600/90 relative overflow-hidden">
           {/* CTA background layers */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>
@@ -147,13 +138,8 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Footer with final fade-in */}
-        <div className="opacity-0 animate-[fade-in_0.2s_ease-out_0.45s_forwards]">
-          <Footer />
-        </div>
+        <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
