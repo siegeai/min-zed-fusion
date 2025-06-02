@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
@@ -101,26 +100,6 @@ const Index = () => {
             </div>
           </div>
         </main>
-
-        {/* Dedicated Features Section */}
-        <section id="features" className="py-24 bg-white relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-green-50/10 via-white to-green-50/5"></div>
-          
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
-                Everything you need to streamline communication
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-                Powerful features designed to make external communication effortless and efficient for teams of all sizes
-              </p>
-            </div>
-
-            <div className="max-w-6xl mx-auto">
-              <Features />
-            </div>
-          </div>
-        </section>
 
         {/* Testimonials Section */}
         <div className="pt-16 py-[20px]">
