@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,7 +8,9 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
-            <span className="font-medium text-xl text-gray-900">min.</span>
+            <Link to="/" className="font-medium text-xl text-gray-900 hover:text-green-600 transition-colors">
+              min.
+            </Link>
           </div>
           
           <nav className="hidden md:flex items-center space-x-6">
