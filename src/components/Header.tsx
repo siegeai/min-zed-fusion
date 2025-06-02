@@ -3,12 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const handleLogoClick = () => {
+    console.log("Logo clicked - navigating to home");
+  };
+
   return (
     <header className="w-full px-6 py-4 bg-white/90 backdrop-blur-md border-b border-green-100/40 fixed top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
-            <Link to="/" className="font-medium text-xl text-gray-900 hover:text-green-600 transition-colors">
+            <Link 
+              to="/" 
+              className="font-medium text-xl text-gray-900 hover:text-green-600 transition-colors"
+              onClick={handleLogoClick}
+            >
               min.
             </Link>
           </div>
