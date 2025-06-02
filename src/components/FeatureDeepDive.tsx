@@ -45,7 +45,7 @@ const FeatureDeepDive = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {features.map((feature, index) => <div key={index} className="">
               {/* Feature Image with border */}
-              <div className="relative h-48 overflow-hidden bg-gray-50 border-4 border-green-200/60 rounded-lg">
+              <div className="relative h-48 overflow-hidden bg-gray-50 border-12 border-green-200/60 rounded-sm">
                 <img src={feature.image} alt={feature.title} className="w-full h-full object-cover rounded-md" />
               </div>
               
