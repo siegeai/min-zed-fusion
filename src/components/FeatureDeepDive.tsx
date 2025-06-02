@@ -1,5 +1,4 @@
 import { Brain, Shield, Zap, Users2, BarChart3, Globe } from "lucide-react";
-
 const FeatureDeepDive = () => {
   const features = [{
     icon: <Brain className="w-6 h-6 text-green-600" />,
@@ -32,9 +31,7 @@ const FeatureDeepDive = () => {
     description: "AI translates and responds in 50+ languages automatically.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop"
   }];
-
-  return (
-    <div id="features" className="py-16 bg-white relative">
+  return <div id="features" className="py-16 bg-white relative">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-4">
@@ -46,10 +43,9 @@ const FeatureDeepDive = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <div key={index} className="">
+          {features.map((feature, index) => <div key={index} className="">
               {/* Feature Image with green rainbow gradient border */}
-              <div className="relative h-48 overflow-hidden bg-gray-50 border-[6px] border-transparent bg-gradient-to-r from-emerald-200 via-green-300 via-lime-400 via-emerald-500 via-green-600 via-teal-500 via-emerald-400 via-lime-300 to-green-200 rounded-sm p-[6px]">
+              <div className="relative h-48 overflow-hidden bg-gray-50 border-[1px] border-transparent bg-gradient-to-r from-emerald-200 via-green-300 via-lime-400 via-emerald-500 via-green-600 via-teal-500 via-emerald-400 via-lime-300 to-green-200 rounded-sm p-[6px]">
                 <div className="w-full h-full bg-gray-50 rounded-sm overflow-hidden">
                   <img src={feature.image} alt={feature.title} className="w-full h-full object-cover" />
                 </div>
@@ -69,12 +65,9 @@ const FeatureDeepDive = () => {
                   {feature.description}
                 </p>
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default FeatureDeepDive;
