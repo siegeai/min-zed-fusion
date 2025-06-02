@@ -1,10 +1,14 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const handleLogoClick = () => {
-    console.log("Logo clicked - navigating to home");
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    console.log("Logo clicked - scrolling to top");
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -34,6 +38,7 @@ const Header = () => {
             </Link>
           </div>
           
+          
           <nav className="hidden md:flex items-center space-x-6">
             <a 
               href="#features" 
@@ -62,6 +67,7 @@ const Header = () => {
           </nav>
         </div>
 
+        
         <div className="flex items-center space-x-4">
           <Button variant="ghost" className="text-gray-600 hover:text-gray-900 font-normal">
             Log in
