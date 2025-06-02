@@ -10,13 +10,22 @@ import { ArrowRight, Download } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white relative">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.15) 1px, transparent 0)`,
-          backgroundSize: '20px 20px'
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Multiple layered backgrounds */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Base gradient layer */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
+        
+        {/* Subtle dot pattern */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
+          backgroundSize: '24px 24px'
         }}></div>
+        
+        {/* Organic shapes */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-green-100/10 rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
+        <div className="absolute top-1/3 right-0 w-80 h-80 bg-green-200/8 rounded-full blur-3xl transform translate-x-40"></div>
+        <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-green-100/12 rounded-full blur-3xl transform translate-y-36"></div>
       </div>
       
       <div className="relative z-10">
@@ -28,7 +37,7 @@ const Index = () => {
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 The platform for what's{" "}
-                <span className="text-green-600">next</span>
+                <span className="text-green-600/90">next</span>
               </h1>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
                 min is a unified external communication platform that makes it easy for teams to collaborate, 
@@ -36,11 +45,11 @@ const Index = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-base font-normal">
+                <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal">
                   <Download className="w-4 h-4 mr-2" />
                   Start free trial
                 </Button>
-                <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal">
+                <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal border-green-200/50 hover:bg-green-50/50">
                   View demo
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -64,7 +73,7 @@ const Index = () => {
 
             {/* Stats section - positioned below video */}
             <div className="max-w-5xl mx-auto">
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-8">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/30 p-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div>
                     <div className="text-xl font-medium text-gray-900 mb-1">10x</div>
@@ -95,15 +104,24 @@ const Index = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="py-20 bg-green-600">
-          <div className="max-w-4xl mx-auto text-center px-6">
+        <div className="py-20 bg-green-600/90 relative overflow-hidden">
+          {/* CTA background layers */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>
+            <div className="absolute top-0 left-0 w-full h-full opacity-10">
+              <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-white rounded-full blur-2xl"></div>
+              <div className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-white rounded-full blur-xl"></div>
+            </div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
             <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">
               Ready to transform your team communication?
             </h2>
-            <p className="text-lg text-green-100 mb-8 max-w-2xl mx-auto font-light">
+            <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">
               Join thousands of teams already using min to streamline their external communication workflow.
             </p>
-            <Button size="lg" variant="secondary" className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3 text-base font-normal">
+            <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal">
               Start your free trial
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>

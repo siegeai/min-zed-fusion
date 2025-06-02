@@ -22,8 +22,11 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="py-24 bg-white relative">
+      {/* Subtle background layer */}
+      <div className="absolute inset-0 bg-gradient-to-b from-green-50/20 via-white to-green-50/10"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-2xl font-medium text-gray-900 mb-4">
             Trusted by teams worldwide
@@ -35,13 +38,13 @@ const Testimonials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+            <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-8 hover:shadow-lg transition-all duration-300 border border-green-100/10">
               <blockquote className="text-gray-700 mb-6 leading-relaxed font-light">
                 "{testimonial.quote}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-green-600 font-medium text-lg">
+                <div className="w-12 h-12 bg-green-100/40 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-green-600/80 font-medium text-lg">
                     {testimonial.author.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>

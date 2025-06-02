@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="w-full px-6 py-4 bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
+    <header className="w-full px-6 py-4 bg-white/90 backdrop-blur-md border-b border-green-100/20 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
@@ -30,7 +30,7 @@ const Header = () => {
           <Button variant="ghost" className="text-gray-600 hover:text-gray-900 font-normal">
             Log in
           </Button>
-          <Button className="bg-green-600 hover:bg-green-700 text-white font-normal">
+          <Button className="bg-green-600/90 hover:bg-green-700/90 text-white font-normal">
             Get Started
           </Button>
         </div>
