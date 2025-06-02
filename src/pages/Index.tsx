@@ -41,7 +41,7 @@ const Index = () => {
         {/* Hero Section */}
         <main className="pt-24 pb-8">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12 py-[40px]">
+            <div className="text-center mb-12 py-[50px]">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 The platform for what's{" "}
                 <span className="text-green-600/90">next</span>
