@@ -6,8 +6,8 @@ const Features = () => {
     description: "No more copy-paste—AI agents that complete tasks directly in your inbox."
   }, {
     icon: <MessageCircle className="w-5 h-5 text-green-600/80" />,
-    title: "Unified Interface",
-    description: "Manage all communication with the outside world from one clean, spreadsheet like UI."
+    title: "Easy as Spreadsheets",
+    description: "Manage all external communications from one clean, intuitive UI. No context switching."
   }, {
     icon: <Users className="w-5 h-5 text-green-600/80" />,
     title: "Team Collaboration",
