@@ -91,7 +91,7 @@ const Index = () => {
         </main>
 
         {/* Testimonials Section */}
-        <div className="pt-16">
+        <div className="pt-16 py-[20px]">
           <Testimonials />
         </div>
 
