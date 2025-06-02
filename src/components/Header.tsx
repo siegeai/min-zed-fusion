@@ -7,6 +7,19 @@ const Header = () => {
     console.log("Logo clicked - navigating to home");
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const headerHeight = 80; // Account for fixed header height
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <header className="w-full px-6 py-4 bg-white/90 backdrop-blur-md border-b border-green-100/40 fixed top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -22,13 +35,25 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+            <a 
+              href="#features" 
+              className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors"
+              onClick={(e) => handleNavClick(e, 'features')}
+            >
               Features
             </a>
-            <a href="#testimonials" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+            <a 
+              href="#testimonials" 
+              className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors"
+              onClick={(e) => handleNavClick(e, 'testimonials')}
+            >
               Testimonials
             </a>
-            <a href="#pricing" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+            <a 
+              href="#pricing" 
+              className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors"
+              onClick={(e) => handleNavClick(e, 'pricing')}
+            >
               Pricing
             </a>
             <a href="#docs" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
