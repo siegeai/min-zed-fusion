@@ -43,14 +43,14 @@ const FeatureDeepDive = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {features.map((feature, index) => <div key={index} className="bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          {features.map((feature, index) => <div key={index} className="">
               {/* Feature Image with border */}
               <div className="relative h-48 overflow-hidden bg-gray-50 border-2 border-gray-200 rounded-lg">
                 <img src={feature.image} alt={feature.title} className="w-full h-full object-cover rounded-md" />
               </div>
               
               {/* Feature Content */}
-              <div className="p-6 px-0">
+              <div className="p-6 px-0 mr-[30px]">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-blue-50 rounded-lg">
                     {feature.icon}
