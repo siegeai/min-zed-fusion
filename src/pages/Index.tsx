@@ -96,7 +96,7 @@ const Index = () => {
         </div>
 
         {/* Pricing Section */}
-        <div className="pt-16">
+        <div className="pb-16 py-[20px] ">
           <Pricing />
         </div>
 
