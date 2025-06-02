@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import VideoDemo from "@/components/VideoDemo";
@@ -8,10 +7,8 @@ import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+  return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Multiple layered backgrounds */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Base gradient layer */}
@@ -19,18 +16,18 @@ const Index = () => {
         
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `
+        backgroundImage: `
             linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
-        }}></div>
+        backgroundSize: '40px 40px'
+      }}></div>
         
         {/* Subtle dot pattern */}
         <div className="absolute inset-0 opacity-[0.015]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
-          backgroundSize: '24px 24px'
-        }}></div>
+        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
+        backgroundSize: '24px 24px'
+      }}></div>
         
         {/* Organic shapes */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-green-100/10 rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
@@ -107,12 +104,12 @@ const Index = () => {
         <FeatureDeepDive />
 
         {/* Testimonials Section */}
-        <div className="pt-16 py-[20px]">
+        <div className="pb-10 py-[20px]">
           <Testimonials />
         </div>
 
         {/* Pricing Section */}
-        <div className="pb-16 py-[20px] ">
+        <div className="pb-20 py-[20px] ">
           <Pricing />
         </div>
 
@@ -143,8 +140,6 @@ const Index = () => {
 
         <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
