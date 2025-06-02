@@ -8,32 +8,32 @@ const Header = () => {
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-600 rounded-md flex items-center justify-center">
-              <span className="text-white font-bold text-sm">m</span>
+              <span className="text-white font-medium text-sm">m</span>
             </div>
-            <span className="font-semibold text-xl text-gray-900">min</span>
+            <span className="font-medium text-xl text-gray-900">min</span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+            <a href="#features" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Features
             </a>
-            <a href="#testimonials" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+            <a href="#testimonials" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Testimonials
             </a>
-            <a href="#pricing" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+            <a href="#pricing" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Pricing
             </a>
-            <a href="#docs" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+            <a href="#docs" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Docs
             </a>
           </nav>
         </div>
 
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" className="text-gray-600 hover:text-gray-900">
+          <Button variant="ghost" className="text-gray-600 hover:text-gray-900 font-normal">
             Log in
           </Button>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white font-normal">
             Get Started
           </Button>
         </div>

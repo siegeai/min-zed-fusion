@@ -4,36 +4,34 @@ import { MessageCircle, Zap, Users } from "lucide-react";
 const Features = () => {
   const features = [
     {
-      icon: <Zap className="w-6 h-6 text-blue-600" />,
+      icon: <Zap className="w-5 h-5 text-blue-600" />,
       title: "AI-Powered",
-      description: "Intelligent email agents that handle routine communication tasks automatically, freeing up your team's time."
+      description: "Intelligent email agents that handle routine communication tasks automatically."
     },
     {
-      icon: <MessageCircle className="w-6 h-6 text-blue-600" />,
+      icon: <MessageCircle className="w-5 h-5 text-blue-600" />,
       title: "Unified Interface",
-      description: "Manage all external communication from one clean, intuitive interface that your team will actually enjoy using."
+      description: "Manage all external communication from one clean, intuitive interface."
     },
     {
-      icon: <Users className="w-6 h-6 text-blue-600" />,
+      icon: <Users className="w-5 h-5 text-blue-600" />,
       title: "Team Collaboration", 
-      description: "Seamlessly collaborate on communication tasks with built-in team features and real-time synchronization."
+      description: "Seamlessly collaborate on communication tasks with built-in team features."
     }
   ];
 
   return (
-    <div className="py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {features.map((feature, index) => (
-            <div key={index} className="text-center group">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-xl mb-6 group-hover:bg-blue-100 transition-colors">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+    <div className="absolute top-8 left-8 right-8 z-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {features.map((feature, index) => (
+          <div key={index} className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-sm">
+            <div className="flex items-center space-x-3 mb-2">
+              {feature.icon}
+              <h3 className="text-sm font-medium text-gray-900">{feature.title}</h3>
             </div>
-          ))}
-        </div>
+            <p className="text-xs text-gray-600 leading-relaxed">{feature.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 
 const VideoDemo = () => {
   return (
-    <div className="relative w-full h-96 bg-gray-100 rounded-xl overflow-hidden shadow-2xl">
+    <div className="relative w-full aspect-video bg-gray-100 rounded-xl overflow-hidden shadow-2xl">
       <iframe
         width="100%"
         height="100%"
