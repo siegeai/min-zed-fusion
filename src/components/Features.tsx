@@ -21,7 +21,7 @@ const Features = () => {
   ];
 
   return (
-    <div className="absolute top-8 left-8 right-8 z-10">
+    <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {features.map((feature, index) => (
           <div key={index} className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-sm">

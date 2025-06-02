@@ -42,10 +42,14 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Video Demo Section with Features overlay */}
+          {/* Features above video */}
+          <div className="max-w-5xl mx-auto mb-8">
+            <Features />
+          </div>
+
+          {/* Video Demo Section */}
           <div className="relative max-w-5xl mx-auto">
             <VideoDemo />
-            <Features />
             
             {/* Stats overlay - positioned at bottom */}
             <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
