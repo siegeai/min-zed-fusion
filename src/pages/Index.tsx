@@ -32,9 +32,9 @@ const Index = () => {
         <Header />
         
         {/* Hero Section */}
-        <main className="pt-20 pb-16">
+        <main className="pt-12 pb-8">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 The platform for what's{" "}
                 <span className="text-green-600/90">next</span>
@@ -62,12 +62,12 @@ const Index = () => {
             </div>
 
             {/* Features above video */}
-            <div className="max-w-5xl mx-auto mb-8">
+            <div className="max-w-5xl mx-auto mb-6">
               <Features />
             </div>
 
             {/* Video Demo Section */}
-            <div className="max-w-5xl mx-auto mb-8">
+            <div className="max-w-5xl mx-auto mb-6">
               <VideoDemo />
             </div>
 
@@ -94,17 +94,17 @@ const Index = () => {
         </main>
 
         {/* Testimonials Section */}
-        <div className="pt-24">
+        <div className="pt-16">
           <Testimonials />
         </div>
 
         {/* Pricing Section */}
-        <div className="pt-24">
+        <div className="pt-16">
           <Pricing />
         </div>
 
         {/* CTA Section */}
-        <div className="py-20 bg-green-600/90 relative overflow-hidden">
+        <div className="py-16 bg-green-600/90 relative overflow-hidden">
           {/* CTA background layers */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>

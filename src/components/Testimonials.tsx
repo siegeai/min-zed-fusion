@@ -22,12 +22,12 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="py-24 bg-white relative">
+    <div className="py-16 bg-white relative">
       {/* Subtle background layer */}
       <div className="absolute inset-0 bg-gradient-to-b from-green-50/20 via-white to-green-50/10"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-2xl font-medium text-gray-900 mb-4">
             Trusted by teams worldwide
           </h2>
