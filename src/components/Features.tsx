@@ -4,17 +4,17 @@ import { MessageCircle, Zap, Users } from "lucide-react";
 const Features = () => {
   const features = [
     {
-      icon: <Zap className="w-5 h-5 text-blue-600" />,
+      icon: <Zap className="w-5 h-5 text-green-600" />,
       title: "AI-Powered",
       description: "Intelligent email agents that handle routine communication tasks automatically."
     },
     {
-      icon: <MessageCircle className="w-5 h-5 text-blue-600" />,
+      icon: <MessageCircle className="w-5 h-5 text-green-600" />,
       title: "Unified Interface",
       description: "Manage all external communication from one clean, intuitive interface."
     },
     {
-      icon: <Users className="w-5 h-5 text-blue-600" />,
+      icon: <Users className="w-5 h-5 text-green-600" />,
       title: "Team Collaboration", 
       description: "Seamlessly collaborate on communication tasks with built-in team features."
     }

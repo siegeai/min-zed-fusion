@@ -40,8 +40,8 @@ const Testimonials = () => {
                 "{testimonial.quote}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-blue-600 font-medium text-lg">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-green-600 font-medium text-lg">
                     {testimonial.author.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
