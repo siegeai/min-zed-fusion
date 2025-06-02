@@ -1,0 +1,61 @@
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      quote: "min transformed how our team handles external communication. What used to take hours now happens automatically with their AI agents.",
+      author: "Sarah Chen",
+      role: "Head of Operations",
+      company: "TechFlow Inc"
+    },
+    {
+      quote: "The unified interface is a game-changer. No more juggling between different tools - everything we need is in one place.",
+      author: "Marcus Rodriguez", 
+      role: "Co-founder",
+      company: "StartupLabs"
+    },
+    {
+      quote: "Our team productivity increased by 40% after implementing min. The AI handles routine emails perfectly.",
+      author: "Emily Watson",
+      role: "Project Manager", 
+      company: "Digital Ventures"
+    }
+  ];
+
+  return (
+    <div className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Trusted by teams worldwide
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            See how teams are transforming their communication workflows with min
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+              <blockquote className="text-gray-700 mb-6 leading-relaxed">
+                "{testimonial.quote}"
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-blue-600 font-semibold text-lg">
+                    {testimonial.author.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
+                  <div className="text-gray-600 text-sm">{testimonial.role}, {testimonial.company}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Testimonials;

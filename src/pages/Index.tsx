@@ -1,12 +1,97 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Button } from "@/components/ui/button";
+import Header from "@/components/Header";
+import VideoDemo from "@/components/VideoDemo";
+import Features from "@/components/Features";
+import Testimonials from "@/components/Testimonials";
+import Footer from "@/components/Footer";
+import { ArrowRight, Download } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      {/* Hero Section */}
+      <main className="pt-20 pb-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              The platform for what's{" "}
+              <span className="text-blue-600">next</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+              min is a unified external communication platform that makes it easy for teams to collaborate, 
+              offload email tasks to AI agents, and manage communication in a super simple user interface.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+                <Download className="w-5 h-5 mr-2" />
+                Start free trial
+              </Button>
+              <Button variant="outline" size="lg" className="px-8 py-3 text-lg">
+                View demo
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </div>
+            
+            <p className="text-gray-500 text-sm flex items-center justify-center gap-2">
+              <span>🚀</span>
+              Available for all team sizes, enterprise-ready security
+            </p>
+          </div>
+
+          {/* Video Demo Section - positioned to show top half in viewport */}
+          <div className="relative max-w-5xl mx-auto">
+            <VideoDemo />
+            
+            {/* Features overlay - blends with video above */}
+            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-gray-900 mb-2">10x</div>
+                    <div className="text-gray-600">Faster email processing</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-900 mb-2">95%</div>
+                    <div className="text-gray-600">Accuracy with AI agents</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-900 mb-2">50+</div>
+                    <div className="text-gray-600">Integrations available</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Features Section */}
+      <Features />
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* CTA Section */}
+      <div className="py-20 bg-blue-600">
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to transform your team communication?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of teams already using min to streamline their external communication workflow.
+          </p>
+          <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 text-lg">
+            Start your free trial
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
+        </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
