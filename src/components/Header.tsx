@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -60,7 +59,7 @@ const Header = () => {
               className="font-medium text-xl text-gray-900 hover:text-green-600 transition-colors"
               onClick={handleLogoClick}
             >
-              min.
+              min:
             </Link>
           </div>
           
