@@ -17,26 +17,26 @@ const Blog = () => {
       id: "the-anti-crm-why-founders-hate-tools-that-scale",
       title: "The Anti-CRM: Why Founders Hate Tools That \"Scale\"",
       excerpt: "CRMs turn people into numbers. The anti-CRM does the opposite: It turns noise into context, threads into stories, and strangers into advocates.",
-      date: "2024-06-04",
+      date: "2024-05-04",
       readTime: "7 min read",
       image: "/lovable-uploads/9ac9a885-47ba-4ab6-b63c-85ac1a7d443b.png"
-    },
-    {
-      id: "why-email-still-runs-the-world",
-      title: "Why Email Still Runs the World",
-      excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
-      date: "2024-06-03",
-      readTime: "8 min read",
-      image: "/lovable-uploads/b024d1aa-d530-4714-848b-ec33ce842c25.png"
     },
     {
       id: "the-unscalable-secret-of-fan-level-communication",
       title: "The Unscalable Secret of Fan-Level Communication",
       excerpt: "Some startups scale through brute force. Others win because people genuinely like talking to them.",
-      date: "2024-06-02",
+      date: "2025-04-15",
       readTime: "6 min read",
       image: "/lovable-uploads/689c31a2-2be9-46c2-8737-5a263b5b9ef4.png"
-    }
+    },
+    {
+      id: "why-email-still-runs-the-world",
+      title: "Why Email Still Runs the World",
+      excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
+      date: "2025-03-28",
+      readTime: "8 min read",
+      image: "/lovable-uploads/b024d1aa-d530-4714-848b-ec33ce842c25.png"
+    },
   ];
 
   return (
