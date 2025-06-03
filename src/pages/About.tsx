@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Users, Target, Lightbulb, Linkedin } from "lucide-react";
@@ -46,7 +47,7 @@ const About = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <Avatar className="w-16 h-16">
-                        <AvatarImage src="/lovable-uploads/9109b23c-fb70-4835-b5fe-db05dc09051b.png" alt="Eric Wang" />
+                        <AvatarImage src="/lovable-uploads/a08e6a56-3aaf-4f91-b83a-909a4d24b497.png" alt="Eric Wang" />
                         <AvatarFallback>EW</AvatarFallback>
                       </Avatar>
                       <div className="flex-1">
@@ -70,7 +71,7 @@ const About = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <Avatar className="w-16 h-16">
-                        <AvatarImage src="/lovable-uploads/9ac9a885-47ba-4ab6-b63c-85ac1a7d443b.png" alt="Sebastian Ferguson" />
+                        <AvatarImage src="/lovable-uploads/64a4e6b8-c742-42a4-9227-12da884d2dbc.png" alt="Sebastian Ferguson" />
                         <AvatarFallback>SF</AvatarFallback>
                       </Avatar>
                       <div className="flex-1">
