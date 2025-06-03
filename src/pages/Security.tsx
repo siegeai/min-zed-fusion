@@ -2,66 +2,47 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import { Shield, ShieldCheck, Lock, Eye, Server, FileText, Users, CheckCircle } from "lucide-react";
-
 const Security = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const securityFeatures = [
-    {
-      icon: Lock,
-      title: "End-to-End Encryption",
-      description: "All data in transit is protected with industry-standard TLS 1.3 encryption, ensuring your communications remain private and secure."
-    },
-    {
-      icon: ShieldCheck,
-      title: "SOC 2 Type II Infrastructure",
-      description: "Our infrastructure providers undergo rigorous SOC 2 Type II audits, ensuring your data is hosted on the most secure platforms available."
-    },
-    {
-      icon: FileText,
-      title: "Privacy-First Architecture",
-      description: "While we're not currently GDPR certified, we work only with compliant providers and follow industry best practices to protect data and align with these regulations."
-    },
-    {
-      icon: Eye,
-      title: "Zero Data Cross-Training",
-      description: "Your data is never used to train models for other customers. Each client's data remains completely isolated and private."
-    },
-    {
-      icon: Server,
-      title: "Enterprise-Grade Infrastructure",
-      description: "Built on battle-tested cloud infrastructure with 99.9% uptime SLA, multi-region redundancy, and automated failover systems."
-    },
-    {
-      icon: Users,
-      title: "Access Controls",
-      description: "Multi-factor authentication, role-based permissions, and principle of least privilege ensure only authorized access to your data."
-    }
-  ];
-
-  const infrastructureCertifications = [
-    "SOC 2 Type II Providers",
-    "GDPR Compliant Partners",
-    "CCPA Compliant Partners",
-    "ISO 27001 Certified Providers",
-    "PCI DSS Level 1 Infrastructure",
-    "HIPAA Ready Infrastructure"
-  ];
-
-  return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+  const securityFeatures = [{
+    icon: Lock,
+    title: "End-to-End Encryption",
+    description: "All data in transit is protected with industry-standard TLS 1.3 encryption, ensuring your communications remain private and secure."
+  }, {
+    icon: ShieldCheck,
+    title: "SOC 2 Type II Infrastructure",
+    description: "Our infrastructure providers undergo rigorous SOC 2 Type II audits, ensuring your data is hosted on the most secure platforms available."
+  }, {
+    icon: FileText,
+    title: "Privacy-First Architecture",
+    description: "While we're not currently GDPR certified, we work only with compliant providers and follow industry best practices to protect data and align with these regulations."
+  }, {
+    icon: Eye,
+    title: "Zero Data Cross-Training",
+    description: "Your data is never used to train models for other customers. Each client's data remains completely isolated and private."
+  }, {
+    icon: Server,
+    title: "Enterprise-Grade Infrastructure",
+    description: "Built on battle-tested cloud infrastructure with 99.9% uptime SLA, multi-region redundancy, and automated failover systems."
+  }, {
+    icon: Users,
+    title: "Access Controls",
+    description: "Multi-factor authentication, role-based permissions, and principle of least privilege ensure only authorized access to your data."
+  }];
+  const infrastructureCertifications = ["SOC 2 Type II Providers", "GDPR Compliant Partners", "CCPA Compliant Partners", "ISO 27001 Certified Providers", "PCI DSS Level 1 Infrastructure", "HIPAA Ready Infrastructure"];
+  return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `
+        backgroundImage: `
             linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
-        }}></div>
+        backgroundSize: '40px 40px'
+      }}></div>
       </div>
 
       <div className="relative z-10">
@@ -77,10 +58,7 @@ const Security = () => {
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 Enterprise-Grade Security
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-                Built by veterans with 20+ years of combined experience developing enterprise-grade software 
-                for Fortune 500 companies. Security isn't an afterthought—it's our foundation.
-              </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">Built by veterans with 20+ years of combined experience developing enterprise-grade software. Security isn't an afterthought—it's our foundation.</p>
             </div>
 
             {/* Trust Statement */}
@@ -104,8 +82,7 @@ const Security = () => {
 
             {/* Security Features Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-              {securityFeatures.map((feature, index) => (
-                <div key={index} className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-6 hover:shadow-md transition-shadow">
+              {securityFeatures.map((feature, index) => <div key={index} className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-green-100 rounded-sm flex items-center justify-center mr-3">
                       <feature.icon className="w-5 h-5 text-green-600" />
@@ -113,8 +90,7 @@ const Security = () => {
                     <h3 className="text-lg font-medium text-gray-900">{feature.title}</h3>
                   </div>
                   <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
 
             {/* Data Protection Guarantee */}
@@ -169,11 +145,9 @@ const Security = () => {
                 We partner exclusively with industry-leading infrastructure providers that maintain the highest security certifications and compliance standards.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {infrastructureCertifications.map((cert, index) => (
-                  <div key={index} className="flex items-center justify-center p-4 bg-green-50 rounded-sm border border-green-200/60">
+                {infrastructureCertifications.map((cert, index) => <div key={index} className="flex items-center justify-center p-4 bg-green-50 rounded-sm border border-green-200/60">
                     <span className="text-sm font-medium text-gray-700 text-center">{cert}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
 
@@ -224,8 +198,6 @@ const Security = () => {
 
         <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Security;
