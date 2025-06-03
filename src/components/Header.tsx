@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
@@ -32,7 +31,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full px-6 py-4 bg-white/95 backdrop-blur-md border-b border-green-100/40 fixed top-0 left-0 right-0 z-[99999] shadow-sm">
+    <header className="w-full px-6 py-4 bg-white/90 backdrop-blur-md border-b border-green-100/40 fixed top-0 left-0 right-0 z-[9999]">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
