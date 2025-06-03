@@ -62,8 +62,7 @@ const About = () => {
                         <p className="text-xs text-gray-500">University of Toronto</p>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">🛠 Builder. Vision guy. AI for supply chains.
-Eric's startup DNA runs deep — from building at Coursera to launching Bbot (acquired by DoorDash), then scaling AI infrastructure at DoorDash itself. At Fluxity AI, he’s on a mission to tame unstructured data and bring intelligent automation to verticals that have been left behind. Fluent in product, technical strategy, and post-it note walls.</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">🛠 Builder. Vision guy. AI for supply chains. Eric's startup DNA runs deep — from building at Coursera to scaling Bbot, then scaling AI infrastructure at DoorDash itself. At Fluxity AI, he’s on a mission to tame unstructured data and bring intelligent automation to verticals that have been left behind. Fluent in product, technical strategy, and post-it note walls.</p>
                   </CardContent>
                 </Card>
 
@@ -85,9 +84,8 @@ Eric's startup DNA runs deep — from building at Coursera to launching Bbot (ac
                         <p className="text-xs text-gray-500">University of Waterloo</p>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">🧠 Code whisperer. Math nerd. AI realist. 
-
-Sebastian brings 10+ years of engineering muscle to min., with battle-tested experience from DoorDash, Bbot, and healthcare R&amp;D at Sunnybrook. Whether he's wrangling C++ or architecting secure, high-performance systems, he's all about building software that scales and makes sense. Loves well-documented APIs and a good beer.</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">🧠 Code whisperer. Math nerd. AI realist.
+Seb brings 10+ years of engineering firepower to the team, with hands-on experience from DoorDash, Bbot (acquired), and healthcare R&amp;D at Sunnybrook. Whether he's diving deep into C++ or designing secure, high-performance systems, he's focused on building software that scales, lasts, and just makes sense. Big fan of clean APIs, clear documentation, and the occasional well-earned beer.</p>
                   </CardContent>
                 </Card>
               </div>
