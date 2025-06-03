@@ -1,15 +1,20 @@
-
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    console.log("Logo clicked - scrolling to top");
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    if (location.pathname === '/') {
+      // If already on home page, scroll to top instead of navigating
+      e.preventDefault();
+      console.log("Logo clicked - scrolling to top");
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    // If not on home page, let the Link component handle navigation to "/"
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
