@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/why-email-still-runs-the-world" element={<BlogPost />} />
           <Route path="/blog/the-unscalable-secret-of-fan-level-communication" element={<BlogPostFanLevel />} />
+          <Route path="/blog/the-anti-crm-why-founders-hate-tools-that-scale" element={<BlogPostAntiCRM />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />

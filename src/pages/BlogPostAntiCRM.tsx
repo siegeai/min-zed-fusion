@@ -1,229 +1,17 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Calendar, ArrowRight, Users, Target, BarChart3, MessageSquare, Clock, Mail, CheckCircle, X, ArrowLeft, Zap, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import BlogPostHeader from "@/components/BlogPostHeader";
+import CRMvsFounderTracker from "@/components/CRMvsFounderTracker";
+import InboxToSystemFlow from "@/components/InboxToSystemFlow";
+import SimplicityvsBureaucracy from "@/components/SimplicityvsBureaucracy";
+import { Heart } from "lucide-react";
+import { useEffect } from "react";
 
 const BlogPostAntiCRM = () => {
-  const [animationStep, setAnimationStep] = useState(0);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Animation sequence for the comparisons
-    const interval = setInterval(() => {
-      setAnimationStep(prev => (prev + 1) % 4);
-    }, 2500);
-
-    return () => clearInterval(interval);
   }, []);
-
-  const CRMvsFounderTracker = () => {
-    const crmItems = [
-      { label: 'Deal Stage', icon: Target, progress: 'Stage 3 of 7' },
-      { label: 'Forecast', icon: BarChart3, progress: '$50k ARR' },
-      { label: 'Close %', icon: Target, progress: '23%' },
-      { label: 'Revenue', icon: BarChart3, progress: '$125k' }
-    ];
-
-    const founderItems = [
-      { label: 'Relationship History', icon: Heart, progress: '8 months, great feedback' },
-      { label: 'Who Ghosted Me', icon: MessageSquare, progress: 'Sarah from Acme Co.' },
-      { label: 'Who Needs a Nudge', icon: Clock, progress: 'Follow up on pricing' },
-      { label: 'Is This Person a Fan', icon: Users, progress: 'Shared our post 3x' }
-    ];
-
-    return (
-      <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-8 border border-purple-200/50">
-        <h3 className="text-lg font-medium text-gray-900 mb-6 text-center">What Founders Track vs. What CRMs Track</h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* CRM Side */}
-          <div className="bg-white rounded-lg p-6 border border-gray-200">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-              <h4 className="font-medium text-gray-800">Traditional CRM</h4>
-            </div>
-            <div className="space-y-4">
-              {crmItems.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div 
-                    key={index} 
-                    className={`flex items-center gap-3 p-3 bg-gray-50 rounded-lg transition-all duration-500 ${
-                      animationStep >= 1 ? 'opacity-50' : 'opacity-100'
-                    }`}
-                  >
-                    <Icon className="w-4 h-4 text-gray-600" />
-                    <div className="flex-1">
-                      <div className="text-sm font-medium text-gray-700">{item.label}</div>
-                      <div className="text-xs text-gray-500">{item.progress}</div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Founder Side */}
-          <div className="bg-white rounded-lg p-6 border border-green-200">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <h4 className="font-medium text-gray-800">What Founders Actually Need</h4>
-            </div>
-            <div className="space-y-4">
-              {founderItems.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div 
-                    key={index} 
-                    className={`flex items-center gap-3 p-3 bg-green-50 rounded-lg transition-all duration-500 ${
-                      animationStep >= 2 ? 'scale-105 shadow-lg' : 'scale-100'
-                    }`}
-                  >
-                    <Icon className="w-4 h-4 text-green-600" />
-                    <div className="flex-1">
-                      <div className="text-sm font-medium text-green-800">{item.label}</div>
-                      <div className="text-xs text-green-600">{item.progress}</div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const InboxToSystemFlow = () => {
-    return (
-      <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-8 border border-green-200/50">
-        <h3 className="text-lg font-medium text-gray-900 mb-6 text-center">Don't Move Conversations Into a System</h3>
-        <p className="text-center text-gray-600 mb-8">Make the system wrap around the conversation</p>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Email Thread */}
-          <div className={`bg-white rounded-lg p-4 border border-gray-200 transition-all duration-1000 ${
-            animationStep >= 1 ? 'transform scale-105' : ''
-          }`}>
-            <div className="flex items-center gap-2 mb-3">
-              <Mail className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-medium">Raw Email Thread</span>
-            </div>
-            <div className="space-y-2">
-              <div className="text-xs bg-blue-50 p-2 rounded">
-                <div className="font-medium">Re: Partnership Discussion</div>
-                <div className="text-gray-600 mt-1">
-                  "Thanks for the demo. <span className="bg-yellow-200">Our budget opens in Q2</span>. 
-                  <span className="bg-yellow-200">Would love to revisit then</span>."
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Arrow */}
-          <div className="flex items-center justify-center">
-            <ArrowRight className={`w-8 h-8 text-green-600 transition-transform duration-1000 ${
-              animationStep >= 2 ? 'scale-110' : ''
-            }`} />
-          </div>
-
-          {/* Structured Data */}
-          <div className={`bg-white rounded-lg p-4 border border-green-200 transition-all duration-1000 ${
-            animationStep >= 3 ? 'transform scale-105 shadow-lg' : ''
-          }`}>
-            <div className="flex items-center gap-2 mb-3">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <span className="text-sm font-medium">Smart Context</span>
-            </div>
-            <div className="space-y-3">
-              <div className="text-xs">
-                <div className="bg-green-100 text-green-800 px-2 py-1 rounded-full inline-block mb-2">Partnership Lead</div>
-                <div className="text-gray-700">Summary: Interested but waiting for Q2 budget</div>
-              </div>
-              <div className="text-xs">
-                <div className="bg-orange-100 text-orange-800 px-2 py-1 rounded-full inline-block mb-1">Follow-up: March 1st</div>
-              </div>
-              <div className="text-xs bg-gray-50 p-2 rounded">
-                <div className="text-gray-600">Draft: "Hi [Name], Q2 is here! Ready to explore that partnership?"</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const SimplicityvsBureaucracy = () => {
-    const bureaucracyFields = [
-      'Company Size', 'Industry', 'Lead Source', 'Qualification Score', 'Deal Stage',
-      'Forecast Category', 'Close Probability', 'Next Action', 'Owner', 'Created Date',
-      'Modified Date', 'Campaign', 'Territory', 'Product Interest', 'Budget Range',
-      'Decision Timeline', 'Buying Process', 'Competitors', 'Pain Points', 'BANT Score'
-    ];
-
-    return (
-      <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-8 border border-red-200/50">
-        <h3 className="text-lg font-medium text-gray-900 mb-6 text-center">Simplicity vs. Bureaucracy</h3>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Bloated CRM */}
-          <div className="relative">
-            <div className="bg-white rounded-lg p-4 border border-red-200 relative">
-              <div className="flex items-center gap-2 mb-4">
-                <X className="w-5 h-5 text-red-500" />
-                <h4 className="font-medium text-red-800">Bloated CRM Interface</h4>
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                {bureaucracyFields.map((field, index) => (
-                  <div key={index} className="bg-gray-100 p-2 rounded text-gray-600 border">
-                    {field}
-                  </div>
-                ))}
-              </div>
-              <div className="absolute inset-0 bg-red-500/10 rounded-lg flex items-center justify-center">
-                <X className="w-16 h-16 text-red-500 opacity-50" />
-              </div>
-            </div>
-          </div>
-
-          {/* Clean Timeline */}
-          <div className="bg-white rounded-lg p-4 border border-green-200">
-            <div className="flex items-center gap-2 mb-4">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <h4 className="font-medium text-green-800">Clean Contact Timeline</h4>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                <div className="flex-1">
-                  <div className="text-sm font-medium">Sarah Chen</div>
-                  <div className="text-xs text-gray-600">Head of Growth @ TechCorp</div>
-                  <div className="text-xs text-green-600 mt-1">Last reply: 3 days ago</div>
-                </div>
-              </div>
-              
-              <div className="ml-5 space-y-2">
-                <div className="bg-blue-50 p-2 rounded text-xs">
-                  "Love the product. Need to see pricing for 100+ seats."
-                </div>
-                <div className="bg-gray-50 p-2 rounded text-xs">
-                  <span className="text-gray-500">You:</span> "Sending enterprise pricing now."
-                </div>
-                <div className="bg-orange-50 p-2 rounded text-xs border border-orange-200">
-                  <Clock className="w-3 h-3 inline mr-1 text-orange-600" />
-                  Follow up in 3 days
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   const post = {
     title: "The Anti-CRM: Why Founders Hate Tools That \"Scale\"",
@@ -252,38 +40,15 @@ const BlogPostAntiCRM = () => {
         
         <main className="pt-32 pb-16">
           <div className="max-w-4xl mx-auto px-6">
-            {/* Back button */}
-            <div className="mb-8">
-              <Link to="/blog">
-                <Button variant="outline" className="border-purple-200/50 hover:bg-purple-50/50 font-normal">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Blog
-                </Button>
-              </Link>
-            </div>
+            <BlogPostHeader
+              title={post.title}
+              date={post.date}
+              readTime={post.readTime}
+              image={post.image}
+            />
 
-            {/* Featured blog post */}
             <article className="bg-white/80 backdrop-blur-sm rounded-lg border border-purple-100/60 shadow-lg overflow-hidden mb-12">
-              <div className="h-64 md:h-80 overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
               <div className="p-8">
-                <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                  <Calendar className="w-4 h-4" />
-                  <span>{new Date(post.date).toLocaleDateString()}</span>
-                  <span>•</span>
-                  <span>{post.readTime}</span>
-                </div>
-                
-                <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6 leading-tight">
-                  {post.title}
-                </h2>
-                
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-8">
                   <p className="text-xl font-light mb-6">{post.excerpt}</p>
                   
