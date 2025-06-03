@@ -7,10 +7,12 @@ import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
+
 const Index = () => {
-  return <div className="min-h-screen bg-white relative overflow-hidden">
+  return (
+    <div className="min-h-screen bg-white relative">
       {/* Multiple layered backgrounds */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
         {/* Base gradient layer */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         
@@ -35,10 +37,8 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-green-100/12 rounded-full blur-3xl transform translate-y-36"></div>
       </div>
       
-      <div className="relative z-10">
-        <div className="opacity-0 animate-fade-in" style={{
-        animationDelay: '0ms'
-      }}>
+      <div className="relative" style={{ zIndex: 2 }}>
+        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0ms' }}>
           <Header />
         </div>
         
@@ -110,30 +110,22 @@ const Index = () => {
         </main>
 
         {/* Feature Deep Dive Section */}
-        <div className="opacity-0 animate-fade-in" style={{
-        animationDelay: '500ms'
-      }}>
+        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '500ms' }}>
           <FeatureDeepDive />
         </div>
 
         {/* Testimonials Section */}
-        <div id="testimonials" className="pb-10 py-[20px] opacity-0 animate-fade-in" style={{
-        animationDelay: '600ms'
-      }}>
+        <div id="testimonials" className="pb-10 py-[20px] opacity-0 animate-fade-in" style={{ animationDelay: '600ms' }}>
           <Testimonials />
         </div>
 
         {/* Pricing Section */}
-        <div id="pricing" className="pb-20 py-[20px] opacity-0 animate-fade-in" style={{
-        animationDelay: '700ms'
-      }}>
+        <div id="pricing" className="pb-20 py-[20px] opacity-0 animate-fade-in" style={{ animationDelay: '700ms' }}>
           <Pricing />
         </div>
 
         {/* CTA Section */}
-        <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-fade-in" style={{
-        animationDelay: '800ms'
-      }}>
+        <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-fade-in" style={{ animationDelay: '800ms' }}>
           {/* CTA background layers */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>
@@ -153,12 +145,12 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="opacity-0 animate-fade-in" style={{
-        animationDelay: '900ms'
-      }}>
+        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '900ms' }}>
           <Footer />
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

@@ -39,7 +39,7 @@ const Header = () => {
         top: 0, 
         left: 0, 
         right: 0, 
-        zIndex: 2147483647 
+        zIndex: 9999999999 
       }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
