@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Users, Target, Lightbulb, Linkedin, X } from "lucide-react";
@@ -58,7 +57,7 @@ const About = () => {
                               <Linkedin className="w-4 h-4 text-blue-600" />
                             </a>
                             <a href="https://x.com/ericzizhouwangx" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                              <X className="w-4 h-4 text-gray-900" />
+                              <X className="w-4 h-4 text-blue-600" />
                             </a>
                           </div>
                         </div>
