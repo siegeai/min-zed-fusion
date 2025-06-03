@@ -1,14 +1,10 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
 
 const Blog = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const posts = [
     {
       title: "The Future of AI-Human Collaboration in Email",
