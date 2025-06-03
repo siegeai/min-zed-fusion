@@ -1,9 +1,10 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Calendar, ArrowRight, Mail, Inbox, Users, Zap, Search, Tag, Clock, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const [animationStep, setAnimationStep] = useState(0);
@@ -154,23 +155,20 @@ const Blog = () => {
     );
   };
 
-  const post = {
-    title: "Why Email Still Runs the World",
-    excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
-    date: "2024-06-03",
-    readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop",
-    content: `People love saying email is broken.
-
-Too many threads. Too much spam. Too hard to keep track of anything. But here's the thing: if email is broken, why does every serious conversation still start there?
-
-It's not broken. It's overloaded.
-
-Email is the most resilient, open communication protocol on the internet. No logins. No invites. No onboarding flows. Just someone typing your address and hitting send. That's magic.
-
-The problem isn't email.
-It's what happens after it lands.`
-  };
+  const blogPosts = [
+    {
+      id: "why-email-still-runs-the-world",
+      title: "Why Email Still Runs the World",
+      excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
+      date: "2024-06-03",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop",
+      content: {
+        EmailChaosAnimation,
+        ScaleVisualization
+      }
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -200,101 +198,54 @@ It's what happens after it lands.`
               </p>
             </div>
 
-            {/* Featured blog post */}
-            <article className="bg-white/80 backdrop-blur-sm rounded-lg border border-green-100/60 shadow-lg overflow-hidden mb-12">
-              <div className="h-64 md:h-80 overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              <div className="p-8">
-                <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                  <Calendar className="w-4 h-4" />
-                  <span>{new Date(post.date).toLocaleDateString()}</span>
-                  <span>•</span>
-                  <span>{post.readTime}</span>
-                </div>
-                
-                <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6 leading-tight">
-                  {post.title}
-                </h2>
-                
-                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-8">
-                  <p className="text-xl font-light mb-6">{post.excerpt}</p>
-                  
-                  <div className="space-y-6">
-                    <p>Email is the most resilient, open communication protocol on the internet. No logins. No invites. No onboarding flows. Just someone typing your address and hitting send. That's magic.</p>
-                    
-                    <div className="bg-green-50/50 rounded-xl p-6 border border-green-100">
-                      <p className="text-lg font-medium text-green-900 mb-2">The problem isn't email.</p>
-                      <p className="text-green-800">It's what happens after it lands.</p>
-                    </div>
-
-                    <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">The Kitchen Drawer Problem</h3>
-                    
-                    <p>Every early team runs into this. You launch something. A few people try it. Suddenly, your inbox turns into a kitchen drawer—investors, customers, bugs, applicants, ideas, spam, all dumped in the same place.</p>
-                    
-                    <EmailChaosAnimation />
-                    
-                    <p>And like a kitchen drawer, you know the good stuff is in there. Somewhere. But you have to dig through it to find what matters.</p>
-
-                    <p>So you start duct-taping a system together:</p>
-                    <ul className="list-disc pl-6 space-y-2">
-                      <li>Customer issues go to a helpdesk.</li>
-                      <li>Sales stuff into a CRM.</li>
-                      <li>Everything else? Forward to Slack and hope someone picks it up.</li>
-                    </ul>
-
-                    <div className="bg-orange-50/50 rounded-xl p-6 border border-orange-100">
-                      <p className="font-medium text-orange-900">That might organize things. But it doesn't make it easier.</p>
-                      <p className="text-orange-800 mt-2">You're still stuck reading every email, figuring out what it is, who should handle it, what it's about, and whether it's done. That doesn't scale.</p>
-                    </div>
-
-                    <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Not a Volume Problem — a Structure Problem</h3>
-                    
-                    <p>Most tools try to help by adding structure outside the inbox. But the chaos starts inside it.</p>
-                    
-                    <p>Here's a simple test: imagine every email came in labeled, summarized, and tracked like a task. Support? Labeled. Sales lead? Labeled. Scheduling request? Pick a time. Reminder needed? Nudge sent.</p>
-                    
-                    <div className="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
-                      <p className="text-xl font-medium text-blue-900">That would change everything.</p>
-                      <p className="text-blue-800 mt-2">It's not about having fewer emails. It's about making them legible.</p>
-                    </div>
-
-                    <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Why Founders Feel It First</h3>
-                    
-                    <ScaleVisualization />
-                    
-                    <p>So you reply at midnight. Or flag it "to deal with later." Or copy it to a doc you'll forget to check.</p>
-                    
-                    <div className="bg-red-50/50 rounded-xl p-6 border border-red-100">
-                      <p className="font-medium text-red-900">Founders don't stop replying because they don't care.</p>
-                      <p className="text-red-800 mt-2">They stop because it's not sustainable.</p>
-                    </div>
-
-                    <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Email Isn't Broken. It Just Needs Help.</h3>
-                    
-                    <p>The truth is, email is still the front door to your company. Not Intercom. Not Slack. Not some dashboard.</p>
-                    
-                    <p>If you want to build strong relationships with users, customers, partners—email is still where that happens.</p>
-                    
-                    <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8 border border-green-200/50 text-center">
-                      <Zap className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                      <p className="text-xl font-medium text-gray-900">And the first team that figures out how to keep up without falling behind wins.</p>
-                    </div>
+            {/* Blog posts grid */}
+            <div className="grid gap-8 mb-12">
+              {blogPosts.map((post) => (
+                <Card key={post.id} className="bg-white/80 backdrop-blur-sm border-green-100/60 shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="h-64 md:h-80 overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                </div>
-              </div>
-            </article>
+                  
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                      <Calendar className="w-4 h-4" />
+                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                      <span>•</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    
+                    <CardTitle className="text-3xl md:text-4xl font-medium text-gray-900 leading-tight">
+                      {post.title}
+                    </CardTitle>
+                  </CardHeader>
+
+                  <CardContent>
+                    <CardDescription className="text-xl font-light mb-6 text-gray-700">
+                      {post.excerpt}
+                    </CardDescription>
+                    
+                    <Link to={`/blog/${post.id}`}>
+                      <Button variant="outline" className="border-green-200/50 hover:bg-green-50/50 font-normal">
+                        Read Article
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
 
             <div className="text-center">
-              <Button variant="outline" className="border-green-200/50 hover:bg-green-50/50 font-normal">
-                <ArrowRight className="w-4 h-4 mr-2" />
-                Read more posts
-              </Button>
+              <Link to="/blog">
+                <Button variant="outline" className="border-green-200/50 hover:bg-green-50/50 font-normal">
+                  <ArrowRight className="w-4 h-4 mr-2" />
+                  Read more posts
+                </Button>
+              </Link>
             </div>
           </div>
         </main>
