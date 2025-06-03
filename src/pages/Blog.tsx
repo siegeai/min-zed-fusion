@@ -55,7 +55,7 @@ const Blog = () => {
                 The min. <span className="text-green-600/90">Blog</span>
               </h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-                Insights on AI, communication, and the future of lean team collaboration.
+                Insights on AI, start ups, and the future of lean team collaboration.
               </p>
             </div>
 
