@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Mail, MessageCircle, Phone } from "lucide-react";
@@ -27,6 +28,22 @@ const Contact = () => {
       action: "Contact sales"
     }
   ];
+
+  const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const company = formData.get('company') as string;
+    const message = formData.get('message') as string;
+    
+    const subject = `Message from ${name}${company ? ` (${company})` : ''}`;
+    const body = `Name: ${name}\nEmail: ${email}${company ? `\nCompany: ${company}` : ''}\n\nMessage:\n${message}`;
+    
+    const mailtoLink = `mailto:hello@getmin.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -60,30 +77,19 @@ const Contact = () => {
               {/* Contact Form */}
               <div className="bg-white/80 backdrop-blur-sm p-8 rounded-sm border border-green-100/60 shadow-sm">
                 <h2 className="text-2xl font-normal text-gray-900 mb-6">Send us a message</h2>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="firstName" className="block text-sm font-normal text-gray-700 mb-2">
-                        First name
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        className="w-full px-4 py-3 border border-gray-200 rounded-sm focus:outline-none focus:border-green-500 transition-colors"
-                        placeholder="John"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="lastName" className="block text-sm font-normal text-gray-700 mb-2">
-                        Last name
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        className="w-full px-4 py-3 border border-gray-200 rounded-sm focus:outline-none focus:border-green-500 transition-colors"
-                        placeholder="Doe"
-                      />
-                    </div>
+                <form className="space-y-6" onSubmit={handleSendMessage}>
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-normal text-gray-700 mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-3 border border-gray-200 rounded-sm focus:outline-none focus:border-green-500 transition-colors"
+                      placeholder="John Doe"
+                    />
                   </div>
                   
                   <div>
@@ -93,6 +99,8 @@ const Contact = () => {
                     <input
                       type="email"
                       id="email"
+                      name="email"
+                      required
                       className="w-full px-4 py-3 border border-gray-200 rounded-sm focus:outline-none focus:border-green-500 transition-colors"
                       placeholder="john@company.com"
                     />
@@ -105,6 +113,7 @@ const Contact = () => {
                     <input
                       type="text"
                       id="company"
+                      name="company"
                       className="w-full px-4 py-3 border border-gray-200 rounded-sm focus:outline-none focus:border-green-500 transition-colors"
                       placeholder="Company Name"
                     />
@@ -116,13 +125,15 @@ const Contact = () => {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={5}
+                      required
                       className="w-full px-4 py-3 border border-gray-200 rounded-sm focus:outline-none focus:border-green-500 transition-colors resize-none"
                       placeholder="Tell us how we can help..."
                     ></textarea>
                   </div>
 
-                  <Button className="w-full bg-green-600/90 hover:bg-green-700/90 text-white font-normal">
+                  <Button type="submit" className="w-full bg-green-600/90 hover:bg-green-700/90 text-white font-normal">
                     Send message
                   </Button>
                 </form>
