@@ -1,8 +1,10 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Users, Target, Lightbulb } from "lucide-react";
+import { Users, Target, Lightbulb, Linkedin } from "lucide-react";
 import { useEffect } from "react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   useEffect(() => {
@@ -33,8 +35,58 @@ const About = () => {
                 About <span className="text-green-600/90">min.</span>
               </h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-                We're building the future of external communication for lean teams that want to automate, not staff up.
+                Built by founders, for founders. We're solving the communication chaos that slows down fast-moving teams.
               </p>
+            </div>
+
+            {/* Founders Section */}
+            <div className="mb-16">
+              <h2 className="text-2xl font-normal text-gray-900 mb-8 text-center">Meet the Founders</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card className="bg-white/90 backdrop-blur-sm border border-green-100/60 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4 mb-4">
+                      <Avatar className="w-16 h-16">
+                        <AvatarImage src="/lovable-uploads/1ec4c54b-f8fa-443e-aada-58a06dcfa9c7.png" alt="Eric Wang" />
+                        <AvatarFallback>EW</AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="text-lg font-medium text-gray-900">Eric Wang</h3>
+                          <Linkedin className="w-4 h-4 text-blue-600" />
+                        </div>
+                        <p className="text-sm text-green-600 font-medium">CEO & Co-Founder</p>
+                        <p className="text-xs text-gray-500">University of Toronto</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Serial entrepreneur with experience at Fluxity AI, TPM, and DoorDash. Passionate about building products that solve real problems for fast-moving teams.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/90 backdrop-blur-sm border border-green-100/60 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4 mb-4">
+                      <Avatar className="w-16 h-16">
+                        <AvatarImage src="/lovable-uploads/5890c308-f8ba-4962-8c83-02ed6fef9a1a.png" alt="Sebastian Ferguson" />
+                        <AvatarFallback>SF</AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="text-lg font-medium text-gray-900">Sebastian Ferguson</h3>
+                          <Linkedin className="w-4 h-4 text-blue-600" />
+                        </div>
+                        <p className="text-sm text-green-600 font-medium">CTO & Co-Founder</p>
+                        <p className="text-xs text-gray-500">University of Waterloo</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Senior engineer with 10+ years building scalable systems. Previously at DoorDash, Bbot, and Sunnybrook. Expert in AI integration and product development.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -44,7 +96,7 @@ const About = () => {
                   <h3 className="text-lg font-normal text-gray-900">Our Mission</h3>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed font-light">
-                  To eliminate the chaos of external communication by creating the first truly AI-native platform that helps teams collaborate seamlessly.
+                  Give fast-moving teams superpowers. Automate the chaos of external communication so founders can focus on building.
                 </p>
               </div>
 
@@ -54,7 +106,7 @@ const About = () => {
                   <h3 className="text-lg font-normal text-gray-900">Our Team</h3>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed font-light">
-                  A passionate group of engineers, designers, and communication experts who believe in the power of simple, effective tools.
+                  Scrappy founders who've been there. We know the pain of juggling communication while trying to ship products.
                 </p>
               </div>
 
@@ -64,7 +116,7 @@ const About = () => {
                   <h3 className="text-lg font-normal text-gray-900">Our Vision</h3>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed font-light">
-                  A world where every team can focus on what matters most, while AI handles the routine communication tasks that slow them down.
+                  Every lean team has an AI communication assistant. No bloat, no complexity—just the essentials that work.
                 </p>
               </div>
             </div>
@@ -73,13 +125,19 @@ const About = () => {
               <h2 className="text-2xl font-normal text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed font-light">
                 <p>
-                  min. was born from a simple observation: teams spend too much time managing communication instead of building great products. We watched talented teams get bogged down in email threads, lose context switching between tools, and struggle to maintain consistent external communication.
+                  We've been in the trenches. As serial founders building startups, we lived the same frustrations every day: drowning in communication chaos while trying to ship products that matter.
                 </p>
                 <p>
-                  We knew there had to be a better way. That's why we built min. - the first platform designed from the ground up for AI-human collaboration in external communication.
+                  <strong>What to say. Who to say it to. When to follow up. How to follow up.</strong> The endless mental overhead of managing external communication was killing our momentum.
                 </p>
                 <p>
-                  Today, hundreds of teams use min. to streamline their customer, vendor, and partner communications, freeing them to focus on what they do best.
+                  We tried everything—bloated CRMs, complex automation tools, hiring more people. Nothing felt right. Everything was either too complicated or missed the mark entirely.
+                </p>
+                <p>
+                  So we built min. For founders like us who need something that just works. No bloat. No complexity. Just the communication superpowers that lean teams actually need.
+                </p>
+                <p>
+                  Today, hundreds of teams use min. to cut through the noise and focus on what matters: building great products.
                 </p>
               </div>
             </div>
