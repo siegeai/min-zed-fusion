@@ -3,15 +3,12 @@ import Footer from "@/components/Footer";
 import { Mail, Copy, Check, Zap, MessageCircle, Users, BarChart3, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
 const Contact = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const email = "hello@getmin.ai";
-
   const handleEmailClick = () => {
     window.location.href = `mailto:${email}`;
   };
-
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(email);
@@ -21,7 +18,6 @@ const Contact = () => {
       console.log('Failed to copy email:', err);
     }
   };
-
   const supportedInquiries = [{
     icon: <MessageCircle className="w-5 h-5 text-green-600" />,
     title: "General Inquiries",
@@ -39,9 +35,7 @@ const Contact = () => {
     title: "Investors & Press",
     description: "Media inquiries and investment opportunities"
   }];
-
-  return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+  return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
@@ -71,9 +65,7 @@ const Contact = () => {
                   <Zap className="w-5 h-5 text-green-600" />
                   <span className="text-sm font-medium text-gray-900">Powered by min.</span>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  This single email address handles support tickets, sales inquiries, investor relations, press requests, and general feedback — all organized automatically using our own product.
-                </p>
+                <p className="text-sm text-gray-600 leading-relaxed">This single email address handles support tickets, sales inquiries, investor relations, press requests, recruiting, and general feedback — all organized automatically using our own product.</p>
               </div>
             </div>
 
@@ -146,8 +138,6 @@ const Contact = () => {
 
         <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
