@@ -9,11 +9,9 @@ import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
 const Index = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
   useEffect(() => {
     const scrollTo = (location.state as any)?.scrollTo;
     if (scrollTo) {
@@ -21,18 +19,24 @@ const Index = () => {
       if (element) {
         const headerHeight = 80;
         const top = element.offsetTop - headerHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
+        window.scrollTo({
+          top,
+          behavior: 'smooth'
+        });
       }
 
       // Clear state so it doesn't scroll again on refresh
-      navigate('.', { replace: true, state: {} });
+      navigate('.', {
+        replace: true,
+        state: {}
+      });
     }
   }, [location, navigate]);
-
-  return (
-    <div className="min-h-screen bg-white relative">
+  return <div className="min-h-screen bg-white relative">
       {/* Multiple layered backgrounds */}
-      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
+      <div className="absolute inset-0 pointer-events-none" style={{
+      zIndex: 1
+    }}>
         {/* Base gradient layer */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         
@@ -57,13 +61,19 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-green-100/12 rounded-full blur-3xl transform translate-y-36"></div>
       </div>
       
-      <div className="relative" style={{ zIndex: 2 }}>
-        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0ms', zIndex: 50, position: 'relative' }}>
+      <div className="relative" style={{
+      zIndex: 2
+    }}>
+        <div className="opacity-0 animate-fade-in" style={{
+        animationDelay: '0ms',
+        zIndex: 50,
+        position: 'relative'
+      }}>
           <Header />
         </div>
         
         {/* Hero Section */}
-        <main className="pt-40 pb-8" >
+        <main className="pt-40 pb-8">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12 py-[40px] opacity-0 animate-fade-in" style={{
             animationDelay: '100ms'
@@ -72,7 +82,7 @@ const Index = () => {
                 The inbox for what's{" "}
                 <span className="text-green-600/90">next</span>
               </h1>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min is where lean teams and agents get sh*t done - together.</p>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min. is where lean teams and agents get sh*t done - together.</p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal">
@@ -130,22 +140,30 @@ const Index = () => {
         </main>
 
         {/* Feature Deep Dive Section */}
-        <div id="features" className="opacity-0 animate-fade-in" style={{ animationDelay: '500ms' }}>
+        <div id="features" className="opacity-0 animate-fade-in" style={{
+        animationDelay: '500ms'
+      }}>
           <FeatureDeepDive />
         </div>
 
         {/* Testimonials Section */}
-        <div id="testimonials" className="pb-10 py-[20px] opacity-0 animate-fade-in" style={{ animationDelay: '600ms' }}>
+        <div id="testimonials" className="pb-10 py-[20px] opacity-0 animate-fade-in" style={{
+        animationDelay: '600ms'
+      }}>
           <Testimonials />
         </div>
 
         {/* Pricing Section */}
-        <div id="pricing" className="pb-20 py-[20px] opacity-0 animate-fade-in" style={{ animationDelay: '700ms' }}>
+        <div id="pricing" className="pb-20 py-[20px] opacity-0 animate-fade-in" style={{
+        animationDelay: '700ms'
+      }}>
           <Pricing />
         </div>
 
         {/* CTA Section */}
-        <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-fade-in" style={{ animationDelay: '800ms' }}>
+        <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-fade-in" style={{
+        animationDelay: '800ms'
+      }}>
           {/* CTA background layers */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>
@@ -157,7 +175,7 @@ const Index = () => {
           
           <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
             <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to transform your external communication?</h2>
-            <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join thousands of teams already using min to streamline their customer, vendor, partner communication.</p>
+            <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join thousands of teams already using min. to streamline their customer, vendor, partner communication.</p>
             <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal">
               Start your free trial
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -165,12 +183,12 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '900ms' }}>
+        <div className="opacity-0 animate-fade-in" style={{
+        animationDelay: '900ms'
+      }}>
           <Footer />
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
