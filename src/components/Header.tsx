@@ -32,7 +32,16 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full px-6 py-4 bg-white/95 backdrop-blur-md border-b border-green-100/40 fixed top-0 left-0 right-0 z-[999999] shadow-sm" style={{ position: 'fixed', zIndex: 999999 }}>
+    <header 
+      className="w-full px-6 py-4 bg-white/95 backdrop-blur-md border-b border-green-100/40 shadow-sm" 
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        zIndex: 2147483647 
+      }}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
