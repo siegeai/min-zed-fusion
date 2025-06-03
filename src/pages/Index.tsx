@@ -38,12 +38,12 @@ const Index = () => {
       </div>
       
       <div className="relative" style={{ zIndex: 2 }}>
-        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0ms', zIndex: 10 }}>
+        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0ms', zIndex: 50, position: 'relative' }}>
           <Header />
         </div>
         
         {/* Hero Section */}
-        <main className="pt-40 pb-8">
+        <main className="pt-40 pb-8" >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12 py-[40px] opacity-0 animate-fade-in" style={{
             animationDelay: '100ms'
