@@ -22,7 +22,7 @@ const Security = () => {
     {
       icon: FileText,
       title: "Privacy-First Architecture",
-      description: "While we're not currently GDPR or CCPA certified, we work only with compliant providers and follow industry best practices to protect data and align with these regulations."
+      description: "While we're not currently GDPR certified, we work only with compliant providers and follow industry best practices to protect data and align with these regulations."
     },
     {
       icon: Eye,
