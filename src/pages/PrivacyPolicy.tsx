@@ -118,9 +118,8 @@ const PrivacyPolicy = () => {
                 <p className="text-gray-600 leading-relaxed">
                   If you have questions about this Privacy Policy, please contact us at:
                   <br />
-                  Email: privacy@min.com
+                  Email: hello@getmin.ai
                   <br />
-                  Address: [Your Company Address]
                 </p>
               </div>
             </div>

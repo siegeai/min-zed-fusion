@@ -143,9 +143,8 @@ const TermsOfService = () => {
                 <p className="text-gray-600 leading-relaxed">
                   Questions about these Terms? Contact us at:
                   <br />
-                  Email: legal@min.com
+                  Email: hello@getmin.ai
                   <br />
-                  Address: [Your Company Address]
                 </p>
               </div>
             </div>
