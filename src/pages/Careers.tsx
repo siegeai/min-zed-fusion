@@ -1,40 +1,31 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { MapPin, Clock, ArrowRight } from "lucide-react";
+import { Mail, Copy, Check, Zap, Heart, Code, Palette, Users, Lightbulb, Coffee } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Careers = () => {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const email = "hello@getmin.ai";
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const openings = [
-    {
-      title: "Senior Frontend Engineer",
-      location: "Remote",
-      type: "Full-time",
-      description: "Help us build the future of communication interfaces with React, TypeScript, and modern web technologies."
-    },
-    {
-      title: "AI/ML Engineer",
-      location: "San Francisco, CA",
-      type: "Full-time", 
-      description: "Develop and optimize AI agents that understand context and automate communication workflows."
-    },
-    {
-      title: "Product Designer",
-      location: "Remote",
-      type: "Full-time",
-      description: "Design intuitive experiences that make complex communication workflows feel simple and natural."
-    },
-    {
-      title: "Customer Success Manager",
-      location: "New York, NY",
-      type: "Full-time",
-      description: "Help our customers succeed with min. and drive product improvements based on real-world feedback."
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${email}`;
+  };
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch (err) {
+      console.log('Failed to copy email:', err);
     }
-  ];
+  };
 
   const benefits = [
     "Competitive salary and equity",
@@ -43,6 +34,29 @@ const Careers = () => {
     "Remote-first culture with optional office access",
     "Learning and development budget",
     "Latest equipment and tools"
+  ];
+
+  const whatWeWant = [
+    {
+      icon: <Code className="w-6 h-6 text-green-600" />,
+      title: "Builders",
+      description: "People who love creating things that actually solve problems"
+    },
+    {
+      icon: <Lightbulb className="w-6 h-6 text-yellow-600" />,
+      title: "Thinkers",
+      description: "Creative minds who see solutions where others see challenges"
+    },
+    {
+      icon: <Heart className="w-6 h-6 text-red-500" />,
+      title: "Dreamers",
+      description: "Passionate individuals who believe technology can make work better"
+    },
+    {
+      icon: <Users className="w-6 h-6 text-blue-600" />,
+      title: "Collaborators",
+      description: "Team players who thrive in transparent, supportive environments"
+    }
   ];
 
   return (
@@ -66,41 +80,93 @@ const Careers = () => {
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
-                Join the <span className="text-green-600/90">min.</span> team
+                Join the <span className="text-green-600/90">min.</span> revolution
               </h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-                Help us build the future of communication for lean teams that want to automate, not staff up.
+                We're building the future of communication. No traditional job postings, no lengthy applications. 
+                Just passionate people doing amazing work.
               </p>
+            </div>
+
+            {/* Main email recruitment section */}
+            <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 p-12 rounded-2xl border border-green-100/60 shadow-lg mb-16 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <Mail className="w-12 h-12 text-green-600" />
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
+                </div>
+              </div>
+              
+              <h2 className="text-3xl font-semibold text-gray-900 mb-4">Ready to build something amazing?</h2>
+              <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Skip the traditional hiring dance. Just email us your resume, showcase your best work, 
+                and tell us about projects that make you proud. We'll know if you're a fit! ✨
+              </p>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/60 max-w-md mx-auto">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-900 font-medium text-2xl">{email}</span>
+                  <button 
+                    onClick={handleCopyEmail} 
+                    className="p-3 hover:bg-gray-100/50 rounded-lg transition-colors" 
+                    title="Copy email"
+                  >
+                    {copiedEmail ? (
+                      <Check className="w-5 h-5 text-green-600" />
+                    ) : (
+                      <Copy className="w-5 h-5 text-gray-500" />
+                    )}
+                  </button>
+                </div>
+              </div>
+              
+              <Button 
+                onClick={handleEmailClick} 
+                size="lg" 
+                className="bg-green-600/90 hover:bg-green-700/90 text-white font-medium px-8 mb-6"
+              >
+                <Coffee className="w-4 h-4 mr-2" />
+                Let's chat about your future
+              </Button>
+
+              <div className="bg-blue-50/50 rounded-xl p-4 border border-blue-100/60 max-w-2xl mx-auto">
+                <p className="text-sm text-blue-800 font-medium mb-2">📧 What to include in your email:</p>
+                <p className="text-xs text-blue-700 leading-relaxed">
+                  Your resume, links to projects you're proud of, a brief note about what excites you about min., 
+                  and anything else that shows who you are as a creator!
+                </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
               <div className="lg:col-span-2">
-                <h2 className="text-2xl font-normal text-gray-900 mb-8">Open Positions</h2>
-                <div className="space-y-6">
-                  {openings.map((job, index) => (
+                <h2 className="text-2xl font-normal text-gray-900 mb-8">Who we're looking for</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {whatWeWant.map((trait, index) => (
                     <div key={index} className="bg-white/80 backdrop-blur-sm p-6 rounded-sm border border-green-100/60 shadow-sm">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                        <h3 className="text-lg font-normal text-gray-900 mb-2 sm:mb-0">{job.title}</h3>
-                        <Button variant="outline" className="border-green-200/50 hover:bg-green-50/50 font-normal self-start sm:self-auto">
-                          Apply
-                          <ArrowRight className="w-4 h-4 ml-1" />
-                        </Button>
-                      </div>
-                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                        <div className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4" />
-                          <span>{job.location}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          <span>{job.type}</span>
-                        </div>
+                      <div className="flex items-center gap-3 mb-3">
+                        {trait.icon}
+                        <h3 className="text-lg font-normal text-gray-900">{trait.title}</h3>
                       </div>
                       <p className="text-gray-600 text-sm leading-relaxed font-light">
-                        {job.description}
+                        {trait.description}
                       </p>
                     </div>
                   ))}
+                </div>
+
+                <div className="bg-gradient-to-r from-purple-50/50 to-pink-50/50 rounded-2xl p-8 border border-purple-100/40 mt-8">
+                  <h3 className="text-xl font-normal text-gray-900 mb-4 flex items-center gap-2">
+                    <Palette className="w-5 h-5 text-purple-600" />
+                    Any role, any experience level
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed font-light mb-4">
+                    Whether you're a seasoned engineer, a design wizard, a growth hacker, a customer success ninja, 
+                    or something completely different – if you're passionate about making communication better, we want to hear from you.
+                  </p>
+                  <p className="text-purple-600 text-sm font-medium">
+                    From interns to senior roles, remote to in-person – let's figure out what works! 🚀
+                  </p>
                 </div>
               </div>
 
@@ -119,21 +185,31 @@ const Careers = () => {
                 </div>
 
                 <div className="bg-white/80 backdrop-blur-sm p-6 rounded-sm border border-green-100/60 shadow-sm mt-6">
-                  <h3 className="text-lg font-normal text-gray-900 mb-4">Our Culture</h3>
+                  <h3 className="text-lg font-normal text-gray-900 mb-4">Our Vibe</h3>
                   <p className="text-gray-600 text-sm leading-relaxed font-light">
-                    We're a tight-knit team that values transparency, continuous learning, and building products that actually solve real problems. We believe the best work happens when people feel empowered to do their best work.
+                    We're building something that matters, but we're not taking ourselves too seriously. 
+                    We ship fast, learn faster, and actually have fun doing it. Plus, we use our own product daily! 🎯
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="bg-green-600/90 rounded-sm p-8 text-center text-white">
-              <h2 className="text-2xl font-normal mb-4">Don't see a role that fits?</h2>
-              <p className="text-green-100/90 mb-6 font-light">
-                We're always looking for talented people who share our vision. Send us your resume and tell us how you'd like to contribute.
+              <h2 className="text-2xl font-normal mb-4 flex items-center justify-center gap-2">
+                <Zap className="w-6 h-6" />
+                Ready to join the team?
+              </h2>
+              <p className="text-green-100/90 mb-6 font-light max-w-2xl mx-auto">
+                Don't overthink it. If you're excited about what we're building and think you can contribute, 
+                just hit send on that email. The worst thing that can happen is we have a great conversation! 
               </p>
-              <Button variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal">
-                Get in touch
+              <Button 
+                variant="secondary" 
+                className="bg-white/95 text-green-700 hover:bg-white font-normal"
+                onClick={handleEmailClick}
+              >
+                <Heart className="w-4 h-4 mr-2" />
+                Start the conversation
               </Button>
             </div>
           </div>
