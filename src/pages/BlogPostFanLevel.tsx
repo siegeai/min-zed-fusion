@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Calendar, ArrowRight, Mail, Users, TrendingUp, Clock, MessageSquare, ArrowLeft, BarChart3, CheckCircle } from "lucide-react";
@@ -189,7 +188,7 @@ const BlogPostFanLevel = () => {
     excerpt: "Some startups scale through brute force. Others win because people genuinely like talking to them.",
     date: "2024-06-02", 
     readTime: "6 min read",
-    image: "/lovable-uploads/a08e6a56-3aaf-4f91-b83a-909a4d24b497.png"
+    image: "/lovable-uploads/689c31a2-2be9-46c2-8737-5a263b5b9ef4.png"
   };
 
   return (
