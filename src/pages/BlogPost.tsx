@@ -160,7 +160,7 @@ const BlogPost = () => {
     excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
     date: "2024-06-03",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop",
+    image: "/lovable-uploads/b024d1aa-d530-4714-848b-ec33ce842c25.png",
     content: `People love saying email is broken.
 
 Too many threads. Too much spam. Too hard to keep track of anything. But here's the thing: if email is broken, why does every serious conversation still start there?
