@@ -1,14 +1,17 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, Copy, Check, Zap, MessageCircle, Users, BarChart3 } from "lucide-react";
+import { Mail, Copy, Check, Zap, MessageCircle, Users, BarChart3, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+
 const Contact = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const email = "hello@getmin.ai";
+
   const handleEmailClick = () => {
     window.location.href = `mailto:${email}`;
   };
+
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(email);
@@ -18,6 +21,7 @@ const Contact = () => {
       console.log('Failed to copy email:', err);
     }
   };
+
   const supportedInquiries = [{
     icon: <MessageCircle className="w-5 h-5 text-green-600" />,
     title: "General Inquiries",
@@ -35,7 +39,9 @@ const Contact = () => {
     title: "Investors & Press",
     description: "Media inquiries and investment opportunities"
   }];
-  return <div className="min-h-screen bg-white relative overflow-hidden">
+
+  return (
+    <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
@@ -78,6 +84,17 @@ const Contact = () => {
               </div>
               
               <h2 className="text-3xl font-semibold text-gray-900 mb-4">Reach us here 24/7/365</h2>
+              
+              {/* Response time widget */}
+              <div className="flex items-center justify-center gap-2 mb-6">
+                <div className="bg-green-100/80 backdrop-blur-sm rounded-full px-4 py-2 border border-green-200/60">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <Clock className="w-4 h-4 text-green-600" />
+                    <span className="text-green-700 font-medium text-sm">Avg response time: Under 1 hour</span>
+                  </div>
+                </div>
+              </div>
               
               <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/60 max-w-md mx-auto">
                 <div className="flex items-center justify-between">
@@ -129,6 +146,8 @@ const Contact = () => {
 
         <Footer />
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Contact;
