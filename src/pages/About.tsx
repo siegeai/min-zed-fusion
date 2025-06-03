@@ -4,21 +4,24 @@ import { Users, Target, Lightbulb, Linkedin } from "lucide-react";
 import { useEffect } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  return <div className="min-h-screen bg-white relative overflow-hidden">
+
+  return (
+    <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: `
+          backgroundImage: `
             linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
           `,
-        backgroundSize: '40px 40px'
-      }}></div>
+          backgroundSize: '40px 40px'
+        }}></div>
       </div>
 
       <div className="relative z-10">
@@ -43,13 +46,15 @@ const About = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <Avatar className="w-16 h-16">
-                        <AvatarImage src="/lovable-uploads/1ec4c54b-f8fa-443e-aada-58a06dcfa9c7.png" alt="Eric Wang" />
+                        <AvatarImage src="/lovable-uploads/9109b23c-fb70-4835-b5fe-db05dc09051b.png" alt="Eric Wang" />
                         <AvatarFallback>EW</AvatarFallback>
                       </Avatar>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="text-lg font-medium text-gray-900">Eric Wang</h3>
-                          <Linkedin className="w-4 h-4 text-blue-600" />
+                          <a href="https://www.linkedin.com/in/zizhouwang/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                            <Linkedin className="w-4 h-4 text-blue-600" />
+                          </a>
                         </div>
                         <p className="text-sm text-green-600 font-medium">CEO & Co-Founder</p>
                         <p className="text-xs text-gray-500">University of Toronto</p>
@@ -65,13 +70,15 @@ const About = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <Avatar className="w-16 h-16">
-                        <AvatarImage src="/lovable-uploads/5890c308-f8ba-4962-8c83-02ed6fef9a1a.png" alt="Sebastian Ferguson" />
+                        <AvatarImage src="/lovable-uploads/9ac9a885-47ba-4ab6-b63c-85ac1a7d443b.png" alt="Sebastian Ferguson" />
                         <AvatarFallback>SF</AvatarFallback>
                       </Avatar>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="text-lg font-medium text-gray-900">Sebastian Ferguson</h3>
-                          <Linkedin className="w-4 h-4 text-blue-600" />
+                          <a href="https://www.linkedin.com/in/snferguson/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                            <Linkedin className="w-4 h-4 text-blue-600" />
+                          </a>
                         </div>
                         <p className="text-sm text-green-600 font-medium">CTO & Co-Founder</p>
                         <p className="text-xs text-gray-500">University of Waterloo</p>
@@ -138,6 +145,8 @@ const About = () => {
 
         <Footer />
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default About;
