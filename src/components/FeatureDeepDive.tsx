@@ -28,7 +28,7 @@ const FeatureDeepDive = () => {
   }, {
     icon: <Globe className="w-6 h-6 text-green-600" />,
     title: "Know your customers",
-    description: "No more switching tools or missing context. min brings every customer-facing conversation into place.",
+    description: "No more switching tools or missing context. min brings every customer-facing conversation into one place.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop"
   }];
   return <div id="features" className="py-16 bg-white relative">
