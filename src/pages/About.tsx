@@ -1,7 +1,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Users, Target, Lightbulb, Linkedin } from "lucide-react";
+import { Users, Target, Lightbulb, Linkedin, X } from "lucide-react";
 import { useEffect } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
@@ -53,9 +53,14 @@ const About = () => {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="text-lg font-medium text-gray-900">Eric Wang</h3>
-                          <a href="https://www.linkedin.com/in/zizhouwang/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                            <Linkedin className="w-4 h-4 text-blue-600" />
-                          </a>
+                          <div className="flex items-center gap-1">
+                            <a href="https://www.linkedin.com/in/zizhouwang/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                              <Linkedin className="w-4 h-4 text-blue-600" />
+                            </a>
+                            <a href="https://x.com/ericzizhouwangx" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                              <X className="w-4 h-4 text-gray-900" />
+                            </a>
+                          </div>
                         </div>
                         <p className="text-sm text-green-600 font-medium">CEO & Co-Founder</p>
                         <p className="text-xs text-gray-500">University of Toronto</p>
