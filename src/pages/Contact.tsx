@@ -2,13 +2,20 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Mail, Copy, Check, Zap, MessageCircle, Users, BarChart3, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 const Contact = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const email = "hello@getmin.ai";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleEmailClick = () => {
     window.location.href = `mailto:${email}`;
   };
+
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(email);
@@ -18,6 +25,7 @@ const Contact = () => {
       console.log('Failed to copy email:', err);
     }
   };
+
   const supportedInquiries = [{
     icon: <MessageCircle className="w-5 h-5 text-green-600" />,
     title: "General Inquiries",
@@ -35,6 +43,7 @@ const Contact = () => {
     title: "Investors & Press",
     description: "Media inquiries and investment opportunities"
   }];
+
   return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
@@ -140,4 +149,5 @@ const Contact = () => {
       </div>
     </div>;
 };
+
 export default Contact;
