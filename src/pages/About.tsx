@@ -128,9 +128,7 @@ Seb brings 10+ years of engineering firepower to the team, with hands-on experie
                 <p>
                   <strong>What to say. Who to say it to. When to follow up. How to follow up.</strong> The endless mental overhead of managing external communication was killing our momentum.
                 </p>
-                <p>
-                  We tried everything—bloated CRMs, complex automation tools, hiring more people. Nothing felt right. Everything was either too complicated or missed the mark entirely.
-                </p>
+                <p>We tried everything—bloated CRMs, hard to use helpdesks, complex automation tools, hiring more people. Nothing felt right. Everything was either too complicated or missed the mark entirely.</p>
                 <p>
                   So we built min. For founders like us who need something that just works. No bloat. No complexity. Just the communication superpowers that lean teams actually need.
                 </p>
