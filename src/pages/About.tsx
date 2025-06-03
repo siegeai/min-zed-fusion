@@ -1,28 +1,24 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Users, Target, Lightbulb, Linkedin } from "lucide-react";
 import { useEffect } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+  return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `
+        backgroundImage: `
             linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
-        }}></div>
+        backgroundSize: '40px 40px'
+      }}></div>
       </div>
 
       <div className="relative z-10">
@@ -115,18 +111,14 @@ const About = () => {
                   <Lightbulb className="w-6 h-6 text-green-600" />
                   <h3 className="text-lg font-normal text-gray-900">Our Vision</h3>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed font-light">
-                  Every lean team has an AI communication assistant. No bloat, no complexity—just the essentials that work.
-                </p>
+                <p className="text-gray-600 text-sm leading-relaxed font-light">Every lean team has a team of email agents right in their inbox. No bloat, no complexity—just the essentials that work.</p>
               </div>
             </div>
 
             <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8">
               <h2 className="text-2xl font-normal text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed font-light">
-                <p>
-                  We've been in the trenches. As serial founders building startups, we lived the same frustrations every day: drowning in communication chaos while trying to ship products that matter.
-                </p>
+                <p>We've been there. As serial founders building startups, we lived the same frustrations every day: drowning in communication chaos while trying to ship products that matter.</p>
                 <p>
                   <strong>What to say. Who to say it to. When to follow up. How to follow up.</strong> The endless mental overhead of managing external communication was killing our momentum.
                 </p>
@@ -146,8 +138,6 @@ const About = () => {
 
         <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
