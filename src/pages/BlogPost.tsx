@@ -1,9 +1,10 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Calendar, ArrowRight, Mail, Inbox, Users, Zap, Search, Tag, Clock, Target } from "lucide-react";
+import { Calendar, ArrowRight, Mail, Inbox, Users, Zap, Search, Tag, Clock, Target, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const BlogPost = () => {
   const [animationStep, setAnimationStep] = useState(0);
@@ -191,6 +192,16 @@ It's what happens after it lands.`
         
         <main className="pt-32 pb-16">
           <div className="max-w-4xl mx-auto px-6">
+            {/* Back button */}
+            <div className="mb-8">
+              <Link to="/blog">
+                <Button variant="outline" className="border-green-200/50 hover:bg-green-50/50 font-normal">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back to Blog
+                </Button>
+              </Link>
+            </div>
+
             {/* Featured blog post */}
             <article className="bg-white/80 backdrop-blur-sm rounded-lg border border-green-100/60 shadow-lg overflow-hidden mb-12">
               <div className="h-64 md:h-80 overflow-hidden">
