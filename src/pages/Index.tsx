@@ -38,7 +38,7 @@ const Index = () => {
       </div>
       
       <div className="relative" style={{ zIndex: 2 }}>
-        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0ms' }}>
+        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0ms', zIndex: 10 }}>
           <Header />
         </div>
         
