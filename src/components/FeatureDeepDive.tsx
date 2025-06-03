@@ -3,7 +3,7 @@ const FeatureDeepDive = () => {
   const features = [{
     icon: <Brain className="w-6 h-6 text-green-600" />,
     title: "Own your lane",
-    description: "Customizable Lanes that triages emails based on content, sub-lanes for granular control. ",
+    description: "Customizable Lanes that triage emails based on content, sub-lanes for granular control. ",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
   }, {
     icon: <Shield className="w-6 h-6 text-green-600" />,
@@ -13,7 +13,7 @@ const FeatureDeepDive = () => {
   }, {
     icon: <Zap className="w-6 h-6 text-green-600" />,
     title: "Search that works!",
-    description: "Find any conversation, attachment, or contact in milliseconds.",
+    description: "Find any conversation, attachment, or contact in seconds.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop"
   }, {
     icon: <Users2 className="w-6 h-6 text-green-600" />,
@@ -23,7 +23,7 @@ const FeatureDeepDive = () => {
   }, {
     icon: <BarChart3 className="w-6 h-6 text-green-600" />,
     title: "Control your agents",
-    description: "External communication is critical—our AI agents are designed with human-in-the-loop as the default.",
+    description: "External communication is critical—our AI agents are designed with human-in-the-loop by default.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop"
   }, {
     icon: <Globe className="w-6 h-6 text-green-600" />,
