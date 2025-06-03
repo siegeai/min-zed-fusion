@@ -27,7 +27,7 @@ const Header = () => {
   ) => {
     e.preventDefault();
     if (location.pathname !== '/') {
-      navigate(`/#${targetId}`);
+      navigate('/', { state: { scrollTo: targetId } });
     } else {
       const element = document.getElementById(targetId);
       if (element) {

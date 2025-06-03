@@ -7,8 +7,28 @@ import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const scrollTo = (location.state as any)?.scrollTo;
+    if (scrollTo) {
+      const element = document.getElementById(scrollTo);
+      if (element) {
+        const headerHeight = 80;
+        const top = element.offsetTop - headerHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+
+      // Clear state so it doesn't scroll again on refresh
+      navigate('.', { replace: true, state: {} });
+    }
+  }, [location, navigate]);
+
   return (
     <div className="min-h-screen bg-white relative">
       {/* Multiple layered backgrounds */}
@@ -110,7 +130,7 @@ const Index = () => {
         </main>
 
         {/* Feature Deep Dive Section */}
-        <div className="opacity-0 animate-fade-in" style={{ animationDelay: '500ms' }}>
+        <div id="features" className="opacity-0 animate-fade-in" style={{ animationDelay: '500ms' }}>
           <FeatureDeepDive />
         </div>
 
