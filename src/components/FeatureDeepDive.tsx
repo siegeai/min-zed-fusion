@@ -1,6 +1,4 @@
-
 import { Brain, Shield, Zap, Users2, BarChart3, Globe } from "lucide-react";
-
 const FeatureDeepDive = () => {
   const features = [{
     icon: <Brain className="w-6 h-6 text-green-600" />,
@@ -30,10 +28,9 @@ const FeatureDeepDive = () => {
   }, {
     icon: <Globe className="w-6 h-6 text-green-600" />,
     title: "Know your customers",
-    description: "No more switching tools or missing context. min. brings every customer-facing conversation into one place.",
+    description: "No more switching tools or missing context. min brings every customer-facing conversation into one place.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop"
   }];
-
   return <div id="features" className="py-16 bg-white relative">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
@@ -73,5 +70,4 @@ const FeatureDeepDive = () => {
       </div>
     </div>;
 };
-
 export default FeatureDeepDive;

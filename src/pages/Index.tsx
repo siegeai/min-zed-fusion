@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
 const Index = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -33,7 +32,6 @@ const Index = () => {
       });
     }
   }, [location, navigate]);
-
   return <div className="min-h-screen bg-white relative">
       {/* Multiple layered backgrounds */}
       <div className="absolute inset-0 pointer-events-none" style={{
@@ -193,5 +191,4 @@ const Index = () => {
       </div>
     </div>;
 };
-
 export default Index;
