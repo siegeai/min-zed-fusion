@@ -1,53 +1,50 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, MessageCircle, Phone, Copy, Check } from "lucide-react";
+import { Mail, Copy, Check, Zap, MessageCircle, Users, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 const Contact = () => {
-  const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const email = "hello@getmin.ai";
 
-  const contactMethods = [
-    {
-      icon: <Mail className="w-8 h-8 text-green-600" />,
-      title: "General Inquiries",
-      description: "Questions, feedback, or just want to say hi?",
-      email: "hello@getmin.ai",
-      cta: "Drop us a line",
-      bgColor: "bg-gradient-to-br from-green-50 to-emerald-50"
-    },
-    {
-      icon: <MessageCircle className="w-8 h-8 text-blue-600" />,
-      title: "Support & Help",
-      description: "Need help getting the most out of min.?",
-      email: "support@getmin.ai",
-      cta: "Get expert help",
-      bgColor: "bg-gradient-to-br from-blue-50 to-sky-50"
-    },
-    {
-      icon: <Phone className="w-8 h-8 text-purple-600" />,
-      title: "Sales & Partnerships",
-      description: "Ready to transform your workflow?",
-      email: "sales@getmin.ai",
-      cta: "Let's talk business",
-      bgColor: "bg-gradient-to-br from-purple-50 to-violet-50"
-    }
-  ];
-
-  const handleEmailClick = (email: string) => {
+  const handleEmailClick = () => {
     window.location.href = `mailto:${email}`;
   };
 
-  const handleCopyEmail = async (email: string) => {
+  const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(email);
-      setCopiedEmail(email);
-      setTimeout(() => setCopiedEmail(null), 2000);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
     } catch (err) {
       console.log('Failed to copy email:', err);
     }
   };
+
+  const supportedInquiries = [
+    {
+      icon: <MessageCircle className="w-5 h-5 text-green-600" />,
+      title: "General Inquiries",
+      description: "Questions, feedback, or just want to say hi?"
+    },
+    {
+      icon: <Users className="w-5 h-5 text-blue-600" />,
+      title: "Support & Help",
+      description: "Need help getting the most out of min.?"
+    },
+    {
+      icon: <BarChart3 className="w-5 h-5 text-purple-600" />,
+      title: "Sales & Partnerships",
+      description: "Ready to transform your workflow?"
+    },
+    {
+      icon: <Zap className="w-5 h-5 text-orange-600" />,
+      title: "Investors & Press",
+      description: "Media inquiries and investment opportunities"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -70,69 +67,94 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 leading-tight">
-                Let's <span className="text-green-600/90">connect</span>
+                One inbox for <span className="text-green-600/90">everything</span>
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-                We love hearing from our users. Whether you have a question, need support, or want to explore partnerships — we're just an email away.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">
+                We practice what we preach. Just like our customers, we use min. to manage all our external communications through a single shared inbox.
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {contactMethods.map((method, index) => (
-                <div 
-                  key={index} 
-                  className={`${method.bgColor} p-8 rounded-xl border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
-                >
-                  <div className="text-center">
-                    <div className="flex justify-center mb-4">
-                      {method.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{method.title}</h3>
-                    <p className="text-gray-600 text-sm font-light mb-6 leading-relaxed">{method.description}</p>
-                    
-                    <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 mb-6 border border-white/40">
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-900 font-medium text-lg">{method.email}</span>
-                        <button
-                          onClick={() => handleCopyEmail(method.email)}
-                          className="p-2 hover:bg-white/50 rounded-md transition-colors"
-                          title="Copy email"
-                        >
-                          {copiedEmail === method.email ? (
-                            <Check className="w-4 h-4 text-green-600" />
-                          ) : (
-                            <Copy className="w-4 h-4 text-gray-500" />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-                    
-                    <Button 
-                      onClick={() => handleEmailClick(method.email)}
-                      className="w-full bg-white/80 hover:bg-white text-gray-900 font-medium shadow-sm border border-white/40 hover:shadow-md transition-all"
-                    >
-                      {method.cta}
-                    </Button>
-                  </div>
+              
+              {/* Dogfooding highlight */}
+              <div className="bg-gradient-to-r from-green-50/80 to-blue-50/80 rounded-2xl p-6 border border-green-100/60 mb-12 max-w-2xl mx-auto">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <Zap className="w-5 h-5 text-green-600" />
+                  <span className="text-sm font-medium text-gray-900">Powered by min.</span>
                 </div>
-              ))}
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  This single email address handles support tickets, sales inquiries, investor relations, press requests, and general feedback — all organized automatically using our own product.
+                </p>
+              </div>
             </div>
 
-            <div className="text-center mt-16">
-              <div className="bg-gradient-to-r from-green-50/50 to-blue-50/50 rounded-2xl p-8 border border-green-100/40">
+            {/* Main email contact card */}
+            <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 p-12 rounded-2xl border border-green-100/60 shadow-lg mb-16 text-center">
+              <div className="flex justify-center mb-6">
+                <Mail className="w-12 h-12 text-green-600" />
+              </div>
+              
+              <h2 className="text-3xl font-semibold text-gray-900 mb-4">
+                Reach us at
+              </h2>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/60 max-w-md mx-auto">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-900 font-medium text-2xl">{email}</span>
+                  <button
+                    onClick={handleCopyEmail}
+                    className="p-3 hover:bg-gray-100/50 rounded-lg transition-colors"
+                    title="Copy email"
+                  >
+                    {copiedEmail ? (
+                      <Check className="w-5 h-5 text-green-600" />
+                    ) : (
+                      <Copy className="w-5 h-5 text-gray-500" />
+                    )}
+                  </button>
+                </div>
+              </div>
+              
+              <Button 
+                onClick={handleEmailClick}
+                size="lg"
+                className="bg-green-600/90 hover:bg-green-700/90 text-white font-medium px-8"
+              >
+                Send us an email
+              </Button>
+            </div>
+
+            {/* What we handle */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
+                What can you reach us about?
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {supportedInquiries.map((inquiry, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-gray-100/60 hover:bg-white/80 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      {inquiry.icon}
+                      <h4 className="text-lg font-medium text-gray-900">{inquiry.title}</h4>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">{inquiry.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* How it works */}
+            <div className="text-center">
+              <div className="bg-gradient-to-r from-blue-50/50 to-purple-50/50 rounded-2xl p-8 border border-blue-100/40">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                  Not sure which email to use?
+                  How does one inbox handle everything?
                 </h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  When in doubt, just email <span className="font-semibold text-green-600">hello@getmin.ai</span> — we'll make sure your message gets to the right person.
+                <p className="text-gray-600 mb-6 leading-relaxed max-w-2xl mx-auto">
+                  Our AI automatically triages and routes your message to the right team member based on content and context. Sales inquiries go to sales, support questions to our support team, and so on — all seamlessly managed through min.
                 </p>
-                <Button 
-                  onClick={() => handleEmailClick('hello@getmin.ai')}
-                  size="lg"
-                  className="bg-green-600/90 hover:bg-green-700/90 text-white font-medium"
-                >
-                  Email us now
-                </Button>
+                <p className="text-sm text-green-600 font-medium">
+                  Experience the future of external communication management
+                </p>
               </div>
             </div>
           </div>
