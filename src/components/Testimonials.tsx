@@ -1,7 +1,7 @@
 
 const Testimonials = () => {
   const testimonials = [{
-    quote: "min: transformed how our team handles external communication. What used to take hours now happens automatically with their AI agents.",
+    quote: "min. transformed how our team handles external communication. What used to take hours now happens automatically with their AI agents.",
     author: "Sarah Chen",
     role: "Head of Operations",
     company: "TechFlow Inc"
@@ -11,7 +11,7 @@ const Testimonials = () => {
     role: "Co-founder",
     company: "StartupLabs"
   }, {
-    quote: "Our team productivity increased by 40% after implementing min: The AI handles routine emails perfectly.",
+    quote: "Our team productivity increased by 40% after implementing min. The AI handles routine emails perfectly.",
     author: "Emily Watson",
     role: "Project Manager",
     company: "Digital Ventures"
@@ -27,7 +27,7 @@ const Testimonials = () => {
             Trusted by teams worldwide
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-            See how teams are transforming their communication workflows with min:
+            See how teams are transforming their communication workflows with min.
           </p>
         </div>
 

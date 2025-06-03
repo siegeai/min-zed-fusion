@@ -84,7 +84,7 @@ const Index = () => {
                 The inbox for what's{" "}
                 <span className="text-green-600/90">next</span>
               </h1>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min: is where lean teams and agents get sh*t done - together.</p>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min. is where lean teams and agents get sh*t done - together.</p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal">
@@ -177,7 +177,7 @@ const Index = () => {
           
           <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
             <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to transform your external communication?</h2>
-            <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join thousands of teams already using min: to streamline their customer, vendor, partner communication.</p>
+            <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join thousands of teams already using min. to streamline their customer, vendor, partner communication.</p>
             <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal">
               Start your free trial
               <ArrowRight className="w-4 h-4 ml-2" />
