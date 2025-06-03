@@ -14,12 +14,12 @@ const Blog = () => {
 
   const blogPosts = [
     {
-      id: "the-unscalable-secret-of-fan-level-communication",
-      title: "The Unscalable Secret of Fan-Level Communication",
-      excerpt: "Some startups scale through brute force. Others win because people genuinely like talking to them.",
-      date: "2024-06-02",
-      readTime: "6 min read",
-      image: "/lovable-uploads/689c31a2-2be9-46c2-8737-5a263b5b9ef4.png"
+      id: "the-anti-crm-why-founders-hate-tools-that-scale",
+      title: "The Anti-CRM: Why Founders Hate Tools That \"Scale\"",
+      excerpt: "CRMs turn people into numbers. The anti-CRM does the opposite: It turns noise into context, threads into stories, and strangers into advocates.",
+      date: "2024-06-04",
+      readTime: "7 min read",
+      image: "/lovable-uploads/9ac9a885-47ba-4ab6-b63c-85ac1a7d443b.png"
     },
     {
       id: "why-email-still-runs-the-world",
@@ -28,6 +28,14 @@ const Blog = () => {
       date: "2024-06-03",
       readTime: "8 min read",
       image: "/lovable-uploads/b024d1aa-d530-4714-848b-ec33ce842c25.png"
+    },
+    {
+      id: "the-unscalable-secret-of-fan-level-communication",
+      title: "The Unscalable Secret of Fan-Level Communication",
+      excerpt: "Some startups scale through brute force. Others win because people genuinely like talking to them.",
+      date: "2024-06-02",
+      readTime: "6 min read",
+      image: "/lovable-uploads/689c31a2-2be9-46c2-8737-5a263b5b9ef4.png"
     }
   ];
 

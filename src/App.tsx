@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import BlogPostFanLevel from "./pages/BlogPostFanLevel";
+import BlogPostAntiCRM from "./pages/BlogPostAntiCRM";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
