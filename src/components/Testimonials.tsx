@@ -1,6 +1,7 @@
+
 const Testimonials = () => {
   const testimonials = [{
-    quote: "min transformed how our team handles external communication. What used to take hours now happens automatically with their AI agents.",
+    quote: "min. transformed how our team handles external communication. What used to take hours now happens automatically with their AI agents.",
     author: "Sarah Chen",
     role: "Head of Operations",
     company: "TechFlow Inc"
@@ -15,6 +16,7 @@ const Testimonials = () => {
     role: "Project Manager",
     company: "Digital Ventures"
   }];
+
   return <div id="testimonials" className="py-16 bg-white relative">
       {/* Subtle background layer */}
       <div className="absolute inset-0 bg-gradient-to-b from-green-50/20 via-white to-green-50/10"></div>
@@ -25,7 +27,7 @@ const Testimonials = () => {
             Trusted by teams worldwide
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-            See how teams are transforming their communication workflows with min
+            See how teams are transforming their communication workflows with min.
           </p>
         </div>
 
@@ -54,4 +56,5 @@ const Testimonials = () => {
       </div>
     </div>;
 };
+
 export default Testimonials;
