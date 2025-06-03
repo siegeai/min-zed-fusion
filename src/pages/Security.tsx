@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
@@ -22,8 +21,8 @@ const Security = () => {
     },
     {
       icon: FileText,
-      title: "GDPR & CCPA Compliant",
-      description: "Full compliance with global privacy regulations, giving you complete control over your data with transparent processing practices."
+      title: "Privacy-First Architecture",
+      description: "While our company is not currently certified as GDPR or CCPA compliant, we work exclusively with software providers and partners who are fully compliant with these regulations. We follow industry best practices for data privacy and continuously align our operations with GDPR and CCPA principles."
     },
     {
       icon: Eye,
@@ -44,8 +43,8 @@ const Security = () => {
 
   const infrastructureCertifications = [
     "SOC 2 Type II Providers",
-    "GDPR Compliant Infrastructure",
-    "CCPA Compliant Infrastructure",
+    "GDPR Compliant Partners",
+    "CCPA Compliant Partners",
     "ISO 27001 Certified Providers",
     "PCI DSS Level 1 Infrastructure",
     "HIPAA Ready Infrastructure"
