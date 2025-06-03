@@ -4,24 +4,21 @@ import { Users, Target, Lightbulb, Linkedin, X } from "lucide-react";
 import { useEffect } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+  return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `
+        backgroundImage: `
             linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
-        }}></div>
+        backgroundSize: '40px 40px'
+      }}></div>
       </div>
 
       <div className="relative z-10">
@@ -65,9 +62,8 @@ const About = () => {
                         <p className="text-xs text-gray-500">University of Toronto</p>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      Serial entrepreneur with experience at Fluxity AI, TPM, and DoorDash. Passionate about building products that solve real problems for fast-moving teams.
-                    </p>
+                    <p className="text-sm text-gray-600 leading-relaxed">🛠 Builder. Vision guy. AI for supply chains.
+Eric's startup DNA runs deep — from building at Coursera to launching Bbot (acquired by DoorDash), then scaling AI infrastructure at DoorDash itself. At Fluxity AI, he’s on a mission to tame unstructured data and bring intelligent automation to verticals that have been left behind. Fluent in product, technical strategy, and post-it note walls.</p>
                   </CardContent>
                 </Card>
 
@@ -89,9 +85,9 @@ const About = () => {
                         <p className="text-xs text-gray-500">University of Waterloo</p>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      Senior engineer with 10+ years building scalable systems. Previously at DoorDash, Bbot, and Sunnybrook. Expert in AI integration and product development.
-                    </p>
+                    <p className="text-sm text-gray-600 leading-relaxed">🧠 Code whisperer. Math nerd. AI realist. 
+
+Sebastian brings 10+ years of engineering muscle to min., with battle-tested experience from DoorDash, Bbot, and healthcare R&amp;D at Sunnybrook. Whether he's wrangling C++ or architecting secure, high-performance systems, he's all about building software that scales and makes sense. Loves well-documented APIs and a good beer.</p>
                   </CardContent>
                 </Card>
               </div>
@@ -150,8 +146,6 @@ const About = () => {
 
         <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
