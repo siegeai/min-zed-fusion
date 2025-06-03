@@ -7,7 +7,7 @@ const Features = () => {
   }, {
     icon: <MessageCircle className="w-5 h-5 text-green-600/80" />,
     title: "Easy as Spreadsheets",
-    description: "Manage all external communications from one clean, intuitive UI. No context switching."
+    description: "Manage all external communications in one place. Zero context switches."
   }, {
     icon: <Users className="w-5 h-5 text-green-600/80" />,
     title: "Team Collaboration",
