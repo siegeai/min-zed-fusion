@@ -117,8 +117,8 @@ const BlogPostAntiCRM = () => {
 
                     <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">What the Anti-CRM Looks Like</h3>
                     
-                    <p>We don't need another CRM. We need a <strong>Contact OS</strong> — something that does less, but does it better.</p>
-                    
+                    <p>We don’t need a new CRM. We need a system that turns email into <strong>action</strong> — without making you leave the inbox.</p>
+                                        
                     <p>It should:</p>
                     <ul className="list-disc pl-6 space-y-2">
                       <li>Live in your inbox</li>
