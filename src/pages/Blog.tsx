@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Calendar, ArrowRight } from "lucide-react";
@@ -19,7 +18,7 @@ const Blog = () => {
       excerpt: "CRMs turn people into numbers. The anti-CRM does the opposite: It turns noise into context, threads into stories, and strangers into advocates.",
       date: "2024-05-04",
       readTime: "7 min read",
-      image: "/lovable-uploads/9ac9a885-47ba-4ab6-b63c-85ac1a7d443b.png"
+      image: "/lovable-uploads/42c901df-63ae-4a1a-8932-f1a19e666918.png"
     },
     {
       id: "the-unscalable-secret-of-fan-level-communication",
