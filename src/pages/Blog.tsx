@@ -12,14 +12,24 @@ const Blog = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const blogPost = {
-    id: "why-email-still-runs-the-world",
-    title: "Why Email Still Runs the World",
-    excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
-    date: "2024-06-03",
-    readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop"
-  };
+  const blogPosts = [
+    {
+      id: "the-unscalable-secret-of-fan-level-communication",
+      title: "The Unscalable Secret of Fan-Level Communication",
+      excerpt: "Some startups scale through brute force. Others win because people genuinely like talking to them.",
+      date: "2024-06-02",
+      readTime: "6 min read",
+      image: "/lovable-uploads/a08e6a56-3aaf-4f91-b83a-909a4d24b497.png"
+    },
+    {
+      id: "why-email-still-runs-the-world",
+      title: "Why Email Still Runs the World",
+      excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
+      date: "2024-06-03",
+      readTime: "8 min read",
+      image: "/lovable-uploads/b024d1aa-d530-4714-848b-ec33ce842c25.png"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -49,43 +59,45 @@ const Blog = () => {
               </p>
             </div>
 
-            {/* Blog post card */}
+            {/* Blog posts */}
             <div className="grid gap-8 mb-12">
-              <Card className="bg-white/80 backdrop-blur-sm border-green-100/60 shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="h-64 md:h-80 overflow-hidden">
-                  <img 
-                    src={blogPost.image} 
-                    alt={blogPost.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                <CardHeader>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{new Date(blogPost.date).toLocaleDateString()}</span>
-                    <span>•</span>
-                    <span>{blogPost.readTime}</span>
+              {blogPosts.map((post) => (
+                <Card key={post.id} className="bg-white/80 backdrop-blur-sm border-green-100/60 shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="h-64 md:h-80 overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   
-                  <CardTitle className="text-2xl md:text-3xl font-medium text-gray-900 leading-tight">
-                    {blogPost.title}
-                  </CardTitle>
+                  <CardHeader>
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                      <Calendar className="w-4 h-4" />
+                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                      <span>•</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    
+                    <CardTitle className="text-2xl md:text-3xl font-medium text-gray-900 leading-tight">
+                      {post.title}
+                    </CardTitle>
+                    
+                    <CardDescription className="text-lg text-gray-600 leading-relaxed">
+                      {post.excerpt}
+                    </CardDescription>
+                  </CardHeader>
                   
-                  <CardDescription className="text-lg text-gray-600 leading-relaxed">
-                    {blogPost.excerpt}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent>
-                  <Link to={`/blog/${blogPost.id}`}>
-                    <Button className="bg-green-600 hover:bg-green-700 text-white font-normal">
-                      Read Article
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+                  <CardContent>
+                    <Link to={`/blog/${post.id}`}>
+                      <Button className="bg-green-600 hover:bg-green-700 text-white font-normal">
+                        Read Article
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
 
             <div className="text-center">
