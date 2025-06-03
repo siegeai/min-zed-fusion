@@ -1,9 +1,12 @@
 
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (location.pathname === '/') {
@@ -24,7 +27,7 @@ const Header = () => {
   ) => {
     e.preventDefault();
     if (location.pathname !== '/') {
-      navigate(`/#${targetId}`);
+      navigate('/', { state: { scrollTo: targetId } });
     } else {
       const element = document.getElementById(targetId);
       if (element) {
