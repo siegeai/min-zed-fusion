@@ -54,7 +54,7 @@ const FeatureDeepDive = () => {
               {/* Feature Content */}
               <div className="p-6 px-0 mr-[30px]">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 rounded-lg bg-transparent">
+                  <div className="p-2 rounded-lg bg-transparent px-0">
                     {feature.icon}
                   </div>
                   <h3 className="text-gray-900 font-normal text-lg">
