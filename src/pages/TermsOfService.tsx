@@ -41,7 +41,7 @@ const TermsOfService = () => {
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
                 <h2 className="text-xl font-medium text-gray-900 mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  By accessing or using min.'s AI communication platform, you agree to be bound by these Terms of Service. 
+                  By accessing or using min's AI communication platform, you agree to be bound by these Terms of Service. 
                   Our platform is designed by seasoned veterans who understand the needs of fast-moving teams and the importance 
                   of reliable, secure communication tools.
                 </p>

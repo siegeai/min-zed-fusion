@@ -18,7 +18,7 @@ const VideoDemo = () => {
                     <Play className="w-8 h-8 text-green-600 ml-1" fill="currentColor" />
                   </div>
                   <p className="mt-4 text-white font-medium drop-shadow-lg">Watch Demo Video</p>
-                  <p className="text-sm text-white/90 drop-shadow-lg">See min in action</p>
+                  <p className="text-sm text-white/90 drop-shadow-lg">See min. in action</p>
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@ const VideoDemo = () => {
         
         <DialogContent className="max-w-4xl w-full p-0">
           <div className="aspect-video w-full">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&controls=1&rel=0" title="min Platform Demo" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full rounded-lg" />
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&controls=1&rel=0" title="min. Platform Demo" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full rounded-lg" />
           </div>
         </DialogContent>
       </Dialog>

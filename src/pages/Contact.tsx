@@ -66,7 +66,7 @@ const Contact = () => {
               <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 leading-tight">
                 One inbox for <span className="text-green-600/90">everything</span>
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">We practice what we preach. Just like our customers, we use min to manage all our external communications through a shared inbox.</p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">We practice what we preach. Just like our customers, we use min. to manage all our external communications through a shared inbox.</p>
               
               {/* Dogfooding highlight */}
               <div className="bg-gradient-to-r from-green-50/80 to-blue-50/80 rounded-2xl p-6 border border-green-100/60 mb-12 max-w-2xl mx-auto">
