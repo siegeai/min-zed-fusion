@@ -7,26 +7,6 @@ import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-
-const location = useLocation();
-const navigate = useNavigate();
-
-useEffect(() => {
-  const scrollTo = (location.state as any)?.scrollTo;
-  if (scrollTo) {
-    const el = document.getElementById(scrollTo);
-    if (el) {
-      const headerOffset = 80;
-      const elementPosition = el.offsetTop - headerOffset;
-      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-
-      // Clear the state to prevent re-scrolling on refresh
-      navigate('.', { replace: true, state: {} });
-    }
-  }
-}, [location, navigate]);
 
 const Index = () => {
   return (
