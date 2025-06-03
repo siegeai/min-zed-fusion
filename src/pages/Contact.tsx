@@ -1,7 +1,6 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, MessageCircle, Phone, MapPin } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
@@ -10,22 +9,22 @@ const Contact = () => {
       icon: <Mail className="w-6 h-6 text-green-600" />,
       title: "Email Us",
       description: "Get in touch for general inquiries",
-      contact: "hello@min.co",
+      contact: "hello@getmin.ai",
       action: "Send email"
     },
     {
       icon: <MessageCircle className="w-6 h-6 text-green-600" />,
       title: "Support",
       description: "Need help with your account?",
-      contact: "support@min.co",
+      contact: "support@getmin.ai",
       action: "Get support"
     },
     {
       icon: <Phone className="w-6 h-6 text-green-600" />,
       title: "Sales",
       description: "Ready to get started?",
-      contact: "Schedule a demo",
-      action: "Book a call"
+      contact: "sales@getmin.ai",
+      action: "Contact sales"
     }
   ];
 
@@ -151,21 +150,6 @@ const Contact = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
-                </div>
-
-                {/* Office Info */}
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-sm border border-green-100/60 shadow-sm">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-green-600 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-lg font-normal text-gray-900 mb-1">Office</h3>
-                      <p className="text-gray-600 text-sm font-light leading-relaxed">
-                        123 Innovation Drive<br />
-                        San Francisco, CA 94105<br />
-                        United States
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>
