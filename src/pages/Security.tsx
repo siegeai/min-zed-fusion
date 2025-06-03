@@ -17,8 +17,8 @@ const Security = () => {
     },
     {
       icon: ShieldCheck,
-      title: "SOC 2 Type II Certified",
-      description: "Our infrastructure and AI models undergo rigorous SOC 2 Type II audits, demonstrating our commitment to the highest security standards."
+      title: "SOC 2 Type II Infrastructure",
+      description: "Our infrastructure providers undergo rigorous SOC 2 Type II audits, ensuring your data is hosted on the most secure platforms available."
     },
     {
       icon: FileText,
@@ -42,13 +42,13 @@ const Security = () => {
     }
   ];
 
-  const certifications = [
-    "SOC 2 Type II",
-    "GDPR Compliant",
-    "CCPA Compliant",
-    "ISO 27001 Aligned",
-    "PCI DSS Level 1",
-    "HIPAA Ready"
+  const infrastructureCertifications = [
+    "SOC 2 Type II Providers",
+    "GDPR Compliant Infrastructure",
+    "CCPA Compliant Infrastructure",
+    "ISO 27001 Certified Providers",
+    "PCI DSS Level 1 Infrastructure",
+    "HIPAA Ready Infrastructure"
   ];
 
   return (
@@ -146,7 +146,7 @@ const Security = () => {
                   <ul className="space-y-2 text-gray-600">
                     <li className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>All AI providers are SOC 2 Type II certified</span>
+                      <span>All AI providers maintain SOC 2 Type II certification</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
@@ -161,13 +161,16 @@ const Security = () => {
               </div>
             </div>
 
-            {/* Certifications & Compliance */}
+            {/* Infrastructure Security & Compliance */}
             <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-16">
               <h2 className="text-2xl font-medium text-gray-900 mb-6 text-center">
-                Certifications & Compliance
+                Certified Infrastructure Partners
               </h2>
+              <p className="text-gray-600 mb-6 text-center max-w-3xl mx-auto">
+                We partner exclusively with industry-leading infrastructure providers that maintain the highest security certifications and compliance standards.
+              </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {certifications.map((cert, index) => (
+                {infrastructureCertifications.map((cert, index) => (
                   <div key={index} className="flex items-center justify-center p-4 bg-green-50 rounded-sm border border-green-200/60">
                     <span className="text-sm font-medium text-gray-700 text-center">{cert}</span>
                   </div>
@@ -210,17 +213,12 @@ const Security = () => {
                 Questions About Our Security?
               </h2>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Our security team is available to discuss our practices, provide detailed security documentation, 
+                Our team is available to discuss our security practices, provide detailed security documentation, 
                 or answer any compliance questions you may have.
               </p>
-              <div className="space-y-2">
-                <p className="text-gray-700">
-                  <strong>Security Team:</strong> security@getmin.ai
-                </p>
-                <p className="text-gray-700">
-                  <strong>General Inquiries:</strong> hello@getmin.ai
-                </p>
-              </div>
+              <p className="text-gray-700">
+                <strong>Contact Us:</strong> hello@getmin.ai
+              </p>
             </div>
           </div>
         </main>
