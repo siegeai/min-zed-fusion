@@ -3,19 +3,19 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Testimonials = () => {
   const testimonials = [{
-    quote: "min. transformed how our team handles external communication. What used to take hours now happens automatically with their AI agents.",
+    quote: "min. really elevated how our team handles comms. What used to take hours now happens automatically with a mix of humans and AI agents.",
     author: "Sarah Chen",
-    role: "Head of Operations",
+    role: "Head of Product",
     company: "TechFlow Inc",
     avatar: "/lovable-uploads/586a429a-b9f9-4ebf-ae6f-b5b1462ced42.png"
   }, {
-    quote: "The unified interface is a game-changer. No more juggling between different tools - everything we need is in one place.",
+    quote: "Everything in one place is a game-changer. No more juggling between different tools/tabs/spreadsheets - everything we need is right there.",
     author: "Marcus Rodriguez",
     role: "Co-founder",
     company: "StartupLabs",
     avatar: "/lovable-uploads/e00d3919-3cc6-491f-b466-df6e3f49951f.png"
   }, {
-    quote: "Our team productivity increased by 40% after implementing min. The AI handles routine emails perfectly.",
+    quote: "We really love our Lanes! We divide them into sub-lanes which then gets an owner, what a useful concept!",
     author: "Emily Watson",
     role: "Project Manager",
     company: "Digital Ventures",
