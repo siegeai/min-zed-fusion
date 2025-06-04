@@ -68,7 +68,7 @@ const About = () => {
             <div className="max-w-4xl mx-auto px-6">
               <div className="text-center mb-16">
                 <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
-                  About <span className="text-green-600/90">min.</span>
+                  About <span className="text-green-600/90">min.</span> by (Siege AI)
                 </h1>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
                   Built by founders, for founders. We're solving the communication chaos that slows down fast-moving teams.
