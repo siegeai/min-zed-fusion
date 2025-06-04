@@ -87,6 +87,12 @@ const Header = () => {
             >
               Pricing
             </a>
+            <Link to="/blog" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+              Blog
+            </Link>
+            <Link to="/careers" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+              Careers
+            </Link>
             <a href="/demo" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Demo
             </a>
