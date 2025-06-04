@@ -5,12 +5,12 @@ const FeatureDeepDive = () => {
   const features = [{
     icon: <Brain className="w-6 h-6 text-green-600" />,
     title: "Own your lane",
-    description: "Customizable Lanes that triage emails based on content, sub-lanes for granular control. ",
+    description: "Customizable Lanes that auto-triage emails based on content and context, sub-lanes for granular control.",
     image: "/lovable-uploads/dec4c33c-a690-4dbe-b040-e8d6be577a55.png"
   }, {
     icon: <Shield className="w-6 h-6 text-green-600" />,
     title: "What's the gist?",
-    description: "TLDR for every email, every thread, every lane!",
+    description: "TLDR for every email, every thread, every person, every lane!",
     image: "/lovable-uploads/4ee3511b-2ec3-4b04-9af6-d47b9af52e0d.png"
   }, {
     icon: <Zap className="w-6 h-6 text-green-600" />,
@@ -25,7 +25,7 @@ const FeatureDeepDive = () => {
   }, {
     icon: <BarChart3 className="w-6 h-6 text-green-600" />,
     title: "Control your agents",
-    description: "External communication is critical—our AI agents are designed with human-in-the-loop by default.",
+    description: "External communication is too critical to outsource 100%—our AI agents are designed with human-in-the-loop by default.",
     image: "/lovable-uploads/2c0bb6a8-a034-4446-aaeb-7d19620af60a.png"
   }, {
     icon: <Globe className="w-6 h-6 text-green-600" />,
