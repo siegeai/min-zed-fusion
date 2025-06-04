@@ -1,10 +1,13 @@
 
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
 const Testimonials = () => {
   const testimonials = [{
     quote: "min. transformed how our team handles external communication. What used to take hours now happens automatically with their AI agents.",
     author: "Sarah Chen",
     role: "Head of Operations",
-    company: "TechFlow Inc"
+    company: "TechFlow Inc",
+    avatar: "/lovable-uploads/586a429a-b9f9-4ebf-ae6f-b5b1462ced42.png"
   }, {
     quote: "The unified interface is a game-changer. No more juggling between different tools - everything we need is in one place.",
     author: "Marcus Rodriguez",
@@ -14,7 +17,8 @@ const Testimonials = () => {
     quote: "Our team productivity increased by 40% after implementing min. The AI handles routine emails perfectly.",
     author: "Emily Watson",
     role: "Project Manager",
-    company: "Digital Ventures"
+    company: "Digital Ventures",
+    avatar: "/lovable-uploads/7881779d-f863-4f54-8cf0-9e132b8ae3ca.png"
   }];
 
   return <div id="testimonials" className="py-16 bg-white relative">
@@ -37,11 +41,20 @@ const Testimonials = () => {
                 "{testimonial.quote}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-100/40 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-green-600/80 font-medium text-lg">
-                    {testimonial.author.split(" ").map(n => n[0]).join("")}
-                  </span>
-                </div>
+                {testimonial.avatar ? (
+                  <Avatar className="w-12 h-12 mr-4">
+                    <AvatarImage src={testimonial.avatar} alt={testimonial.author} />
+                    <AvatarFallback className="bg-green-100/40 text-green-600/80 font-medium text-lg">
+                      {testimonial.author.split(" ").map(n => n[0]).join("")}
+                    </AvatarFallback>
+                  </Avatar>
+                ) : (
+                  <div className="w-12 h-12 bg-green-100/40 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-green-600/80 font-medium text-lg">
+                      {testimonial.author.split(" ").map(n => n[0]).join("")}
+                    </span>
+                  </div>
+                )}
                 <div>
                   <div className="font-medium text-gray-900">
                     {testimonial.author}
