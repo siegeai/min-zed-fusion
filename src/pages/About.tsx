@@ -174,7 +174,7 @@ Seb brings 10+ years of engineering firepower to the team, with hands-on experie
                     So we built min. For founders like us who need something that just works. No bloat. No complexity. Just the communication superpowers that lean teams actually need.
                   </p>
                   <p>
-                    Today, hundreds of teams use min. to cut through the noise and focus on what matters: building great products.
+                    Today, lean startup teams use min. to cut through the noise and focus on what matters: building great products. We love it.
                   </p>
                 </div>
               </div>
