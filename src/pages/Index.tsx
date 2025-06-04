@@ -63,7 +63,7 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-white relative overflow-x-hidden">
+      <div className="min-h-0 bg-white relative overflow-x-hidden overflow-y-hidden">
         {/* Multiple layered backgrounds */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
           {/* Base gradient layer */}
