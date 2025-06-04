@@ -73,7 +73,7 @@ const Index = () => {
         </div>
         
         {/* Hero Section */}
-        <main className="pt-40 pb-8">
+        <main className="pt-40">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12 py-[40px] opacity-0 animate-fade-in" style={{
               animationDelay: '100ms'
@@ -147,14 +147,14 @@ const Index = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div id="testimonials" className="pb-10 py-[20px] opacity-0 animate-fade-in" style={{
+        <div id="testimonials" className="opacity-0 animate-fade-in" style={{
           animationDelay: '600ms'
         }}>
           <Testimonials />
         </div>
 
         {/* Pricing Section */}
-        <div id="pricing" className="pb-20 py-[20px] opacity-0 animate-fade-in" style={{
+        <div id="pricing" className="opacity-0 animate-fade-in" style={{
           animationDelay: '700ms'
         }}>
           <Pricing />
