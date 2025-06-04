@@ -72,7 +72,7 @@ const Security = () => {
                     Security-First Architecture
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Our team has spent decades building secure systems for companies like DoorDash, Coursera, Sunnybrook Research Institute. 
+                    Our team has spent decades building secure systems for companies like DoorDash, Coursera, Sunnybrook Hospital. 
                     We understand that trust is earned through transparency, rigorous security practices, and unwavering 
                     commitment to protecting your data. Every line of code is written with security as the primary consideration.
                   </p>
