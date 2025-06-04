@@ -6,32 +6,32 @@ const FeatureDeepDive = () => {
     icon: <Brain className="w-6 h-6 text-green-600" />,
     title: "Own your lane",
     description: "Customizable Lanes that triage emails based on content, sub-lanes for granular control. ",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
+    image: "/lovable-uploads/dec4c33c-a690-4dbe-b040-e8d6be577a55.png"
   }, {
     icon: <Shield className="w-6 h-6 text-green-600" />,
     title: "What's the gist?",
     description: "TLDR for every email, every thread, every lane!",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=250&fit=crop"
+    image: "/lovable-uploads/4ee3511b-2ec3-4b04-9af6-d47b9af52e0d.png"
   }, {
     icon: <Zap className="w-6 h-6 text-green-600" />,
     title: "Search that works!",
     description: "Find any conversation, attachment, or contact in seconds.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop"
+    image: "/lovable-uploads/bdf48a53-b3d6-4682-9628-ae6c3a3e1510.png"
   }, {
     icon: <Users2 className="w-6 h-6 text-green-600" />,
     title: "You are as good as your team",
     description: "Built for teamwork, shared inbox, Lane and task assignments, shareable threads and collaborative drafting.",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=250&fit=crop"
+    image: "/lovable-uploads/07aeba38-e4c8-4895-ba26-b6850659d2fd.png"
   }, {
     icon: <BarChart3 className="w-6 h-6 text-green-600" />,
     title: "Control your agents",
     description: "External communication is critical—our AI agents are designed with human-in-the-loop by default.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop"
+    image: "/lovable-uploads/2c0bb6a8-a034-4446-aaeb-7d19620af60a.png"
   }, {
     icon: <Globe className="w-6 h-6 text-green-600" />,
     title: "Know your customers",
     description: "No more switching tools or missing context. min. brings every customer-facing conversation into one place.",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop"
+    image: "/lovable-uploads/debcfb52-42ee-41fe-8354-2a291966e328.png"
   }];
 
   return <div id="features" className="py-16 bg-white relative">
