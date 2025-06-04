@@ -12,7 +12,8 @@ const Testimonials = () => {
     quote: "The unified interface is a game-changer. No more juggling between different tools - everything we need is in one place.",
     author: "Marcus Rodriguez",
     role: "Co-founder",
-    company: "StartupLabs"
+    company: "StartupLabs",
+    avatar: "/lovable-uploads/e00d3919-3cc6-491f-b466-df6e3f49951f.png"
   }, {
     quote: "Our team productivity increased by 40% after implementing min. The AI handles routine emails perfectly.",
     author: "Emily Watson",
