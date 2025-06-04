@@ -15,7 +15,7 @@ const Testimonials = () => {
     company: "StartupLabs",
     avatar: "/lovable-uploads/e00d3919-3cc6-491f-b466-df6e3f49951f.png"
   }, {
-    quote: "We really love our Lanes! We divide them into sub-lanes which then gets an owner, what a useful concept!",
+    quote: "We really love our Lanes! We further divide them into sub-lanes which then gets an owner, what a useful concept!",
     author: "Emily Watson",
     role: "Project Manager",
     company: "Digital Ventures",
