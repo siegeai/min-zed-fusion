@@ -17,7 +17,7 @@ const Security = () => {
   }, {
     icon: FileText,
     title: "Privacy-First Architecture",
-    description: "While we're not currently GDPR certified, we work only with compliant providers and follow industry best practices to protect data and align with these regulations."
+    description: "While we're still in the process of obtaining GDPR certification, we work only with compliant providers and follow industry best practices to protect data and align with these regulations."
   }, {
     icon: Eye,
     title: "Zero Data Cross-Training",
@@ -72,7 +72,7 @@ const Security = () => {
                     Security-First Architecture
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Our team has spent decades building secure systems for companies like DoorDash, Coursera, Sunnybrook Hospital. 
+                    Our team has spent decades building secure systems for companies like DoorDash, Coursera, Sunnybrook Research Hospital. 
                     We understand that trust is earned through transparency, rigorous security practices, and unwavering 
                     commitment to protecting your data. Every line of code is written with security as the primary consideration.
                   </p>

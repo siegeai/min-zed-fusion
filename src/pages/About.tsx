@@ -85,7 +85,7 @@ const About = () => {
                       </div>
                     </div>
                     <p className="text-sm text-gray-600 leading-relaxed">🧠 Code whisperer. Math nerd. AI realist.
-Seb brings 10+ years of engineering firepower to the team, with hands-on experience from DoorDash, Bbot (acquired), and healthcare R&amp;D at Sunnybrook. Whether he's diving deep into C++ or designing secure, high-performance systems, he's focused on building software that scales, lasts, and just makes sense. Big fan of clean APIs, clear documentation, and the occasional well-earned beer.</p>
+Seb brings 10+ years of engineering firepower to the team, with hands-on experience from DoorDash, Bbot, and healthcare R&amp;D at Sunnybrook. Whether he's diving deep into C++ or designing secure, high-performance systems, he's focused on building software that scales, lasts, and just makes sense. Big fan of clean APIs, clear documentation, and the occasional well-earned beer.</p>
                   </CardContent>
                 </Card>
               </div>
