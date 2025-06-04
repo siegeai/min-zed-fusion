@@ -40,7 +40,7 @@ const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "min. - AI-Powered Inbox for External Communication",
+    "name": "min. - Inbox built for humans and agents",
     "description": "Transform your external communication with min. - the AI-powered inbox that auto-triages emails, drafts replies, and helps lean teams scale without hiring more staff.",
     "url": "https://getmin.ai",
     "mainEntity": {
@@ -54,7 +54,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | AI-Powered Inbox for External Communication</title>
+        <title>min. | Inbox built for humans and agents</title>
         <meta name="description" content="Transform your external communication with min. - the AI-powered inbox that auto-triages emails, drafts replies, and helps lean teams scale without hiring more staff." />
         <meta name="keywords" content="email management, AI inbox, external communication, team collaboration, email automation, startup tools" />
         <link rel="canonical" href="https://getmin.ai" />
