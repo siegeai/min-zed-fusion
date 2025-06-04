@@ -29,7 +29,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-2xl font-medium text-gray-900 mb-4">
-            Trusted by teams worldwide
+            Trusted by founding teams
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
             See how teams are transforming their communication workflows with min.
