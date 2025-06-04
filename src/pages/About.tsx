@@ -20,7 +20,7 @@ const About = () => {
     "mainEntity": {
       "@type": "Organization",
       "name": "min.",
-      "description": "AI-powered inbox for external communication",
+      "description": "Inbox for humans and agents",
       "founder": [
         {
           "@type": "Person",
