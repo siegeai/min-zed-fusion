@@ -33,7 +33,7 @@ const Footer = () => {
             <div className="">
               <span className="font-semibold text-xl">min.</span>
             </div>
-            <p className="text-gray-400 max-w-md leading-relaxed">The unified external communication platform that makes it easy for teams to collaborate, offload email tasks to AI agents, and manage communication in a super UI.</p>
+            <p className="text-gray-400 max-w-md leading-relaxed">The AI-powered inbox for external communication that helps teams auto-triage emails, draft replies, and scale without hiring more staff.</p>
           </div>
 
           <div>
@@ -44,6 +44,7 @@ const Footer = () => {
                   href="#features" 
                   className="hover:text-white transition-colors"
                   onClick={(e) => handleNavClick(e, 'features')}
+                  aria-label="View min. features"
                 >
                   Features
                 </a>
@@ -53,6 +54,7 @@ const Footer = () => {
                   href="#pricing" 
                   className="hover:text-white transition-colors"
                   onClick={(e) => handleNavClick(e, 'pricing')}
+                  aria-label="View min. pricing"
                 >
                   Pricing
                 </a>
