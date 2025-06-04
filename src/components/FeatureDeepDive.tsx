@@ -50,7 +50,7 @@ const FeatureDeepDive = () => {
               {/* Feature Image with green rainbow gradient border */}
               <div className="relative h-48 overflow-hidden bg-gray-50 border-transparent bg-gradient-to-r from-emerald-200 via-green-300 via-lime-400 via-emerald-500 via-green-600 via-teal-500 via-emerald-400 via-lime-300 to-green-200 rounded-sm p-[3px]">
                 <div className="w-full h-full bg-gray-50 rounded-sm overflow-hidden">
-                  <img src={feature.image} alt={feature.title} className="w-full h-full object-cover" />
+                  <img src={feature.image} alt={feature.title} className="w-full h-full object-cover object-top" />
                 </div>
               </div>
 
