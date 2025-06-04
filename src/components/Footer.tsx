@@ -1,12 +1,36 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 const Footer = () => {
-  return <footer className="bg-gray-900 text-white py-16">
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: targetId } });
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        const headerHeight = 80;
+        const elementPosition = element.offsetTop - headerHeight;
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
+  return (
+    <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="">
-              
               <span className="font-semibold text-xl">min.</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">The unified external communication platform that makes it easy for teams to collaborate, offload email tasks to AI agents, and manage communication in a super UI.</p>
@@ -15,8 +39,24 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
+              <li>
+                <a 
+                  href="#features" 
+                  className="hover:text-white transition-colors"
+                  onClick={(e) => handleNavClick(e, 'features')}
+                >
+                  Features
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#pricing" 
+                  className="hover:text-white transition-colors"
+                  onClick={(e) => handleNavClick(e, 'pricing')}
+                >
+                  Pricing
+                </a>
+              </li>
               <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
               <li><a href="/demo" className="hover:text-white transition-colors">Demo</a></li>
             </ul>
@@ -41,6 +81,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
