@@ -44,7 +44,7 @@ const SimplicityvsBureaucracy = () => {
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
               <div className="flex-1">
-                <div className="text-sm font-medium">Sarah Chen</div>
+                <div className="text-sm font-medium">Lexi Chen</div>
                 <div className="text-xs text-gray-600">Head of Growth @ TechCorp</div>
                 <div className="text-xs text-green-600 mt-1">Last reply: 3 days ago</div>
               </div>
