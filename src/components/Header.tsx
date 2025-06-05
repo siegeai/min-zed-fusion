@@ -93,6 +93,9 @@ const Header = () => {
             <Link to="/careers" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Careers
             </Link>
+            <Link to="/contact" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+              Contact
+            </Link>
             <a href="/demo" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Demo
             </a>
