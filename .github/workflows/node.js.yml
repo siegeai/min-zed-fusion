@@ -33,12 +33,6 @@ jobs:
       # SPA fallback so deep links don’t 404
       - name: Add SPA 404 fallback
         run: cp dist/index.html dist/404.html
-      # If you use a custom domain, include CNAME in the artifact
-      - name: Include CNAME (optional)
-        if: ${{ env.CUSTOM_DOMAIN != '' }}
-        run: echo "$CUSTOM_DOMAIN" > dist/CNAME
-        env:
-          CUSTOM_DOMAIN: ${{ secrets.CUSTOM_DOMAIN || '' }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
