@@ -3,18 +3,18 @@ import { Check } from "lucide-react";
 const Pricing = () => {
   const plans = [{
     name: "Starter",
-    price: "$9",
+    price: "$5",
     period: "per user/month",
     description: "Perfect for small teams getting started",
-    features: ["Up to 5 team members", "1,000 AI-processed emails/month", "Basic integrations", "Email support", "Standard security"],
+    features: ["Up to 5 team members", "5,000 AI-processed emails/month", "Small task agents", "Basic integrations", "Email support", "Standard security"],
     cta: "Start free trial",
     popular: false
   }, {
     name: "Professional",
-    price: "$29",
+    price: "$12",
     period: "per user/month",
     description: "For growing teams that need more power",
-    features: ["Up to 25 team members", "10,000 AI-processed emails/month", "Advanced integrations", "Priority support", "Enhanced security", "Custom workflows", "Analytics dashboard"],
+    features: ["Up to 25 team members", "20,000 AI-processed emails/month", "Large task Agents", "Semantic Email Search", "Advanced integrations", "Priority support", "Enhanced security", "Custom workflows", "Analytics dashboard"],
     cta: "Start free trial",
     popular: true
   }, {
@@ -22,7 +22,7 @@ const Pricing = () => {
     price: "Custom",
     period: "pricing",
     description: "For large organizations with specific needs",
-    features: ["Unlimited team members", "Unlimited AI processing", "All integrations", "24/7 dedicated support", "Enterprise security", "Custom AI training", "Advanced analytics", "SLA guarantees"],
+    features: ["Unlimited team members", "Unlimited AI processing", "Self host", "All integrations", "24/7 dedicated support", "Enterprise security", "Custom AI training", "Advanced analytics", "SLA guarantees"],
     cta: "Contact sales",
     popular: false
   }];
@@ -33,7 +33,7 @@ const Pricing = () => {
             Simple, transparent pricing
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-            Choose the plan that's right for your team. Start with a 14-day free trial, no credit card required.
+            Choose the plan that's right for your team. Start with a 14-day free trial.
           </p>
         </div>
 
