@@ -89,33 +89,66 @@ const TermsOfService = () => {
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
                 <h2 className="text-xl font-medium text-gray-900 mb-4">5. Data Ownership and AI Processing</h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Your data remains yours. We process it solely to provide our services:
+                  Your data remains yours. We process it solely to provide our services with strict limitations:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 space-y-2">
                   <li>You retain full ownership of your communications and data</li>
-                  <li>Our AI agents process data only for service functionality</li>
-                  <li>We do not use your data to train models for other customers</li>
+                  <li><strong>We only store email metadata (headers, timestamps, thread IDs) - no email content is permanently stored</strong></li>
+                  <li><strong>All email content is fetched dynamically from Email Provider's (Gmail, Outlook, etc.) APIs and processed in real-time only</strong></li>
+                  <li><strong>We do not use your data to train our own AI models or any third-party models</strong></li>
+                  <li>Our AI agents process data only for service functionality and do not retain content</li>
                   <li>Data processing is transparent and auditable</li>
-                  <li>You can export or delete your data at any time</li>
+                  <li>You can export or delete your data at any time with immediate effect</li>
                 </ul>
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
                 <h2 className="text-xl font-medium text-gray-900 mb-4">6. Security and Compliance</h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  We take security very seriously and follow industry best practices:
+                  We take security very seriously and follow industry best practices with certified vendors:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                  <li>SOC 2 Type II certified infrastructure</li>
-                  <li>GDPR and CCPA compliant data handling</li>
-                  <li>End-to-end encryption for all communications</li>
-                  <li>Regular penetration testing and security audits</li>
-                  <li>Multi-factor authentication and access controls</li>
+                  <li><strong>All our vendors are SOC 2 Type II certified and GDPR compliant</strong></li>
+                  <li>GDPR and CCPA compliant data handling with full user rights</li>
+                  <li>End-to-end encryption for all communications and data transmission</li>
+                  <li>Regular penetration testing and security audits by third-party firms</li>
+                  <li>Multi-factor authentication and role-based access controls</li>
+                  <li>Compliance with Google API Services User Data Policy</li>
                 </ul>
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">7. Service Availability</h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-4">7. User Data Rights and Deletion</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  You have complete control over your data:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 space-y-2">
+                  <li><strong>You can delete your data at any time with immediate effect</strong></li>
+                  <li>Data deletion includes all stored metadata and processing logs</li>
+                  <li>No data retention beyond what is necessary for service functionality</li>
+                  <li>Right to data portability - export your data in standard formats</li>
+                  <li>Right to restrict processing of your personal data</li>
+                  <li>Transparent data processing with clear purpose limitation</li>
+                </ul>
+              </div>
+
+              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
+                <h2 className="text-xl font-medium text-gray-900 mb-4">8. Google API Compliance</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  We strictly comply with Google's API Services User Data Policy:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 space-y-2">
+                  <li>We only access email data necessary for our service functionality</li>
+                  <li>We do not transfer email data to third parties except as required for service operation</li>
+                  <li>We do not use email data for advertising or marketing purposes</li>
+                  <li>We provide clear disclosure of our data use practices</li>
+                  <li>We maintain appropriate security measures for email data</li>
+                  <li>We comply with all Google API Terms of Service and policies</li>
+                </ul>
+              </div>
+
+              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
+                <h2 className="text-xl font-medium text-gray-900 mb-4">9. Service Availability</h2>
                 <p className="text-gray-600 leading-relaxed">
                   We strive to provide uninterrupted service but cannot guarantee 100% uptime. We provide advance notice 
                   of planned maintenance and work quickly to resolve any service interruptions.
@@ -123,7 +156,7 @@ const TermsOfService = () => {
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">8. Limitation of Liability</h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-4">10. Limitation of Liability</h2>
                 <p className="text-gray-600 leading-relaxed">
                   To the maximum extent permitted by law, min. shall not be liable for any indirect, incidental, special, 
                   consequential, or punitive damages, or any loss of profits or revenues.
@@ -131,10 +164,9 @@ const TermsOfService = () => {
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">9. Termination</h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-4">11. Termination</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Either party may terminate the service with 30 days' notice. Upon termination, you may export your data 
-                  for 90 days before it is securely deleted.
+                  When you delete your account, all data related to your account is removed immediately from our databases.
                 </p>
               </div>
 

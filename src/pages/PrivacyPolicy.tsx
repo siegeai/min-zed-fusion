@@ -45,10 +45,13 @@ const PrivacyPolicy = () => {
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 space-y-2">
                   <li>Account information (name, email address, password)</li>
-                  <li>Communication data processed through our AI agents</li>
+                  <li><strong>Email metadata only (headers, timestamps, thread IDs) - no email content is permanently stored</strong></li>
                   <li>Usage data and analytics to improve our service</li>
                   <li>Payment information (processed securely through third-party providers)</li>
                 </ul>
+                <p className="text-gray-600 leading-relaxed mt-4">
+                  <strong>Important:</strong> We do not store email content. All email content is fetched dynamically from your email provider's APIs and processed in real-time only.
+                </p>
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
@@ -71,30 +74,34 @@ const PrivacyPolicy = () => {
                   We take security very seriously and follow industry best practices to protect your data:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                  <li>End-to-end encryption for all communications</li>
-                  <li>SOC 2 Type II compliance and regular security audits</li>
+                  <li><strong>All our vendors are SOC 2 Type II certified and GDPR compliant</strong></li>
+                  <li>End-to-end encryption for all communications and data transmission</li>
                   <li>Multi-factor authentication and role-based access controls</li>
                   <li>Data minimization principles - we only collect what we need</li>
-                  <li>Regular penetration testing and vulnerability assessments</li>
-                  <li>GDPR and CCPA compliance</li>
+                  <li>Regular penetration testing and vulnerability assessments by third-party firms</li>
+                  <li>GDPR and CCPA compliance with full user rights</li>
+                  <li>Compliance with Google API Services User Data Policy</li>
                 </ul>
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">4. AI Data Processing</h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-4">4. AI Data Processing & Third-Party Services</h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Our AI agents process your communications to provide intelligent automation. We ensure:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                  <li>Data is processed only for service functionality</li>
-                  <li>No training on your private data without explicit consent</li>
+                  <li><strong>We do not use your data to train our own AI models or any third-party models</strong></li>
+                  <li>Data is processed only for service functionality and not retained</li>
                   <li>Automatic data retention limits and secure deletion</li>
                   <li>Transparent AI decision-making processes</li>
                 </ul>
+                <p className="text-gray-600 leading-relaxed mt-4">
+                  <strong>OpenAI Integration:</strong> We use OpenAI's API to process messages. OpenAI does not use data submitted through their API for training or improving their models unless explicitly opted in. OpenAI retains API data for 30 days for abuse and misuse monitoring purposes, after which it is deleted unless legally required to retain it longer.
+                </p>
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">5. Data Sharing</h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-4">5. Data Sharing & Google API Compliance</h2>
                 <p className="text-gray-600 leading-relaxed">
                   We do not sell, trade, or rent your personal information. We may share data only in these limited circumstances:
                 </p>
@@ -104,12 +111,25 @@ const PrivacyPolicy = () => {
                   <li>With trusted service providers under strict confidentiality agreements</li>
                   <li>To protect our rights and prevent fraud</li>
                 </ul>
+                <p className="text-gray-600 leading-relaxed mt-4">
+                  <strong>Google API Compliance:</strong> We comply with Google's API Services User Data Policy. We do not transfer email data to third parties except as required for service operation, and we do not use email data for advertising or marketing purposes.
+                </p>
               </div>
 
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">6. Your Rights</h2>
-                <p className="text-gray-600 leading-relaxed">
-                  You have the right to access, update, delete, or port your data. Contact us at privacy@min.com to exercise these rights.
+                <h2 className="text-xl font-medium text-gray-900 mb-4">6. Your Rights & Data Deletion</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  You have comprehensive rights over your data:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 space-y-2">
+                  <li><strong>Immediate deletion: When you delete your account, all data is removed immediately from our databases</strong></li>
+                  <li>Right to access, update, delete, or port your data</li>
+                  <li>Right to restrict processing of your personal data</li>
+                  <li>Right to data portability in standard formats</li>
+                  <li>Transparent data processing with clear purpose limitation</li>
+                </ul>
+                <p className="text-gray-600 leading-relaxed mt-4">
+                  Contact us at hello@getmin.ai to exercise these rights.
                 </p>
               </div>
 
