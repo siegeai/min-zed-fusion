@@ -10,8 +10,17 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Skip Navigation Link */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-green-600 text-white px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+        tabIndex={1}
+      >
+        Skip to main content
+      </a>
+      
       {/* Background layers */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `
@@ -25,21 +34,21 @@ const PrivacyPolicy = () => {
       <div className="relative z-10">
         <Header />
         
-        <main className="pt-32 pb-16">
+        <main id="main-content" className="pt-32 pb-16" role="main" aria-labelledby="privacy-policy-title">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
+            <header className="text-center mb-12">
+              <h1 id="privacy-policy-title" className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 Privacy Policy
               </h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
                 Your privacy is our priority. We're committed to protecting your data with industry-leading security practices.
               </p>
               <p className="text-sm text-gray-500 mt-4">Last updated: December 2024</p>
-            </div>
+            </header>
 
-            <div className="prose prose-lg max-w-none">
-              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">1. Information We Collect</h2>
+            <div className="prose prose-lg max-w-none" role="article" aria-label="Privacy Policy Content">
+              <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="info-collection">
+                <h2 id="info-collection" className="text-xl font-medium text-gray-900 mb-4">1. Information We Collect</h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   We collect information you provide directly to us, such as when you create an account, use our AI communication platform, or contact us for support. This includes:
                 </p>
@@ -52,10 +61,10 @@ const PrivacyPolicy = () => {
                 <p className="text-gray-600 leading-relaxed mt-4">
                   <strong>Important:</strong> We do not store email content. All email content is fetched dynamically from your email provider's APIs and processed in real-time only.
                 </p>
-              </div>
+              </section>
 
-              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">2. How We Use Your Information</h2>
+              <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="how-we-use">
+                <h2 id="how-we-use" className="text-xl font-medium text-gray-900 mb-4">2. How We Use Your Information</h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   As seasoned veterans in the industry, we understand the critical importance of data handling. We use your information to:
                 </p>
@@ -66,10 +75,10 @@ const PrivacyPolicy = () => {
                   <li>Ensure platform security and prevent fraud</li>
                   <li>Comply with legal obligations</li>
                 </ul>
-              </div>
+              </section>
 
-              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">3. Data Security & Industry Standards</h2>
+              <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="data-security">
+                <h2 id="data-security" className="text-xl font-medium text-gray-900 mb-4">3. Data Security & Industry Standards</h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   We take security very seriously and follow industry best practices to protect your data:
                 </p>
@@ -82,10 +91,10 @@ const PrivacyPolicy = () => {
                   <li>GDPR and CCPA compliance with full user rights</li>
                   <li>Compliance with Google API Services User Data Policy</li>
                 </ul>
-              </div>
+              </section>
 
-              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">4. AI Data Processing & Third-Party Services</h2>
+              <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="ai-processing">
+                <h2 id="ai-processing" className="text-xl font-medium text-gray-900 mb-4">4. AI Data Processing & Third-Party Services</h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Our AI agents process your communications to provide intelligent automation. We ensure:
                 </p>
@@ -98,10 +107,10 @@ const PrivacyPolicy = () => {
                 <p className="text-gray-600 leading-relaxed mt-4">
                   <strong>OpenAI Integration:</strong> We use OpenAI's API to process messages. OpenAI does not use data submitted through their API for training or improving their models unless explicitly opted in. OpenAI retains API data for 30 days for abuse and misuse monitoring purposes, after which it is deleted unless legally required to retain it longer.
                 </p>
-              </div>
+              </section>
 
-              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">5. Data Sharing & Google API Compliance</h2>
+              <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="data-sharing">
+                <h2 id="data-sharing" className="text-xl font-medium text-gray-900 mb-4">5. Data Sharing & Google API Compliance</h2>
                 <p className="text-gray-600 leading-relaxed">
                   We do not sell, trade, or rent your personal information. We may share data only in these limited circumstances:
                 </p>
@@ -114,10 +123,10 @@ const PrivacyPolicy = () => {
                 <p className="text-gray-600 leading-relaxed mt-4">
                   <strong>Google API Compliance:</strong> We comply with Google's API Services User Data Policy. We do not transfer email data to third parties except as required for service operation, and we do not use email data for advertising or marketing purposes.
                 </p>
-              </div>
+              </section>
 
-              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">6. Your Rights & Data Deletion</h2>
+              <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="your-rights">
+                <h2 id="your-rights" className="text-xl font-medium text-gray-900 mb-4">6. Your Rights & Data Deletion</h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   You have comprehensive rights over your data:
                 </p>
@@ -131,17 +140,17 @@ const PrivacyPolicy = () => {
                 <p className="text-gray-600 leading-relaxed mt-4">
                   Contact us at hello@getmin.ai to exercise these rights.
                 </p>
-              </div>
+              </section>
 
-              <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8">
-                <h2 className="text-xl font-medium text-gray-900 mb-4">Contact Us</h2>
+              <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8" aria-labelledby="contact-us">
+                <h2 id="contact-us" className="text-xl font-medium text-gray-900 mb-4">Contact Us</h2>
                 <p className="text-gray-600 leading-relaxed">
                   If you have questions about this Privacy Policy, please contact us at:
                   <br />
                   Email: hello@getmin.ai
                   <br />
                 </p>
-              </div>
+              </section>
             </div>
           </div>
         </main>
