@@ -62,8 +62,10 @@ const Pricing = () => {
                   </li>)}
               </ul>
 
-              <Button className={`w-full ${plan.popular ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`} size="lg">
-                {plan.cta}
+              <Button className={`w-full ${plan.popular ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`} size="lg" asChild>
+                <a href={plan.cta === "Start free trial" ? "https://app.getmin.ai" : "#"}>
+                  {plan.cta}
+                </a>
               </Button>
             </div>)}
         </div>

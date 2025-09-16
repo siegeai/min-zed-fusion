@@ -112,9 +112,11 @@ const Index = () => {
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min. is where lean teams and agents get sh*t done - together.</p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                  <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal">
-                    <Download className="w-4 h-4 mr-2" />
-                    Start free trial
+                  <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
+                    <a href="https://app.getmin.ai">
+                      <Download className="w-4 h-4 mr-2" />
+                      Start free trial
+                    </a>
                   </Button>
                   <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal border-green-200/50 hover:bg-green-50/50">
                     View demo
@@ -203,9 +205,11 @@ const Index = () => {
             <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
               <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to transform your external communication?</h2>
               <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join thousands of teams already using min. to streamline their customer, vendor, partner communication.</p>
-              <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal">
-                Start your free trial
-                <ArrowRight className="w-4 h-4 ml-2" />
+              <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
+                <a href="https://app.getmin.ai">
+                  Start your free trial
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
               </Button>
             </div>
           </div>

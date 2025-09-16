@@ -104,11 +104,11 @@ const Header = () => {
 
         
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" className="text-gray-600 hover:text-gray-900 font-normal">
-            Log in
+          <Button variant="ghost" className="text-gray-600 hover:text-gray-900 font-normal" asChild>
+            <a href="https://app.getmin.ai">Log in</a>
           </Button>
-          <Button className="bg-green-600/90 hover:bg-green-700/90 text-white font-normal">
-            Get Started
+          <Button className="bg-green-600/90 hover:bg-green-700/90 text-white font-normal" asChild>
+            <a href="https://app.getmin.ai">Get Started</a>
           </Button>
         </div>
       </div>
