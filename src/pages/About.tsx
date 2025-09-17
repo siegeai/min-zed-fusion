@@ -41,7 +41,7 @@ const About = () => {
       <Helmet>
         <title>About min. | Meet the Founders Building the Future of Communication</title>
         <meta name="description" content="Learn about min.'s founders Eric Wang and Sebastian Ferguson, and our mission to give fast-moving teams superpowers through AI-powered communication tools." />
-        <meta name="keywords" content="min founders, Eric Wang, Sebastian Ferguson, AI communication startup, email automation team" />
+        <meta name="keywords" content="min. founders, Eric Wang, Sebastian Ferguson, AI communication startup, email automation team" />
         <link rel="canonical" href="https://getmin.ai/about" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
@@ -120,12 +120,12 @@ const About = () => {
                               <Linkedin className="w-4 h-4 text-blue-600" />
                             </a>
                           </div>
-                          <p className="text-sm text-green-600 font-medium">CTO & Co-Founder</p>
+                          <p className="text-sm text-green-600 font-medium">Co-Founder & Advisor</p>
                           <p className="text-xs text-gray-500">University of Waterloo</p>
                         </div>
                       </div>
                       <p className="text-sm text-gray-600 leading-relaxed">🧠 Code whisperer. Math nerd. AI realist.
-Seb brings 10+ years of engineering firepower to the team, with hands-on experience from DoorDash, Bbot, and healthcare R&D at Sunnybrook. Whether he's diving deep into C++ or designing secure, high-performance systems, he's focused on building software that scales, lasts, and just makes sense. Big fan of clean APIs, clear documentation, and the occasional well-earned beer.</p>
+Seb brings 10+ years of engineering firepower to the team, with hands-on experience from DoorDash, Bbot, and healthcare R&D at Sunnybrook. Whether he's diving deep into C++ or designing secure, high-performance systems, he's focused on building software that scales, lasts, and just makes sense. Passionate about clean APIs, clear documentation, and a well earned beer.</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -158,7 +158,7 @@ Seb brings 10+ years of engineering firepower to the team, with hands-on experie
                     <Lightbulb className="w-6 h-6 text-green-600" />
                     <h3 className="text-lg font-normal text-gray-900">Our Vision</h3>
                   </div>
-                  <p className="text-gray-600 text-sm leading-relaxed font-light">Every lean team has a team of email agents right in their inbox. No bloat, no complexity—just the essentials that work.</p>
+                  <p className="text-gray-600 text-sm leading-relaxed font-light">Every lean team has a squad of email agents right in their inbox. No bloat, no complexity—just the essentials that work.</p>
                 </div>
               </div>
 
@@ -167,7 +167,7 @@ Seb brings 10+ years of engineering firepower to the team, with hands-on experie
                 <div className="space-y-4 text-gray-600 leading-relaxed font-light">
                   <p>We've been there. As serial founders building startups, we lived the same frustrations every day: drowning in communication chaos while trying to ship products that matter.</p>
                   <p>
-                    <strong>What to say. Who to say it to. When to follow up. How to follow up.</strong> The endless mental overhead of managing external communication was killing our momentum.
+                    <strong>What to say. Who to say it to. When and how to follow up.</strong> The endless mental overhead of managing external communication was killing our momentum.
                   </p>
                   <p>We tried everything—bloated CRMs, hard to use helpdesks, complex automation tools, hiring more people. Nothing felt right. Everything was either too complicated or missed the mark entirely.</p>
                   <p>
