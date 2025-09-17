@@ -13,8 +13,8 @@ const BlogPost = () => {
   const post = {
     title: "Why Email Still Runs the World",
     excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
-    date: "2024-06-03",
-    readTime: "8 min read",
+    date: "2025-03-28",
+    readTime: "5 min read",
     image: "/lovable-uploads/b024d1aa-d530-4714-848b-ec33ce842c25.png"
   };
 

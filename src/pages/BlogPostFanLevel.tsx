@@ -186,7 +186,7 @@ const BlogPostFanLevel = () => {
   const post = {
     title: "The Unscalable Secret of Fan-Level Communication",
     excerpt: "Some startups scale through brute force. Others win because people genuinely like talking to them.",
-    date: "2024-06-02", 
+    date: "2025-04-15", 
     readTime: "6 min read",
     image: "/lovable-uploads/689c31a2-2be9-46c2-8737-5a263b5b9ef4.png"
   };
@@ -323,7 +323,7 @@ const BlogPostFanLevel = () => {
                       <li>Every email became a task</li>
                       <li>Every task had a quick "gist" summary</li>
                       <li>You could see the whole relationship history in one place</li>
-                      <li>Replies were AI-drafted, but still your voice</li>
+                      <li>AI merely assists you in pulling in the key information about the who/what/why, never writing for you.</li>
                       <li>Follow-ups happened automatically</li>
                       <li>You didn't need to CC, forward, or ping in Slack</li>
                     </ul>
@@ -356,7 +356,7 @@ const BlogPostFanLevel = () => {
                       <MessageSquare className="w-12 h-12 text-green-600 mx-auto mb-4" />
                       <p className="text-lg text-gray-900 mb-4">No one ever said, "I love this company because they closed my support ticket."</p>
                       <p className="text-lg text-gray-900 mb-4">They remember how fast you replied. How thoughtful the answer was. That it felt like a person, not a system.</p>
-                      <p className="text-xl font-medium text-gray-900">Keep that magic. Scale it on your terms.</p>
+                      <p className="text-xl font-medium text-gray-900">I encourage you to keep that magic alive. Scale it on your terms.</p>
                     </div>
                   </div>
                 </div>
