@@ -1,12 +1,16 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
-import { Shield, ShieldCheck, Lock, Eye, Server, FileText, Users, CheckCircle } from "lucide-react";
+import { Shield, ShieldCheck, Lock, Eye, Server, FileText, Users, CheckCircle, Award, Star } from "lucide-react";
 const Security = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const securityFeatures = [{
+    icon: Award,
+    title: "9.7 ESOF Security Score",
+    description: "Achieved an exceptional 9.7/10 security score from the Enterprise Security Operations Framework (ESOF), placing us in the top tier of enterprise security standards."
+  }, {
     icon: Lock,
     title: "End-to-End Encryption",
     description: "All data in transit is protected with industry-standard TLS 1.3 encryption, ensuring your communications remain private and secure."
@@ -31,7 +35,7 @@ const Security = () => {
     title: "Access Controls",
     description: "Multi-factor authentication, role-based permissions, and principle of least privilege ensure only authorized access to your data."
   }];
-  const infrastructureCertifications = ["SOC 2 Type II Providers", "GDPR Compliant Partners", "CCPA Compliant Partners", "ISO 27001 Certified Providers", "PCI DSS Level 1 Infrastructure", "HIPAA Ready Infrastructure"];
+  const infrastructureCertifications = ["SOC 2 Type II Providers", "Google CASA Tier 2 Certified", "GDPR Compliant Partners", "CCPA Compliant Partners", "ISO 27001 Certified Providers", "PCI DSS Level 1 Infrastructure", "HIPAA Ready Infrastructure"];
   return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
@@ -59,6 +63,34 @@ const Security = () => {
                 Enterprise-Grade Security
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">Built by veterans with 20+ years of combined experience developing enterprise-grade software. Security isn't an afterthought—it's our foundation.</p>
+            </div>
+
+            {/* Security Score Highlight */}
+            <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-sm p-8 mb-16 text-white">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6">
+                  <Award className="w-10 h-10 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold mb-4">
+                  Enterprise Security Excellence
+                </h2>
+                <div className="flex items-center justify-center space-x-4 mb-6">
+                  <div className="text-6xl font-bold">9.7</div>
+                  <div className="text-left">
+                    <div className="text-2xl font-semibold">ESOF Score</div>
+                    <div className="text-green-100">Enterprise Security Operations Framework</div>
+                  </div>
+                </div>
+                <p className="text-xl text-green-100 max-w-3xl mx-auto leading-relaxed">
+                  Recognized by industry experts for exceptional security practices, placing us in the top tier of enterprise security standards.
+                </p>
+                <div className="flex items-center justify-center mt-6 space-x-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-yellow-300 fill-current" />
+                  ))}
+                  <span className="ml-2 text-green-100 font-medium">Top 1% Security Rating</span>
+                </div>
+              </div>
             </div>
 
             {/* Trust Statement */}
@@ -144,10 +176,37 @@ const Security = () => {
               <p className="text-gray-600 mb-6 text-center max-w-3xl mx-auto">
                 We partner exclusively with industry-leading infrastructure providers that maintain the highest security certifications and compliance standards.
               </p>
+              
+              {/* Highlight Google CASA Tier 2 */}
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100/50 rounded-sm border border-blue-200/60 p-6 mb-8">
+                <div className="flex items-center justify-center space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <ShieldCheck className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-gray-900">Google CASA Tier 2 Certified</h3>
+                    <p className="text-gray-600">Google Cloud Architecture Security Assessment - Tier 2</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {infrastructureCertifications.map((cert, index) => <div key={index} className="flex items-center justify-center p-4 bg-green-50 rounded-sm border border-green-200/60">
-                    <span className="text-sm font-medium text-gray-700 text-center">{cert}</span>
-                  </div>)}
+                {infrastructureCertifications.map((cert, index) => {
+                  const isGoogleCASA = cert === "Google CASA Tier 2 Certified";
+                  return (
+                    <div key={index} className={`flex items-center justify-center p-4 rounded-sm border ${
+                      isGoogleCASA 
+                        ? "bg-blue-50 border-blue-200/60 ring-2 ring-blue-100" 
+                        : "bg-green-50 border-green-200/60"
+                    }`}>
+                      <span className={`text-sm font-medium text-center ${
+                        isGoogleCASA ? "text-blue-800" : "text-gray-700"
+                      }`}>
+                        {cert}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
