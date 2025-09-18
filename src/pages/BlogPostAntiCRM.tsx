@@ -15,7 +15,7 @@ const BlogPostAntiCRM = () => {
   const post = {
     title: "The Anti-CRM: Why Founders Hate Tools That \"Scale\"",
     excerpt: "CRMs turn people into numbers. The anti-CRM does the opposite: It turns noise into context, threads into stories, and strangers into advocates.",
-    date: "2024-06-04",
+    date: "2025-05-04",
     readTime: "7 min read",
     image: "/lovable-uploads/42c901df-63ae-4a1a-8932-f1a19e666918.png"
   };
