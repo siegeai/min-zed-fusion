@@ -13,11 +13,11 @@ const VideoDemo = () => {
               
               {/* Overlay with play button */}
               <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                <div className="text-center">
+                <div className="text-center flex flex-col items-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
-                    <Play className="w-8 h-8 text-green-600 ml-1" fill="currentColor" />
+                    <Play className="w-8 h-8 text-green-600 translate-x-0.5" fill="currentColor" />
                   </div>
-                  <p className="mt-4 text-white font-medium drop-shadow-lg">Watch Demo Video</p>
+                  <p className="mt-4 text-white font-medium drop-shadow-lg">2 min Demo Video</p>
                   <p className="text-sm text-white/90 drop-shadow-lg">See min. in action</p>
                 </div>
               </div>

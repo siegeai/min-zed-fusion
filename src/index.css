@@ -99,3 +99,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Stripe button grey variant */
+.stripe-button-grey stripe-buy-button {
+  filter: grayscale(100%) brightness(1.1);
+}
+
+.stripe-button-grey stripe-buy-button:hover {
+  filter: grayscale(100%) brightness(1.2);
+}

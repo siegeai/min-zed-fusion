@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import StripeBuyButton from "./StripeBuyButton";
 const Pricing = () => {
   const plans = [{
     name: "Starter",
-    price: "$5",
+    price: "$7.99",
     period: "per user/month",
     description: "Perfect for small teams getting started",
     features: ["Up to 5 team members", "5,000 AI-processed emails/month", "Small task agents", "Basic integrations", "Email support", "Standard security"],
@@ -11,10 +12,10 @@ const Pricing = () => {
     popular: false
   }, {
     name: "Professional",
-    price: "$12",
+    price: "$12.99",
     period: "per user/month",
     description: "For growing teams that need more power",
-    features: ["Up to 25 team members", "20,000 AI-processed emails/month", "Large task Agents", "Semantic Email Search", "Advanced integrations", "Priority support", "Enhanced security", "Custom workflows", "Analytics dashboard"],
+    features: ["Up to 25 team members", "20,000 AI-processed emails/month", "Conversational agents", "Semantic Email Search", "Advanced integrations", "Priority support", "Enhanced security", "Custom workflows", "Analytics dashboard"],
     cta: "Start free trial",
     popular: true
   }, {
@@ -23,7 +24,7 @@ const Pricing = () => {
     period: "pricing",
     description: "For large organizations with specific needs",
     features: ["Unlimited team members", "Unlimited AI processing", "Self host", "All integrations", "24/7 dedicated support", "Enterprise security", "Custom AI training", "Advanced analytics", "SLA guarantees"],
-    cta: "Contact sales",
+    cta: "Contact us",
     popular: false
   }];
   return <div id="pricing" className="bg-gray-50 py-[30px]">
@@ -62,11 +63,23 @@ const Pricing = () => {
                   </li>)}
               </ul>
 
-              <Button className={`w-full ${plan.popular ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`} size="lg" asChild>
-                <a href={plan.cta === "Start free trial" ? "https://app.getmin.ai" : "#"}>
-                  {plan.cta}
-                </a>
-              </Button>
+              {plan.name === "Starter" ? (
+                <StripeBuyButton
+                  buyButtonId="buy_btn_1SECoRDQyHvuvnbroSoSoY1Y"
+                  publishableKey="pk_live_51NIHjUDQyHvuvnbrWg0Zl0bPtGYJM304NbQSROQJf41ytXH2Io2pCXAX7dVNXygsy2RCTs06CSnjnankR6dWoYG900OyqZq4hH"
+                />
+              ) : plan.name === "Professional" ? (
+                <StripeBuyButton
+                  buyButtonId="buy_btn_1SECpiDQyHvuvnbrcDj5OThL"
+                  publishableKey="pk_live_51NIHjUDQyHvuvnbrWg0Zl0bPtGYJM304NbQSROQJf41ytXH2Io2pCXAX7dVNXygsy2RCTs06CSnjnankR6dWoYG900OyqZq4hH"
+                />
+              ) : (
+                <Button className={`w-full ${plan.popular ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`} size="lg" asChild>
+                  <a href={plan.cta === "Contact us" ? "mailto:hello@getmin.ai" : "https://app.getmin.ai"}>
+                    {plan.cta}
+                  </a>
+                </Button>
+              )}
             </div>)}
         </div>
 
