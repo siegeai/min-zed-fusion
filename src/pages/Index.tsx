@@ -217,9 +217,9 @@ const Index = () => {
             
             <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
               <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to transform your external communication?</h2>
-              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join thousands of teams already using min. to streamline their customer, vendor, partner communication.</p>
+              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the min. community to streamline customer, vendor, partner communication.</p>
               <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
-                <a href="https://app.getmin.ai">
+                <a href="#pricing" onClick={scrollToPricing}>
                   Start your free trial
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
