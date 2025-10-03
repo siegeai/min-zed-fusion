@@ -17,7 +17,7 @@ const Index = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    const scrollTo = (location.state as any)?.scrollTo;
+    const scrollTo = (location.state as { scrollTo?: string })?.scrollTo;
     if (scrollTo) {
       const element = document.getElementById(scrollTo);
       if (element) {
@@ -36,6 +36,19 @@ const Index = () => {
       });
     }
   }, [location, navigate]);
+
+  const scrollToPricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById('pricing');
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -113,7 +126,7 @@ const Index = () => {
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                   <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
-                    <a href="https://app.getmin.ai">
+                    <a href="#pricing" onClick={scrollToPricing}>
                       <Download className="w-4 h-4 mr-2" />
                       Start free trial
                     </a>

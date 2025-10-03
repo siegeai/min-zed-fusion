@@ -107,8 +107,14 @@ const Header = () => {
           <Button variant="ghost" className="text-gray-600 hover:text-gray-900 font-normal" asChild>
             <a href="https://app.getmin.ai">Log in</a>
           </Button>
-          <Button className="bg-green-600/90 hover:bg-green-700/90 text-white font-normal" asChild>
-            <a href="https://app.getmin.ai">Get Started</a>
+          <Button className="bg-green-600/90 hover:bg-green-700/90 text-white font-normal">
+            <a 
+              href="#pricing" 
+              onClick={(e) => handleNavClick(e, 'pricing')}
+              className="w-full h-full flex items-center justify-center"
+            >
+              Get Started
+            </a>
           </Button>
         </div>
       </div>
