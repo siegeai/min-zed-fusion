@@ -15,7 +15,7 @@ const Pricing = () => {
     price: "$12.99",
     period: "per user/month",
     description: "For growing teams that need more power",
-    features: ["Up to 25 team members", "20,000 AI-processed emails/month", "Conversational agents", "Semantic Email Search", "Advanced integrations", "Priority support", "Enhanced security", "Custom workflows", "Analytics dashboard"],
+    features: ["Up to 25 team members", "50,000 AI-processed emails/month", "Conversational agents", "Semantic Email Search", "Advanced integrations", "Priority support", "Enhanced security", "Custom workflows", "Analytics dashboard"],
     cta: "Start free trial",
     popular: true
   }, {
