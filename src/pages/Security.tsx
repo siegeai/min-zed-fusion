@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
-import { Shield, ShieldCheck, Lock, Eye, Server, FileText, Users, CheckCircle, Award, Star } from "lucide-react";
+import { Shield, ShieldCheck, Lock, Eye, Server, FileText, Users, CheckCircle, Award, Star, Mail } from "lucide-react";
 const Security = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -248,9 +248,13 @@ const Security = () => {
                 Our team is available to discuss our security practices, provide detailed security documentation, 
                 or answer any compliance questions you may have.
               </p>
-              <p className="text-gray-700">
-                <strong>Contact Us:</strong> hello@getmin.ai
-              </p>
+              <a 
+                href="mailto:hello@getmin.ai?subject=Security Questions&body=Hello, I have questions about your security practices and would like to learn more."
+                className="inline-flex items-center justify-center px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-sm transition-colors duration-200 shadow-sm hover:shadow-md"
+              >
+                <Mail className="w-5 h-5 mr-2" />
+                Contact Us
+              </a>
             </div>
           </div>
         </main>

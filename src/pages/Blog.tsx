@@ -17,7 +17,7 @@ const Blog = () => {
       id: "the-anti-crm-why-founders-hate-tools-that-scale",
       title: "The Anti-CRM: Why Founders Hate Tools That \"Scale\"",
       excerpt: "CRMs turn people into numbers. The anti-CRM does the opposite: It turns noise into context, threads into stories, and strangers into advocates.",
-      date: "2024-05-04",
+      date: "2025-05-04",
       readTime: "7 min read",
       image: "/lovable-uploads/42c901df-63ae-4a1a-8932-f1a19e666918.png"
     },
@@ -34,7 +34,7 @@ const Blog = () => {
       title: "Why Email Still Runs the World",
       excerpt: "People love saying email is broken. But if email is broken, why does every serious conversation still start there? It's not broken. It's overloaded.",
       date: "2025-03-28",
-      readTime: "8 min read",
+      readTime: "5 min read",
       image: "/lovable-uploads/b024d1aa-d530-4714-848b-ec33ce842c25.png"
     },
   ];
