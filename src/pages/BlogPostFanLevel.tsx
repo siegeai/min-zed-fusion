@@ -4,6 +4,7 @@ import { Calendar, ArrowRight, Mail, Users, TrendingUp, Clock, MessageSquare, Ar
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const BlogPostFanLevel = () => {
   const [animationStep, setAnimationStep] = useState(0);
@@ -192,9 +193,52 @@ const BlogPostFanLevel = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 pointer-events-none">
+    <>
+      <Helmet>
+        <title>The Unscalable Secret of Fan-Level Communication | min. Blog</title>
+        <meta name="description" content="Some startups scale through brute force. Others win because people genuinely like talking to them. Learn how to maintain fan-level communication with shared inbox tools and team collaboration." />
+        <meta name="keywords" content="customer communication, team collaboration, shared inbox, collaborative inbox, startup communication, customer service, email management, fan-level communication, team inbox" />
+        <link rel="canonical" href="https://getmin.ai/blog/the-unscalable-secret-of-fan-level-communication" />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="The Unscalable Secret of Fan-Level Communication" />
+        <meta property="og:description" content="Some startups scale through brute force. Others win because people genuinely like talking to them." />
+        <meta property="og:url" content="https://getmin.ai/blog/the-unscalable-secret-of-fan-level-communication" />
+        <meta property="og:image" content="https://getmin.ai/lovable-uploads/689c31a2-2be9-46c2-8737-5a263b5b9ef4.png" />
+        <meta property="article:published_time" content="2025-04-15" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="The Unscalable Secret of Fan-Level Communication" />
+        <meta name="twitter:description" content="Some startups scale through brute force. Others win because people genuinely like talking to them." />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "The Unscalable Secret of Fan-Level Communication",
+            "description": "Some startups scale through brute force. Others win because people genuinely like talking to them.",
+            "image": "https://getmin.ai/lovable-uploads/689c31a2-2be9-46c2-8737-5a263b5b9ef4.png",
+            "datePublished": "2025-04-15",
+            "author": {
+              "@type": "Organization",
+              "name": "min.",
+              "url": "https://getmin.ai"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "min.",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://app.getmin.ai/lovable-uploads/7a37e7bc-ff2e-4686-ab5e-b539c538ad30.png"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="min-h-screen bg-white relative overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `
@@ -203,9 +247,9 @@ const BlogPostFanLevel = () => {
           `,
           backgroundSize: '40px 40px'
         }}></div>
-      </div>
+        </div>
 
-      <div className="relative z-10">
+        <div className="relative z-10">
         <Header />
         
         <main className="pt-32 pb-16">
@@ -366,8 +410,9 @@ const BlogPostFanLevel = () => {
         </main>
 
         <Footer />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ import InboxToSystemFlow from "@/components/InboxToSystemFlow";
 import SimplicityvsBureaucracy from "@/components/SimplicityvsBureaucracy";
 import { Heart } from "lucide-react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const BlogPostAntiCRM = () => {
   useEffect(() => {
@@ -21,9 +22,58 @@ const BlogPostAntiCRM = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 pointer-events-none">
+    <>
+      <Helmet>
+        <title>The Anti-CRM: Why Founders Hate Tools That "Scale" | min.</title>
+        <meta name="description" content="CRMs turn people into numbers. The anti-CRM does the opposite: It turns noise into context, threads into stories, and strangers into advocates. Why founders need relationship management, not sales pipelines." />
+        <meta name="keywords" content="anti-CRM, shared inbox, collaborative inbox, founder tools, relationship management, customer communication, team inbox, startup CRM alternative, email management for founders" />
+        <link rel="canonical" href="https://getmin.ai/blog/the-anti-crm-why-founders-hate-tools-that-scale" />
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="The Anti-CRM: Why Founders Hate Tools That Scale" />
+        <meta property="og:description" content="CRMs turn people into numbers. The anti-CRM does the opposite: It turns noise into context, threads into stories, and strangers into advocates." />
+        <meta property="og:url" content="https://getmin.ai/blog/the-anti-crm-why-founders-hate-tools-that-scale" />
+        <meta property="og:image" content="https://getmin.ai/lovable-uploads/42c901df-63ae-4a1a-8932-f1a19e666918.png" />
+        <meta property="article:published_time" content="2025-05-04" />
+        <meta property="article:author" content="min." />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="The Anti-CRM: Why Founders Hate Tools That Scale" />
+        <meta name="twitter:description" content="Why founders need relationship management, not sales pipelines. Learn about the anti-CRM approach to customer communication." />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "The Anti-CRM: Why Founders Hate Tools That Scale",
+            "description": "CRMs turn people into numbers. The anti-CRM does the opposite: It turns noise into context, threads into stories, and strangers into advocates.",
+            "image": "https://getmin.ai/lovable-uploads/42c901df-63ae-4a1a-8932-f1a19e666918.png",
+            "datePublished": "2025-05-04",
+            "dateModified": "2025-05-04",
+            "author": {
+              "@type": "Organization",
+              "name": "min.",
+              "url": "https://getmin.ai"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "min.",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://app.getmin.ai/lovable-uploads/7a37e7bc-ff2e-4686-ab5e-b539c538ad30.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://getmin.ai/blog/the-anti-crm-why-founders-hate-tools-that-scale"
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="min-h-screen bg-white relative overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-white to-blue-50/20"></div>
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `
@@ -32,9 +82,9 @@ const BlogPostAntiCRM = () => {
           `,
           backgroundSize: '40px 40px'
         }}></div>
-      </div>
+        </div>
 
-      <div className="relative z-10">
+        <div className="relative z-10">
         <Header />
         
         <main className="pt-32 pb-16">
@@ -168,8 +218,9 @@ const BlogPostAntiCRM = () => {
         </main>
 
         <Footer />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

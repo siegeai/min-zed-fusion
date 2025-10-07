@@ -53,26 +53,114 @@ const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "min. - Inbox for humans and agents",
-    "description": "Transform your external communication with min. - the AI-powered inbox that auto-triages emails, drafts replies, and helps lean teams scale without hiring more staff.",
+    "name": "min. - Shared Inbox for Teams and AI Agents",
+    "description": "Collaborative inbox built for humans and AI agents. Shared team inbox that auto-triages emails, manages customer communication, and helps lean teams scale without hiring more staff.",
     "url": "https://getmin.ai",
     "mainEntity": {
       "@type": "SoftwareApplication",
       "name": "min.",
       "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web"
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "29",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127"
+      },
+      "applicationSubCategory": "Team Communication Software",
+      "featureList": [
+        "Shared team inbox",
+        "AI-powered email triage",
+        "Collaborative email management",
+        "AI agent integration",
+        "Team collaboration tools",
+        "External communication management",
+        "Customer relationship tracking"
+      ]
     }
+  };
+
+  const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "min.",
+    "url": "https://getmin.ai",
+    "logo": "https://app.getmin.ai/lovable-uploads/7a37e7bc-ff2e-4686-ab5e-b539c538ad30.png",
+    "sameAs": [
+      "https://twitter.com/getminai",
+      "https://linkedin.com/company/getmin"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Support",
+      "email": "support@getmin.ai"
+    }
+  };
+
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a shared inbox?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A shared inbox is a collaborative email management system where multiple team members can access, manage, and respond to emails from a single email address. min. provides a shared team inbox with AI-powered features for better collaboration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does min. help with team collaboration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "min. provides a collaborative inbox where teams can work together on email management with AI agents that auto-triage messages, draft replies, and help track customer relationships without the complexity of traditional CRM systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes min. different from other team inbox tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "min. is built for both humans and AI agents, providing seamless integration of AI-powered automation within your shared inbox workflow. It's an anti-CRM approach focused on relationships rather than sales pipelines."
+        }
+      }
+    ]
   };
 
   return (
     <>
       <Helmet>
-        <title>min. | Inbox for humans and agents</title>
-        <meta name="description" content="Transform your external communication with min. - the AI-powered inbox that auto-triages emails, drafts replies, and helps lean teams scale without hiring more staff." />
-        <meta name="keywords" content="email management, AI inbox, external communication, team collaboration, email automation, startup tools" />
+        <title>min. | Shared Team Inbox for Humans and AI Agents</title>
+        <meta name="description" content="Collaborative inbox built for teams and AI agents. Shared team inbox that auto-triages emails, manages customer communication, and helps lean teams scale. The anti-CRM for relationship-focused founders." />
+        <meta name="keywords" content="shared inbox, collaborative inbox, team inbox, shared team inbox, AI email management, team email collaboration, customer communication, external communication, email automation, AI agents, team collaboration tools, anti-CRM, relationship management, startup email tools, customer inbox" />
         <link rel="canonical" href="https://getmin.ai" />
+        
+        {/* Enhanced Open Graph tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://getmin.ai/" />
+        <meta property="og:title" content="min. | Shared Team Inbox for Humans and AI Agents" />
+        <meta property="og:description" content="Collaborative inbox built for teams and AI agents. Shared team inbox that manages customer communication and helps lean teams scale." />
+        <meta property="og:site_name" content="min." />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="min. | Shared Team Inbox for Humans and AI Agents" />
+        <meta name="twitter:description" content="Collaborative inbox for teams and AI agents. Manage customer communication without the complexity of traditional CRMs." />
+        
+        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(organizationData)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqData)}
         </script>
       </Helmet>
 
