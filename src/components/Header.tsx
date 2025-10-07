@@ -96,7 +96,7 @@ const Header = () => {
             <Link to="/contact" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Contact
             </Link>
-            <a href="/demo" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+            <a href="https://app.getmin.ai/demo" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
               Demo
             </a>
           </nav>

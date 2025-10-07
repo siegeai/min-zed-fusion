@@ -60,7 +60,7 @@ const Footer = () => {
                 </a>
               </li>
               <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
-              <li><a href="/demo" className="hover:text-white transition-colors">Demo</a></li>
+              <li><a href="https://app.getmin.ai/demo" className="hover:text-white transition-colors">Demo</a></li>
             </ul>
           </div>
 
