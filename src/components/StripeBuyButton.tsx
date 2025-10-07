@@ -1,38 +1,34 @@
-import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from './ui/button';
 
 interface StripeBuyButtonProps {
   buyButtonId: string;
   publishableKey: string;
   variant?: 'default' | 'grey';
+  plan?: string;
 }
 
-const StripeBuyButton = ({ buyButtonId, publishableKey, variant = 'default' }: StripeBuyButtonProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+const StripeBuyButton = ({ buyButtonId, publishableKey, variant = 'default', plan }: StripeBuyButtonProps) => {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (containerRef.current) {
-      // Create the stripe-buy-button element
-      const stripeButton = document.createElement('stripe-buy-button');
-      stripeButton.setAttribute('buy-button-id', buyButtonId);
-      stripeButton.setAttribute('publishable-key', publishableKey);
-      
-      // Append to container
-      containerRef.current.appendChild(stripeButton);
-      
-      // Cleanup on unmount
-      return () => {
-        if (containerRef.current) {
-          containerRef.current.innerHTML = '';
-        }
-      };
-    }
-  }, [buyButtonId, publishableKey]);
+  const handleClick = () => {
+    // Navigate to join community page with Stripe details in URL params
+    const params = new URLSearchParams({
+      buyButtonId,
+      publishableKey,
+      ...(plan && { plan })
+    });
+    navigate(`/join-community?${params.toString()}`);
+  };
 
   return (
-    <div 
-      ref={containerRef} 
-      className={`w-full flex justify-center stripe-button-container ${variant === 'grey' ? 'stripe-button-grey' : ''}`}
-    />
+    <Button 
+      className={`w-full ${variant === 'grey' ? 'bg-gray-100 hover:bg-gray-200 text-gray-900' : 'bg-green-600 hover:bg-green-700 text-white'}`}
+      size="lg"
+      onClick={handleClick}
+    >
+      Start 7-day trial
+    </Button>
   );
 };
 
