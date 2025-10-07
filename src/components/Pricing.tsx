@@ -67,11 +67,14 @@ const Pricing = () => {
                 <StripeBuyButton
                   buyButtonId="buy_btn_1SECoRDQyHvuvnbroSoSoY1Y"
                   publishableKey="pk_live_51NIHjUDQyHvuvnbrWg0Zl0bPtGYJM304NbQSROQJf41ytXH2Io2pCXAX7dVNXygsy2RCTs06CSnjnankR6dWoYG900OyqZq4hH"
+                  plan="Starter"
+                  variant="grey"
                 />
               ) : plan.name === "Professional" ? (
                 <StripeBuyButton
                   buyButtonId="buy_btn_1SECpiDQyHvuvnbrcDj5OThL"
                   publishableKey="pk_live_51NIHjUDQyHvuvnbrWg0Zl0bPtGYJM304NbQSROQJf41ytXH2Io2pCXAX7dVNXygsy2RCTs06CSnjnankR6dWoYG900OyqZq4hH"
+                  plan="Professional"
                 />
               ) : (
                 <Button className={`w-full ${plan.popular ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`} size="lg" asChild>
