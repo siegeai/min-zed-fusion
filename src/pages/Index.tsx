@@ -17,6 +17,7 @@ const Index = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
+    // Handle scrolling from location.state (internal navigation)
     const scrollTo = (location.state as { scrollTo?: string })?.scrollTo;
     if (scrollTo) {
       const element = document.getElementById(scrollTo);
@@ -34,6 +35,22 @@ const Index = () => {
         replace: true,
         state: {}
       });
+    }
+    
+    // Handle scrolling from URL hash (direct links like #pricing)
+    if (location.hash) {
+      const elementId = location.hash.replace('#', '');
+      setTimeout(() => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          const headerHeight = 80;
+          const top = element.offsetTop - headerHeight;
+          window.scrollTo({
+            top,
+            behavior: 'smooth'
+          });
+        }
+      }, 100); // Small delay to ensure page is fully rendered
     }
   }, [location, navigate]);
 
