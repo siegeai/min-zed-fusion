@@ -138,7 +138,7 @@ const JoinCommunity = () => {
               </h1>
               
               <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light mb-4">
-                Join our <span className="text-green-600/90 font-medium">Discord community</span> to get the most out of min.
+                Join our <a href="https://discord.gg/2prAr9qAwG" target="_blank" rel="noopener noreferrer" className="text-green-600/90 font-medium hover:text-green-700 underline decoration-green-600/30 hover:decoration-green-700 transition-colors">Discord community</a> to get the most out of min.
               </p>
               
               <p className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
@@ -181,19 +181,19 @@ const JoinCommunity = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch">
                 <Button 
-                  size="lg" 
-                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white px-8 py-6 text-lg font-medium shadow-lg"
+                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-medium shadow-lg h-auto rounded-lg flex items-center justify-center"
+                  style={{ padding: '1px 2rem', fontSize: '0.98rem', fontWeight: '400', height: '45px' }}
                   asChild
                 >
-                  <a href="https://discord.gg/2prAr9qAwG" target="_blank" rel="noopener noreferrer">
+                  <a href="https://discord.gg/2prAr9qAwG" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Users className="w-5 h-5 mr-2" />
                     Join Discord Community
                   </a>
                 </Button>
                 
-                <div ref={stripeContainerRef} className="stripe-trial-button"></div>
+                <div ref={stripeContainerRef} className="stripe-trial-button flex items-center"></div>
               </div>
             </div>
 
