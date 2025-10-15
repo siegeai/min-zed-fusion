@@ -236,9 +236,11 @@ const Index = () => {
                       Start free trial
                     </a>
                   </Button>
-                  <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal border-green-200/50 hover:bg-green-50/50">
-                    View demo
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                  <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal border-green-200/50 hover:bg-green-50/50" asChild>
+                    <a href="https://app.getmin.ai/demo" target="_blank" rel="noopener noreferrer">
+                      Demo Playground
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
                   </Button>
                 </div>
                 
