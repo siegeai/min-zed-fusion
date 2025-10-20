@@ -70,8 +70,8 @@ const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "min. - Shared Inbox for Teams and AI Agents",
-    "description": "Collaborative inbox built for humans and AI agents. Shared team inbox that auto-triages emails, manages customer communication, and helps lean teams scale without hiring more staff.",
+    "name": "min. - AI-Powered Shared Inbox for Lean Teams",
+    "description": "AI-powered shared inbox for startups and small teams. Auto-triage emails, manage customer relationships, and scale communication without hiring. Built for founders and lean teams.",
     "url": "https://getmin.ai",
     "mainEntity": {
       "@type": "SoftwareApplication",
@@ -90,13 +90,13 @@ const Index = () => {
       },
       "applicationSubCategory": "Team Communication Software",
       "featureList": [
-        "Shared team inbox",
-        "AI-powered email triage",
-        "Collaborative email management",
-        "AI agent integration",
-        "Team collaboration tools",
-        "External communication management",
-        "Customer relationship tracking"
+        "AI-powered shared inbox",
+        "Automatic email triage",
+        "Customer communication management",
+        "AI agent collaboration",
+        "Relationship tracking",
+        "Email automation for teams",
+        "Scale support without hiring"
       ]
     }
   };
@@ -124,26 +124,26 @@ const Index = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is a shared inbox?",
+        "name": "What is an AI-powered shared inbox?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A shared inbox is a collaborative email management system where multiple team members can access, manage, and respond to emails from a single email address. min. provides a shared team inbox with AI-powered features for better collaboration."
+          "text": "An AI-powered shared inbox is a collaborative email platform where multiple team members can manage customer communication with AI assistance. min. auto-triages emails, drafts responses, and tracks relationships so lean teams can scale without hiring more staff."
         }
       },
       {
         "@type": "Question",
-        "name": "How does min. help with team collaboration?",
+        "name": "How does min. help startups scale customer communication?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "min. provides a collaborative inbox where teams can work together on email management with AI agents that auto-triage messages, draft replies, and help track customer relationships without the complexity of traditional CRM systems."
+          "text": "min. helps startups scale by automatically triaging emails, managing customer relationships, and deploying AI agents that work alongside your team. This eliminates the need to hire additional support staff as email volume grows."
         }
       },
       {
         "@type": "Question",
-        "name": "What makes min. different from other team inbox tools?",
+        "name": "Is min. a CRM or helpdesk?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "min. is built for both humans and AI agents, providing seamless integration of AI-powered automation within your shared inbox workflow. It's an anti-CRM approach focused on relationships rather than sales pipelines."
+          "text": "min. is neither a traditional CRM nor a helpdesk. It's an AI-powered shared inbox focused on relationships rather than deals. Built for founders and small teams who want to manage all external communication in one place without complex software."
         }
       }
     ]
@@ -152,22 +152,22 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Shared Team Inbox for Humans and AI Agents</title>
-        <meta name="description" content="Collaborative inbox built for teams and AI agents. Shared team inbox that auto-triages emails, manages customer communication, and helps lean teams scale. The anti-CRM for relationship-focused founders." />
-        <meta name="keywords" content="shared inbox, collaborative inbox, team inbox, shared team inbox, AI email management, team email collaboration, customer communication, external communication, email automation, AI agents, team collaboration tools, anti-CRM, relationship management, startup email tools, customer inbox" />
+        <title>min. | AI-Powered Shared Inbox for Startups & Small Teams</title>
+        <meta name="description" content="AI-powered shared inbox for lean teams. Auto-triage emails, manage customer relationships, and scale communication without hiring. Built for startups, dev shops, and small businesses." />
+        <meta name="keywords" content="AI shared inbox, team inbox software, collaborative email management, startup email tool, customer communication platform, AI email triage, shared team inbox, email automation for teams, small business inbox, startup CRM alternative, AI agents for email, scale customer support, lean team tools" />
         <link rel="canonical" href="https://getmin.ai" />
         
         {/* Enhanced Open Graph tags */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
-        <meta property="og:title" content="min. | Shared Team Inbox for Humans and AI Agents" />
-        <meta property="og:description" content="Collaborative inbox built for teams and AI agents. Shared team inbox that manages customer communication and helps lean teams scale." />
+        <meta property="og:title" content="min. | AI-Powered Shared Inbox for Startups & Small Teams" />
+        <meta property="og:description" content="Scale customer communication without hiring. AI-powered inbox that auto-triages emails and manages relationships for lean teams." />
         <meta property="og:site_name" content="min." />
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="min. | Shared Team Inbox for Humans and AI Agents" />
-        <meta name="twitter:description" content="Collaborative inbox for teams and AI agents. Manage customer communication without the complexity of traditional CRMs." />
+        <meta name="twitter:title" content="min. | AI-Powered Shared Inbox for Lean Teams" />
+        <meta name="twitter:description" content="Auto-triage emails, manage customer relationships, and scale communication without hiring more staff." />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -223,11 +223,24 @@ const Index = () => {
               <div className="text-center mb-12 py-[40px] opacity-0 animate-fade-in" style={{
                 animationDelay: '100ms'
               }}>
-                <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
-                  The inbox for what's{" "}
-                  <span className="text-green-600/90">next</span>
-                </h1>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min. is where lean teams and agents get sh*t done - together.</p>
+                <div className="space-y-4 mb-8">
+                  <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 leading-tight">
+                    AI-Powered Team Inbox
+                  </h1>
+                  <p className="text-2xl md:text-3xl font-light text-gray-700">
+                    for <span className="text-green-600/90 font-medium">Lean Teams & Agents</span>
+                  </p>
+                  <div className="pt-1">
+                    <p className="text-sm md:text-base text-gray-500 font-light tracking-[0.15em] uppercase">
+                      Designed for the <span className="text-cyan-400" style={{
+                        textShadow: '0 0 8px rgba(34, 211, 238, 0.5), 0 0 15px rgba(34, 211, 238, 0.2)'
+                      }}>Age of Intelligence</span>
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
+                  Scale customer communication without hiring. Auto-triage emails, manage relationships, and let AI agents work alongside your team.
+                </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                   <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
@@ -271,16 +284,16 @@ const Index = () => {
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">10x</div>
-                      <div className="text-gray-600 text-sm font-light">Faster email processing</div>
+                      <div className="text-3xl font-semibold text-gray-900 mb-2">80%</div>
+                      <div className="text-gray-600 text-sm font-light">Less time on email triage</div>
                     </div>
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">95%</div>
-                      <div className="text-gray-600 text-sm font-light">Accuracy with AI agents</div>
+                      <div className="text-3xl font-semibold text-gray-900 mb-2">2 min</div>
+                      <div className="text-gray-600 text-sm font-light">Average setup time</div>
                     </div>
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">50+</div>
-                      <div className="text-gray-600 text-sm font-light">Integrations available</div>
+                      <div className="text-3xl font-semibold text-gray-900 mb-2">Zero</div>
+                      <div className="text-gray-600 text-sm font-light">Extra headcount needed</div>
                     </div>
                   </div>
                 </div>
@@ -323,8 +336,8 @@ const Index = () => {
             </div>
             
             <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to transform your external communication?</h2>
-              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the min. community to streamline customer, vendor, partner communication.</p>
+              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Scale Your Team's Communication with AI</h2>
+              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join hundreds of startups and small teams using min. to manage customer, vendor, and partner emails without hiring more staff.</p>
               <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
                 <a href="#pricing" onClick={scrollToPricing}>
                   Start your free trial
