@@ -239,7 +239,7 @@ const Index = () => {
                   </div>
                 </div>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
-                  Scale customer communication without hiring. Auto-triage emails, manage relationships, and let AI agents work alongside your team.
+                  Your inbox, with a brain. Deliver fan-level responses at scale—without the chaos.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
