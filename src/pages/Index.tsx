@@ -160,14 +160,23 @@ const Index = () => {
         {/* Enhanced Open Graph tags */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
-        <meta property="og:title" content="min. | AI-Powered Shared Inbox for Startups & Small Teams" />
-        <meta property="og:description" content="Scale customer communication without hiring. AI-powered inbox that auto-triages emails and manages relationships for lean teams." />
+        <meta property="og:title" content="min. | AI-Powered Team Inbox for Lean Teams & AI Agents" />
+        <meta property="og:description" content="Auto-triage emails, manage relationships, and scale communication without hiring more staff. Built for the Age of Intelligence." />
+        <meta property="og:image" content="https://getmin.ai/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="min. - AI-powered team inbox for lean teams and AI agents. Auto-triage emails and scale without hiring." />
         <meta property="og:site_name" content="min." />
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="min. | AI-Powered Shared Inbox for Lean Teams" />
-        <meta name="twitter:description" content="Auto-triage emails, manage customer relationships, and scale communication without hiring more staff." />
+        <meta name="twitter:url" content="https://getmin.ai/" />
+        <meta name="twitter:title" content="min. | AI-Powered Team Inbox for Lean Teams & AI Agents" />
+        <meta name="twitter:description" content="Auto-triage emails, manage relationships, and scale communication without hiring more staff. 2-min setup. Zero extra headcount." />
+        <meta name="twitter:image" content="https://getmin.ai/og-image.png" />
+        <meta name="twitter:image:alt" content="min. - AI-powered team inbox for lean teams and AI agents" />
+        <meta name="twitter:creator" content="@getminai" />
+        <meta name="twitter:site" content="@getminai" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
