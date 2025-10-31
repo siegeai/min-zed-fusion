@@ -7,7 +7,7 @@ import FeatureDeepDive from "@/components/FeatureDeepDive";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -194,27 +194,27 @@ const Index = () => {
         {/* Multiple layered backgrounds */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
           {/* Base gradient layer */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-white"></div>
           
-          {/* Grid pattern */}
-          <div className="absolute inset-0 opacity-[0.02]" style={{
+          {/* Ultra-subtle grid pattern */}
+          <div className="absolute inset-0 opacity-[0.015]" style={{
             backgroundImage: `
-              linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
+              linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '40px 40px'
+            backgroundSize: '64px 64px'
           }}></div>
           
           {/* Subtle dot pattern */}
-          <div className="absolute inset-0 opacity-[0.015]" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
-            backgroundSize: '24px 24px'
+          <div className="absolute inset-0 opacity-[0.01]" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.1) 1px, transparent 0)`,
+            backgroundSize: '32px 32px'
           }}></div>
           
-          {/* Organic shapes */}
-          <div className="absolute top-0 left-0 w-96 h-96 bg-green-100/10 rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
-          <div className="absolute top-1/3 right-0 w-80 h-80 bg-green-200/8 rounded-full blur-3xl transform translate-x-40"></div>
-          <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-green-100/12 rounded-full blur-3xl transform translate-y-36"></div>
+          {/* Minimal organic shapes */}
+          <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-green-50/20 rounded-full blur-3xl transform -translate-x-1/4 -translate-y-1/4"></div>
+          <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-green-50/15 rounded-full blur-3xl transform translate-x-1/4"></div>
+          <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-green-50/20 rounded-full blur-3xl transform translate-y-1/4"></div>
         </div>
         
         <div className="relative" style={{ zIndex: 2 }}>
@@ -227,38 +227,36 @@ const Index = () => {
           </div>
           
           {/* Hero Section */}
-          <main className="pt-40">
+          <main className="pt-32 pb-20">
             <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-12 py-[40px] opacity-0 animate-fade-in" style={{
+              <div className="text-center mb-16 py-12 opacity-0 animate-fade-in-up" style={{
                 animationDelay: '100ms'
               }}>
-                <div className="space-y-4 mb-8">
-                  <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 leading-tight">
+                <div className="space-y-6 mb-12">
+                  <h1 className="text-6xl md:text-7xl lg:text-8xl font-light text-gray-900 leading-[1.1] tracking-tight text-balance">
                     AI-Powered Team Inbox
                   </h1>
-                  <p className="text-2xl md:text-3xl font-light text-gray-700">
-                    for <span className="text-green-600/90 font-medium">Lean Teams & Agents</span>
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-600 leading-relaxed">
+                    for <span className="text-green-600 font-normal">Lean Teams & Agents</span>
                   </p>
-                  <div className="pt-1">
-                    <p className="text-sm md:text-base text-gray-500 font-light tracking-[0.15em] uppercase">
-                      Designed for the <span className="text-cyan-400" style={{
-                        textShadow: '0 0 8px rgba(34, 211, 238, 0.5), 0 0 15px rgba(34, 211, 238, 0.2)'
-                      }}>Age of Intelligence</span>
+                  <div className="pt-4">
+                    <p className="text-xs md:text-sm text-gray-400 font-light tracking-[0.2em] uppercase">
+                      Designed for the <span className="text-green-600/80">Age of Intelligence</span>
                     </p>
                   </div>
                 </div>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
+                <p className="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
                   Your inbox, with a brain. Deliver fan-level responses at scale—without the chaos.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                  <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                  <Button size="lg" className="bg-black hover:bg-gray-900 text-white px-10 py-6 text-base font-normal rounded-full shadow-lg hover:shadow-xl transition-all duration-300" asChild>
                     <a href="#pricing" onClick={scrollToPricing}>
-                      <Download className="w-4 h-4 mr-2" />
                       Start free trial
+                      <ArrowRight className="w-4 h-4 ml-2" />
                     </a>
                   </Button>
-                  <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal border-green-200/50 hover:bg-green-50/50" asChild>
+                  <Button variant="outline" size="lg" className="px-10 py-6 text-base font-normal border border-gray-200 hover:bg-gray-50 rounded-full bg-white/80 backdrop-blur-sm transition-all duration-300" asChild>
                     <a href="https://app.getmin.ai/demo" target="_blank" rel="noopener noreferrer">
                       Demo Playground
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -266,43 +264,43 @@ const Index = () => {
                   </Button>
                 </div>
                 
-                <p className="text-gray-500 text-sm flex items-center justify-center gap-2 font-light">
+                <p className="text-gray-400 text-sm flex items-center justify-center gap-2 font-light">
                   <span>🚀</span>
                   Built for teams that automate, not staff up
                 </p>
               </div>
 
               {/* Features above video */}
-              <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-fade-in" style={{
+              <div className="max-w-6xl mx-auto mb-16 opacity-0 animate-fade-in-up" style={{
                 animationDelay: '200ms'
               }}>
                 <Features />
               </div>
 
               {/* Video Demo Section */}
-              <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-fade-in" style={{
+              <div className="max-w-6xl mx-auto mb-16 opacity-0 animate-fade-in-up" style={{
                 animationDelay: '300ms'
               }}>
                 <VideoDemo />
               </div>
 
               {/* Stats section - positioned below video */}
-              <div className="max-w-5xl mx-auto opacity-0 animate-fade-in" style={{
+              <div className="max-w-5xl mx-auto opacity-0 animate-fade-in-up" style={{
                 animationDelay: '400ms'
               }}>
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div className="bg-white/60 backdrop-blur-md rounded-3xl shadow-sm border border-gray-100/80 p-12">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                     <div>
-                      <div className="text-3xl font-semibold text-gray-900 mb-2">80%</div>
-                      <div className="text-gray-600 text-sm font-light">Less time on email triage</div>
+                      <div className="text-5xl font-light text-gray-900 mb-3">80%</div>
+                      <div className="text-gray-500 text-sm font-light tracking-wide">Less time on email triage</div>
                     </div>
                     <div>
-                      <div className="text-3xl font-semibold text-gray-900 mb-2">2 min</div>
-                      <div className="text-gray-600 text-sm font-light">Average setup time</div>
+                      <div className="text-5xl font-light text-gray-900 mb-3">2 min</div>
+                      <div className="text-gray-500 text-sm font-light tracking-wide">Average setup time</div>
                     </div>
                     <div>
-                      <div className="text-3xl font-semibold text-gray-900 mb-2">Zero</div>
-                      <div className="text-gray-600 text-sm font-light">Extra headcount needed</div>
+                      <div className="text-5xl font-light text-gray-900 mb-3">Zero</div>
+                      <div className="text-gray-500 text-sm font-light tracking-wide">Extra headcount needed</div>
                     </div>
                   </div>
                 </div>
@@ -311,43 +309,43 @@ const Index = () => {
           </main>
 
           {/* Feature Deep Dive Section */}
-          <div id="features" className="opacity-0 animate-fade-in" style={{
+          <div id="features" className="opacity-0 animate-fade-in-up" style={{
             animationDelay: '500ms'
           }}>
             <FeatureDeepDive />
           </div>
 
           {/* Testimonials Section */}
-          <div id="testimonials" className="opacity-0 animate-fade-in" style={{
+          <div id="testimonials" className="opacity-0 animate-fade-in-up" style={{
             animationDelay: '600ms'
           }}>
             <Testimonials />
           </div>
 
           {/* Pricing Section */}
-          <div id="pricing" className="opacity-0 animate-fade-in" style={{
+          <div id="pricing" className="opacity-0 animate-fade-in-up" style={{
             animationDelay: '700ms'
           }}>
             <Pricing />
           </div>
 
           {/* CTA Section */}
-          <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-fade-in" style={{
+          <div className="py-24 bg-black relative overflow-hidden opacity-0 animate-fade-in-up" style={{
             animationDelay: '800ms'
           }}>
             {/* CTA background layers */}
             <div className="absolute inset-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>
-              <div className="absolute top-0 left-0 w-full h-full opacity-10">
-                <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-white rounded-full blur-2xl"></div>
-                <div className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-white rounded-full blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+              <div className="absolute top-0 left-0 w-full h-full opacity-5">
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-600 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-green-500 rounded-full blur-3xl"></div>
               </div>
             </div>
             
             <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Scale Your Team's Communication with AI</h2>
-              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join hundreds of startups and small teams using min. to manage customer, vendor, and partner emails without hiring more staff.</p>
-              <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
+              <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">Scale Your Team's Communication with AI</h2>
+              <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">Join hundreds of startups and small teams using min. to manage customer, vendor, and partner emails without hiring more staff.</p>
+              <Button size="lg" className="bg-white text-black hover:bg-gray-100 font-normal px-10 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300" asChild>
                 <a href="#pricing" onClick={scrollToPricing}>
                   Start your free trial
                   <ArrowRight className="w-4 h-4 ml-2" />

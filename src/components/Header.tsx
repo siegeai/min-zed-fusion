@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <header 
-      className="w-full px-6 py-4 bg-white/95 backdrop-blur-md border-b border-green-100/40 shadow-sm" 
+      className="w-full px-8 py-5 bg-white/80 backdrop-blur-xl border-b border-gray-100/60" 
       style={{ 
         position: 'fixed', 
         top: 0, 
@@ -53,11 +53,11 @@ const Header = () => {
       }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-12">
           <div className="flex items-center space-x-2">
             <Link 
               to="/" 
-              className="font-medium text-xl text-gray-900 hover:text-green-600 transition-colors"
+              className="font-light text-2xl text-gray-900 hover:text-gray-700 transition-colors tracking-tight"
               onClick={handleLogoClick}
             >
               min.
@@ -65,38 +65,38 @@ const Header = () => {
           </div>
           
           
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-8">
             <a 
               href="#features" 
-              className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors"
+              className="text-gray-500 hover:text-gray-900 text-sm font-light transition-colors"
               onClick={(e) => handleNavClick(e, 'features')}
             >
               Features
             </a>
             <a 
               href="#testimonials" 
-              className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors"
+              className="text-gray-500 hover:text-gray-900 text-sm font-light transition-colors"
               onClick={(e) => handleNavClick(e, 'testimonials')}
             >
               Testimonials
             </a>
             <a 
               href="#pricing" 
-              className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors"
+              className="text-gray-500 hover:text-gray-900 text-sm font-light transition-colors"
               onClick={(e) => handleNavClick(e, 'pricing')}
             >
               Pricing
             </a>
-            <Link to="/blog" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+            <Link to="/blog" className="text-gray-500 hover:text-gray-900 text-sm font-light transition-colors">
               Blog
             </Link>
-            <Link to="/careers" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+            <Link to="/careers" className="text-gray-500 hover:text-gray-900 text-sm font-light transition-colors">
               Careers
             </Link>
-            <Link to="/contact" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+            <Link to="/contact" className="text-gray-500 hover:text-gray-900 text-sm font-light transition-colors">
               Contact
             </Link>
-            <a href="https://app.getmin.ai/demo" className="text-gray-600 hover:text-gray-900 text-sm font-normal transition-colors">
+            <a href="https://app.getmin.ai/demo" className="text-gray-500 hover:text-gray-900 text-sm font-light transition-colors">
               Demo
             </a>
           </nav>
@@ -104,10 +104,10 @@ const Header = () => {
 
         
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" className="text-gray-600 hover:text-gray-900 font-normal" asChild>
+          <Button variant="ghost" className="text-gray-500 hover:text-gray-900 font-light" asChild>
             <a href="https://app.getmin.ai">Log in</a>
           </Button>
-          <Button className="bg-green-600/90 hover:bg-green-700/90 text-white font-normal">
+          <Button className="bg-black hover:bg-gray-900 text-white font-light rounded-full px-6 transition-all duration-300" asChild>
             <a 
               href="#pricing" 
               onClick={(e) => handleNavClick(e, 'pricing')}

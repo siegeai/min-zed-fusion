@@ -34,37 +34,35 @@ const FeatureDeepDive = () => {
     image: "/lovable-uploads/debcfb52-42ee-41fe-8354-2a291966e328.png"
   }];
 
-  return <div id="features" className="py-16 bg-white relative">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-4">
+  return <div id="features" className="py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 tracking-tight">
             Powerful features for AI first teams
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto font-light">
             Everything you need to transform your external communication workflow
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {features.map((feature, index) => <div key={index} className="">
-              {/* Feature Image with green rainbow gradient border */}
-              <div className="relative h-48 overflow-hidden bg-gray-50 border-transparent bg-gradient-to-r from-emerald-200 via-green-300 via-lime-400 via-emerald-500 via-green-600 via-teal-500 via-emerald-400 via-lime-300 to-green-200 rounded-sm p-[3px]">
-                <div className="w-full h-full bg-gray-50 rounded-sm overflow-hidden">
-                  <img src={feature.image} alt={feature.title} className="w-full h-full object-cover object-top" />
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {features.map((feature, index) => <div key={index} className="group">
+              {/* Feature Image with subtle border */}
+              <div className="relative h-56 overflow-hidden bg-gray-50 rounded-2xl border border-gray-100 mb-6">
+                <img src={feature.image} alt={feature.title} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
               </div>
 
               {/* Feature Content */}
-              <div className="p-6 px-0 mr-[30px]">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 rounded-lg bg-transparent px-0">
+              <div className="px-2">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-green-50 group-hover:bg-green-100 transition-colors duration-300">
                     {feature.icon}
                   </div>
-                  <h3 className="text-gray-900 font-normal text-lg">
+                  <h3 className="text-gray-900 font-light text-xl">
                     {feature.title}
                   </h3>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed font-extralight">
+                <p className="text-gray-500 text-sm leading-relaxed font-light">
                   {feature.description}
                 </p>
               </div>

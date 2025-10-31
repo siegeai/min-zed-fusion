@@ -97,6 +97,16 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
 

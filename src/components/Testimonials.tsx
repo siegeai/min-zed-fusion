@@ -22,45 +22,45 @@ const Testimonials = () => {
     avatar: "/lovable-uploads/7881779d-f863-4f54-8cf0-9e132b8ae3ca.png"
   }];
 
-  return <div id="testimonials" className="py-16 bg-white relative">
+  return <div id="testimonials" className="py-24 bg-white relative">
       {/* Subtle background layer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-green-50/20 via-white to-green-50/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 via-white to-white"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-medium text-gray-900 mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 tracking-tight">
             Trusted by founding teams
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto font-light">
             See how teams are transforming their communication workflows with min.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => <div key={index} className="bg-green-100/17 backdrop-blur-sm p-8 border-2 border-grey-100/40 rounded-none">
-              <blockquote className="text-gray-700 mb-6 leading-relaxed font-light">
+          {testimonials.map((testimonial, index) => <div key={index} className="bg-white border border-gray-100 p-10 rounded-2xl hover:border-gray-200 transition-all duration-300 group">
+              <blockquote className="text-gray-600 mb-8 leading-relaxed font-light text-base">
                 "{testimonial.quote}"
               </blockquote>
               <div className="flex items-center">
                 {testimonial.avatar ? (
                   <Avatar className="w-12 h-12 mr-4">
                     <AvatarImage src={testimonial.avatar} alt={testimonial.author} />
-                    <AvatarFallback className="bg-green-100/40 text-green-600/80 font-medium text-lg">
+                    <AvatarFallback className="bg-gray-100 text-gray-600 font-light">
                       {testimonial.author.split(" ").map(n => n[0]).join("")}
                     </AvatarFallback>
                   </Avatar>
                 ) : (
-                  <div className="w-12 h-12 bg-green-100/40 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-green-600/80 font-medium text-lg">
+                  <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-gray-600 font-light">
                       {testimonial.author.split(" ").map(n => n[0]).join("")}
                     </span>
                   </div>
                 )}
                 <div>
-                  <div className="font-medium text-gray-900">
+                  <div className="font-light text-gray-900">
                     {testimonial.author}
                   </div>
-                  <div className="text-gray-600 text-sm font-light">
+                  <div className="text-gray-500 text-sm font-light">
                     {testimonial.role}, {testimonial.company}
                   </div>
                 </div>
