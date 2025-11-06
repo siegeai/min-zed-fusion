@@ -33,7 +33,7 @@ const Footer = () => {
             <div className="">
               <span className="font-semibold text-xl">min.</span>
             </div>
-            <p className="text-gray-400 max-w-md leading-relaxed">The AI-powered inbox for humans and agents, helping teams auto-triage emails, draft replies, and scale without hiring more staff.</p>
+            <p className="text-gray-400 max-w-md leading-relaxed">CRM + Helpdesk vibes. Built on Gmail. Zero bloat. Auto-sort emails, track follow-ups, stay aligned - scale without hiring more.</p>
           </div>
 
           <div>

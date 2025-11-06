@@ -2,28 +2,38 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import StripeBuyButton from "./StripeBuyButton";
 const Pricing = () => {
+  const sharedFeatures = [
+    "All team inboxes in one view",
+    "Gist for every thread",
+    "Auto-sort with lanes",
+    "Conversation history for every contact",
+    "Small-task Agents",
+    "Conversational Agents",
+    "Team collaboration & notes",
+  ];
+
   const plans = [{
-    name: "Starter",
-    price: "$7.99",
-    period: "per user/month",
-    description: "Perfect for small teams getting started",
-    features: ["Up to 5 team members", "5,000 AI-processed emails/month", "Small task agents", "Basic integrations", "Email support", "Standard security"],
-    cta: "Start free trial",
+    name: "Solo",
+    price: "Free",
+    period: "forever",
+    description: "For solo founders getting started",
+    features: sharedFeatures,
+    cta: "Start free in 36 seconds",
     popular: false
   }, {
-    name: "Professional",
-    price: "$12.99",
+    name: "Teams",
+    price: "$15.95",
     period: "per user/month",
-    description: "For growing teams that need more power",
-    features: ["Up to 25 team members", "50,000 AI-processed emails/month", "Conversational agents", "Semantic Email Search", "Advanced integrations", "Priority support", "Enhanced security", "Custom workflows", "Analytics dashboard"],
+    description: "For growing teams that ship fast",
+    features: sharedFeatures,
     cta: "Start free trial",
     popular: true
   }, {
     name: "Enterprise",
     price: "Custom",
     period: "pricing",
-    description: "For large organizations with specific needs",
-    features: ["Unlimited team members", "Unlimited AI processing", "Self host", "All integrations", "24/7 dedicated support", "Enterprise security", "Custom AI training", "Advanced analytics", "SLA guarantees"],
+    description: "For 25+ team members",
+    features: sharedFeatures,
     cta: "Contact us",
     popular: false
   }];
@@ -31,10 +41,10 @@ const Pricing = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
-            Simple, transparent pricing
+            Start free. Scale when ready.
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-            Choose the plan that's right for your team. Start with a 7-day free trial.
+            Same powerful features. Pay only when your team grows.
           </p>
         </div>
 
@@ -50,7 +60,8 @@ const Pricing = () => {
                 <h3 className="text-xl font-medium text-gray-900 mb-2">{plan.name}</h3>
                 <div className="mb-2">
                   <span className="text-4xl font-medium text-gray-900">{plan.price}</span>
-                  {plan.price !== "Custom" && <span className="text-gray-600 ml-1">/{plan.period}</span>}
+                  {plan.price === "Free" && <span className="text-gray-600 ml-1">{plan.period}</span>}
+                  {plan.price !== "Free" && plan.price !== "Custom" && <span className="text-gray-600 ml-1">/{plan.period}</span>}
                   {plan.price === "Custom" && <span className="text-gray-600 ml-1">{plan.period}</span>}
                 </div>
                 <p className="text-gray-600 text-sm font-light">{plan.description}</p>
@@ -63,32 +74,21 @@ const Pricing = () => {
                   </li>)}
               </ul>
 
-              {plan.name === "Starter" ? (
-                <StripeBuyButton
-                  buyButtonId="buy_btn_1SECoRDQyHvuvnbroSoSoY1Y"
-                  publishableKey="pk_live_51NIHjUDQyHvuvnbrWg0Zl0bPtGYJM304NbQSROQJf41ytXH2Io2pCXAX7dVNXygsy2RCTs06CSnjnankR6dWoYG900OyqZq4hH"
-                  plan="Starter"
-                  variant="grey"
-                />
-              ) : plan.name === "Professional" ? (
-                <StripeBuyButton
-                  buyButtonId="buy_btn_1SECpiDQyHvuvnbrcDj5OThL"
-                  publishableKey="pk_live_51NIHjUDQyHvuvnbrWg0Zl0bPtGYJM304NbQSROQJf41ytXH2Io2pCXAX7dVNXygsy2RCTs06CSnjnankR6dWoYG900OyqZq4hH"
-                  plan="Professional"
-                />
-              ) : (
-                <Button className={`w-full ${plan.popular ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`} size="lg" asChild>
-                  <a href={plan.cta === "Contact us" ? "mailto:hello@getmin.ai" : "https://app.getmin.ai"}>
-                    {plan.cta}
-                  </a>
-                </Button>
-              )}
+              <Button 
+                className={`w-full ${plan.popular ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`} 
+                size="lg" 
+                asChild
+              >
+                <a href={plan.cta === "Contact us" ? "mailto:hello@getmin.ai" : "https://app.getmin.ai"}>
+                  {plan.cta}
+                </a>
+              </Button>
             </div>)}
         </div>
 
         <div className="text-center mt-12">
           <p className="text-gray-600 text-sm font-light">
-            All plans include a 7-day free trial. No setup fees. Cancel anytime.
+            Solo is free forever. Teams includes 7-day trial. No setup fees. Cancel anytime.
           </p>
         </div>
       </div>

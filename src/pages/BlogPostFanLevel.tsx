@@ -157,7 +157,7 @@ const BlogPostFanLevel = () => {
             <div className="space-y-3">
               {[
                 { label: "Support", owner: "Sarah", status: "Draft ready", color: "blue" },
-                { label: "Sales", owner: "Mike", status: "Follow-up sent", color: "green" },
+                { label: "Sales", owner: "Mike", status: "Waiting on them", color: "green" },
                 { label: "Bug", owner: "Dev team", status: "In progress", color: "purple" },
                 { label: "Partnership", owner: "You", status: "Needs reply", color: "orange" },
                 { label: "Feedback", owner: "Product", status: "Categorized", color: "pink" }

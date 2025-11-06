@@ -2,16 +2,16 @@ import { MessageCircle, Zap, Users } from "lucide-react";
 const Features = () => {
   const features = [{
     icon: <Zap className="w-5 h-5 text-green-600/80" />,
-    title: "Built for Agents",
-    description: "No more copy-paste - AI agents that complete tasks directly in your inbox."
+    title: "One inbox. All your emails.",
+    description: "hello@, support@, sales@ in one place. Clear ownership. Zero chaos in 36 seconds."
   }, {
     icon: <MessageCircle className="w-5 h-5 text-green-600/80" />,
-    title: "Easy as Spreadsheets",
-    description: "Manage all external communications in one place. Zero context switches."
+    title: "Cut noise. Catch signal.",
+    description: "Spotlight human conversations. AI reminders and follow ups in 36 seconds."
   }, {
     icon: <Users className="w-5 h-5 text-green-600/80" />,
-    title: "Team Collaboration",
-    description: "Seamlessly collaborate on email tasks with built-in team features."
+    title: "No tickets. Just chats.",
+    description: "Turn everyday inbox moments into superfans in 36 seconds."
   }];
   return <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

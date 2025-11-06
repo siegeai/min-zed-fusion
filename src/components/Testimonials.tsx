@@ -3,23 +3,23 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Testimonials = () => {
   const testimonials = [{
-    quote: "min. really elevated how our team handles comms. What used to take hours now happens automatically with a mix of humans and AI agents.",
-    author: "Sarah Chen",
-    role: "Head of Product",
-    company: "TechFlow Inc",
-    avatar: "/lovable-uploads/586a429a-b9f9-4ebf-ae6f-b5b1462ced42.png"
-  }, {
-    quote: "Everything in one place is a game-changer. No more juggling between different tools/tabs/spreadsheets - everything we need is right there.",
+    quote: "Before min., we were drowning. Forwarding and CCing threads between teams like a game of hot potato. Constantly asking 'who's got this?' Now? One view. Clear ownership. We finally feel in control.",
     author: "Marcus Rodriguez",
-    role: "Co-founder",
-    company: "StartupLabs",
+    role: "CEO",
+    company: "DecipherLabs",
     avatar: "/lovable-uploads/e00d3919-3cc6-491f-b466-df6e3f49951f.png"
   }, {
-    quote: "We really love our Lanes! We further divide them into sub-lanes which then gets an owner, what a useful concept!",
+    quote: "The lanes changed everything. Emails auto-sort into Front Office, Back Office, Noise. We went from anxious to relief overnight. Our tiny team finally looks like pros.",
     author: "Emily Watson",
-    role: "Project Manager",
-    company: "Digital Ventures",
+    role: "Head of Customer Success",
+    company: "PathAI",
     avatar: "/lovable-uploads/7881779d-f863-4f54-8cf0-9e132b8ae3ca.png"
+  }, {
+    quote: "Our customers tell us they love emailing us. Wild, right? We respond faster, nothing gets dropped, and we saved hours a week. Email used to stress us out. Now it's our secret weapon.",
+    author: "Sarah Chen",
+    role: "Co-founder",
+    company: "FlowAI",
+    avatar: "/lovable-uploads/586a429a-b9f9-4ebf-ae6f-b5b1462ced42.png"
   }];
 
   return <div id="testimonials" className="py-16 bg-white relative">
@@ -29,10 +29,10 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-2xl font-medium text-gray-900 mb-4">
-            Trusted by founding teams
+            From inbox chaos to customer love
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-            See how teams are transforming their communication workflows with min.
+            Turn every inbox moment into a superfan.
           </p>
         </div>
 

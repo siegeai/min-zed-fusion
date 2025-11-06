@@ -74,7 +74,7 @@ const Contact = () => {
                   <Zap className="w-5 h-5 text-green-600" />
                   <span className="text-sm font-medium text-gray-900">Powered by min.</span>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">This single email address handles support tickets, sales inquiries, investor relations, press requests, recruiting, and general feedback — all organized automatically using our own product.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This single email address handles support tickets, sales inquiries, investor relations, press requests, recruiting, and general feedback - all organized automatically using our own product.</p>
               </div>
             </div>
 
@@ -135,7 +135,7 @@ const Contact = () => {
                   How does one inbox handle everything?
                 </h2>
                 <p className="text-gray-600 mb-6 leading-relaxed max-w-2xl mx-auto">
-                  Our AI automatically triages and routes your message to the right team member based on content and context. Sales inquiries go to sales, support questions to our support team, and so on — all seamlessly managed through min.
+                  Our AI automatically triages and routes your message to the right team member based on content and context. Sales inquiries go to sales, support questions to our support team, and so on - all seamlessly managed through min.
                 </p>
                 <p className="text-sm text-green-600 font-medium">
                   Experience the future of external communication management

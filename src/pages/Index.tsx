@@ -70,8 +70,8 @@ const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "min. - Shared Inbox for Teams and AI Agents",
-    "description": "Collaborative inbox built for humans and AI agents. Shared team inbox that auto-triages emails, manages customer communication, and helps lean teams scale without hiring more staff.",
+    "name": "min. - Make your customers love emailing you",
+    "description": "Gmail and Airtable had a baby. CRM + Helpdesk in one place. One inbox for hello@, support@, sales@. Respond 3x faster. Save 10+ hours a week.",
     "url": "https://getmin.ai",
     "mainEntity": {
       "@type": "SoftwareApplication",
@@ -90,13 +90,13 @@ const Index = () => {
       },
       "applicationSubCategory": "Team Communication Software",
       "featureList": [
-        "Shared team inbox",
-        "AI-powered email triage",
-        "Collaborative email management",
-        "AI agent integration",
-        "Team collaboration tools",
-        "External communication management",
-        "Customer relationship tracking"
+        "Inbox as a spreadsheet - see everything at once",
+        "CRM + Helpdesk built on Gmail",
+        "Shared workspace for hello@, support@, sales@",
+        "Smart reminders and auto-follow-ups",
+        "Sort, filter, and organize emails visually",
+        "Auto-triage with default lanes",
+        "Team collaboration without bloat"
       ]
     }
   };
@@ -124,26 +124,26 @@ const Index = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is a shared inbox?",
+        "name": "How does min. help PLG startups manage email?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A shared inbox is a collaborative email management system where multiple team members can access, manage, and respond to emails from a single email address. min. provides a shared team inbox with AI-powered features for better collaboration."
+          "text": "min. brings hello@, support@, and sales@ into one workspace. Collaborate, assign ownership, respond 3x faster. Built for PLG startups (5-20 people) who want clear, human email without helpdesk complexity."
         }
       },
       {
         "@type": "Question",
-        "name": "How does min. help with team collaboration?",
+        "name": "What are lanes in min.?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "min. provides a collaborative inbox where teams can work together on email management with AI agents that auto-triage messages, draft replies, and help track customer relationships without the complexity of traditional CRM systems."
+          "text": "Lanes auto-sort your emails. Default lanes: Front Office, Back Office, Mailroom, Noise, Human Conversations. Real work separated from noise instantly. Customize with sub-lanes when ready."
         }
       },
       {
         "@type": "Question",
-        "name": "What makes min. different from other team inbox tools?",
+        "name": "Is min. a CRM or helpdesk replacement?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "min. is built for both humans and AI agents, providing seamless integration of AI-powered automation within your shared inbox workflow. It's an anti-CRM approach focused on relationships rather than sales pipelines."
+          "text": "Nope. min. is the human conversation layer for email. Works before your CRM/helpdesk (triage), around them (collaboration), and after them (humanize). Designed to coexist with HubSpot, Help Scout, etc."
         }
       }
     ]
@@ -152,22 +152,22 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Shared Team Inbox for Humans and AI Agents</title>
-        <meta name="description" content="Collaborative inbox built for teams and AI agents. Shared team inbox that auto-triages emails, manages customer communication, and helps lean teams scale. The anti-CRM for relationship-focused founders." />
-        <meta name="keywords" content="shared inbox, collaborative inbox, team inbox, shared team inbox, AI email management, team email collaboration, customer communication, external communication, email automation, AI agents, team collaboration tools, anti-CRM, relationship management, startup email tools, customer inbox" />
+        <title>min. | Make Your Customers Love Emailing You</title>
+        <meta name="description" content="Gmail and Airtable had a baby. CRM + Helpdesk in one place. One inbox for hello@, support@, sales@. Respond 3x faster. PLG startups love us." />
+        <meta name="keywords" content="shared inbox, collaborative inbox, PLG inbox, startup email, hello@ inbox, support inbox, team email collaboration, customer communication, founder inbox, startup tools, email management, anti-CRM" />
         <link rel="canonical" href="https://getmin.ai" />
         
         {/* Enhanced Open Graph tags */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
-        <meta property="og:title" content="min. | Shared Team Inbox for Humans and AI Agents" />
-        <meta property="og:description" content="Collaborative inbox built for teams and AI agents. Shared team inbox that manages customer communication and helps lean teams scale." />
+        <meta property="og:title" content="min. | Make Your Customers Love Emailing You" />
+        <meta property="og:description" content="Gmail and Airtable had a baby. CRM + Helpdesk in one place. Respond 3x faster and save 10+ hours a week." />
         <meta property="og:site_name" content="min." />
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="min. | Shared Team Inbox for Humans and AI Agents" />
-        <meta name="twitter:description" content="Collaborative inbox for teams and AI agents. Manage customer communication without the complexity of traditional CRMs." />
+        <meta name="twitter:title" content="min. | Make Your Customers Love Emailing You" />
+        <meta name="twitter:description" content="Gmail and Airtable had a baby. CRM + Helpdesk in one place. Your customers will actually love emailing you." />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -223,11 +223,15 @@ const Index = () => {
               <div className="text-center mb-12 py-[40px] opacity-0 animate-fade-in" style={{
                 animationDelay: '100ms'
               }}>
-                <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
-                  The inbox for what's{" "}
-                  <span className="text-green-600/90">next</span>
+                <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4 leading-tight">
+                From hello@ to <span className="text-green-600/90">hell yes!</span>.
                 </h1>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">min. is where lean teams and agents get sh*t done - together.</p>
+                <p className="text-base text-green-600/80 mb-6 font-normal">
+                  Gmail and Airtable had a baby. CRM + Helpdesk in one place.
+                </p>
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
+                hello@, support@, sales@ - finally under one roof, clear owner and status on every thread.
+                </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                   <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
@@ -245,8 +249,8 @@ const Index = () => {
                 </div>
                 
                 <p className="text-gray-500 text-sm flex items-center justify-center gap-2 font-light">
-                  <span>🚀</span>
-                  Built for teams that automate, not staff up
+                  <span>✨</span>
+                  Scale your comms, not headcount in 36 seconds
                 </p>
               </div>
 
@@ -271,16 +275,16 @@ const Index = () => {
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">10x</div>
-                      <div className="text-gray-600 text-sm font-light">Faster email processing</div>
+                      <div className="text-xl font-medium text-gray-900 mb-1">10+ hrs</div>
+                      <div className="text-gray-600 text-sm font-light">Saved per week per team</div>
                     </div>
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">95%</div>
-                      <div className="text-gray-600 text-sm font-light">Accuracy with AI agents</div>
+                      <div className="text-xl font-medium text-gray-900 mb-1">3x faster</div>
+                      <div className="text-gray-600 text-sm font-light">Response times</div>
                     </div>
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">50+</div>
-                      <div className="text-gray-600 text-sm font-light">Integrations available</div>
+                      <div className="text-xl font-medium text-gray-900 mb-1">Zero setup</div>
+                      <div className="text-gray-600 text-sm font-light">Connect Gmail in 36 seconds</div>
                     </div>
                   </div>
                 </div>
@@ -323,11 +327,11 @@ const Index = () => {
             </div>
             
             <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to transform your external communication?</h2>
-              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the min. community to streamline customer, vendor, partner communication.</p>
+              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to make email your superpower?</h2>
+              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the founders who stopped drowning in email and started delighting customers. Chaos to clarity in 36 seconds.</p>
               <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
                 <a href="#pricing" onClick={scrollToPricing}>
-                  Start your free trial
+                  Start free
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
