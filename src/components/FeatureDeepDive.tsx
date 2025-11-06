@@ -24,8 +24,8 @@ const FeatureDeepDive = () => {
     image: "/lovable-uploads/bdf48a53-b3d6-4682-9628-ae6c3a3e1510.png"
   }, {
     icon: <Users2 className="w-6 h-6 text-green-600" />,
-    title: "Step 5: Scale with your team",
-    description: "Email in multiplayer mode. Clear ownership. Internal notes. Collaborative drafts. Everyone stays aligned as you grow.",
+    title: "Step 5: Email in multiplayer mode",
+    description: "Make email a team sport. Clear ownership. Internal notes. Collaborative drafts. Everyone stays aligned as you grow.",
     image: "/lovable-uploads/07aeba38-e4c8-4895-ba26-b6850659d2fd.png"
   }, {
     icon: <BarChart3 className="w-6 h-6 text-green-600" />,
