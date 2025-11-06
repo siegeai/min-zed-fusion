@@ -6,6 +6,7 @@ import Features from "@/components/Features";
 import FeatureDeepDive from "@/components/FeatureDeepDive";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect } from "react";
@@ -124,10 +125,26 @@ const Index = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How does min. help PLG startups manage email?",
+        "name": "How does min. work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "min. brings hello@, support@, and sales@ into one workspace. Collaborate, assign ownership, respond 3x faster. Built for PLG startups (5-20 people) who want clear, human email without helpdesk complexity."
+          "text": "AI reads every single email and gives it a gist (tldr) and determines a lane (like a Gmail label). You can add your own small task agents to every lane so it can research, extract, group emails based on its content, including attachments!"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many emails can I process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The limit is 1,000 emails per inbox per month - which is more than enough for most use cases! Plus, one workspace can support unlimited inboxes. On the solo plan, you can connect as many inboxes as you want (hello@, support@, sales@, etc.)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to my existing emails?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When you connect Gmail, min. processes the most recent 300 emails per inbox to get you started. After that, every new incoming email is automatically processed and organized into lanes. Your old emails stay safely in Gmail."
         }
       },
       {
@@ -135,15 +152,31 @@ const Index = () => {
         "name": "What are lanes in min.?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Lanes auto-sort your emails. Default lanes: Front Office, Back Office, Mailroom, Noise, Human Conversations. Real work separated from noise instantly. Customize with sub-lanes when ready."
+          "text": "Lanes are smart email categories that auto-sort your inbox. Default lanes include Front Office (customer-facing), Back Office (internal ops), Mailroom (transactional), Noise (newsletters, promos), and Human Conversations (real people needing replies). Each email gets automatically routed to the right lane, so you see what matters first."
         }
       },
       {
         "@type": "Question",
-        "name": "Is min. a CRM or helpdesk replacement?",
+        "name": "Does min. sync with Gmail?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nope. min. is the human conversation layer for email. Works before your CRM/helpdesk (triage), around them (collaboration), and after them (humanize). Designed to coexist with HubSpot, Help Scout, etc."
+          "text": "min. supports bidirectional sync. When you reply in Gmail, it shows up in min. When you reply in min., it shows up in Gmail. We also sync read status, so your team always knows what's been handled, regardless of where you're working."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can my whole team use the same inbox?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! That's the whole point. Everyone sees hello@, support@, and sales@ in one workspace. You can connect unlimited inboxes to a single workspace. Assign ownership, leave internal notes, tag teammates - all without forwarding or cc'ing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What about privacy and security?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We're Google CASA Tier 1 compliant with a 9.7/10 score, and we're currently in the process of obtaining SOC 2 certification. Your emails are processed with enterprise-grade encryption. AI reads emails to create summaries and lane assignments, but we never train models on your data or share it with third parties."
         }
       }
     ]
@@ -312,6 +345,13 @@ const Index = () => {
             <Pricing />
           </div>
 
+           {/* FAQ Section */}
+           <div className="opacity-0 animate-fade-in" style={{
+            animationDelay: '900ms'
+          }}>
+            <FAQ />
+          </div>
+
           {/* CTA Section */}
           <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-fade-in" style={{
             animationDelay: '800ms'
@@ -324,13 +364,12 @@ const Index = () => {
                 <div className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-white rounded-full blur-xl"></div>
               </div>
             </div>
-            
             <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
               <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to make email your superpower?</h2>
               <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the founders who stopped drowning in email and started delighting customers. Chaos to clarity in 36 seconds.</p>
               <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
                 <a href="#pricing" onClick={scrollToPricing}>
-                  Start free
+                  Live in 36s
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
@@ -338,7 +377,7 @@ const Index = () => {
           </div>
 
           <div className="opacity-0 animate-fade-in" style={{
-            animationDelay: '900ms'
+            animationDelay: '1000ms'
           }}>
             <Footer />
           </div>
