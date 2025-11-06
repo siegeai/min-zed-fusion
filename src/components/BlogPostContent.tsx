@@ -40,7 +40,7 @@ const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
           <p className="text-orange-800 mt-2">You're still stuck reading every email, figuring out what it is, who should handle it, what it's about, and whether it's done. That doesn't scale.</p>
         </div>
 
-        <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Not a Volume Problem — a Structure Problem</h3>
+        <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Not a Volume Problem - a Structure Problem</h3>
         
         <p>Most tools try to help by adding structure outside the inbox. But the chaos starts inside it.</p>
         

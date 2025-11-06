@@ -102,7 +102,7 @@ const About = () => {
                           <p className="text-xs text-gray-500">University of Toronto</p>
                         </div>
                       </div>
-                      <p className="text-sm text-gray-600 leading-relaxed">⚙️ Builder. Product thinker. AI optimist. Eric has spent the last decade launching and scaling products at Coursera, Bbot, and DoorDash itself. From 0→1 startups to high-growth platforms, he's all about solving messy, real-world problems with simple, scalable solutions. At min., he's focused on giving superpowers to other founders just like him — without overhyping the buzzwords. Loves fast prototypes, clean UX.</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">⚙️ Builder. Product thinker. AI optimist. Eric has spent the last decade launching and scaling products at Coursera, Bbot, and DoorDash itself. From 0→1 startups to high-growth platforms, he's all about solving messy, real-world problems with simple, scalable solutions. At min., he's focused on giving superpowers to other founders just like him - without overhyping the buzzwords. Loves fast prototypes, clean UX.</p>
                     </CardContent>
                   </Card>
 
