@@ -224,7 +224,7 @@ const Index = () => {
                 animationDelay: '100ms'
               }}>
                 <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4 leading-tight">
-                From hello@ to <span className="text-green-600/90">hell yes!</span>.
+                From hello@ to <span className="text-green-600/90">hell yes!</span>
                 </h1>
                 <p className="text-base text-green-600/80 mb-6 font-normal">
                   Gmail and Airtable had a baby. CRM + Helpdesk in one place.
