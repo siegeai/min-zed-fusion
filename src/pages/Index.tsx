@@ -236,8 +236,7 @@ const Index = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                   <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
                     <a href="#pricing" onClick={scrollToPricing}>
-                      <Download className="w-4 h-4 mr-2" />
-                      Get started - free
+                      Start free - live in 36s
                     </a>
                   </Button>
                   <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal border-green-200/50 hover:bg-green-50/50" asChild>
@@ -250,7 +249,7 @@ const Index = () => {
                 
                 <p className="text-gray-500 text-sm flex items-center justify-center gap-2 font-light">
                   <span>✨</span>
-                  Scale your comms, not headcount in 36 seconds
+                  Scale your comms, not headcount in just 36 seconds
                 </p>
               </div>
 
