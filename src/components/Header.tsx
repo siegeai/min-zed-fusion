@@ -113,7 +113,7 @@ const Header = () => {
               onClick={(e) => handleNavClick(e, 'pricing')}
               className="w-full h-full flex items-center justify-center"
             >
-              Get Started
+              Get started - free
             </a>
           </Button>
         </div>

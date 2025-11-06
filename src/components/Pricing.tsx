@@ -14,19 +14,19 @@ const Pricing = () => {
 
   const plans = [{
     name: "Solo",
-    price: "Free",
+    price: "$0",
     period: "forever",
-    description: "For solo founders getting started",
+    description: "No card required",
     features: sharedFeatures,
     cta: "Start free in 36 seconds",
     popular: false
   }, {
     name: "Teams",
     price: "$15.95",
-    period: "per user/month",
+    period: "user/month",
     description: "For growing teams that ship fast",
     features: sharedFeatures,
-    cta: "Start free trial",
+    cta: "Get started - free",
     popular: true
   }, {
     name: "Enterprise",

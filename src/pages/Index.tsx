@@ -237,7 +237,7 @@ const Index = () => {
                   <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
                     <a href="#pricing" onClick={scrollToPricing}>
                       <Download className="w-4 h-4 mr-2" />
-                      Start free trial
+                      Get started - free
                     </a>
                   </Button>
                   <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal border-green-200/50 hover:bg-green-50/50" asChild>
