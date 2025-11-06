@@ -18,7 +18,7 @@ const Pricing = () => {
     period: "forever",
     description: "No card required",
     features: sharedFeatures,
-    cta: "Start free in 36 seconds",
+    cta: "Go live in 36 seconds",
     popular: false
   }, {
     name: "Teams",
