@@ -10,7 +10,7 @@ const FeatureDeepDive = () => {
   }, {
     icon: <Globe className="w-6 h-6 text-green-600" />,
     title: "Step 2: See the full picture",
-    description: "All your inboxes—hello@, support@, sales@—in one view. Full context, full history, zero tab-switching. Finally, you can breathe.",
+    description: "All your inboxes—hello@, support@, sales@—in one view. Full context, full history, zero tab-switching.",
     image: "/lovable-uploads/debcfb52-42ee-41fe-8354-2a291966e328.png"
   }, {
     icon: <Shield className="w-6 h-6 text-green-600" />,
@@ -20,12 +20,12 @@ const FeatureDeepDive = () => {
   }, {
     icon: <Zap className="w-6 h-6 text-green-600" />,
     title: "Step 4: Never miss a beat",
-    description: "Smart reminders flag what needs attention. Auto-follow-ups catch dropped threads. You respond—we just make sure nothing slips through.",
+    description: "Smart reminders flag what needs attention. Auto-follow-ups catch dropped threads. You respond — we just make sure nothing slips through.",
     image: "/lovable-uploads/bdf48a53-b3d6-4682-9628-ae6c3a3e1510.png"
   }, {
     icon: <Users2 className="w-6 h-6 text-green-600" />,
     title: "Step 5: Scale with your team",
-    description: "Shared workspace. Clear ownership. Internal notes. Collaborative drafts. Everyone stays aligned as you grow.",
+    description: "Email in multiplayer mode. Clear ownership. Internal notes. Collaborative drafts. Everyone stays aligned as you grow.",
     image: "/lovable-uploads/07aeba38-e4c8-4895-ba26-b6850659d2fd.png"
   }, {
     icon: <BarChart3 className="w-6 h-6 text-green-600" />,
