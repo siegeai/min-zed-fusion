@@ -5,11 +5,15 @@ const Pricing = () => {
   const sharedFeatures = [
     "All team inboxes in one view",
     "Gist for every thread",
-    "Auto-sort with lanes",
+    "Daily digests",
+    "Address book (AI enrichment)",
+    "Watchtower (AI-powered email tracking)",
+    "AI reminders and follow-ups",
+    "Auto-sort and triage with lanes",
     "Conversation history for every contact",
     "Small-task Agents",
     "Conversational Agents",
-    "Team collaboration & notes",
+    "Team collaboration with internal notes",
   ];
 
   const plans = [{
