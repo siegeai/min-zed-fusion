@@ -260,7 +260,7 @@ const Index = () => {
                 From hello@ to <span className="text-green-600/90">hell yes!</span>
                 </h1>
                 <p className="text-base text-green-600/80 mb-6 font-normal">
-                  Gmail + Airtable = one collaborative workspace for sales, support, and success teams
+                  Gmail x Airtable = one collaborative workspace for sales, support, and success teams
                 </p>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
                 hello@, support@, sales@ - finally under one roof, clear owner and status on every thread.
