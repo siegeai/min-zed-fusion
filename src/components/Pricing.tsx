@@ -7,7 +7,7 @@ const Pricing = () => {
     "Gist for every thread",
     "Daily digests",
     "Address book (AI enrichment)",
-    "Watchtower (AI-powered email tracking)",
+    "Watchtower (AI-powered alerting)",
     "AI reminders and follow-ups",
     "Auto-sort and triage with lanes",
     "Conversation history for every contact",
