@@ -72,7 +72,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "min. - Make your customers love emailing you",
-    "description": "Gmail and Airtable had a baby. Sales, support, success teams in one place. One inbox for hello@, support@, sales@. Respond 3x faster. Save 10+ hours a week.",
+    "description": "Gmail and Airtable had a baby. Sales, support, success in one place. One inbox for hello@, support@, sales@. Respond 3x faster. Save 10+ hours a week.",
     "url": "https://getmin.ai",
     "mainEntity": {
       "@type": "SoftwareApplication",
@@ -260,7 +260,7 @@ const Index = () => {
                 From hello@ to <span className="text-green-600/90">hell yes!</span>
                 </h1>
                 <p className="text-base text-green-600/80 mb-6 font-normal">
-                  Gmail and Airtable had a baby. Sales, support, success teams in one place.
+                  Gmail + Airtable = one collaborative workspace for sales, support, and success teams
                 </p>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
                 hello@, support@, sales@ - finally under one roof, clear owner and status on every thread.
