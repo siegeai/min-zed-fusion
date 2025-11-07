@@ -72,7 +72,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "min. - Make your customers love emailing you",
-    "description": "Gmail and Airtable had a baby. CRM + Helpdesk in one place. One inbox for hello@, support@, sales@. Respond 3x faster. Save 10+ hours a week.",
+    "description": "Gmail and Airtable had a baby. Sales, support, success teams in one place. One inbox for hello@, support@, sales@. Respond 3x faster. Save 10+ hours a week.",
     "url": "https://getmin.ai",
     "mainEntity": {
       "@type": "SoftwareApplication",
@@ -186,7 +186,7 @@ const Index = () => {
     <>
       <Helmet>
         <title>min. | Make Your Customers Love Emailing You</title>
-        <meta name="description" content="Gmail and Airtable had a baby. CRM + Helpdesk in one place. One inbox for hello@, support@, sales@. Respond 3x faster. PLG startups love us." />
+        <meta name="description" content="Gmail and Airtable had a baby. Sales, support, success teams in one place. One inbox for hello@, support@, sales@. Respond 3x faster. PLG startups love us." />
         <meta name="keywords" content="shared inbox, collaborative inbox, PLG inbox, startup email, hello@ inbox, support inbox, team email collaboration, customer communication, founder inbox, startup tools, email management, anti-CRM" />
         <link rel="canonical" href="https://getmin.ai" />
         
@@ -194,13 +194,13 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
         <meta property="og:title" content="min. | Make Your Customers Love Emailing You" />
-        <meta property="og:description" content="Gmail and Airtable had a baby. CRM + Helpdesk in one place. Respond 3x faster and save 10+ hours a week." />
+        <meta property="og:description" content="Gmail and Airtable had a baby. Sales, support, success teams in one place. One inbox for hello@, support@, sales@. Respond 3x faster. PLG startups love us." />
         <meta property="og:site_name" content="min." />
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="min. | Make Your Customers Love Emailing You" />
-        <meta name="twitter:description" content="Gmail and Airtable had a baby. CRM + Helpdesk in one place. Your customers will actually love emailing you." />
+        <meta name="twitter:description" content="Gmail and Airtable had a baby. Sales, support, success teams in one place. One inbox for hello@, support@, sales@. Respond 3x faster. PLG startups love us." />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -260,7 +260,7 @@ const Index = () => {
                 From hello@ to <span className="text-green-600/90">hell yes!</span>
                 </h1>
                 <p className="text-base text-green-600/80 mb-6 font-normal">
-                  Gmail and Airtable had a baby. CRM + Helpdesk in one place.
+                  Gmail and Airtable had a baby. Sales, support, success teams in one place.
                 </p>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
                 hello@, support@, sales@ - finally under one roof, clear owner and status on every thread.
