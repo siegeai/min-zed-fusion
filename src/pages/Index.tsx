@@ -144,7 +144,7 @@ const Index = () => {
         "name": "What happens to my existing emails?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "When you connect Gmail, min. processes the most recent 300 emails per inbox to get you started. After that, every new incoming email is automatically processed and organized into lanes. Your old emails stay safely in Gmail."
+          "text": "When you connect Gmail, min. processes the most recent 300 emails per inbox to get you started. After that, every new incoming email is automatically processed and organized into lanes. All your emails stay safely in Gmail, old and new."
         }
       },
       {
