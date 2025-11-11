@@ -316,7 +316,7 @@ const Index = () => {
                       <div className="text-gray-600 text-sm font-light">Auto-reminders and follow-ups</div>
                     </div>
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">Zero setup</div>
+                      <div className="text-xl font-medium text-gray-900 mb-1">Works out of the box</div>
                       <div className="text-gray-600 text-sm font-light">Connect Gmail in 36s</div>
                     </div>
                   </div>
