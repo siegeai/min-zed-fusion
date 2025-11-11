@@ -20,7 +20,7 @@ const Pricing = () => {
     price: "Pay what feels right",
     priceSubtext: "Start at $0",
     period: "",
-    description: "No pressure, no card required",
+    description: "Up to 2 teammates, no card required",
     features: sharedFeatures,
     cta: "Go live in 36 seconds",
     popular: false,
@@ -29,15 +29,15 @@ const Pricing = () => {
     name: "Growing Teams",
     price: "$15.95",
     period: " user / month",
-    description: "For growing teams that ship fast",
+    description: "For 2-50 teammates that scaling fast",
     features: sharedFeatures,
     cta: "Get started - free",
     popular: true
   }, {
-    name: "Enterprise",
+    name: "Business",
     price: "Custom",
     period: "pricing",
-    description: "For 25+ team members",
+    description: "For 50+ teammates",
     features: sharedFeatures,
     cta: "Contact us",
     popular: false

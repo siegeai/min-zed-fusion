@@ -257,15 +257,16 @@ const Index = () => {
                 animationDelay: '100ms'
               }}>
                 <div className="flex justify-center mb-6">
-                  <img src="/lovable-uploads/superfans-icon.png" alt="superfan" className="w-20 h-24 md:w-48 md:h-48 object-contain" />
+                  <img src="/lovable-uploads/superfans-icon.png" alt="superfan" className="w-32 h-36 md:w-48 md:h-48 object-contain" />
                 </div>
                 <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4 leading-tight">
                 From hello@ to <span className="text-green-600/90">superfans!</span>
                 </h1>
                 <p className="text-base text-green-600/80 mb-6 font-normal">
-                  Gmail's speed × Airtable's order - be the team that always replies first</p>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
-                  For founder-led teams: be the most responsive without checking email every 5 min.</p>
+                  Gmail's speed × Airtable's order - be the team that always replies first.</p>
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-2 leading-relaxed font-light">
+                  For founder-led teams. Be the most responsive team without checking email every 5 min.</p>
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">Make a team of 2 feel like 20.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
                     <a href="#pricing" onClick={scrollToPricing}>
