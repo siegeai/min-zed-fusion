@@ -3,19 +3,19 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Testimonials = () => {
   const testimonials = [{
-    quote: "Before min., we were drowning. Forwarding and CCing threads between teams like a game of hot potato. Constantly asking 'who's got this?' Now? One view. Clear ownership. We finally feel in control.",
+    quote: "we stopped asking 'who's on this?' every 10 min 🙃 min puts a name on every email. inbox anxiety ↓, focus ↑",
     author: "Marcus Rodriguez",
     role: "CEO",
     company: "DecipherLabs",
     avatar: "/lovable-uploads/e00d3919-3cc6-491f-b466-df6e3f49951f.png"
   }, {
-    quote: "The lanes changed everything. Emails auto-sort into Front Office, Back Office, Noise. We went from anxious to relief overnight. Our tiny team finally looks like pros.",
+    quote: "Didn't want a helpdesk, needed a simple tool that just works. min.'s UI is some of the best I've used in a while.",
     author: "Emily Watson",
     role: "Head of Customer Success",
     company: "PathAI",
     avatar: "/lovable-uploads/7881779d-f863-4f54-8cf0-9e132b8ae3ca.png"
   }, {
-    quote: "Our customers tell us they love emailing us. Wild, right? We respond faster, nothing gets dropped, and we saved hours a week. Email used to stress us out. Now it's our secret weapon.",
+    quote: "customers literally told us they like emailing us now 🤯 we're faster + nothing slips",
     author: "Sarah Chen",
     role: "Co-founder",
     company: "FlowAI",

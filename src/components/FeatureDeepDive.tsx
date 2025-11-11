@@ -4,34 +4,34 @@ import { Brain, Shield, Zap, Users2, BarChart3, Globe } from "lucide-react";
 const FeatureDeepDive = () => {
   const features = [{
     icon: <Brain className="w-6 h-6 text-green-600" />,
-    title: "Step 1: Tame the inbox chaos",
-    description: "Every email auto-sorts into lanes: Front Office, Back Office, Mailroom, Noise, Human Conversations. No more drowning in unread messages.",
-    image: "/lovable-uploads/dec4c33c-a690-4dbe-b040-e8d6be577a55.png"
+    title: "Tame the inbox chaos",
+    description: "Every email lands in a Lane: Front Office, Back Office, Mailroom, Noise, Human Conversations. Signal on top, noise out of the way.",
+    image: "/lovable-uploads/lanes.gif"
   }, {
     icon: <Globe className="w-6 h-6 text-green-600" />,
-    title: "Step 2: See the full picture",
-    description: "All your inboxes—hello@, support@, sales@—in one view. Full context, full history, zero tab-switching.",
-    image: "/lovable-uploads/debcfb52-42ee-41fe-8354-2a291966e328.png"
+    title: "See everything at once",
+    description: "All customer convos in one view. Instant TL;DR and full history—no tab-hopping, no digging.",
+    image: "/lovable-uploads/people.gif"
   }, {
     icon: <Shield className="w-6 h-6 text-green-600" />,
-    title: "Step 3: Cut through the noise",
-    description: "Get a TLDR for every email, thread, and contact. See what matters in seconds, not minutes of reading.",
-    image: "/lovable-uploads/4ee3511b-2ec3-4b04-9af6-d47b9af52e0d.png"
+    title: "Clear intent and ownership",
+    description: "Intent, status set automatically. “Who's on this?” answered by default.",
+    image: "/lovable-uploads/assignee.gif"
   }, {
     icon: <Zap className="w-6 h-6 text-green-600" />,
-    title: "Step 4: Never miss a beat",
-    description: "Smart reminders flag what needs attention. Auto-follow-ups catch dropped threads. You respond — we just make sure nothing slips through.",
-    image: "/lovable-uploads/bdf48a53-b3d6-4682-9628-ae6c3a3e1510.png"
+    title: "Never miss a beat",
+    description: "Set a team nudge, and auto follow up quiet threads.",
+    image: "/lovable-uploads/nudge.gif"
   }, {
     icon: <Users2 className="w-6 h-6 text-green-600" />,
-    title: "Step 5: Email in multiplayer mode",
-    description: "Make email a team sport. Clear ownership. Internal notes. Collaborative drafts. Everyone stays aligned as you grow.",
-    image: "/lovable-uploads/07aeba38-e4c8-4895-ba26-b6850659d2fd.png"
+    title: "Reply as a team",
+    description: "Internal messages and shared drafts keep handoffs clean.",
+    image: "/lovable-uploads/collab.gif"
   }, {
     icon: <BarChart3 className="w-6 h-6 text-green-600" />,
-    title: "Step 6: Turn emails into fans",
-    description: "Fast, personal replies. No more \"who's handling this?\" Your customers feel heard, and you move faster than ever.",
-    image: "/lovable-uploads/2c0bb6a8-a034-4446-aaeb-7d19620af60a.png"
+    title: "Never miss important threads",
+    description: "Watchtower watches your inbox and sends SMS alerts for those important 'can't miss' threads.",
+    image: "/lovable-uploads/watchtower.gif"
   }];
 
   return <div id="features" className="py-16 bg-white relative">
@@ -41,7 +41,7 @@ const FeatureDeepDive = () => {
             Your journey from chaos to clarity
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-            Watch how min. transforms the way your team handles every email
+          Watch how min turns hello@ into fast, reliable replies-without living in the inbox.
           </p>
         </div>
 

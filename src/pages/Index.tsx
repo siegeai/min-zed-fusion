@@ -257,17 +257,14 @@ const Index = () => {
                 animationDelay: '100ms'
               }}>
                 <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4 leading-tight">
-                From hello@ to <span className="text-green-600/90">hell yes!</span>
+                From hello@ to <span className="text-green-600/90">...handled!</span>
                 </h1>
                 <p className="text-base text-green-600/80 mb-6 font-normal">
-                  Gmail x Airtable = one collaborative workspace for sales, support, and success teams
-                </p>
+                  Gmail's speed × Airtable's order - be the team that always replies first</p>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">
-                hello@, support@, sales@ - finally under one roof, clear owner and status on every thread.
-                </p>
-                
+                  For founder-led teams: be the most responsive without checking email every 5 min.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                  <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
+                <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
                     <a href="#pricing" onClick={scrollToPricing}>
                       Start free - live in 36s
                     </a>
@@ -282,7 +279,7 @@ const Index = () => {
                 
                 <p className="text-gray-500 text-sm flex items-center justify-center gap-2 font-light">
                   <span>✨</span>
-                  Scale your comms, not headcount in just 36 seconds
+                  Superfan moments are brief. Don't miss them. Live in 36s.
                 </p>
               </div>
 
@@ -307,16 +304,16 @@ const Index = () => {
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">10+ hrs</div>
-                      <div className="text-gray-600 text-sm font-light">Saved per week per team</div>
+                      <div className="text-xl font-medium text-gray-900 mb-1">Owner in 30 seconds</div>
+                      <div className="text-gray-600 text-sm font-light">Auto-triages every thread</div>
                     </div>
                     <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">3x faster</div>
-                      <div className="text-gray-600 text-sm font-light">Response times</div>
+                      <div className="text-xl font-medium text-gray-900 mb-1">No quiet threads</div>
+                      <div className="text-gray-600 text-sm font-light">Auto-reminders and follow-ups</div>
                     </div>
                     <div>
                       <div className="text-xl font-medium text-gray-900 mb-1">Zero setup</div>
-                      <div className="text-gray-600 text-sm font-light">Connect Gmail in 36 seconds</div>
+                      <div className="text-gray-600 text-sm font-light">Connect Gmail in 36s</div>
                     </div>
                   </div>
                 </div>
@@ -366,7 +363,7 @@ const Index = () => {
             </div>
             <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
               <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to make email your superpower?</h2>
-              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the founders who stopped drowning in email and started delighting customers. Chaos to clarity in 36 seconds.</p>
+              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the founders who turned every customer email to a superfan moment.</p>
               <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
                 <a href="#pricing" onClick={scrollToPricing}>
                   Live in 36s
