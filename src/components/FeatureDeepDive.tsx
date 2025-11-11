@@ -30,7 +30,7 @@ const FeatureDeepDive = () => {
   }, {
     icon: <BarChart3 className="w-6 h-6 text-green-600" />,
     title: "Never miss important threads",
-    description: "Watchtower watches your inboxes and sends SMS alerts for those important 'can't miss' threads.",
+    description: "Watchtower watches your inboxes and sends SMS alerts for those important “can't miss“ threads.",
     image: "/lovable-uploads/watchtower.gif"
   }];
 
