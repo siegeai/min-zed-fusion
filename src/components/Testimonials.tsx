@@ -22,7 +22,7 @@ const Testimonials = () => {
     avatar: "/lovable-uploads/586a429a-b9f9-4ebf-ae6f-b5b1462ced42.png"
   }];
 
-  return <div id="testimonials" className="py-16 bg-white relative">
+  return <div id="testimonials" className="py-2 bg-white relative">
       {/* Subtle background layer */}
       <div className="absolute inset-0 bg-gradient-to-b from-green-50/20 via-white to-green-50/10"></div>
       

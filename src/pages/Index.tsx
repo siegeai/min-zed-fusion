@@ -253,7 +253,7 @@ const Index = () => {
           {/* Hero Section */}
           <main className="pt-20">
             <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-12 py-[40px] opacity-0 animate-fade-in" style={{
+              <div className="text-center mb-6 py-[10px] opacity-0 animate-fade-in" style={{
                 animationDelay: '100ms'
               }}>
                 <div className="flex justify-center mb-6">
@@ -287,18 +287,20 @@ const Index = () => {
                 </p>
               </div>
 
-              {/* Features above video */}
-              <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-fade-in" style={{
-                animationDelay: '200ms'
-              }}>
-                <Features />
-              </div>
+              <div className="flex flex-col">
+                {/* Video Demo Section - shows first on mobile, second on desktop */}
+                <div className="max-w-5xl mx-auto opacity-0 animate-fade-in order-1 md:order-2" style={{
+                  animationDelay: '200ms'
+                }}>
+                  <VideoDemo />
+                </div>
 
-              {/* Video Demo Section */}
-              <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-fade-in" style={{
-                animationDelay: '300ms'
-              }}>
-                <VideoDemo />
+                {/* Features - shows second on mobile, first on desktop */}
+                <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-fade-in order-2 md:order-1" style={{
+                  animationDelay: '300ms'
+                }}>
+                  <Features />
+                </div>
               </div>
 
               {/* Stats section - positioned below video */}
