@@ -251,13 +251,16 @@ const Index = () => {
           </div>
           
           {/* Hero Section */}
-          <main className="pt-40">
+          <main className="pt-20">
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center mb-12 py-[40px] opacity-0 animate-fade-in" style={{
                 animationDelay: '100ms'
               }}>
+                <div className="flex justify-center mb-6">
+                  <img src="/lovable-uploads/superfans-icon.png" alt="superfan" className="w-20 h-24 md:w-48 md:h-48 object-contain" />
+                </div>
                 <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4 leading-tight">
-                From hello@ to <span className="text-green-600/90">...handled!</span>
+                From hello@ to <span className="text-green-600/90">superfans!</span>
                 </h1>
                 <p className="text-base text-green-600/80 mb-6 font-normal">
                   Gmail's speed × Airtable's order - be the team that always replies first</p>
