@@ -7,11 +7,11 @@ const Features = () => {
   }, {
     icon: <MessageCircle className="w-5 h-5 text-green-600/80" />,
     title: "Watchtower never sleeps",
-    description: "SMS alerts, Smart reminders, and auto escalations before any thread goes quiet."
+    description: "SMS alerts for those important emails, auto follow-ups before any thread goes quiet."
   }, {
     icon: <Users className="w-5 h-5 text-green-600/80" />,
     title: "Surface what customers want",
-    description: "Auto-sort customer emails into: Buy, Help, Explore; clear next steps, clear owners."
+    description: "Auto-sort customer emails into: Buy, Help, Explore; clear intent, clear owners."
   }];
   return <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

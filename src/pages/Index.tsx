@@ -282,7 +282,7 @@ const Index = () => {
                 
                 <p className="text-gray-500 text-sm flex items-center justify-center gap-2 font-light">
                   <span>✨</span>
-                  Superfan moments are brief. Don't miss them. Live in 36s.
+                  Superfan moments are brief. Don't miss them.
                 </p>
               </div>
 
