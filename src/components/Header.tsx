@@ -109,7 +109,7 @@ const Header = () => {
           </Button>
           <Button className="bg-green-600/90 hover:bg-green-700/90 text-white font-normal">
             <a 
-              href="#pricing" 
+              href="https://app.getmin.ai/" 
               onClick={(e) => handleNavClick(e, 'pricing')}
               className="w-full h-full flex items-center justify-center"
             >
