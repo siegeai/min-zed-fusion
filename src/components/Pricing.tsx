@@ -29,7 +29,7 @@ const Pricing = () => {
     name: "Growing Teams",
     price: "$15.95",
     period: " user / month",
-    description: "For 2-50 teammates that scaling fast",
+    description: "For 2-50 teammates that scale fast",
     features: sharedFeatures,
     cta: "Get started - free",
     popular: true
