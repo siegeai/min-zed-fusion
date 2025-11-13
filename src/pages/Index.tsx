@@ -263,7 +263,7 @@ const Index = () => {
                 From hello@ to <span className="text-green-600/90">superfans!</span>
                 </h1>
                 <p className="text-base text-green-600/80 mb-6 font-normal">
-                  Gmail's speed × Airtable's order - be the team that always replies first.</p>
+                  Gmail's ease × Airtable's flexibility - so your team always replies first.</p>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-2 leading-relaxed font-light">
                   For founder-led teams. Be the most responsive team without checking email every 5 minutes.</p>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">Make a team of 2 feel like 20.</p>
