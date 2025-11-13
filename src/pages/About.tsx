@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Users, Target, Lightbulb, Linkedin, X } from "lucide-react";
+import { Users, Target, Lightbulb, Linkedin, X, BookOpen } from "lucide-react";
 import { useEffect } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
@@ -96,6 +96,9 @@ const About = () => {
                               <a href="https://x.com/ericzizhouwangx" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="Eric Wang's Twitter profile">
                                 <X className="w-4 h-4 text-blue-600" />
                               </a>
+                              <a href="https://ericzizhouw.substack.com/?r=3nhquu&utm_campaign=pub-share-checklist" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="Eric Wang's Substack">
+                                <BookOpen className="w-4 h-4 text-orange-600" />
+                              </a>
                             </div>
                           </div>
                           <p className="text-sm text-green-600 font-medium">CEO & Co-Founder</p>
@@ -165,17 +168,12 @@ Seb brings 10+ years of engineering firepower to the team, with hands-on experie
               <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8">
                 <h2 className="text-2xl font-normal text-gray-900 mb-6">Our Story</h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed font-light">
-                  <p>We've been there. As serial founders building startups, we lived the same frustrations every day: drowning in communication chaos while trying to ship products that matter.</p>
-                  <p>
-                    <strong>What to say. Who to say it to. When and how to follow up.</strong> The endless mental overhead of managing external communication was killing our momentum.
-                  </p>
-                  <p>We tried everything—bloated CRMs, hard to use helpdesks, complex automation tools, hiring more people. Nothing felt right. Everything was either too complicated or missed the mark entirely.</p>
-                  <p>
-                    So we built min. For founders like us who need something that just works. No bloat. No complexity. Just the communication superpowers that lean teams actually need.
-                  </p>
-                  <p>
-                    Today, lean startup teams use min. to cut through the noise and focus on what matters: building great products. We love it.
-                  </p>
+                  <p className="font-medium text-gray-900">We promised 30-minute replies. Then our inbox exploded.</p>
+                  <p>We're serial founders who were tired of drowning in hello@ chaos—golden customer emails buried under noise. So we made a simple promise: every user (and future user) gets a reply within 30 minutes during business hours.</p>
+                  <p className="font-medium text-gray-900">Customers loved it. Our inbox did not.</p>
+                  <p>My cofounder and I took shifts, hacked together tools, and still almost missed important messages. So we built a tool for ourselves: something that watches the inbox, filters the garbage, and pings us instantly when a real customer emails.</p>
+                  <p className="font-medium text-gray-900">That tool became min.</p>
+                  <p>Today, lean startup teams use min. to stay insanely responsive without burning out—and to focus on what actually matters: building great products.</p>
                 </div>
               </div>
             </div>
