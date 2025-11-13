@@ -7,7 +7,7 @@ const Features = () => {
   }, {
     icon: <MessageCircle className="w-5 h-5 text-green-600/80" />,
     title: "Watchtower never sleeps",
-    description: "SMS or Slack alerts for those important emails, auto follow-ups before any thread goes quiet."
+    description: "SMS/Slack alerts for the important emails, auto follow-ups before threads goes quiet."
   }, {
     icon: <Users className="w-5 h-5 text-green-600/80" />,
     title: "Surface what customers want",
