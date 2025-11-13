@@ -269,7 +269,7 @@ const Index = () => {
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">Make a team of 2 feel like 20.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
-                    <a href="https://app.getmin.ai/" onClick={scrollToPricing}>
+                    <a href="https://app.getmin.ai/">
                       Start free - live in 36s
                     </a>
                   </Button>
@@ -368,10 +368,10 @@ const Index = () => {
               </div>
             </div>
             <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to make email your superpower?</h2>
+              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to make email your delighful for your customers?</h2>
               <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the founders who turned every customer email to a superfan moment.</p>
               <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
-                <a href="https://app.getmin.ai/" onClick={scrollToPricing}>
+                <a href="https://app.getmin.ai/">
                   Live in 36s
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
