@@ -1,14 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
-import VideoDemo from "@/components/VideoDemo";
-import Features from "@/components/Features";
-import FeatureDeepDive from "@/components/FeatureDeepDive";
-import Testimonials from "@/components/Testimonials";
-import Pricing from "@/components/Pricing";
+import PromptBubbles from "@/components/PromptBubbles";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -16,88 +11,50 @@ import { Helmet } from "react-helmet-async";
 const Index = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
-    // Handle scrolling from location.state (internal navigation)
     const scrollTo = (location.state as { scrollTo?: string })?.scrollTo;
     if (scrollTo) {
       const element = document.getElementById(scrollTo);
       if (element) {
         const headerHeight = 80;
         const top = element.offsetTop - headerHeight;
-        window.scrollTo({
-          top,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top, behavior: "smooth" });
       }
-
-      // Clear state so it doesn't scroll again on refresh
-      navigate('.', {
-        replace: true,
-        state: {}
-      });
+      navigate(".", { replace: true, state: {} });
     }
-    
-    // Handle scrolling from URL hash (direct links like #pricing)
     if (location.hash) {
-      const elementId = location.hash.replace('#', '');
+      const elementId = location.hash.replace("#", "");
       setTimeout(() => {
         const element = document.getElementById(elementId);
         if (element) {
           const headerHeight = 80;
           const top = element.offsetTop - headerHeight;
-          window.scrollTo({
-            top,
-            behavior: 'smooth'
-          });
+          window.scrollTo({ top, behavior: "smooth" });
         }
-      }, 100); // Small delay to ensure page is fully rendered
+      }, 100);
     }
   }, [location, navigate]);
-
-  const scrollToPricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const element = document.getElementById('pricing');
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "min. - Make your customers love emailing you",
-    "description": "Gmail and Airtable had a baby. Sales, support, success in one place. One inbox for hello@, support@, sales@. Respond 3x faster. Save 10+ hours a week.",
+    "name": "min. - Your rate assistant with perfect recall",
+    "description": "A quoting assistant with perfect recall for freight brokers. All your quotes, centralized. Quote more, win more—delegate carrier blasts, rate lookups, and track-and-trace to your minion.",
     "url": "https://getmin.ai",
     "mainEntity": {
       "@type": "SoftwareApplication",
       "name": "min.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "29",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "127"
-      },
-      "applicationSubCategory": "Team Communication Software",
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "127" },
+      "applicationSubCategory": "Freight Broker Quoting & Communication",
       "featureList": [
-        "Inbox as a spreadsheet - see everything at once",
-        "CRM + Helpdesk built on Gmail",
-        "Shared workspace for hello@, support@, sales@",
-        "Smart reminders and auto-follow-ups",
-        "Sort, filter, and organize emails visually",
-        "Auto-triage with default lanes",
-        "Team collaboration without bloat"
+        "Quote lookup and perfect recall from your inbox",
+        "Carrier outreach and quote requests in plain English",
+        "Load tracking and ETA updates",
+        "Ops digests and team collaboration",
+        "One shared agent and carrier network"
       ]
     }
   };
@@ -108,15 +65,8 @@ const Index = () => {
     "name": "min.",
     "url": "https://getmin.ai",
     "logo": "https://app.getmin.ai/lovable-uploads/7a37e7bc-ff2e-4686-ab5e-b539c538ad30.png",
-    "sameAs": [
-      "https://twitter.com/getminai",
-      "https://linkedin.com/company/getmin"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Support",
-      "email": "support@getmin.ai"
-    }
+    "sameAs": ["https://twitter.com/getminai", "https://linkedin.com/company/getmin"],
+    "contactPoint": { "@type": "ContactPoint", "contactType": "Customer Support", "email": "support@getmin.ai" }
   };
 
   const faqData = {
@@ -128,47 +78,23 @@ const Index = () => {
         "name": "How does min. work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "AI reads every single email and gives it a gist (tldr) and determines a lane (like a Gmail label). You can add your own small task agents to every lane so it can research, extract, group emails based on its content, including attachments!"
+          "text": "Connect your inbox to your minion. You tell it what you need in plain English—carrier blasts, rate lookups, track and trace. It pulls quotes and context from your emails and handles the grunt work so you can focus on winning loads."
         }
       },
       {
         "@type": "Question",
-        "name": "How many emails can I process?",
+        "name": "What can I ask my minion to do?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The limit is 1,000 emails per inbox per month - which is more than enough for most use cases! Plus, one workspace can support unlimited inboxes. On the solo plan, you can connect as many inboxes as you want (hello@, support@, sales@, etc.)."
+          "text": "Ask for carriers that run a lane, average booked and quoted rates, email blasts to your carrier list, status updates on active loads, load confirmations, and ops digests. If you'd normally do it over email, you can delegate it to your minion."
         }
       },
       {
         "@type": "Question",
-        "name": "What happens to my existing emails?",
+        "name": "Does it work with my email?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "When you connect Gmail, min. processes the most recent 300 emails per inbox to get you started. After that, every new incoming email is automatically processed and organized into lanes. All your emails stay safely in Gmail, old and new."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What are lanes in min.?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Lanes are smart email categories that auto-sort your inbox. Default lanes include Front Office (customer-facing), Back Office (internal ops), Mailroom (transactional), Noise (newsletters, promos), and Human Conversations (real people needing replies). Each email gets automatically routed to the right lane, so you see what matters first."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does min. sync with Gmail?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "min. supports bidirectional sync. When you reply in Gmail, it shows up in min. When you reply in min., it shows up in Gmail. We also sync read status, so your team always knows what's been handled, regardless of where you're working."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can my whole team use the same inbox?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! That's the whole point. Everyone sees hello@, support@, and sales@ in one workspace. You can connect unlimited inboxes to a single workspace. Assign ownership, leave internal notes, tag teammates - all without forwarding or cc'ing."
+          "text": "Yes. min. connects to Gmail or Outlook and works with your existing inbox. Your minion can send and organize on your behalf so everything stays in one place."
         }
       },
       {
@@ -176,7 +102,7 @@ const Index = () => {
         "name": "What about privacy and security?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We're Google CASA Tier 1 compliant with a 9.7/10 score, and we're currently in the process of obtaining SOC 2 certification. Your emails are processed with enterprise-grade encryption. AI reads emails to create summaries and lane assignments, but we never train models on your data or share it with third parties."
+          "text": "We're Google CASA Tier 1 compliant. Your emails and quotes are encrypted. We never train models on your inbox or share your information with third parties."
         }
       }
     ]
@@ -185,205 +111,159 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Make Your Customers Love Emailing You</title>
-        <meta name="description" content="Gmail and Airtable had a baby. Sales, support, success teams in one place. One inbox for hello@, support@, sales@. Respond 3x faster. PLG startups love us." />
-        <meta name="keywords" content="shared inbox, collaborative inbox, PLG inbox, startup email, hello@ inbox, support inbox, team email collaboration, customer communication, founder inbox, startup tools, email management, anti-CRM" />
+        <title>min. | Your rate assistant with perfect recall</title>
+        <meta name="description" content="A quoting assistant with perfect recall for freight brokers. Quote more, win more. All your quotes centralized—delegate carrier blasts, rate lookups, and track-and-trace to your minion." />
+        <meta name="keywords" content="freight broker, quoting assistant, rate capture, carrier outreach, load tracking, freight quoting, logistics assistant, minion" />
         <link rel="canonical" href="https://getmin.ai" />
-        
-        {/* Enhanced Open Graph tags */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
-        <meta property="og:title" content="min. | Make Your Customers Love Emailing You" />
-        <meta property="og:description" content="Gmail and Airtable had a baby. Sales, support, success teams in one place. One inbox for hello@, support@, sales@. Respond 3x faster. PLG startups love us." />
+        <meta property="og:title" content="min. | Your rate assistant with perfect recall" />
+        <meta property="og:description" content="A quoting assistant with perfect recall for freight brokers. Quote more, win more. Delegate to your minion." />
         <meta property="og:site_name" content="min." />
-        
-        {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="min. | Make Your Customers Love Emailing You" />
-        <meta name="twitter:description" content="Gmail and Airtable had a baby. Sales, support, success teams in one place. One inbox for hello@, support@, sales@. Respond 3x faster. PLG startups love us." />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(organizationData)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(faqData)}
-        </script>
+        <meta name="twitter:title" content="min. | Your rate assistant with perfect recall" />
+        <meta name="twitter:description" content="A quoting assistant with perfect recall for freight brokers. Quote more, win more. Delegate to your minion." />
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+        <script type="application/ld+json">{JSON.stringify(organizationData)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
 
-      <div className="min-h-0 bg-white relative overflow-x-hidden overflow-y-hidden">
-        {/* Multiple layered backgrounds */}
+      <div className="min-h-screen bg-white relative overflow-x-hidden">
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
-          {/* Base gradient layer */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
-          
-          {/* Grid pattern */}
-          <div className="absolute inset-0 opacity-[0.02]" style={{
-            backgroundImage: `
-              linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px'
-          }}></div>
-          
-          {/* Subtle dot pattern */}
-          <div className="absolute inset-0 opacity-[0.015]" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.4) 1px, transparent 0)`,
-            backgroundSize: '24px 24px'
-          }}></div>
-          
-          {/* Organic shapes */}
-          <div className="absolute top-0 left-0 w-96 h-96 bg-green-100/10 rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
-          <div className="absolute top-1/3 right-0 w-80 h-80 bg-green-200/8 rounded-full blur-3xl transform translate-x-40"></div>
-          <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-green-100/12 rounded-full blur-3xl transform translate-y-36"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-green-50/40 via-white to-green-50/20" />
+          <div
+            className="absolute inset-0 opacity-[0.02]"
+            style={{
+              backgroundImage: `linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)`,
+              backgroundSize: "40px 40px",
+            }}
+          />
         </div>
-        
+
         <div className="relative" style={{ zIndex: 2 }}>
-          <div className="opacity-0 animate-fade-in" style={{
-            animationDelay: '0ms',
-            zIndex: 50,
-            position: 'relative'
-          }}>
-            <Header />
-          </div>
-          
-          {/* Hero Section */}
-          <main className="pt-20">
+          <Header />
+
+          <main className="pt-32 pb-16">
             <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-6 py-[10px] opacity-0 animate-fade-in" style={{
-                animationDelay: '100ms'
-              }}>
-                <div className="flex justify-center mb-6">
-                  <img src="/lovable-uploads/superfans-icon.png" alt="superfan" className="w-32 h-36 md:w-48 md:h-48 object-contain" />
-                </div>
-                <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4 leading-tight">
-                From hello@ to <span className="text-green-600/90">superfans!</span>
+              {/* Hero — simple messaging */}
+              <div className="text-center mb-16 opacity-0 animate-fade-in" style={{ animationDelay: "0ms", animationFillMode: "forwards" }}>
+                <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-5 leading-tight">
+                  Your very own <span className="text-green-600/90">AI minions</span>
                 </h1>
-                <p className="text-base text-green-600/80 mb-6 font-normal">
-                  Gmail's ease × Airtable's flexibility = your team always replies first.</p>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-2 leading-relaxed font-light">
-                  For founder-led teams. Be the most responsive team without checking email every 5 minutes.</p>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-light">Make a team of 2 feel like 20.</p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+                <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-3 leading-snug font-light">
+                  A quoting assistant with perfect recall, built for freight brokers who live in email.
+                </p>
+                <p className="text-base text-gray-500 max-w-xl mx-auto mb-10 font-light">
+                  Quote freight at the speed of thought. Delegate the rest to your minion.
+                </p>
                 <Button size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white px-8 py-3 text-base font-normal" asChild>
-                    <a href="https://app.getmin.ai/">
-                      Start free - live in 36s
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="lg" className="px-8 py-3 text-base font-normal border-green-200/50 hover:bg-green-50/50" asChild>
-                    <a href="https://app.getmin.ai/demo" target="_blank" rel="noopener noreferrer">
-                      Demo playground
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
-                  </Button>
-                </div>
-                
-                <p className="text-gray-500 text-sm flex items-center justify-center gap-2 font-light">
-                  <span>✨</span>
-                  Superfan moments are brief. Don't miss them.
+                  <a href="https://app.getmin.ai/">Get started free</a>
+                </Button>
+              </div>
+
+              {/* Things you can ask — Cursor-style section heading */}
+              <div id="features" className="mb-24">
+                <h2 className="text-center text-2xl md:text-3xl font-medium text-gray-900 mb-3">
+                  Just tell your minion what you need
+                </h2>
+                <p className="text-center text-gray-500 mb-10 font-light max-w-xl mx-auto">
+                  No forms, no workflows. Ask in plain English—carrier blasts, rate lookups, track and trace.
+                </p>
+                <PromptBubbles />
+              </div>
+
+              {/* Intelligence layer — after demo and prompt bubbles */}
+              <div className="text-center mb-24 max-w-2xl mx-auto">
+                <p className="text-gray-600 font-light text-lg md:text-xl leading-snug">
+                  The intelligence layer that sits on top of your email. We handle the repetitive work so your team can focus on winning loads and deepening relationships.
                 </p>
               </div>
 
-              <div className="flex flex-col">
-                {/* Video Demo Section - shows first on mobile, second on desktop */}
-                <div className="max-w-5xl mx-auto opacity-0 animate-fade-in order-1 md:order-2" style={{
-                  animationDelay: '200ms'
-                }}>
-                  <VideoDemo />
-                </div>
-
-                {/* Features - shows second on mobile, first on desktop */}
-                <div className="max-w-5xl mx-auto mb-6 opacity-0 animate-fade-in order-2 md:order-1" style={{
-                  animationDelay: '300ms'
-                }}>
-                  <Features />
-                </div>
-              </div>
-
-              {/* Stats section - positioned below video */}
-              <div className="max-w-5xl mx-auto opacity-0 animate-fade-in" style={{
-                animationDelay: '400ms'
-              }}>
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100/50 p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">Owner in 30 seconds</div>
-                      <div className="text-gray-600 text-sm font-light">Auto-triages every thread</div>
-                    </div>
-                    <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">No quiet threads</div>
-                      <div className="text-gray-600 text-sm font-light">Auto-reminders and follow-ups</div>
-                    </div>
-                    <div>
-                      <div className="text-xl font-medium text-gray-900 mb-1">Works out of the box</div>
-                      <div className="text-gray-600 text-sm font-light">Connect Gmail in 36s</div>
-                    </div>
+              {/* Quote more, win more — 3-column feature blocks (Cursor-style) */}
+              <section className="mb-24">
+                <h2 className="text-center text-2xl md:text-3xl font-medium text-gray-900 mb-12">
+                  Quote more, win more
+                </h2>
+                <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+                  <div className="text-center">
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">Instant recall</h3>
+                    <p className="text-gray-600 text-sm font-light leading-relaxed">
+                      Every quote from your inbox becomes a searchable asset. What did this lane move for? Who quoted last time? Your minion knows.
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">Find coverage with a prompt</h3>
+                    <p className="text-gray-600 text-sm font-light leading-relaxed">
+                      Instead of copying 20 carrier emails per quote, tell your minion. It drafts personalized requests and collects responses—you approve and decide.
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">One shared memory</h3>
+                    <p className="text-gray-600 text-sm font-light leading-relaxed">
+                      One agent, not 10 private inboxes. Your team’s quotes and carrier network in one place. New hires see who to call and what to pay from day one.
+                    </p>
                   </div>
                 </div>
+              </section>
+
+              {/* You no longer need to */}
+              <section className="mb-24 max-w-2xl mx-auto">
+                <h2 className="text-center text-2xl md:text-3xl font-medium text-gray-900 mb-10">
+                  You no longer need to
+                </h2>
+                <ul className="space-y-3 text-gray-600 font-light">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600/90 mt-1">×</span>
+                    Dig through old email threads for that rate
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600/90 mt-1">×</span>
+                    Copy-paste quotes into spreadsheets
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600/90 mt-1">×</span>
+                    Re-price the same lane from scratch every time
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600/90 mt-1">×</span>
+                    Send and manage a dozen carrier emails per quote
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600/90 mt-1">×</span>
+                    Chase 10 carriers for updates separately
+                  </li>
+                </ul>
+              </section>
+
+              {/* FOMO quote — Cursor-style testimonial strip */}
+              <section className="mb-24 max-w-3xl mx-auto">
+                <blockquote className="text-center border-l-0 pl-0">
+                  <p className="text-lg md:text-xl text-gray-700 font-light leading-relaxed italic">
+                    “The thing is, every quote that flows through makes the next one faster. Six months from now, your agent knows your lanes, your carriers, your pricing. It’s not a static tool—it learns from you.”
+                  </p>
+                </blockquote>
+              </section>
+
+              {/* FAQ */}
+              <div className="mb-16 max-w-5xl mx-auto">
+                <FAQ />
+              </div>
+
+              {/* CTA — Cursor-style final CTA */}
+              <div className="text-center py-12 bg-green-600/90 rounded-2xl px-6 max-w-5xl mx-auto">
+                <h2 className="text-2xl md:text-3xl font-medium text-white mb-4">Ready to deploy your minion?</h2>
+                <p className="text-green-100/90 mb-6 font-light">Get started in seconds. No credit card.</p>
+                <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
+                  <a href="https://app.getmin.ai/">
+                    Get started free
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
               </div>
             </div>
           </main>
 
-          {/* Feature Deep Dive Section */}
-          <div id="features" className="opacity-0 animate-fade-in" style={{
-            animationDelay: '500ms'
-          }}>
-            <FeatureDeepDive />
-          </div>
-
-          {/* Testimonials Section */}
-          <div id="testimonials" className="opacity-0 animate-fade-in" style={{
-            animationDelay: '600ms'
-          }}>
-            <Testimonials />
-          </div>
-
-          {/* Pricing Section */}
-          <div id="pricing" className="opacity-0 animate-fade-in" style={{
-            animationDelay: '700ms'
-          }}>
-            <Pricing />
-          </div>
-
-           {/* FAQ Section */}
-           <div className="opacity-0 animate-fade-in" style={{
-            animationDelay: '900ms'
-          }}>
-            <FAQ />
-          </div>
-
-          {/* CTA Section */}
-          <div className="py-16 bg-green-600/90 relative overflow-hidden opacity-0 animate-fade-in" style={{
-            animationDelay: '800ms'
-          }}>
-            {/* CTA background layers */}
-            <div className="absolute inset-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600/95 to-green-700/85"></div>
-              <div className="absolute top-0 left-0 w-full h-full opacity-10">
-                <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-white rounded-full blur-2xl"></div>
-                <div className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-white rounded-full blur-xl"></div>
-              </div>
-            </div>
-            <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Ready to make email delightful for your customers?</h2>
-              <p className="text-lg text-green-100/90 mb-8 max-w-2xl mx-auto font-light">Join the founders who turned every customer email to a superfan moment.</p>
-              <Button size="lg" variant="secondary" className="bg-white/95 text-green-700 hover:bg-white font-normal" asChild>
-                <a href="https://app.getmin.ai/">
-                  Live in 36s
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          <div className="opacity-0 animate-fade-in" style={{
-            animationDelay: '1000ms'
-          }}>
-            <Footer />
-          </div>
+          <Footer />
         </div>
       </div>
     </>

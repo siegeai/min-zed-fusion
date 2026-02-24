@@ -74,7 +74,7 @@ const Contact = () => {
                   <Zap className="w-5 h-5 text-green-600" />
                   <span className="text-sm font-medium text-gray-900">Powered by min.</span>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">This single email address handles support tickets, sales inquiries, investor relations, press requests, recruiting, and general feedback - all organized automatically using our own product.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This single email address handles support tickets, sales inquiries, investor relations, press requests, recruiting, and general feedback - all done using our own product.</p>
               </div>
             </div>
 
@@ -86,14 +86,11 @@ const Contact = () => {
               
               <h2 className="text-3xl font-semibold text-gray-900 mb-4">Reach us here 24/7/365</h2>
               
-              {/* Response time widget */}
               <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="bg-green-100/80 backdrop-blur-sm rounded-full px-4 py-2 border border-green-200/60">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <Clock className="w-4 h-4 text-green-600" />
-                    <span className="text-green-700 font-medium text-sm">Avg response time: Under 30 mins</span>
-                  </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-4 py-2 border border-emerald-500/30">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                  <Clock className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-200 font-medium text-sm">Avg response time: under 2 hours</span>
                 </div>
               </div>
               
@@ -126,22 +123,7 @@ const Contact = () => {
                     <p className="text-gray-600 text-sm leading-relaxed">{inquiry.description}</p>
                   </div>)}
               </div>
-            </div>
-
-            {/* How it works */}
-            <div className="text-center">
-              <div className="bg-gradient-to-r from-blue-50/50 to-purple-50/50 rounded-2xl p-8 border border-blue-100/40">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                  How does one inbox handle everything?
-                </h2>
-                <p className="text-gray-600 mb-6 leading-relaxed max-w-2xl mx-auto">
-                  Our AI automatically triages and routes your message to the right team member based on content and context. Sales inquiries go to sales, support questions to our support team, and so on - all seamlessly managed through min.
-                </p>
-                <p className="text-sm text-green-600 font-medium">
-                  Experience the future of external communication management
-                </p>
-              </div>
-            </div>
+            </div>            
           </div>
         </main>
 

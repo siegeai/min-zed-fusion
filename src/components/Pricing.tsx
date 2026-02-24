@@ -3,16 +3,12 @@ import { Check } from "lucide-react";
 import StripeBuyButton from "./StripeBuyButton";
 const Pricing = () => {
   const sharedFeatures = [
-    "All team inboxes in one view",
-    "Gist for every thread",
-    "Custom LLM noise filters",
-    "Watchtower (AI-powered alerting)",
-    "AI reminders and follow-ups",
-    "Auto-sort and triage with lanes",
-    "Conversation history for every contact",
-    "Small-task Agents",
-    "Conversational Agents",
-    "Team collaboration with internal notes",
+    "Natural language commands",
+    "Carrier & customer outreach",
+    "Load tracking & ETA updates",
+    "SMS and Slack alerts",
+    "Automated ops digests",
+    "Team collaboration",
   ];
 
   const plans = [{
@@ -31,7 +27,7 @@ const Pricing = () => {
     period: " user / month",
     description: "For 2-50 teammates that scale fast",
     features: sharedFeatures,
-    cta: "Get started - free",
+    cta: "Try for free",
     popular: true
   }, {
     name: "Business",

@@ -100,6 +100,72 @@
   }
 }
 
+/* Force dark mode site-wide and remap common light utility classes. */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #05070b;
+  color: #e5e7eb;
+}
+
+html.dark [class*="bg-white"] {
+  background-color: #0b1220 !important;
+}
+
+html.dark [class*="bg-gray-50"] {
+  background-color: #0f172a !important;
+}
+
+html.dark [class*="bg-gray-100"] {
+  background-color: #111827 !important;
+}
+
+html.dark [class*="from-green-50"],
+html.dark [class*="to-green-50"] {
+  --tw-gradient-from: rgb(15 23 42 / 0.45) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(5 7 11 / 0) var(--tw-gradient-to-position) !important;
+}
+
+html.dark [class*="via-white"] {
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(5 7 11 / 0.65) var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
+html.dark [class*="text-gray-900"] {
+  color: #f3f4f6 !important;
+}
+
+html.dark [class*="text-gray-800"] {
+  color: #e5e7eb !important;
+}
+
+html.dark [class*="text-gray-700"] {
+  color: #d1d5db !important;
+}
+
+html.dark [class*="text-gray-600"],
+html.dark [class*="text-gray-500"] {
+  color: #9ca3af !important;
+}
+
+html.dark [class*="text-green-700"] {
+  color: #6ee7b7 !important;
+}
+
+html.dark [class*="text-green-600"] {
+  color: #4ade80 !important;
+}
+
+html.dark [class*="border-gray"],
+html.dark [class*="border-green"] {
+  border-color: rgb(51 65 85 / 0.75) !important;
+}
+
+html.dark [class*="shadow"] {
+  --tw-shadow-color: rgb(2 6 23 / 0.55);
+}
+
 /* Stripe button grey variant */
 .stripe-button-grey stripe-buy-button {
   filter: grayscale(100%) brightness(1.1);

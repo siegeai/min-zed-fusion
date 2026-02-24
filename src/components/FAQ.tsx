@@ -9,55 +9,23 @@ const FAQ = () => {
   const faqs = [
     {
       question: "How does it work?",
-      answer: "Our AI reads every single email and gives it a gist (tldr) and determines a lane (like a Gmail label). You can add your own small task agents to every lane so it can research, extract, group emails based on its content, including attachments!"
+      answer: "Connect your inbox to your minion. You tell it what you need in plain English—carrier blasts, rate lookups, track and trace. It pulls quotes and context from your emails and handles the grunt work so you can focus on winning loads and making decisions."
     },
     {
-      question: "How many emails can I process?",
-      answer: "The limit is 1,000 emails per inbox per month - which is more than enough for most use cases! Plus, one workspace can support unlimited inboxes. On the solo plan, you can connect as many inboxes as you want (hello@, support@, sales@, etc.)."
+      question: "What can I ask my minion to do?",
+      answer: "Ask for carriers that run a lane, average booked and quoted rates for a lane, email blasts to your carrier list, status updates on active loads, load confirmations, and ops digests. If you’d normally do it over email, you can delegate it to your minion."
     },
     {
-      question: "What happens to my existing emails?",
-      answer: "When you connect Gmail, min. processes the most recent 300 emails per inbox to get you started. After that, every new incoming email is automatically processed and organized into lanes. All your emails stay safely in Gmail, old and new."
+      question: "Does it work with my email?",
+      answer: "Yes. min. connects to Gmail or Outlook and works with your existing inbox. Your minion can send and organize on your behalf so everything stays in one place—one shared memory, not 10 private inboxes."
     },
     {
-      question: "What are lanes and how do they help me?",
-      answer: "Lanes are smart email categories that auto-sort your inbox. Default lanes include Front Office (customer-facing), Back Office (internal ops), Mailroom (transactional), Noise (newsletters, promos), and Human Conversations (real people needing replies). Each email gets automatically routed to the right lane, so you see what matters first."
-    },
-    {
-      question: "Do I need to leave Gmail?",
-      answer: "Nope! min. lives on top of Gmail. Your emails stay in Gmail, we just give you a better way to collaborate on them as a team. Think of it as Gmail with superpowers - all the power, none of the mess."
-    },
-    {
-      question: "Does min. sync with Gmail?",
-      answer: "min. supports bidirectional sync. When you reply in Gmail, it shows up in min. When you reply in min., it shows up in Gmail. We also sync read status, so your team always knows what's been handled, regardless of where you're working."
-    },
-    {
-      question: "Can my whole team use the same inbox?",
-      answer: "Yes! That's the whole point. Everyone sees hello@, support@, and sales@ in one workspace. You can connect unlimited inboxes to a single workspace. Assign ownership, leave internal notes, tag teammates - all without forwarding or cc'ing. Finally, true email collaboration."
-    },
-    {
-      question: "How is this different from a helpdesk or CRM?",
-      answer: "Helpdesks turn conversations into tickets. CRMs force you into rigid workflows. min. keeps email human and fast. We're the layer before your CRM (triage), around it (collaboration), and after it (keep it personal). Perfect for founders who want to scale without losing the human touch."
-    },
-    {
-      question: "How long does setup actually take?",
-      answer: "Literally 36 seconds. Connect your Gmail, invite your team, and lanes start auto-organizing immediately. No forms, no training, no complex onboarding. If you can click 'Connect with Google', you're done."
+      question: "How long does setup take?",
+      answer: "Seconds. Connect Gmail or Outlook, tell your minion what you need, and you’re live. No training, no complex onboarding."
     },
     {
       question: "What about privacy and security?",
-      answer: "We take security seriously. We're Google CASA Tier 1 compliant with a 9.7/10 score, and we're currently in the process of obtaining SOC 2 certification. Your emails are processed with enterprise-grade encryption. AI reads emails to create summaries and lane assignments, but we never train models on your data or share it with third parties."
-    },
-    {
-      question: "Can I customize the lanes and task agents?",
-      answer: "Absolutely! While we provide default lanes that work for most teams, you can customize them to match your workflow. Add your own task agents to any lane - they can research, extract data, group emails based on content, and even process attachments. It's like having a smart assistant for each category of email."
-    },
-    {
-      question: "What if the AI categorizes something wrong?",
-      answer: "Just move the email to the correct lane. The AI learns from these corrections and gets smarter over time. You're always in control - lanes are suggestions, not hard rules. Everything stays flexible and human-friendly."
-    },
-    {
-      question: "Does this work with Outlook or other email providers?",
-      answer: "Currently, min. works with Gmail and Google Workspace accounts. We chose Gmail because it's what most startups use, and it lets us build the best possible experience. Support for other providers is on our roadmap based on demand!"
+      answer: "We’re Google CASA Tier 1 compliant. Your emails and quotes are encrypted. We never train models on your inbox or share your information with third parties."
     }
   ];
 
@@ -75,10 +43,10 @@ const FAQ = () => {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-3">
-            Frequently Asked Questions
+            Frequently asked questions
           </h2>
           <p className="text-lg text-gray-600 font-light">
-            Everything you need to know about min.
+            Your minion, your inbox, your edge.
           </p>
         </div>
 

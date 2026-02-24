@@ -14,8 +14,8 @@ const About = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "About min. - Meet the Founders and Our Mission",
-    "description": "Learn about min.'s founders Eric Wang and Sebastian Ferguson, and our mission to give fast-moving teams superpowers through AI-powered communication tools.",
+    "name": "About min. - Meet the Founder and Our Mission",
+    "description": "Learn about min.'s founder Eric Wang, and our mission to give fast-moving teams superpowers through AI-powered communication tools.",
     "url": "https://getmin.ai/about",
     "mainEntity": {
       "@type": "Organization",
@@ -27,11 +27,7 @@ const About = () => {
           "name": "Eric Wang",
           "jobTitle": "CEO & Co-Founder"
         },
-        {
-          "@type": "Person", 
-          "name": "Sebastian Ferguson",
-          "jobTitle": "CTO & Co-Founder"
-        }
+        
       ]
     }
   };
@@ -39,9 +35,9 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About min. | Meet the Founders Building the Future of Communication</title>
-        <meta name="description" content="Learn about min.'s founders Eric Wang and Sebastian Ferguson, and our mission to give fast-moving teams superpowers through AI-powered communication tools." />
-        <meta name="keywords" content="min. founders, Eric Wang, Sebastian Ferguson, AI communication startup, email automation team" />
+        <title>About min. | Meet the Founder Building the Future of Communication</title>
+        <meta name="description" content="Learn about min.'s founder Eric Wang, and our mission to give fast-moving teams superpowers through AI-powered communication tools." />
+        <meta name="keywords" content="min. founder, Eric Wang, AI communication startup, email automation team" />
         <link rel="canonical" href="https://getmin.ai/about" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
@@ -71,13 +67,13 @@ const About = () => {
                   About <span className="text-green-600/90">min.</span> by Siege AI
                 </h1>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-                  Built by founders, for founders. We're solving the communication chaos that slows down fast-moving teams.
+                  For teams that run on emails.
                 </p>
               </div>
 
               {/* Founders Section */}
               <div className="mb-16">
-                <h2 className="text-2xl font-normal text-gray-900 mb-8 text-center">Meet the Founders</h2>
+                <h2 className="text-2xl font-normal text-gray-900 mb-8 text-center">Meet the Founder</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <Card className="bg-white/90 backdrop-blur-sm border border-green-100/60 shadow-sm">
                     <CardContent className="p-6">
@@ -109,28 +105,6 @@ const About = () => {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white/90 backdrop-blur-sm border border-green-100/60 shadow-sm">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4 mb-4">
-                        <Avatar className="w-16 h-16">
-                          <AvatarImage src="/lovable-uploads/64a4e6b8-c742-42a4-9227-12da884d2dbc.png" alt="Sebastian Ferguson, CTO & Co-Founder of min." />
-                          <AvatarFallback>SF</AvatarFallback>
-                        </Avatar>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h3 className="text-lg font-medium text-gray-900">Sebastian Ferguson</h3>
-                            <a href="https://www.linkedin.com/in/snferguson/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="Sebastian Ferguson's LinkedIn profile">
-                              <Linkedin className="w-4 h-4 text-blue-600" />
-                            </a>
-                          </div>
-                          <p className="text-sm text-green-600 font-medium">Co-Founder & Advisor</p>
-                          <p className="text-xs text-gray-500">University of Waterloo</p>
-                        </div>
-                      </div>
-                      <p className="text-sm text-gray-600 leading-relaxed">🧠 Code whisperer. Math nerd. AI realist.
-Seb brings 10+ years of engineering firepower to the team, with hands-on experience from DoorDash, Bbot, and healthcare R&D at Sunnybrook. Whether he's diving deep into C++ or designing secure, high-performance systems, he's focused on building software that scales, lasts, and just makes sense. Passionate about clean APIs, clear documentation, and a well earned beer.</p>
-                    </CardContent>
-                  </Card>
                 </div>
               </div>
 
@@ -169,11 +143,11 @@ Seb brings 10+ years of engineering firepower to the team, with hands-on experie
                 <h2 className="text-2xl font-normal text-gray-900 mb-6">Our Story</h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed font-light">
                   <p className="font-medium text-gray-900">We promised 30-minute replies. Then our inbox exploded.</p>
-                  <p>We're serial founders who were tired of drowning in hello@ chaos—golden customer emails buried under noise. So we made a simple promise: every user (and future user) gets a reply within 30 minutes during business hours.</p>
+                  <p>We're serial founders. We got sick of the shared inbox: real customer emails lost in newsletters, support spam, and random signups. So we promised every user a reply within 30 minutes during business hours.</p>
                   <p className="font-medium text-gray-900">Customers loved it. Our inbox did not.</p>
-                  <p>My cofounder and I took shifts, hacked together tools, and still almost missed important messages. So we built a tool for ourselves: something that watches the inbox, filters the garbage, and pings us instantly when a real customer emails.</p>
+                  <p>We took shifts and glued together scripts. We still nearly missed important messages. So we built something for us: it watches the inbox, filters the noise, and pings us when a real customer writes in.</p>
                   <p className="font-medium text-gray-900">That tool became min.</p>
-                  <p>Today, lean startup teams use min. to stay insanely responsive without burning out—and to focus on what actually matters: building great products.</p>
+                  <p>Now other lean teams use min. to reply fast without living in the inbox.</p>
                 </div>
               </div>
             </div>

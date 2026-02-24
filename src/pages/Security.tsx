@@ -35,7 +35,15 @@ const Security = () => {
     title: "Access Controls",
     description: "Multi-factor authentication, role-based permissions, and principle of least privilege ensure only authorized access to your data."
   }];
-  const infrastructureCertifications = ["SOC 2 Type II Providers", "Google CASA Tier 2 Certified", "GDPR Compliant Partners", "CCPA Compliant Partners", "ISO 27001 Certified Providers", "PCI DSS Level 1 Infrastructure", "HIPAA Ready Infrastructure"];
+  const infrastructureCertifications = [
+    "SOC 2 Type II",
+    "Google CASA Tier 2",
+    "GDPR compliant",
+    "CCPA compliant",
+    "ISO 27001",
+    "PCI DSS Level 1",
+    "HIPAA ready",
+  ];
   return <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
@@ -168,45 +176,23 @@ const Security = () => {
               </div>
             </div>
 
-            {/* Infrastructure Security & Compliance */}
+            {/* Infrastructure certifications */}
             <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-16">
-              <h2 className="text-2xl font-medium text-gray-900 mb-6 text-center">
-                Certified Infrastructure Partners
+              <h2 className="text-2xl font-medium text-gray-900 mb-2 text-center">
+                Infrastructure & compliance
               </h2>
-              <p className="text-gray-600 mb-6 text-center max-w-3xl mx-auto">
-                We partner exclusively with industry-leading infrastructure providers that maintain the highest security certifications and compliance standards.
+              <p className="text-gray-600 mb-8 text-center max-w-2xl mx-auto text-sm">
+                We use providers that hold the certifications that matter for your data.
               </p>
-              
-              {/* Highlight Google CASA Tier 2 */}
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100/50 rounded-sm border border-blue-200/60 p-6 mb-8">
-                <div className="flex items-center justify-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <ShieldCheck className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-xl font-semibold text-gray-900">Google CASA Tier 2 Certified</h3>
-                    <p className="text-gray-600">Google Cloud Architecture Security Assessment - Tier 2</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {infrastructureCertifications.map((cert, index) => {
-                  const isGoogleCASA = cert === "Google CASA Tier 2 Certified";
-                  return (
-                    <div key={index} className={`flex items-center justify-center p-4 rounded-sm border ${
-                      isGoogleCASA 
-                        ? "bg-blue-50 border-blue-200/60 ring-2 ring-blue-100" 
-                        : "bg-green-50 border-green-200/60"
-                    }`}>
-                      <span className={`text-sm font-medium text-center ${
-                        isGoogleCASA ? "text-blue-800" : "text-gray-700"
-                      }`}>
-                        {cert}
-                      </span>
-                    </div>
-                  );
-                })}
+              <div className="flex flex-wrap justify-center gap-3">
+                {infrastructureCertifications.map((cert, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 rounded-sm bg-gray-100 text-gray-700 text-sm font-medium"
+                  >
+                    {cert}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -240,20 +226,19 @@ const Security = () => {
             </div>
 
             {/* Contact Section */}
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100/50 rounded-sm border border-gray-200/60 p-8 text-center">
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">
-                Questions About Our Security?
+            <div className="mt-16 pt-12 border-t border-gray-200 text-center">
+              <h2 className="text-xl font-medium text-gray-900 mb-2">
+                Security questions?
               </h2>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Our team is available to discuss our security practices, provide detailed security documentation, 
-                or answer any compliance questions you may have.
+              <p className="text-gray-600 mb-6 max-w-xl mx-auto text-sm">
+                We can share documentation or walk through compliance. Reach out anytime.
               </p>
               <a 
                 href="mailto:hello@getmin.ai?subject=Security Questions&body=Hello, I have questions about your security practices and would like to learn more."
-                className="inline-flex items-center justify-center px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-sm transition-colors duration-200 shadow-sm hover:shadow-md"
+                className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium text-sm transition-colors"
               >
-                <Mail className="w-5 h-5 mr-2" />
-                Contact Us
+                <Mail className="w-4 h-4" />
+                hello@getmin.ai
               </a>
             </div>
           </div>

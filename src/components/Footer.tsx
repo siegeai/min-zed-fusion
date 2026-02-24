@@ -33,7 +33,9 @@ const Footer = () => {
             <div className="">
               <span className="font-semibold text-xl">min.</span>
             </div>
-            <p className="text-gray-400 max-w-md leading-relaxed">CRM + Helpdesk vibes. Built on Gmail. Zero bloat. Auto-sort emails, track follow-ups, stay aligned - scale without hiring more.</p>
+            <p className="text-gray-400 max-w-md leading-relaxed">
+              Your rate assistant with perfect recall. All your quotes, centralized—for freight brokers who live in email. Quote more, win more.
+            </p>
           </div>
 
           <div>
@@ -49,26 +51,14 @@ const Footer = () => {
                   Features
                 </a>
               </li>
-              <li>
-                <a 
-                  href="#pricing" 
-                  className="hover:text-white transition-colors"
-                  onClick={(e) => handleNavClick(e, 'pricing')}
-                  aria-label="View min. pricing"
-                >
-                  Pricing
-                </a>
-              </li>
               <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
-              <li><a href="https://app.getmin.ai/demo" className="hover:text-white transition-colors">Demo</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><Link to="/about" className="hover:text-white transition-colors">Siege AI</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              {/* <li><Link to="/about" className="hover:text-white transition-colors">Siege AI</Link></li> */}
               <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>

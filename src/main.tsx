@@ -4,6 +4,8 @@ import { PostHogProvider } from 'posthog-js/react';
 import App from './App.tsx';
 import './index.css';
 
+document.documentElement.classList.add('dark');
+
 const options = {
   api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
   defaults: '2025-05-24',
