@@ -14,6 +14,18 @@ const PROMPTS = [
     },
   },
   {
+    text: "Send check-call requests to every carrier with a load en route today.",
+    response: {
+      headline: "✓ 8 check-call emails sent",
+      rows: [
+        ["STG · Load #3371", "Sent · awaiting reply"],
+        ["Werner · Load #3385", "Sent · awaiting reply"],
+        ["XPO · Load #3392", "Sent · awaiting reply"],
+        ["Schneider · Load #3401", "Sent · no update in 18hrs ⚠"],
+      ],
+    },
+  },
+  {
     text: "Who hasn't responded to my rate request?",
     response: {
       headline: "12 of 15 replied · 3 still pending",
@@ -21,6 +33,18 @@ const PROMPTS = [
         ["Schneider National", "No reply · 2 days"],
         ["Werner Enterprises", "No reply · 2 days"],
         ["J.B. Hunt", "No reply · 1 day"],
+      ],
+    },
+  },
+  {
+    text: "Text me if any carrier mentions a breakdown or delay overnight.",
+    response: {
+      headline: "✓ Alert created",
+      rows: [
+        ["Trigger", "Breakdown or delay mentioned"],
+        ["Monitoring", "All incoming carrier emails"],
+        ["Notify via", "SMS to (312) 555-0142"],
+        ["Active", "Overnight · 7pm–7am"],
       ],
     },
   },
@@ -37,6 +61,18 @@ const PROMPTS = [
     },
   },
   {
+    text: "Reach out to my west coast customers — we have a truck in LA ready tomorrow for loads to Texas.",
+    response: {
+      headline: "Drafting outreach to 9 customers",
+      rows: [
+        ["Acme Industries", "LA — drafted & ready"],
+        ["Pacific Freight Co", "Long Beach — drafted"],
+        ["West Supply Inc.", "Anaheim — drafted"],
+        ["Action", "Review & send all →"],
+      ],
+    },
+  },
+  {
     text: "Any issues I should know about from overnight?",
     response: {
       headline: "3 items need your attention",
@@ -44,6 +80,18 @@ const PROMPTS = [
         ["XPO Logistics", "Delay on Dallas load (+4hrs)"],
         ["New quotes", "2 received — below market avg"],
         ["Follow-ups", "3 carriers haven't replied"],
+      ],
+    },
+  },
+  {
+    text: "Blast a rate request to my top 20 carriers for flatbed Seattle to LA, next Tuesday.",
+    response: {
+      headline: "✓ Sending to 20 carriers",
+      rows: [
+        ["Lane", "Seattle → Los Angeles"],
+        ["Equipment", "Flatbed · FTL"],
+        ["Pickup", "Tue Mar 12"],
+        ["Follow-up", "Auto in 2 days if no reply"],
       ],
     },
   },

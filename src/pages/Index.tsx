@@ -395,7 +395,7 @@ const Index = () => {
                 className="hero-stagger-5"
                 style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10, marginTop: 32, position: "relative", zIndex: 1 }}
               >
-                {["Rate lookups", "Carrier blasts", "Follow-up tracking", "Morning briefings"].map((label) => (
+                {["Rate lookups", "Carrier blasts", "Track & trace", "Overnight alerts", "Customer outreach", "Morning briefings"].map((label) => (
                   <span
                     key={label}
                     style={{ color: DIM, fontSize: 12, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 99, padding: "5px 14px" }}
