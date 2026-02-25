@@ -506,7 +506,7 @@ const Index = () => {
             <Section style={{ marginTop: 120, marginBottom: 120 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="The extraction ritual"
+                  eyebrow="Perfect Recall"
                   headline={<>Your minion reads every email.<br />Extracts every number.<br /><span style={{ color: GREEN }}>Remembers everything.</span></>}
                   sub="No more copy-pasting rates into spreadsheets. Every quote/decision is remembered by your minion."
                 />
@@ -534,7 +534,7 @@ const Index = () => {
                   </div>
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 14, padding: 22 }}>
-                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Extracted & stored</p>
+                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Extracted & remembered</p>
                     {[
                       ["Carrier", "STG Logistics"],
                       ["Rate", "$2,200"],
