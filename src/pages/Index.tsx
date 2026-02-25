@@ -371,7 +371,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>emails & files.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5 }}>
-                  Your minion already read them.
+                  Your minion already read them. Ready for its next task.
                 </p>
                 <div className="hero-stagger-4">
                   <a href="https://app.getmin.ai/">
@@ -391,19 +391,6 @@ const Index = () => {
                 <HeroChatDemo />
               </div>
 
-              <div
-                className="hero-stagger-5"
-                style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10, marginTop: 32, position: "relative", zIndex: 1 }}
-              >
-                {["Rate lookups", "Carrier blasts", "Track & trace", "Overnight alerts", "Customer outreach", "Morning briefings"].map((label) => (
-                  <span
-                    key={label}
-                    style={{ color: DIM, fontSize: 12, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 99, padding: "5px 14px" }}
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
             </div>
 
             <Divider />

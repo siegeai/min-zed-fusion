@@ -1,4 +1,15 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+
+const PROMPT_LABELS = [
+  "Rate lookup",
+  "Check calls",
+  "Follow-ups",
+  "Overnight alerts",
+  "Load details",
+  "Customer outreach",
+  "Morning brief",
+  "Carrier blast",
+];
 
 const PROMPTS = [
   {
@@ -163,8 +174,19 @@ const HeroChatDemo = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [showResponse]);
 
+  const jumpTo = useCallback((index: number) => {
+    if (index === promptIndex && isTyping && charIndex > 0) return;
+    clearTimeout(timeoutRef.current);
+    setFadingOut(false);
+    setShowResponse(false);
+    setCharIndex(0);
+    setRowsVisible(0);
+    setIsTyping(true);
+    setPromptIndex(index);
+  }, [promptIndex, isTyping, charIndex]);
+
   return (
-    <div style={{ maxWidth: 580, margin: "0 auto" }}>
+    <div style={{ maxWidth: 580, margin: "0 auto", display: "flex", flexDirection: "column" }}>
       {/* User prompt bubble */}
       <div
         style={{
@@ -225,7 +247,7 @@ const HeroChatDemo = () => {
         </p>
       </div>
 
-      {/* AI response bubble */}
+      {/* AI response bubble — fixed height keeps pills stable */}
       <div
         style={{
           background: "#1E2630",
@@ -235,6 +257,8 @@ const HeroChatDemo = () => {
           display: "flex",
           alignItems: "flex-start",
           gap: 12,
+          height: 240,
+          overflow: "hidden",
           opacity: showResponse ? (fadingOut ? 0 : 1) : 0,
           transform: showResponse
             ? fadingOut
@@ -319,27 +343,53 @@ const HeroChatDemo = () => {
         </div>
       </div>
 
-      {/* Prompt index dots */}
+      {/* Clickable prompt pills */}
       <div
         style={{
           display: "flex",
           justifyContent: "center",
+          flexWrap: "wrap",
           gap: 6,
-          marginTop: 20,
+          marginTop: 22,
         }}
       >
-        {PROMPTS.map((_, i) => (
-          <div
-            key={i}
-            style={{
-              width: i === promptIndex ? 20 : 6,
-              height: 6,
-              borderRadius: 99,
-              background: i === promptIndex ? "#00AB55" : "rgba(255,255,255,0.12)",
-              transition: "all 0.35s ease",
-            }}
-          />
-        ))}
+        {PROMPT_LABELS.map((label, i) => {
+          const isActive = i === promptIndex;
+          return (
+            <button
+              key={i}
+              onClick={() => jumpTo(i)}
+              style={{
+                background: isActive ? "rgba(0,171,85,0.15)" : "rgba(255,255,255,0.04)",
+                border: isActive
+                  ? "1px solid rgba(0,171,85,0.35)"
+                  : "1px solid rgba(255,255,255,0.07)",
+                borderRadius: 99,
+                padding: "4px 12px",
+                fontSize: 12,
+                color: isActive ? "#6EE7B7" : "#6B7280",
+                cursor: "pointer",
+                transition: "all 0.25s ease",
+                fontWeight: isActive ? 500 : 400,
+                outline: "none",
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
+                  e.currentTarget.style.color = "#9CA3AF";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
+                  e.currentTarget.style.color = "#6B7280";
+                }
+              }}
+            >
+              {label}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
