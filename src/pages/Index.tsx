@@ -371,7 +371,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>emails & files.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5 }}>
-                  Your minion already read them. Ready for its next task.
+                  Your minion already knows them. Ready for its next task.
                 </p>
                 <div className="hero-stagger-4">
                   <a href="https://app.getmin.ai/">
