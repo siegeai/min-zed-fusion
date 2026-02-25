@@ -368,7 +368,7 @@ const Index = () => {
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
                   Stop re-reading<br />
-                  <span style={{ color: GREEN }}>emails & docs.</span>
+                  <span style={{ color: GREEN }}>emails & files.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5 }}>
                   Your minion already read them.
@@ -521,7 +521,7 @@ const Index = () => {
                 <SectionHeading
                   eyebrow="The extraction ritual"
                   headline={<>It reads every email.<br />Extracts every number.<br /><span style={{ color: GREEN }}>Remembers everything.</span></>}
-                  sub="No more copy-pasting rates into spreadsheets. Every quote that arrives is automatically parsed, structured, and ready to query."
+                  sub="No more copy-pasting rates into spreadsheets. Every quote/decision that arrives is remembered by your minion."
                 />
 
                 {/* Email → Extracted fields */}
