@@ -863,7 +863,7 @@ const Index = () => {
                     You're going to re-read<br />that email again tomorrow.<br /><span style={{ color: GREEN }}>Or you could just ask.</span>
                   </h2>
                   <p style={{ color: MUTED, fontSize: "1.05rem", marginBottom: 36, lineHeight: 1.6 }}>
-                    Connect your inbox in 30 seconds. Your minion starts reading immediately.
+                    Connect your inbox in 30 seconds. Your minion starts working immediately.
                   </p>
                   <a href="https://app.getmin.ai/">
                     <Button size="lg" className="cta-glow text-white font-normal text-base px-10" style={{ backgroundColor: GREEN, border: "none" }}>
