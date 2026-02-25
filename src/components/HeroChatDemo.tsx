@@ -110,7 +110,7 @@ const PROMPTS = [
 
 const BASE_SPEED = 34;
 const PAUSE_AFTER_TYPING = 600;
-const PAUSE_SHOWING_RESPONSE = 2800;
+const PAUSE_SHOWING_RESPONSE = 3800;
 
 function naturalDelay(char: string, prev: string): number {
   if (char === " ") return BASE_SPEED + Math.random() * 30;
