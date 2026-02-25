@@ -166,6 +166,63 @@ html.dark [class*="shadow"] {
   --tw-shadow-color: rgb(2 6 23 / 0.55);
 }
 
+/* Brand keyframes */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes slide-up-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes stagger-1 { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes stagger-2 { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes stagger-3 { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes stagger-4 { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-stagger-1 { opacity: 0; animation: stagger-1 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards; }
+.hero-stagger-2 { opacity: 0; animation: stagger-2 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards; }
+.hero-stagger-3 { opacity: 0; animation: stagger-3 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards; }
+.hero-stagger-4 { opacity: 0; animation: stagger-4 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.46s forwards; }
+.hero-stagger-5 { opacity: 0; animation: stagger-4 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.62s forwards; }
+
+/* CTA glow on hover */
+.cta-glow {
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.cta-glow:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(0, 171, 85, 0.35), 0 0 48px rgba(0, 171, 85, 0.12);
+}
+
+/* Hero ambient glow */
+.hero-glow {
+  position: relative;
+}
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(0,171,85,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 20%, rgba(0,171,85,0.12) 50%, rgba(255,255,255,0.06) 80%, transparent);
+  margin: 0 auto;
+  max-width: 480px;
+}
+
 /* Stripe button grey variant */
 .stripe-button-grey stripe-buy-button {
   filter: grayscale(100%) brightness(1.1);

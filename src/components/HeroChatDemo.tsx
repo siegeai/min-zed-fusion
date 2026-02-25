@@ -1,0 +1,300 @@
+import { useState, useEffect, useRef } from "react";
+
+const PROMPTS = [
+  {
+    text: "What did STG quote us on dry van Chicago to Atlanta?",
+    response: {
+      headline: "STG Logistics — $2,200",
+      rows: [
+        ["Lane", "Chicago → Atlanta"],
+        ["Equipment", "Dry Van (FTL)"],
+        ["Quoted", "Tue Mar 5 · 11:42am"],
+        ["Ref #", "STG-2024-8821"],
+      ],
+    },
+  },
+  {
+    text: "Who hasn't responded to my rate request?",
+    response: {
+      headline: "12 of 15 replied · 3 still pending",
+      rows: [
+        ["Schneider National", "No reply · 2 days"],
+        ["Werner Enterprises", "No reply · 2 days"],
+        ["J.B. Hunt", "No reply · 1 day"],
+      ],
+    },
+  },
+  {
+    text: "What's the pickup window on the Acme load?",
+    response: {
+      headline: "Load #ACM-4412 — Confirmed",
+      rows: [
+        ["Pickup window", "Thu Mar 7, 8am–12pm"],
+        ["Origin", "Chicago, IL (Dock B)"],
+        ["Carrier", "STG Logistics"],
+        ["Status", "✓ Confirmed"],
+      ],
+    },
+  },
+  {
+    text: "Any issues I should know about from overnight?",
+    response: {
+      headline: "3 items need your attention",
+      rows: [
+        ["XPO Logistics", "Delay on Dallas load (+4hrs)"],
+        ["New quotes", "2 received — below market avg"],
+        ["Follow-ups", "3 carriers haven't replied"],
+      ],
+    },
+  },
+];
+
+const BASE_SPEED = 34;
+const PAUSE_AFTER_TYPING = 600;
+const PAUSE_SHOWING_RESPONSE = 2800;
+
+function naturalDelay(char: string, prev: string): number {
+  if (char === " ") return BASE_SPEED + Math.random() * 30;
+  if (".,?!;:".includes(char)) return BASE_SPEED + 50 + Math.random() * 60;
+  if (prev === " " && /[A-Z]/.test(char)) return BASE_SPEED + 20;
+  return BASE_SPEED + (Math.random() * 24 - 12);
+}
+
+const HeroChatDemo = () => {
+  const [promptIndex, setPromptIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+  const [showResponse, setShowResponse] = useState(false);
+  const [fadingOut, setFadingOut] = useState(false);
+  const [rowsVisible, setRowsVisible] = useState(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null!);
+
+  const current = PROMPTS[promptIndex];
+  const displayText = current.text.slice(0, charIndex);
+
+  useEffect(() => {
+    if (!isTyping) return;
+    if (charIndex < current.text.length) {
+      const delay = naturalDelay(
+        current.text[charIndex],
+        charIndex > 0 ? current.text[charIndex - 1] : ""
+      );
+      timeoutRef.current = setTimeout(() => setCharIndex((c) => c + 1), delay);
+    } else {
+      timeoutRef.current = setTimeout(() => {
+        setIsTyping(false);
+        setShowResponse(true);
+        setRowsVisible(0);
+      }, PAUSE_AFTER_TYPING);
+    }
+    return () => clearTimeout(timeoutRef.current);
+  }, [isTyping, charIndex, current.text]);
+
+  useEffect(() => {
+    if (!showResponse || rowsVisible >= current.response.rows.length) return;
+    const t = setTimeout(
+      () => setRowsVisible((r) => r + 1),
+      rowsVisible === 0 ? 200 : 90
+    );
+    return () => clearTimeout(t);
+  }, [showResponse, rowsVisible, current.response.rows.length]);
+
+  useEffect(() => {
+    if (!showResponse) return;
+    timeoutRef.current = setTimeout(() => {
+      setFadingOut(true);
+      setTimeout(() => {
+        setFadingOut(false);
+        setShowResponse(false);
+        setCharIndex(0);
+        setRowsVisible(0);
+        setIsTyping(true);
+        setPromptIndex((i) => (i + 1) % PROMPTS.length);
+      }, 500);
+    }, PAUSE_SHOWING_RESPONSE);
+    return () => clearTimeout(timeoutRef.current);
+  }, [showResponse]);
+
+  return (
+    <div style={{ maxWidth: 580, margin: "0 auto" }}>
+      {/* User prompt bubble */}
+      <div
+        style={{
+          background: "#1E2630",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: 16,
+          padding: "18px 22px",
+          marginBottom: 12,
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 12,
+          boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
+        }}
+      >
+        <div
+          style={{
+            width: 30,
+            height: 30,
+            borderRadius: "50%",
+            background: "#00AB55",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 11,
+            fontWeight: 700,
+            color: "white",
+            flexShrink: 0,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          You
+        </div>
+        <p
+          style={{
+            color: "#F9FAFB",
+            fontSize: 15,
+            lineHeight: 1.55,
+            margin: 0,
+            paddingTop: 4,
+            minHeight: 24,
+          }}
+        >
+          {displayText}
+          {isTyping && (
+            <span
+              style={{
+                display: "inline-block",
+                width: 2,
+                height: "1em",
+                background: "#00AB55",
+                marginLeft: 2,
+                verticalAlign: "text-bottom",
+                animation: "cursor-blink 1s step-end infinite",
+                borderRadius: 1,
+              }}
+            />
+          )}
+        </p>
+      </div>
+
+      {/* AI response bubble */}
+      <div
+        style={{
+          background: "#1E2630",
+          border: "1px solid rgba(0,171,85,0.18)",
+          borderRadius: 16,
+          padding: "18px 22px",
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 12,
+          opacity: showResponse ? (fadingOut ? 0 : 1) : 0,
+          transform: showResponse
+            ? fadingOut
+              ? "translateY(-6px)"
+              : "translateY(0)"
+            : "translateY(10px)",
+          transition: fadingOut
+            ? "opacity 0.45s ease, transform 0.45s ease"
+            : "opacity 0.35s ease 0.08s, transform 0.35s ease 0.08s",
+          pointerEvents: showResponse ? "auto" : "none",
+          boxShadow: showResponse && !fadingOut
+            ? "0 4px 32px rgba(0,171,85,0.08), 0 2px 12px rgba(0,0,0,0.25)"
+            : "0 2px 12px rgba(0,0,0,0.15)",
+        }}
+      >
+        <div
+          style={{
+            width: 30,
+            height: 30,
+            borderRadius: "50%",
+            background: "rgba(0,171,85,0.12)",
+            border: "1px solid rgba(0,171,85,0.28)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 13,
+            fontWeight: 600,
+            color: "#00AB55",
+            flexShrink: 0,
+          }}
+        >
+          m
+        </div>
+        <div style={{ flex: 1, overflow: "hidden" }}>
+          <p
+            style={{
+              color: "#00AB55",
+              fontSize: 13,
+              fontWeight: 600,
+              margin: "0 0 10px 0",
+              paddingTop: 4,
+              opacity: showResponse && !fadingOut ? 1 : 0,
+              transition: "opacity 0.3s ease 0.12s",
+            }}
+          >
+            {current.response.headline}
+          </p>
+          <div
+            style={{
+              background: "rgba(0,0,0,0.25)",
+              borderRadius: 8,
+              overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.04)",
+            }}
+          >
+            {current.response.rows.map(([label, value], i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "8px 12px",
+                  borderBottom:
+                    i < current.response.rows.length - 1
+                      ? "1px solid rgba(255,255,255,0.05)"
+                      : "none",
+                  gap: 16,
+                  opacity: i < rowsVisible ? 1 : 0,
+                  transform: i < rowsVisible ? "translateY(0)" : "translateY(6px)",
+                  transition: `opacity 0.22s ease ${i * 60}ms, transform 0.22s ease ${i * 60}ms`,
+                }}
+              >
+                <span style={{ color: "#6B7280", fontSize: 13, flexShrink: 0 }}>
+                  {label}
+                </span>
+                <span style={{ color: "#E5E7EB", fontSize: 13, textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                  {value}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Prompt index dots */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: 6,
+          marginTop: 20,
+        }}
+      >
+        {PROMPTS.map((_, i) => (
+          <div
+            key={i}
+            style={{
+              width: i === promptIndex ? 20 : 6,
+              height: 6,
+              borderRadius: 99,
+              background: i === promptIndex ? "#00AB55" : "rgba(255,255,255,0.12)",
+              transition: "all 0.35s ease",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default HeroChatDemo;
