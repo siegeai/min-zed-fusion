@@ -37,13 +37,13 @@ const PROMPTS = [
     },
   },
   {
-    text: "Who hasn't responded to my rate request?",
+    text: "Follow up with every carrier who hasn't responded to my rate request.",
     response: {
-      headline: "12 of 15 replied · 3 still pending",
+      headline: "✓ 3 follow-ups sent",
       rows: [
-        ["Schneider National", "No reply · 2 days"],
-        ["Werner Enterprises", "No reply · 2 days"],
-        ["J.B. Hunt", "No reply · 1 day"],
+        ["Schneider National", "Follow-up sent · silent 2 days"],
+        ["Werner Enterprises", "Follow-up sent · silent 2 days"],
+        ["J.B. Hunt", "Follow-up sent · silent 1 day"],
       ],
     },
   },
