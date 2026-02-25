@@ -508,7 +508,7 @@ const Index = () => {
                 <SectionHeading
                   eyebrow="The extraction ritual"
                   headline={<>It reads every email.<br />Extracts every number.<br /><span style={{ color: GREEN }}>Remembers everything.</span></>}
-                  sub="No more copy-pasting rates into spreadsheets. Every quote/decision that arrives is remembered by your minion."
+                  sub="No more copy-pasting rates into spreadsheets. Every quote/decision is remembered by your minion."
                 />
 
                 {/* Email → Extracted fields */}
