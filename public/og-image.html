@@ -14,62 +14,39 @@
             width: 1200px;
             height: 630px;
             position: relative;
-            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #dcfce7 100%);
+            background: #161C24;
             overflow: hidden;
         }
-        /* Background patterns */
         .bg-grid {
             position: absolute;
             inset: 0;
             opacity: 0.03;
-            background-image: 
-                linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(0, 171, 85, 0.6) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 171, 85, 0.6) 1px, transparent 1px);
             background-size: 50px 50px;
         }
-        .bg-dots {
+        .glow-1 {
             position: absolute;
-            inset: 0;
-            opacity: 0.025;
-            background-image: radial-gradient(circle at 2px 2px, rgba(34, 197, 94, 0.4) 2px, transparent 0);
-            background-size: 30px 30px;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(ellipse at center, rgba(0, 171, 85, 0.1) 0%, transparent 70%);
         }
-        /* Organic shapes */
-        .shape-1 {
+        .glow-2 {
             position: absolute;
-            top: -150px;
-            left: -150px;
+            bottom: -150px;
+            right: -100px;
             width: 500px;
             height: 500px;
-            background: rgba(34, 197, 94, 0.08);
-            border-radius: 50%;
-            filter: blur(60px);
+            background: radial-gradient(circle, rgba(0, 171, 85, 0.06) 0%, transparent 70%);
         }
-        .shape-2 {
-            position: absolute;
-            top: 200px;
-            right: -200px;
-            width: 600px;
-            height: 600px;
-            background: rgba(34, 197, 94, 0.06);
-            border-radius: 50%;
-            filter: blur(80px);
-        }
-        .shape-3 {
-            position: absolute;
-            bottom: -100px;
-            left: 300px;
-            width: 400px;
-            height: 400px;
-            background: rgba(34, 197, 94, 0.1);
-            border-radius: 50%;
-            filter: blur(70px);
-        }
-        /* Content */
         .content {
             position: relative;
             z-index: 10;
-            padding: 80px;
+            padding: 72px 80px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -77,111 +54,127 @@
             box-sizing: border-box;
         }
         .logo {
-            font-size: 56px;
-            font-weight: 500;
-            color: #16a34a;
-            margin-bottom: 30px;
+            font-size: 44px;
+            font-weight: 600;
+            color: #F9FAFB;
+            margin-bottom: 36px;
         }
         .headline {
-            font-size: 68px;
-            font-weight: 600;
-            color: #111827;
-            line-height: 1.1;
+            font-size: 72px;
+            font-weight: 700;
+            color: #F9FAFB;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
             margin-bottom: 20px;
         }
+        .headline-green {
+            color: #00AB55;
+        }
         .subheadline {
-            font-size: 42px;
-            font-weight: 300;
-            color: #374151;
-            margin-bottom: 30px;
-        }
-        .highlight {
-            color: #16a34a;
-            font-weight: 500;
-        }
-        .description {
             font-size: 32px;
-            color: #6b7280;
-            font-weight: 300;
+            font-weight: 400;
+            color: #9CA3AF;
             line-height: 1.4;
-            max-width: 900px;
+            max-width: 700px;
         }
-        .features {
-            display: flex;
-            gap: 50px;
-            margin-top: 40px;
-        }
-        .feature-item {
+        .prompt-bar {
             display: flex;
             align-items: center;
-            font-size: 24px;
-            color: #374151;
-            font-weight: 400;
+            gap: 14px;
+            background: #1E2630;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px 22px;
+            max-width: 650px;
         }
-        .feature-icon {
+        .prompt-avatar {
             width: 32px;
             height: 32px;
-            margin-right: 12px;
-            font-size: 32px;
+            border-radius: 50%;
+            background: #00AB55;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+        .prompt-text {
+            font-size: 20px;
+            color: #E5E7EB;
+            font-weight: 400;
+        }
+        .prompt-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 22px;
+            background: #00AB55;
+            margin-left: 3px;
+            vertical-align: text-bottom;
+            border-radius: 1px;
         }
         .footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(34, 197, 94, 0.15);
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
         .domain {
-            font-size: 28px;
-            color: #16a34a;
+            font-size: 24px;
+            color: #00AB55;
             font-weight: 500;
         }
-        .tagline {
-            font-size: 22px;
-            color: #6b7280;
-            font-weight: 300;
-            font-style: italic;
+        .features {
+            display: flex;
+            gap: 28px;
+        }
+        .feature-pill {
+            font-size: 16px;
+            color: #6B7280;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 99px;
+            padding: 6px 16px;
         }
     </style>
 </head>
 <body>
     <div class="og-container">
-        <!-- Background layers -->
         <div class="bg-grid"></div>
-        <div class="bg-dots"></div>
-        <div class="shape-1"></div>
-        <div class="shape-2"></div>
-        <div class="shape-3"></div>
-        
-        <!-- Content -->
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+
         <div class="content">
             <div>
                 <div class="logo">min.</div>
-                <div class="headline">AI-Powered Team Inbox</div>
-                <div class="subheadline">for <span class="highlight">Lean Teams & AI Agents</span></div>
-                <div class="description">
-                    Auto-triage emails, manage relationships, and scale communication without hiring more staff.
+                <div class="headline">
+                    Stop re-reading<br>
+                    <span class="headline-green">your emails.</span>
                 </div>
-                
-                <div class="features">
-                    <div class="feature-item">
-                        <span class="feature-icon">🤖</span>
-                        AI Auto-Triage
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">👥</span>
-                        Team Collaboration
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">⚡</span>
-                        2-Min Setup
+                <div class="subheadline">
+                    Your minion already read them. AI for freight brokers.
+                </div>
+            </div>
+
+            <div>
+                <div class="prompt-bar">
+                    <div class="prompt-avatar">You</div>
+                    <div class="prompt-text">
+                        What did STG quote us on dry van Chicago to Atlanta?<span class="prompt-cursor"></span>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer">
                 <div class="domain">getmin.ai</div>
-                <div class="tagline">Built for the Age of Intelligence</div>
+                <div class="features">
+                    <span class="feature-pill">Rate lookups</span>
+                    <span class="feature-pill">Carrier blasts</span>
+                    <span class="feature-pill">Overnight alerts</span>
+                    <span class="feature-pill">Morning briefings</span>
+                </div>
             </div>
         </div>
     </div>
@@ -191,8 +184,8 @@
         // 1. Open this HTML file in a browser
         // 2. Take a screenshot at exactly 1200x630 pixels
         // 3. Save as og-image.png in the public folder
-        // 
-        // Or use a tool like Playwright/Puppeteer:
+        //
+        // Or use Playwright/Puppeteer:
         // const browser = await chromium.launch();
         // const page = await browser.newPage();
         // await page.setViewportSize({ width: 1200, height: 630 });
@@ -201,4 +194,3 @@
     </script>
 </body>
 </html>
-
