@@ -34,7 +34,7 @@ const Footer = () => {
               <span className="font-semibold text-xl">min.</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
-              Your freight assistant with perfect recall. All your quotes, updates, and decisions centralized—for freight brokers who live in email. Quote more, win more.
+              Your freight assistant with perfect recall. All your quotes, updates, and decisions centralized-for freight brokers who live in email. Quote more, win more.
             </p>
           </div>
 
