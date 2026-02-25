@@ -123,6 +123,7 @@ const TermsOfService = () => {
                   <li>Regular penetration testing and security audits by third-party firms</li>
                   <li>Multi-factor authentication and role-based access controls</li>
                   <li>Compliance with Google API Services User Data Policy</li>
+                  <li>Compliance with Microsoft / Outlook API and data policies</li>
                 </ul>
               </section>
 
@@ -156,8 +157,23 @@ const TermsOfService = () => {
                 </ul>
               </section>
 
+              <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="microsoft-api-compliance">
+                <h2 id="microsoft-api-compliance" className="text-xl font-medium text-gray-900 mb-4">9. Microsoft / Outlook API Compliance</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  We strictly comply with Microsoft's API and data policies for Outlook and Microsoft 365:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 space-y-2">
+                  <li>We only access email data necessary for our service functionality</li>
+                  <li>We do not transfer email data to third parties except as required for service operation</li>
+                  <li>We do not use email data for advertising or marketing purposes</li>
+                  <li>We provide clear disclosure of our data use practices</li>
+                  <li>We maintain appropriate security measures for email data</li>
+                  <li>We comply with all Microsoft API Terms of Service, the Microsoft Graph Terms of Use, and applicable Microsoft policies</li>
+                </ul>
+              </section>
+
               <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="service-availability">
-                <h2 id="service-availability" className="text-xl font-medium text-gray-900 mb-4">9. Service Availability</h2>
+                <h2 id="service-availability" className="text-xl font-medium text-gray-900 mb-4">10. Service Availability</h2>
                 <p className="text-gray-600 leading-relaxed">
                   We strive to provide uninterrupted service but cannot guarantee 100% uptime. We provide advance notice 
                   of planned maintenance and work quickly to resolve any service interruptions.
@@ -165,7 +181,7 @@ const TermsOfService = () => {
               </section>
 
               <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="limitation-liability">
-                <h2 id="limitation-liability" className="text-xl font-medium text-gray-900 mb-4">10. Limitation of Liability</h2>
+                <h2 id="limitation-liability" className="text-xl font-medium text-gray-900 mb-4">11. Limitation of Liability</h2>
                 <p className="text-gray-600 leading-relaxed">
                   To the maximum extent permitted by law, min. shall not be liable for any indirect, incidental, special, 
                   consequential, or punitive damages, or any loss of profits or revenues.
@@ -173,7 +189,7 @@ const TermsOfService = () => {
               </section>
 
               <section className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-8" aria-labelledby="termination">
-                <h2 id="termination" className="text-xl font-medium text-gray-900 mb-4">11. Termination</h2>
+                <h2 id="termination" className="text-xl font-medium text-gray-900 mb-4">12. Termination</h2>
                 <p className="text-gray-600 leading-relaxed">
                   When you delete your account, all data related to your account is removed immediately from our databases.
                 </p>
