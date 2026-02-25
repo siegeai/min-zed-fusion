@@ -332,17 +332,17 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Stop re-reading your emails</title>
+        <title>min. | Freight AI that actually does things for you</title>
         <meta name="description" content="A quoting assistant with perfect recall for freight brokers. Ask in plain English — rates, carriers, load status, overnight briefings. Your minion reads every email so you don't have to." />
         <meta name="keywords" content="freight broker, quoting assistant, rate capture, carrier outreach, load tracking, freight quoting, logistics assistant, minion" />
         <link rel="canonical" href="https://getmin.ai" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
-        <meta property="og:title" content="min. | Stop re-reading your emails" />
+        <meta property="og:title" content="min. | Freight AI that actually does things for you" />
         <meta property="og:description" content="Ask your minion. It already read them." />
         <meta property="og:site_name" content="min." />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="min. | Stop re-reading your emails" />
+        <meta name="twitter:title" content="min. | Freight AI that actually does things for you" />
         <meta name="twitter:description" content="Ask your minion. It already read them." />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(organizationData)}</script>
@@ -368,7 +368,7 @@ const Index = () => {
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
                   Stop re-reading<br />
-                  <span style={{ color: GREEN }}>your emails.</span>
+                  <span style={{ color: GREEN }}>emails & docs.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5 }}>
                   Your minion already read them.
