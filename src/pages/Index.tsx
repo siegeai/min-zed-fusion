@@ -293,8 +293,8 @@ const Index = () => {
 
   const structuredData = {
     "@context": "https://schema.org", "@type": "WebPage",
-    name: "min. - Your rate assistant with perfect recall",
-    description: "A quoting assistant with perfect recall for freight brokers. All your quotes, centralized. Quote more, win more—delegate carrier blasts, rate lookups, and track-and-trace to your minion.",
+    name: "min. - Your freight assistant with perfect recall",
+    description: "A quoting and tracking assistant with perfect recall for freight brokers. All your quotes, centralized. Quote more, win more—delegate carrier blasts, rate lookups, and track-and-trace to your minion.",
     url: "https://getmin.ai",
     mainEntity: {
       "@type": "SoftwareApplication", name: "min.", applicationCategory: "BusinessApplication", operatingSystem: "Web",
