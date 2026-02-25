@@ -81,7 +81,7 @@ const Header = () => {
                 padding: "8px 18px",
               }}
             >
-              Get started free
+              Try for free
             </Button>
           </a>
         </div>

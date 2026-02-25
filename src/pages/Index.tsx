@@ -380,7 +380,7 @@ const Index = () => {
                       className="cta-glow text-white font-normal text-base px-8"
                       style={{ backgroundColor: GREEN, border: "none" }}
                     >
-                      Get started free
+                      Try for free
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
@@ -880,7 +880,7 @@ const Index = () => {
                   </p>
                   <a href="https://app.getmin.ai/">
                     <Button size="lg" className="cta-glow text-white font-normal text-base px-10" style={{ backgroundColor: GREEN, border: "none" }}>
-                      Get started free
+                      Try for free
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
