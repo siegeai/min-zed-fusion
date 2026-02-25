@@ -507,7 +507,7 @@ const Index = () => {
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="The extraction ritual"
-                  headline={<>It reads every email.<br />Extracts every number.<br /><span style={{ color: GREEN }}>Remembers everything.</span></>}
+                  headline={<>Your minion reads every email.<br />Extracts every number.<br /><span style={{ color: GREEN }}>Remembers everything.</span></>}
                   sub="No more copy-pasting rates into spreadsheets. Every quote/decision is remembered by your minion."
                 />
 
