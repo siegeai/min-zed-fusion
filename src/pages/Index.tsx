@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroChatDemo from "@/components/HeroChatDemo";
+import MiniMascot from "@/components/MiniMascot";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
@@ -52,25 +53,28 @@ const ChatRow = ({
       ...style,
     }}
   >
-    <div
-      style={{
-        width: 28,
-        height: 28,
-        borderRadius: "50%",
-        background: role === "user" ? GREEN : "rgba(0,171,85,0.12)",
-        border: role === "ai" ? "1px solid rgba(0,171,85,0.28)" : "none",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: 11,
-        fontWeight: 700,
-        color: role === "user" ? "white" : GREEN,
-        flexShrink: 0,
-        letterSpacing: "-0.01em",
-      }}
-    >
-      {role === "user" ? "You" : "m"}
-    </div>
+    {role === "ai" ? (
+      <MiniMascot size={28} />
+    ) : (
+      <div
+        style={{
+          width: 28,
+          height: 28,
+          borderRadius: "50%",
+          background: GREEN,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 11,
+          fontWeight: 700,
+          color: "white",
+          flexShrink: 0,
+          letterSpacing: "-0.01em",
+        }}
+      >
+        You
+      </div>
+    )}
     <div style={{ flex: 1, paddingTop: 3 }}>{children}</div>
   </div>
 );
@@ -370,8 +374,8 @@ const Index = () => {
                   Stop re-reading<br />
                   <span style={{ color: GREEN }}>emails & files.</span>
                 </h1>
-                <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5 }}>
-                  Your minion already knows them. Ready for its next task.
+                <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
+                  Your minion <MiniMascot size={28} /> already knows them. Ready for its next task.
                 </p>
                 <div className="hero-stagger-4">
                   <a href="https://app.getmin.ai/">

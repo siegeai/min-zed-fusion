@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import MiniMascot from "@/components/MiniMascot";
 
 const PROMPT_LABELS = [
   "Rate lookup",
@@ -274,24 +275,7 @@ const HeroChatDemo = () => {
             : "0 2px 12px rgba(0,0,0,0.15)",
         }}
       >
-        <div
-          style={{
-            width: 30,
-            height: 30,
-            borderRadius: "50%",
-            background: "rgba(0,171,85,0.12)",
-            border: "1px solid rgba(0,171,85,0.28)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 13,
-            fontWeight: 600,
-            color: "#00AB55",
-            flexShrink: 0,
-          }}
-        >
-          m
-        </div>
+        <MiniMascot size={30} />
         <div style={{ flex: 1, overflow: "hidden" }}>
           <p
             style={{
