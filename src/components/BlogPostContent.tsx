@@ -22,7 +22,7 @@ const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
 
         <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">The Kitchen Drawer Problem</h3>
         
-        <p>Every early team runs into this. You launch something. A few people try it. Suddenly, your inbox turns into a kitchen drawer—investors, customers, bugs, applicants, ideas, spam, all dumped in the same place.</p>
+        <p>Every early team runs into this. You launch something. A few people try it. Suddenly, your inbox turns into a kitchen drawer: investors, customers, bugs, applicants, ideas, spam, all dumped in the same place.</p>
         
         <EmailChaosAnimation />
         
@@ -66,7 +66,7 @@ const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
         
         <p>The truth is, email is still the front door to your company. Not Intercom. Not Slack. Not some dashboard.</p>
         
-        <p>If you want to build strong relationships with users, customers, partners—email is still where that happens.</p>
+        <p>If you want to build strong relationships with users, customers, partners, email is still where that happens.</p>
         
         <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8 border border-green-200/50 text-center">
           <Zap className="w-12 h-12 text-green-600 mx-auto mb-4" />

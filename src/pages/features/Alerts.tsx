@@ -7,11 +7,11 @@ import {
 const Alerts = () => (
   <FeaturePageLayout
     title="Alerts in Plain English"
-    metaDescription="Set alert conditions in plain English — your minion monitors your inbox and texts you when something happens. No dashboards, no rules engine."
+    metaDescription="Set alert conditions in plain English. Your minion monitors your inbox and texts you when something happens. No dashboards, no rules engine."
     canonicalPath="/features/alerts"
     eyebrow="Feature"
     headline={<>Alerts that speak<br /><span style={{ color: GREEN }}>plain English.</span></>}
-    subline={`"Text me if any carrier mentions a delay overnight." Set conditions in your own words — get notified via SMS when they trigger.`}
+    subline={`"Text me if any carrier mentions a delay overnight." Set conditions in your own words. Get notified via SMS when they trigger.`}
     mascotSeed="feat-alerts"
   >
     <Section style={{ marginTop: 80, marginBottom: 80 }}>
@@ -64,7 +64,7 @@ const Alerts = () => (
               </p>
               <div style={{ background: "rgba(0,0,0,0.25)", borderRadius: 12, padding: 16, border: "1px solid rgba(234,179,8,0.12)" }}>
                 <p style={{ color: TEXT, fontSize: 14, margin: "0 0 8px", fontWeight: 500 }}>
-                  ⚠️ Delay detected — XPO Logistics
+                  ⚠️ Delay detected: XPO Logistics
                 </p>
                 <p style={{ color: MUTED, fontSize: 13, margin: "0 0 6px", lineHeight: 1.55 }}>
                   XPO emailed at 2:41am: "Mechanical issue in Memphis. ETA pushed to Friday 2pm. Apologies for the inconvenience."
@@ -80,7 +80,7 @@ const Alerts = () => (
         <div style={{ marginTop: 40 }}>
           <h3 style={{ color: TEXT, fontSize: 15, fontWeight: 600, marginBottom: 16 }}>Key details</h3>
           {[
-            "Set any condition in plain English — no rules engine or forms",
+            "Set any condition in plain English. No rules engine or forms",
             "Get notified via SMS to your phone",
             "Monitors your inbox 24/7 in real-time",
             "Works for delays, rate thresholds, specific keywords, or any custom trigger",

@@ -34,7 +34,7 @@ const FollowUps = () => (
 
           <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.15)", borderRadius: 16, padding: 24 }}>
             <p style={{ color: DIM, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 16 }}>
-              Follow-up tracker — 48 hours later
+              Follow-up tracker, 48 hours later
             </p>
             {[
               { carrier: "Schneider National", status: "Replied with quote", state: "done" as const },
@@ -53,7 +53,7 @@ const FollowUps = () => (
           <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
             <ChatRow role="user" style={{ marginBottom: 14 }}>
               <p style={{ color: TEXT, fontSize: 14, margin: 0, lineHeight: 1.55 }}>
-                Follow up with Acme Industries about next week's capacity — remind them Tuesday if no reply.
+                Follow up with Acme Industries about next week's capacity. Remind them Tuesday if no reply.
               </p>
             </ChatRow>
             <ChatRow role="ai" seed="fu-2">
@@ -67,8 +67,8 @@ const FollowUps = () => (
         <div style={{ marginTop: 40 }}>
           <h3 style={{ color: TEXT, fontSize: 15, fontWeight: 600, marginBottom: 16 }}>Key details</h3>
           {[
-            "Works on any email thread — rate requests, capacity checks, invoices",
-            "Set any cadence — every day, every 2 days, weekly",
+            "Works on any email thread: rate requests, capacity checks, invoices",
+            "Set any cadence: every day, every 2 days, weekly",
             "Auto-cancels when they reply or you manually respond",
             "All pending follow-ups visible in your Task tab",
           ].map((point) => (

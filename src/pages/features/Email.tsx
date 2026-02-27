@@ -22,14 +22,14 @@ const Email = () => (
           <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
             <ChatRow role="user" style={{ marginBottom: 14 }}>
               <p style={{ color: TEXT, fontSize: 14, margin: 0, lineHeight: 1.55 }}>
-                Send the rate sheet to STG Logistics — attach the PDF from yesterday's email.
+                Send the rate sheet to STG Logistics. Attach the PDF from yesterday's email.
               </p>
             </ChatRow>
             <ChatRow role="ai" seed="email-1">
               <p style={{ color: GREEN, fontSize: 13, margin: 0, fontWeight: 500, marginBottom: 12 }}>✓ Email sent with attachment</p>
               <div style={{ background: "rgba(0,0,0,0.25)", borderRadius: 8, padding: 14, border: "1px solid rgba(255,255,255,0.04)" }}>
                 <p style={{ color: TEXT, fontSize: 13, margin: "0 0 8px", fontWeight: 500 }}>To: dispatch@stglogistics.com</p>
-                <p style={{ color: MUTED, fontSize: 12, margin: "0 0 12px" }}>Subject: Rate Sheet — Chicago to Atlanta Lanes</p>
+                <p style={{ color: MUTED, fontSize: 12, margin: "0 0 12px" }}>Subject: Rate Sheet: Chicago to Atlanta Lanes</p>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.04)", borderRadius: 6, padding: "8px 12px" }}>
                   <span style={{ fontSize: 14 }}>📎</span>
                   <span style={{ color: TEXT, fontSize: 12 }}>rate_sheet_march_2024.pdf</span>
@@ -73,7 +73,7 @@ const Email = () => (
           <h3 style={{ color: TEXT, fontSize: 15, fontWeight: 600, marginBottom: 16 }}>Capabilities</h3>
           {[
             "Attach files from your inbox or mentions to outgoing emails",
-            "Auto-size tables to fit content — no manual column resizing",
+            "Auto-size tables to fit content. No manual column resizing",
             "Embed images and GIFs inline in email body",
             "Professional formatting without HTML editing",
           ].map((point) => (

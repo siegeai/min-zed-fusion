@@ -20,8 +20,8 @@ const SHIPPER_PROMPTS: PromptItem[] = [
     text: "Where is PO #4412? When is it arriving?",
     label: "Shipment tracking",
     response: {
-      headline: "PO #4412 — In Transit",
-      rows: [["Carrier", "FedEx Freight"], ["Status", "In transit — Memphis hub"], ["ETA", "Thu Mar 7, 2:00pm"], ["Destination", "Dallas, TX (Dock 3)"]],
+      headline: "PO #4412: In Transit",
+      rows: [["Carrier", "FedEx Freight"], ["Status", "In transit, Memphis hub"], ["ETA", "Thu Mar 7, 2:00pm"], ["Destination", "Dallas, TX (Dock 3)"]],
     },
   },
   {
@@ -36,8 +36,16 @@ const SHIPPER_PROMPTS: PromptItem[] = [
     text: "Compare the quotes we got for the Houston shipment.",
     label: "Rate comparison",
     response: {
-      headline: "3 quotes for Houston shipment",
-      rows: [["XPO Logistics", "$1,840 · 3 days transit"], ["Estes Express", "$1,620 · 4 days transit"], ["Old Dominion", "$1,950 · 2 days transit"]],
+      headline: "4 quotes for Houston shipment · 8 pallets LTL",
+      rows: [
+        ["Carrier", "Rate", "Transit"],
+        ["Estes Express", "$1,620", "4 days · LTL"],
+        ["XPO Logistics", "$1,840", "3 days · LTL"],
+        ["Old Dominion", "$1,950", "2 days · Priority"],
+        ["FedEx Freight", "$2,110", "2 days · Priority"],
+      ],
+      highlightRow: 1,
+      note: "Estes is $220 below your lane avg, recommend booking",
     },
   },
   {
@@ -53,7 +61,7 @@ const SHIPPER_PROMPTS: PromptItem[] = [
     label: "Spend analysis",
     response: {
       headline: "Q1 avg: $142/pallet from Chicago",
-      rows: [["Total shipments", "47 loads"], ["Avg cost/pallet", "$142"], ["Lowest", "$98 — Estes Express"], ["Highest", "$189 — FedEx Priority"]],
+      rows: [["Total shipments", "47 loads"], ["Avg cost/pallet", "$142"], ["Lowest", "$98, Estes Express"], ["Highest", "$189, FedEx Priority"]],
     },
   },
   {
@@ -69,11 +77,11 @@ const SHIPPER_PROMPTS: PromptItem[] = [
     label: "Morning brief",
     response: {
       headline: "3 items for today",
-      rows: [["Arriving today", "4 shipments · 2 confirmed"], ["Delayed", "1 shipment (+6hrs) — Midwest Steel"], ["Pending", "3 POs with no carrier assigned"]],
+      rows: [["Arriving today", "4 shipments · 2 confirmed"], ["Delayed", "1 shipment (+6hrs), Midwest Steel"], ["Pending", "3 POs with no carrier assigned"]],
     },
   },
   {
-    text: "Reach out to our top 3 carriers for a rush shipment — 2 pallets LA to Phoenix, needs to arrive by Friday.",
+    text: "Reach out to our top 3 carriers for a rush shipment. 2 pallets LA to Phoenix, needs to arrive by Friday.",
     label: "Rush request",
     response: {
       headline: "✓ Expedited RFQ sent to 3 carriers",
@@ -108,13 +116,13 @@ const Shippers = () => {
     <>
       <Helmet>
         <title>min. for Shippers | AI logistics assistant for procurement teams</title>
-        <meta name="description" content="AI for shipping & procurement teams — track shipments, compare rates, send RFQs, and get morning briefings in plain English. Stop chasing updates across email threads." />
+        <meta name="description" content="AI for shipping & procurement teams. Track shipments, compare rates, send RFQs, and get morning briefings in plain English. Stop chasing updates across email threads." />
         <meta name="keywords" content="shipper, procurement, logistics assistant, RFQ, shipment tracking, rate comparison, supply chain, freight management" />
         <link rel="canonical" href="https://getmin.ai/shippers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/shippers" />
         <meta property="og:title" content="min. for Shippers | AI logistics assistant for procurement teams" />
-        <meta property="og:description" content="Track shipments, compare rates, send RFQs — in plain English." />
+        <meta property="og:description" content="Track shipments, compare rates, send RFQs. In plain English." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -178,8 +186,8 @@ const Shippers = () => {
                       </div>
 
                       {[
-                        { from: "tracking@fedexfreight.com", subj: "Shipment Update — PRO #881204", time: "Wed 3:22pm" },
-                        { from: "dispatch@acmesupply.com", subj: "Re: PO #4412 — Shipping Today", time: "Wed 10:15am" },
+                        { from: "tracking@fedexfreight.com", subj: "Shipment Update: PRO #881204", time: "Wed 3:22pm" },
+                        { from: "dispatch@acmesupply.com", subj: "Re: PO #4412, Shipping Today", time: "Wed 10:15am" },
                         { from: "logistics@olddom.com", subj: "FW: Quote for Dallas shipment", time: "Tue 4:45pm" },
                         { from: "ar@midweststeel.com", subj: "Invoice + Tracking #", time: "Tue 11:30am" },
                         { from: "shipping@pacificcomp.com", subj: "Re: Delivery confirmation needed", time: "Mon 9:08am" },
@@ -218,7 +226,7 @@ const Shippers = () => {
                           hasHeader
                           rows={[
                             ["PO #", "Status", "ETA"],
-                            ["#4412", "In transit — Memphis", "Thu 2pm"],
+                            ["#4412", "In transit, Memphis", "Thu 2pm"],
                             ["#4408", "Picked up today", "Fri 10am"],
                             ["#4415", "Carrier assigned", "Fri 3pm"],
                             ["#4401", "Delayed (+6hrs)", "Thu 8pm ⚠"],
@@ -246,7 +254,7 @@ const Shippers = () => {
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 14, padding: 22 }}>
                     <p style={{ color: DIM, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em" }}>Incoming email</p>
                     <p style={{ color: MUTED, fontSize: 12, fontWeight: 600, marginBottom: 4 }}>From: shipping@acmesupply.com</p>
-                    <p style={{ color: MUTED, fontSize: 12, marginBottom: 14 }}>Subject: PO #4412 — Shipped Today</p>
+                    <p style={{ color: MUTED, fontSize: 12, marginBottom: 14 }}>Subject: PO #4412, Shipped Today</p>
                     <p style={{ color: TEXT, fontSize: 13, lineHeight: 1.75 }}>
                       Your order has shipped. Carrier:{" "}
                       <span style={{ background: "rgba(0,171,85,0.18)", borderRadius: 3, padding: "1px 5px", color: "#6EE7B7" }}>FedEx Freight</span>,{" "}
@@ -287,7 +295,7 @@ const Shippers = () => {
                     { stat: "30 sec", label: "to connect Gmail or Outlook" },
                     { stat: "50,000+", label: "emails processed in under 20 min" },
                     { stat: "Auto", label: "extract POs, tracking #s, ETAs, costs" },
-                    { stat: "Every", label: "email, invoice, and BOL — searchable" },
+                    { stat: "Every", label: "email, invoice, and BOL, searchable" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
@@ -376,13 +384,13 @@ const Shippers = () => {
                 <SectionHeading
                   eyebrow="Spend optimization"
                   headline={<>It compares rates while you<br /><span style={{ color: GREEN }}>handle the next PO.</span></>}
-                  sub="Your minion knows every rate you've ever been quoted. Ask it to find the best deal — grounded in your actual data."
+                  sub="Your minion knows every rate you've ever been quoted. Ask it to find the best deal. Grounded in your actual data."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
                     <p style={{ color: DIM, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 20 }}>
-                      Quote comparison — Dallas shipment
+                      Quote comparison, Dallas shipment
                     </p>
 
                     {[
@@ -413,7 +421,7 @@ const Shippers = () => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                       <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        Your minion compares every quote against your historical spend — so you always know if a rate is above or below what you usually pay. No spreadsheet needed.
+                        Your minion compares every quote against your historical spend, so you always know if a rate is above or below what you usually pay. No spreadsheet needed.
                       </p>
                     </div>
 
@@ -498,7 +506,7 @@ const Shippers = () => {
                         { icon: "📦", title: "3 deliveries arriving today", detail: "PO #4412 (2pm) · PO #4408 (4pm) · PO #4415 (5pm)", kind: "default" as const },
                         { icon: "⚠️", title: "Midwest Steel shipment delayed +6hrs", detail: "PO #4401 · New ETA: Thu 8pm · Carrier notified", kind: "warn" as const },
                         { icon: "✅", title: "Estes Express confirmed pickup", detail: "Dallas shipment · Mon 8am · PRO #991847", kind: "success" as const },
-                        { icon: "📋", title: "3 open RFQs with no quotes yet", detail: "Houston · Phoenix · Seattle lanes — follow-ups scheduled", kind: "default" as const },
+                        { icon: "📋", title: "3 open RFQs with no quotes yet", detail: "Houston · Phoenix · Seattle lanes, follow-ups scheduled", kind: "default" as const },
                       ].map((item, i) => (
                         <div key={i} style={{ padding: "10px 12px", borderRadius: 8, marginBottom: 8, background: item.kind === "success" ? "rgba(0,171,85,0.06)" : item.kind === "warn" ? "rgba(234,179,8,0.05)" : "rgba(255,255,255,0.02)", border: item.kind === "success" ? "1px solid rgba(0,171,85,0.12)" : item.kind === "warn" ? "1px solid rgba(234,179,8,0.12)" : "1px solid transparent" }}>
                           <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>

@@ -7,11 +7,11 @@ import {
 const Instructions = () => (
   <FeaturePageLayout
     title="Custom Minion Instructions"
-    metaDescription="Give each minion its own standing rules — tone, style, or domain-specific instructions. Personalize how your minion communicates."
+    metaDescription="Give each minion its own standing rules: tone, style, or domain-specific instructions. Personalize how your minion communicates."
     canonicalPath="/features/instructions"
     eyebrow="Feature"
     headline={<>Your minion,<br /><span style={{ color: GREEN }}>your rules.</span></>}
-    subline="Each minion can have its own standing instructions — communication style, domain rules, or anything you want it to always remember."
+    subline="Each minion can have its own standing instructions: communication style, domain rules, or anything you want it to always remember."
     mascotSeed="feat-instructions"
   >
     <Section style={{ marginTop: 80, marginBottom: 80 }}>
@@ -24,7 +24,7 @@ const Instructions = () => (
               Example instructions
             </p>
             {[
-              { instruction: "Always be concise — bullet points over paragraphs", icon: "📝" },
+              { instruction: "Always be concise. Bullet points over paragraphs", icon: "📝" },
               { instruction: "Reply to carriers in a professional but friendly tone", icon: "🤝" },
               { instruction: "When drafting emails, always include our company phone number in the signature", icon: "📞" },
               { instruction: "Never quote below $1,800 on the Chicago to Atlanta lane", icon: "💰" },
@@ -57,7 +57,7 @@ const Instructions = () => (
               </ChatRow>
               <ChatRow role="ai" seed="instr-2">
                 <p style={{ color: MUTED, fontSize: 13, margin: 0, lineHeight: 1.55, fontStyle: "italic" }}>
-                  "Hey team — just checking in on the rate quote for CHI → ATL. Still good? Let me know!"
+                  "Hey team, just checking in on the rate quote for CHI → ATL. Still good? Let me know!"
                 </p>
               </ChatRow>
             </div>
@@ -70,7 +70,7 @@ const Instructions = () => (
             "Each minion can have its own set of standing rules",
             "Instructions apply to all conversations and tasks",
             "Set communication tone, domain rules, or shorthand definitions",
-            "Update anytime — changes apply immediately to future interactions",
+            "Update anytime. Changes apply immediately to future interactions",
           ].map((point) => (
             <div key={point} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>
               <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>

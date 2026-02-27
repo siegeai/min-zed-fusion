@@ -6,7 +6,9 @@ export interface PromptItem {
   label: string;
   response: {
     headline: string;
-    rows: [string, string][];
+    rows: [string, string, string?][];
+    highlightRow?: number;
+    note?: string;
   };
 }
 
@@ -15,7 +17,7 @@ const FREIGHT_PROMPTS: PromptItem[] = [
     text: "What did STG quote us on dry van Chicago to Atlanta?",
     label: "Rate lookup",
     response: {
-      headline: "STG Logistics — $2,200",
+      headline: "STG Logistics: $2,200",
       rows: [["Lane", "Chicago → Atlanta"], ["Equipment", "Dry Van (FTL)"], ["Quoted", "Tue Mar 5 · 11:42am"], ["Ref #", "STG-2024-8821"]],
     },
   },
@@ -47,16 +49,16 @@ const FREIGHT_PROMPTS: PromptItem[] = [
     text: "What's the pickup window on the Acme load?",
     label: "Load details",
     response: {
-      headline: "Load #ACM-4412 — Confirmed",
+      headline: "Load #ACM-4412: Confirmed",
       rows: [["Pickup window", "Thu Mar 7, 8am–12pm"], ["Origin", "Chicago, IL (Dock B)"], ["Carrier", "STG Logistics"], ["Status", "✓ Confirmed"]],
     },
   },
   {
-    text: "Reach out to my west coast customers — we have a truck in LA ready tomorrow for loads to Texas.",
+    text: "Reach out to my west coast customers. We have a truck in LA ready tomorrow for loads to Texas.",
     label: "Customer outreach",
     response: {
       headline: "Drafting outreach to 9 customers",
-      rows: [["Acme Industries", "LA — drafted & ready"], ["Pacific Freight Co", "Long Beach — drafted"], ["West Supply Inc.", "Anaheim — drafted"], ["Action", "Review & send all →"]],
+      rows: [["Acme Industries", "LA, drafted & ready"], ["Pacific Freight Co", "Long Beach, drafted"], ["West Supply Inc.", "Anaheim, drafted"], ["Action", "Review & send all →"]],
     },
   },
   {
@@ -64,7 +66,7 @@ const FREIGHT_PROMPTS: PromptItem[] = [
     label: "Morning brief",
     response: {
       headline: "3 items need your attention",
-      rows: [["XPO Logistics", "Delay on Dallas load (+4hrs)"], ["New quotes", "2 received — below market avg"], ["Follow-ups", "3 carriers haven't replied"]],
+      rows: [["XPO Logistics", "Delay on Dallas load (+4hrs)"], ["New quotes", "2 received, below market avg"], ["Follow-ups", "3 carriers haven't replied"]],
     },
   },
   {
@@ -79,7 +81,7 @@ const FREIGHT_PROMPTS: PromptItem[] = [
 
 const BASE_SPEED = 34;
 const PAUSE_AFTER_TYPING = 600;
-const PAUSE_SHOWING_RESPONSE = 3800;
+const PAUSE_SHOWING_RESPONSE = 4800;
 
 function naturalDelay(char: string, prev: string): number {
   if (char === " ") return BASE_SPEED + Math.random() * 30;
@@ -218,7 +220,7 @@ const HeroChatDemo = ({
           display: "flex",
           alignItems: "flex-start",
           gap: 12,
-          height: 240,
+          minHeight: 240,
           overflow: "hidden",
           opacity: showResponse ? (fadingOut ? 0 : 1) : 0,
           transform: showResponse
@@ -245,30 +247,101 @@ const HeroChatDemo = ({
           >
             {current.response.headline}
           </p>
-          <div
-            style={{
-              background: "rgba(0,0,0,0.25)", borderRadius: 8,
-              overflow: "hidden", border: "1px solid rgba(255,255,255,0.04)",
-            }}
-          >
-            {current.response.rows.map(([label, value], i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex", justifyContent: "space-between",
-                  padding: "8px 12px",
-                  borderBottom: i < current.response.rows.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
-                  gap: 16,
-                  opacity: i < rowsVisible ? 1 : 0,
-                  transform: i < rowsVisible ? "translateY(0)" : "translateY(6px)",
-                  transition: `opacity 0.22s ease ${i * 60}ms, transform 0.22s ease ${i * 60}ms`,
-                }}
-              >
-                <span style={{ color: "#6B7280", fontSize: 13, flexShrink: 0 }}>{label}</span>
-                <span style={{ color: "#E5E7EB", fontSize: 13, textAlign: "right", fontVariantNumeric: "tabular-nums" }}>{value}</span>
-              </div>
-            ))}
-          </div>
+          {(() => {
+            const { rows, highlightRow, note } = current.response;
+            const isThreeCol = rows.some((r) => r[2] !== undefined);
+            return (
+              <>
+                <div
+                  style={{
+                    background: "rgba(0,0,0,0.25)", borderRadius: 8,
+                    overflow: "hidden", border: "1px solid rgba(255,255,255,0.04)",
+                  }}
+                >
+                  {rows.map(([col1, col2, col3], i) => {
+                    const isHighlighted = highlightRow === i;
+                    const isHeader = i === 0 && isThreeCol && col3 !== undefined && col1 !== "" && col2 !== "" && /^[A-Z]/.test(col1) && /^[A-Z]/.test(col2);
+                    return (
+                      <div
+                        key={i}
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          padding: isHeader ? "5px 12px" : "7px 12px",
+                          borderBottom: i < rows.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
+                          gap: 8,
+                          background: isHighlighted
+                            ? "rgba(0,171,85,0.08)"
+                            : isHeader ? "rgba(255,255,255,0.02)" : "transparent",
+                          opacity: i < rowsVisible ? 1 : 0,
+                          transform: i < rowsVisible ? "translateY(0)" : "translateY(6px)",
+                          transition: `opacity 0.22s ease ${i * 60}ms, transform 0.22s ease ${i * 60}ms`,
+                        }}
+                      >
+                        <span style={{
+                          color: isHeader ? "#4B5563" : isHighlighted ? "#E5E7EB" : "#6B7280",
+                          fontSize: isHeader ? 11 : 13,
+                          flexShrink: 0,
+                          fontWeight: isHeader ? 500 : isHighlighted ? 500 : 400,
+                          textTransform: isHeader ? "uppercase" : "none",
+                          letterSpacing: isHeader ? "0.05em" : "normal",
+                          flex: isThreeCol ? "0 0 38%" : undefined,
+                          minWidth: 0,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        }}>
+                          {col1}
+                        </span>
+                        <span style={{
+                          color: isHeader ? "#4B5563" : isHighlighted ? "#6EE7B7" : "#E5E7EB",
+                          fontSize: isHeader ? 11 : 13,
+                          fontWeight: isHeader ? 500 : isHighlighted ? 700 : 400,
+                          textTransform: isHeader ? "uppercase" : "none",
+                          letterSpacing: isHeader ? "0.05em" : "normal",
+                          fontVariantNumeric: "tabular-nums",
+                          flex: isThreeCol ? "0 0 28%" : undefined,
+                          textAlign: isThreeCol ? "left" : "right",
+                        }}>
+                          {col2}
+                        </span>
+                        {isThreeCol && (
+                          <span style={{
+                            color: isHeader ? "#4B5563" : "#6B7280",
+                            fontSize: isHeader ? 11 : 12,
+                            fontWeight: isHeader ? 500 : 400,
+                            textTransform: isHeader ? "uppercase" : "none",
+                            letterSpacing: isHeader ? "0.05em" : "normal",
+                            flex: "0 0 30%",
+                            textAlign: "right",
+                            whiteSpace: "nowrap",
+                          }}>
+                            {col3 ?? ""}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+                {note && (
+                  <p
+                    style={{
+                      color: "#6EE7B7",
+                      fontSize: 11,
+                      margin: "8px 0 0",
+                      lineHeight: 1.5,
+                      opacity: rowsVisible >= rows.length ? 1 : 0,
+                      transition: "opacity 0.3s ease 0.2s",
+                      paddingLeft: 2,
+                    }}
+                  >
+                    ↳ {note}
+                  </p>
+                )}
+              </>
+            );
+          })()}
         </div>
       </div>
 

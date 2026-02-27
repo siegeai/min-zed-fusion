@@ -5,7 +5,7 @@ const PROMPTS = [
   "What was our average booked and quoted rate for FTL reefer Toronto to Ohio in the last 30 days?",
   "Email blast a quote request to my top 20 carriers that do Seattle → LA, flatbed, for next Tuesday, FTL.",
   "Go through my active shipments and get status updates from the carriers",
-  "Reach out to my customers on the west coast—we have a truck in LA ready tomorrow for any loads going to Texas.",
+  "Reach out to my customers on the west coast. We have a truck in LA ready tomorrow for any loads going to Texas.",
   "Send a track-and-trace to all loads with delivery appointments this week",
   "Send over a load confirmation PDF for this load, fill in all you can, let me know what else you need",
 ];

@@ -40,13 +40,13 @@ const FreightBrokers = () => {
     <>
       <Helmet>
         <title>min. for Brokers | AI that actually does things for you</title>
-        <meta name="description" content="AI for freight brokers and forwarders — rate lookups, carrier blasts, follow-ups, and overnight briefings in plain English. Your minion reads every email so you don't have to." />
+        <meta name="description" content="AI for freight brokers and forwarders. Rate lookups, carrier blasts, follow-ups, and overnight briefings in plain English. Your minion reads every email so you don't have to." />
         <meta name="keywords" content="freight broker, freight forwarder, quoting assistant, rate capture, carrier outreach, load tracking, freight quoting, logistics assistant" />
         <link rel="canonical" href="https://getmin.ai/brokers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/brokers" />
         <meta property="og:title" content="min. for Brokers | AI that actually does things for you" />
-        <meta property="og:description" content="Rate lookups, carrier blasts, follow-ups — in plain English." />
+        <meta property="og:description" content="Rate lookups, carrier blasts, follow-ups. In plain English." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -110,10 +110,10 @@ const FreightBrokers = () => {
                       </div>
 
                       {[
-                        { from: "carriers@xpo.com", subj: "Re: Rate Request — FTL Dry Van", time: "Tue 2:14pm" },
-                        { from: "ops@stglogistics.com", subj: "Rate Quote — Chicago/Atlanta", time: "Tue 11:42am" },
+                        { from: "carriers@xpo.com", subj: "Re: Rate Request: FTL Dry Van", time: "Tue 2:14pm" },
+                        { from: "ops@stglogistics.com", subj: "Rate Quote: Chicago/Atlanta", time: "Tue 11:42am" },
                         { from: "quotes@werner.com", subj: "FW: Lane pricing inquiry", time: "Mon 4:01pm" },
-                        { from: "dispatch@jbhunt.com", subj: "Re: Rate — Chi to ATL w/e", time: "Mon 9:17am" },
+                        { from: "dispatch@jbhunt.com", subj: "Re: Rate: Chi to ATL w/e", time: "Mon 9:17am" },
                         { from: "info@schneider.com", subj: "Rate quote attached", time: "Fri 3:55pm" },
                       ].map((row, i) => (
                         <div key={i} style={{ padding: "8px 10px", borderRadius: 6, marginBottom: 3, background: i === 1 ? "rgba(0,171,85,0.05)" : "transparent", border: i === 1 ? "1px solid rgba(0,171,85,0.1)" : "1px solid transparent", filter: i > 2 ? `blur(${i > 3 ? 2.5 : 1.5}px)` : "none", opacity: i > 3 ? 0.3 : 1 }}>
@@ -178,7 +178,7 @@ const FreightBrokers = () => {
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 14, padding: 22 }}>
                     <p style={{ color: DIM, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em" }}>Incoming email</p>
                     <p style={{ color: MUTED, fontSize: 12, fontWeight: 600, marginBottom: 4 }}>From: dispatch@stglogistics.com</p>
-                    <p style={{ color: MUTED, fontSize: 12, marginBottom: 14 }}>Subject: Re: Rate Quote — FTL Dry Van</p>
+                    <p style={{ color: MUTED, fontSize: 12, marginBottom: 14 }}>Subject: Re: Rate Quote: FTL Dry Van</p>
                     <p style={{ color: TEXT, fontSize: 13, lineHeight: 1.75 }}>
                       Hi, following up on your request. We can do{" "}
                       <span style={{ background: "rgba(0,171,85,0.18)", borderRadius: 3, padding: "1px 5px", color: "#6EE7B7" }}>$2,200</span>{" "}
@@ -218,7 +218,7 @@ const FreightBrokers = () => {
                     { stat: "30 sec", label: "to connect Gmail or Outlook" },
                     { stat: "50,000+", label: "emails processed in under 20 min" },
                     { stat: "Auto", label: "extract rates, lanes, carriers, ETAs" },
-                    { stat: "Every", label: "email, attachment, and PDF — searchable" },
+                    { stat: "Every", label: "email, attachment, and PDF, searchable" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
@@ -309,13 +309,13 @@ const FreightBrokers = () => {
                 <SectionHeading
                   eyebrow="Negotiation"
                   headline={<>It negotiates while you<br /><span style={{ color: GREEN }}>work on the next load.</span></>}
-                  sub="Your minion searches your historical rates before suggesting counters. Not hallucinated — grounded in your actual data."
+                  sub="Your minion searches your historical rates before suggesting counters. Not hallucinated. Grounded in your actual data."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
                     <p style={{ color: DIM, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 20 }}>
-                      Negotiation thread — Norfolk route
+                      Negotiation thread, Norfolk route
                     </p>
 
                     <div style={{ marginBottom: 16 }}>
@@ -361,7 +361,7 @@ const FreightBrokers = () => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                       <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        Your minion checks your rate history before every counter — so you're never guessing what the lane should move for. Negotiation anchored in real data, from your own inbox.
+                        Your minion checks your rate history before every counter, so you're never guessing what the lane should move for. Negotiation anchored in real data, from your own inbox.
                       </p>
                     </div>
 

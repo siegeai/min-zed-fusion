@@ -290,7 +290,7 @@ const BlogPostFanLevel = () => {
                   <p className="text-xl font-light mb-6">{post.excerpt}</p>
                   
                   <div className="space-y-6">
-                    <p>We've all felt it — the magic of hearing back from a founder. Fast. Clear. Like they're writing just to you. That kind of response makes you a fan, not just a user. And the crazy part is, it works. It builds trust. Loyalty. Word of mouth.</p>
+                    <p>We've all felt it. The magic of hearing back from a founder. Fast. Clear. Like they're writing just to you. That kind of response makes you a fan, not just a user. And the crazy part is, it works. It builds trust. Loyalty. Word of mouth.</p>
                     
                     <div className="bg-red-50/50 rounded-xl p-6 border border-red-100">
                       <p className="text-lg font-medium text-red-900 mb-2">But here's the kicker:</p>
@@ -308,7 +308,7 @@ const BlogPostFanLevel = () => {
                       <li>The tone is personal, not templated</li>
                       <li>Follow-ups actually happen</li>
                       <li>No ticket numbers, no bots pretending to be human</li>
-                      <li>It feels like someone cares — because someone actually does.</li>
+                      <li>It feels like someone cares, because someone actually does.</li>
                     </ul>
 
                     <div className="bg-orange-50/50 rounded-xl p-6 border border-orange-100">
@@ -326,7 +326,7 @@ const BlogPostFanLevel = () => {
 
                     <div className="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
                       <p className="text-xl font-medium text-blue-900">But there's no triage. No structure. No system.</p>
-                      <p className="text-blue-800 mt-2">Just a stream of unread threads — and a growing fear you're going to miss something important.</p>
+                      <p className="text-blue-800 mt-2">Just a stream of unread threads, and a growing fear you're going to miss something important.</p>
                     </div>
 
                     <p>So you patch it:</p>
@@ -343,7 +343,7 @@ const BlogPostFanLevel = () => {
 
                     <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">You Don't Just Lose Speed. You Lose the Personal Touch.</h3>
                     
-                    <p>Once you spread email across five tools, everything's "organized" — but colder.</p>
+                    <p>Once you spread email across five tools, everything's "organized", but colder.</p>
                     
                     <ul className="list-disc pl-6 space-y-2">
                       <li>Helpdesks feel like black holes</li>
@@ -353,7 +353,7 @@ const BlogPostFanLevel = () => {
                     </ul>
 
                     <div className="bg-red-50/50 rounded-xl p-6 border border-red-100">
-                      <p className="font-medium text-red-900">Now the next time that person writes in — you don't have context.</p>
+                      <p className="font-medium text-red-900">Now the next time that person writes in, you don't have context.</p>
                       <p className="text-red-800 mt-2">You don't remember the last bug they filed. The feedback they gave. That they're a paying customer. That they matter.</p>
                       <p className="text-red-800 mt-2 font-medium">And just like that, the magic is gone.</p>
                     </div>
@@ -388,7 +388,7 @@ const BlogPostFanLevel = () => {
 
                     <div className="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
                       <p className="font-medium text-blue-900">You don't need 10 people to keep being great at email.</p>
-                      <p className="text-blue-800 mt-2">You just need one system that helps you stay personal, responsive, and consistent — even as volume grows.</p>
+                      <p className="text-blue-800 mt-2">You just need one system that helps you stay personal, responsive, and consistent, even as volume grows.</p>
                     </div>
 
                     <p>If you can keep the feeling of being small while actually scaling?</p>

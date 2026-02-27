@@ -11,7 +11,7 @@ const Tasks = () => (
     canonicalPath="/features/tasks"
     eyebrow="Feature"
     headline={<>Every action becomes<br /><span style={{ color: GREEN }}>a tracked task.</span></>}
-    subline="Ask your minion to do something — it creates a task automatically. Each task runs in its own chat window so nothing gets lost."
+    subline="Ask your minion to do something. It creates a task automatically. Each task runs in its own chat window so nothing gets lost."
     mascotSeed="feat-tasks"
   >
     <Section style={{ marginTop: 80, marginBottom: 80 }}>
@@ -27,7 +27,7 @@ const Tasks = () => (
             </ChatRow>
             <ChatRow role="ai" seed="task-1">
               <p style={{ color: GREEN, fontSize: 13, margin: 0, fontWeight: 500, lineHeight: 1.6 }}>
-                ✓ Sending to 20 carriers. Task created — you can track progress in the Tasks tab.
+                ✓ Sending to 20 carriers. Task created. You can track progress in the Tasks tab.
               </p>
             </ChatRow>
           </div>
@@ -37,10 +37,10 @@ const Tasks = () => (
               Tasks tab
             </p>
             {[
-              { name: "Rate blast — Flatbed SEA→LA", status: "In progress", detail: "12/20 sent · 3 replied", color: GREEN },
-              { name: "Follow up — Schneider, Werner, JB Hunt", status: "Scheduled", detail: "Triggers in 2 days", color: "#FCD34D" },
+              { name: "Rate blast: Flatbed SEA→LA", status: "In progress", detail: "12/20 sent · 3 replied", color: GREEN },
+              { name: "Follow up: Schneider, Werner, JB Hunt", status: "Scheduled", detail: "Triggers in 2 days", color: "#FCD34D" },
               { name: "Morning briefing", status: "Recurring", detail: "Every day · 7:15am", color: "#60A5FA" },
-              { name: "Alert — delay mentions", status: "Active", detail: "Monitoring 24/7", color: "#60A5FA" },
+              { name: "Alert: delay mentions", status: "Active", detail: "Monitoring 24/7", color: "#60A5FA" },
             ].map((task, i) => (
               <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "12px 14px", marginBottom: 8 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
@@ -54,7 +54,7 @@ const Tasks = () => (
 
           <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
             <p style={{ color: DIM, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 16 }}>
-              Dedicated task window — Rate blast
+              Dedicated task window: Rate blast
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[

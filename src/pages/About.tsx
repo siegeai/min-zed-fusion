@@ -135,7 +135,7 @@ const About = () => {
                     <Lightbulb className="w-6 h-6 text-green-600" />
                     <h3 className="text-lg font-normal text-gray-900">Our Vision</h3>
                   </div>
-                  <p className="text-gray-600 text-sm leading-relaxed font-light">Every lean team has a squad of email agents right in their inbox. No bloat, no complexity—just the essentials that work.</p>
+                  <p className="text-gray-600 text-sm leading-relaxed font-light">Every lean team has a squad of email agents right in their inbox. No bloat, no complexity. Just the essentials that work.</p>
                 </div>
               </div>
 

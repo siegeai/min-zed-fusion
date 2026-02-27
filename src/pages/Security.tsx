@@ -70,7 +70,7 @@ const Security = () => {
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
                 Enterprise-Grade Security
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">Built by veterans with 20+ years of combined experience developing enterprise-grade software. Security isn't an afterthought—it's our foundation.</p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">Built by veterans with 20+ years of combined experience developing enterprise-grade software. Security isn't an afterthought. It's our foundation.</p>
             </div>
 
             {/* Security Score Highlight */}

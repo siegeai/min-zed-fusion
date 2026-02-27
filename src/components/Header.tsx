@@ -16,7 +16,13 @@ const FEATURES_ITEMS = [
   { label: "Custom Instructions", to: "/features/instructions" },
 ];
 
-const SOLUTIONS_ITEMS = [
+const TEAMS_ITEMS = [
+  { label: "Operations", to: "/teams/operations" },
+  { label: "Sales", to: "/teams/sales" },
+  { label: "Management", to: "/teams/management" },
+];
+
+const INDUSTRIES_ITEMS = [
   { label: "Brokers", to: "/brokers" },
   { label: "Shippers", to: "/shippers" },
   { label: "3PLs", to: "/3pl" },
@@ -142,7 +148,8 @@ const Header = () => {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
-            <Dropdown label="Solutions" items={SOLUTIONS_ITEMS} />
+            <Dropdown label="Teams" items={TEAMS_ITEMS} />
+            <Dropdown label="Industries" items={INDUSTRIES_ITEMS} />
             <Dropdown label="Features" items={FEATURES_ITEMS} separateFirst />
             <Link
               to="/contact"

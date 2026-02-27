@@ -19,7 +19,7 @@ const FEATURES = [
   },
   {
     title: "Alerts in Plain English",
-    desc: "\"Text me if any carrier mentions a delay overnight.\" Set conditions in plain English — get notified via SMS.",
+    desc: "\"Text me if any carrier mentions a delay overnight.\" Set conditions in plain English. Get notified via SMS.",
     to: "/features/alerts",
     seed: "feat-alerts",
   },
@@ -43,33 +43,60 @@ const FEATURES = [
   },
   {
     title: "Custom Minion Instructions",
-    desc: "Each minion can have its own standing rules — \"always be concise\", \"reply in formal tone\", or anything you want.",
+    desc: "Each minion can have its own standing rules: \"always be concise\", \"reply in formal tone\", or anything you want.",
     to: "/features/instructions",
     seed: "feat-instructions",
   },
 ];
 
-const AUDIENCES = [
+const TEAMS = [
+  {
+    tag: "Operations",
+    headline: "Stop repeating the same emails every morning",
+    desc: "Status checks, follow-ups, document chasing. Your minion handles the repetitive grind so you only touch what needs your brain.",
+    to: "/teams/operations",
+    seed: "team-ops",
+    examples: ["Status updates", "Follow-ups", "Document collection", "Exception alerts"],
+  },
+  {
+    tag: "Sales",
+    headline: "Your inbox knows more than your CRM.",
+    desc: "Every objection, competitor mention, and buying signal is in your email. Your minion reads it all so you don't fly blind.",
+    to: "/teams/sales",
+    seed: "team-sales",
+    examples: ["Outreach", "Account intel", "Quoting", "Win-back"],
+  },
+  {
+    tag: "Management",
+    headline: "Visibility without the dashboards",
+    desc: "Ask for revenue, performance, or trends in plain English. No stale dashboards, no exports. Just answers from your actual data.",
+    to: "/teams/management",
+    seed: "team-mgmt",
+    examples: ["Revenue", "Performance", "Morning briefings", "Weekly digests"],
+  },
+];
+
+const INDUSTRIES = [
   {
     tag: "Brokers",
     headline: "Rate lookups, carrier blasts, and negotiation",
-    desc: "Your minion reads every email, extracts every rate, and sends carrier blasts in one sentence. Counter-offers grounded in your actual data.",
+    desc: "Your minion reads every email, extracts every rate, and sends carrier blasts in one sentence.",
     to: "/brokers",
     seed: "audience-freight",
     examples: ["Rate lookups", "Carrier blasts", "Negotiation", "Load tracking"],
   },
   {
-    tag: "Shippers & Procurement",
+    tag: "Shippers",
     headline: "Shipment tracking, RFQs, and spend analysis",
-    desc: "Track every PO, compare rates across carriers, and send RFQs to your approved list. Morning briefings on what needs attention.",
+    desc: "Track every PO, compare rates across carriers, and send RFQs to your approved list.",
     to: "/shippers",
     seed: "audience-shipper",
     examples: ["PO tracking", "RFQ management", "Rate comparison", "Delay alerts"],
   },
   {
     tag: "3PLs",
-    headline: "Multi-client ops, carrier pools, and performance reports",
-    desc: "Manage every client, carrier, and shipment from one place. Cross-client rate intelligence, POD collection, and SLA monitoring.",
+    headline: "Multi-client ops and performance reports",
+    desc: "Manage every client, carrier, and shipment from one place. Cross-client intelligence and SLA monitoring.",
     to: "/3pl",
     seed: "audience-3pl",
     examples: ["Client visibility", "Cross-client rates", "POD collection", "Client KPIs"],
@@ -80,8 +107,8 @@ const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "min. — AI that reads your emails and does what you tell it",
-    description: "An AI assistant for logistics teams. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings — in plain English.",
+    name: "min. | AI that reads your emails and does what you tell it",
+    description: "An AI assistant for logistics teams. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings, in plain English.",
     url: "https://getmin.ai",
     mainEntity: {
       "@type": "SoftwareApplication",
@@ -95,12 +122,12 @@ const Index = () => {
     <>
       <Helmet>
         <title>min. | AI that reads your emails and does what you tell it</title>
-        <meta name="description" content="An AI assistant for logistics teams. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings — in plain English. Your minion reads every email so you don't have to." />
+        <meta name="description" content="An AI assistant for logistics teams. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings, in plain English. Your minion reads every email so you don't have to." />
         <link rel="canonical" href="https://getmin.ai" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
         <meta property="og:title" content="min. | AI that reads your emails and does what you tell it" />
-        <meta property="og:description" content="Your minion reads every email. Ask it anything — in plain English." />
+        <meta property="og:description" content="Your minion reads every email. Ask it anything, in plain English." />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
@@ -140,41 +167,22 @@ const Index = () => {
 
             <Divider />
 
-            {/* ── Audience cards ── */}
+            {/* ── Teams ── */}
             <Section style={{ marginTop: 120, marginBottom: 120 }}>
               <div style={{ maxWidth: 960, margin: "0 auto" }}>
                 <SectionHeading
-                  eyebrow="Built for logistics"
+                  eyebrow="By team"
                   headline={<>One AI assistant.<br /><span style={{ color: GREEN }}>Tailored for your role.</span></>}
-                  sub="Whether you're a freight broker or a shipper, your minion speaks your language."
+                  sub="Whether you're in ops, sales, or management. Your minion speaks your language."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {AUDIENCES.map((a) => (
-                    <Link
-                      key={a.to}
-                      to={a.to}
-                      style={{ textDecoration: "none" }}
-                    >
+                  {TEAMS.map((a) => (
+                    <Link key={a.to} to={a.to} style={{ textDecoration: "none" }}>
                       <div
-                        style={{
-                          background: SURFACE,
-                          border: `1px solid ${BORDER}`,
-                          borderRadius: 20,
-                          padding: 32,
-                          position: "relative",
-                          overflow: "hidden",
-                          transition: "border-color 0.3s ease, transform 0.3s ease",
-                          cursor: "pointer",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = "rgba(0,171,85,0.3)";
-                          e.currentTarget.style.transform = "translateY(-2px)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = BORDER;
-                          e.currentTarget.style.transform = "translateY(0)";
-                        }}
+                        style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 20, padding: 32, position: "relative", overflow: "hidden", transition: "border-color 0.3s ease, transform 0.3s ease", cursor: "pointer", height: "100%" }}
+                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,171,85,0.3)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = BORDER; e.currentTarget.style.transform = "translateY(0)"; }}
                       >
                         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.025) 0%, transparent 50%)", pointerEvents: "none", borderRadius: 20 }} />
                         <div style={{ position: "relative", zIndex: 1 }}>
@@ -182,21 +190,58 @@ const Index = () => {
                             <MiniMascot size={36} seed={a.seed} />
                             <span style={{ color: GREEN, fontSize: 12, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>{a.tag}</span>
                           </div>
-                          <h3 style={{ color: TEXT, fontSize: "1.25rem", fontWeight: 700, marginBottom: 10, lineHeight: 1.3, letterSpacing: "-0.015em" }}>
-                            {a.headline}
-                          </h3>
-                          <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.65, marginBottom: 20 }}>
-                            {a.desc}
-                          </p>
+                          <h3 style={{ color: TEXT, fontSize: "1.15rem", fontWeight: 700, marginBottom: 10, lineHeight: 1.3, letterSpacing: "-0.015em" }}>{a.headline}</h3>
+                          <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.65, marginBottom: 20 }}>{a.desc}</p>
                           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                             {a.examples.map((ex) => (
-                              <span key={ex} style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${BORDER}`, borderRadius: 99, padding: "3px 12px", fontSize: 12, color: DIM }}>
-                                {ex}
-                              </span>
+                              <span key={ex} style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${BORDER}`, borderRadius: 99, padding: "3px 12px", fontSize: 12, color: DIM }}>{ex}</span>
                             ))}
                           </div>
                           <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 20, color: GREEN, fontSize: 14, fontWeight: 500 }}>
                             See how it works <ArrowRight style={{ width: 14, height: 14 }} />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </Section>
+
+            <Divider />
+
+            {/* ── Industries ── */}
+            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+              <div style={{ maxWidth: 960, margin: "0 auto" }}>
+                <SectionHeading
+                  eyebrow="By industry"
+                  headline={<>Built for logistics.<br /><span style={{ color: GREEN }}>Your industry, your examples.</span></>}
+                  sub="Same powerful minion, with use cases specific to how your industry works."
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {INDUSTRIES.map((a) => (
+                    <Link key={a.to} to={a.to} style={{ textDecoration: "none" }}>
+                      <div
+                        style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 20, padding: 32, position: "relative", overflow: "hidden", transition: "border-color 0.3s ease, transform 0.3s ease", cursor: "pointer", height: "100%" }}
+                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,171,85,0.3)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = BORDER; e.currentTarget.style.transform = "translateY(0)"; }}
+                      >
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.025) 0%, transparent 50%)", pointerEvents: "none", borderRadius: 20 }} />
+                        <div style={{ position: "relative", zIndex: 1 }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
+                            <MiniMascot size={36} seed={a.seed} />
+                            <span style={{ color: GREEN, fontSize: 12, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>{a.tag}</span>
+                          </div>
+                          <h3 style={{ color: TEXT, fontSize: "1.15rem", fontWeight: 700, marginBottom: 10, lineHeight: 1.3, letterSpacing: "-0.015em" }}>{a.headline}</h3>
+                          <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.65, marginBottom: 20 }}>{a.desc}</p>
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                            {a.examples.map((ex) => (
+                              <span key={ex} style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${BORDER}`, borderRadius: 99, padding: "3px 12px", fontSize: 12, color: DIM }}>{ex}</span>
+                            ))}
+                          </div>
+                          <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 20, color: GREEN, fontSize: 14, fontWeight: 500 }}>
+                            See use cases <ArrowRight style={{ width: 14, height: 14 }} />
                           </div>
                         </div>
                       </div>

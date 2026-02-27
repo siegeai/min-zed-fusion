@@ -9,7 +9,7 @@ const FAQS = [
   {
     question: "How does it work?",
     answer:
-      "Connect your inbox to your minion. You tell it what you need in plain English—carrier blasts, rate lookups, track and trace. It pulls quotes and context from your emails and handles the grunt work so you can focus on winning loads and making decisions.",
+      "Connect your inbox to your minion. You tell it what you need in plain English: carrier blasts, rate lookups, track and trace. It pulls quotes and context from your emails and handles the grunt work so you can focus on winning loads and making decisions.",
   },
   {
     question: "What can I ask my minion to do?",
@@ -19,7 +19,7 @@ const FAQS = [
   {
     question: "Does it work with my email?",
     answer:
-      "Yes. min. connects to Gmail or Outlook and works with your existing inbox. Your minion can send and organize on your behalf so everything stays in one place—one shared memory, not 10 private inboxes.",
+      "Yes. min. connects to Gmail or Outlook and works with your existing inbox. Your minion can send and organize on your behalf so everything stays in one place. One shared memory, not 10 private inboxes.",
   },
   {
     question: "How long does setup take?",

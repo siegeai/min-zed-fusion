@@ -7,7 +7,7 @@ import {
 const Contacts = () => (
   <FeaturePageLayout
     title="Smart Contact Classification"
-    metaDescription="Your minion auto-classifies every contact — customer, carrier, vendor, or noise — from conversation history. No manual tagging needed."
+    metaDescription="Your minion auto-classifies every contact (customer, carrier, vendor, or noise) from conversation history. No manual tagging needed."
     canonicalPath="/features/contacts"
     eyebrow="Feature"
     headline={<>Your minion knows who's who<br /><span style={{ color: GREEN }}>without you telling it.</span></>}

@@ -21,11 +21,11 @@ const TPL_PROMPTS: PromptItem[] = [
     label: "Client visibility",
     response: {
       headline: "6 deliveries across 3 clients today",
-      rows: [["Acme Industries", "2 shipments · on time"], ["Pacific Foods", "3 shipments · 1 delayed (+2hrs)"], ["Midwest Mfg", "1 shipment · in transit"], ["Action needed", "Pacific Foods delay — carrier notified"]],
+      rows: [["Acme Industries", "2 shipments · on time"], ["Pacific Foods", "3 shipments · 1 delayed (+2hrs)"], ["Midwest Mfg", "1 shipment · in transit"], ["Action needed", "Pacific Foods delay, carrier notified"]],
     },
   },
   {
-    text: "Send a rate request to our carrier pool for Acme's weekly Dallas shipments — 8 pallets LTL, every Monday.",
+    text: "Send a rate request to our carrier pool for Acme's weekly Dallas shipments. 8 pallets LTL, every Monday.",
     label: "Client RFQ",
     response: {
       headline: "✓ RFQ sent to 15 carriers",
@@ -36,7 +36,7 @@ const TPL_PROMPTS: PromptItem[] = [
     text: "Compare carrier rates for Chicago to Atlanta across all my clients this quarter.",
     label: "Cross-client rates",
     response: {
-      headline: "CHI → ATL — Q1 avg: $2,340 across 3 clients",
+      headline: "CHI → ATL, Q1 avg: $2,340 across 3 clients",
       rows: [["Acme Industries", "$2,200 avg · 12 loads"], ["Pacific Foods", "$2,450 avg · 8 loads"], ["Midwest Mfg", "$2,380 avg · 5 loads"]],
     },
   },
@@ -49,10 +49,10 @@ const TPL_PROMPTS: PromptItem[] = [
     },
   },
   {
-    text: "Give me a weekly performance report for Acme Industries — shipments, costs, and on-time rate.",
+    text: "Give me a weekly performance report for Acme Industries, shipments, costs, and on-time rate.",
     label: "Client reporting",
     response: {
-      headline: "Acme Industries — Week of Mar 4",
+      headline: "Acme Industries, Week of Mar 4",
       rows: [["Shipments", "14 completed · 2 in transit"], ["Total spend", "$31,200"], ["On-time rate", "92.8% (13/14)"], ["Avg cost/shipment", "$2,229"]],
     },
   },
@@ -68,12 +68,12 @@ const TPL_PROMPTS: PromptItem[] = [
     text: "What's our on-time delivery rate for Pacific Foods this quarter?",
     label: "Client KPIs",
     response: {
-      headline: "Pacific Foods — Q1 On-Time: 89.3%",
-      rows: [["Total deliveries", "28"], ["On time", "25 (89.3%)"], ["Late", "3 — avg delay 4.2hrs"], ["Top carrier", "Old Dominion · 96% on-time"]],
+      headline: "Pacific Foods, Q1 On-Time: 89.3%",
+      rows: [["Total deliveries", "28"], ["On time", "25 (89.3%)"], ["Late", "3, avg delay 4.2hrs"], ["Top carrier", "Old Dominion · 96% on-time"]],
     },
   },
   {
-    text: "Morning briefing — all client shipments, exceptions, and pending tasks.",
+    text: "Morning briefing: all client shipments, exceptions, and pending tasks.",
     label: "Morning brief",
     response: {
       headline: "4 items across 3 clients",
@@ -108,13 +108,13 @@ const ThirdPartyLogistics = () => {
     <>
       <Helmet>
         <title>min. for 3PLs | AI that manages every client, carrier, and shipment</title>
-        <meta name="description" content="AI for third-party logistics providers — manage multiple clients, track shipments, collect PODs, compare rates, and get performance reports in plain English." />
+        <meta name="description" content="AI for third-party logistics providers. Manage multiple clients, track shipments, collect PODs, compare rates, and get performance reports in plain English." />
         <meta name="keywords" content="3PL, third party logistics, logistics provider, multi-client management, shipment tracking, carrier management, POD collection" />
         <link rel="canonical" href="https://getmin.ai/3pl" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/3pl" />
         <meta property="og:title" content="min. for 3PLs | AI that manages every client, carrier, and shipment" />
-        <meta property="og:description" content="Multi-client visibility, carrier management, and performance reports — in plain English." />
+        <meta property="og:description" content="Multi-client visibility, carrier management, and performance reports. In plain English." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -179,7 +179,7 @@ const ThirdPartyLogistics = () => {
 
                       {[
                         { from: "orders@acmeindustries.com", subj: "Where's our Dallas shipment?", time: "Wed 3:10pm" },
-                        { from: "tracking@fedexfreight.com", subj: "Shipment Update — PRO #881204", time: "Wed 2:45pm" },
+                        { from: "tracking@fedexfreight.com", subj: "Shipment Update: PRO #881204", time: "Wed 2:45pm" },
                         { from: "logistics@pacificfoods.com", subj: "Re: Weekly capacity planning", time: "Wed 1:30pm" },
                         { from: "ops@midwestmfg.com", subj: "POD needed for Load #3385", time: "Tue 4:22pm" },
                         { from: "billing@xpologistics.com", subj: "Invoice #XPO-2024-1847", time: "Tue 10:05am" },
@@ -212,7 +212,7 @@ const ThirdPartyLogistics = () => {
 
                       <ChatRow role="ai" seed="3pl-status">
                         <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>
-                          Acme Industries — 5 shipments this week
+                          Acme Industries, 5 shipments this week
                         </p>
                         <DataTable
                           hasHeader
@@ -222,7 +222,7 @@ const ThirdPartyLogistics = () => {
                             ["#ACM-4418", "In transit", "Wed 4pm"],
                             ["#ACM-4420", "Picked up", "Thu 10am"],
                             ["#ACM-4422", "Carrier assigned", "Fri 8am"],
-                            ["#ACM-4425", "Pending quote", "—"],
+                            ["#ACM-4425", "Pending quote", "-"],
                           ]}
                         />
                       </ChatRow>
@@ -247,7 +247,7 @@ const ThirdPartyLogistics = () => {
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 14, padding: 22 }}>
                     <p style={{ color: DIM, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em" }}>Incoming email</p>
                     <p style={{ color: MUTED, fontSize: 12, fontWeight: 600, marginBottom: 4 }}>From: quotes@wernerenterprises.com</p>
-                    <p style={{ color: MUTED, fontSize: 12, marginBottom: 14 }}>Subject: Re: Rate Quote — CHI → ATL</p>
+                    <p style={{ color: MUTED, fontSize: 12, marginBottom: 14 }}>Subject: Re: Rate Quote, CHI → ATL</p>
                     <p style={{ color: TEXT, fontSize: 13, lineHeight: 1.75 }}>
                       We can do{" "}
                       <span style={{ background: "rgba(0,171,85,0.18)", borderRadius: 3, padding: "1px 5px", color: "#6EE7B7" }}>$2,300</span>{" "}
@@ -286,7 +286,7 @@ const ThirdPartyLogistics = () => {
                     { stat: "30 sec", label: "to connect Gmail or Outlook" },
                     { stat: "All clients", label: "rate history in one place" },
                     { stat: "Auto", label: "extract rates, POs, ETAs, PODs" },
-                    { stat: "Every", label: "email across every client — searchable" },
+                    { stat: "Every", label: "email across every client, searchable" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
@@ -300,7 +300,7 @@ const ThirdPartyLogistics = () => {
                     <p style={{ color: TEXT, fontSize: 14, margin: 0 }}>Compare our carrier rates for the Chicago to Atlanta lane across all clients this quarter</p>
                   </ChatRow>
                   <ChatRow role="ai" seed="3pl-rates">
-                    <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>CHI → ATL — 25 loads across 3 clients</p>
+                    <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>CHI → ATL, 25 loads across 3 clients</p>
                     <DataTable
                       hasHeader
                       rows={[
@@ -323,14 +323,14 @@ const ThirdPartyLogistics = () => {
                 <SectionHeading
                   eyebrow="One prompt → your carrier pool"
                   headline={<>RFQ your entire carrier pool<br /><span style={{ color: GREEN }}>for any client. In one sentence.</span></>}
-                  sub="Rate requests, follow-ups, and POD collection — your minion handles the carrier grind across all your accounts."
+                  sub="Rate requests, follow-ups, and POD collection. Your minion handles the carrier grind across all your accounts."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
                     <ChatRow role="user" style={{ marginBottom: 20 }}>
                       <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
-                        Send a rate request to our carrier pool for Acme's weekly Dallas shipments — 8 pallets LTL, every Monday pickup.
+                        Send a rate request to our carrier pool for Acme's weekly Dallas shipments. 8 pallets LTL, every Monday pickup.
                       </p>
                     </ChatRow>
                     <ChatRow role="ai" seed="3pl-blast">
@@ -375,7 +375,7 @@ const ThirdPartyLogistics = () => {
                 <SectionHeading
                   eyebrow="Client reporting"
                   headline={<>Performance reports<br /><span style={{ color: GREEN }}>your clients actually want.</span></>}
-                  sub="On-time rates, cost breakdowns, carrier performance — pulled from your actual data, not a dashboard you forgot to update."
+                  sub="On-time rates, cost breakdowns, carrier performance. Pulled from your actual data, not a dashboard you forgot to update."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -384,7 +384,7 @@ const ThirdPartyLogistics = () => {
                     <div style={{ position: "relative", zIndex: 1 }}>
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, paddingBottom: 14, borderBottom: `1px solid ${BORDER}` }}>
                         <div>
-                          <p style={{ color: TEXT, fontSize: 14, fontWeight: 600, margin: 0 }}>Acme Industries — Weekly</p>
+                          <p style={{ color: TEXT, fontSize: 14, fontWeight: 600, margin: 0 }}>Acme Industries, Weekly</p>
                           <p style={{ color: DIM, fontSize: 12, margin: 0 }}>Week of Mar 4, 2024</p>
                         </div>
                         <span style={{ background: "rgba(0,171,85,0.1)", color: GREEN, fontSize: 11, borderRadius: 99, padding: "3px 10px", fontWeight: 500 }}>Report</span>
@@ -410,7 +410,7 @@ const ThirdPartyLogistics = () => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                       <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        Your minion pulls real data from your email history — shipment counts, costs, on-time rates, carrier rankings. Ask for a report on any client, any lane, any time period.
+                        Your minion pulls real data from your email history: shipment counts, costs, on-time rates, carrier rankings. Ask for a report on any client, any lane, any time period.
                       </p>
                     </div>
 
@@ -420,7 +420,7 @@ const ThirdPartyLogistics = () => {
                       </ChatRow>
                       <ChatRow role="ai" seed="3pl-kpi">
                         <p style={{ color: GREEN, fontSize: 13, margin: 0, lineHeight: 1.6, fontWeight: 500 }}>
-                          Pacific Foods Q1: 89.3% on-time (25/28 deliveries). 3 late — avg delay 4.2hrs. Top carrier: Old Dominion at 96%.
+                          Pacific Foods Q1: 89.3% on-time (25/28 deliveries). 3 late, avg delay 4.2hrs. Top carrier: Old Dominion at 96%.
                         </p>
                       </ChatRow>
                     </div>
@@ -429,7 +429,7 @@ const ThirdPartyLogistics = () => {
                       {[
                         "Client-level KPIs pulled from your actual email data",
                         "On-time rates, cost trends, carrier performance rankings",
-                        "Ask for any time period — this week, this quarter, last year",
+                        "Ask for any time period: this week, this quarter, last year",
                       ].map((point) => (
                         <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                           <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>
@@ -493,9 +493,9 @@ const ThirdPartyLogistics = () => {
 
                       {[
                         { icon: "📦", title: "11 shipments in transit today", detail: "Acme (4) · Pacific Foods (5) · Midwest (2)", kind: "default" as const },
-                        { icon: "⚠️", title: "Pacific Foods delay — XPO +2hrs", detail: "Load #PF-3392 · New ETA: Wed 6pm · Carrier notified", kind: "warn" as const },
+                        { icon: "⚠️", title: "Pacific Foods delay: XPO +2hrs", detail: "Load #PF-3392 · New ETA: Wed 6pm · Carrier notified", kind: "warn" as const },
                         { icon: "📋", title: "4 RFQs awaiting carrier responses", detail: "Acme Dallas · Pacific Seattle · Midwest x2", kind: "default" as const },
-                        { icon: "📎", title: "6 PODs missing from last week", detail: "Werner (2) · XPO (2) · Estes (2) — follow-ups queued", kind: "default" as const },
+                        { icon: "📎", title: "6 PODs missing from last week", detail: "Werner (2) · XPO (2) · Estes (2), follow-ups queued", kind: "default" as const },
                       ].map((item, i) => (
                         <div key={i} style={{ padding: "10px 12px", borderRadius: 8, marginBottom: 8, background: item.kind === "warn" ? "rgba(234,179,8,0.05)" : "rgba(255,255,255,0.02)", border: item.kind === "warn" ? "1px solid rgba(234,179,8,0.12)" : "1px solid transparent" }}>
                           <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>

@@ -18,19 +18,19 @@ const ALL_FEATURES = [
   },
   {
     title: "Alerts in Plain English",
-    desc: "Set conditions in plain English — \"text me if any carrier mentions a delay overnight\" — and your minion texts you when it triggers. Real-time monitoring of your inbox.",
+    desc: "Set conditions in plain English (\"text me if anyone mentions a delay\") and your minion texts you when it triggers. Real-time monitoring of your inbox.",
     to: "/features/alerts",
     seed: "feat-alerts",
   },
   {
     title: "Smart Contact Classification",
-    desc: "Your minion auto-classifies every contact as customer, carrier, vendor, or noise based on conversation history. No manual tagging required.",
+    desc: "Your minion auto-classifies every contact (customer, vendor, partner, or noise) based on conversation history. No manual tagging required.",
     to: "/features/contacts",
     seed: "feat-contacts",
   },
   {
     title: "Task Tracking",
-    desc: "When you ask your minion to do something — like an email blast — it auto-creates a task to track progress. Each task runs in its own dedicated chat window.",
+    desc: "When you ask your minion to do something, like an email blast, it auto-creates a task to track progress. Each task runs in its own dedicated chat window.",
     to: "/features/tasks",
     seed: "feat-tasks",
   },
@@ -42,7 +42,7 @@ const ALL_FEATURES = [
   },
   {
     title: "Custom Minion Instructions",
-    desc: "Each minion can have its own standing rules — \"always be concise\", \"answer in formal tone\", \"reply in rhymes\". Personalize how your minion communicates.",
+    desc: "Each minion can have its own standing rules: \"always be concise\", \"answer in formal tone\", \"reply in rhymes\". Personalize how your minion communicates.",
     to: "/features/instructions",
     seed: "feat-instructions",
   },
@@ -52,7 +52,7 @@ const Features = () => (
   <>
     <Helmet>
       <title>Features | min.</title>
-      <meta name="description" content="Explore all min. features — automatic follow-ups, plain English alerts, smart contact classification, task tracking, email power, and custom instructions." />
+      <meta name="description" content="Explore all min. features: automatic follow-ups, plain English alerts, smart contact classification, task tracking, email power, and custom instructions." />
       <link rel="canonical" href="https://getmin.ai/features" />
     </Helmet>
 
@@ -127,16 +127,19 @@ const Features = () => (
 
           <SectionHeading
             eyebrow="See it in action"
-            headline={<>Built for logistics teams<br /><span style={{ color: GREEN }}>who live in email.</span></>}
-            sub="Whether you're a broker, shipper, or 3PL — your minion speaks your language."
+            headline={<>Built for teams<br /><span style={{ color: GREEN }}>who live in email.</span></>}
+            sub="Whether you're in ops, sales, or leadership. Your minion speaks your language."
           />
 
           <Section style={{ marginBottom: 120 }}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ maxWidth: 960, margin: "0 auto" }}>
               {[
-                { label: "For Brokers", to: "/brokers", seed: "nav-freight" },
-                { label: "For Shippers", to: "/shippers", seed: "nav-shipper" },
-                { label: "For 3PLs", to: "/3pl", seed: "nav-3pl" },
+                { label: "Operations", to: "/teams/operations", seed: "nav-ops" },
+                { label: "Sales", to: "/teams/sales", seed: "nav-sales" },
+                { label: "Management", to: "/teams/management", seed: "nav-mgmt" },
+                { label: "Brokers", to: "/brokers", seed: "nav-freight" },
+                { label: "Shippers", to: "/shippers", seed: "nav-shipper" },
+                { label: "3PLs", to: "/3pl", seed: "nav-3pl" },
               ].map((a) => (
                 <Link key={a.to} to={a.to} style={{ textDecoration: "none" }}>
                   <div

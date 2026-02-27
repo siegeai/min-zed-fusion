@@ -10,7 +10,7 @@ const FeatureDeepDive = () => {
   }, {
     icon: <Globe className="w-6 h-6 text-green-600" />,
     title: "See everything at once",
-    description: "All customer convos in one view. Instant TL;DR and full history—no tab-hopping, no digging.",
+    description: "All customer convos in one view. Instant TL;DR and full history. No tab-hopping, no digging.",
     image: "/lovable-uploads/people.gif"
   }, {
     icon: <Shield className="w-6 h-6 text-green-600" />,

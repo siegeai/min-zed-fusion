@@ -153,7 +153,7 @@ const BlogPostAntiCRM = () => {
 
                     <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Why Founders Go Back to Email</h3>
                     
-                    <p>You fall back to Gmail or Superhuman or Hey — not because they're better, but because they're closer to the truth.</p>
+                    <p>You fall back to Gmail or Superhuman or Hey, not because they're better, but because they're closer to the truth.</p>
                     
                     <div className="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
                       <p className="text-blue-900 text-lg font-medium">The truth is: Relationships don't live in CRMs. They live in inboxes.</p>
@@ -181,7 +181,7 @@ const BlogPostAntiCRM = () => {
                     </ul>
                     
                     <div className="bg-green-50/50 rounded-xl p-6 border border-green-100">
-                      <p className="text-green-900 font-medium">In short: it should help you care — not just close.</p>
+                      <p className="text-green-900 font-medium">In short: it should help you care, not just close.</p>
                     </div>
 
                     <SimplicityvsBureaucracy />
