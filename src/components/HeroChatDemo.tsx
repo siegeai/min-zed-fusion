@@ -275,7 +275,7 @@ const HeroChatDemo = () => {
             : "0 2px 12px rgba(0,0,0,0.15)",
         }}
       >
-        <MiniMascot size={30} />
+        <MiniMascot size={30} seed="hero-minion" />
         <div style={{ flex: 1, overflow: "hidden" }}>
           <p
             style={{

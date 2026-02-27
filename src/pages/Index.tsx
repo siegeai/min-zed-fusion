@@ -40,10 +40,12 @@ const ChatRow = ({
   role,
   children,
   style,
+  seed,
 }: {
   role: "user" | "ai";
   children: React.ReactNode;
   style?: React.CSSProperties;
+  seed?: string;
 }) => (
   <div
     style={{
@@ -54,7 +56,7 @@ const ChatRow = ({
     }}
   >
     {role === "ai" ? (
-      <MiniMascot size={28} />
+      <MiniMascot size={28} seed={seed} />
     ) : (
       <div
         style={{
@@ -375,7 +377,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>emails & files.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} /> already knows them. Ready for its next task.
+                  Your minion <MiniMascot size={28} seed="hero-subline" /> already knows them. Ready for its next task.
                 </p>
                 <div className="hero-stagger-4">
                   <a href="https://app.getmin.ai/">
@@ -481,7 +483,7 @@ const Index = () => {
                         </p>
                       </ChatRow>
 
-                      <ChatRow role="ai">
+                      <ChatRow role="ai" seed="inbox-rate">
                         <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>
                           Average booked rate: $3,840 across 7 loads
                         </p>
@@ -575,7 +577,7 @@ const Index = () => {
                   <ChatRow role="user" style={{ marginBottom: 16 }}>
                     <p style={{ color: TEXT, fontSize: 14, margin: 0 }}>Give me a list of carriers that run FTL dry van from LA to Miami</p>
                   </ChatRow>
-                  <ChatRow role="ai">
+                  <ChatRow role="ai" seed="extraction-carriers">
                     <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>Found 6 carriers with recent quotes on this lane</p>
                     <DataTable
                       hasHeader
@@ -613,7 +615,7 @@ const Index = () => {
                         Send a rate request to my top carriers for FTL dry van LA to Miami, follow up in 2 days if they don't respond
                       </p>
                     </ChatRow>
-                    <ChatRow role="ai">
+                    <ChatRow role="ai" seed="blast-carriers">
                       <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 14px" }}>
                         Sending to 36 carriers from your list...
                       </p>
@@ -725,7 +727,7 @@ const Index = () => {
                           Accept STG bid for Norfolk route and send the load confirmation
                         </p>
                       </ChatRow>
-                      <ChatRow role="ai">
+                      <ChatRow role="ai" seed="negotiate-accept">
                         <p style={{ color: GREEN, fontSize: 13, margin: 0, lineHeight: 1.6, fontWeight: 500 }}>
                           Done. Accepted at $2,600. Load confirmation sent to STG Logistics. Reference #NRF-2024-0312.
                         </p>
@@ -770,7 +772,7 @@ const Index = () => {
                           Every morning at 7:15am, give me a briefing on new messages, pending quotes, and anything that needs attention
                         </p>
                       </ChatRow>
-                      <ChatRow role="ai">
+                      <ChatRow role="ai" seed="briefing-schedule">
                         <p style={{ color: GREEN, fontSize: 13, margin: 0, fontWeight: 500 }}>
                           Scheduled. You'll get a briefing at 7:15am every morning.
                         </p>
@@ -783,7 +785,7 @@ const Index = () => {
                           Alert me if any carrier mentions a delay or breakdown
                         </p>
                       </ChatRow>
-                      <ChatRow role="ai">
+                      <ChatRow role="ai" seed="alert-delay">
                         <p style={{ color: GREEN, fontSize: 13, margin: 0, fontWeight: 500 }}>
                           Alert set. I'll flag any delay or breakdown mentions as they arrive.
                         </p>
