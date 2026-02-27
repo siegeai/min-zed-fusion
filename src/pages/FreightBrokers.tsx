@@ -379,7 +379,7 @@ const FreightBrokers = () => {
                     <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4 }}>
                       {[
                         "Negotiates in multi-round email threads",
-                        "References your historical rates, not guesses",
+                        "Uses your historical rates, weather data, and market trends, not guesses",
                         "Sends acceptance + load confirmation in one command",
                       ].map((point) => (
                         <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
