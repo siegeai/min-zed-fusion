@@ -208,7 +208,7 @@ const Operations = () => (
                 <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.15)", borderRadius: 16, padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
                     <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 20px", textTransform: "uppercase", letterSpacing: "0.06em" }}>Response tracker</p>
-                    <ProgressTracker total={18} label="Vendor responses" />
+                    <ProgressTracker total={8} label="Vendor responses" />
                   </div>
                   <div style={{ marginTop: 28 }}>
                     {[
