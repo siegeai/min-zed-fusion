@@ -275,7 +275,7 @@ const Management = () => (
           </Section>
 
           <FinalCTA
-            headline={<>The numbers are in your email.<br /><span style={{ color: GREEN }}>Your minion just reads faster.</span></>}
+            headline={<>The numbers are in your email.<br /><span style={{ color: GREEN }}>Your minion just knows them better than anyone else.</span></>}
             sub="Connect your inbox in 30 seconds. Ask your first business question immediately."
           />
         </div>
