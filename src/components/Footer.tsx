@@ -1,30 +1,7 @@
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
-  ) => {
-    e.preventDefault();
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: targetId } });
-    } else {
-      const element = document.getElementById(targetId);
-      if (element) {
-        const headerHeight = 80;
-        const elementPosition = element.offsetTop - headerHeight;
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth',
-        });
-      }
-    }
-  };
-
   return (
     <footer style={{ backgroundColor: "#111820", borderTop: "1px solid rgba(255,255,255,0.06)" }} className="text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
@@ -34,23 +11,17 @@ const Footer = () => {
               <span className="font-semibold text-xl">min.</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
-              Your freight assistant with perfect recall. All your quotes, updates, and decisions centralized-for freight brokers who live in email. Quote more, win more.
+              AI that reads your emails and does what you tell it. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings — in plain English.
             </p>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>
-                <a 
-                  href="#features" 
-                  className="hover:text-white transition-colors"
-                  onClick={(e) => handleNavClick(e, 'features')}
-                  aria-label="View min. features"
-                >
-                  Features
-                </a>
-              </li>
+              <li><Link to="/features" className="hover:text-white transition-colors">Features</Link></li>
+              <li><Link to="/freight" className="hover:text-white transition-colors">Freight Brokers</Link></li>
+              <li><Link to="/shippers" className="hover:text-white transition-colors">Shippers</Link></li>
+              <li><Link to="/3pl" className="hover:text-white transition-colors">3PLs</Link></li>
               <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
             </ul>
           </div>

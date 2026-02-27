@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +7,16 @@ import { HelmetProvider } from "react-helmet-async";
 import { usePostHog } from "posthog-js/react";
 import { useEffect } from "react";
 import Index from "./pages/Index";
+import FreightBrokers from "./pages/FreightBrokers";
+import Shippers from "./pages/Shippers";
+import ThirdPartyLogistics from "./pages/ThirdPartyLogistics";
+import Features from "./pages/Features";
+import FollowUps from "./pages/features/FollowUps";
+import Alerts from "./pages/features/Alerts";
+import Contacts from "./pages/features/Contacts";
+import Tasks from "./pages/features/Tasks";
+import Email from "./pages/features/Email";
+import Instructions from "./pages/features/Instructions";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
@@ -19,7 +28,6 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Component to track page views with PostHog
 function PostHogPageView() {
   const location = useLocation();
   const posthog = usePostHog();
@@ -43,6 +51,16 @@ const App = () => (
           <PostHogPageView />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/brokers" element={<FreightBrokers />} />
+            <Route path="/shippers" element={<Shippers />} />
+            <Route path="/3pl" element={<ThirdPartyLogistics />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/features/follow-ups" element={<FollowUps />} />
+            <Route path="/features/alerts" element={<Alerts />} />
+            <Route path="/features/contacts" element={<Contacts />} />
+            <Route path="/features/tasks" element={<Tasks />} />
+            <Route path="/features/email" element={<Email />} />
+            <Route path="/features/instructions" element={<Instructions />} />
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />

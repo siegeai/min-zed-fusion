@@ -1,5 +1,107 @@
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
+
+const NAV_LINK_STYLE: React.CSSProperties = { color: "#6B7280" };
+const NAV_LINK_HOVER = "#F9FAFB";
+
+const FEATURES_ITEMS = [
+  { label: "All Features", to: "/features" },
+  { label: "Automatic Follow-Ups", to: "/features/follow-ups" },
+  { label: "Alerts", to: "/features/alerts" },
+  { label: "Smart Contacts", to: "/features/contacts" },
+  { label: "Task Tracking", to: "/features/tasks" },
+  { label: "Email Power", to: "/features/email" },
+  { label: "Custom Instructions", to: "/features/instructions" },
+];
+
+const SOLUTIONS_ITEMS = [
+  { label: "Brokers", to: "/brokers" },
+  { label: "Shippers", to: "/shippers" },
+  { label: "3PLs", to: "/3pl" },
+];
+
+function Dropdown({
+  label,
+  items,
+  separateFirst = false,
+}: {
+  label: string;
+  items: { label: string; to: string }[];
+  separateFirst?: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} style={{ position: "relative" }}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="text-sm font-normal transition-colors duration-200 flex items-center gap-1"
+        style={{ ...NAV_LINK_STYLE, background: "none", border: "none", cursor: "pointer", padding: 0 }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = NAV_LINK_HOVER)}
+        onMouseLeave={(e) => { if (!open) e.currentTarget.style.color = "#6B7280"; }}
+      >
+        {label}
+        <ChevronDown style={{ width: 14, height: 14, transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "rotate(0)" }} />
+      </button>
+
+      {open && (
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(100% + 8px)",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "rgba(30,38,48,0.98)",
+            backdropFilter: "blur(16px)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: 12,
+            padding: "8px 0",
+            minWidth: 200,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+            zIndex: 200,
+          }}
+        >
+          {items.map((item, i) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              onClick={() => setOpen(false)}
+              className="block text-sm transition-colors duration-150"
+              style={{
+                padding: "8px 16px",
+                color: separateFirst && i === 0 ? "#F9FAFB" : "#9CA3AF",
+                fontWeight: separateFirst && i === 0 ? 500 : 400,
+                textDecoration: "none",
+                borderBottom: separateFirst && i === 0 ? "1px solid rgba(255,255,255,0.06)" : "none",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#F9FAFB";
+                e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.04)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = separateFirst && i === 0 ? "#F9FAFB" : "#9CA3AF";
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 const Header = () => {
   const location = useLocation();
@@ -40,11 +142,13 @@ const Header = () => {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
+            <Dropdown label="Solutions" items={SOLUTIONS_ITEMS} />
+            <Dropdown label="Features" items={FEATURES_ITEMS} separateFirst />
             <Link
               to="/contact"
               className="text-sm font-normal transition-colors duration-200"
-              style={{ color: "#6B7280" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#F9FAFB")}
+              style={NAV_LINK_STYLE}
+              onMouseEnter={(e) => (e.currentTarget.style.color = NAV_LINK_HOVER)}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7280")}
             >
               Contact Us
@@ -52,8 +156,8 @@ const Header = () => {
             <Link
               to="/careers"
               className="text-sm font-normal transition-colors duration-200"
-              style={{ color: "#6B7280" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#F9FAFB")}
+              style={NAV_LINK_STYLE}
+              onMouseEnter={(e) => (e.currentTarget.style.color = NAV_LINK_HOVER)}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7280")}
             >
               Careers

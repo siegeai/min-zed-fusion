@@ -1,110 +1,78 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import MiniMascot from "@/components/MiniMascot";
 
-const PROMPT_LABELS = [
-  "Rate lookup",
-  "Check calls",
-  "Follow-ups",
-  "Overnight alerts",
-  "Load details",
-  "Customer outreach",
-  "Morning brief",
-  "Carrier blast",
-];
+export interface PromptItem {
+  text: string;
+  label: string;
+  response: {
+    headline: string;
+    rows: [string, string][];
+  };
+}
 
-const PROMPTS = [
+const FREIGHT_PROMPTS: PromptItem[] = [
   {
     text: "What did STG quote us on dry van Chicago to Atlanta?",
+    label: "Rate lookup",
     response: {
       headline: "STG Logistics — $2,200",
-      rows: [
-        ["Lane", "Chicago → Atlanta"],
-        ["Equipment", "Dry Van (FTL)"],
-        ["Quoted", "Tue Mar 5 · 11:42am"],
-        ["Ref #", "STG-2024-8821"],
-      ],
+      rows: [["Lane", "Chicago → Atlanta"], ["Equipment", "Dry Van (FTL)"], ["Quoted", "Tue Mar 5 · 11:42am"], ["Ref #", "STG-2024-8821"]],
     },
   },
   {
     text: "Send check-call requests to every carrier with a load en route today.",
+    label: "Check calls",
     response: {
       headline: "✓ 8 check-call emails sent",
-      rows: [
-        ["STG · Load #3371", "Sent · awaiting reply"],
-        ["Werner · Load #3385", "Sent · awaiting reply"],
-        ["XPO · Load #3392", "Sent · awaiting reply"],
-        ["Schneider · Load #3401", "Sent · no update in 18hrs ⚠"],
-      ],
+      rows: [["STG · Load #3371", "Sent · awaiting reply"], ["Werner · Load #3385", "Sent · awaiting reply"], ["XPO · Load #3392", "Sent · awaiting reply"], ["Schneider · Load #3401", "Sent · no update in 18hrs ⚠"]],
     },
   },
   {
     text: "Follow up with every carrier who hasn't responded to my rate request.",
+    label: "Follow-ups",
     response: {
       headline: "✓ 3 follow-ups sent",
-      rows: [
-        ["Schneider National", "Follow-up sent · silent 2 days"],
-        ["Werner Enterprises", "Follow-up sent · silent 2 days"],
-        ["J.B. Hunt", "Follow-up sent · silent 1 day"],
-      ],
+      rows: [["Schneider National", "Follow-up sent · silent 2 days"], ["Werner Enterprises", "Follow-up sent · silent 2 days"], ["J.B. Hunt", "Follow-up sent · silent 1 day"]],
     },
   },
   {
     text: "Text me if any carrier mentions a breakdown or delay overnight.",
+    label: "Overnight alerts",
     response: {
       headline: "✓ Alert created",
-      rows: [
-        ["Trigger", "Breakdown or delay mentioned"],
-        ["Monitoring", "All incoming carrier emails"],
-        ["Notify via", "SMS to (312) 555-0142"],
-        ["Active", "Overnight · 7pm–7am"],
-      ],
+      rows: [["Trigger", "Breakdown or delay mentioned"], ["Monitoring", "All incoming carrier emails"], ["Notify via", "SMS to (312) 555-0142"], ["Active", "Overnight · 7pm–7am"]],
     },
   },
   {
     text: "What's the pickup window on the Acme load?",
+    label: "Load details",
     response: {
       headline: "Load #ACM-4412 — Confirmed",
-      rows: [
-        ["Pickup window", "Thu Mar 7, 8am–12pm"],
-        ["Origin", "Chicago, IL (Dock B)"],
-        ["Carrier", "STG Logistics"],
-        ["Status", "✓ Confirmed"],
-      ],
+      rows: [["Pickup window", "Thu Mar 7, 8am–12pm"], ["Origin", "Chicago, IL (Dock B)"], ["Carrier", "STG Logistics"], ["Status", "✓ Confirmed"]],
     },
   },
   {
     text: "Reach out to my west coast customers — we have a truck in LA ready tomorrow for loads to Texas.",
+    label: "Customer outreach",
     response: {
       headline: "Drafting outreach to 9 customers",
-      rows: [
-        ["Acme Industries", "LA — drafted & ready"],
-        ["Pacific Freight Co", "Long Beach — drafted"],
-        ["West Supply Inc.", "Anaheim — drafted"],
-        ["Action", "Review & send all →"],
-      ],
+      rows: [["Acme Industries", "LA — drafted & ready"], ["Pacific Freight Co", "Long Beach — drafted"], ["West Supply Inc.", "Anaheim — drafted"], ["Action", "Review & send all →"]],
     },
   },
   {
     text: "Any issues I should know about from overnight?",
+    label: "Morning brief",
     response: {
       headline: "3 items need your attention",
-      rows: [
-        ["XPO Logistics", "Delay on Dallas load (+4hrs)"],
-        ["New quotes", "2 received — below market avg"],
-        ["Follow-ups", "3 carriers haven't replied"],
-      ],
+      rows: [["XPO Logistics", "Delay on Dallas load (+4hrs)"], ["New quotes", "2 received — below market avg"], ["Follow-ups", "3 carriers haven't replied"]],
     },
   },
   {
     text: "Blast a rate request to my top 20 carriers for flatbed Seattle to LA, next Tuesday.",
+    label: "Carrier blast",
     response: {
       headline: "✓ Sending to 20 carriers",
-      rows: [
-        ["Lane", "Seattle → Los Angeles"],
-        ["Equipment", "Flatbed · FTL"],
-        ["Pickup", "Tue Mar 12"],
-        ["Follow-up", "Auto in 2 days if no reply"],
-      ],
+      rows: [["Lane", "Seattle → Los Angeles"], ["Equipment", "Flatbed · FTL"], ["Pickup", "Tue Mar 12"], ["Follow-up", "Auto in 2 days if no reply"]],
     },
   },
 ];
@@ -120,7 +88,14 @@ function naturalDelay(char: string, prev: string): number {
   return BASE_SPEED + (Math.random() * 24 - 12);
 }
 
-const HeroChatDemo = () => {
+const HeroChatDemo = ({
+  prompts,
+  mascotSeed = "hero-minion",
+}: {
+  prompts?: PromptItem[];
+  mascotSeed?: string;
+}) => {
+  const items = prompts || FREIGHT_PROMPTS;
   const [promptIndex, setPromptIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
@@ -129,7 +104,7 @@ const HeroChatDemo = () => {
   const [rowsVisible, setRowsVisible] = useState(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null!);
 
-  const current = PROMPTS[promptIndex];
+  const current = items[promptIndex];
   const displayText = current.text.slice(0, charIndex);
 
   useEffect(() => {
@@ -169,11 +144,11 @@ const HeroChatDemo = () => {
         setCharIndex(0);
         setRowsVisible(0);
         setIsTyping(true);
-        setPromptIndex((i) => (i + 1) % PROMPTS.length);
+        setPromptIndex((i) => (i + 1) % items.length);
       }, 500);
     }, PAUSE_SHOWING_RESPONSE);
     return () => clearTimeout(timeoutRef.current);
-  }, [showResponse]);
+  }, [showResponse, items.length]);
 
   const jumpTo = useCallback((index: number) => {
     if (index === promptIndex && isTyping && charIndex > 0) return;
@@ -204,17 +179,9 @@ const HeroChatDemo = () => {
       >
         <div
           style={{
-            width: 30,
-            height: 30,
-            borderRadius: "50%",
-            background: "#00AB55",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 11,
-            fontWeight: 700,
-            color: "white",
-            flexShrink: 0,
+            width: 30, height: 30, borderRadius: "50%", background: "#00AB55",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 11, fontWeight: 700, color: "white", flexShrink: 0,
             letterSpacing: "-0.02em",
           }}
         >
@@ -222,23 +189,16 @@ const HeroChatDemo = () => {
         </div>
         <p
           style={{
-            color: "#F9FAFB",
-            fontSize: 15,
-            lineHeight: 1.55,
-            margin: 0,
-            paddingTop: 4,
-            minHeight: 24,
+            color: "#F9FAFB", fontSize: 15, lineHeight: 1.55,
+            margin: 0, paddingTop: 4, minHeight: 24,
           }}
         >
           {displayText}
           {isTyping && (
             <span
               style={{
-                display: "inline-block",
-                width: 2,
-                height: "1em",
-                background: "#00AB55",
-                marginLeft: 2,
+                display: "inline-block", width: 2, height: "1em",
+                background: "#00AB55", marginLeft: 2,
                 verticalAlign: "text-bottom",
                 animation: "cursor-blink 1s step-end infinite",
                 borderRadius: 1,
@@ -248,7 +208,7 @@ const HeroChatDemo = () => {
         </p>
       </div>
 
-      {/* AI response bubble — fixed height keeps pills stable */}
+      {/* AI response bubble */}
       <div
         style={{
           background: "#1E2630",
@@ -262,9 +222,7 @@ const HeroChatDemo = () => {
           overflow: "hidden",
           opacity: showResponse ? (fadingOut ? 0 : 1) : 0,
           transform: showResponse
-            ? fadingOut
-              ? "translateY(-6px)"
-              : "translateY(0)"
+            ? fadingOut ? "translateY(-6px)" : "translateY(0)"
             : "translateY(10px)",
           transition: fadingOut
             ? "opacity 0.45s ease, transform 0.45s ease"
@@ -275,15 +233,12 @@ const HeroChatDemo = () => {
             : "0 2px 12px rgba(0,0,0,0.15)",
         }}
       >
-        <MiniMascot size={30} seed="hero-minion" />
+        <MiniMascot size={30} seed={mascotSeed} />
         <div style={{ flex: 1, overflow: "hidden" }}>
           <p
             style={{
-              color: "#00AB55",
-              fontSize: 13,
-              fontWeight: 600,
-              margin: "0 0 10px 0",
-              paddingTop: 4,
+              color: "#00AB55", fontSize: 13, fontWeight: 600,
+              margin: "0 0 10px 0", paddingTop: 4,
               opacity: showResponse && !fadingOut ? 1 : 0,
               transition: "opacity 0.3s ease 0.12s",
             }}
@@ -292,35 +247,25 @@ const HeroChatDemo = () => {
           </p>
           <div
             style={{
-              background: "rgba(0,0,0,0.25)",
-              borderRadius: 8,
-              overflow: "hidden",
-              border: "1px solid rgba(255,255,255,0.04)",
+              background: "rgba(0,0,0,0.25)", borderRadius: 8,
+              overflow: "hidden", border: "1px solid rgba(255,255,255,0.04)",
             }}
           >
             {current.response.rows.map(([label, value], i) => (
               <div
                 key={i}
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
+                  display: "flex", justifyContent: "space-between",
                   padding: "8px 12px",
-                  borderBottom:
-                    i < current.response.rows.length - 1
-                      ? "1px solid rgba(255,255,255,0.05)"
-                      : "none",
+                  borderBottom: i < current.response.rows.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
                   gap: 16,
                   opacity: i < rowsVisible ? 1 : 0,
                   transform: i < rowsVisible ? "translateY(0)" : "translateY(6px)",
                   transition: `opacity 0.22s ease ${i * 60}ms, transform 0.22s ease ${i * 60}ms`,
                 }}
               >
-                <span style={{ color: "#6B7280", fontSize: 13, flexShrink: 0 }}>
-                  {label}
-                </span>
-                <span style={{ color: "#E5E7EB", fontSize: 13, textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
-                  {value}
-                </span>
+                <span style={{ color: "#6B7280", fontSize: 13, flexShrink: 0 }}>{label}</span>
+                <span style={{ color: "#E5E7EB", fontSize: 13, textAlign: "right", fontVariantNumeric: "tabular-nums" }}>{value}</span>
               </div>
             ))}
           </div>
@@ -328,16 +273,8 @@ const HeroChatDemo = () => {
       </div>
 
       {/* Clickable prompt pills */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: 6,
-          marginTop: 22,
-        }}
-      >
-        {PROMPT_LABELS.map((label, i) => {
+      <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 6, marginTop: 22 }}>
+        {items.map((item, i) => {
           const isActive = i === promptIndex;
           return (
             <button
@@ -345,17 +282,11 @@ const HeroChatDemo = () => {
               onClick={() => jumpTo(i)}
               style={{
                 background: isActive ? "rgba(0,171,85,0.15)" : "rgba(255,255,255,0.04)",
-                border: isActive
-                  ? "1px solid rgba(0,171,85,0.35)"
-                  : "1px solid rgba(255,255,255,0.07)",
-                borderRadius: 99,
-                padding: "4px 12px",
-                fontSize: 12,
+                border: isActive ? "1px solid rgba(0,171,85,0.35)" : "1px solid rgba(255,255,255,0.07)",
+                borderRadius: 99, padding: "4px 12px", fontSize: 12,
                 color: isActive ? "#6EE7B7" : "#6B7280",
-                cursor: "pointer",
-                transition: "all 0.25s ease",
-                fontWeight: isActive ? 500 : 400,
-                outline: "none",
+                cursor: "pointer", transition: "all 0.25s ease",
+                fontWeight: isActive ? 500 : 400, outline: "none",
               }}
               onMouseEnter={(e) => {
                 if (!isActive) {
@@ -370,7 +301,7 @@ const HeroChatDemo = () => {
                 }
               }}
             >
-              {label}
+              {item.label}
             </button>
           );
         })}
