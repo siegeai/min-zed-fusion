@@ -28,7 +28,7 @@ const TPL_PROMPTS: PromptItem[] = [
     text: "Send a rate request to our carrier pool for Acme's weekly Dallas shipments. 8 pallets LTL, every Monday.",
     label: "Client RFQ",
     response: {
-      headline: "✓ RFQ sent to 15 carriers",
+      headline: "✓ RFQ sent to 18 carriers",
       rows: [["Client", "Acme Industries"], ["Lane", "Chicago → Dallas · LTL"], ["Freight", "8 pallets · recurring Mon"], ["Follow-up", "Auto in 2 days if no reply"]],
     },
   },
@@ -335,11 +335,11 @@ const ThirdPartyLogistics = () => {
                     </ChatRow>
                     <ChatRow role="ai" seed="3pl-blast">
                       <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 14px" }}>
-                        Sending to 15 carriers from your pool...
+                        Sending to 18 carriers from your pool...
                       </p>
-                      <CarrierDots count={15} />
+                      <CarrierDots count={18} />
                       <div style={{ display: "flex", gap: 10, flexWrap: "wrap", fontSize: 12 }}>
-                        <span style={{ background: "rgba(0,171,85,0.12)", color: GREEN, borderRadius: 99, padding: "3px 10px", fontWeight: 500 }}>✓ 15 sent</span>
+                        <span style={{ background: "rgba(0,171,85,0.12)", color: GREEN, borderRadius: 99, padding: "3px 10px", fontWeight: 500 }}>✓ 18 sent</span>
                         <span style={{ background: "rgba(255,255,255,0.05)", color: MUTED, borderRadius: 99, padding: "3px 10px" }}>Client: Acme Industries</span>
                       </div>
                     </ChatRow>
@@ -348,7 +348,7 @@ const ThirdPartyLogistics = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.15)", borderRadius: 16, padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <div>
                       <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 20px", textTransform: "uppercase", letterSpacing: "0.06em" }}>Live quote tracker</p>
-                      <ProgressTracker total={15} label="Carrier quotes received" />
+                      <ProgressTracker total={18} label="Carrier quotes received" />
                     </div>
                     <div style={{ marginTop: 28 }}>
                       {[
