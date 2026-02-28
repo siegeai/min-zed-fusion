@@ -215,7 +215,7 @@ const Index = () => {
               <div style={{ maxWidth: 960, margin: "0 auto" }}>
                 <SectionHeading
                   eyebrow="By industry"
-                  headline={<>Built for logistics.<br /><span style={{ color: GREEN }}>Your industry, your examples.</span></>}
+                  headline={<>Built for logistics.<br /><span style={{ color: GREEN }}>Your industry, your workflows.</span></>}
                   sub="Same powerful minion, with use cases specific to how your industry works."
                 />
 
