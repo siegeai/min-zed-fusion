@@ -106,7 +106,7 @@ const Sales = () => (
                 Your inbox knows more<br />than <span style={{ color: GREEN }}>your CRM ever will.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Your minion <MiniMascot size={28} seed="sales-hero" /> remembers every conversation, every deal, every objection. Just ask.
+                Your minion <MiniMascot size={28} seed="sales-hero" /> has photographic memory of every conversation, every deal, every objection. Just ask.
               </p>
               <div className="hero-stagger-4">
                 <a href="https://app.getmin.ai/">
@@ -189,7 +189,7 @@ const Sales = () => (
               <SectionHeading
                 eyebrow="Account intelligence"
                 headline={<>Ask anything about any account.<br /><span style={{ color: GREEN }}>Your minion read every thread.</span></>}
-                sub="Competitor mentions, sentiment, buying signals, key contacts. All extracted from your actual conversations, not a stale CRM record."
+                sub="Your minion has perfect recall of every thread. Competitor mentions, sentiment, buying signals, key contacts. All from your actual conversations, not a stale CRM record."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
@@ -335,7 +335,7 @@ const Sales = () => (
 
           <FinalCTA
             headline={<>Your best sales data isn't in your CRM.<br /><span style={{ color: GREEN }}>It's in your inbox. Start using it.</span></>}
-            sub="Connect your inbox in 30 seconds. Your minion reads everything and starts working immediately."
+              sub="Connect your inbox in 30 seconds. Your minion reads everything, forgets nothing, and starts working immediately."
           />
         </div>
       </main>

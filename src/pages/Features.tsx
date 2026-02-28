@@ -75,7 +75,7 @@ const Features = () => (
                 <span style={{ color: GREEN }}>can do for you.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1rem, 2.5vw, 1.2rem)", color: MUTED, fontWeight: 400, marginBottom: 0, lineHeight: 1.5 }}>
-                Built for people who live in email. Every feature works in plain English.
+                Photographic memory for your inbox. A collaborator that's always ready. Every feature works in plain English.
               </p>
             </div>
           </div>
@@ -136,7 +136,7 @@ const Features = () => (
               {[
                 { label: "Operations", to: "/teams/operations", seed: "nav-ops" },
                 { label: "Sales", to: "/teams/sales", seed: "nav-sales" },
-                { label: "Management", to: "/teams/management", seed: "nav-mgmt" },
+                { label: "Project Management", to: "/teams/project-management", seed: "nav-mgmt" },
                 { label: "Brokers", to: "/brokers", seed: "nav-freight" },
                 { label: "Shippers", to: "/shippers", seed: "nav-shipper" },
                 { label: "3PLs", to: "/3pl", seed: "nav-3pl" },

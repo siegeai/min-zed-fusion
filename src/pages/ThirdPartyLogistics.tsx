@@ -133,7 +133,7 @@ const ThirdPartyLogistics = () => {
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
-                  50 clients. 200 carriers.<br />
+                  All your clients. All your carriers.<br />
                   <span style={{ color: GREEN }}>One minion.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>

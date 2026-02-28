@@ -67,7 +67,7 @@ const TEAMS = [
     examples: ["Outreach", "Account intel", "Quoting", "Win-back"],
   },
   {
-    tag: "Management",
+    tag: "Project Management",
     headline: "Visibility without the dashboards",
     desc: "Ask for revenue, performance, or trends in plain English. No stale dashboards, no exports. Just answers from your actual data.",
     to: "/teams/management",
@@ -152,7 +152,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>your emails.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 48, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="home-hero" /> already read them. Tell it what to do next.
+                  Your minion <MiniMascot size={28} seed="home-hero" /> already read them. Ask it anything. Tell it what to do next.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -173,7 +173,7 @@ const Index = () => {
                 <SectionHeading
                   eyebrow="By team"
                   headline={<>One AI assistant.<br /><span style={{ color: GREEN }}>Tailored for your role.</span></>}
-                  sub="Whether you're in ops, sales, or management. Your minion speaks your language."
+                  sub="Ops drowns in follow-ups. Sales loses deals in their inbox. Leaders fly blind. Your minion remembers everything, so none of that has to happen."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -259,7 +259,7 @@ const Index = () => {
                 <SectionHeading
                   eyebrow="Core features"
                   headline={<>Everything your minion<br /><span style={{ color: GREEN }}>can do for you.</span></>}
-                  sub="Built for people who live in email. Every feature works in plain English."
+                  sub="Photographic memory for your inbox. Every feature works in plain English."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -318,9 +318,9 @@ const Index = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ maxWidth: 960, margin: "0 auto" }}>
                 {[
                   { stat: "30 sec", label: "to connect Gmail or Outlook" },
-                  { stat: "50,000+", label: "emails processed in under 20 min" },
+                  { stat: "Total recall", label: "every email, every attachment, searchable" },
                   { stat: "Plain English", label: "no training, no complex onboarding" },
-                  { stat: "24/7", label: "your minion works while you sleep" },
+                  { stat: "24/7", label: "always on, never needs to be caught up" },
                 ].map(({ stat, label }) => (
                   <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                     <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
@@ -335,7 +335,7 @@ const Index = () => {
             {/* ── Final CTA ── */}
             <FinalCTA
               headline={<>You're going to re-read<br />that email again tomorrow.<br /><span style={{ color: GREEN }}>Or you could just ask.</span></>}
-              sub="Connect your inbox in 30 seconds. Your minion starts working immediately."
+              sub="Connect your inbox in 30 seconds. Your minion reads everything, remembers everything, and starts working immediately."
             />
 
           </div>

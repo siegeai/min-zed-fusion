@@ -12,7 +12,7 @@ import Shippers from "./pages/Shippers";
 import ThirdPartyLogistics from "./pages/ThirdPartyLogistics";
 import Operations from "./pages/teams/Operations";
 import Sales from "./pages/teams/Sales";
-import Management from "./pages/teams/Management";
+import ProjectManagement from "./pages/teams/ProjectManagement";
 import Features from "./pages/Features";
 import FollowUps from "./pages/features/FollowUps";
 import Alerts from "./pages/features/Alerts";
@@ -59,7 +59,7 @@ const App = () => (
             <Route path="/3pl" element={<ThirdPartyLogistics />} />
             <Route path="/teams/operations" element={<Operations />} />
             <Route path="/teams/sales" element={<Sales />} />
-            <Route path="/teams/management" element={<Management />} />
+            <Route path="/teams/project-management" element={<ProjectManagement />} />
             <Route path="/features" element={<Features />} />
             <Route path="/features/follow-ups" element={<FollowUps />} />
             <Route path="/features/alerts" element={<Alerts />} />

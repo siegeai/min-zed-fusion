@@ -106,7 +106,7 @@ const Operations = () => (
                 Stop repeating the same<br /><span style={{ color: GREEN }}>emails every morning.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Your minion <MiniMascot size={28} seed="ops-hero" /> handles status checks, follow-ups, and document chasing. You handle exceptions.
+                Your minion <MiniMascot size={28} seed="ops-hero" /> remembers every thread. It handles the routine. You handle exceptions.
               </p>
               <div className="hero-stagger-4">
                 <a href="https://app.getmin.ai/">
@@ -129,7 +129,7 @@ const Operations = () => (
               <SectionHeading
                 eyebrow="The daily grind"
                 headline={<>Status checks. Follow-ups. Document chasing.<br /><span style={{ color: GREEN }}>The same emails, every single day.</span></>}
-                sub="Your minion does the repetitive communication so you only deal with what actually needs your brain."
+                sub="Your minion remembers every thread and every deadline. It does the repetitive communication so you only deal with what actually needs your brain."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -298,7 +298,7 @@ const Operations = () => (
 
           <FinalCTA
             headline={<>You're going to send those<br />same emails again tomorrow.<br /><span style={{ color: GREEN }}>Or your minion could.</span></>}
-            sub="Connect your inbox in 30 seconds. Your minion starts working immediately."
+              sub="Connect your inbox in 30 seconds. Your minion reads everything, never forgets, and starts working immediately."
           />
         </div>
       </main>

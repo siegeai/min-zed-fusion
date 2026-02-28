@@ -19,7 +19,7 @@ const FEATURES_ITEMS = [
 const TEAMS_ITEMS = [
   { label: "Operations", to: "/teams/operations" },
   { label: "Sales", to: "/teams/sales" },
-  { label: "Management", to: "/teams/management" },
+  { label: "Project Management", to: "/teams/project-management" },
 ];
 
 const INDUSTRIES_ITEMS = [

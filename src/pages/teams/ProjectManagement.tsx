@@ -82,13 +82,13 @@ const MGMT_PROMPTS: PromptItem[] = [
 
 const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 
-const Management = () => (
+const ProjectManagement = () => (
   <>
     <Helmet>
-      <title>min. for Management | Visibility without the dashboards</title>
-      <meta name="description" content="AI for leaders. Morning briefings, pipeline visibility, team performance, and revenue tracking. Ask anything about your business in plain English." />
-      <link rel="canonical" href="https://getmin.ai/teams/management" />
-      <meta property="og:title" content="min. for Management | Visibility without the dashboards" />
+      <title>min. for Project Management | Visibility without the dashboards</title>
+      <meta name="description" content="AI for project managers. Morning briefings, pipeline visibility, team performance, and revenue tracking. Ask anything about your business in plain English." />
+      <link rel="canonical" href="https://getmin.ai/teams/project-management" />
+      <meta property="og:title" content="min. for Project Management | Visibility without the dashboards" />
       <meta property="og:description" content="Revenue, performance, pipeline. Ask in plain English, get real answers." />
     </Helmet>
 
@@ -100,13 +100,13 @@ const Management = () => (
           <div className="hero-glow" style={{ paddingTop: 48, marginBottom: 120 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                For leaders & managers
+                For project managers & team leads
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
                 Visibility without<br /><span style={{ color: GREEN }}>the dashboards.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Your minion <MiniMascot size={28} seed="mgmt-hero" /> knows the numbers. Revenue, pipeline, team performance, just ask.
+                Your minion <MiniMascot size={28} seed="mgmt-hero" /> has perfect recall of every deal, every email, every number. Just ask.
               </p>
               <div className="hero-stagger-4">
                 <a href="https://app.getmin.ai/">
@@ -185,7 +185,7 @@ const Management = () => (
               <SectionHeading
                 eyebrow="Pipeline visibility"
                 headline={<>Know where every dollar stands.<br /><span style={{ color: GREEN }}>No exports. No CRM digging.</span></>}
-                sub="At-risk revenue, stale deals, top accounts. Your minion knows it all because it reads every email."
+                sub="At-risk revenue, stale deals, top accounts. Your minion never forgets a number because it reads every email."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -275,8 +275,8 @@ const Management = () => (
           </Section>
 
           <FinalCTA
-            headline={<>The numbers are in your email.<br /><span style={{ color: GREEN }}>Your minion just knows them better than anyone else.</span></>}
-            sub="Connect your inbox in 30 seconds. Ask your first business question immediately."
+              headline={<>The numbers are in your email.<br /><span style={{ color: GREEN }}>Your minion never forgets them.</span></>}
+              sub="Connect your inbox in 30 seconds. Total recall of every email, ready when you need it."
           />
         </div>
       </main>
@@ -285,4 +285,4 @@ const Management = () => (
   </>
 );
 
-export default Management;
+export default ProjectManagement;

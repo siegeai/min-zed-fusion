@@ -169,8 +169,8 @@ const Shippers = () => {
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="The update chase"
-                  headline={<>You already know the update<br />is buried in your inbox.</>}
-                  sub="You just can't find it fast enough."
+                  headline={<>You already know the updates<br />are buried in your inbox.</>}
+                  sub="You just can't find them all fast enough."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
