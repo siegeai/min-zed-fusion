@@ -197,10 +197,10 @@ const Operations = () => (
                     </p>
                   </ChatRow>
                   <ChatRow role="ai" seed="ops-check">
-                    <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 14px" }}>Sending to 8 vendors...</p>
-                    <CarrierDots count={8} />
+                    <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 14px" }}>Sending to 18 vendors...</p>
+                    <CarrierDots count={18} />
                     <div style={{ display: "flex", gap: 10, flexWrap: "wrap", fontSize: 12 }}>
-                      <span style={{ background: "rgba(0,171,85,0.12)", color: GREEN, borderRadius: 99, padding: "3px 10px", fontWeight: 500 }}>✓ 8 sent</span>
+                      <span style={{ background: "rgba(0,171,85,0.12)", color: GREEN, borderRadius: 99, padding: "3px 10px", fontWeight: 500 }}>✓ 18 sent</span>
                       <span style={{ background: "rgba(255,255,255,0.05)", color: MUTED, borderRadius: 99, padding: "3px 10px" }}>Auto follow-up: tomorrow</span>
                     </div>
                   </ChatRow>
@@ -208,7 +208,7 @@ const Operations = () => (
                 <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.15)", borderRadius: 16, padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
                     <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 20px", textTransform: "uppercase", letterSpacing: "0.06em" }}>Response tracker</p>
-                    <ProgressTracker total={8} label="Vendor responses" />
+                    <ProgressTracker total={18} label="Vendor responses" />
                   </div>
                   <div style={{ marginTop: 28 }}>
                     {[
