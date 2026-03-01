@@ -106,7 +106,7 @@ const ProjectManagement = () => (
                 Visibility without<br /><span style={{ color: GREEN }}>the dashboards.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Your minion <MiniMascot size={28} seed="mgmt-hero" /> has perfect recall of every deal, every email, every number. Just ask.
+                Your minion <MiniMascot size={28} seed="mgmt-hero" /> has already learned your team's performance, pipeline, and numbers. Just ask.
               </p>
               <div className="hero-stagger-4">
                 <a href="https://app.getmin.ai/">
@@ -185,7 +185,7 @@ const ProjectManagement = () => (
               <SectionHeading
                 eyebrow="Pipeline visibility"
                 headline={<>Know where every dollar stands.<br /><span style={{ color: GREEN }}>No exports. No CRM digging.</span></>}
-                sub="At-risk revenue, stale deals, top accounts. Your minion never forgets a number because it reads every email."
+                sub="At-risk revenue, stale deals, top accounts. Your minion learns your business's patterns over time — surfacing the things that matter before you have to go looking for them."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">

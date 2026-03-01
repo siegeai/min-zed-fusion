@@ -80,7 +80,7 @@ const INDUSTRIES = [
   {
     tag: "Brokers",
     headline: "Rate lookups, carrier blasts, and negotiation",
-    desc: "Your minion reads every email, extracts every rate, and sends carrier blasts in one sentence.",
+    desc: "Your minion learns your lanes, your carriers, and your rates from your inbox — then acts on them in one sentence.",
     to: "/brokers",
     seed: "audience-freight",
     examples: ["Rate lookups", "Carrier blasts", "Negotiation", "Load tracking"],
@@ -130,12 +130,12 @@ const Index = () => {
     <>
       <Helmet>
         <title>min. | AI that reads your emails and does what you tell it</title>
-        <meta name="description" content="An AI assistant for logistics teams. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings, in plain English. Your minion reads every email so you don't have to." />
+        <meta name="description" content="An AI assistant for logistics teams. Your minion learns your lanes, your carriers, and your operation from your inbox — automatically. Rate lookups, carrier blasts, follow-ups, and morning briefings in plain English." />
         <link rel="canonical" href="https://getmin.ai" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
         <meta property="og:title" content="min. | AI that reads your emails and does what you tell it" />
-        <meta property="og:description" content="Your minion reads every email. Ask it anything, in plain English." />
+        <meta property="og:description" content="Your minion learns your business from your inbox. Ask it anything, in plain English." />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
@@ -160,7 +160,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>your emails.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 48, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="home-hero" /> already read them. Ask it anything. Tell it what to do next.
+                  Your minion <MiniMascot size={28} seed="home-hero" /> already learned your business. Ask it anything. Tell it what to do next.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">

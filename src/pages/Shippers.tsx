@@ -145,7 +145,7 @@ const Shippers = () => {
                   <span style={{ color: GREEN }}>shipment updates.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="shipper-hero" /> already tracked them. Ready for its next task.
+                  Your minion <MiniMascot size={28} seed="shipper-hero" /> already learned your carriers, your POs, your lanes. Ready for its next task.
                 </p>
                 <div className="hero-stagger-4">
                   <a href="https://app.getmin.ai/">
@@ -245,9 +245,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Perfect Recall"
-                  headline={<>Your minion reads every email.<br />Tracks every PO.<br /><span style={{ color: GREEN }}>Remembers every rate.</span></>}
-                  sub="No more spreadsheets to track shipments. Every quote, PO, and delivery date is remembered by your minion."
+                  eyebrow="Knows Your Business"
+                  headline={<>Learns your carriers, your POs,<br />your rates.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
+                  sub="No setup. No training. Connect your inbox and your minion starts learning your operation — which carriers you use, what your lanes cost, which vendors are reliable. Tell it something new and it remembers forever. But it figures out most of it on its own."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -273,7 +273,7 @@ const Shippers = () => {
                   </div>
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 14, padding: 22 }}>
-                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Extracted & remembered</p>
+                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Learned from your inbox</p>
                     {[
                       ["PO Number", "#4412"],
                       ["Carrier", "FedEx Freight"],
@@ -293,9 +293,9 @@ const Shippers = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ marginBottom: 48 }}>
                   {[
                     { stat: "30 sec", label: "to connect Gmail or Outlook" },
-                    { stat: "50,000+", label: "emails processed in under 20 min" },
-                    { stat: "Auto", label: "extract POs, tracking #s, ETAs, costs" },
-                    { stat: "Every", label: "email, invoice, and BOL, searchable" },
+                    { stat: "50,000+", label: "emails learned from in under 20 min" },
+                    { stat: "Auto", label: "learns your POs, carriers, ETAs, and costs" },
+                    { stat: "Gets", label: "smarter about your supply chain every day" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>

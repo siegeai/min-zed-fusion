@@ -153,7 +153,7 @@ const Distributors = () => {
                   <span style={{ color: GREEN }}>order threads.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="dist-hero" /> knows every order, every exception, every commitment. Just ask.
+                  Your minion <MiniMascot size={28} seed="dist-hero" /> has already learned your customers, your suppliers, your pricing history. Just ask.
                 </p>
                 <div className="hero-stagger-4">
                   <a href="https://app.getmin.ai/">
@@ -253,9 +253,9 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Perfect recall"
-                  headline={<>Your minion reads every email.<br />Extracts every commitment.<br /><span style={{ color: GREEN }}>Remembers everything.</span></>}
-                  sub="Backorder ETAs, price quotes, substitution approvals, freight concessions — all pulled from email automatically. Your ERP tracks order lines. Your minion tracks reality."
+                  eyebrow="Knows Your Business"
+                  headline={<>Learns every commitment,<br />every pricing agreement.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
+                  sub="No setup. No training. Connect your inbox and your minion starts learning your operation — your customers' pricing history, your suppliers' lead times, your recurring exceptions. Correct it once, it never makes the same mistake twice. But it figures out most of it on its own."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -281,7 +281,7 @@ const Distributors = () => {
                   </div>
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 14, padding: 22 }}>
-                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Extracted & remembered</p>
+                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Learned from your inbox</p>
                     {[
                       ["Order", "PO #8841"],
                       ["SKU affected", "SKU-2291"],
@@ -301,9 +301,9 @@ const Distributors = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ marginBottom: 48 }}>
                   {[
                     { stat: "30 sec", label: "to connect Gmail or Outlook" },
-                    { stat: "Auto", label: "extract PO details, ETAs, pricing, subs" },
-                    { stat: "Every", label: "email across orders@, sales@, purchasing@" },
-                    { stat: "Instant", label: "recall on any order, any customer, any supplier" },
+                    { stat: "Auto", label: "learns PO details, ETAs, pricing, and exceptions" },
+                    { stat: "All", label: "inboxes — orders@, sales@, purchasing@" },
+                    { stat: "Gets", label: "smarter about your customers and suppliers daily" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
@@ -558,7 +558,7 @@ const Distributors = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>That order thread you're digging through?<br /><span style={{ color: GREEN }}>Your minion already knows it.</span></>}
+              headline={<>That order thread you're digging through?<br /><span style={{ color: GREEN }}>Your minion already learned it.</span></>}
               sub="Connect your inbox in 30 seconds. Your minion starts reading every order, every exception, every thread immediately."
             />
 

@@ -189,7 +189,7 @@ const Sales = () => (
               <SectionHeading
                 eyebrow="Account intelligence"
                 headline={<>Ask anything about any account.<br /><span style={{ color: GREEN }}>Your minion read every thread.</span></>}
-                sub="Your minion has perfect recall of every thread. Competitor mentions, sentiment, buying signals, key contacts. All from your actual conversations, not a stale CRM record."
+                sub="No setup. No training. Your minion learns your accounts, your deals, your relationships from your inbox — automatically. The more you work together, the sharper its read on every prospect gets."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>

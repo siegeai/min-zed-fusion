@@ -137,7 +137,7 @@ const ThirdPartyLogistics = () => {
                   <span style={{ color: GREEN }}>One minion.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="3pl-hero" /> knows every client, every carrier, every shipment.
+                  Your minion <MiniMascot size={28} seed="3pl-hero" /> has already learned every client, every carrier, every lane. Ask it anything.
                 </p>
                 <div className="hero-stagger-4">
                   <a href="https://app.getmin.ai/">
@@ -238,9 +238,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Cross-client intelligence"
-                  headline={<>Every rate, every carrier,<br />every client.<br /><span style={{ color: GREEN }}>One memory.</span></>}
-                  sub="Your minion knows the rate history for every lane across all your clients. Leverage volume for better pricing."
+                  eyebrow="Knows Your Business"
+                  headline={<>Learns every client, every carrier,<br />every lane.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
+                  sub="No setup. No training. Connect your inbox and your minion starts learning your entire operation — which clients you serve, which carriers you use, what rates you've negotiated. The more it works with you, the sharper it gets across every account."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -264,7 +264,7 @@ const ThirdPartyLogistics = () => {
                   </div>
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 14, padding: 22 }}>
-                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Extracted & cross-referenced</p>
+                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Learned & cross-referenced</p>
                     {[
                       ["Carrier", "Werner Enterprises"],
                       ["Rate", "$2,300"],
@@ -285,8 +285,8 @@ const ThirdPartyLogistics = () => {
                   {[
                     { stat: "30 sec", label: "to connect Gmail or Outlook" },
                     { stat: "All clients", label: "rate history in one place" },
-                    { stat: "Auto", label: "extract rates, POs, ETAs, PODs" },
-                    { stat: "Every", label: "email across every client, searchable" },
+                    { stat: "Auto", label: "learns rates, lanes, ETAs, and POD status" },
+                    { stat: "Gets", label: "smarter across every client account, every day" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
