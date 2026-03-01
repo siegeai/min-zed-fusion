@@ -164,9 +164,14 @@ const Index = () => {
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
-                    <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
+                    <Button size="lg" className="cta-glow text-white font-normal text-base px-6" style={{ backgroundColor: GREEN, border: "none" }}>
                       Try for free
                       <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </a>
+                  <a href="mailto:hello@getmin.ai?subject=Demo%20Request">
+                    <Button size="lg" variant="outline" className="font-normal text-base px-6" style={{ borderColor: "rgba(255,255,255,0.15)", color: TEXT, background: "transparent" }}>
+                      Book a demo
                     </Button>
                   </a>
                 </div>

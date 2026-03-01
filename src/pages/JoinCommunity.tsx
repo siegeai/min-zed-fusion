@@ -103,7 +103,7 @@ const JoinCommunity = () => {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       <Helmet>
-        <title>Join the min. Community | Try for free</title>
+        <title>Join the min. Community | Try it now</title>
         <meta name="description" content="Join our Discord community for instant support, early access to features, and direct communication with the team." />
         <script async src="https://js.stripe.com/v3/buy-button.js"></script>
       </Helmet>

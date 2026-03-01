@@ -108,10 +108,15 @@ const Operations = () => (
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
                 Your minion <MiniMascot size={28} seed="ops-hero" /> remembers every thread. It handles the routine. You handle exceptions.
               </p>
-              <div className="hero-stagger-4">
+              <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
                   <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
                     Try for free <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+                <a href="mailto:hello@getmin.ai?subject=Demo%20Request">
+                  <Button size="lg" variant="outline" className="font-normal text-base px-8" style={{ borderColor: "rgba(255,255,255,0.15)", color: TEXT, background: "transparent" }}>
+                    Book a demo
                   </Button>
                 </a>
               </div>

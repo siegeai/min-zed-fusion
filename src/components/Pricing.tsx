@@ -27,7 +27,7 @@ const Pricing = () => {
     period: " user / month",
     description: "For 2-50 teammates that scale fast",
     features: sharedFeatures,
-    cta: "Try for free",
+    cta: "Try it now",
     popular: true
   }, {
     name: "Business",

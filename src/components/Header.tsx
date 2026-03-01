@@ -196,6 +196,23 @@ const Header = () => {
           </div>
 
           <div className="flex items-center space-x-3">
+            <a href="mailto:hello@getmin.ai?subject=Demo%20Request" className="hidden md:inline-flex">
+              <Button
+                variant="outline"
+                className="font-normal text-sm rounded-lg"
+                style={{ borderColor: "rgba(255,255,255,0.15)", color: "#D1D5DB", background: "transparent", padding: "6px 14px" }}
+              >
+                Book a demo
+              </Button>
+            </a>
+            <a href="https://app.getmin.ai/" className="hidden md:inline-flex">
+              <Button
+                className="cta-glow font-normal text-sm text-white rounded-lg"
+                style={{ backgroundColor: "#00AB55", border: "none", padding: "6px 14px" }}
+              >
+                Try for free
+              </Button>
+            </a>
             <Button
               variant="ghost"
               className="hidden md:inline-flex font-normal text-sm transition-colors duration-200"
@@ -206,14 +223,6 @@ const Header = () => {
             >
               <a href="https://app.getmin.ai">Log in</a>
             </Button>
-            <a href="https://app.getmin.ai/" className="hidden md:inline-flex">
-              <Button
-                className="cta-glow font-normal text-sm text-white rounded-lg"
-                style={{ backgroundColor: "#00AB55", border: "none", padding: "8px 18px" }}
-              >
-                Try for free
-              </Button>
-            </a>
 
             {/* Mobile hamburger */}
             <button
@@ -299,6 +308,15 @@ const Header = () => {
                   style={{ backgroundColor: "#00AB55", border: "none", fontSize: 15, padding: "12px 0" }}
                 >
                   Try for free
+                </Button>
+              </a>
+              <a href="mailto:hello@getmin.ai?subject=Demo%20Request" style={{ display: "block" }}>
+                <Button
+                  variant="outline"
+                  className="font-normal w-full"
+                  style={{ borderColor: "rgba(255,255,255,0.15)", color: "#D1D5DB", background: "transparent", fontSize: 15, padding: "12px 0" }}
+                >
+                  Book a demo
                 </Button>
               </a>
               <a href="https://app.getmin.ai" style={{ display: "block" }}>
