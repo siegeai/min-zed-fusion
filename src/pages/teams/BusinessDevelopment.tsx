@@ -82,14 +82,14 @@ const SALES_PROMPTS: PromptItem[] = [
 
 const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 
-const Sales = () => (
+const BusinessDevelopment = () => (
   <>
     <Helmet>
-      <title>min. for Sales | Your inbox knows more than your CRM</title>
-      <meta name="description" content="Your inbox has every conversation, objection, and buying signal. Your CRM has what someone logged. Your minion reads your email and gives you account intel, competitive intel, and pipeline visibility, instantly." />
-      <link rel="canonical" href="https://getmin.ai/teams/sales" />
-      <meta property="og:title" content="min. for Sales | Your inbox knows more than your CRM" />
-      <meta property="og:description" content="Every objection, competitor mention, and buying signal is in your email. Your minion reads it all." />
+      <title>min. for Business Development | Your inbox knows more than your CRM</title>
+      <meta name="description" content="Your inbox has every conversation, objection, and buying signal. Your CRM has what someone logged. Your minion learns your prospects, your deals, and your pipeline from your email — automatically." />
+      <link rel="canonical" href="https://getmin.ai/teams/business-development" />
+      <meta property="og:title" content="min. for Business Development | Your inbox knows more than your CRM" />
+      <meta property="og:description" content="Every objection, competitor mention, and buying signal is in your email. Your minion learns it all." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -100,7 +100,7 @@ const Sales = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                For top-performing sales teams
+                For relentless BD teams
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
                 Your inbox knows more<br />than <span style={{ color: GREEN }}>your CRM ever will.</span>
@@ -128,7 +128,7 @@ const Sales = () => (
             <div style={maxW}>
               <SectionHeading
                 eyebrow="The truth about your data"
-                headline={<>Your CRM has only what your logged.<br /><span style={{ color: GREEN }}>Your inbox has what actually happened.</span></>}
+                headline={<>Your CRM has only what you logged.<br /><span style={{ color: GREEN }}>Your inbox has what actually happened.</span></>}
                 sub="Every objection, every competitor mention, every buying signal, every promise. It's all in your email. Your CRM only knows what someone bothered to type in."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -189,7 +189,7 @@ const Sales = () => (
               <SectionHeading
                 eyebrow="Account intelligence"
                 headline={<>Ask anything about any account.<br /><span style={{ color: GREEN }}>Your minion read every thread.</span></>}
-                sub="No setup. No training. Your minion learns your accounts, your deals, your relationships from your inbox - automatically. The more you work together, the sharper its read on every prospect gets."
+                sub="No setup. No training. Your minion learns your accounts, your deals, your relationships from your inbox — automatically. The more you work together, the sharper its read on every prospect gets."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
@@ -344,4 +344,4 @@ const Sales = () => (
   </>
 );
 
-export default Sales;
+export default BusinessDevelopment;

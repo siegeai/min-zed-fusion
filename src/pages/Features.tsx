@@ -128,14 +128,14 @@ const Features = () => (
           <SectionHeading
             eyebrow="See it in action"
             headline={<>Built for teams<br /><span style={{ color: GREEN }}>who live in email.</span></>}
-            sub="Whether you're in ops, sales, or leadership. Your minion speaks your language."
+            sub="Whether you're in ops, BD, or account management. Your minion speaks your language."
           />
 
           <Section style={{ marginBottom: 80 }}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ maxWidth: 960, margin: "0 auto" }}>
               {[
                 { label: "Operations", to: "/teams/operations", seed: "nav-ops" },
-                { label: "Sales", to: "/teams/sales", seed: "nav-sales" },
+                { label: "Business Development", to: "/teams/business-development", seed: "nav-bd" },
                 { label: "Account Management", to: "/teams/account-management", seed: "nav-acct" },
                 { label: "Brokers", to: "/brokers", seed: "nav-freight" },
                 { label: "Shippers", to: "/shippers", seed: "nav-shipper" },

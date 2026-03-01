@@ -19,7 +19,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Teams</h3>
             <ul className="space-y-2 text-gray-400">
               <li><Link to="/teams/operations" className="hover:text-white transition-colors">Operations</Link></li>
-              <li><Link to="/teams/sales" className="hover:text-white transition-colors">Sales</Link></li>
+              <li><Link to="/teams/business-development" className="hover:text-white transition-colors">Business Development</Link></li>
               <li><Link to="/teams/account-management" className="hover:text-white transition-colors">Account Management</Link></li>
             </ul>
           </div>

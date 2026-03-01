@@ -59,11 +59,11 @@ const TEAMS = [
     examples: ["Status updates", "Follow-ups", "Document collection", "Exception alerts"],
   },
   {
-    tag: "Sales",
+    tag: "Business Development",
     headline: "Your inbox knows more than your CRM.",
-    desc: "Every objection, competitor mention, and buying signal is in your email. Your minion reads it all so you don't fly blind.",
-    to: "/teams/sales",
-    seed: "team-sales",
+    desc: "Every objection, competitor mention, and buying signal is in your email. Your minion learns it all so you don't fly blind.",
+    to: "/teams/business-development",
+    seed: "team-bd",
     examples: ["Outreach", "Account intel", "Quoting", "Win-back"],
   },
   {
@@ -181,7 +181,7 @@ const Index = () => {
                 <SectionHeading
                   eyebrow="By team"
                   headline={<>One AI assistant.<br /><span style={{ color: GREEN }}>Tailored for your role.</span></>}
-                  sub="Ops drowns in follow-ups. Sales loses deals in their inbox. Leaders fly blind. Your minion remembers everything, so none of that has to happen."
+                  sub="Ops drowns in follow-ups. BD loses deals in their inbox. Leaders fly blind. Your minion remembers everything, so none of that has to happen."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
