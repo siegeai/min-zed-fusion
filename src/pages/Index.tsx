@@ -70,7 +70,7 @@ const TEAMS = [
     tag: "Project Management",
     headline: "Visibility without the dashboards",
     desc: "Ask for revenue, performance, or trends in plain English. No stale dashboards, no exports. Just answers from your actual data.",
-    to: "/teams/management",
+    to: "/teams/project-management",
     seed: "team-mgmt",
     examples: ["Revenue", "Performance", "Morning briefings", "Weekly digests"],
   },
@@ -139,7 +139,7 @@ const Index = () => {
           <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
 
             {/* ── Hero ── */}
-            <div className="hero-glow" style={{ paddingTop: 48, marginBottom: 120 }}>
+            <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
                   AI that actually does things for you
@@ -168,7 +168,7 @@ const Index = () => {
             <Divider />
 
             {/* ── Teams ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={{ maxWidth: 960, margin: "0 auto" }}>
                 <SectionHeading
                   eyebrow="By team"
@@ -211,7 +211,7 @@ const Index = () => {
             <Divider />
 
             {/* ── Industries ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={{ maxWidth: 960, margin: "0 auto" }}>
                 <SectionHeading
                   eyebrow="By industry"
@@ -254,7 +254,7 @@ const Index = () => {
             <Divider />
 
             {/* ── Features preview ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={{ maxWidth: 960, margin: "0 auto" }}>
                 <SectionHeading
                   eyebrow="Core features"
@@ -314,7 +314,7 @@ const Index = () => {
             <Divider />
 
             {/* ── Stats ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ maxWidth: 960, margin: "0 auto" }}>
                 {[
                   { stat: "30 sec", label: "to connect Gmail or Outlook" },

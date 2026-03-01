@@ -62,7 +62,7 @@ const Features = () => (
       <main style={{ paddingTop: 100 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
 
-          <div className="hero-glow" style={{ paddingTop: 48, marginBottom: 80 }}>
+          <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
                 Features
@@ -82,7 +82,7 @@ const Features = () => (
 
           <Divider />
 
-          <Section style={{ marginTop: 80, marginBottom: 120 }}>
+          <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ maxWidth: 1000, margin: "0 auto" }}>
               {ALL_FEATURES.map((f) => (
                 <Link key={f.to} to={f.to} style={{ textDecoration: "none" }}>
@@ -131,7 +131,7 @@ const Features = () => (
             sub="Whether you're in ops, sales, or leadership. Your minion speaks your language."
           />
 
-          <Section style={{ marginBottom: 120 }}>
+          <Section style={{ marginBottom: 80 }}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ maxWidth: 960, margin: "0 auto" }}>
               {[
                 { label: "Operations", to: "/teams/operations", seed: "nav-ops" },

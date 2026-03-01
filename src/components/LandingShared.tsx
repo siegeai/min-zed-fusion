@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import MiniMascot from "@/components/MiniMascot";
@@ -157,7 +157,7 @@ export const SectionHeading = ({
     <h2 style={{ fontSize: "clamp(1.6rem, 4vw, 2.6rem)", fontWeight: 700, letterSpacing: "-0.025em", textAlign: "center", marginBottom: 14, lineHeight: 1.2 }}>
       {headline}
     </h2>
-    <p style={{ color: MUTED, textAlign: "center", fontSize: "1.05rem", marginBottom: 52, lineHeight: 1.6, maxWidth: 560, margin: "0 auto 52px" }}>
+    <p style={{ color: MUTED, textAlign: "center", fontSize: "1.05rem", marginBottom: 36, lineHeight: 1.6, maxWidth: 560, margin: "0 auto 36px" }}>
       {sub}
     </p>
   </>
@@ -173,7 +173,7 @@ export const FinalCTA = ({
   sub: string;
   buttonText?: string;
 }) => (
-  <Section style={{ marginBottom: 80 }}>
+  <Section style={{ marginBottom: 56 }}>
     <div
       style={{
         textAlign: "center",
@@ -212,7 +212,11 @@ export const FinalCTA = ({
 // ─── Progress bar component ────────────────────────────────────────────
 export const ProgressTracker = ({ total = 36, label = "Carrier responses" }: { total?: number; label?: string }) => {
   const { ref, visible } = useScrollReveal(0.3);
-  const steps = [3, 6, 8, 11, 12, 15, 16, 18];
+  const steps = useMemo(() => {
+    const end = Math.round(total * (0.5 + Math.random() * 0.5));
+    const base = [3, 6, 8, 11, 12, 15, 16, 18];
+    return base.map((s) => Math.max(1, Math.round(s * end / 18)));
+  }, [total]);
   const [count, setCount] = useState(steps[0]);
 
   useEffect(() => {

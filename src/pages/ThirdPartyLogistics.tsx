@@ -124,7 +124,7 @@ const ThirdPartyLogistics = () => {
           <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
 
             {/* ── Hero ── */}
-            <div className="hero-glow" style={{ paddingTop: 48, marginBottom: 120 }}>
+            <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
                   For 3PLs
@@ -157,7 +157,7 @@ const ThirdPartyLogistics = () => {
             <Divider />
 
             {/* ── Section 2: Multi-Client Chaos ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }} id="features">
+            <Section style={{ marginTop: 80, marginBottom: 80 }} id="features">
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="The multi-client juggle"
@@ -235,7 +235,7 @@ const ThirdPartyLogistics = () => {
             <Divider />
 
             {/* ── Section 3: Cross-Client Intelligence ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="Cross-client intelligence"
@@ -318,7 +318,7 @@ const ThirdPartyLogistics = () => {
             <Divider />
 
             {/* ── Section 4: Carrier Blast ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="One prompt → your carrier pool"
@@ -370,7 +370,7 @@ const ThirdPartyLogistics = () => {
             <Divider />
 
             {/* ── Section 5: Client Reporting & SLA ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="Client reporting"
@@ -445,7 +445,7 @@ const ThirdPartyLogistics = () => {
             <Divider />
 
             {/* ── Section 6: Morning Briefing ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120 }}>
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="Automation"
@@ -516,7 +516,7 @@ const ThirdPartyLogistics = () => {
             <Divider />
 
             {/* ── FAQ ── */}
-            <Section style={{ marginTop: 120, marginBottom: 120, maxWidth: 720, margin: "120px auto" }}>
+            <Section style={{ marginTop: 80, marginBottom: 80, maxWidth: 720, margin: "120px auto" }}>
               <FAQ />
             </Section>
 

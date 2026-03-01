@@ -97,7 +97,7 @@ const Operations = () => (
       <main style={{ paddingTop: 100 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
 
-          <div className="hero-glow" style={{ paddingTop: 48, marginBottom: 120 }}>
+          <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
                 For operations teams
@@ -124,7 +124,7 @@ const Operations = () => (
           <Divider />
 
           {/* Before/After */}
-          <Section style={{ marginTop: 120, marginBottom: 120 }}>
+          <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
                 eyebrow="The daily grind"
@@ -182,7 +182,7 @@ const Operations = () => (
           <Divider />
 
           {/* Bulk Communication */}
-          <Section style={{ marginTop: 120, marginBottom: 120 }}>
+          <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
                 eyebrow="Bulk communication"
@@ -230,7 +230,7 @@ const Operations = () => (
           <Divider />
 
           {/* Exception Management */}
-          <Section style={{ marginTop: 120, marginBottom: 120 }}>
+          <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
                 eyebrow="Exception management"
@@ -292,7 +292,7 @@ const Operations = () => (
 
           <Divider />
 
-          <Section style={{ marginTop: 120, marginBottom: 120, maxWidth: 720, margin: "120px auto" }}>
+          <Section style={{ marginTop: 80, marginBottom: 80, maxWidth: 720, margin: "120px auto" }}>
             <FAQ />
           </Section>
 
