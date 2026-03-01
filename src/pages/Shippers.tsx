@@ -245,7 +245,7 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Knows Your Business"
+                  eyebrow="Perfect Recall"
                   headline={<>Learns your carriers, your POs,<br />your rates.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
                   sub="No setup. No training. Connect your inbox and your minion starts learning your operation — which carriers you use, what your lanes cost, which vendors are reliable. Tell it something new and it remembers forever. But it figures out most of it on its own."
                 />

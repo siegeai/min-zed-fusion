@@ -238,7 +238,7 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Knows Your Business"
+                  eyebrow="Perfect Recall"
                   headline={<>Learns every client, every carrier,<br />every lane.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
                   sub="No setup. No training. Connect your inbox and your minion starts learning your entire operation — which clients you serve, which carriers you use, what rates you've negotiated. The more it works with you, the sharper it gets across every account."
                 />

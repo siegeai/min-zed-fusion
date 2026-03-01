@@ -160,7 +160,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>your emails.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 48, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="home-hero" /> already learned your business. Ask it anything. Tell it what to do next.
+                  Your minion <MiniMascot size={28} seed="home-hero" /> already learned everything in your inbox. Ask it anything. Tell it what to do next.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">

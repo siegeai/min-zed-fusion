@@ -169,7 +169,7 @@ const FreightBrokers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Knows Your Business"
+                  eyebrow="Perfect Recall"
                   headline={<>Learns your lanes, your carriers,<br />your rates.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
                   sub="No setup. No training. Connect your inbox and your minion starts building a picture of your operation — who your carriers are, what lanes you run, what rates you've seen. The longer it works with you, the sharper it gets."
                 />
