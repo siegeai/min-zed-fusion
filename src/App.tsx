@@ -13,7 +13,7 @@ import ThirdPartyLogistics from "./pages/ThirdPartyLogistics";
 import Distributors from "./pages/Distributors";
 import Operations from "./pages/teams/Operations";
 import Sales from "./pages/teams/Sales";
-import ProjectManagement from "./pages/teams/ProjectManagement";
+import AccountManagement from "./pages/teams/AccountManagement";
 import Features from "./pages/Features";
 import FollowUps from "./pages/features/FollowUps";
 import Alerts from "./pages/features/Alerts";
@@ -70,7 +70,7 @@ const App = () => (
             <Route path="/distributors" element={<Distributors />} />
             <Route path="/teams/operations" element={<Operations />} />
             <Route path="/teams/sales" element={<Sales />} />
-            <Route path="/teams/project-management" element={<ProjectManagement />} />
+            <Route path="/teams/account-management" element={<AccountManagement />} />
             <Route path="/features" element={<Features />} />
             <Route path="/features/follow-ups" element={<FollowUps />} />
             <Route path="/features/alerts" element={<Alerts />} />

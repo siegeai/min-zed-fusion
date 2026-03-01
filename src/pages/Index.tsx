@@ -67,12 +67,12 @@ const TEAMS = [
     examples: ["Outreach", "Account intel", "Quoting", "Win-back"],
   },
   {
-    tag: "Project Management",
-    headline: "Visibility without the dashboards",
-    desc: "Ask for revenue, performance, or trends in plain English. No stale dashboards, no exports. Just answers from your actual data.",
-    to: "/teams/project-management",
-    seed: "team-mgmt",
-    examples: ["Revenue", "Performance", "Morning briefings", "Weekly digests"],
+    tag: "Account Management",
+    headline: "Know every account. Miss nothing.",
+    desc: "Instant account health, QBR prep, churn signals, and relationship intelligence — all learned from your inbox. Never get caught off-guard on an account again.",
+    to: "/teams/account-management",
+    seed: "team-acct",
+    examples: ["Account health", "QBR prep", "Churn signals", "Relationship pulse"],
   },
 ];
 
