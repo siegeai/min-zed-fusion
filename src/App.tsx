@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import FreightBrokers from "./pages/FreightBrokers";
 import Shippers from "./pages/Shippers";
 import ThirdPartyLogistics from "./pages/ThirdPartyLogistics";
+import Distributors from "./pages/Distributors";
 import Operations from "./pages/teams/Operations";
 import Sales from "./pages/teams/Sales";
 import ProjectManagement from "./pages/teams/ProjectManagement";
@@ -66,6 +67,7 @@ const App = () => (
             <Route path="/brokers" element={<FreightBrokers />} />
             <Route path="/shippers" element={<Shippers />} />
             <Route path="/3pl" element={<ThirdPartyLogistics />} />
+            <Route path="/distributors" element={<Distributors />} />
             <Route path="/teams/operations" element={<Operations />} />
             <Route path="/teams/sales" element={<Sales />} />
             <Route path="/teams/project-management" element={<ProjectManagement />} />

@@ -127,7 +127,7 @@ const ThirdPartyLogistics = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  For 3PLs
+                  For high-volume 3PLs
                 </p>
                 <h1
                   className="hero-stagger-2"

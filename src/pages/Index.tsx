@@ -101,6 +101,14 @@ const INDUSTRIES = [
     seed: "audience-3pl",
     examples: ["Client visibility", "Cross-client rates", "POD collection", "Client KPIs"],
   },
+  {
+    tag: "Distributors",
+    headline: "Order desk clarity without the chaos",
+    desc: "Surface stalled orders, track every exception, and follow up with suppliers automatically. Your ERP tracks order lines. Your minion tracks reality.",
+    to: "/distributors",
+    seed: "audience-dist",
+    examples: ["Order context", "Exception tracking", "Supplier follow-ups", "Margin visibility"],
+  },
 ];
 
 const Index = () => {

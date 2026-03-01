@@ -132,7 +132,7 @@ const Features = () => (
           />
 
           <Section style={{ marginBottom: 80 }}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ maxWidth: 960, margin: "0 auto" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ maxWidth: 960, margin: "0 auto" }}>
               {[
                 { label: "Operations", to: "/teams/operations", seed: "nav-ops" },
                 { label: "Sales", to: "/teams/sales", seed: "nav-sales" },
@@ -140,6 +140,7 @@ const Features = () => (
                 { label: "Brokers", to: "/brokers", seed: "nav-freight" },
                 { label: "Shippers", to: "/shippers", seed: "nav-shipper" },
                 { label: "3PLs", to: "/3pl", seed: "nav-3pl" },
+                { label: "Distributors", to: "/distributors", seed: "nav-dist" },
               ].map((a) => (
                 <Link key={a.to} to={a.to} style={{ textDecoration: "none" }}>
                   <div

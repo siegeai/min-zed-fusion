@@ -26,6 +26,7 @@ const INDUSTRIES_ITEMS = [
   { label: "Brokers", to: "/brokers" },
   { label: "Shippers", to: "/shippers" },
   { label: "3PLs", to: "/3pl" },
+  { label: "Distributors", to: "/distributors" },
 ];
 
 function Dropdown({
