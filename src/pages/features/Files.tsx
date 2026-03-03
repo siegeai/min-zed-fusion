@@ -198,7 +198,7 @@ const Files = () => (
             "Supports CSV, Excel, PDF, Word, text files, and more",
             "No SQL, no formulas, no special query language — just ask in plain English",
             "Cross-reference data across multiple uploaded files at once",
-            "Group chats let your whole team ask questions about the same file",
+            "Group chats let your whole team ask questions about the same files",
             "Answers come back as clean tables, summaries, and numbers — not raw data",
             "Upload once, ask unlimited questions — your minion remembers the file",
           ].map((point) => (
