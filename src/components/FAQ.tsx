@@ -7,9 +7,14 @@ import {
 
 const FAQS = [
   {
+    question: "What is min. and what it isn't.",
+    answer:
+      "We are a tool company. We build the best possible email tools for people who run on email. That's it. We're not an ad company, not a data company, not a platform that monetizes your attention. We make money when you pay for the tool, never by selling, brokering, or exploiting your data. That's our pledge, and no amount of money will change it.",
+  },
+  {
     question: "How does it work?",
     answer:
-      "Connect your inbox to your minion. You tell it what you need in plain English: carrier blasts, rate lookups, track and trace. It pulls quotes and context from your emails and handles the grunt work so you can focus on winning loads and making decisions.",
+      "Sign in with Gmail or Outlook. You tell your minion what you need in plain English: carrier blasts, rate lookups, track and trace. It pulls quotes and context from your email history and handles the grunt work so you can focus on winning loads and making decisions.",
   },
   {
     question: "What can I ask my minion to do?",
@@ -24,12 +29,12 @@ const FAQS = [
   {
     question: "How long does setup take?",
     answer:
-      "Seconds. Connect Gmail or Outlook, tell your minion what you need, and you're live. No training, no complex onboarding.",
+      "Seconds. Sign in with Gmail or Outlook, tell your minion what you need, and you're live. No training, no complex onboarding.",
   },
   {
-    question: "What about privacy and security?",
+    question: "What about data privacy and security?",
     answer:
-      "We're Google CASA Tier 1 compliant. Your emails and quotes are encrypted. We never train models on your inbox or share your information with third parties.",
+      "Your data is yours. We never sell it, never broker it, and never use it to train AI models — period. Your emails are encrypted, your account is isolated, and nothing is shared with third parties. We're Google CASA Tier 2 compliant.",
   },
 ];
 

@@ -24,8 +24,8 @@ const Security = () => {
     description: "While we're still in the process of obtaining GDPR certification, we work only with compliant providers and follow industry best practices to protect data and align with these regulations."
   }, {
     icon: Eye,
-    title: "Zero Data Cross-Training",
-    description: "Your data is never used to train models for other customers. Each client's data remains completely isolated and private."
+    title: "Never Sold. Never Brokered. Never Trained On.",
+    description: "Your data is never sold, never brokered, and never used to train AI models — for us or anyone else. Each client's data remains completely isolated and private."
   }, {
     icon: Server,
     title: "Enterprise-Grade Infrastructure",
@@ -133,14 +133,41 @@ const Security = () => {
                 </div>)}
             </div>
 
-            {/* Data Protection Guarantee */}
+            {/* Data Pledge */}
+            <div className="bg-gray-900 rounded-sm p-8 mb-16 text-white">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold mb-2">
+                  Our Data Pledge
+                </h2>
+                <p className="text-gray-400 max-w-2xl mx-auto">
+                  Plain English, no legal gymnastics.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                {[
+                  { title: "We never sell your data", detail: "Not to advertisers, not to data brokers, not to anyone. Your data is not our product." },
+                  { title: "We never broker your data", detail: "We don't share, license, or provide access to your data to any third party — ever." },
+                  { title: "We never train on your data", detail: "Your emails are never used to train AI models — not ours, not our providers'. Your data stays yours." },
+                ].map((item, i) => (
+                  <div key={i} className="text-center">
+                    <div className="inline-flex items-center justify-center w-10 h-10 bg-green-500/20 rounded-full mb-4">
+                      <CheckCircle className="w-5 h-5 text-green-400" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Data Protection Detail */}
             <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-16">
               <h2 className="text-2xl font-medium text-gray-900 mb-6 text-center">
                 Your Data, Your Control
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-lg font-medium text-gray-900 mb-3">Data Isolation Promise</h3>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">Data Isolation</h3>
                   <ul className="space-y-2 text-gray-600">
                     <li className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
@@ -148,7 +175,7 @@ const Security = () => {
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Zero cross-customer data sharing or model training</span>
+                      <span>Each account is fully isolated — no cross-customer data access</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
@@ -169,7 +196,7 @@ const Security = () => {
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>No persistent storage of prompts or responses</span>
+                      <span>No persistent storage of prompts or responses by AI providers</span>
                     </li>
                   </ul>
                 </div>
