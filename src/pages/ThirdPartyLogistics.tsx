@@ -527,7 +527,7 @@ const ThirdPartyLogistics = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>Your clients are emailing right now.<br /><span style={{ color: GREEN }}>Your minion already replied.</span></>}
+              headline={<>Your clients are emailing right now.<br /><span style={{ color: GREEN }}>Your minion already has the answer.</span></>}
               sub="Sign in with Gmail or Outlook. Your minion starts working across all your clients in 30 seconds."
             />
 
