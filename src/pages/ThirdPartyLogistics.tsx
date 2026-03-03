@@ -245,7 +245,7 @@ const ThirdPartyLogistics = () => {
                 <SectionHeading
                   eyebrow="Total recall"
                   headline={<>Every client, every carrier,<br />every lane.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
-                  sub="No setup. No training. Sign in with Gmail or Outlook and your minion indexes your entire email history — which clients you serve, which carriers you use, what rates you've negotiated. Everything is searchable in seconds."
+                  sub="No setup. No training. No onboarding. Sign in with Gmail or Outlook and your minion gets to work. Everything is searchable in minutes."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
