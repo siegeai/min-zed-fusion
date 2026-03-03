@@ -11,6 +11,12 @@ import {
 
 const ALL_FEATURES = [
   {
+    title: "Perfect Recall",
+    desc: "Ask a question, get an answer — not a list of emails to dig through. Your minion cross-references your entire email history and gives you structured answers in seconds. Averages, timelines, commitments, context — all from a plain English question.",
+    to: "/features/recall",
+    seed: "feat-retrieval",
+  },
+  {
     title: "Automatic Follow-Ups",
     desc: "Tell your minion to follow up on any email thread, on any cadence. Auto-cancels when the recipient replies or you jump in. Pending follow-ups visible in the Task tab.",
     to: "/features/follow-ups",
@@ -75,7 +81,7 @@ const Features = () => (
                 <span style={{ color: GREEN }}>can do for you.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1rem, 2.5vw, 1.2rem)", color: MUTED, fontWeight: 400, marginBottom: 0, lineHeight: 1.5 }}>
-                Photographic memory for your inbox. A collaborator that's always ready. Every feature works in plain English.
+                Total recall across your entire email history. Every feature works in plain English.
               </p>
             </div>
           </div>
@@ -176,7 +182,7 @@ const Features = () => (
 
           <FinalCTA
             headline={<>Ready to put your minion<br /><span style={{ color: GREEN }}>to work?</span></>}
-            sub="Connect your inbox in 30 seconds. Your minion starts working immediately."
+            sub="Sign in with Gmail or Outlook. Your minion starts working in 30 seconds."
           />
         </div>
       </main>

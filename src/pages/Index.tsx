@@ -12,6 +12,12 @@ import {
 
 const FEATURES = [
   {
+    title: "Perfect Recall",
+    desc: "Ask a question, get an answer — not a list of emails. Your minion cross-references your entire email history and responds with structured data.",
+    to: "/features/recall",
+    seed: "feat-retrieval",
+  },
+  {
     title: "Automatic Follow-Ups",
     desc: "Tell your minion to follow up on any thread, on any cadence. Auto-cancels when they reply or you jump in.",
     to: "/features/follow-ups",

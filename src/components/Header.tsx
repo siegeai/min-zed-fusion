@@ -8,6 +8,7 @@ const NAV_LINK_HOVER = "#F9FAFB";
 
 const FEATURES_ITEMS = [
   { label: "All Features", to: "/features" },
+  { label: "Perfect Recall", to: "/features/recall" },
   { label: "Automatic Follow-Ups", to: "/features/follow-ups" },
   { label: "Alerts", to: "/features/alerts" },
   { label: "Smart Contacts", to: "/features/contacts" },

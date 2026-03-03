@@ -21,6 +21,7 @@ import Contacts from "./pages/features/Contacts";
 import Tasks from "./pages/features/Tasks";
 import Email from "./pages/features/Email";
 import Instructions from "./pages/features/Instructions";
+import Recall from "./pages/features/Retrieval";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
@@ -78,6 +79,7 @@ const App = () => (
             <Route path="/features/tasks" element={<Tasks />} />
             <Route path="/features/email" element={<Email />} />
             <Route path="/features/instructions" element={<Instructions />} />
+            <Route path="/features/recall" element={<Recall />} />
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
