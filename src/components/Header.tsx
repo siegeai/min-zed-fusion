@@ -6,16 +6,17 @@ import { ChevronDown, Menu, X } from "lucide-react";
 const NAV_LINK_STYLE: React.CSSProperties = { color: "#6B7280" };
 const NAV_LINK_HOVER = "#F9FAFB";
 
-const FEATURES_ITEMS = [
-  { label: "All Features", to: "/features" },
-  { label: "Perfect Recall", to: "/features/recall" },
-  { label: "Live Load Tracking", to: "/features/tracking" },
-  { label: "Automatic Follow-Ups", to: "/features/follow-ups" },
-  { label: "Alerts", to: "/features/alerts" },
-  { label: "Smart Contacts", to: "/features/contacts" },
-  { label: "Task Tracking", to: "/features/tasks" },
-  { label: "Email Power", to: "/features/email" },
-  { label: "Custom Instructions", to: "/features/instructions" },
+const SKILLS_ITEMS = [
+  { label: "Skills", to: "/skills" },
+  { label: "Recall", to: "/skills/recall" },
+  { label: "Tracking", to: "/skills/tracking" },
+  { label: "Follow-Ups", to: "/skills/follow-ups" },
+  { label: "Alerts", to: "/skills/alerts" },
+  { label: "Contacts", to: "/skills/contacts" },
+  { label: "Tasks", to: "/skills/tasks" },
+  { label: "Attachments", to: "/skills/email" },
+  { label: "Instructions", to: "/skills/instructions" },
+  { label: "Files", to: "/skills/files" },
 ];
 
 const TEAMS_ITEMS = [
@@ -115,7 +116,7 @@ function Dropdown({
 const MOBILE_SECTIONS = [
   { heading: "Industries", items: INDUSTRIES_ITEMS },
   { heading: "Teams", items: TEAMS_ITEMS },
-  { heading: "Features", items: FEATURES_ITEMS },
+  { heading: "Skills", items: SKILLS_ITEMS },
 ];
 
 const MOBILE_LINKS = [
@@ -175,7 +176,7 @@ const Header = () => {
             <nav className="hidden md:flex items-center space-x-6">
               <Dropdown label="Teams" items={TEAMS_ITEMS} />
               <Dropdown label="Industries" items={INDUSTRIES_ITEMS} />
-              <Dropdown label="Features" items={FEATURES_ITEMS} separateFirst />
+              <Dropdown label="Skills" items={SKILLS_ITEMS} separateFirst />
               <Link
                 to="/contact"
                 className="text-sm font-normal transition-colors duration-200"

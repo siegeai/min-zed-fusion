@@ -9,63 +9,69 @@ import {
   Section, Divider, SectionHeading, FinalCTA,
 } from "@/components/LandingShared";
 
-const ALL_FEATURES = [
+const ALL_SKILLS = [
   {
-    title: "Perfect Recall",
+    title: "Recall",
     desc: "Ask a question, get an answer — not a list of emails to dig through. Your minion cross-references your entire email history and gives you structured answers in seconds. Averages, timelines, commitments, context — all from a plain English question.",
-    to: "/features/recall",
+    to: "/skills/recall",
     seed: "feat-retrieval",
   },
   {
-    title: "Live Load Tracking",
+    title: "Tracking",
     desc: "Your minion reads tracking links from carrier emails, checks the real GPS position via Google Maps, Samsara, FourKites, Fedex, UPS, etc., then adjusts the ETA with live weather and traffic data. Raises exceptions automatically when a truck is going to be late.",
-    to: "/features/tracking",
+    to: "/skills/tracking",
     seed: "feat-tracking",
   },
   {
-    title: "Automatic Follow-Ups",
+    title: "Follow-Ups",
     desc: "Tell your minion to follow up on any email thread, on any cadence. Auto-cancels when the recipient replies or you jump in. Pending follow-ups visible in the Task tab.",
-    to: "/features/follow-ups",
+    to: "/skills/follow-ups",
     seed: "feat-followup",
   },
   {
-    title: "Alerts in Plain English",
+    title: "Alerts",
     desc: "Set conditions in plain English (\"text me if anyone mentions a delay\") and your minion texts you when it triggers. Real-time monitoring of your inbox.",
-    to: "/features/alerts",
+    to: "/skills/alerts",
     seed: "feat-alerts",
   },
   {
-    title: "Smart Contact Classification",
+    title: "Contacts",
     desc: "Your minion auto-classifies every contact (customer, vendor, partner, or noise) based on conversation history. No manual tagging required.",
-    to: "/features/contacts",
+    to: "/skills/contacts",
     seed: "feat-contacts",
   },
   {
-    title: "Task Tracking",
+    title: "Tasks",
     desc: "When you ask your minion to do something, like an email blast, it auto-creates a task to track progress. Each task runs in its own dedicated chat window.",
-    to: "/features/tasks",
+    to: "/skills/tasks",
     seed: "feat-tasks",
   },
   {
-    title: "Email Attachments & Rich Formatting",
+    title: "Attachments",
     desc: "Your minion can attach files directly to outgoing emails, auto-size tables to content, and embed images or GIFs inline. Professional emails, effortlessly.",
-    to: "/features/email",
+    to: "/skills/email",
     seed: "feat-email",
   },
   {
-    title: "Custom Minion Instructions",
+    title: "Instructions",
     desc: "Each minion can have its own standing rules: \"always be concise\", \"answer in formal tone\", \"reply in rhymes\". Personalize how your minion communicates.",
-    to: "/features/instructions",
+    to: "/skills/instructions",
     seed: "feat-instructions",
+  },
+  {
+    title: "Files",
+    desc: "Upload a CSV, Excel spreadsheet, PDF, or text file and ask questions in plain English. No SQL, no formulas — just answers. Works in group chats so your whole team can collaborate on the same data.",
+    to: "/skills/files",
+    seed: "feat-files",
   },
 ];
 
 const Features = () => (
   <>
     <Helmet>
-      <title>Features | min.</title>
-      <meta name="description" content="Explore all min. features: automatic follow-ups, plain English alerts, smart contact classification, task tracking, email power, and custom instructions." />
-      <link rel="canonical" href="https://getmin.ai/features" />
+      <title>Skills | min.</title>
+      <meta name="description" content="Explore all min. skills: automatic follow-ups, plain English alerts, smart contact classification, task tracking, email power, and custom instructions." />
+      <link rel="canonical" href="https://getmin.ai/skills" />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -77,7 +83,7 @@ const Features = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                Features
+                Skills
               </p>
               <h1
                 className="hero-stagger-2"
@@ -87,7 +93,7 @@ const Features = () => (
                 <span style={{ color: GREEN }}>can do for you.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1rem, 2.5vw, 1.2rem)", color: MUTED, fontWeight: 400, marginBottom: 0, lineHeight: 1.5 }}>
-                Total recall across your entire email history. Every feature works in plain English.
+                Total recall across your entire email history. Every skill works in plain English.
               </p>
             </div>
           </div>
@@ -96,7 +102,7 @@ const Features = () => (
 
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ maxWidth: 1000, margin: "0 auto" }}>
-              {ALL_FEATURES.map((f) => (
+              {ALL_SKILLS.map((f) => (
                 <Link key={f.to} to={f.to} style={{ textDecoration: "none" }}>
                   <div
                     style={{

@@ -8,8 +8,8 @@ const Contacts = () => (
   <FeaturePageLayout
     title="Smart Contact Classification"
     metaDescription="Your minion auto-classifies every contact (customer, carrier, vendor, or noise) from conversation history. No manual tagging needed."
-    canonicalPath="/features/contacts"
-    eyebrow="Feature"
+    canonicalPath="/skills/contacts"
+    eyebrow="Smart Contact Classification"
     headline={<>Your minion knows who's who<br /><span style={{ color: GREEN }}>without you telling it.</span></>}
     subline="Auto-classifies every contact as customer, carrier, vendor, or noise based on your actual conversation history. Zero manual tagging."
     mascotSeed="feat-contacts"

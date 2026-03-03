@@ -8,8 +8,8 @@ const Retrieval = () => (
   <FeaturePageLayout
     title="Perfect Recall"
     metaDescription="Ask a question, get an answer — not a list of emails. Your minion cross-references your entire email history and gives you structured answers in seconds."
-    canonicalPath="/features/recall"
-    eyebrow="Feature"
+    canonicalPath="/skills/recall"
+    eyebrow="Perfect Recall"
     headline={<>Ask a question.<br /><span style={{ color: GREEN }}>Get an answer.</span></>}
     subline="Search gives you a list of emails. Your minion gives you the answer — synthesized from your entire email history, in seconds."
     mascotSeed="feat-retrieval"

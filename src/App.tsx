@@ -23,6 +23,7 @@ import Email from "./pages/features/Email";
 import Instructions from "./pages/features/Instructions";
 import Recall from "./pages/features/Retrieval";
 import Tracking from "./pages/features/Tracking";
+import Files from "./pages/features/Files";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
@@ -73,15 +74,16 @@ const App = () => (
             <Route path="/teams/operations" element={<Operations />} />
             <Route path="/teams/business-development" element={<BusinessDevelopment />} />
             <Route path="/teams/account-management" element={<AccountManagement />} />
-            <Route path="/features" element={<Features />} />
-            <Route path="/features/follow-ups" element={<FollowUps />} />
-            <Route path="/features/alerts" element={<Alerts />} />
-            <Route path="/features/contacts" element={<Contacts />} />
-            <Route path="/features/tasks" element={<Tasks />} />
-            <Route path="/features/email" element={<Email />} />
-            <Route path="/features/instructions" element={<Instructions />} />
-            <Route path="/features/recall" element={<Recall />} />
-            <Route path="/features/tracking" element={<Tracking />} />
+            <Route path="/skills" element={<Features />} />
+            <Route path="/skills/follow-ups" element={<FollowUps />} />
+            <Route path="/skills/alerts" element={<Alerts />} />
+            <Route path="/skills/contacts" element={<Contacts />} />
+            <Route path="/skills/tasks" element={<Tasks />} />
+            <Route path="/skills/email" element={<Email />} />
+            <Route path="/skills/instructions" element={<Instructions />} />
+            <Route path="/skills/recall" element={<Recall />} />
+            <Route path="/skills/tracking" element={<Tracking />} />
+            <Route path="/skills/files" element={<Files />} />
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />

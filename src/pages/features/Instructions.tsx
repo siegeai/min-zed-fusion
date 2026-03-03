@@ -8,8 +8,8 @@ const Instructions = () => (
   <FeaturePageLayout
     title="Custom Minion Instructions"
     metaDescription="Give each minion its own standing rules: tone, style, or domain-specific instructions. Personalize how your minion communicates."
-    canonicalPath="/features/instructions"
-    eyebrow="Feature"
+    canonicalPath="/skills/instructions"
+    eyebrow="Custom Minion Instructions"
     headline={<>Your minion,<br /><span style={{ color: GREEN }}>your rules.</span></>}
     subline="Each minion can have its own standing instructions: communication style, domain rules, or anything you want it to always remember."
     mascotSeed="feat-instructions"

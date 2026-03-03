@@ -8,8 +8,8 @@ const FollowUps = () => (
   <FeaturePageLayout
     title="Automatic Follow-Ups"
     metaDescription="Tell your minion to follow up on any email thread, on any cadence. Auto-cancels when the recipient replies. Never let a thread go cold again."
-    canonicalPath="/features/follow-ups"
-    eyebrow="Feature"
+    canonicalPath="/skills/follow-ups"
+    eyebrow="Automatic Follow-Ups"
     headline={<>Automatic follow-ups<br />that <span style={{ color: GREEN }}>cancel themselves.</span></>}
     subline="Tell your minion to follow up on any thread, on any cadence. It auto-cancels when the recipient replies or you jump in."
     mascotSeed="feat-followup"

@@ -10,54 +10,60 @@ import {
   Section, Divider, SectionHeading, FinalCTA,
 } from "@/components/LandingShared";
 
-const FEATURES = [
+const SKILLS = [
   {
     title: "Perfect Recall",
     desc: "Ask a question, get an answer — not a list of emails. Your minion cross-references your entire email history and responds with structured data.",
-    to: "/features/recall",
+    to: "/skills/recall",
     seed: "feat-retrieval",
   },
   {
-    title: "Live Load Tracking",
+    title: "Tracking",
     desc: "Real GPS location, real ETA. Your minion reads tracking links, factors in weather and traffic, and raises exceptions before the carrier tells you.",
-    to: "/features/tracking",
+    to: "/skills/tracking",
     seed: "feat-tracking",
   },
   {
-    title: "Automatic Follow-Ups",
+    title: "Follow-Ups",
     desc: "Tell your minion to follow up on any thread, on any cadence. Auto-cancels when they reply or you jump in.",
-    to: "/features/follow-ups",
+    to: "/skills/follow-ups",
     seed: "feat-followup",
   },
   {
-    title: "Alerts in Plain English",
+    title: "Alerts",
     desc: "\"Text me if any carrier mentions a delay overnight.\" Set conditions in plain English. Get notified via SMS.",
-    to: "/features/alerts",
+    to: "/skills/alerts",
     seed: "feat-alerts",
   },
   {
     title: "Smart Contact Classification",
     desc: "Your minion auto-classifies every contact as customer, carrier, vendor, or noise. No manual tagging.",
-    to: "/features/contacts",
+    to: "/skills/contacts",
     seed: "feat-contacts",
   },
   {
-    title: "Task Tracking",
+    title: "Tasks",
     desc: "Ask your minion to do something and it creates a task to track progress. Each task runs in its own dedicated window.",
-    to: "/features/tasks",
+    to: "/skills/tasks",
     seed: "feat-tasks",
   },
   {
-    title: "Email Attachments & Rich Formatting",
+    title: "Attachments",
     desc: "Send attachments, embed images and GIFs, auto-size tables. Your minion handles email like a pro.",
-    to: "/features/email",
+    to: "/skills/email",
     seed: "feat-email",
   },
   {
-    title: "Custom Minion Instructions",
+    title: "Instructions",
     desc: "Each minion can have its own standing rules: \"always be concise\", \"reply in formal tone\", or anything you want.",
-    to: "/features/instructions",
+    to: "/skills/instructions",
     seed: "feat-instructions",
+  },
+  {
+    title: "Files",
+    desc: "Upload any file — CSV, Excel, PDF, text — and ask questions in plain English. Your whole team can collaborate in group chats.",
+    to: "/skills/files",
+    seed: "feat-files",
   },
 ];
 
@@ -278,17 +284,17 @@ const Index = () => {
 
             <Divider />
 
-            {/* ── Features preview ── */}
+            {/* ── Skills preview ── */}
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={{ maxWidth: 960, margin: "0 auto" }}>
                 <SectionHeading
-                  eyebrow="Core features"
+                  eyebrow="Core skills"
                   headline={<>Everything your minion<br /><span style={{ color: GREEN }}>can do for you.</span></>}
-                  sub="Total recall across your entire email history. Every feature works in plain English."
+                  sub="Total recall across your entire email history. Every skill works in plain English."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {FEATURES.map((f) => (
+                  {SKILLS.map((f) => (
                     <Link key={f.to} to={f.to} style={{ textDecoration: "none" }}>
                       <div
                         style={{
@@ -327,9 +333,9 @@ const Index = () => {
                 </div>
 
                 <div style={{ textAlign: "center", marginTop: 32 }}>
-                  <Link to="/features">
+                  <Link to="/skills">
                     <Button variant="ghost" className="text-sm font-normal" style={{ color: GREEN }}>
-                      View all features <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                      View all skills <ArrowRight className="w-3.5 h-3.5 ml-1" />
                     </Button>
                   </Link>
                 </div>

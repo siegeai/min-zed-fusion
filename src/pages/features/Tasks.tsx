@@ -8,8 +8,8 @@ const Tasks = () => (
   <FeaturePageLayout
     title="Task Tracking"
     metaDescription="When you ask your minion to do something, it auto-creates a task to track progress. Each task runs in its own dedicated chat window."
-    canonicalPath="/features/tasks"
-    eyebrow="Feature"
+    canonicalPath="/skills/tasks"
+    eyebrow="Task Tracking"
     headline={<>Every action becomes<br /><span style={{ color: GREEN }}>a tracked task.</span></>}
     subline="Ask your minion to do something. It creates a task automatically. Each task runs in its own chat window so nothing gets lost."
     mascotSeed="feat-tasks"

@@ -209,7 +209,7 @@ export const FinalCTA = ({
           </a>
         </div>
         <p style={{ color: DIM, fontSize: 13, marginTop: 16 }}>
-          No credit card required · Gmail & Outlook
+          No credit card required
         </p>
       </div>
     </div>

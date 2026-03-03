@@ -48,8 +48,8 @@ const FeaturePageLayout = ({
 
           <div style={{ paddingTop: 48, marginBottom: 80 }}>
             <div style={{ maxWidth: 720, margin: "0 auto" }}>
-              <Link to="/features" style={{ display: "inline-flex", alignItems: "center", gap: 6, color: DIM, fontSize: 13, textDecoration: "none", marginBottom: 32, transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = TEXT)} onMouseLeave={(e) => (e.currentTarget.style.color = DIM)}>
-                <ArrowLeft style={{ width: 14, height: 14 }} /> All features
+              <Link to="/skills" style={{ display: "inline-flex", alignItems: "center", gap: 6, color: DIM, fontSize: 13, textDecoration: "none", marginBottom: 32, transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = TEXT)} onMouseLeave={(e) => (e.currentTarget.style.color = DIM)}>
+                <ArrowLeft style={{ width: 14, height: 14 }} /> All skills
               </Link>
 
               <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24 }}>
@@ -78,7 +78,7 @@ const FeaturePageLayout = ({
           <Section style={{ marginTop: 80 }}>
             <FinalCTA
               headline={<>Ready to put your minion<br /><span style={{ color: GREEN }}>to work?</span></>}
-              sub="Connect your inbox in 30 seconds. Your minion starts working immediately."
+              sub="Sign up in 30 seconds. Your minion starts working immediately."
             />
           </Section>
 

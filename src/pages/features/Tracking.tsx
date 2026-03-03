@@ -14,8 +14,8 @@ const Tracking = () => (
   <FeaturePageLayout
     title="Live Load Tracking"
     metaDescription="Real-time shipment tracking powered by GPS, weather, and traffic data. Your minion reads tracking links from your email, checks the actual truck location, and gives you a real ETA — not the carrier's stale one."
-    canonicalPath="/features/tracking"
-    eyebrow="Feature"
+    canonicalPath="/skills/tracking"
+    eyebrow="Live Load Tracking"
     headline={<>Real location.<br />Real ETA.<br /><span style={{ color: GREEN }}>Not the carrier's stale update.</span></>}
     subline="Your minion reads tracking links from your email, checks the actual truck position via GPS, factors in weather and traffic, and gives you an ETA you can trust."
     mascotSeed="feat-tracking"

@@ -8,8 +8,8 @@ const Alerts = () => (
   <FeaturePageLayout
     title="Alerts in Plain English"
     metaDescription="Set alert conditions in plain English. Your minion watches for triggers and texts you when something happens. No dashboards, no rules engine."
-    canonicalPath="/features/alerts"
-    eyebrow="Feature"
+    canonicalPath="/skills/alerts"
+    eyebrow="Alerts in Plain English"
     headline={<>Alerts that speak<br /><span style={{ color: GREEN }}>plain English.</span></>}
     subline={`"Text me if any carrier mentions a delay overnight." Set conditions in your own words. Get notified via SMS when they trigger.`}
     mascotSeed="feat-alerts"

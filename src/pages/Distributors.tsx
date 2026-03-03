@@ -186,7 +186,7 @@ const Distributors = () => {
             <Divider />
 
             {/* ── Section 2: The Order Context Problem ── */}
-            <Section style={{ marginTop: 80, marginBottom: 80 }} id="features">
+            <Section style={{ marginTop: 80, marginBottom: 80 }} id="skills">
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="Search vs. Ask"
