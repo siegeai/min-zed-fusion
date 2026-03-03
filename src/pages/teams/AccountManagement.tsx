@@ -94,7 +94,7 @@ const AccountManagement = () => (
   <>
     <Helmet>
       <title>min. for Account Management | Never get caught off-guard on an account</title>
-      <meta name="description" content="AI for logistics account managers. Instant account health, QBR prep, churn alerts, and relationship intelligence. Your minion learns every account from your inbox." />
+      <meta name="description" content="AI email assistant for logistics account managers. Instant account health, QBR prep, churn alerts, and relationship intelligence — pulled from your email history." />
       <link rel="canonical" href="https://getmin.ai/teams/account-management" />
       <meta property="og:title" content="min. for Account Management | Never get caught off-guard on an account" />
       <meta property="og:description" content="Account health, QBR prep, churn signals. Ask in plain English, get real answers." />
@@ -114,7 +114,7 @@ const AccountManagement = () => (
                 Know every account.<br /><span style={{ color: GREEN }}>Miss nothing.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Your minion <MiniMascot size={28} seed="acct-hero" /> has already learned every customer, every issue, every relationship. Just ask.
+                Your minion <MiniMascot size={28} seed="acct-hero" /> already knows every customer, every issue, every relationship. Just ask.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
@@ -142,7 +142,7 @@ const AccountManagement = () => (
               <SectionHeading
                 eyebrow="Account health at a glance"
                 headline={<>Instant context on any account.<br /><span style={{ color: GREEN }}>No digging required.</span></>}
-                sub="Open issues, recent escalations, shipment status, last contact — everything your minion has learned about the account, in one answer."
+                sub="Open issues, recent escalations, shipment status, last contact — everything about the account, pulled from your email history, in one answer."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
@@ -271,7 +271,7 @@ const AccountManagement = () => (
               <SectionHeading
                 eyebrow="QBR-ready reporting"
                 headline={<>Account performance reports<br /><span style={{ color: GREEN }}>in one sentence.</span></>}
-                sub="On-time rates, cost trends, carrier performance, issue history. Your minion learns your accounts over time and gives you the numbers instantly — no spreadsheet assembly required."
+                sub="On-time rates, cost trends, carrier performance, issue history. Your minion pulls the numbers from your email history instantly — no spreadsheet assembly required."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                 <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
@@ -306,7 +306,7 @@ const AccountManagement = () => (
                 <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                     <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                      Your minion builds account-level performance from your actual email data — shipment counts, on-time rates, cost trends, carrier rankings, issue history. Ask for any account, any period. QBR prep that used to take hours now takes one question.
+                        Account-level performance pulled from your actual email history — shipment counts, on-time rates, cost trends, carrier rankings, issue history. Ask for any account, any period. QBR prep that used to take hours now takes one question.
                     </p>
                   </div>
 
@@ -349,7 +349,7 @@ const AccountManagement = () => (
 
           <FinalCTA
             headline={<>Your best accounts deserve<br />your best attention.<br /><span style={{ color: GREEN }}>Your minion makes sure they get it.</span></>}
-            sub="Connect your inbox in 30 seconds. Your minion starts learning every account immediately."
+            sub="Sign in with Gmail or Outlook. Every account is searchable in 30 seconds."
           />
         </div>
       </main>

@@ -86,10 +86,10 @@ const BusinessDevelopment = () => (
   <>
     <Helmet>
       <title>min. for Business Development | Your inbox knows more than your CRM</title>
-      <meta name="description" content="Your inbox has every conversation, objection, and buying signal. Your CRM has what someone logged. Your minion learns your prospects, your deals, and your pipeline from your email — automatically." />
+      <meta name="description" content="Your inbox has every conversation, objection, and buying signal. Your CRM has what someone logged. Your minion makes it all searchable and actionable — automatically." />
       <link rel="canonical" href="https://getmin.ai/teams/business-development" />
       <meta property="og:title" content="min. for Business Development | Your inbox knows more than your CRM" />
-      <meta property="og:description" content="Every objection, competitor mention, and buying signal is in your email. Your minion learns it all." />
+      <meta property="og:description" content="Every objection, competitor mention, and buying signal is already in your email. Your minion makes it actionable." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -193,8 +193,8 @@ const BusinessDevelopment = () => (
             <div style={maxW}>
               <SectionHeading
                 eyebrow="Account intelligence"
-                headline={<>Ask anything about any account.<br /><span style={{ color: GREEN }}>Your minion read every thread.</span></>}
-                sub="No setup. No training. Your minion learns your accounts, your deals, your relationships from your inbox — automatically. The more you work together, the sharper its read on every prospect gets."
+                  headline={<>Ask anything about any account.<br /><span style={{ color: GREEN }}>Every thread is searchable.</span></>}
+                  sub="No setup. No training. Your minion indexes your accounts, your deals, your relationships from your email history — automatically. The more you work together, the sharper it gets on every prospect."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
@@ -340,7 +340,7 @@ const BusinessDevelopment = () => (
 
           <FinalCTA
             headline={<>Your best sales data isn't in your CRM.<br /><span style={{ color: GREEN }}>It's in your inbox. Start using it.</span></>}
-              sub="Connect your inbox in 30 seconds. Your minion reads everything, forgets nothing, and starts working immediately."
+              sub="Sign in with Gmail or Outlook. Your minion indexes everything, forgets nothing, and starts working in 30 seconds."
           />
         </div>
       </main>

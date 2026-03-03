@@ -61,7 +61,7 @@ const TEAMS = [
   {
     tag: "Business Development",
     headline: "Your inbox knows more than your CRM.",
-    desc: "Every objection, competitor mention, and buying signal is in your email. Your minion learns it all so you don't fly blind.",
+    desc: "Every objection, competitor mention, and buying signal is already in your email. Your minion makes it all searchable and actionable.",
     to: "/teams/business-development",
     seed: "team-bd",
     examples: ["Outreach", "Account intel", "Quoting", "Win-back"],
@@ -69,7 +69,7 @@ const TEAMS = [
   {
     tag: "Account Management",
     headline: "Know every account. Miss nothing.",
-    desc: "Instant account health, QBR prep, churn signals, and relationship intelligence — all learned from your inbox. Never get caught off-guard on an account again.",
+    desc: "Instant account health, QBR prep, churn signals, and relationship intelligence — pulled from your email history. Never get caught off-guard on an account again.",
     to: "/teams/account-management",
     seed: "team-acct",
     examples: ["Account health", "QBR prep", "Churn signals", "Relationship pulse"],
@@ -80,7 +80,7 @@ const INDUSTRIES = [
   {
     tag: "Brokers",
     headline: "Rate lookups, carrier blasts, and negotiation",
-    desc: "Your minion learns your lanes, your carriers, and your rates from your inbox — then acts on them in one sentence.",
+    desc: "Your minion knows your lanes, your carriers, and your rates - then acts on them in one sentence.",
     to: "/brokers",
     seed: "audience-freight",
     examples: ["Rate lookups", "Carrier blasts", "Negotiation", "Load tracking"],
@@ -115,7 +115,7 @@ const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "min. | AI that reads your emails and does what you tell it",
+    name: "min. | The email assistant that actually does things",
     description: "An AI assistant for logistics teams. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings, in plain English.",
     url: "https://getmin.ai",
     mainEntity: {
@@ -129,13 +129,13 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | AI that reads your emails and does what you tell it</title>
-        <meta name="description" content="An AI assistant for logistics teams. Your minion learns your lanes, your carriers, and your operation from your inbox — automatically. Rate lookups, carrier blasts, follow-ups, and morning briefings in plain English." />
+        <title>min. | The email assistant that actually does things</title>
+        <meta name="description" content="An AI email assistant for logistics teams. Search your entire email history, send bulk outreach, and automate follow-ups — in plain English." />
         <link rel="canonical" href="https://getmin.ai" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
-        <meta property="og:title" content="min. | AI that reads your emails and does what you tell it" />
-        <meta property="og:description" content="Your minion learns your business from your inbox. Ask it anything, in plain English." />
+        <meta property="og:title" content="min. | The email assistant that actually does things" />
+        <meta property="og:description" content="Search your entire email history, send bulk outreach, and automate follow-ups — in plain English." />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
@@ -160,7 +160,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>your emails.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 48, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="home-hero" /> already learned everything in your inbox. Ask it anything. Tell it what to do next.
+                  Search gives you emails. Your minion <MiniMascot size={28} seed="home-hero" /> gives you answers, and does what you tell it next.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -186,7 +186,7 @@ const Index = () => {
                 <SectionHeading
                   eyebrow="By team"
                   headline={<>One AI assistant.<br /><span style={{ color: GREEN }}>Tailored for your role.</span></>}
-                  sub="Ops drowns in follow-ups. BD loses deals in their inbox. Leaders fly blind. Your minion remembers everything, so none of that has to happen."
+                  sub="Ops drowns in follow-ups. BD loses deals in threads. Leaders fly blind. Your minion remembers everything, so none of that has to happen."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -272,7 +272,7 @@ const Index = () => {
                 <SectionHeading
                   eyebrow="Core features"
                   headline={<>Everything your minion<br /><span style={{ color: GREEN }}>can do for you.</span></>}
-                  sub="Photographic memory for your inbox. Every feature works in plain English."
+                  sub="Total recall across your entire email history. Every feature works in plain English."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -330,7 +330,7 @@ const Index = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ maxWidth: 960, margin: "0 auto" }}>
                 {[
-                  { stat: "30 sec", label: "to connect Gmail or Outlook" },
+                  { stat: "30 sec", label: "to sign in with Gmail or Outlook" },
                   { stat: "Total recall", label: "every email, every attachment, searchable" },
                   { stat: "Plain English", label: "no training, no complex onboarding" },
                   { stat: "24/7", label: "always on, never needs to be caught up" },
@@ -348,7 +348,7 @@ const Index = () => {
             {/* ── Final CTA ── */}
             <FinalCTA
               headline={<>You're going to re-read<br />that email again tomorrow.<br /><span style={{ color: GREEN }}>Or you could just ask.</span></>}
-              sub="Connect your inbox in 30 seconds. Your minion reads everything, remembers everything, and starts working immediately."
+              sub="Sign in with Gmail or Outlook. Your minion starts working in 30 seconds."
             />
 
           </div>

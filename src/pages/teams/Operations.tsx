@@ -303,7 +303,7 @@ const Operations = () => (
 
           <FinalCTA
             headline={<>You're going to send those<br />same emails again tomorrow.<br /><span style={{ color: GREEN }}>Or your minion could.</span></>}
-              sub="Connect your inbox in 30 seconds. Your minion reads everything, never forgets, and starts working immediately."
+              sub="Sign in with Gmail or Outlook. Your minion indexes everything, never forgets, and starts working in 30 seconds."
           />
         </div>
       </main>

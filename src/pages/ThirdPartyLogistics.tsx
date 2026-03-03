@@ -127,17 +127,17 @@ const ThirdPartyLogistics = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  For high-volume 3PLs
+                For relationship-driven 3PLs
                 </p>
                 <h1
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
                   All your clients. All your carriers.<br />
-                  <span style={{ color: GREEN }}>One minion.</span>
+                  <span style={{ color: GREEN }}>In one place.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="3pl-hero" /> has already learned every client, every carrier, every lane. Ask it anything.
+                  Your minion <MiniMascot size={28} seed="3pl-hero" /> already knows every client, every carrier, every active load. Ask it anything.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -165,9 +165,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }} id="features">
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="The multi-client juggle"
+                  eyebrow="Search vs. Ask"
                   headline={<>Every client thinks they're<br />your only client.</>}
-                  sub="You're managing 10 accounts across 50 carriers. Your minion keeps it all straight."
+                  sub="Search gives you a mixed bag of emails across all your accounts. Your minion gives you the answer, per client."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -175,7 +175,7 @@ const ThirdPartyLogistics = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(239,68,68,0.12)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(239,68,68,0.04) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                     <div style={{ position: "relative", zIndex: 1 }}>
-                      <span style={{ color: "#EF4444", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Before</span>
+                      <span style={{ color: "#EF4444", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Search</span>
 
                       <div style={{ background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 8, padding: "7px 12px", display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
                         <span style={{ color: DIM, fontSize: 13 }}>🔍</span>
@@ -198,7 +198,7 @@ const ThirdPartyLogistics = () => {
                         </div>
                       ))}
                       <p style={{ color: "#EF4444", fontSize: 12, marginTop: 16, fontStyle: "italic", lineHeight: 1.6, opacity: 0.7 }}>
-                        Which client was this for? Who's the carrier? Where's the POD?
+                        5 results across 3 clients. Which client was this for? Who's the carrier?
                       </p>
                     </div>
                   </div>
@@ -207,7 +207,7 @@ const ThirdPartyLogistics = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.2)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.03) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                     <div style={{ position: "relative", zIndex: 1 }}>
-                      <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>After</span>
+                      <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Ask</span>
 
                       <ChatRow role="user" style={{ marginBottom: 16 }}>
                         <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
@@ -243,9 +243,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Perfect Recall"
-                  headline={<>Learns every client, every carrier,<br />every lane.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
-                  sub="No setup. No training. Connect your inbox and your minion starts learning your entire operation — which clients you serve, which carriers you use, what rates you've negotiated. The more it works with you, the sharper it gets across every account."
+                  eyebrow="Total recall"
+                  headline={<>Every client, every carrier,<br />every lane.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
+                  sub="No setup. No training. Sign in with Gmail or Outlook and your minion indexes your entire email history — which clients you serve, which carriers you use, what rates you've negotiated. Everything is searchable in seconds."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -269,7 +269,7 @@ const ThirdPartyLogistics = () => {
                   </div>
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 14, padding: 22 }}>
-                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Learned & cross-referenced</p>
+                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Indexed & cross-referenced</p>
                     {[
                       ["Carrier", "Werner Enterprises"],
                       ["Rate", "$2,300"],
@@ -288,10 +288,10 @@ const ThirdPartyLogistics = () => {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ marginBottom: 48 }}>
                   {[
-                    { stat: "30 sec", label: "to connect Gmail or Outlook" },
+                    { stat: "30 sec", label: "to sign in and start asking" },
                     { stat: "All clients", label: "rate history in one place" },
-                    { stat: "Auto", label: "learns rates, lanes, ETAs, and POD status" },
-                    { stat: "Gets", label: "smarter across every client account, every day" },
+                    { stat: "Auto", label: "indexes rates, lanes, ETAs, and POD status" },
+                    { stat: "Always", label: "up to date across every client account" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
@@ -415,7 +415,7 @@ const ThirdPartyLogistics = () => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                       <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        Your minion pulls real data from your email history: shipment counts, costs, on-time rates, carrier rankings. Ask for a report on any client, any lane, any time period.
+                        Real data pulled from your email history: shipment counts, costs, on-time rates, carrier rankings. Ask for a report on any client, any lane, any time period.
                       </p>
                     </div>
 
@@ -432,7 +432,7 @@ const ThirdPartyLogistics = () => {
 
                     <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4 }}>
                       {[
-                        "Client-level KPIs pulled from your actual email data",
+                        "Client-level KPIs from your actual email history",
                         "On-time rates, cost trends, carrier performance rankings",
                         "Ask for any time period: this week, this quarter, last year",
                       ].map((point) => (
@@ -455,7 +455,7 @@ const ThirdPartyLogistics = () => {
                 <SectionHeading
                   eyebrow="Automation"
                   headline={<>Your morning ops briefing,<br /><span style={{ color: GREEN }}>across every client.</span></>}
-                  sub="Your minion monitors every client overnight. Start the day knowing exactly what needs attention."
+                  sub="Your minion keeps working across every client overnight. Start the day knowing exactly what needs attention."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -528,7 +528,7 @@ const ThirdPartyLogistics = () => {
             {/* ── Final CTA ── */}
             <FinalCTA
               headline={<>Your clients are emailing right now.<br /><span style={{ color: GREEN }}>Your minion already replied.</span></>}
-              sub="Connect your inbox in 30 seconds. Your minion starts working across all your clients immediately."
+              sub="Sign in with Gmail or Outlook. Your minion starts working across all your clients in 30 seconds."
             />
 
           </div>

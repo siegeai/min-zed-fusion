@@ -7,7 +7,7 @@ import {
 const Alerts = () => (
   <FeaturePageLayout
     title="Alerts in Plain English"
-    metaDescription="Set alert conditions in plain English. Your minion monitors your inbox and texts you when something happens. No dashboards, no rules engine."
+    metaDescription="Set alert conditions in plain English. Your minion watches for triggers and texts you when something happens. No dashboards, no rules engine."
     canonicalPath="/features/alerts"
     eyebrow="Feature"
     headline={<>Alerts that speak<br /><span style={{ color: GREEN }}>plain English.</span></>}
@@ -82,7 +82,7 @@ const Alerts = () => (
           {[
             "Set any condition in plain English. No rules engine or forms",
             "Get notified via SMS to your phone",
-            "Monitors your inbox 24/7 in real-time",
+            "Watches for triggers 24/7 in real-time",
             "Works for delays, rate thresholds, specific keywords, or any custom trigger",
           ].map((point) => (
             <div key={point} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>

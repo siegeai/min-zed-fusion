@@ -145,7 +145,7 @@ const Shippers = () => {
                   <span style={{ color: GREEN }}>shipment updates.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="shipper-hero" /> already learned your carriers, your POs, your lanes. Ready for its next task.
+                  Your minion <MiniMascot size={28} seed="shipper-hero" /> already knows your carriers, your POs, your lanes. Ready for its next task.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -173,9 +173,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }} id="features">
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="The update chase"
+                  eyebrow="Search vs. Ask"
                   headline={<>You already know the updates<br />are buried in your inbox.</>}
-                  sub="You just can't find them all fast enough."
+                  sub="Search gives you a list of emails. Your minion gives you the answer."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -183,7 +183,7 @@ const Shippers = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(239,68,68,0.12)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(239,68,68,0.04) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                     <div style={{ position: "relative", zIndex: 1 }}>
-                      <span style={{ color: "#EF4444", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Before</span>
+                      <span style={{ color: "#EF4444", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Search</span>
 
                       <div style={{ background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 8, padding: "7px 12px", display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
                         <span style={{ color: DIM, fontSize: 13 }}>🔍</span>
@@ -206,7 +206,7 @@ const Shippers = () => {
                         </div>
                       ))}
                       <p style={{ color: "#EF4444", fontSize: 12, marginTop: 16, fontStyle: "italic", lineHeight: 1.6, opacity: 0.7 }}>
-                        Which email had the tracking number? Was it the invoice one or the shipping confirmation?
+                        5 results. Which one has the tracking number — the invoice or the shipping confirmation?
                       </p>
                     </div>
                   </div>
@@ -215,7 +215,7 @@ const Shippers = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.2)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.03) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                     <div style={{ position: "relative", zIndex: 1 }}>
-                      <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>After</span>
+                      <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Ask</span>
 
                       <ChatRow role="user" style={{ marginBottom: 16 }}>
                         <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
@@ -250,9 +250,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Perfect Recall"
-                  headline={<>Learns your carriers, your POs,<br />your rates.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
-                  sub="No setup. No training. Connect your inbox and your minion starts learning your operation — which carriers you use, what your lanes cost, which vendors are reliable. Tell it something new and it remembers forever. But it figures out most of it on its own."
+                  eyebrow="Total recall"
+                  headline={<>Your carriers, your POs,<br />your rates.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
+                  sub="No setup. No training. Sign in with Gmail or Outlook and your minion indexes your entire email history — which carriers you use, what your lanes cost, which vendors are reliable. Tell it something new and it remembers forever. But it figures out most of it on its own."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -278,7 +278,7 @@ const Shippers = () => {
                   </div>
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 14, padding: 22 }}>
-                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Learned from your inbox</p>
+                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Automatically indexed</p>
                     {[
                       ["PO Number", "#4412"],
                       ["Carrier", "FedEx Freight"],
@@ -297,10 +297,10 @@ const Shippers = () => {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ marginBottom: 48 }}>
                   {[
-                    { stat: "30 sec", label: "to connect Gmail or Outlook" },
-                    { stat: "50,000+", label: "emails learned from in under 20 min" },
-                    { stat: "Auto", label: "learns your POs, carriers, ETAs, and costs" },
-                    { stat: "Gets", label: "smarter about your supply chain every day" },
+                    { stat: "30 sec", label: "to sign in and start asking" },
+                    { stat: "50,000+", label: "emails searchable in under 20 min" },
+                    { stat: "Auto", label: "indexes your POs, carriers, ETAs, and costs" },
+                    { stat: "Always", label: "up to date as new emails arrive" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
@@ -466,7 +466,7 @@ const Shippers = () => {
                 <SectionHeading
                   eyebrow="Automation"
                   headline={<>Your morning logistics briefing,<br /><span style={{ color: GREEN }}>before your coffee.</span></>}
-                  sub="Your minion monitors overnight so you start the day knowing exactly what needs attention."
+                  sub="Your minion keeps working overnight so you start the day knowing exactly what needs attention."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -539,7 +539,7 @@ const Shippers = () => {
             {/* ── Final CTA ── */}
             <FinalCTA
               headline={<>You're going to chase<br />that shipment update again tomorrow.<br /><span style={{ color: GREEN }}>Or you could just ask.</span></>}
-              sub="Connect your inbox in 30 seconds. Your minion starts working immediately."
+              sub="Sign in with Gmail or Outlook. Your minion starts working in 30 seconds."
             />
 
           </div>

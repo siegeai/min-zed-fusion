@@ -124,7 +124,7 @@ const Distributors = () => {
     <>
       <Helmet>
         <title>min. for Distributors | Order desk clarity without the chaos</title>
-        <meta name="description" content="AI for wholesale distributors and order desk managers. Surface stalled orders, track exceptions, follow up with suppliers, and get morning briefings in plain English." />
+        <meta name="description" content="AI email assistant for wholesale distributors. Surface stalled orders, track exceptions, follow up with suppliers, and get morning briefings — in plain English." />
         <meta name="keywords" content="wholesale distribution, order desk, order management, supplier follow-ups, backorder tracking, customer service, ERP, distributors" />
         <link rel="canonical" href="https://getmin.ai/distributors" />
         <meta property="og:type" content="website" />
@@ -153,7 +153,7 @@ const Distributors = () => {
                   <span style={{ color: GREEN }}>order threads.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="dist-hero" /> has already learned your customers, your suppliers, your pricing history. Just ask.
+                  Your minion <MiniMascot size={28} seed="dist-hero" /> already knows your customers, your suppliers, your pricing history. Just ask.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -181,9 +181,9 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }} id="features">
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="The thread dig"
+                  eyebrow="Search vs. Ask"
                   headline={<>To understand one order,<br />you open ten threads.</>}
-                  sub="Customer email. Supplier reply. Internal forward. ERP note. Your minion holds it all together."
+                  sub="Search gives you a list of emails to dig through. Your minion gives you the full picture in one answer."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -191,7 +191,7 @@ const Distributors = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(239,68,68,0.12)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(239,68,68,0.04) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                     <div style={{ position: "relative", zIndex: 1 }}>
-                      <span style={{ color: "#EF4444", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Before</span>
+                      <span style={{ color: "#EF4444", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Search</span>
 
                       <div style={{ background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 8, padding: "7px 12px", display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
                         <span style={{ color: DIM, fontSize: 13 }}>🔍</span>
@@ -214,7 +214,7 @@ const Distributors = () => {
                         </div>
                       ))}
                       <p style={{ color: "#EF4444", fontSize: 12, marginTop: 16, fontStyle: "italic", lineHeight: 1.6, opacity: 0.7 }}>
-                        Which thread has the supplier's latest ETA? Did Janet get a response? What did we tell the customer?
+                        5 threads. The answer is scattered across all of them.
                       </p>
                     </div>
                   </div>
@@ -223,7 +223,7 @@ const Distributors = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.2)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.03) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                     <div style={{ position: "relative", zIndex: 1 }}>
-                      <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>After</span>
+                      <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>Ask</span>
 
                       <ChatRow role="user" style={{ marginBottom: 16 }}>
                         <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
@@ -258,9 +258,9 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Perfect Recall"
-                  headline={<>Learns every commitment,<br />every pricing agreement.<br /><span style={{ color: GREEN }}>All from your inbox.</span></>}
-                  sub="No setup. No training. Connect your inbox and your minion starts learning your operation — your customers' pricing history, your suppliers' lead times, your recurring exceptions. Correct it once, it never makes the same mistake twice. But it figures out most of it on its own."
+                  eyebrow="Total recall"
+                  headline={<>Every commitment,<br />every pricing agreement.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
+                  sub="No setup. No training. Sign in with Gmail or Outlook and your minion indexes your entire email history — your customers' pricing, your suppliers' lead times, your recurring exceptions. Correct it once, it never makes the same mistake twice. But it figures out most of it on its own."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -286,7 +286,7 @@ const Distributors = () => {
                   </div>
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 14, padding: 22 }}>
-                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Learned from your inbox</p>
+                    <p style={{ color: GREEN, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Automatically indexed</p>
                     {[
                       ["Order", "PO #8841"],
                       ["SKU affected", "SKU-2291"],
@@ -305,10 +305,10 @@ const Distributors = () => {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ marginBottom: 48 }}>
                   {[
-                    { stat: "30 sec", label: "to connect Gmail or Outlook" },
-                    { stat: "Auto", label: "learns PO details, ETAs, pricing, and exceptions" },
-                    { stat: "All", label: "inboxes — orders@, sales@, purchasing@" },
-                    { stat: "Gets", label: "smarter about your customers and suppliers daily" },
+                    { stat: "30 sec", label: "to sign in and start asking" },
+                    { stat: "Auto", label: "indexes PO details, ETAs, pricing, and exceptions" },
+                    { stat: "All", label: "accounts — orders@, sales@, purchasing@" },
+                    { stat: "Always", label: "up to date as new emails arrive" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
                       <p style={{ color: GREEN, fontSize: "1.5rem", fontWeight: 700, margin: "0 0 4px 0", letterSpacing: "-0.02em" }}>{stat}</p>
@@ -376,7 +376,7 @@ const Distributors = () => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                       <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        Your minion reads every backorder notice, substitution request, and freight question as it arrives — and surfaces the ones that have been sitting too long, so you're never surprised by an angry customer call.
+                        Your minion catches every backorder notice, substitution request, and freight question as it arrives — and surfaces the ones that have been sitting too long, so you're never surprised by an angry customer call.
                       </p>
                     </div>
 
@@ -490,7 +490,7 @@ const Distributors = () => {
                 <SectionHeading
                   eyebrow="Automation"
                   headline={<>Your morning order briefing,<br /><span style={{ color: GREEN }}>before the calls start.</span></>}
-                  sub="Your minion monitors every inbox overnight. You start the day knowing exactly what's on fire and what can wait."
+                  sub="Your minion keeps working overnight. You start the day knowing exactly what's on fire and what can wait."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -563,8 +563,8 @@ const Distributors = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>That order thread you're digging through?<br /><span style={{ color: GREEN }}>Your minion already learned it.</span></>}
-              sub="Connect your inbox in 30 seconds. Your minion starts reading every order, every exception, every thread immediately."
+              headline={<>That order thread you're digging through?<br /><span style={{ color: GREEN }}>Your minion already has it.</span></>}
+              sub="Sign in with Gmail or Outlook. Every order, every exception, every thread — searchable in 30 seconds."
             />
 
           </div>

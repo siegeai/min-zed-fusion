@@ -11,7 +11,7 @@ const Footer = () => {
               <span className="font-semibold text-xl">min.</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
-              AI that reads your emails and does what you tell it. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings. In plain English.
+              The email assistant that actually does things. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings. In plain English.
             </p>
           </div>
 
