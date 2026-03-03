@@ -93,7 +93,7 @@ const Features = () => (
                 <span style={{ color: GREEN }}>can do for you.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1rem, 2.5vw, 1.2rem)", color: MUTED, fontWeight: 400, marginBottom: 0, lineHeight: 1.5 }}>
-                Total recall across your entire email history. Every skill works in plain English.
+                Total recall across your entire inbox. Every skill works in plain English.
               </p>
             </div>
           </div>

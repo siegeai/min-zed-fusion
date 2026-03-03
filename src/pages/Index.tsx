@@ -290,7 +290,7 @@ const Index = () => {
                 <SectionHeading
                   eyebrow="Core skills"
                   headline={<>Everything your minion<br /><span style={{ color: GREEN }}>can do for you.</span></>}
-                  sub="Total recall across your entire email history. Every skill works in plain English."
+                  sub="Total recall across your entire inbox. Every skill works in plain English."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
