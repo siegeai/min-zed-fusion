@@ -36,7 +36,7 @@ const SKILLS = [
     seed: "feat-alerts",
   },
   {
-    title: "Smart Contact Classification",
+    title: "Contacts",
     desc: "Your minion auto-classifies every contact as customer, carrier, vendor, or noise. No manual tagging.",
     to: "/skills/contacts",
     seed: "feat-contacts",
