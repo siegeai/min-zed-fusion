@@ -256,7 +256,72 @@ const FreightBrokers = () => {
 
             <Divider />
 
-            {/* ── Section 4: Carrier Blast ── */}
+            {/* ── Section 4: Live Shipment Tracking ── */}
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
+              <div style={maxW}>
+                <SectionHeading
+                  eyebrow="Live tracking"
+                  headline={<>Real GPS. Real weather.<br /><span style={{ color: GREEN }}>Real ETA.</span></>}
+                  sub="Your minion reads tracking links from carrier emails, checks the actual truck position via Samsara, FourKites, and others, and adjusts the ETA with live weather and traffic data."
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
+                    <ChatRow role="user" style={{ marginBottom: 14 }}>
+                      <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
+                        Where's the Dallas load right now? Is it going to make the delivery window?
+                      </p>
+                    </ChatRow>
+                    <ChatRow role="ai" seed="trk-broker">
+                      <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>Load #DAL-3385 — I-30 near Texarkana, TX</p>
+                      <DataTable
+                        rows={[
+                          ["GPS source", "Samsara · updated 8 min ago"],
+                          ["Carrier ETA", "Thu 2:00pm"],
+                          ["Real ETA", "Thu 3:30pm (+1h30m)"],
+                          ["Weather", "Rain on I-30 east of Dallas"],
+                          ["Delivery window", "Thu 7am–5pm · will make it"],
+                        ]}
+                      />
+                    </ChatRow>
+                  </div>
+
+                  <div style={{ background: SURFACE, border: "1px solid rgba(234,179,8,0.15)", borderRadius: 16, padding: 24 }}>
+                    <p style={{ color: "#FCD34D", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14, fontWeight: 600 }}>Automatic exception</p>
+                    <ChatRow role="ai" seed="trk-broker-exc">
+                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ Load #MIA-3401 — stationary 3 hours</p>
+                      <DataTable
+                        rows={[
+                          ["Location", "I-10 near Houston, TX"],
+                          ["GPS source", "FourKites · last ping 3h ago"],
+                          ["Original ETA", "Wed 4:00pm"],
+                          ["Revised ETA", "Thu 10:00am (+18hrs)"],
+                          ["Issue", "Truck stationary · possible breakdown"],
+                        ]}
+                      />
+                      <p style={{ color: MUTED, fontSize: 12, margin: "8px 0 0" }}>Carrier notified. You'll get a text when they respond.</p>
+                    </ChatRow>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4, marginTop: 24 }}>
+                  {[
+                    "Reads tracking links from carrier emails — Samsara, FourKites, project44, MacroPoint, and more",
+                    "Adjusts ETA using real-time weather and traffic, not the carrier's stale update",
+                    "Raises exceptions before the carrier tells you — stationary trucks, weather delays, missed windows",
+                  ].map((point) => (
+                    <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>
+                      <span style={{ color: MUTED, fontSize: 13, lineHeight: 1.5 }}>{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Section>
+
+            <Divider />
+
+            {/* ── Section 5: Carrier Blast ── */}
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading

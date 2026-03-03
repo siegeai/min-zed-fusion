@@ -17,11 +17,11 @@ import {
 
 const SHIPPER_PROMPTS: PromptItem[] = [
   {
-    text: "Where is PO #4412? When is it arriving?",
-    label: "Shipment tracking",
+    text: "Where is PO #4412? When is it actually arriving?",
+    label: "Live tracking",
     response: {
-      headline: "PO #4412: In Transit",
-      rows: [["Carrier", "FedEx Freight"], ["Status", "In transit, Memphis hub"], ["ETA", "Thu Mar 7, 2:00pm"], ["Destination", "Dallas, TX (Dock 3)"]],
+      headline: "PO #4412 — I-30 near Little Rock, AR",
+      rows: [["GPS source", "Samsara · updated 9 min ago"], ["Carrier ETA", "Thu 2:00pm"], ["Real ETA", "Thu 3:15pm (+1h15m)"], ["Weather", "Rain on I-30 near Texarkana"], ["Delivery window", "Thu 8am–5pm · will make it"]],
     },
   },
   {
@@ -331,7 +331,74 @@ const Shippers = () => {
 
             <Divider />
 
-            {/* ── Section 4: RFQ Blast ── */}
+            {/* ── Section 4: Live Shipment Tracking ── */}
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
+              <div style={maxW}>
+                <SectionHeading
+                  eyebrow="Live tracking"
+                  headline={<>Know where your shipment is.<br /><span style={{ color: GREEN }}>Before the carrier does.</span></>}
+                  sub="Your minion reads tracking links from carrier emails, checks the real truck position via Samsara, FourKites, and others, and gives you an ETA adjusted for weather and traffic."
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
+                    <ChatRow role="user" style={{ marginBottom: 14 }}>
+                      <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
+                        Show me the real location and ETA for all inbound shipments arriving this week.
+                      </p>
+                    </ChatRow>
+                    <ChatRow role="ai" seed="trk-shipper">
+                      <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>4 inbound shipments this week</p>
+                      <DataTable
+                        hasHeader
+                        rows={[
+                          ["PO", "Location", "Real ETA", "Status"],
+                          ["#4412", "Little Rock, AR", "Thu 3:15pm", "On time"],
+                          ["#4408", "Memphis, TN", "Fri 10am", "On time"],
+                          ["#4401", "Houston, TX", "Thu 8pm", "⚠ +6hrs"],
+                          ["#4415", "Picked up today", "Fri 3pm", "On time"],
+                        ]}
+                      />
+                      <p style={{ color: MUTED, fontSize: 12, margin: "8px 0 0" }}>PO #4401 delayed by traffic on I-10. Will still arrive today.</p>
+                    </ChatRow>
+                  </div>
+
+                  <div style={{ background: SURFACE, border: "1px solid rgba(234,179,8,0.15)", borderRadius: 16, padding: 24 }}>
+                    <p style={{ color: "#FCD34D", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14, fontWeight: 600 }}>Automatic exception</p>
+                    <ChatRow role="ai" seed="trk-shipper-exc">
+                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ PO #4401 (Midwest Steel) — delayed +6hrs</p>
+                      <DataTable
+                        rows={[
+                          ["Current location", "I-10 near Houston, TX"],
+                          ["GPS source", "FourKites · updated 20 min ago"],
+                          ["Original ETA", "Thu 2:00pm"],
+                          ["Revised ETA", "Thu 8:00pm (+6hrs)"],
+                          ["Issue", "Major traffic congestion on I-10"],
+                        ]}
+                      />
+                      <p style={{ color: MUTED, fontSize: 12, margin: "8px 0 0" }}>Carrier notified. Dock schedule adjusted.</p>
+                    </ChatRow>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4, marginTop: 24 }}>
+                  {[
+                    "Reads tracking links from carrier emails — Samsara, FourKites, project44, MacroPoint, and more",
+                    "Adjusts ETA using real-time weather and traffic, not the carrier's stale update",
+                    "Raises exceptions before the carrier tells you — so you can plan dock schedules and avoid surprises",
+                  ].map((point) => (
+                    <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>
+                      <span style={{ color: MUTED, fontSize: 13, lineHeight: 1.5 }}>{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Section>
+
+            <Divider />
+
+            {/* ── Section 5: RFQ Blast ── */}
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading

@@ -25,6 +25,14 @@ const DIST_PROMPTS: PromptItem[] = [
     },
   },
   {
+    text: "Where's the Hartwell shipment for PO #8841? Is it going to arrive on time?",
+    label: "Live tracking",
+    response: {
+      headline: "PO #8841 — I-65 near Nashville, TN",
+      rows: [["GPS source", "Samsara · updated 15 min ago"], ["Carrier ETA", "Fri 10:00am"], ["Real ETA", "Fri 12:30pm (+2h30m)"], ["Issue", "Ice advisory on I-65 north of Nashville"], ["Delivery window", "Fri 7am–5pm · will make it"]],
+    },
+  },
+  {
     text: "Which orders are waiting on a supplier response right now?",
     label: "Stalled orders",
     response: {
@@ -339,7 +347,72 @@ const Distributors = () => {
 
             <Divider />
 
-            {/* ── Section 4: Exception Surfacing ── */}
+            {/* ── Section 4: Live Shipment Tracking ── */}
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
+              <div style={maxW}>
+                <SectionHeading
+                  eyebrow="Live tracking"
+                  headline={<>Where's the truck?<br /><span style={{ color: GREEN }}>Real answer. Real ETA.</span></>}
+                  sub="Your minion reads tracking links from supplier and carrier emails, checks the real truck position via Samsara, FourKites, and others, and adjusts the ETA with live weather and traffic data."
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
+                    <ChatRow role="user" style={{ marginBottom: 14 }}>
+                      <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
+                        Where's the Hartwell shipment for PO #8841? When is it actually arriving?
+                      </p>
+                    </ChatRow>
+                    <ChatRow role="ai" seed="trk-dist">
+                      <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>PO #8841 — I-65 near Nashville, TN</p>
+                      <DataTable
+                        rows={[
+                          ["GPS source", "Samsara · updated 15 min ago"],
+                          ["Carrier ETA", "Fri 10:00am"],
+                          ["Real ETA", "Fri 12:30pm (+2h30m)"],
+                          ["Weather", "Ice advisory on I-65 north of Nashville"],
+                          ["Delivery window", "Fri 7am–5pm · will make it"],
+                        ]}
+                      />
+                    </ChatRow>
+                  </div>
+
+                  <div style={{ background: SURFACE, border: "1px solid rgba(234,179,8,0.15)", borderRadius: 16, padding: 24 }}>
+                    <p style={{ color: "#FCD34D", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14, fontWeight: 600 }}>Automatic exception</p>
+                    <ChatRow role="ai" seed="trk-dist-exc">
+                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ PO #8857 (Central Dist.) — truck stationary 4hrs</p>
+                      <DataTable
+                        rows={[
+                          ["Location", "I-70 near Indianapolis, IN"],
+                          ["GPS source", "FourKites · last ping 4h ago"],
+                          ["Original ETA", "Thu 2:00pm"],
+                          ["Revised ETA", "Fri 8:00am (+18hrs)"],
+                          ["Issue", "Truck stationary · possible breakdown"],
+                        ]}
+                      />
+                      <p style={{ color: MUTED, fontSize: 12, margin: "8px 0 0" }}>Supplier notified. Customer alerted about potential delay.</p>
+                    </ChatRow>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4, marginTop: 24 }}>
+                  {[
+                    "Reads tracking links from supplier and carrier emails — no manual input",
+                    "Real GPS via Samsara, FourKites, project44, MacroPoint, and more",
+                    "Raises exceptions automatically so you can notify customers before they ask",
+                  ].map((point) => (
+                    <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>
+                      <span style={{ color: MUTED, fontSize: 13, lineHeight: 1.5 }}>{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Section>
+
+            <Divider />
+
+            {/* ── Section 5: Exception Surfacing ── */}
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading

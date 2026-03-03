@@ -25,6 +25,15 @@ const TPL_PROMPTS: PromptItem[] = [
     },
   },
   {
+    text: "Show me the real location and ETA for all Pacific Foods loads in transit right now.",
+    label: "Live tracking",
+    response: {
+      headline: "Pacific Foods — 3 loads in transit",
+      rows: [["#PF-3392", "Houston, TX · FourKites · ETA Thu 10am (+6hrs) ⚠"], ["#PF-3401", "Memphis, TN · Samsara · ETA Wed 6pm · on time"], ["#PF-3410", "Denver, CO · project44 · ETA Fri 11am · on time"]],
+      note: "#PF-3392 stationary 3hrs — possible breakdown, carrier notified",
+    },
+  },
+  {
     text: "Send a rate request to our carrier pool for Acme's weekly Dallas shipments. 8 pallets LTL, every Monday.",
     label: "Client RFQ",
     response: {
@@ -322,7 +331,74 @@ const ThirdPartyLogistics = () => {
 
             <Divider />
 
-            {/* ── Section 4: Carrier Blast ── */}
+            {/* ── Section 4: Live Shipment Tracking ── */}
+            <Section style={{ marginTop: 80, marginBottom: 80 }}>
+              <div style={maxW}>
+                <SectionHeading
+                  eyebrow="Live tracking"
+                  headline={<>Every client's trucks.<br /><span style={{ color: GREEN }}>One dashboard.</span></>}
+                  sub="Your minion reads tracking links from carrier emails across all your clients, checks the real truck position via Samsara, FourKites, and others, and adjusts ETAs with live weather and traffic data."
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
+                    <ChatRow role="user" style={{ marginBottom: 14 }}>
+                      <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
+                        Show me the real location and ETA for all loads in transit right now, by client.
+                      </p>
+                    </ChatRow>
+                    <ChatRow role="ai" seed="trk-3pl">
+                      <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>11 loads in transit across 3 clients</p>
+                      <DataTable
+                        hasHeader
+                        rows={[
+                          ["Client", "Load", "Location", "Real ETA"],
+                          ["Acme", "#ACM-4412", "Amarillo, TX", "Thu 3:45pm"],
+                          ["Pacific Foods", "#PF-3392", "Houston, TX", "Thu 10am ⚠"],
+                          ["Pacific Foods", "#PF-3401", "Memphis, TN", "Wed 6pm"],
+                          ["Midwest Mfg", "#MW-2201", "Denver, CO", "Fri 11am"],
+                        ]}
+                      />
+                      <p style={{ color: MUTED, fontSize: 12, margin: "8px 0 0" }}>#PF-3392 stationary 3hrs near Houston. Carrier notified.</p>
+                    </ChatRow>
+                  </div>
+
+                  <div style={{ background: SURFACE, border: "1px solid rgba(234,179,8,0.15)", borderRadius: 16, padding: 24 }}>
+                    <p style={{ color: "#FCD34D", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14, fontWeight: 600 }}>Automatic exception — per client</p>
+                    <ChatRow role="ai" seed="trk-3pl-exc">
+                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ Pacific Foods — Load #PF-3392 delayed</p>
+                      <DataTable
+                        rows={[
+                          ["Location", "I-10 near Houston, TX — stationary 3hrs"],
+                          ["GPS source", "FourKites · last ping 3h ago"],
+                          ["Original ETA", "Wed 4:00pm"],
+                          ["Revised ETA", "Thu 10:00am (+18hrs)"],
+                          ["Issue", "Truck stationary · possible breakdown"],
+                        ]}
+                      />
+                      <p style={{ color: MUTED, fontSize: 12, margin: "8px 0 0" }}>Carrier notified. Pacific Foods account rep alerted.</p>
+                    </ChatRow>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4, marginTop: 24 }}>
+                  {[
+                    "Cross-client tracking — every client's loads on one screen",
+                    "Real GPS via Samsara, FourKites, project44, MacroPoint, and more",
+                    "Exceptions raised per client so nothing falls through the cracks",
+                  ].map((point) => (
+                    <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>
+                      <span style={{ color: MUTED, fontSize: 13, lineHeight: 1.5 }}>{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Section>
+
+            <Divider />
+
+            {/* ── Section 5: Carrier Blast ── */}
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading

@@ -17,6 +17,12 @@ const ALL_FEATURES = [
     seed: "feat-retrieval",
   },
   {
+    title: "Live Load Tracking",
+    desc: "Your minion reads tracking links from carrier emails, checks the real GPS position via Google Maps, Samsara, FourKites, Fedex, UPS, etc., then adjusts the ETA with live weather and traffic data. Raises exceptions automatically when a truck is going to be late.",
+    to: "/features/tracking",
+    seed: "feat-tracking",
+  },
+  {
     title: "Automatic Follow-Ups",
     desc: "Tell your minion to follow up on any email thread, on any cadence. Auto-cancels when the recipient replies or you jump in. Pending follow-ups visible in the Task tab.",
     to: "/features/follow-ups",

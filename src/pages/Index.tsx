@@ -18,6 +18,12 @@ const FEATURES = [
     seed: "feat-retrieval",
   },
   {
+    title: "Live Load Tracking",
+    desc: "Real GPS location, real ETA. Your minion reads tracking links, factors in weather and traffic, and raises exceptions before the carrier tells you.",
+    to: "/features/tracking",
+    seed: "feat-tracking",
+  },
+  {
     title: "Automatic Follow-Ups",
     desc: "Tell your minion to follow up on any thread, on any cadence. Auto-cancels when they reply or you jump in.",
     to: "/features/follow-ups",
