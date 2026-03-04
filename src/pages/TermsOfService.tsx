@@ -43,7 +43,7 @@ const TermsOfService = () => {
               <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
                 Clear, fair terms built by experienced founders who understand what teams need.
               </p>
-              <p className="text-sm text-gray-500 mt-4">Last updated: December 2024</p>
+              <p className="text-sm text-gray-500 mt-4">Last updated: January 2026</p>
             </header>
 
             <div className="prose prose-lg max-w-none" role="article" aria-label="Terms of Service Content">
