@@ -19,7 +19,7 @@ const Files = () => (
     metaDescription="Upload CSVs, Excel spreadsheets, PDFs, or any file. Your team asks questions in plain English — no SQL, no formulas, no training required. Collaborate in group chats."
     canonicalPath="/features/files"
     eyebrow="Files in Plain English"
-    headline={<>Upload a file.<br /><span style={{ color: GREEN }}>Ask it anything.</span></>}
+    headline={<>Upload everything.<br /><span style={{ color: GREEN }}>Ask it anything.</span></>}
     subline="CSV, Excel, PDF, Word, text — you name it, your minion reads it. No SQL. No formulas. No training. Just drag, drop, and ask."
     mascotSeed="feat-files"
   >
