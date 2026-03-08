@@ -61,7 +61,7 @@ const SKILLS = [
   },
   {
     title: "Files",
-    desc: "Upload any file — CSV, Excel, PDF, text — and ask questions in plain English. Your whole team can collaborate in group chats.",
+    desc: "Drop every file at once — CSVs, Excel, PDFs, whatever you've got. Ask questions in plain English and get answers across all of them. Even better in a group chat where your whole team queries the same files together.",
     to: "/skills/files",
     seed: "feat-files",
   },
