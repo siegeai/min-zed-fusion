@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState, useCallback } from "react";
 
 /* ─── Seeded PRNG (Mulberry32) ───────────────────────────────────────── */
 function mulberry32(a: number) {
@@ -73,6 +73,48 @@ const DEFAULT: Traits = {
   animDelay: "0s",
 };
 
+/* ─── Reaction types ───────────────────────────────────────────────── */
+type Reaction = "excited" | "love" | "dizzy" | "star" | "sleepy";
+const REACTIONS: Reaction[] = ["excited", "love", "dizzy", "star", "sleepy"];
+
+const REACTION_EMOJIS: Record<Reaction, string[]> = {
+  excited: ["\u{1F389}", "\u{26A1}", "\u{2728}"],
+  love:    ["\u{1F495}", "\u{1F496}", "\u{1F497}"],
+  dizzy:   ["\u{1F4AB}", "\u{2B50}", "\u{2728}"],
+  star:    ["\u{1F31F}", "\u{2B50}", "\u{1F49B}"],
+  sleepy:  ["\u{1F4A4}", "\u{1F634}", "\u{1F4A4}"],
+};
+
+const BODY_ANIM: Record<Reaction, string> = {
+  excited: "mascot-excited 0.6s ease-in-out infinite",
+  love:    "mascot-love 1s ease-in-out infinite",
+  dizzy:   "mascot-dizzy 0.8s linear infinite",
+  star:    "mascot-star 0.3s ease-in-out infinite",
+  sleepy:  "mascot-sleepy 2s ease-in-out infinite",
+};
+
+/* ─── Emoji burst particles ────────────────────────────────────────── */
+function EmojiParticles({ emojis, size }: { emojis: string[]; size: number }) {
+  const fontSize = Math.max(10, Math.round(size * 0.4));
+  return (
+    <div style={{ position: "absolute", top: "10%", left: "50%", zIndex: 10, pointerEvents: "none" }}>
+      {emojis.map((emoji, i) => (
+        <span
+          key={i}
+          style={{
+            position: "absolute",
+            fontSize,
+            lineHeight: 1,
+            animation: `mascot-burst-${i + 1} 0.7s ease-out forwards`,
+          }}
+        >
+          {emoji}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 /* ─── Accessory renderers ───────────────────────────────────────────── */
 function Accessory({ type, b, c1 }: { type: string; b: (v: number) => number; c1: string }) {
   switch (type) {
@@ -121,9 +163,38 @@ const MiniMascot = ({ size = 30, seed }: { size?: number; seed?: string }) => {
   const b = (v: number) => Math.round(size * v);
   const es = t.eyeScale;
 
+  const [reaction, setReaction] = useState<Reaction | null>(null);
+  const [burstKey, setBurstKey] = useState(0);
+
+  const handleMouseEnter = useCallback(() => {
+    setReaction(REACTIONS[Math.floor(Math.random() * REACTIONS.length)]);
+    setBurstKey(k => k + 1);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setReaction(null);
+  }, []);
+
+  const bodyAnim = reaction
+    ? BODY_ANIM[reaction]
+    : "mascot-idle 2.5s ease-in-out infinite";
+
+  const bodyBg = reaction === "love"
+    ? "linear-gradient(145deg, #FF85A2 0%, #FF6B8A 50%, #E5507A 100%)"
+    : `linear-gradient(145deg, ${t.c1} 0%, ${t.c2} 50%, ${t.c3} 100%)`;
+
   return (
-    <div style={{ width: size, height: size, position: "relative", flexShrink: 0 }}>
+    <div
+      style={{ width: size, height: size, position: "relative", flexShrink: 0, cursor: "pointer" }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Accessory type={t.accessory} b={b} c1={t.c1} />
+
+      {/* Emoji burst */}
+      {reaction && (
+        <EmojiParticles key={burstKey} emojis={REACTION_EMOJIS[reaction]} size={size} />
+      )}
 
       {/* Body */}
       <div
@@ -131,11 +202,11 @@ const MiniMascot = ({ size = 30, seed }: { size?: number; seed?: string }) => {
           width: size,
           height: size,
           borderRadius: t.bodyShape,
-          background: `linear-gradient(145deg, ${t.c1} 0%, ${t.c2} 50%, ${t.c3} 100%)`,
+          background: bodyBg,
           position: "relative",
           boxShadow: `0 3px 10px ${t.shadow}`,
-          animation: "mascot-idle 2.5s ease-in-out infinite",
-          animationDelay: t.animDelay,
+          animation: bodyAnim,
+          animationDelay: reaction ? "0s" : t.animDelay,
           zIndex: 1,
         }}
       >
@@ -143,37 +214,113 @@ const MiniMascot = ({ size = 30, seed }: { size?: number; seed?: string }) => {
         <div style={{ position: "absolute", top: b(0.08), left: b(0.15), width: b(0.35), height: b(0.18), background: "rgba(255,255,255,0.18)", borderRadius: "50%", transform: "rotate(-15deg)" }} />
 
         {/* Eyes */}
+        {(["left", "right"] as const).map(side => {
+          const eyePos: React.CSSProperties = {
+            position: "absolute",
+            top: b(0.22),
+            [side === "left" ? "left" : "right"]: b(0.14),
+            width: b(0.24 * es),
+            height: b(0.26 * es),
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 3,
+          };
+
+          if (reaction === "excited") {
+            return (
+              <div key={side} style={{ ...eyePos, width: b(0.28 * es), height: b(0.3 * es), background: "white", borderRadius: "50%" }}>
+                <div style={{ width: b(0.15), height: b(0.15), background: t.darkPupil, borderRadius: "50%", position: "relative" }}>
+                  <div style={{ position: "absolute", top: Math.max(1, b(0.015)), right: Math.max(1, b(0.015)), width: Math.max(2, b(0.06)), height: Math.max(2, b(0.06)), background: "white", borderRadius: "50%" }} />
+                  <div style={{ position: "absolute", bottom: Math.max(1, b(0.02)), left: Math.max(1, b(0.02)), width: Math.max(1, b(0.035)), height: Math.max(1, b(0.035)), background: "white", borderRadius: "50%" }} />
+                </div>
+              </div>
+            );
+          }
+          if (reaction === "love") {
+            return (
+              <div key={side} style={eyePos}>
+                <span style={{ fontSize: b(0.3), lineHeight: 1, color: "#FF1493" }}>{"\u2665"}</span>
+              </div>
+            );
+          }
+          if (reaction === "dizzy") {
+            return (
+              <div key={side} style={{ ...eyePos, background: "white", borderRadius: "50%" }}>
+                <span style={{ fontSize: b(0.2), lineHeight: 1, color: t.darkPupil, animation: "mascot-spin 0.5s linear infinite", display: "inline-block" }}>@</span>
+              </div>
+            );
+          }
+          if (reaction === "star") {
+            return (
+              <div key={side} style={eyePos}>
+                <span style={{ fontSize: b(0.28), lineHeight: 1, color: "#FFD700" }}>{"\u2605"}</span>
+              </div>
+            );
+          }
+          if (reaction === "sleepy") {
+            return (
+              <div key={side} style={eyePos}>
+                <div style={{ width: b(0.18), height: Math.max(2, b(0.04)), background: t.darkPupil, borderRadius: b(0.02) }} />
+              </div>
+            );
+          }
+
+          // Normal eyes
+          return (
+            <div
+              key={side}
+              style={{ ...eyePos, background: "white", borderRadius: "50%" }}
+            >
+              <div style={{ width: b(0.13), height: b(0.13), background: t.darkPupil, borderRadius: "50%", position: "relative", animation: "mascot-look 4s ease-in-out infinite", animationDelay: t.animDelay }}>
+                <div style={{ position: "absolute", top: Math.max(1, b(0.02)), right: Math.max(1, b(0.02)), width: Math.max(1, b(0.045)), height: Math.max(1, b(0.045)), background: "white", borderRadius: "50%" }} />
+              </div>
+            </div>
+          );
+        })}
+
+        {/* Mouth */}
+        {reaction === "excited" ? (
+          // Wide open mouth
+          <div style={{ position: "absolute", bottom: b(0.16), left: "50%", transform: "translateX(-50%)", width: b(0.28), height: b(0.18), background: t.darkPupil, borderRadius: "0 0 50% 50%", overflow: "hidden", zIndex: 3 }}>
+            <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: b(0.14), height: b(0.08), background: "#FF7EB3", borderRadius: "50% 50% 0 0" }} />
+          </div>
+        ) : reaction === "love" ? (
+          // Kissy puckered mouth
+          <div style={{ position: "absolute", bottom: b(0.2), left: "50%", transform: "translateX(-50%)", width: b(0.1), height: b(0.1), background: "#FF7EB3", borderRadius: "50%", zIndex: 3 }} />
+        ) : reaction === "dizzy" ? (
+          // Wobbly line mouth
+          <div style={{ position: "absolute", bottom: b(0.22), left: "50%", transform: "translateX(-50%)", width: b(0.2), height: Math.max(2, b(0.04)), background: t.darkPupil, borderRadius: b(0.02), zIndex: 3, animation: "mascot-wobble 0.3s ease-in-out infinite" }} />
+        ) : reaction === "star" ? (
+          // Wide grin
+          <div style={{ position: "absolute", bottom: b(0.16), left: "50%", transform: "translateX(-50%)", width: b(0.3), height: b(0.1), background: t.darkPupil, borderRadius: "0 0 50% 50%", overflow: "hidden", zIndex: 3 }}>
+            <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: b(0.15), height: b(0.05), background: "#FF7EB3", borderRadius: "50% 50% 0 0" }} />
+          </div>
+        ) : reaction === "sleepy" ? (
+          // Tiny smile
+          <div style={{ position: "absolute", bottom: b(0.22), left: "50%", transform: "translateX(-50%)", width: b(0.12), height: b(0.06), borderBottom: `${Math.max(2, b(0.03))}px solid ${t.darkPupil}`, borderRadius: "0 0 50% 50%", zIndex: 3 }} />
+        ) : (
+          // Normal mouth
+          <div style={{ position: "absolute", bottom: b(0.18), left: "50%", transform: "translateX(-50%)", width: b(0.22), height: b(0.12), background: t.darkPupil, borderRadius: "0 0 50% 50%", overflow: "hidden", zIndex: 3 }}>
+            <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: b(0.11), height: b(0.06), background: "#FF7EB3", borderRadius: "50% 50% 0 0" }} />
+          </div>
+        )}
+
+        {/* Cheeks */}
         {(["left", "right"] as const).map(side => (
           <div
             key={side}
             style={{
               position: "absolute",
-              top: b(0.22),
-              [side === "left" ? "left" : "right"]: b(0.14),
-              width: b(0.24 * es),
-              height: b(0.26 * es),
-              background: "white",
+              top: b(0.5),
+              [side === "left" ? "left" : "right"]: b(0.04),
+              width: b(0.16),
+              height: b(0.09),
+              background: `rgba(255,130,170,${reaction === "love" ? 0.55 : t.cheekOpacity})`,
               borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 3,
+              zIndex: 2,
             }}
-          >
-            <div style={{ width: b(0.13), height: b(0.13), background: t.darkPupil, borderRadius: "50%", position: "relative", animation: "mascot-look 4s ease-in-out infinite", animationDelay: t.animDelay }}>
-              <div style={{ position: "absolute", top: Math.max(1, b(0.02)), right: Math.max(1, b(0.02)), width: Math.max(1, b(0.045)), height: Math.max(1, b(0.045)), background: "white", borderRadius: "50%" }} />
-            </div>
-          </div>
-        ))}
-
-        {/* Mouth */}
-        <div style={{ position: "absolute", bottom: b(0.18), left: "50%", transform: "translateX(-50%)", width: b(0.22), height: b(0.12), background: t.darkPupil, borderRadius: "0 0 50% 50%", overflow: "hidden", zIndex: 3 }}>
-          <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: b(0.11), height: b(0.06), background: "#FF7EB3", borderRadius: "50% 50% 0 0" }} />
-        </div>
-
-        {/* Cheeks */}
-        {(["left", "right"] as const).map(side => (
-          <div key={side} style={{ position: "absolute", top: b(0.5), [side === "left" ? "left" : "right"]: b(0.04), width: b(0.16), height: b(0.09), background: `rgba(255,130,170,${t.cheekOpacity})`, borderRadius: "50%", zIndex: 2 }} />
+          />
         ))}
       </div>
     </div>
