@@ -1,8 +1,40 @@
+import { useState, useEffect } from "react";
 import FeaturePageLayout from "@/components/FeaturePageLayout";
 import {
   SURFACE, GREEN, BORDER, TEXT, MUTED, DIM,
   ChatRow, DataTable, Section,
 } from "@/components/LandingShared";
+
+const ROTATE_WORDS = ["Rate Sheets.", "SOPs.", "Contracts.", "Carrier Packets.", "Everything."];
+
+function RotatingWord() {
+  const [index, setIndex] = useState(0);
+  const [phase, setPhase] = useState<"in" | "out">("in");
+
+  useEffect(() => {
+    // Stay visible for 2s, then fade out for 0.35s, switch word, fade in
+    const timer = phase === "in"
+      ? setTimeout(() => setPhase("out"), 2000)
+      : setTimeout(() => {
+          setIndex((i) => (i + 1) % ROTATE_WORDS.length);
+          setPhase("in");
+        }, 350);
+    return () => clearTimeout(timer);
+  }, [phase]);
+
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        transition: "opacity 0.35s ease, transform 0.35s ease",
+        opacity: phase === "in" ? 1 : 0,
+        transform: phase === "in" ? "translateY(0)" : "translateY(-8px)",
+      }}
+    >
+      {ROTATE_WORDS[index]}
+    </span>
+  );
+}
 
 const FILE_TYPES = [
   { ext: "CSV", color: "#22c55e" },
@@ -19,7 +51,7 @@ const Files = () => (
     metaDescription="Upload CSVs, Excel spreadsheets, PDFs, or any file. Your team asks questions in plain English — no SQL, no formulas, no training required. Collaborate in group chats."
     canonicalPath="/features/files"
     eyebrow="Files in Plain English"
-    headline={<>Upload everything.<br /><span style={{ color: GREEN }}>Ask it anything.</span></>}
+    headline={<>Upload <RotatingWord /><br /><span style={{ color: GREEN }}>Ask it anything.</span></>}
     subline="CSV, Excel, PDF, Word, text — you name it, your minion reads it. No SQL. No formulas. No training. Just drag, drop, and ask."
     mascotSeed="feat-files"
   >
