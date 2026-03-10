@@ -32,6 +32,7 @@ import TermsOfService from "./pages/TermsOfService";
 import Security from "./pages/Security";
 import JoinCommunity from "./pages/JoinCommunity";
 import NotFound from "./pages/NotFound";
+import TrustBadges from "./components/TrustBadges";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +66,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <PostHogPageView />
+          <TrustBadges />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/brokers" element={<FreightBrokers />} />

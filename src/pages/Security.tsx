@@ -223,6 +223,48 @@ const Security = () => {
               </div>
             </div>
 
+            {/* Trusted Partnerships */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-16">
+              <h2 className="text-2xl font-medium text-gray-900 mb-2 text-center">
+                Trusted Partnerships
+              </h2>
+              <p className="text-gray-600 mb-8 text-center max-w-2xl mx-auto text-sm">
+                Recognized by industry leaders for our commitment to security and compliance.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                {/* Microsoft Partner */}
+                <div className="flex flex-col items-center text-center p-6 rounded-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <div className="flex items-center justify-center mb-4">
+                    <svg className="w-10 h-10 mr-3" viewBox="0 0 23 23" fill="none">
+                      <rect x="1" y="1" width="10" height="10" fill="#f25022" />
+                      <rect x="12" y="1" width="10" height="10" fill="#7fba00" />
+                      <rect x="1" y="12" width="10" height="10" fill="#00a4ef" />
+                      <rect x="12" y="12" width="10" height="10" fill="#ffb900" />
+                    </svg>
+                    <span className="text-xl font-semibold text-gray-900">Microsoft Partner</span>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Verified Microsoft Partner with access to enterprise-grade Microsoft technologies, ensuring seamless and secure integration with Microsoft 365 and Azure services.
+                  </p>
+                </div>
+                {/* Google CASA */}
+                <div className="flex flex-col items-center text-center p-6 rounded-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <div className="flex items-center justify-center mb-4">
+                    <svg className="w-10 h-10 mr-3" viewBox="0 0 24 24" fill="none">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" fill="#4285F4" />
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                      <path d="M5.84 14.09A6.97 6.97 0 0 1 5.47 12c0-.72.13-1.43.37-2.09V7.07H2.18A11.96 11.96 0 0 0 .95 12c0 1.94.46 3.77 1.23 5.07l3.66-2.98z" fill="#FBBC05" />
+                      <path d="M12 4.75c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 1.09 14.97 0 12 0 7.7 0 3.99 2.47 2.18 6.07l3.66 2.84c.87-2.6 3.3-4.16 6.16-4.16z" fill="#EA4335" />
+                    </svg>
+                    <span className="text-xl font-semibold text-gray-900">Google CASA Tier 2</span>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Passed the Google Cloud Application Security Assessment (CASA) at Tier 2 level, validated by an independent assessor for secure handling of Google user data.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Security Practices */}
             <div className="bg-white/90 backdrop-blur-sm rounded-sm shadow-sm border border-green-100/60 p-8 mb-16">
               <h2 className="text-2xl font-medium text-gray-900 mb-6">
