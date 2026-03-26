@@ -9,11 +9,26 @@ import {
 } from "@/components/LandingShared";
 
 const PROOF_ASKS = [
-  "Find me every carrier that's ever quoted us on FTL reefer from Toronto to Ohio.",
-  "What was our average rate on this lane in the last 30 days?",
-  "Go through my active shipments and get status updates from all carriers.",
-  "Flag anything without an update in the last four hours.",
-  "Prep me for my 2pm call with Acme.",
+  {
+    ask: "Where's that invoice from last October?",
+    result: "Found in 3 seconds instead of 30 minutes.",
+  },
+  {
+    ask: "What did we agree to with that vendor?",
+    result: "Answered without opening a single email.",
+  },
+  {
+    ask: "Pull up everything related to this client.",
+    result: "Done, clean, all in one view.",
+  },
+  {
+    ask: "Prep me for my 2pm call with Acme.",
+    result: "Full context — history, commitments, open items — ready before you are.",
+  },
+  {
+    ask: "Flag anything without an update in the last four hours.",
+    result: "Caught before you had to ask.",
+  },
 ];
 
 const MOAT_ROWS = [
@@ -100,7 +115,7 @@ const Index = () => {
                   </p>
                 </div>
                 <p style={{ color: MUTED, fontSize: "1.05rem", lineHeight: 1.7, maxWidth: 620 }}>
-                  Client relationships. Deal history. Pricing. Commitments. All of it living in individual inboxes and scattered files — siloed, unsearchable, and one resignation away from disappearing forever.
+                  You're running your business out of your inbox, your Google Drive, and your head. That works until it doesn't. Client relationships. Deal history. Pricing. Commitments. All of it siloed, scattered, and one resignation away from disappearing forever.
                 </p>
               </div>
             </Section>
@@ -111,11 +126,11 @@ const Index = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
                 <p style={{ fontSize: "clamp(1.4rem, 3.2vw, 2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT, marginBottom: 24 }}>
-                  Your emails and files have more intelligence in them than any system you've ever paid for.{" "}
-                  <span style={{ color: GREEN }}>You just couldn't access it.</span>
+                  You already have the information.{" "}
+                  <span style={{ color: GREEN }}>You just can't get to it fast enough.</span>
                 </p>
                 <p style={{ color: MUTED, fontSize: "1.05rem", lineHeight: 1.7, maxWidth: 600, margin: "0 auto" }}>
-                  CRMs capture outcomes. Systems of record capture data. Your emails and files capture the <em>why</em> — the negotiation, the commitment, the context, the relationship. min. sits at the center of all of it.
+                  CRMs capture outcomes. Systems of record capture data. Your emails and files capture the <em>why</em> — the negotiation, the commitment, the context, the relationship. min. doesn't add new information. It makes the information you already have usable.
                 </p>
               </div>
             </Section>
@@ -124,12 +139,18 @@ const Index = () => {
 
             {/* ── 4. What min. Does ── */}
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
+              <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center", marginBottom: 48 }}>
+                <p style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT }}>
+                  Stop digging.{" "}
+                  <span style={{ color: GREEN }}>Start asking.</span>
+                </p>
+              </div>
               <div style={{ maxWidth: 960, margin: "0 auto" }}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
                     {
                       title: "Find",
-                      desc: "Search your entire company's email history and files in plain language. Not just your inbox — everyone's.",
+                      desc: "Ask anything about your business in plain language. Your entire company's emails, files, and history — not just your inbox, everyone's.",
                       example: "\"Find every contact who's ever quoted us on this lane.\"",
                     },
                     {
@@ -139,7 +160,7 @@ const Index = () => {
                     },
                     {
                       title: "Compound",
-                      desc: "Every email adds to the memory. No data entry. No maintenance. The longer you use min., the smarter it gets.",
+                      desc: "Every email and file adds to the memory. No data entry. No maintenance. The longer you use min., the smarter it gets.",
                       example: "\"When a rep leaves, their knowledge stays.\"",
                     },
                   ].map((col) => (
@@ -211,25 +232,28 @@ const Index = () => {
             {/* ── 6. The Proof ── */}
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={{ maxWidth: 700, margin: "0 auto" }}>
-                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  {PROOF_ASKS.map((ask) => (
+                <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                  {PROOF_ASKS.map((item) => (
                     <div
-                      key={ask}
+                      key={item.ask}
                       style={{
                         background: SURFACE,
                         border: `1px solid ${BORDER}`,
-                        borderRadius: 12,
-                        padding: "16px 22px",
+                        borderRadius: 14,
+                        padding: "20px 24px",
                       }}
                     >
-                      <p style={{ color: TEXT, fontSize: 15, lineHeight: 1.55, margin: 0, fontStyle: "italic" }}>
-                        "{ask}"
+                      <p style={{ color: TEXT, fontSize: 16, lineHeight: 1.55, margin: 0, fontWeight: 500, marginBottom: 6 }}>
+                        "{item.ask}"
+                      </p>
+                      <p style={{ color: GREEN, fontSize: 14, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
+                        {item.result}
                       </p>
                     </div>
                   ))}
                 </div>
-                <p style={{ color: DIM, fontSize: 14, textAlign: "center", marginTop: 24, lineHeight: 1.6 }}>
-                  min. already read everything. The answer exists before the question.
+                <p style={{ color: DIM, fontSize: 14, textAlign: "center", marginTop: 28, lineHeight: 1.6, fontStyle: "italic" }}>
+                  It's like hiring someone who read every email you've ever sent and never forgets.
                 </p>
               </div>
             </Section>
@@ -328,7 +352,7 @@ const Index = () => {
                     </Button>
                   </a>
                   <p style={{ color: DIM, fontSize: 13, marginTop: 16 }}>
-                    Used by relationship-driven teams who run on email.
+                    Your emails, files, and meetings — organized and ready to answer your questions.
                   </p>
                 </div>
               </div>
