@@ -115,7 +115,7 @@ const Index = () => {
                   </p>
                 </div>
                 <p style={{ color: MUTED, fontSize: "1.05rem", lineHeight: 1.7, maxWidth: 620 }}>
-                  You're running your business out of your inbox, your Google Drive, and your head. That works until it doesn't. Client relationships. Deal history. Pricing. Commitments. All of it siloed, scattered, and one resignation away from disappearing forever.
+                  You're running your business out of your inbox, spreadsheets, and your head. That works until it doesn't. Client relationships. Deal history. Pricing. Commitments. All of it siloed, scattered, and one resignation away from disappearing forever.
                 </p>
               </div>
             </Section>
