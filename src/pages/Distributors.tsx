@@ -160,7 +160,7 @@ const Distributors = () => {
                   <span style={{ color: GREEN }}>every exception.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Every customer order, every supplier thread, every pricing commitment your order desk has ever handled — instantly searchable, permanently remembered, and ready to act on.
+                  Every customer order, every supplier thread, every pricing commitment your order desk has ever handled — instantly recalled, permanently remembered, and ready to act on.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">

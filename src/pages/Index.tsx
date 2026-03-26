@@ -29,7 +29,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "min. | Your team's collective memory",
-    description: "Every client email, every shared file, every business relationship your team has ever had — instantly searchable, permanently remembered, and ready to act on.",
+    description: "Every client email, every shared file, every business relationship your team has ever had — instantly recalled, permanently remembered, and ready to act on.",
     url: "https://getmin.ai",
     mainEntity: {
       "@type": "SoftwareApplication",
@@ -43,12 +43,12 @@ const Index = () => {
     <>
       <Helmet>
         <title>min. | Your team's collective memory</title>
-        <meta name="description" content="Every client email, every shared file, every business relationship your team has ever had — instantly searchable, permanently remembered, and ready to act on." />
+        <meta name="description" content="Every client email, every shared file, every business relationship your team has ever had — instantly recalled, permanently remembered, and ready to act on." />
         <link rel="canonical" href="https://getmin.ai" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
         <meta property="og:title" content="min. | Your team's collective memory" />
-        <meta property="og:description" content="Every client email, every shared file, every business relationship your team has ever had — instantly searchable, permanently remembered, and ready to act on." />
+        <meta property="og:description" content="Every client email, every shared file, every business relationship your team has ever had — instantly recalled, permanently remembered, and ready to act on." />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
@@ -70,7 +70,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>collective memory.</span>
                 </h1>
                 <p className="hero-stagger-2" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.3rem)", color: MUTED, fontWeight: 400, marginBottom: 48, lineHeight: 1.6, maxWidth: 640, margin: "0 auto 48px" }}>
-                  Every client email, every shared file, every business relationship your team has ever had — instantly searchable, permanently remembered, and ready to act on.
+                  Every client email, every shared file, every business relationship your team has ever had — instantly recalled, permanently remembered, and ready to act on.
                 </p>
                 <div className="hero-stagger-3" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
