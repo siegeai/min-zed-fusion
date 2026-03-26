@@ -6,19 +6,6 @@ import { ChevronDown, Menu, X } from "lucide-react";
 const NAV_LINK_STYLE: React.CSSProperties = { color: "#6B7280" };
 const NAV_LINK_HOVER = "#F9FAFB";
 
-const SKILLS_ITEMS = [
-  { label: "Skills", to: "/skills" },
-  { label: "Recall", to: "/skills/recall" },
-  { label: "Tracking", to: "/skills/tracking" },
-  { label: "Follow-Ups", to: "/skills/follow-ups" },
-  { label: "Alerts", to: "/skills/alerts" },
-  { label: "Contacts", to: "/skills/contacts" },
-  { label: "Tasks", to: "/skills/tasks" },
-  { label: "Attachments", to: "/skills/email" },
-  { label: "Instructions", to: "/skills/instructions" },
-  { label: "Files", to: "/skills/files" },
-];
-
 const TEAMS_ITEMS = [
   { label: "Operations", to: "/teams/operations" },
   { label: "Business Development", to: "/teams/business-development" },
@@ -35,11 +22,9 @@ const INDUSTRIES_ITEMS = [
 function Dropdown({
   label,
   items,
-  separateFirst = false,
 }: {
   label: string;
   items: { label: string; to: string }[];
-  separateFirst?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -82,7 +67,7 @@ function Dropdown({
             zIndex: 200,
           }}
         >
-          {items.map((item, i) => (
+          {items.map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -90,17 +75,16 @@ function Dropdown({
               className="block text-sm transition-colors duration-150"
               style={{
                 padding: "8px 16px",
-                color: separateFirst && i === 0 ? "#F9FAFB" : "#9CA3AF",
-                fontWeight: separateFirst && i === 0 ? 500 : 400,
+                color: "#9CA3AF",
+                fontWeight: 400,
                 textDecoration: "none",
-                borderBottom: separateFirst && i === 0 ? "1px solid rgba(255,255,255,0.06)" : "none",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "#F9FAFB";
                 e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.04)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = separateFirst && i === 0 ? "#F9FAFB" : "#9CA3AF";
+                e.currentTarget.style.color = "#9CA3AF";
                 e.currentTarget.style.backgroundColor = "transparent";
               }}
             >
@@ -116,7 +100,6 @@ function Dropdown({
 const MOBILE_SECTIONS = [
   { heading: "Industries", items: INDUSTRIES_ITEMS },
   { heading: "Teams", items: TEAMS_ITEMS },
-  { heading: "Skills", items: SKILLS_ITEMS },
 ];
 
 const MOBILE_LINKS = [
@@ -176,7 +159,6 @@ const Header = () => {
             <nav className="hidden md:flex items-center space-x-6">
               <Dropdown label="Teams" items={TEAMS_ITEMS} />
               <Dropdown label="Industries" items={INDUSTRIES_ITEMS} />
-              <Dropdown label="Skills" items={SKILLS_ITEMS} separateFirst />
               <Link
                 to="/contact"
                 className="text-sm font-normal transition-colors duration-200"
@@ -213,7 +195,7 @@ const Header = () => {
                 className="cta-glow font-normal text-sm text-white rounded-lg"
                 style={{ backgroundColor: "#00AB55", border: "none", padding: "6px 14px" }}
               >
-                Try for free
+                Get early access
               </Button>
             </a>
             <Button
@@ -310,7 +292,7 @@ const Header = () => {
                   className="cta-glow font-normal text-white w-full"
                   style={{ backgroundColor: "#00AB55", border: "none", fontSize: 15, padding: "12px 0" }}
                 >
-                  Try for free
+                  Get early access
                 </Button>
               </a>
               <a href="mailto:hello@getmin.ai?subject=Demo%20Request" style={{ display: "block" }}>

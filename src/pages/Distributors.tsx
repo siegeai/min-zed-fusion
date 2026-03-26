@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroChatDemo from "@/components/HeroChatDemo";
 import type { PromptItem } from "@/components/HeroChatDemo";
-import MiniMascot from "@/components/MiniMascot";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import {
@@ -131,14 +130,14 @@ const Distributors = () => {
   return (
     <>
       <Helmet>
-        <title>min. for Distributors | Order desk clarity without the chaos</title>
-        <meta name="description" content="AI email assistant for wholesale distributors. Surface stalled orders, track exceptions, follow up with suppliers, and get morning briefings — in plain English." />
+        <title>min. for Distributors | Your order desk's memory</title>
+        <meta name="description" content="Every supplier relationship, order history, and exception pattern — searchable and actionable by your whole team." />
         <meta name="keywords" content="wholesale distribution, order desk, order management, supplier follow-ups, backorder tracking, customer service, ERP, distributors" />
         <link rel="canonical" href="https://getmin.ai/distributors" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/distributors" />
-        <meta property="og:title" content="min. for Distributors | Order desk clarity without the chaos" />
-        <meta property="og:description" content="Stalled orders, supplier follow-ups, exception tracking. Ask in plain English, get real answers." />
+        <meta property="og:title" content="min. for Distributors | Your order desk's memory" />
+        <meta property="og:description" content="Every supplier relationship and order history — searchable by your whole team." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -151,22 +150,22 @@ const Distributors = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  For high-volume wholesale distributors
+                  Your order desk's memory
                 </p>
                 <h1
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
-                  Stop digging through<br />
-                  <span style={{ color: GREEN }}>order threads.</span>
+                  Every order, every supplier,<br />
+                  <span style={{ color: GREEN }}>every exception.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="dist-hero" /> already knows your customers, your suppliers, your pricing history. Just ask.
+                  Every customer order, every supplier thread, every pricing commitment your order desk has ever handled — instantly searchable, permanently remembered, and ready to act on.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
                     <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
-                      Try for free
+                      Get early access
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
@@ -636,8 +635,8 @@ const Distributors = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>That order thread you're digging through?<br /><span style={{ color: GREEN }}>Your minion already has it.</span></>}
-              sub="Sign in with Gmail or Outlook. Every order, every exception, every thread — searchable in 30 seconds."
+              headline={<>Your order desk's best intel is buried in threads.<br /><span style={{ color: GREEN }}>min. surfaces it.</span></>}
+              sub="Every supplier relationship, order history, and exception — permanently remembered."
             />
 
           </div>

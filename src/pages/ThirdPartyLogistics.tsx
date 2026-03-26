@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroChatDemo from "@/components/HeroChatDemo";
 import type { PromptItem } from "@/components/HeroChatDemo";
-import MiniMascot from "@/components/MiniMascot";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import {
@@ -116,14 +115,14 @@ const ThirdPartyLogistics = () => {
   return (
     <>
       <Helmet>
-        <title>min. for 3PLs | AI that manages every client, carrier, and shipment</title>
-        <meta name="description" content="AI for third-party logistics providers. Manage multiple clients, track shipments, collect PODs, compare rates, and get performance reports in plain English." />
+        <title>min. for 3PLs | Your 3PL's memory across every client</title>
+        <meta name="description" content="Cross-client intelligence from every email and file — searchable and actionable by your whole team." />
         <meta name="keywords" content="3PL, third party logistics, logistics provider, multi-client management, shipment tracking, carrier management, POD collection" />
         <link rel="canonical" href="https://getmin.ai/3pl" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/3pl" />
-        <meta property="og:title" content="min. for 3PLs | AI that manages every client, carrier, and shipment" />
-        <meta property="og:description" content="Multi-client visibility, carrier management, and performance reports. In plain English." />
+        <meta property="og:title" content="min. for 3PLs | Your 3PL's memory across every client" />
+        <meta property="og:description" content="Cross-client intelligence from every email and file — searchable by your whole team." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -136,22 +135,22 @@ const ThirdPartyLogistics = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                For relationship-driven 3PLs
+                Your 3PL's memory across every client
                 </p>
                 <h1
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
-                  All your clients. All your carriers.<br />
-                  <span style={{ color: GREEN }}>In one place.</span>
+                  Every client, every carrier,<br />
+                  <span style={{ color: GREEN }}>one shared memory.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="3pl-hero" /> already knows every client, every carrier, every active load. Ask it anything.
+                  Every client email, every carrier file, every shipment across every account — instantly searchable, permanently remembered, and ready to act on.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
                     <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
-                      Try for free
+                      Get early access
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
@@ -603,8 +602,8 @@ const ThirdPartyLogistics = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>Your clients are emailing right now.<br /><span style={{ color: GREEN }}>Your minion already has the answer.</span></>}
-              sub="Sign in with Gmail or Outlook. Your minion starts working across all your clients in 30 seconds."
+              headline={<>Your 3PL's best intel is scattered across client inboxes.<br /><span style={{ color: GREEN }}>min. unifies it.</span></>}
+              sub="Cross-client intelligence — permanently remembered."
             />
 
           </div>

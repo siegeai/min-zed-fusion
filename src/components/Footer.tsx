@@ -5,22 +5,22 @@ const Footer = () => {
   return (
     <footer style={{ backgroundColor: "#111820", borderTop: "1px solid rgba(255,255,255,0.06)" }} className="text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="">
               <span className="font-semibold text-xl">min.</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
-              The email assistant that actually does things. Rate lookups, carrier blasts, shipment tracking, follow-ups, and morning briefings. In plain English.
+              Your team's joint memory. Every email your business has ever sent or received — combined into a single intelligence layer your whole team can search, act on, and build on.
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Teams</h3>
+            <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><Link to="/teams/operations" className="hover:text-white transition-colors">Operations</Link></li>
-              <li><Link to="/teams/business-development" className="hover:text-white transition-colors">Business Development</Link></li>
-              <li><Link to="/teams/account-management" className="hover:text-white transition-colors">Account Management</Link></li>
+              <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
+              <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -35,22 +35,12 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Product</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><Link to="/skills" className="hover:text-white transition-colors">Skills</Link></li>
-              <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
-              <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-
-          <div>
             <h3 className="font-semibold mb-4">Community</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a 
-                  href="https://discord.gg/2prAr9qAwG" 
-                  target="_blank" 
+                <a
+                  href="https://discord.gg/2prAr9qAwG"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
@@ -58,9 +48,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://x.com/getminai" 
-                  target="_blank" 
+                <a
+                  href="https://x.com/getminai"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
@@ -68,9 +58,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://www.linkedin.com/company/min-box" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/company/min-box"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
@@ -78,9 +68,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://www.instagram.com/getmin.ai" 
-                  target="_blank" 
+                <a
+                  href="https://www.instagram.com/getmin.ai"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >

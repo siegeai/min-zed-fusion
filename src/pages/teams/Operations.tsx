@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroChatDemo from "@/components/HeroChatDemo";
 import type { PromptItem } from "@/components/HeroChatDemo";
-import MiniMascot from "@/components/MiniMascot";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import {
@@ -85,11 +84,11 @@ const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 const Operations = () => (
   <>
     <Helmet>
-      <title>min. for Operations | Stop repeating the same emails every morning</title>
-      <meta name="description" content="AI for ops teams. Status checks, follow-ups, document chasing, exception alerts, and morning briefings. Your minion handles the repetitive email grind." />
+      <title>min. for Operations | Your ops team's memory</title>
+      <meta name="description" content="Every vendor thread, status update, and document — searchable and actionable by your whole ops team." />
       <link rel="canonical" href="https://getmin.ai/teams/operations" />
-      <meta property="og:title" content="min. for Operations | Stop repeating the same emails every morning" />
-      <meta property="og:description" content="Status checks, follow-ups, document chasing. In plain English." />
+      <meta property="og:title" content="min. for Operations | Your ops team's memory" />
+      <meta property="og:description" content="Every vendor thread and status update — searchable by your whole ops team." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -100,18 +99,18 @@ const Operations = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                For elite ops teams
+                Your ops team's memory
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
-                Stop repeating the same<br /><span style={{ color: GREEN }}>emails every morning.</span>
+                Every vendor, every thread,<br /><span style={{ color: GREEN }}>every deadline.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Your minion <MiniMascot size={28} seed="ops-hero" /> remembers every thread. It handles the routine. You handle exceptions.
+                Every vendor thread, every status update, every deadline your ops team has ever tracked — instantly searchable, permanently remembered, and ready to act on.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
                   <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
-                    Try for free <ArrowRight className="w-4 h-4 ml-2" />
+                    Get early access <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
                 <a href="mailto:hello@getmin.ai?subject=Demo%20Request">
@@ -302,8 +301,8 @@ const Operations = () => (
           </Section>
 
           <FinalCTA
-            headline={<>You're going to send those<br />same emails again tomorrow.<br /><span style={{ color: GREEN }}>Or your minion could.</span></>}
-              sub="Sign in with Gmail or Outlook. Your minion indexes everything, never forgets, and starts working in 30 seconds."
+            headline={<>Your ops team's best intel lives in inboxes.<br /><span style={{ color: GREEN }}>min. makes it permanent.</span></>}
+              sub="Every vendor thread, status update, and deadline — permanently remembered."
           />
         </div>
       </main>

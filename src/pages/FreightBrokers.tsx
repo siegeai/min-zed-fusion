@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroChatDemo from "@/components/HeroChatDemo";
-import MiniMascot from "@/components/MiniMascot";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import {
@@ -39,14 +38,14 @@ const FreightBrokers = () => {
   return (
     <>
       <Helmet>
-        <title>min. for Brokers | AI that actually does things for you</title>
-        <meta name="description" content="AI assistant for freight brokers. Look up your rate history, blast carriers, automate follow-ups, and get morning briefings — in plain English." />
+        <title>min. for Brokers | Your brokerage's collective memory</title>
+        <meta name="description" content="Every lane, rate, and carrier relationship your brokerage has ever touched — searchable and actionable by your whole team." />
         <meta name="keywords" content="freight broker, freight forwarder, quoting assistant, rate capture, carrier outreach, load tracking, freight quoting, logistics assistant" />
         <link rel="canonical" href="https://getmin.ai/brokers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/brokers" />
-        <meta property="og:title" content="min. for Brokers | AI that actually does things for you" />
-        <meta property="og:description" content="Rate lookups, carrier blasts, follow-ups. In plain English." />
+        <meta property="og:title" content="min. for Brokers | Your brokerage's collective memory" />
+        <meta property="og:description" content="Every lane, rate, and carrier relationship — searchable by your whole team." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -59,22 +58,22 @@ const FreightBrokers = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  For brokers who move first
+                  Your brokerage's memory
                 </p>
                 <h1
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
-                  Stop re-reading<br />
-                  <span style={{ color: GREEN }}>emails & files.</span>
+                  Every lane, every rate,<br />
+                  <span style={{ color: GREEN }}>every carrier relationship.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="hero-subline" /> already knows your lanes, your carriers, your rates. Ready for its next task.
+                  Every client email, every rate sheet, every carrier relationship your brokerage has ever had — instantly searchable, permanently remembered, and ready to act on.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
                     <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
-                      Try for free
+                      Get early access
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
@@ -543,8 +542,8 @@ const FreightBrokers = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>You're going to re-read<br />that email again tomorrow.<br /><span style={{ color: GREEN }}>Or you could just ask.</span></>}
-              sub="Sign in with Gmail or Outlook. Your minion starts working in 30 seconds."
+              headline={<>Your brokerage's best intel is trapped in inboxes.<br /><span style={{ color: GREEN }}>min. sets it free.</span></>}
+              sub="Every lane, rate, and carrier relationship — permanently remembered."
             />
 
           </div>

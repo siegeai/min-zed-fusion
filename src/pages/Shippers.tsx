@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroChatDemo from "@/components/HeroChatDemo";
 import type { PromptItem } from "@/components/HeroChatDemo";
-import MiniMascot from "@/components/MiniMascot";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import {
@@ -115,14 +114,14 @@ const Shippers = () => {
   return (
     <>
       <Helmet>
-        <title>min. for Shippers | AI logistics assistant for procurement teams</title>
-        <meta name="description" content="AI for shipping & procurement teams. Track shipments, compare rates, send RFQs, and get morning briefings in plain English. Stop chasing updates across email threads." />
+        <title>min. for Shippers | Your shipping team's memory</title>
+        <meta name="description" content="Every PO, carrier quote, and exception across your entire shipping operation — searchable and actionable by your whole team." />
         <meta name="keywords" content="shipper, procurement, logistics assistant, RFQ, shipment tracking, rate comparison, supply chain, freight management" />
         <link rel="canonical" href="https://getmin.ai/shippers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/shippers" />
-        <meta property="og:title" content="min. for Shippers | AI logistics assistant for procurement teams" />
-        <meta property="og:description" content="Track shipments, compare rates, send RFQs. In plain English." />
+        <meta property="og:title" content="min. for Shippers | Your shipping team's memory" />
+        <meta property="og:description" content="Every PO, carrier quote, and exception — searchable by your whole team." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -135,22 +134,22 @@ const Shippers = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  For lean shipping & procurement teams
+                  Your shipping team's memory
                 </p>
                 <h1
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
-                  Stop chasing<br />
-                  <span style={{ color: GREEN }}>shipment updates.</span>
+                  Every PO, every carrier,<br />
+                  <span style={{ color: GREEN }}>every exception.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Your minion <MiniMascot size={28} seed="shipper-hero" /> already knows your carriers, your POs, your lanes. Ready for its next task.
+                  Every carrier quote, every PO, every vendor relationship your shipping team has ever had — instantly searchable, permanently remembered, and ready to act on.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
                     <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
-                      Try for free
+                      Get early access
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
@@ -605,8 +604,8 @@ const Shippers = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>You're going to chase<br />that shipment update again tomorrow.<br /><span style={{ color: GREEN }}>Or you could just ask.</span></>}
-              sub="Sign in with Gmail or Outlook. Your minion starts working in 30 seconds."
+              headline={<>Your shipping team's best intel is trapped in inboxes.<br /><span style={{ color: GREEN }}>min. sets it free.</span></>}
+              sub="Every PO, carrier quote, and exception — permanently remembered."
             />
 
           </div>

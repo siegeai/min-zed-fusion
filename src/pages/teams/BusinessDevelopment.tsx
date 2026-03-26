@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroChatDemo from "@/components/HeroChatDemo";
 import type { PromptItem } from "@/components/HeroChatDemo";
-import MiniMascot from "@/components/MiniMascot";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import {
@@ -85,11 +84,11 @@ const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 const BusinessDevelopment = () => (
   <>
     <Helmet>
-      <title>min. for Business Development | Your inbox knows more than your CRM</title>
-      <meta name="description" content="Your inbox has every conversation, objection, and buying signal. Your CRM has what someone logged. Your minion makes it all searchable and actionable — automatically." />
+      <title>min. for Business Development | Your sales team's memory</title>
+      <meta name="description" content="Every conversation, objection, and buying signal — searchable and actionable by your whole sales team." />
       <link rel="canonical" href="https://getmin.ai/teams/business-development" />
-      <meta property="og:title" content="min. for Business Development | Your inbox knows more than your CRM" />
-      <meta property="og:description" content="Every objection, competitor mention, and buying signal is already in your email. Your minion makes it actionable." />
+      <meta property="og:title" content="min. for Business Development | Your sales team's memory" />
+      <meta property="og:description" content="Every conversation, objection, and buying signal — searchable by your whole sales team." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -100,18 +99,18 @@ const BusinessDevelopment = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                For relentless BD teams
+                Your sales team's memory
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
-                Your inbox knows more<br />than <span style={{ color: GREEN }}>your CRM ever will.</span>
+                Every deal, every objection,<br /><span style={{ color: GREEN }}>every buying signal.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Your minion <MiniMascot size={28} seed="sales-hero" /> has photographic memory of every conversation, every deal, every objection. Just ask.
+                Every client conversation, every proposal, every competitive mention your sales team has ever had — instantly searchable, permanently remembered, and ready to act on.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
                   <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
-                    Try for free <ArrowRight className="w-4 h-4 ml-2" />
+                    Get early access <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
                 <a href="mailto:hello@getmin.ai?subject=Demo%20Request">
@@ -339,8 +338,8 @@ const BusinessDevelopment = () => (
           </Section>
 
           <FinalCTA
-            headline={<>Your best sales data isn't in your CRM.<br /><span style={{ color: GREEN }}>It's in your inbox. Start using it.</span></>}
-              sub="Sign in with Gmail or Outlook. Your minion indexes everything, forgets nothing, and starts working in 30 seconds."
+            headline={<>Your best sales data isn't in your CRM.<br /><span style={{ color: GREEN }}>It's in your team's memory. Start using it.</span></>}
+              sub="Every conversation, objection, and buying signal — permanently remembered."
           />
         </div>
       </main>

@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroChatDemo from "@/components/HeroChatDemo";
 import type { PromptItem } from "@/components/HeroChatDemo";
-import MiniMascot from "@/components/MiniMascot";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import {
@@ -93,11 +92,11 @@ const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 const AccountManagement = () => (
   <>
     <Helmet>
-      <title>min. for Account Management | Never get caught off-guard on an account</title>
-      <meta name="description" content="AI email assistant for logistics account managers. Instant account health, QBR prep, churn alerts, and relationship intelligence — pulled from your email history." />
+      <title>min. for Account Management | Your account team's memory</title>
+      <meta name="description" content="Every client relationship, issue history, and commitment — searchable and actionable by your whole account team." />
       <link rel="canonical" href="https://getmin.ai/teams/account-management" />
-      <meta property="og:title" content="min. for Account Management | Never get caught off-guard on an account" />
-      <meta property="og:description" content="Account health, QBR prep, churn signals. Ask in plain English, get real answers." />
+      <meta property="og:title" content="min. for Account Management | Your account team's memory" />
+      <meta property="og:description" content="Every client relationship and issue history — searchable by your whole account team." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -108,18 +107,18 @@ const AccountManagement = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                For account managers who own the relationship
+                Your account team's memory
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
                 Know every account.<br /><span style={{ color: GREEN }}>Miss nothing.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Your minion <MiniMascot size={28} seed="acct-hero" /> already knows every customer, every issue, every relationship. Just ask.
+                Every client conversation, every issue history, every commitment your account team has ever made — instantly searchable, permanently remembered, and ready to act on.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
                   <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
-                    Try for free <ArrowRight className="w-4 h-4 ml-2" />
+                    Get early access <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
                 <a href="mailto:hello@getmin.ai?subject=Demo%20Request">
@@ -348,8 +347,8 @@ const AccountManagement = () => (
           </Section>
 
           <FinalCTA
-            headline={<>Your best accounts deserve<br />your best attention.<br /><span style={{ color: GREEN }}>Your minion makes sure they get it.</span></>}
-            sub="Sign in with Gmail or Outlook. Every account is searchable in 30 seconds."
+            headline={<>Your accounts deserve continuity.<br /><span style={{ color: GREEN }}>min. makes it permanent.</span></>}
+            sub="Every client relationship, issue history, and commitment — permanently remembered."
           />
         </div>
       </main>

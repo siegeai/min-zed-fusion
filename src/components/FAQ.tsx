@@ -34,7 +34,7 @@ const FAQS = [
   {
     question: "What about data privacy and security?",
     answer:
-      "Your data is yours. We never sell it, never broker it, and never use it to train AI models — period. Your emails are encrypted, your account is isolated, and nothing is shared with third parties. We're Google CASA Tier 2 compliant.",
+      "Your minion is your private LLM assistant. We never sell your data, never broker it, and never train our models on it — period. Your emails are encrypted, your account is isolated, and nothing is shared with third parties. We're Google CASA Tier 2 compliant.",
   },
 ];
 

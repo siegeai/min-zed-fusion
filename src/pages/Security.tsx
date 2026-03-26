@@ -24,8 +24,8 @@ const Security = () => {
     description: "While we're still in the process of obtaining GDPR certification, we work only with compliant providers and follow industry best practices to protect data and align with these regulations."
   }, {
     icon: Eye,
-    title: "Never Sold. Never Brokered. Never Trained On.",
-    description: "Your data is never sold, never brokered, and never used to train AI models — for us or anyone else. Each client's data remains completely isolated and private."
+    title: "Your Private LLM Assistant. Zero Training Policy.",
+    description: "Your minion is your private AI assistant. We never train our models on your data — not now, not ever. Your data is never sold, never brokered, and never shared. Each client's data remains completely isolated."
   }, {
     icon: Server,
     title: "Enterprise-Grade Infrastructure",
@@ -147,7 +147,7 @@ const Security = () => {
                 {[
                   { title: "We never sell your data", detail: "Not to advertisers, not to data brokers, not to anyone. Your data is not our product." },
                   { title: "We never broker your data", detail: "We don't share, license, or provide access to your data to any third party — ever." },
-                  { title: "We never train on your data", detail: "Your emails are never used to train AI models — not ours, not our providers'. Your data stays yours." },
+                  { title: "We never train on your data", detail: "Your minion is your private LLM assistant. We never train our models on your data — and neither do our providers. Your data stays yours." },
                 ].map((item, i) => (
                   <div key={i} className="text-center">
                     <div className="inline-flex items-center justify-center w-10 h-10 bg-green-500/20 rounded-full mb-4">
