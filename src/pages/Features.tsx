@@ -12,7 +12,7 @@ import {
 const ALL_SKILLS = [
   {
     title: "Recall",
-    desc: "Ask a question, get an answer, not a list of emails to dig through. min. cross-references your entire Joint Memory and gives you structured answers in seconds. Averages, timelines, commitments, context, all from a plain English question.",
+    desc: "Ask a question, get an answer, not a list of emails to dig through. min. cross-references your entire Collective Memory and gives you structured answers in seconds. Averages, timelines, commitments, context, all from a plain English question.",
     to: "/skills/recall",
     seed: "feat-retrieval",
   },
@@ -93,7 +93,7 @@ const Features = () => (
                 <span style={{ color: GREEN }}>can do for you.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1rem, 2.5vw, 1.2rem)", color: MUTED, fontWeight: 400, marginBottom: 0, lineHeight: 1.5 }}>
-                Total recall across your entire Joint Memory. Every skill works in plain English.
+                Total recall across your entire Collective Memory. Every skill works in plain English.
               </p>
             </div>
           </div>
@@ -194,7 +194,7 @@ const Features = () => (
 
           <FinalCTA
             headline={<>Ready to put min.<br /><span style={{ color: GREEN }}>to work?</span></>}
-            sub="Sign in with Gmail or Outlook. min. starts building your Joint Memory in 30 seconds."
+            sub="Sign in with Gmail or Outlook. min. starts building your Collective Memory in 30 seconds."
           />
         </div>
       </main>

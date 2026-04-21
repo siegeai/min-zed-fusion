@@ -36,8 +36,8 @@ const About = () => {
     <>
       <Helmet>
         <title>About min. | The Team Giving Your Company a Shared Brain</title>
-        <meta name="description" content="Learn about min.'s founder Eric Wang, and our mission to give every company a Joint Memory built from the emails their people already send." />
-        <meta name="keywords" content="min. founder, Eric Wang, AI communication startup, joint memory, email automation team" />
+        <meta name="description" content="Learn about min.'s founder Eric Wang, and our mission to give every company a Collective Memory built from the emails their people already send." />
+        <meta name="keywords" content="min. founder, Eric Wang, AI communication startup, collective memory, email automation team" />
         <link rel="canonical" href="https://getmin.ai/about" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
@@ -116,7 +116,7 @@ const About = () => {
                     <h3 className="text-lg font-normal text-gray-900">Our Mission</h3>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed font-light">
-                    Turn the real business running in your team's inboxes into a Joint Memory the whole company can search, act on, and build on. Nothing your team learns should ever get lost again.
+                    Turn the real business running in your team's inboxes into a Collective Memory the whole company can search, act on, and build on. Nothing your team learns should ever get lost again.
                   </p>
                 </div>
 
@@ -135,7 +135,7 @@ const About = () => {
                     <Lightbulb className="w-6 h-6 text-green-600" />
                     <h3 className="text-lg font-normal text-gray-900">Our Vision</h3>
                   </div>
-                  <p className="text-gray-600 text-sm leading-relaxed font-light">Every company compounds financial capital. Almost none compound what their people know. min. builds the Joint Memory that finally does. No bloat, no CRM hygiene tax, just the intelligence your team already earned.</p>
+                  <p className="text-gray-600 text-sm leading-relaxed font-light">Every company compounds financial capital. Almost none compound what their people know. min. builds the Collective Memory that finally does. No bloat, no CRM hygiene tax, just the intelligence your team already earned.</p>
                 </div>
               </div>
 
@@ -147,7 +147,7 @@ const About = () => {
                   <p className="font-medium text-gray-900">Customers loved it. Our inbox did not.</p>
                   <p>We took shifts and glued together scripts. We still nearly missed important messages. So we built a tool for ourselves: it watched the inbox, read every thread, drafted the reply, and pinged us only when a real customer wrote in.</p>
                   <p className="font-medium text-gray-900">That tool became min.</p>
-                  <p>Now every company we work with uses min. to turn their inbox into a Joint Memory, one that the whole team can search, act on, and build on. Nothing they learn ever gets lost again.</p>
+                  <p>Now every company we work with uses min. to turn their inbox into a Collective Memory, one that the whole team can search, act on, and build on. Nothing they learn ever gets lost again.</p>
                 </div>
               </div>
             </div>

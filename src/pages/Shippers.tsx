@@ -114,13 +114,13 @@ const Shippers = () => {
   return (
     <>
       <Helmet>
-        <title>min. for Shippers | Joint Carrier & Vendor Memory</title>
-        <meta name="description" content="Your shipping team's best rates are hidden in their inboxes. min. turns every PO, RFQ, BOL, and POD into a Joint Memory your whole team can search and act on." />
-        <meta name="keywords" content="shipper, procurement, logistics assistant, RFQ, shipment tracking, rate comparison, supply chain, freight management, joint memory" />
+        <title>min. for Shippers | Collective Carrier & Vendor Memory</title>
+        <meta name="description" content="Your shipping team's best rates are hidden in their inboxes. min. turns every PO, RFQ, BOL, and POD into a Collective Memory your whole team can search and act on." />
+        <meta name="keywords" content="shipper, procurement, logistics assistant, RFQ, shipment tracking, rate comparison, supply chain, freight management, collective memory" />
         <link rel="canonical" href="https://getmin.ai/shippers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/shippers" />
-        <meta property="og:title" content="min. for Shippers | Joint Carrier & Vendor Memory" />
+        <meta property="og:title" content="min. for Shippers | Collective Carrier & Vendor Memory" />
         <meta property="og:description" content="Your shipping team doesn't have a memory. min. gives it one. Every rate, every carrier, every PO, one searchable brain." />
       </Helmet>
 
@@ -134,7 +134,7 @@ const Shippers = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Joint Carrier &amp; Vendor Memory
+                  Collective Carrier &amp; Vendor Memory
                 </p>
                 <h1
                   className="hero-stagger-2"
@@ -144,7 +144,7 @@ const Shippers = () => {
                   <span style={{ color: GREEN }}>min. gives it one.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  min. turns every PO, RFQ reply, BOL, check call, and POD into a Joint Memory your whole team can quote, book, and track against. Search your rate history in plain English. Blast an RFQ in one sentence.
+                  min. turns every PO, RFQ reply, BOL, check call, and POD into a Collective Memory your whole team can quote, book, and track against. Search your rate history in plain English. Blast an RFQ in one sentence.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -173,7 +173,7 @@ const Shippers = () => {
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="Ask, don't search"
-                  headline={<>Stop digging through threads.<br /><span style={{ color: GREEN }}>Ask your Joint Memory.</span></>}
+                  headline={<>Stop digging through threads.<br /><span style={{ color: GREEN }}>Ask your Collective Memory.</span></>}
                   sub="min. reads every inbox, sent folder, and thread, so every PO, rate, and status is one plain-English question away."
                 />
 
@@ -249,9 +249,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Inbox → Joint Memory"
+                  eyebrow="Inbox → Collective Memory"
                   headline={<>Your carriers, your POs,<br />your rates.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
-                  sub="Sign in with Gmail or Outlook. min. reads every rate con, PO thread, BOL, and check-call update already sitting in your history, then digests load sheets, rate tables, and PDFs your ERP can't read, so your Joint Memory updates with every new message."
+                  sub="Sign in with Gmail or Outlook. min. reads every rate con, PO thread, BOL, and check-call update already sitting in your history, then digests load sheets, rate tables, and PDFs your ERP can't read, so your Collective Memory updates with every new message."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -455,7 +455,7 @@ const Shippers = () => {
                 <SectionHeading
                   eyebrow="Quote → book"
                   headline={<>Compare rates while you<br /><span style={{ color: GREEN }}>handle the next PO.</span></>}
-                  sub="min. anchors every new quote against the actual rates you've booked and the carriers you've used, pulled from your Joint Memory, not a generic benchmark."
+                  sub="min. anchors every new quote against the actual rates you've booked and the carriers you've used, pulled from your Collective Memory, not a generic benchmark."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">

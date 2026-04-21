@@ -115,13 +115,13 @@ const ThirdPartyLogistics = () => {
   return (
     <>
       <Helmet>
-        <title>min. for 3PLs | Joint Cross-Client Memory</title>
-        <meta name="description" content="Your 3PL's intel is scattered across client inboxes. min. turns every tender, rate con, POD, and claim into a Joint Memory tagged per client, searchable in plain English." />
-        <meta name="keywords" content="3PL, third party logistics, logistics provider, multi-client management, shipment tracking, carrier management, POD collection, joint memory" />
+        <title>min. for 3PLs | Collective Cross-Client Memory</title>
+        <meta name="description" content="Your 3PL's intel is scattered across client inboxes. min. turns every tender, rate con, POD, and claim into a Collective Memory tagged per client, searchable in plain English." />
+        <meta name="keywords" content="3PL, third party logistics, logistics provider, multi-client management, shipment tracking, carrier management, POD collection, collective memory" />
         <link rel="canonical" href="https://getmin.ai/3pl" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/3pl" />
-        <meta property="og:title" content="min. for 3PLs | Joint Cross-Client Memory" />
+        <meta property="og:title" content="min. for 3PLs | Collective Cross-Client Memory" />
         <meta property="og:description" content="Every tender, every POD, every client, one searchable memory. One email at a time. Zero data entry." />
       </Helmet>
 
@@ -135,7 +135,7 @@ const ThirdPartyLogistics = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Joint Cross-Client Memory
+                  Collective Cross-Client Memory
                 </p>
                 <h1
                   className="hero-stagger-2"
@@ -145,7 +145,7 @@ const ThirdPartyLogistics = () => {
                   <span style={{ color: GREEN }}>min. gives it one.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  min. turns every tender, rate con, check call, POD, and claim into a Joint Memory tagged per client, so your whole 3PL can quote, cover, and report against the same shared brain. Ask anything in plain English. Blast to your carrier pool in one sentence.
+                  min. turns every tender, rate con, check call, POD, and claim into a Collective Memory tagged per client, so your whole 3PL can quote, cover, and report against the same shared brain. Ask anything in plain English. Blast to your carrier pool in one sentence.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -251,9 +251,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Inbox → Joint Memory"
+                  eyebrow="Inbox → Collective Memory"
                   headline={<>Every client, every carrier,<br />every lane.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
-                  sub="Sign in with Gmail or Outlook. min. reads every tender thread, rate con, POD chase, and claim email sitting in history, tagged per client, then digests load sheets, rate tables, and PDFs. Your Joint Memory updates with every new message."
+                  sub="Sign in with Gmail or Outlook. min. reads every tender thread, rate con, POD chase, and claim email sitting in history, tagged per client, then digests load sheets, rate tables, and PDFs. Your Collective Memory updates with every new message."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>

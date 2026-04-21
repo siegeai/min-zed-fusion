@@ -130,14 +130,14 @@ const Distributors = () => {
   return (
     <>
       <Helmet>
-        <title>min. for Distributors | Joint Order Memory</title>
-        <meta name="description" content="Your order desk doesn't have a memory. min. gives it one. Every PO, backorder, substitution, and price override becomes a Joint Memory your whole desk can search and act on." />
-        <meta name="keywords" content="wholesale distribution, order desk, order management, supplier follow-ups, backorder tracking, customer service, distributors, joint memory" />
+        <title>min. for Distributors | Collective Order Memory</title>
+        <meta name="description" content="Your order desk doesn't have a memory. min. gives it one. Every PO, backorder, substitution, and price override becomes a Collective Memory your whole desk can search and act on." />
+        <meta name="keywords" content="wholesale distribution, order desk, order management, supplier follow-ups, backorder tracking, customer service, distributors, collective memory" />
         <link rel="canonical" href="https://getmin.ai/distributors" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/distributors" />
-        <meta property="og:title" content="min. for Distributors | Joint Order Memory" />
-        <meta property="og:description" content="Every commitment, every price, every sub, every exception. One Joint Memory, one email at a time." />
+        <meta property="og:title" content="min. for Distributors | Collective Order Memory" />
+        <meta property="og:description" content="Every commitment, every price, every sub, every exception. One Collective Memory, one email at a time." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -150,7 +150,7 @@ const Distributors = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Joint Order Memory
+                  Collective Order Memory
                 </p>
                 <h1
                   className="hero-stagger-2"
@@ -160,7 +160,7 @@ const Distributors = () => {
                   <span style={{ color: GREEN }}>min. gives it one.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  min. turns every PO, backorder notice, substitution, price override, and expedite into a Joint Memory your whole desk can quote, approve, and chase against. Search six months of commitments in plain English. Chase every stalled thread in one sentence.
+                  min. turns every PO, backorder notice, substitution, price override, and expedite into a Collective Memory your whole desk can quote, approve, and chase against. Search six months of commitments in plain English. Chase every stalled thread in one sentence.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -265,9 +265,9 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Inbox → Joint Memory"
+                  eyebrow="Inbox → Collective Memory"
                   headline={<>Every commitment,<br />every pricing agreement.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
-                  sub="Sign in with Gmail or Outlook. min. reads every PO thread, backorder notice, substitution approval, and price override sitting in history, then digests the spreadsheets and PDFs your ERP can't read, so your Joint Memory updates with every new message."
+                  sub="Sign in with Gmail or Outlook. min. reads every PO thread, backorder notice, substitution approval, and price override sitting in history, then digests the spreadsheets and PDFs your ERP can't read, so your Collective Memory updates with every new message."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -417,7 +417,7 @@ const Distributors = () => {
                 <SectionHeading
                   eyebrow="Exception visibility"
                   headline={<>See every stalled order<br /><span style={{ color: GREEN }}>before it becomes a problem.</span></>}
-                  sub="Backorders, sub approvals, freight disputes, expedites, min. tags every exception in your Joint Memory so nothing gets buried under the next thread."
+                  sub="Backorders, sub approvals, freight disputes, expedites, min. tags every exception in your Collective Memory so nothing gets buried under the next thread."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">

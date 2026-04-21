@@ -9,12 +9,12 @@ const FAQS = [
   {
     question: "What is min., and what it isn't.",
     answer:
-      "min. turns every email, load sheet, quote, and document your team touches into a Joint Memory, a shared brain the whole company can search and act on in plain English. We are a tool company, not an ad company, not a data broker. We make money when you pay for the tool, never by selling, brokering, or exploiting your data. That's our pledge, and no amount of money will change it.",
+      "min. turns every email, load sheet, quote, and document your team touches into a Collective Memory, a shared brain the whole company can search and act on in plain English. We are a tool company, not an ad company, not a data broker. We make money when you pay for the tool, never by selling, brokering, or exploiting your data. That's our pledge, and no amount of money will change it.",
   },
   {
     question: "How does it work?",
     answer:
-      "Sign in with Gmail or Outlook. From day one, min. is already reading every reply, logging every commitment, and building your Joint Memory against your real email history. Tell it what you need in plain English, carrier blasts, rate lookups, track and trace, account check-ins, and it drafts, chases, and files the grunt work so you focus on the decisions.",
+      "Sign in with Gmail or Outlook. From day one, min. is already reading every reply, logging every commitment, and building your Collective Memory against your real email history. Tell it what you need in plain English, carrier blasts, rate lookups, track and trace, account check-ins, and it drafts, chases, and files the grunt work so you focus on the decisions.",
   },
   {
     question: "What can I ask min. to do?",
@@ -24,17 +24,17 @@ const FAQS = [
   {
     question: "Does it work with my email?",
     answer:
-      "Yes. min. connects to Gmail or Outlook and works with your existing inbox. It reads, drafts, and sends on your behalf so everything stays in one place. One shared Joint Memory, not 10 private inboxes.",
+      "Yes. min. connects to Gmail or Outlook and works with your existing inbox. It reads, drafts, and sends on your behalf so everything stays in one place. One shared Collective Memory, not 10 private inboxes.",
   },
   {
     question: "How long does setup take?",
     answer:
-      "Seconds to start. Sign in with Gmail or Outlook, tell min. what you need, and you're live. Your Joint Memory indexes up to 50,000 threads in under 20 minutes. No training, no complex onboarding.",
+      "Seconds to start. Sign in with Gmail or Outlook, tell min. what you need, and you're live. Your Collective Memory indexes up to 50,000 threads in under 20 minutes. No training, no complex onboarding.",
   },
   {
     question: "What about data privacy and security?",
     answer:
-      "Your Joint Memory is yours. We never sell your data, never broker it, and never train our models on it, period. Your emails are encrypted, your account is isolated, and nothing is shared with third parties. We're Google CASA Tier 2 compliant.",
+      "Your Collective Memory is yours. We never sell your data, never broker it, and never train our models on it, period. Your emails are encrypted, your account is isolated, and nothing is shared with third parties. We're Google CASA Tier 2 compliant.",
   },
 ];
 
@@ -53,7 +53,7 @@ const FAQ = () => (
         Frequently asked questions
       </h2>
       <p style={{ color: "#6B7280", fontSize: 14 }}>
-        Your Joint Memory, your inbox, your edge.
+        Your Collective Memory, your inbox, your edge.
       </p>
     </div>
 

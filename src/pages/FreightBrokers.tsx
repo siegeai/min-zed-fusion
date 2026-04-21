@@ -37,13 +37,13 @@ const FreightBrokers = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Joint Memory for freight brokers</title>
-        <meta name="description" content="Your brokerage doesn't have a memory. min. gives it one. min. turns every rate con, check call, and POD into a Joint Carrier Memory your whole team can search and act on." />
-        <meta name="keywords" content="freight broker, joint memory, carrier intelligence, rate con, check call, POD, claim, private carrier network" />
+        <title>min. | Collective Memory for freight brokers</title>
+        <meta name="description" content="Your brokerage doesn't have a memory. min. gives it one. min. turns every rate con, check call, and POD into a Collective Carrier Memory your whole team can search and act on." />
+        <meta name="keywords" content="freight broker, collective memory, carrier intelligence, rate con, check call, POD, claim, private carrier network" />
         <link rel="canonical" href="https://getmin.ai/brokers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/brokers" />
-        <meta property="og:title" content="min. | Joint Memory for freight brokers" />
+        <meta property="og:title" content="min. | Collective Memory for freight brokers" />
         <meta property="og:description" content="Your brokerage doesn't have a memory. min. gives it one. Every rate, every lane, every carrier, permanently searchable." />
       </Helmet>
 
@@ -57,7 +57,7 @@ const FreightBrokers = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Joint Carrier Memory
+                  Collective Carrier Memory
                 </p>
                 <h1
                   className="hero-stagger-2"
@@ -94,11 +94,11 @@ const FreightBrokers = () => {
 
             <Divider />
 
-            {/* ── The Joint Memory concept ── */}
+            {/* ── The Collective Memory concept ── */}
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Joint Memory"
+                  eyebrow="Collective Memory"
                   headline={<>Your brokerage's shared brain.<br /><span style={{ color: GREEN }}>Finally outside someone's head.</span></>}
                   sub="min. connects to every broker's inbox and builds a single, shared intelligence layer from all of it. Not a static database. A living memory that updates with every email."
                 />
@@ -110,7 +110,7 @@ const FreightBrokers = () => {
                     If a carrier quotes a lane once, min. remembers they run that lane, what equipment they have, and what rate they gave. Every rate con, every check call, every POD, every claim feeds the same memory.
                   </p>
                   <p style={{ margin: "0 0 1.1em" }}>
-                    Over time, your brokerage ends up with something no competitor has: a living Joint Memory that knows who runs what lane, who covers on time, who pushes back on rates, who no-shows, and who your team should call first.
+                    Over time, your brokerage ends up with something no competitor has: a living Collective Memory that knows who runs what lane, who covers on time, who pushes back on rates, who no-shows, and who your team should call first.
                   </p>
                   <p style={{ margin: 0, color: TEXT, fontWeight: 600 }}>
                     No data entry. min. grows smarter with every email your team sends and receives.
@@ -134,7 +134,7 @@ const FreightBrokers = () => {
                     {
                       emoji: "🧠",
                       title: "Unifying",
-                      body: "Reading every broker's inbox across your shop. Merging carriers, lanes, rates, and reliability into one Joint Memory.",
+                      body: "Reading every broker's inbox across your shop. Merging carriers, lanes, rates, and reliability into one Collective Memory.",
                       example: "Your top rep has Fadi's best rates in her sent folder. Your newest hire doesn't know Fadi exists. After min., they both do.",
                     },
                     {
@@ -164,7 +164,7 @@ const FreightBrokers = () => {
                     {
                       emoji: "🧩",
                       title: "Learning",
-                      body: "Updating Joint Memory with every outcome. On-time, late, claim, refused, renegotiated, no-show.",
+                      body: "Updating Collective Memory with every outcome. On-time, late, claim, refused, renegotiated, no-show.",
                       example: "A carrier ghosts twice on Friday pickups. min. deprioritizes them for future Friday loads and flags it to you.",
                     },
                   ].map((v) => (
@@ -189,7 +189,7 @@ const FreightBrokers = () => {
               <div style={{ maxWidth: 1100, margin: "0 auto" }}>
                 <SectionHeading
                   eyebrow="Automatic lane mapping"
-                  headline={<>Every carrier email teaches<br /><span style={{ color: GREEN }}>Joint Memory something.</span></>}
+                  headline={<>Every carrier email teaches<br /><span style={{ color: GREEN }}>Collective Memory something.</span></>}
                   sub="Every one of those events is an email in your team's inbox. min. reads every one, per carrier, per lane, per load."
                 />
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -226,9 +226,9 @@ const FreightBrokers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Inbox → Joint Memory"
+                  eyebrow="Inbox → Collective Memory"
                   headline={<>Your lanes, your carriers,<br />your rates.<br /><span style={{ color: GREEN }}>Already in carrier email.</span></>}
-                  sub="Sign in with Gmail or Outlook. min. reads every rate con thread, tender reply, and check-call update already sitting in history, carriers, lanes, booked rates, refusals, so your Joint Memory updates with every new message."
+                  sub="Sign in with Gmail or Outlook. min. reads every rate con thread, tender reply, and check-call update already sitting in history, carriers, lanes, booked rates, refusals, so your Collective Memory updates with every new message."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -431,7 +431,7 @@ const FreightBrokers = () => {
                 <SectionHeading
                   eyebrow="Quote → book"
                   headline={<>min. renegotiates while you<br /><span style={{ color: GREEN }}>cover the next tender.</span></>}
-                  sub="min. pulls booked rate cons and refused offers from your Joint Memory before drafting counters. Grounded in your lane history, not a generic model guess."
+                  sub="min. pulls booked rate cons and refused offers from your Collective Memory before drafting counters. Grounded in your lane history, not a generic model guess."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -483,7 +483,7 @@ const FreightBrokers = () => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                       <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        min. pulls past rate cons and tender threads from your Joint Memory before countering, so you're not guessing what the lane should move for on today's dry van or reefer cover.
+                        min. pulls past rate cons and tender threads from your Collective Memory before countering, so you're not guessing what the lane should move for on today's dry van or reefer cover.
                       </p>
                     </div>
 
@@ -652,7 +652,7 @@ const FreightBrokers = () => {
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.22)", borderRadius: 14, padding: "22px 22px 20px" }}>
                     <p style={{ color: GREEN, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600, margin: "0 0 14px" }}>
-                      Joint Memory knows
+                      Collective Memory knows
                     </p>
                     <p style={{ color: TEXT, fontSize: 14, fontWeight: 600, margin: "0 0 6px" }}>Fadi Kanaan Trucking</p>
                     <ul style={{ margin: 0, paddingLeft: 16, color: MUTED, fontSize: 13, lineHeight: 1.7 }}>
@@ -692,7 +692,7 @@ const FreightBrokers = () => {
                     {
                       step: "2",
                       title: "min. gets to work.",
-                      body: "Within 24 hours, your brokerage has one unified Joint Memory, every carrier your team has ever emailed, indexed by lane, rate, equipment, and reliability.",
+                      body: "Within 24 hours, your brokerage has one unified Collective Memory, every carrier your team has ever emailed, indexed by lane, rate, equipment, and reliability.",
                     },
                     {
                       step: "3",
@@ -774,7 +774,7 @@ const FreightBrokers = () => {
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="Pricing"
-                  headline={<>One seat per broker.<br /><span style={{ color: GREEN }}>Every seat feeds the same Joint Memory.</span></>}
+                  headline={<>One seat per broker.<br /><span style={{ color: GREEN }}>Every seat feeds the same Collective Memory.</span></>}
                   sub="Month-to-month. Cancel anytime."
                 />
 
@@ -787,7 +787,7 @@ const FreightBrokers = () => {
                   <ul style={{ margin: "0 0 20px", padding: 0, listStyle: "none", color: MUTED, fontSize: 14, lineHeight: 1.8 }}>
                     {[
                       "Every broker connects their inbox",
-                      "One unified Joint Memory across your whole team",
+                      "One unified Collective Memory across your whole team",
                       "Unlimited email processing",
                       "Gmail or Outlook",
                       "Month-to-month, cancel anytime",
@@ -844,7 +844,7 @@ const FreightBrokers = () => {
                     },
                     {
                       title: "No training on your data",
-                      body: "Your emails never train shared models. Your Joint Memory is yours, not part of someone else's dataset.",
+                      body: "Your emails never train shared models. Your Collective Memory is yours, not part of someone else's dataset.",
                     },
                     {
                       title: "Your data, your control",
@@ -885,7 +885,7 @@ const FreightBrokers = () => {
                     },
                     {
                       q: "What if my best rep quits?",
-                      a: "Their carrier relationships, pricing history, and lane intelligence stay inside your Joint Memory. The knowledge finally belongs to the company, not the person.",
+                      a: "Their carrier relationships, pricing history, and lane intelligence stay inside your Collective Memory. The knowledge finally belongs to the company, not the person.",
                     },
                     {
                       q: "How fast is this to set up?",
@@ -926,7 +926,7 @@ const FreightBrokers = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>Stop digging through Outlook.<br /><span style={{ color: GREEN }}>Start searching your Joint Memory.</span></>}
+              headline={<>Stop digging through Outlook.<br /><span style={{ color: GREEN }}>Start searching your Collective Memory.</span></>}
               sub="5 minutes to connect. See your brokerage's real carrier network by Friday. If it lives in email, min. can do it."
             />
 

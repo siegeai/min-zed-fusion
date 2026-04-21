@@ -44,7 +44,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "min. | Your company's shared brain",
-    description: "Your company doesn't have a memory. min. gives it one. min. turns every email, load sheet, and document into a Joint Memory your whole team can search, act on, and build on.",
+    description: "Your company doesn't have a memory. min. gives it one. min. turns every email, load sheet, and document into a Collective Memory your whole team can search, act on, and build on.",
     url: "https://getmin.ai",
     mainEntity: {
       "@type": "SoftwareApplication",
@@ -58,12 +58,12 @@ const Index = () => {
     <>
       <Helmet>
         <title>min. | Your company's shared brain</title>
-        <meta name="description" content="Your company doesn't have a memory. min. gives it one. min. turns every email, load sheet, and document into a Joint Memory your whole team can search, act on, and build on." />
+        <meta name="description" content="Your company doesn't have a memory. min. gives it one. min. turns every email, load sheet, and document into a Collective Memory your whole team can search, act on, and build on." />
         <link rel="canonical" href="https://getmin.ai" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/" />
         <meta property="og:title" content="min. | Your company's shared brain" />
-        <meta property="og:description" content="min. turns every email, load sheet, and document into a Joint Memory your whole team can search, act on, and build on. Zero data entry." />
+        <meta property="og:description" content="min. turns every email, load sheet, and document into a Collective Memory your whole team can search, act on, and build on. Zero data entry." />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
@@ -78,7 +78,7 @@ const Index = () => {
             <div className="hero-glow" style={{ paddingTop: 48, marginBottom: 80 }}>
               <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Joint Memory
+                  Collective Memory
                 </p>
                 <h1
                   className="hero-stagger-1"
@@ -88,7 +88,7 @@ const Index = () => {
                   <span style={{ color: GREEN }}>min. gives it one.</span>
                 </h1>
                 <p className="hero-stagger-2" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.3rem)", color: MUTED, fontWeight: 400, marginBottom: 48, lineHeight: 1.6, maxWidth: 760, margin: "0 auto 48px" }}>
-                  min. turns every email, load sheet, quote, and document into a Joint Memory your whole team can query in plain English and act on in one sentence. Zero data entry. Always up to date.
+                  min. turns every email, load sheet, quote, and document into a Collective Memory your whole team can query in plain English and act on in one sentence. Zero data entry. Always up to date.
                 </p>
                 <div className="hero-stagger-3" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -155,7 +155,7 @@ const Index = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
                     {
-                      title: "Joint Memory",
+                      title: "Collective Memory",
                       desc: "min. reads every email, attachment, and document your team sends or receives. It doesn't just scan text, it digests load sheets, rate tables, PDFs, and spreadsheets, turning unstructured chaos into structured memory.",
                       example: "\"If a carrier quotes a lane once, min. remembers the lane, the rate, and the equipment.\"",
                     },
@@ -211,7 +211,7 @@ const Index = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   {[
-                    "A new hire who can query the same Joint Memory as your most experienced rep on day one",
+                    "A new hire who can query the same Collective Memory as your most experienced rep on day one",
                     "An owner whose top rep just gave notice, and whose carrier network, rates, and relationships stay with the company",
                     "A team that stops opening 12 Outlook tabs to chase statuses, quotes, and PODs, and asks in one sentence instead",
                   ].map((scenario) => (
@@ -340,7 +340,7 @@ const Index = () => {
                   min. builds the memory that finally does.
                 </p>
                 <p style={{ color: MUTED, fontSize: "1.05rem", lineHeight: 1.7, maxWidth: 640, margin: "0 auto" }}>
-                  Not a static database you query once a quarter. A living Joint Memory, built one email at a time, owned by your company, not by whichever rep happens to still be sitting at their desk.
+                  Not a static database you query once a quarter. A living Collective Memory, built one email at a time, owned by your company, not by whichever rep happens to still be sitting at their desk.
                 </p>
               </div>
             </Section>

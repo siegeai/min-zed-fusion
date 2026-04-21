@@ -84,11 +84,11 @@ const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 const Operations = () => (
   <>
     <Helmet>
-      <title>min. for Operations | Joint Vendor Memory</title>
+      <title>min. for Operations | Collective Vendor Memory</title>
       <meta name="description" content="Your ops team doesn't have a memory. min. gives it one. Every status check, signed contract, and vendor reply becomes searchable in plain English." />
       <link rel="canonical" href="https://getmin.ai/teams/operations" />
-      <meta property="og:title" content="min. for Operations | Joint Vendor Memory" />
-      <meta property="og:description" content="Stop chasing. Start asking. One Joint Memory across every vendor, every PO, every deadline." />
+      <meta property="og:title" content="min. for Operations | Collective Vendor Memory" />
+      <meta property="og:description" content="Stop chasing. Start asking. One Collective Memory across every vendor, every PO, every deadline." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -99,14 +99,14 @@ const Operations = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                Joint Vendor Memory
+                Collective Vendor Memory
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
                 Your ops team doesn't have a memory.{" "}
                 <span style={{ color: GREEN }}>min. gives it one.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                min. turns every vendor reply, status check, signed contract, and missed deadline into a Joint Memory your whole team can track, escalate, and chase against. Ask about any open order. Blast status checks to every vendor in one sentence.
+                min. turns every vendor reply, status check, signed contract, and missed deadline into a Collective Memory your whole team can track, escalate, and chase against. Ask about any open order. Blast status checks to every vendor in one sentence.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
@@ -192,7 +192,7 @@ const Operations = () => (
               <SectionHeading
                 eyebrow="Blast & chase"
                 headline={<>8 status checks, 4 document chasers,<br />5 follow-ups. <span style={{ color: GREEN }}>One sentence.</span></>}
-                sub="min. blasts the batch, tracks every reply back into your Joint Memory, and auto-cancels follow-ups the moment a vendor responds. You only step in when something actually breaks."
+                sub="min. blasts the batch, tracks every reply back into your Collective Memory, and auto-cancels follow-ups the moment a vendor responds. You only step in when something actually breaks."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>

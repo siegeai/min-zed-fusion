@@ -92,11 +92,11 @@ const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 const AccountManagement = () => (
   <>
     <Helmet>
-      <title>min. for Account Management | Joint Account Memory</title>
+      <title>min. for Account Management | Collective Account Memory</title>
       <meta name="description" content="Your CS team doesn't have a memory. min. gives it one. Every check-in, escalation, QBR, and churn signal becomes searchable in plain English." />
       <link rel="canonical" href="https://getmin.ai/teams/account-management" />
-      <meta property="og:title" content="min. for Account Management | Joint Account Memory" />
-      <meta property="og:description" content="Walk into every renewal already briefed. One Joint Memory across every account, every dispute, every signal." />
+      <meta property="og:title" content="min. for Account Management | Collective Account Memory" />
+      <meta property="og:description" content="Walk into every renewal already briefed. One Collective Memory across every account, every dispute, every signal." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -107,14 +107,14 @@ const AccountManagement = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                Joint Account Memory
+                Collective Account Memory
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
                 Your CS team doesn't have a memory.{" "}
                 <span style={{ color: GREEN }}>min. gives it one.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                min. turns every check-in, escalation, QBR, dispute, and churn signal into a Joint Memory your whole CS team can renew, defend, and expand against. Walk into every call briefed. Spot every at-risk account in one question.
+                min. turns every check-in, escalation, QBR, dispute, and churn signal into a Collective Memory your whole CS team can renew, defend, and expand against. Walk into every call briefed. Spot every at-risk account in one question.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
@@ -198,7 +198,7 @@ const AccountManagement = () => (
               <SectionHeading
                 eyebrow="Churn signals"
                 headline={<>Know who's going cold<br /><span style={{ color: GREEN }}>before they churn.</span></>}
-                sub="min. watches every account thread, flagging silent clients, unanswered emails, competitor mentions, and frustration patterns in your Joint Memory before they show up on a renewal forecast."
+                sub="min. watches every account thread, flagging silent clients, unanswered emails, competitor mentions, and frustration patterns in your Collective Memory before they show up on a renewal forecast."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -271,7 +271,7 @@ const AccountManagement = () => (
               <SectionHeading
                 eyebrow="QBR-ready reporting"
                 headline={<>Account performance reports<br /><span style={{ color: GREEN }}>in one sentence.</span></>}
-                sub="On-time rates, cost trends, issue history, renewal risk, min. pulls the numbers straight from your Joint Memory. QBR prep that used to take hours now takes one question."
+                sub="On-time rates, cost trends, issue history, renewal risk, min. pulls the numbers straight from your Collective Memory. QBR prep that used to take hours now takes one question."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                 <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>

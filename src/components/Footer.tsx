@@ -11,7 +11,7 @@ const Footer = () => {
               <span className="font-semibold text-xl">min.</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
-              Your company doesn't have a memory. min. gives it one. Every email, every load sheet, every quote, every file becomes a Joint Memory your whole team can search, act on, and build on. One email at a time.
+              Your company doesn't have a memory. min. gives it one. Every email, every load sheet, every quote, every file becomes a Collective Memory your whole team can search, act on, and build on. One email at a time.
             </p>
           </div>
 

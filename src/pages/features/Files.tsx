@@ -232,7 +232,7 @@ const Files = () => (
             "Cross-reference data across multiple uploaded files at once",
             "Group chats let your whole team ask questions about the same files",
             "Answers come back as clean tables, summaries, and numbers, not raw data",
-            "Upload once, ask unlimited questions, min. remembers the file in your Joint Memory",
+            "Upload once, ask unlimited questions, min. remembers the file in your Collective Memory",
           ].map((point) => (
             <div key={point} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>
               <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>
