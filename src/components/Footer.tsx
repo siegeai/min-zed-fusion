@@ -11,7 +11,7 @@ const Footer = () => {
               <span className="font-semibold text-xl">min.</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
-              Your team's joint memory. Every email your business has ever sent or received — combined into a single intelligence layer your whole team can search, act on, and build on.
+              Your company doesn't have a memory. min. gives it one. Every email, every load sheet, every quote, every file becomes a Joint Memory your whole team can search, act on, and build on. One email at a time.
             </p>
           </div>
 
@@ -81,11 +81,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }} className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© 2026 min. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
-            <Link to="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</Link>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }} className="mt-12 pt-8">
+          <p className="text-gray-400 text-sm italic text-center md:text-left mb-6 md:mb-4 max-w-2xl">
+            Built in San Francisco for the 17,000 American brokerages still fighting to stay independent.
+          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">© 2026 min. All rights reserved.</p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
+              <Link to="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</Link>
+            </div>
           </div>
         </div>
       </div>

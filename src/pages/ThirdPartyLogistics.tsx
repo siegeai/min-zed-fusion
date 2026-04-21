@@ -27,9 +27,9 @@ const TPL_PROMPTS: PromptItem[] = [
     text: "Show me the real location and ETA for all Pacific Foods loads in transit right now.",
     label: "Live tracking",
     response: {
-      headline: "Pacific Foods — 3 loads in transit",
+      headline: "Pacific Foods, 3 loads in transit",
       rows: [["#PF-3392", "Houston, TX · FourKites · ETA Thu 10am (+6hrs) ⚠"], ["#PF-3401", "Memphis, TN · Samsara · ETA Wed 6pm · on time"], ["#PF-3410", "Denver, CO · project44 · ETA Fri 11am · on time"]],
-      note: "#PF-3392 stationary 3hrs — possible breakdown, carrier notified",
+      note: "#PF-3392 stationary 3hrs, possible breakdown, carrier notified",
     },
   },
   {
@@ -115,14 +115,14 @@ const ThirdPartyLogistics = () => {
   return (
     <>
       <Helmet>
-        <title>min. for 3PLs | Your 3PL's memory across every client</title>
-        <meta name="description" content="Cross-client intelligence from every email and file — searchable and actionable by your whole team." />
-        <meta name="keywords" content="3PL, third party logistics, logistics provider, multi-client management, shipment tracking, carrier management, POD collection" />
+        <title>min. for 3PLs | Joint Cross-Client Memory</title>
+        <meta name="description" content="Your 3PL's intel is scattered across client inboxes. min. turns every tender, rate con, POD, and claim into a Joint Memory tagged per client, searchable in plain English." />
+        <meta name="keywords" content="3PL, third party logistics, logistics provider, multi-client management, shipment tracking, carrier management, POD collection, joint memory" />
         <link rel="canonical" href="https://getmin.ai/3pl" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/3pl" />
-        <meta property="og:title" content="min. for 3PLs | Your 3PL's memory across every client" />
-        <meta property="og:description" content="Cross-client intelligence from every email and file — searchable by your whole team." />
+        <meta property="og:title" content="min. for 3PLs | Joint Cross-Client Memory" />
+        <meta property="og:description" content="Every tender, every POD, every client, one searchable memory. One email at a time. Zero data entry." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -135,17 +135,17 @@ const ThirdPartyLogistics = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                Your 3PL's memory across every client
+                  Joint Cross-Client Memory
                 </p>
                 <h1
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
-                  Every client, every carrier,<br />
-                  <span style={{ color: GREEN }}>one shared memory.</span>
+                  Your 3PL doesn't have a memory.{" "}
+                  <span style={{ color: GREEN }}>min. gives it one.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Every client email, every carrier file, every shipment across every account — instantly recalled, permanently remembered, and ready to act on.
+                  min. turns every tender, rate con, check call, POD, and claim into a Joint Memory tagged per client, so your whole 3PL can quote, cover, and report against the same shared brain. Ask anything in plain English. Blast to your carrier pool in one sentence.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -173,9 +173,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }} id="skills">
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Search vs. Ask"
-                  headline={<>Every client thinks they're<br />your only client.</>}
-                  sub="Search gives you a mixed bag of emails across all your accounts. Your minion gives you the answer, per client."
+                  eyebrow="Multi-client clarity"
+                  headline={<>5 clients. 50 threads.<br /><span style={{ color: GREEN }}>One answer.</span></>}
+                  sub="min. reads every client's tenders, rate cons, PODs, and check calls, tags each to the right account automatically, so one question never takes ten inbox searches."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -251,9 +251,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Total recall"
+                  eyebrow="Inbox → Joint Memory"
                   headline={<>Every client, every carrier,<br />every lane.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
-                  sub="No setup. No training. No onboarding. Sign in with Gmail or Outlook and your minion gets to work. Everything is searchable in minutes."
+                  sub="Sign in with Gmail or Outlook. min. reads every tender thread, rate con, POD chase, and claim email sitting in history, tagged per client, then digests load sheets, rate tables, and PDFs. Your Joint Memory updates with every new message."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -334,9 +334,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Live tracking"
+                  eyebrow="Check calls & GPS"
                   headline={<>Every client's trucks.<br /><span style={{ color: GREEN }}>One dashboard.</span></>}
-                  sub="Your minion reads tracking links from carrier emails across all your clients, checks the real truck position via Samsara, FourKites, and others, and adjusts ETAs with live weather and traffic data."
+                  sub="min. chases tracking links across every client's carriers, pings Samsara, FourKites, and project44 for the real truck, and revises ETAs before the next check-call thread goes cold."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -363,12 +363,12 @@ const ThirdPartyLogistics = () => {
                   </div>
 
                   <div style={{ background: SURFACE, border: "1px solid rgba(234,179,8,0.15)", borderRadius: 16, padding: 24 }}>
-                    <p style={{ color: "#FCD34D", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14, fontWeight: 600 }}>Automatic exception — per client</p>
+                    <p style={{ color: "#FCD34D", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14, fontWeight: 600 }}>Automatic exception, per client</p>
                     <ChatRow role="ai" seed="trk-3pl-exc">
-                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ Pacific Foods — Load #PF-3392 delayed</p>
+                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ Pacific Foods, Load #PF-3392 delayed</p>
                       <DataTable
                         rows={[
-                          ["Location", "I-10 near Houston, TX — stationary 3hrs"],
+                          ["Location", "I-10 near Houston, TX, stationary 3hrs"],
                           ["GPS source", "FourKites · last ping 3h ago"],
                           ["Original ETA", "Wed 4:00pm"],
                           ["Revised ETA", "Thu 10:00am (+18hrs)"],
@@ -382,7 +382,7 @@ const ThirdPartyLogistics = () => {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4, marginTop: 24 }}>
                   {[
-                    "Cross-client tracking — every client's loads on one screen",
+                    "Cross-client tracking, every client's loads on one screen",
                     "Real GPS via Samsara, FourKites, project44, MacroPoint, and more",
                     "Exceptions raised per client so nothing falls through the cracks",
                   ].map((point) => (
@@ -401,9 +401,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="One prompt → your carrier pool"
-                  headline={<>RFQ your entire carrier pool<br /><span style={{ color: GREEN }}>for any client. In one sentence.</span></>}
-                  sub="Rate requests, follow-ups, and POD collection. Your minion handles the carrier grind across all your accounts."
+                  eyebrow="Blast & chase"
+                  headline={<>Blast your carrier pool<br /><span style={{ color: GREEN }}>for any client. In one sentence.</span></>}
+                  sub="Rate requests, tender follow-ups, POD chases, tagged to the right client, min. handles the carrier grind across every account at once."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -453,9 +453,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Client reporting"
+                  eyebrow="QBR-ready reporting"
                   headline={<>Performance reports<br /><span style={{ color: GREEN }}>your clients actually want.</span></>}
-                  sub="On-time rates, cost breakdowns, carrier performance. Pulled from your actual data, not a dashboard you forgot to update."
+                  sub="On-time rates, cost breakdowns, carrier performance, pulled straight from the email record of what actually happened, not a dashboard someone forgot to update."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -528,9 +528,9 @@ const ThirdPartyLogistics = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Automation"
+                  eyebrow="Ops digest"
                   headline={<>Your morning ops briefing,<br /><span style={{ color: GREEN }}>across every client.</span></>}
-                  sub="Your minion keeps working across every client overnight. Start the day knowing exactly what needs attention."
+                  sub="min. chases overnight quote replies, flags loads missing check calls, and lines up missing PODs and claims, per client, before the account reps open their laptops."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -602,8 +602,8 @@ const ThirdPartyLogistics = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>Your 3PL's best intel is scattered across client inboxes.<br /><span style={{ color: GREEN }}>min. unifies it.</span></>}
-              sub="Cross-client intelligence — permanently remembered."
+              headline={<>Turn every client inbox into<br /><span style={{ color: GREEN }}>your 3PL's shared brain.</span></>}
+              sub="Every tender, every quote, every POD, every claim, tagged per client. One email at a time."
             />
 
           </div>

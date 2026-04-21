@@ -19,7 +19,7 @@ const SHIPPER_PROMPTS: PromptItem[] = [
     text: "Where is PO #4412? When is it actually arriving?",
     label: "Live tracking",
     response: {
-      headline: "PO #4412 — I-30 near Little Rock, AR",
+      headline: "PO #4412, I-30 near Little Rock, AR",
       rows: [["GPS source", "Samsara · updated 9 min ago"], ["Carrier ETA", "Thu 2:00pm"], ["Real ETA", "Thu 3:15pm (+1h15m)"], ["Weather", "Rain on I-30 near Texarkana"], ["Delivery window", "Thu 8am–5pm · will make it"]],
     },
   },
@@ -114,14 +114,14 @@ const Shippers = () => {
   return (
     <>
       <Helmet>
-        <title>min. for Shippers | Your shipping team's memory</title>
-        <meta name="description" content="Every PO, carrier quote, and exception across your entire shipping operation — searchable and actionable by your whole team." />
-        <meta name="keywords" content="shipper, procurement, logistics assistant, RFQ, shipment tracking, rate comparison, supply chain, freight management" />
+        <title>min. for Shippers | Joint Carrier & Vendor Memory</title>
+        <meta name="description" content="Your shipping team's best rates are hidden in their inboxes. min. turns every PO, RFQ, BOL, and POD into a Joint Memory your whole team can search and act on." />
+        <meta name="keywords" content="shipper, procurement, logistics assistant, RFQ, shipment tracking, rate comparison, supply chain, freight management, joint memory" />
         <link rel="canonical" href="https://getmin.ai/shippers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/shippers" />
-        <meta property="og:title" content="min. for Shippers | Your shipping team's memory" />
-        <meta property="og:description" content="Every PO, carrier quote, and exception — searchable by your whole team." />
+        <meta property="og:title" content="min. for Shippers | Joint Carrier & Vendor Memory" />
+        <meta property="og:description" content="Your shipping team doesn't have a memory. min. gives it one. Every rate, every carrier, every PO, one searchable brain." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -134,17 +134,17 @@ const Shippers = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Your shipping team's memory
+                  Joint Carrier &amp; Vendor Memory
                 </p>
                 <h1
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
-                  Every PO, every carrier,<br />
-                  <span style={{ color: GREEN }}>every exception.</span>
+                  Your shipping team doesn't have a memory.{" "}
+                  <span style={{ color: GREEN }}>min. gives it one.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Every carrier quote, every PO, every vendor relationship your shipping team has ever had — instantly recalled, permanently remembered, and ready to act on.
+                  min. turns every PO, RFQ reply, BOL, check call, and POD into a Joint Memory your whole team can quote, book, and track against. Search your rate history in plain English. Blast an RFQ in one sentence.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -172,9 +172,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }} id="skills">
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Search vs. Ask"
-                  headline={<>You already know the updates<br />are buried in your inbox.</>}
-                  sub="Search gives you a list of emails. Your minion gives you the answer."
+                  eyebrow="Ask, don't search"
+                  headline={<>Stop digging through threads.<br /><span style={{ color: GREEN }}>Ask your Joint Memory.</span></>}
+                  sub="min. reads every inbox, sent folder, and thread, so every PO, rate, and status is one plain-English question away."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -205,7 +205,7 @@ const Shippers = () => {
                         </div>
                       ))}
                       <p style={{ color: "#EF4444", fontSize: 12, marginTop: 16, fontStyle: "italic", lineHeight: 1.6, opacity: 0.7 }}>
-                        5 results. Which one has the tracking number — the invoice or the shipping confirmation?
+                        5 results. Which one has the tracking number, the invoice or the shipping confirmation?
                       </p>
                     </div>
                   </div>
@@ -249,9 +249,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Total recall"
+                  eyebrow="Inbox → Joint Memory"
                   headline={<>Your carriers, your POs,<br />your rates.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
-                  sub="No setup. No training. Sign in with Gmail or Outlook and your minion indexes your entire email history — which carriers you use, what your lanes cost, which vendors are reliable. Tell it something new and it remembers forever. But it figures out most of it on its own."
+                  sub="Sign in with Gmail or Outlook. min. reads every rate con, PO thread, BOL, and check-call update already sitting in your history, then digests load sheets, rate tables, and PDFs your ERP can't read, so your Joint Memory updates with every new message."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
@@ -298,7 +298,7 @@ const Shippers = () => {
                   {[
                     { stat: "30 sec", label: "to sign in and start asking" },
                     { stat: "50,000+", label: "emails searchable in under 20 min" },
-                    { stat: "Auto", label: "indexes your POs, carriers, ETAs, and costs" },
+                    { stat: "Zero", label: "data entry. POs, carriers, rates map themselves." },
                     { stat: "Always", label: "up to date as new emails arrive" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
@@ -334,9 +334,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Live tracking"
+                  eyebrow="Check calls & GPS"
                   headline={<>Know where your shipment is.<br /><span style={{ color: GREEN }}>Before the carrier does.</span></>}
-                  sub="Your minion reads tracking links from carrier emails, checks the real truck position via Samsara, FourKites, and others, and gives you an ETA adjusted for weather and traffic."
+                  sub="min. chases tracking links in carrier email, pings Samsara and FourKites for the real truck, then revises delivery windows before the check-call thread goes cold."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -365,7 +365,7 @@ const Shippers = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(234,179,8,0.15)", borderRadius: 16, padding: 24 }}>
                     <p style={{ color: "#FCD34D", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14, fontWeight: 600 }}>Automatic exception</p>
                     <ChatRow role="ai" seed="trk-shipper-exc">
-                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ PO #4401 (Midwest Steel) — delayed +6hrs</p>
+                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ PO #4401 (Midwest Steel), delayed +6hrs</p>
                       <DataTable
                         rows={[
                           ["Current location", "I-10 near Houston, TX"],
@@ -382,9 +382,9 @@ const Shippers = () => {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4, marginTop: 24 }}>
                   {[
-                    "Reads tracking links from carrier emails — Samsara, FourKites, project44, MacroPoint, and more",
+                    "Reads tracking links from carrier emails, Samsara, FourKites, project44, MacroPoint, and more",
                     "Adjusts ETA using real-time weather and traffic, not the carrier's stale update",
-                    "Raises exceptions before the carrier tells you — so you can plan dock schedules and avoid surprises",
+                    "Raises exceptions before the carrier tells you, so you can plan dock schedules and avoid surprises",
                   ].map((point) => (
                     <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                       <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>
@@ -401,9 +401,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="One prompt → 12 carriers"
-                  headline={<>Send an RFQ to<br />12 carriers.{" "}<span style={{ color: GREEN }}>In one sentence.</span></>}
-                  sub="One prompt sends to all your approved carriers. Auto-tracks responses. Schedules follow-ups that cancel when they reply."
+                  eyebrow="RFQ → book"
+                  headline={<>Blast an RFQ to<br />12 carriers.{" "}<span style={{ color: GREEN }}>In one sentence.</span></>}
+                  sub="One prompt blasts your RFQ to every approved carrier, logs every quote back against your lane history, and schedules follow-ups that cancel the second they reply."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -453,9 +453,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Spend optimization"
-                  headline={<>It compares rates while you<br /><span style={{ color: GREEN }}>handle the next PO.</span></>}
-                  sub="Your minion knows every rate you've ever been quoted. Ask it to find the best deal. Grounded in your actual data."
+                  eyebrow="Quote → book"
+                  headline={<>Compare rates while you<br /><span style={{ color: GREEN }}>handle the next PO.</span></>}
+                  sub="min. anchors every new quote against the actual rates you've booked and the carriers you've used, pulled from your Joint Memory, not a generic benchmark."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -492,7 +492,7 @@ const Shippers = () => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                       <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        Your minion compares every quote against your historical spend, so you always know if a rate is above or below what you usually pay. No spreadsheet needed.
+                        min. compares every quote against your historical spend, so you always know if a rate is above or below what you usually pay. No spreadsheet needed.
                       </p>
                     </div>
 
@@ -530,9 +530,9 @@ const Shippers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Automation"
+                  eyebrow="Ops digest"
                   headline={<>Your morning logistics briefing,<br /><span style={{ color: GREEN }}>before your coffee.</span></>}
-                  sub="Your minion keeps working overnight so you start the day knowing exactly what needs attention."
+                  sub="min. chases overnight RFQ replies, flags shipments missing check calls, and lines up exceptions and POD disputes before the day even starts."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -604,8 +604,8 @@ const Shippers = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>Your shipping team's best intel is trapped in inboxes.<br /><span style={{ color: GREEN }}>min. sets it free.</span></>}
-              sub="Every PO, carrier quote, and exception — permanently remembered."
+              headline={<>Turn every email into<br /><span style={{ color: GREEN }}>your shipping team's shared brain.</span></>}
+              sub="Every PO, every rate, every delivery, every exception, one email at a time. Zero data entry."
             />
 
           </div>

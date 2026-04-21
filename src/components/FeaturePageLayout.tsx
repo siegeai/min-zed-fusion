@@ -77,8 +77,8 @@ const FeaturePageLayout = ({
 
           <Section style={{ marginTop: 80 }}>
             <FinalCTA
-              headline={<>Ready to put your minion<br /><span style={{ color: GREEN }}>to work?</span></>}
-              sub="Sign up in 30 seconds. Your minion starts working immediately."
+              headline={<>Ready to put min.<br /><span style={{ color: GREEN }}>to work?</span></>}
+              sub="Sign up in 30 seconds. min. starts building your Joint Memory immediately."
             />
           </Section>
 

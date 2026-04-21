@@ -15,19 +15,19 @@ const About = () => {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "name": "About min. - Meet the Founder and Our Mission",
-    "description": "Learn about min.'s founder Eric Wang, and our mission to give fast-moving teams superpowers through AI-powered communication tools.",
+    "description": "Learn about min.'s founder Eric Wang, and our mission to give every company a shared brain built from the emails their people already send.",
     "url": "https://getmin.ai/about",
     "mainEntity": {
       "@type": "Organization",
       "name": "min.",
-      "description": "Inbox for humans and agents",
+      "description": "Your company's shared brain",
       "founder": [
         {
           "@type": "Person",
           "name": "Eric Wang",
           "jobTitle": "CEO & Co-Founder"
         },
-        
+
       ]
     }
   };
@@ -35,9 +35,9 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About min. | Meet the Founder Building the Future of Communication</title>
-        <meta name="description" content="Learn about min.'s founder Eric Wang, and our mission to give fast-moving teams superpowers through AI-powered communication tools." />
-        <meta name="keywords" content="min. founder, Eric Wang, AI communication startup, email automation team" />
+        <title>About min. | The Team Giving Your Company a Shared Brain</title>
+        <meta name="description" content="Learn about min.'s founder Eric Wang, and our mission to give every company a Joint Memory built from the emails their people already send." />
+        <meta name="keywords" content="min. founder, Eric Wang, AI communication startup, joint memory, email automation team" />
         <link rel="canonical" href="https://getmin.ai/about" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
@@ -67,7 +67,7 @@ const About = () => {
                   About <span className="text-green-600/90">min.</span> by Siege AI
                 </h1>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-                  For teams that run on emails.
+                  Your company doesn't have a memory. min. gives it one. One email at a time.
                 </p>
               </div>
 
@@ -101,7 +101,7 @@ const About = () => {
                           <p className="text-xs text-gray-500">University of Toronto</p>
                         </div>
                       </div>
-                      <p className="text-sm text-gray-600 leading-relaxed">⚙️ Builder. Product thinker. AI optimist. Eric has spent the last decade launching and scaling products at Coursera, Bbot, and DoorDash itself. From 0→1 startups to high-growth platforms, he's all about solving messy, real-world problems with simple, scalable solutions. At min., he's focused on giving superpowers to other founders just like him - without overhyping the buzzwords. Loves fast prototypes, clean UX.</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">⚙️ Builder. Product thinker. AI optimist. Eric has spent the last decade launching and scaling products at Coursera, Bbot, and DoorDash itself. From 0→1 startups to high-growth platforms, he's all about solving messy, real-world problems with simple, scalable solutions. At min., he's focused on giving every company a shared brain built from the emails their people already send. Loves fast prototypes, clean UX.</p>
                     </CardContent>
                   </Card>
 
@@ -116,7 +116,7 @@ const About = () => {
                     <h3 className="text-lg font-normal text-gray-900">Our Mission</h3>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed font-light">
-                    Give fast-moving teams superpowers. Automate the chaos of external communication so founders can focus on building.
+                    Turn the real business running in your team's inboxes into a Joint Memory the whole company can search, act on, and build on. Nothing your team learns should ever get lost again.
                   </p>
                 </div>
 
@@ -126,7 +126,7 @@ const About = () => {
                     <h3 className="text-lg font-normal text-gray-900">Our Team</h3>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed font-light">
-                    Scrappy founders who've been there. We know the pain of juggling communication while trying to ship products.
+                    Scrappy founders who've lived in the inbox. We know the pain of every commitment, rate, and follow-up living in someone's head, until min. finally logs it.
                   </p>
                 </div>
 
@@ -135,7 +135,7 @@ const About = () => {
                     <Lightbulb className="w-6 h-6 text-green-600" />
                     <h3 className="text-lg font-normal text-gray-900">Our Vision</h3>
                   </div>
-                  <p className="text-gray-600 text-sm leading-relaxed font-light">Every lean team has a squad of email agents right in their inbox. No bloat, no complexity. Just the essentials that work.</p>
+                  <p className="text-gray-600 text-sm leading-relaxed font-light">Every company compounds financial capital. Almost none compound what their people know. min. builds the Joint Memory that finally does. No bloat, no CRM hygiene tax, just the intelligence your team already earned.</p>
                 </div>
               </div>
 
@@ -145,9 +145,9 @@ const About = () => {
                   <p className="font-medium text-gray-900">We promised 30-minute replies. Then our inbox exploded.</p>
                   <p>We're serial founders. We got sick of the shared inbox: real customer emails lost in newsletters, support spam, and random signups. So we promised every user a reply within 30 minutes during business hours.</p>
                   <p className="font-medium text-gray-900">Customers loved it. Our inbox did not.</p>
-                  <p>We took shifts and glued together scripts. We still nearly missed important messages. So we built something for us: it watches the inbox, filters the noise, and pings us when a real customer writes in.</p>
+                  <p>We took shifts and glued together scripts. We still nearly missed important messages. So we built a tool for ourselves: it watched the inbox, read every thread, drafted the reply, and pinged us only when a real customer wrote in.</p>
                   <p className="font-medium text-gray-900">That tool became min.</p>
-                  <p>Now other lean teams use min. to reply fast without living in the inbox.</p>
+                  <p>Now every company we work with uses min. to turn their inbox into a Joint Memory, one that the whole team can search, act on, and build on. Nothing they learn ever gets lost again.</p>
                 </div>
               </div>
             </div>

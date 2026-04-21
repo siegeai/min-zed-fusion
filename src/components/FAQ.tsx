@@ -7,34 +7,34 @@ import {
 
 const FAQS = [
   {
-    question: "What is min. and what it isn't.",
+    question: "What is min., and what it isn't.",
     answer:
-      "We are a tool company. We build the best possible email tools for people who run on email. That's it. We're not an ad company, not a data company, not a platform that monetizes your attention. We make money when you pay for the tool, never by selling, brokering, or exploiting your data. That's our pledge, and no amount of money will change it.",
+      "min. turns every email, load sheet, quote, and document your team touches into a Joint Memory, a shared brain the whole company can search and act on in plain English. We are a tool company, not an ad company, not a data broker. We make money when you pay for the tool, never by selling, brokering, or exploiting your data. That's our pledge, and no amount of money will change it.",
   },
   {
     question: "How does it work?",
     answer:
-      "Sign in with Gmail or Outlook. You tell your minion what you need in plain English: carrier blasts, rate lookups, track and trace. It pulls quotes and context from your email history and handles the grunt work so you can focus on winning loads and making decisions.",
+      "Sign in with Gmail or Outlook. From day one, min. is already reading every reply, logging every commitment, and building your Joint Memory against your real email history. Tell it what you need in plain English, carrier blasts, rate lookups, track and trace, account check-ins, and it drafts, chases, and files the grunt work so you focus on the decisions.",
   },
   {
-    question: "What can I ask my minion to do?",
+    question: "What can I ask min. to do?",
     answer:
-      "Ask for carriers that run a lane, average booked and quoted rates for a lane, email blasts to your carrier list, status updates on active loads, load confirmations, and ops digests. If you'd normally do it over email, you can delegate it to your minion.",
+      "Ask for carriers that run a lane, average booked and quoted rates for a lane, email blasts to your carrier list, status updates on active loads, load confirmations, and ops digests. If it lives in email, min. can do it.",
   },
   {
     question: "Does it work with my email?",
     answer:
-      "Yes. min. connects to Gmail or Outlook and works with your existing inbox. Your minion can send and organize on your behalf so everything stays in one place. One shared memory, not 10 private inboxes.",
+      "Yes. min. connects to Gmail or Outlook and works with your existing inbox. It reads, drafts, and sends on your behalf so everything stays in one place. One shared Joint Memory, not 10 private inboxes.",
   },
   {
     question: "How long does setup take?",
     answer:
-      "Seconds. Sign in with Gmail or Outlook, tell your minion what you need, and you're live. No training, no complex onboarding.",
+      "Seconds to start. Sign in with Gmail or Outlook, tell min. what you need, and you're live. Your Joint Memory indexes up to 50,000 threads in under 20 minutes. No training, no complex onboarding.",
   },
   {
     question: "What about data privacy and security?",
     answer:
-      "Your minion is your private LLM assistant. We never sell your data, never broker it, and never train our models on it — period. Your emails are encrypted, your account is isolated, and nothing is shared with third parties. We're Google CASA Tier 2 compliant.",
+      "Your Joint Memory is yours. We never sell your data, never broker it, and never train our models on it, period. Your emails are encrypted, your account is isolated, and nothing is shared with third parties. We're Google CASA Tier 2 compliant.",
   },
 ];
 
@@ -53,7 +53,7 @@ const FAQ = () => (
         Frequently asked questions
       </h2>
       <p style={{ color: "#6B7280", fontSize: 14 }}>
-        Your minion, your inbox, your edge.
+        Your Joint Memory, your inbox, your edge.
       </p>
     </div>
 

@@ -6,12 +6,12 @@ import {
 
 const Instructions = () => (
   <FeaturePageLayout
-    title="Custom Minion Instructions"
-    metaDescription="Give each minion its own standing rules: tone, style, or domain-specific instructions. Personalize how your minion communicates."
+    title="Custom Instructions"
+    metaDescription="Give min. standing rules: tone, style, or domain-specific instructions. Personalize how min. communicates on your behalf."
     canonicalPath="/skills/instructions"
-    eyebrow="Custom Minion Instructions"
-    headline={<>Your minion,<br /><span style={{ color: GREEN }}>your rules.</span></>}
-    subline="Each minion can have its own standing instructions: communication style, domain rules, or anything you want it to always remember."
+    eyebrow="Custom Instructions"
+    headline={<>min.,<br /><span style={{ color: GREEN }}>your rules.</span></>}
+    subline="Set standing instructions: communication style, domain rules, or anything you want min. to always remember across every task."
     mascotSeed="feat-instructions"
   >
     <Section style={{ marginTop: 80, marginBottom: 80 }}>
@@ -67,7 +67,7 @@ const Instructions = () => (
         <div style={{ marginTop: 40 }}>
           <h3 style={{ color: TEXT, fontSize: 15, fontWeight: 600, marginBottom: 16 }}>Key details</h3>
           {[
-            "Each minion can have its own set of standing rules",
+            "Set as many standing rules as your team needs",
             "Instructions apply to all conversations and tasks",
             "Set communication tone, domain rules, or shorthand definitions",
             "Update anytime. Changes apply immediately to future interactions",

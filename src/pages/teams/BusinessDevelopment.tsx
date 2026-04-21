@@ -84,11 +84,11 @@ const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 const BusinessDevelopment = () => (
   <>
     <Helmet>
-      <title>min. for Business Development | Your sales team's memory</title>
-      <meta name="description" content="Every conversation, objection, and buying signal — searchable and actionable by your whole sales team." />
+      <title>min. for Business Development | Joint Pipeline Memory</title>
+      <meta name="description" content="Your pipeline isn't in your CRM. It's in your reps' inboxes. min. turns every reply, objection, RFP, and competitor mention into a Joint Memory your whole sales team can search and act on." />
       <link rel="canonical" href="https://getmin.ai/teams/business-development" />
-      <meta property="og:title" content="min. for Business Development | Your sales team's memory" />
-      <meta property="og:description" content="Every conversation, objection, and buying signal — searchable by your whole sales team." />
+      <meta property="og:title" content="min. for Business Development | Joint Pipeline Memory" />
+      <meta property="og:description" content="Pipeline intelligence pulled from what actually happened, not what got typed into the CRM." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -99,13 +99,14 @@ const BusinessDevelopment = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                Your sales team's memory
+                Joint Pipeline Memory
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
-                Every deal, every objection,<br /><span style={{ color: GREEN }}>every buying signal.</span>
+                Your pipeline isn't in your CRM. It's in{" "}
+                <span style={{ color: GREEN }}>your reps' inboxes.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Every client conversation, every proposal, every competitive mention your sales team has ever had — instantly recalled, permanently remembered, and ready to act on.
+                min. turns every reply, objection, RFP, competitor mention, and buying signal into a Joint Memory your whole sales team can re-engage and close against. Search every deal in plain English. Blast a personalized re-engagement to nine stalled prospects in one sentence.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
@@ -131,9 +132,9 @@ const BusinessDevelopment = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="The truth about your data"
-                headline={<>Your CRM has only what you logged.<br /><span style={{ color: GREEN }}>Your inbox has what actually happened.</span></>}
-                sub="Every objection, every competitor mention, every buying signal, every promise. It's all in your email. Your CRM only knows what someone bothered to type in."
+                eyebrow="Inbox, not your CRM"
+                headline={<>Your CRM has what got logged.<br /><span style={{ color: GREEN }}>min. has what actually happened.</span></>}
+                sub="Your CRM stays exactly as it is. min. never connects to it, never writes to it, never touches it. It reads the email your CRM can't see, and builds your Joint Memory in parallel."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: "1px solid rgba(239,68,68,0.12)", borderRadius: 16, padding: 28, position: "relative", overflow: "hidden" }}>
@@ -162,7 +163,7 @@ const BusinessDevelopment = () => (
                 <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.2)", borderRadius: 16, padding: 28, position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.03) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                   <div style={{ position: "relative", zIndex: 1 }}>
-                    <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 20 }}>Your inbox (via your minion)</span>
+                    <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 20 }}>Your inbox (via min.)</span>
                     {[
                       "142 emails exchanged, full conversation history",
                       "They asked for updated pricing on Feb 12",
@@ -191,9 +192,9 @@ const BusinessDevelopment = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="Account intelligence"
-                  headline={<>Ask anything about any account.<br /><span style={{ color: GREEN }}>Every thread is searchable.</span></>}
-                  sub="No setup. No training. Your minion indexes your accounts, your deals, your relationships from your email history — automatically. The more you work together, the sharper it gets on every prospect."
+                eyebrow="Inbox → Joint Memory"
+                  headline={<>Every account, every deal,<br /><span style={{ color: GREEN }}>every thread. Already in your email.</span></>}
+                  sub="Sign in with Gmail or Outlook. min. reads every prospect thread, RFP reply, proposal, and competitor mention already sitting in history, so your Joint Memory sharpens with every new message."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
@@ -234,9 +235,9 @@ const BusinessDevelopment = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="Outreach & re-engagement"
+                eyebrow="Blast & chase"
                 headline={<>Cold prospects. Stale deals.<br /><span style={{ color: GREEN }}>Warm them up in one sentence.</span></>}
-                sub="Personalized follow-ups, conference outreach, and win-back campaigns, each customized by your minion."
+                sub="One prompt drafts personalized follow-ups, conference intros, and win-back emails, each grounded in your Joint Memory, not a generic template."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -264,7 +265,7 @@ const BusinessDevelopment = () => (
                 <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.2)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.03) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                   <div style={{ position: "relative", zIndex: 1 }}>
-                    <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>With your minion</span>
+                    <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>With min.</span>
                     <ChatRow role="user" style={{ marginBottom: 14 }}>
                       <p style={{ color: TEXT, fontSize: 13, margin: 0 }}>Follow up with every prospect that went quiet. Personalize each one based on our last conversation.</p>
                     </ChatRow>
@@ -290,9 +291,9 @@ const BusinessDevelopment = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="Pipeline & proposals"
+                eyebrow="Quote → close"
                 headline={<>Know where every deal stands.<br /><span style={{ color: GREEN }}>From what actually happened, not what got logged.</span></>}
-                sub="Your minion builds pipeline context from real conversations: stale deals, next steps, blockers. Not CRM fields nobody updates."
+                sub="min. pulls real pipeline context from the thread itself, blockers, next steps, stalled deals, RFP requirements, and drafts the response grounded in your Joint Memory."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                 <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -338,8 +339,8 @@ const BusinessDevelopment = () => (
           </Section>
 
           <FinalCTA
-            headline={<>Your best sales data isn't in your CRM.<br /><span style={{ color: GREEN }}>It's in your team's memory. Start using it.</span></>}
-              sub="Every conversation, objection, and buying signal — permanently remembered."
+            headline={<>Turn every prospect thread into<br /><span style={{ color: GREEN }}>your sales team's shared brain.</span></>}
+            sub="Every reply, every objection, every proposal, every buying signal, one email at a time. Zero CRM hygiene tax."
           />
         </div>
       </main>

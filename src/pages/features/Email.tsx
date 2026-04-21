@@ -7,11 +7,11 @@ import {
 const Email = () => (
   <FeaturePageLayout
     title="Email Attachments & Rich Formatting"
-    metaDescription="Your minion sends professional emails with attachments, auto-sized tables, embedded images, and GIFs. No more copy-paste formatting."
+    metaDescription="min. sends professional emails with attachments, auto-sized tables, embedded images, and GIFs. No more copy-paste formatting."
     canonicalPath="/skills/email"
     eyebrow="Email Attachments & Rich Formatting"
     headline={<>Professional emails,<br /><span style={{ color: GREEN }}>effortlessly.</span></>}
-    subline="Attach files, embed images, auto-size tables. Your minion handles email formatting like a pro."
+    subline="Attach files, embed images, auto-size tables. min. handles email formatting like a pro."
     mascotSeed="feat-email"
   >
     <Section style={{ marginTop: 80, marginBottom: 80 }}>

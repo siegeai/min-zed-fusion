@@ -7,11 +7,11 @@ import {
 const Tasks = () => (
   <FeaturePageLayout
     title="Task Tracking"
-    metaDescription="When you ask your minion to do something, it auto-creates a task to track progress. Each task runs in its own dedicated chat window."
+    metaDescription="When you ask min. to do something, it auto-creates a task to track progress. Each task runs in its own dedicated chat window."
     canonicalPath="/skills/tasks"
     eyebrow="Task Tracking"
     headline={<>Every action becomes<br /><span style={{ color: GREEN }}>a tracked task.</span></>}
-    subline="Ask your minion to do something. It creates a task automatically. Each task runs in its own chat window so nothing gets lost."
+    subline="Ask min. to do something. It creates a task automatically. Each task runs in its own chat window so nothing gets lost."
     mascotSeed="feat-tasks"
   >
     <Section style={{ marginTop: 80, marginBottom: 80 }}>
@@ -75,7 +75,7 @@ const Tasks = () => (
         <div style={{ marginTop: 40 }}>
           <h3 style={{ color: TEXT, fontSize: 15, fontWeight: 600, marginBottom: 16 }}>Key details</h3>
           {[
-            "Tasks auto-created when you ask your minion to do something",
+            "Tasks auto-created when you ask min. to do something",
             "Each task runs in its own dedicated chat window",
             "Edit task names and delete tasks you no longer need",
             "Track email blasts, follow-ups, alerts, and scheduled actions in one place",

@@ -7,10 +7,10 @@ import {
 const Contacts = () => (
   <FeaturePageLayout
     title="Smart Contact Classification"
-    metaDescription="Your minion auto-classifies every contact (customer, carrier, vendor, or noise) from conversation history. No manual tagging needed."
+    metaDescription="min. auto-classifies every contact (customer, carrier, vendor, or noise) from conversation history. No manual tagging needed."
     canonicalPath="/skills/contacts"
     eyebrow="Smart Contact Classification"
-    headline={<>Your minion knows who's who<br /><span style={{ color: GREEN }}>without you telling it.</span></>}
+    headline={<>min. knows who's who<br /><span style={{ color: GREEN }}>without you telling it.</span></>}
     subline="Auto-classifies every contact as customer, carrier, vendor, or noise based on your actual conversation history. Zero manual tagging."
     mascotSeed="feat-contacts"
   >
@@ -53,7 +53,7 @@ const Contacts = () => (
             <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.15)", borderRadius: 16, padding: 24 }}>
               <p style={{ color: GREEN, fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 12 }}>After</p>
               <p style={{ color: MUTED, fontSize: 13, lineHeight: 1.6 }}>
-                Your minion reads conversation context and auto-classifies everyone. New contacts are categorized the moment they email you.
+                min. reads conversation context and auto-classifies everyone. New contacts are categorized the moment they email you.
               </p>
             </div>
           </div>
@@ -65,7 +65,7 @@ const Contacts = () => (
             "Classifies based on actual email conversations, not guesses",
             "Categories: Customer, Carrier, Vendor, Noise (promotional/spam)",
             "New contacts auto-classified as soon as they email you",
-            "Ask your minion to list all carriers, customers, or vendors anytime",
+            "Ask min. to list all carriers, customers, or vendors anytime",
           ].map((point) => (
             <div key={point} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>
               <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>

@@ -25,7 +25,7 @@ const FREIGHT_PROMPTS: PromptItem[] = [
     text: "Where's the Acme load right now? Is it going to make the delivery window?",
     label: "Live tracking",
     response: {
-      headline: "Load #ACM-4412 — I-40 near Amarillo, TX",
+      headline: "Load #ACM-4412, I-40 near Amarillo, TX",
       rows: [["GPS source", "Samsara · updated 12 min ago"], ["Carrier ETA", "Thu 2:00pm"], ["Real ETA", "Thu 3:45pm (+1h45m)"], ["Weather", "Winter storm on I-40 near OKC"], ["Delivery window", "Thu 8am–5pm · will make it"]],
     },
   },
@@ -100,7 +100,7 @@ function naturalDelay(char: string, prev: string): number {
 
 const HeroChatDemo = ({
   prompts,
-  mascotSeed = "hero-minion",
+  mascotSeed = "hero-min",
 }: {
   prompts?: PromptItem[];
   mascotSeed?: string;

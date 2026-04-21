@@ -17,8 +17,8 @@ const ACCT_PROMPTS: PromptItem[] = [
     text: "How's the Acme account looking? Any open issues I should know about?",
     label: "Account health",
     response: {
-      headline: "Acme Industrial — 2 items need attention",
-      rows: [["Open shipments", "3 in transit · 1 delayed (+4hrs)"], ["Pricing dispute", "PO #8841 · pending 6 days"], ["Last check-in", "4 days ago (you → ops@acme)"], ["Satisfaction signal", "Neutral — 2 complaints this month"]],
+      headline: "Acme Industrial, 2 items need attention",
+      rows: [["Open shipments", "3 in transit · 1 delayed (+4hrs)"], ["Pricing dispute", "PO #8841 · pending 6 days"], ["Last check-in", "4 days ago (you → ops@acme)"], ["Satisfaction signal", "Neutral, 2 complaints this month"]],
     },
   },
   {
@@ -41,15 +41,15 @@ const ACCT_PROMPTS: PromptItem[] = [
     text: "When was the last time we reached out to Valley Parts?",
     label: "Relationship pulse",
     response: {
-      headline: "Valley Parts Co — relationship gap",
-      rows: [["Last outbound", "18 days ago (Sarah → purchasing@)"], ["Their emails since", "3 — all unanswered"], ["Open issues", "1 backorder · 1 price dispute"], ["Risk", "High — declining response pattern"]],
+      headline: "Valley Parts Co, relationship gap",
+      rows: [["Last outbound", "18 days ago (Sarah → purchasing@)"], ["Their emails since", "3, all unanswered"], ["Open issues", "1 backorder · 1 price dispute"], ["Risk", "High, declining response pattern"]],
     },
   },
   {
     text: "Give me a QBR summary for Pacific Foods: volume, on-time rate, cost trends, and open issues.",
     label: "QBR prep",
     response: {
-      headline: "Pacific Foods — Q1 Performance",
+      headline: "Pacific Foods, Q1 Performance",
       rows: [["Shipment volume", "28 loads (+12% vs Q4)"], ["On-time delivery", "89.3% (25/28)"], ["Avg cost/shipment", "$2,340 (–4% vs Q4)"], ["Open issues", "1 delayed shipment · 0 disputes"], ["Top carrier", "Old Dominion · 96% on-time"]],
     },
   },
@@ -92,11 +92,11 @@ const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 const AccountManagement = () => (
   <>
     <Helmet>
-      <title>min. for Account Management | Your account team's memory</title>
-      <meta name="description" content="Every client relationship, issue history, and commitment — searchable and actionable by your whole account team." />
+      <title>min. for Account Management | Joint Account Memory</title>
+      <meta name="description" content="Your CS team doesn't have a memory. min. gives it one. Every check-in, escalation, QBR, and churn signal becomes searchable in plain English." />
       <link rel="canonical" href="https://getmin.ai/teams/account-management" />
-      <meta property="og:title" content="min. for Account Management | Your account team's memory" />
-      <meta property="og:description" content="Every client relationship and issue history — searchable by your whole account team." />
+      <meta property="og:title" content="min. for Account Management | Joint Account Memory" />
+      <meta property="og:description" content="Walk into every renewal already briefed. One Joint Memory across every account, every dispute, every signal." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -107,13 +107,14 @@ const AccountManagement = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                Your account team's memory
+                Joint Account Memory
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
-                Know every account.<br /><span style={{ color: GREEN }}>Miss nothing.</span>
+                Your CS team doesn't have a memory.{" "}
+                <span style={{ color: GREEN }}>min. gives it one.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Every client conversation, every issue history, every commitment your account team has ever made — instantly recalled, permanently remembered, and ready to act on.
+                min. turns every check-in, escalation, QBR, dispute, and churn signal into a Joint Memory your whole CS team can renew, defend, and expand against. Walk into every call briefed. Spot every at-risk account in one question.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
@@ -139,9 +140,9 @@ const AccountManagement = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="Account health at a glance"
-                headline={<>Instant context on any account.<br /><span style={{ color: GREEN }}>No digging required.</span></>}
-                sub="Open issues, recent escalations, shipment status, last contact — everything about the account, pulled from your email history, in one answer."
+                eyebrow="Always-on account brain"
+                headline={<>Every account. Every thread.<br /><span style={{ color: GREEN }}>Every signal.</span></>}
+                sub="min. reads every account thread, flags silent customers, drafts check-ins, and lines up your weekly digest, so you walk into every call already briefed."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
@@ -172,9 +173,9 @@ const AccountManagement = () => (
                     {[
                       { icon: "✅", title: "Pacific Foods: on-time rate improved to 93%", kind: "success" as const },
                       { icon: "⚠️", title: "Valley Parts: no outreach in 18 days", kind: "warn" as const },
-                      { icon: "🏆", title: "Midwest Steel renewed — $165K annual", kind: "success" as const },
+                      { icon: "🏆", title: "Midwest Steel renewed, $165K annual", kind: "success" as const },
                       { icon: "⚠️", title: "Acme pricing dispute still open (6 days)", kind: "warn" as const },
-                      { icon: "📋", title: "3 QBRs due this month — prep available", kind: "default" as const },
+                      { icon: "📋", title: "3 QBRs due this month, prep available", kind: "default" as const },
                     ].map((item, i) => (
                       <div key={i} style={{ padding: "10px 12px", borderRadius: 8, marginBottom: 8, background: item.kind === "success" ? "rgba(0,171,85,0.06)" : item.kind === "warn" ? "rgba(234,179,8,0.05)" : "rgba(255,255,255,0.02)", border: item.kind === "success" ? "1px solid rgba(0,171,85,0.12)" : item.kind === "warn" ? "1px solid rgba(234,179,8,0.12)" : "1px solid transparent" }}>
                         <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
@@ -195,9 +196,9 @@ const AccountManagement = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="Relationship intelligence"
+                eyebrow="Churn signals"
                 headline={<>Know who's going cold<br /><span style={{ color: GREEN }}>before they churn.</span></>}
-                sub="Your minion tracks every thread across every account — surfacing stale relationships, unanswered emails, and churn signals before they become a problem."
+                sub="min. watches every account thread, flagging silent clients, unanswered emails, competitor mentions, and frustration patterns in your Joint Memory before they show up on a renewal forecast."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -210,9 +211,9 @@ const AccountManagement = () => (
                       <p style={{ color: "#EF4444", fontSize: 12, fontWeight: 600, marginBottom: 10 }}>Relationship gap detected</p>
                       <DataTable rows={[
                         ["Last outbound", "18 days ago (Sarah → purchasing@)"],
-                        ["Their emails since", "3 — all unanswered"],
+                        ["Their emails since", "3, all unanswered"],
                         ["Open issues", "1 backorder · 1 pricing dispute"],
-                        ["Risk level", "High — declining response pattern"],
+                        ["Risk level", "High, declining response pattern"],
                       ]} />
                     </ChatRow>
                   </div>
@@ -249,7 +250,7 @@ const AccountManagement = () => (
                     {[
                       "Surfaces accounts going cold before they churn",
                       "Detects frustration, competitor mentions, and switching intent",
-                      "Tracks every thread — you never miss an unanswered email",
+                      "Tracks every thread, you never miss an unanswered email",
                     ].map((point) => (
                       <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                         <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>
@@ -270,7 +271,7 @@ const AccountManagement = () => (
               <SectionHeading
                 eyebrow="QBR-ready reporting"
                 headline={<>Account performance reports<br /><span style={{ color: GREEN }}>in one sentence.</span></>}
-                sub="On-time rates, cost trends, carrier performance, issue history. Your minion pulls the numbers from your email history instantly — no spreadsheet assembly required."
+                sub="On-time rates, cost trends, issue history, renewal risk, min. pulls the numbers straight from your Joint Memory. QBR prep that used to take hours now takes one question."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                 <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.18)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
@@ -278,7 +279,7 @@ const AccountManagement = () => (
                   <div style={{ position: "relative", zIndex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, paddingBottom: 14, borderBottom: `1px solid ${BORDER}` }}>
                       <div>
-                        <p style={{ color: TEXT, fontSize: 14, fontWeight: 600, margin: 0 }}>Pacific Foods — Q1 QBR</p>
+                        <p style={{ color: TEXT, fontSize: 14, fontWeight: 600, margin: 0 }}>Pacific Foods, Q1 QBR</p>
                         <p style={{ color: DIM, fontSize: 12, margin: 0 }}>Generated in 3 seconds</p>
                       </div>
                       <span style={{ background: "rgba(0,171,85,0.1)", color: GREEN, fontSize: 11, borderRadius: 99, padding: "3px 10px", fontWeight: 500 }}>QBR</span>
@@ -305,13 +306,13 @@ const AccountManagement = () => (
                 <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                     <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        Account-level performance pulled from your actual email history — shipment counts, on-time rates, cost trends, carrier rankings, issue history. Ask for any account, any period. QBR prep that used to take hours now takes one question.
+                        Account-level performance pulled from your actual email history, shipment counts, on-time rates, cost trends, carrier rankings, issue history. Ask for any account, any period. QBR prep that used to take hours now takes one question.
                     </p>
                   </div>
 
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 22 }}>
                     <ChatRow role="user" style={{ marginBottom: 14 }}>
-                      <p style={{ color: TEXT, fontSize: 13, margin: 0 }}>Compare Acme's Q1 vs Q4 — volume, on-time, and cost per shipment.</p>
+                      <p style={{ color: TEXT, fontSize: 13, margin: 0 }}>Compare Acme's Q1 vs Q4, volume, on-time, and cost per shipment.</p>
                     </ChatRow>
                     <ChatRow role="ai" seed="acct-compare">
                       <DataTable rows={[
@@ -347,8 +348,8 @@ const AccountManagement = () => (
           </Section>
 
           <FinalCTA
-            headline={<>Your accounts deserve continuity.<br /><span style={{ color: GREEN }}>min. makes it permanent.</span></>}
-            sub="Every client relationship, issue history, and commitment — permanently remembered."
+            headline={<>Turn every account thread into<br /><span style={{ color: GREEN }}>your CS team's shared brain.</span></>}
+            sub="Every check-in, every escalation, every QBR, every renewal, one email at a time. Zero CRM hygiene tax."
           />
         </div>
       </main>

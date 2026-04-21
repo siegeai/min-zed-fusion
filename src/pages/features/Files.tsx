@@ -48,11 +48,11 @@ const FILE_TYPES = [
 const Files = () => (
   <FeaturePageLayout
     title="Files in Plain English"
-    metaDescription="Upload CSVs, Excel spreadsheets, PDFs, or any file. Your team asks questions in plain English — no SQL, no formulas, no training required. Collaborate in group chats."
+    metaDescription="Upload CSVs, Excel spreadsheets, PDFs, or any file. Your team asks questions in plain English, no SQL, no formulas, no training required. Collaborate in group chats."
     canonicalPath="/features/files"
     eyebrow="Files in Plain English"
     headline={<>Upload <RotatingWord /><br /><span style={{ color: GREEN }}>Ask it anything.</span></>}
-    subline="CSV, Excel, PDF, Word, text — you name it, your minion reads it. No SQL. No formulas. No training. Just drag, drop, and ask."
+    subline="CSV, Excel, PDF, Word, text, you name it, min. reads it. No SQL. No formulas. No training. Just drag, drop, and ask."
     mascotSeed="feat-files"
   >
     <Section style={{ marginTop: 80, marginBottom: 80 }}>
@@ -61,7 +61,7 @@ const Files = () => (
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: 12, letterSpacing: "-0.02em" }}>Your files, instantly queryable</h2>
           <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.7, margin: 0 }}>
-            Stop asking your "data person" to pull numbers from a spreadsheet. Stop learning pivot tables just to answer a simple question. Upload any file and your minion reads every row, every page, every cell — then answers questions about it like a teammate who already read the whole thing.
+            Stop asking your "data person" to pull numbers from a spreadsheet. Stop learning pivot tables just to answer a simple question. Upload any file and min. reads every row, every page, every cell, then answers questions about it like a teammate who already read the whole thing.
           </p>
         </div>
 
@@ -117,7 +117,7 @@ const Files = () => (
               </p>
             </ChatRow>
             <ChatRow role="ai" seed="files-1">
-              <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>Schneider National — $284K in Q1 (+18% vs Q4)</p>
+              <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>Schneider National, $284K in Q1 (+18% vs Q4)</p>
               <DataTable
                 hasHeader
                 rows={[
@@ -184,14 +184,14 @@ const Files = () => (
         </div>
 
         <div style={{ marginTop: 56, marginBottom: 48 }}>
-          <h2 style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: 12, letterSpacing: "-0.02em" }}>Group chats — your team's shared workspace</h2>
+          <h2 style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: 12, letterSpacing: "-0.02em" }}>Group chats, your team's shared workspace</h2>
           <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.7, margin: "0 0 24px" }}>
             Upload a file into a group chat and everyone on the team can ask questions about it. No more emailing spreadsheets back and forth. No more "can you pull this number for me?" One shared space where anyone can get the answers they need, instantly.
           </p>
 
           <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.15)", borderRadius: 16, padding: 24 }}>
             <p style={{ color: DIM, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 16 }}>
-              Group chat — Operations team
+              Group chat, Operations team
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(0,0,0,0.25)", border: `1px solid ${BORDER}`, borderRadius: 8, padding: "8px 12px", marginBottom: 16 }}>
               <span style={{ color: "#22c55e", fontSize: 12, fontWeight: 600, background: "rgba(34,197,94,0.12)", borderRadius: 4, padding: "2px 6px" }}>CSV</span>
@@ -228,11 +228,11 @@ const Files = () => (
           <h3 style={{ color: TEXT, fontSize: 15, fontWeight: 600, marginBottom: 16 }}>Why teams love it</h3>
           {[
             "Supports CSV, Excel, PDF, Word, text files, and more",
-            "No SQL, no formulas, no special query language — just ask in plain English",
+            "No SQL, no formulas, no special query language, just ask in plain English",
             "Cross-reference data across multiple uploaded files at once",
             "Group chats let your whole team ask questions about the same files",
-            "Answers come back as clean tables, summaries, and numbers — not raw data",
-            "Upload once, ask unlimited questions — your minion remembers the file",
+            "Answers come back as clean tables, summaries, and numbers, not raw data",
+            "Upload once, ask unlimited questions, min. remembers the file in your Joint Memory",
           ].map((point) => (
             <div key={point} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>
               <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>

@@ -84,11 +84,11 @@ const maxW: React.CSSProperties = { maxWidth: 960, margin: "0 auto" };
 const Operations = () => (
   <>
     <Helmet>
-      <title>min. for Operations | Your ops team's memory</title>
-      <meta name="description" content="Every vendor thread, status update, and document — searchable and actionable by your whole ops team." />
+      <title>min. for Operations | Joint Vendor Memory</title>
+      <meta name="description" content="Your ops team doesn't have a memory. min. gives it one. Every status check, signed contract, and vendor reply becomes searchable in plain English." />
       <link rel="canonical" href="https://getmin.ai/teams/operations" />
-      <meta property="og:title" content="min. for Operations | Your ops team's memory" />
-      <meta property="og:description" content="Every vendor thread and status update — searchable by your whole ops team." />
+      <meta property="og:title" content="min. for Operations | Joint Vendor Memory" />
+      <meta property="og:description" content="Stop chasing. Start asking. One Joint Memory across every vendor, every PO, every deadline." />
     </Helmet>
 
     <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -99,13 +99,14 @@ const Operations = () => (
           <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
             <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
               <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                Your ops team's memory
+                Joint Vendor Memory
               </p>
               <h1 className="hero-stagger-2" style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}>
-                Every vendor, every thread,<br /><span style={{ color: GREEN }}>every deadline.</span>
+                Your ops team doesn't have a memory.{" "}
+                <span style={{ color: GREEN }}>min. gives it one.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                Every vendor thread, every status update, every deadline your ops team has ever tracked — instantly recalled, permanently remembered, and ready to act on.
+                min. turns every vendor reply, status check, signed contract, and missed deadline into a Joint Memory your whole team can track, escalate, and chase against. Ask about any open order. Blast status checks to every vendor in one sentence.
               </p>
               <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://app.getmin.ai/">
@@ -131,9 +132,9 @@ const Operations = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="The daily grind"
-                headline={<>Status checks. Follow-ups. Document chasing.<br /><span style={{ color: GREEN }}>The same emails, every single day.</span></>}
-                sub="Your minion remembers every thread and every deadline. It does the repetitive communication so you only deal with what actually needs your brain."
+                eyebrow="Brokers broker. min. handles the rest."
+                headline={<>Ops runs ops.<br /><span style={{ color: GREEN }}>min. handles the grunt work.</span></>}
+                sub="min. works every open order, sending the status checks, chasing the unsigned contracts, following up on silent threads, so you only touch the exceptions."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -162,7 +163,7 @@ const Operations = () => (
                 <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.2)", borderRadius: 16, padding: 24, position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.03) 0%, transparent 40%)", pointerEvents: "none", borderRadius: 16 }} />
                   <div style={{ position: "relative", zIndex: 1 }}>
-                    <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>With your minion</span>
+                    <span style={{ color: GREEN, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", background: "rgba(0,171,85,0.1)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 99, padding: "2px 10px", display: "inline-block", marginBottom: 16 }}>With min.</span>
                     <ChatRow role="user" style={{ marginBottom: 14 }}>
                       <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>Send status checks to every vendor with an open order, chase unsigned contracts from last week, and follow up on all unanswered emails.</p>
                     </ChatRow>
@@ -189,9 +190,9 @@ const Operations = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="Bulk communication"
+                eyebrow="Blast & chase"
                 headline={<>8 status checks, 4 document chasers,<br />5 follow-ups. <span style={{ color: GREEN }}>One sentence.</span></>}
-                sub="Your minion sends, tracks, and auto-follows-up. You only step in when something goes wrong."
+                sub="min. blasts the batch, tracks every reply back into your Joint Memory, and auto-cancels follow-ups the moment a vendor responds. You only step in when something actually breaks."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
@@ -237,9 +238,9 @@ const Operations = () => (
           <Section style={{ marginTop: 80, marginBottom: 80 }}>
             <div style={maxW}>
               <SectionHeading
-                eyebrow="Exception management"
-                headline={<>Your minion handles the routine.<br /><span style={{ color: GREEN }}>You handle the fires.</span></>}
-                sub="Set alerts in plain English. Get texted when something actually needs you: delays, missed deadlines, escalations."
+                eyebrow="Ops digest"
+                headline={<>min. handles the routine.<br /><span style={{ color: GREEN }}>You handle the fires.</span></>}
+                sub="Set alerts in plain English. min. texts you the moment it sees a delay, a missed deadline, or a vendor escalation, and lines up an ops digest before your 7am coffee."
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                 <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -301,8 +302,8 @@ const Operations = () => (
           </Section>
 
           <FinalCTA
-            headline={<>Your ops team's best intel lives in inboxes.<br /><span style={{ color: GREEN }}>min. makes it permanent.</span></>}
-              sub="Every vendor thread, status update, and deadline — permanently remembered."
+            headline={<>Turn every vendor thread into<br /><span style={{ color: GREEN }}>your ops team's shared brain.</span></>}
+            sub="Every status check, every signed contract, every deadline, one email at a time. Zero data entry."
           />
         </div>
       </main>

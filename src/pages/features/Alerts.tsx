@@ -7,7 +7,7 @@ import {
 const Alerts = () => (
   <FeaturePageLayout
     title="Alerts in Plain English"
-    metaDescription="Set alert conditions in plain English. Your minion watches for triggers and texts you when something happens. No dashboards, no rules engine."
+    metaDescription="Set alert conditions in plain English. min. watches for triggers and texts you when something happens. No dashboards, no rules engine."
     canonicalPath="/skills/alerts"
     eyebrow="Alerts in Plain English"
     headline={<>Alerts that speak<br /><span style={{ color: GREEN }}>plain English.</span></>}

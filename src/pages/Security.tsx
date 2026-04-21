@@ -25,7 +25,7 @@ const Security = () => {
   }, {
     icon: Eye,
     title: "Your Private LLM Assistant. Zero Training Policy.",
-    description: "Your minion is your private AI assistant. We never train our models on your data — not now, not ever. Your data is never sold, never brokered, and never shared. Each client's data remains completely isolated."
+    description: "Your Joint Memory is yours. We never train our models on your data, not now, not ever. Your data is never sold, never brokered, and never shared. Each client's data remains completely isolated."
   }, {
     icon: Server,
     title: "Enterprise-Grade Infrastructure",
@@ -146,8 +146,8 @@ const Security = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 {[
                   { title: "We never sell your data", detail: "Not to advertisers, not to data brokers, not to anyone. Your data is not our product." },
-                  { title: "We never broker your data", detail: "We don't share, license, or provide access to your data to any third party — ever." },
-                  { title: "We never train on your data", detail: "Your minion is your private LLM assistant. We never train our models on your data — and neither do our providers. Your data stays yours." },
+                  { title: "We never broker your data", detail: "We don't share, license, or provide access to your data to any third party, ever." },
+                  { title: "We never train on your data", detail: "Your Joint Memory is yours. We never train our models on your data, and neither do our providers. Your data stays yours." },
                 ].map((item, i) => (
                   <div key={i} className="text-center">
                     <div className="inline-flex items-center justify-center w-10 h-10 bg-green-500/20 rounded-full mb-4">
@@ -175,7 +175,7 @@ const Security = () => {
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Each account is fully isolated — no cross-customer data access</span>
+                      <span>Each account is fully isolated, no cross-customer data access</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />

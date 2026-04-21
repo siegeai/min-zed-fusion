@@ -7,20 +7,20 @@ import {
 const Retrieval = () => (
   <FeaturePageLayout
     title="Perfect Recall"
-    metaDescription="Ask a question, get an answer — not a list of emails. Your minion cross-references your entire email history and gives you structured answers in seconds."
+    metaDescription="Ask a question, get an answer, not a list of emails. min. cross-references your entire email history and gives you structured answers in seconds."
     canonicalPath="/skills/recall"
     eyebrow="Perfect Recall"
     headline={<>Ask a question.<br /><span style={{ color: GREEN }}>Get an answer.</span></>}
-    subline="Search gives you a list of emails. Your minion gives you the answer — synthesized from your entire email history, in seconds."
+    subline="Search gives you a list of emails. min. gives you the answer, synthesized from your entire email history, in seconds."
     mascotSeed="feat-retrieval"
   >
     <Section style={{ marginTop: 80, marginBottom: 80 }}>
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
 
         <div style={{ marginBottom: 48 }}>
-          <h2 style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: 12, letterSpacing: "-0.02em" }}>Search returns emails. Your minion returns answers.</h2>
+          <h2 style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: 12, letterSpacing: "-0.02em" }}>Search returns emails. min. returns answers.</h2>
           <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.7, margin: 0 }}>
-            When you search your inbox, you get a list of threads that match your keywords. Then you open them one by one, scan for the information you need, and piece together the answer yourself. Your minion skips all of that — it reads across every thread, cross-references the details, and gives you a structured answer directly.
+            When you search your inbox, you get a list of threads that match your keywords. Then you open them one by one, scan for the information you need, and piece together the answer yourself. min. skips all of that, it reads across every thread, cross-references the details, and gives you a structured answer directly.
           </p>
         </div>
 
@@ -71,14 +71,14 @@ const Retrieval = () => (
             <p style={{ color: DIM, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14 }}>Cross-reference across threads</p>
             <ChatRow role="user" style={{ marginBottom: 14 }}>
               <p style={{ color: TEXT, fontSize: 14, margin: 0, lineHeight: 1.55 }}>
-                What's the full story on PO #8841 — customer emails, supplier replies, everything?
+                What's the full story on PO #8841, customer emails, supplier replies, everything?
               </p>
             </ChatRow>
             <ChatRow role="ai" seed="ret-2">
-              <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>PO #8841 — Acme Industrial</p>
+              <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>PO #8841, Acme Industrial</p>
               <DataTable
                 rows={[
-                  ["Status", "Partial — awaiting sub approval"],
+                  ["Status", "Partial, awaiting sub approval"],
                   ["Supplier", "Hartwell MFG · replied Mon"],
                   ["Waiting on", "Customer OK on SKU-2291 sub"],
                   ["Open since", "6 days"],
@@ -117,7 +117,7 @@ const Retrieval = () => (
               </p>
             </ChatRow>
             <ChatRow role="ai" seed="ret-4">
-              <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>Yes — 3 pricing commitments found</p>
+              <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>Yes, 3 pricing commitments found</p>
               <DataTable
                 hasHeader
                 rows={[
@@ -134,12 +134,12 @@ const Retrieval = () => (
         <div style={{ marginTop: 48 }}>
           <h3 style={{ color: TEXT, fontSize: 15, fontWeight: 600, marginBottom: 16 }}>Why it's better than search</h3>
           {[
-            "Search returns emails. Your minion returns the answer",
+            "Search returns emails. min. returns the answer",
             "Cross-references multiple threads to build the full picture",
-            "Aggregates data across your history — averages, counts, trends",
+            "Aggregates data across your history, averages, counts, trends",
             "Finds commitments and context buried deep in long threads",
             "Answers in structured tables, not a wall of text",
-            "Works in plain English — no keywords, no boolean operators",
+            "Works in plain English, no keywords, no boolean operators",
           ].map((point) => (
             <div key={point} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>
               <span style={{ color: GREEN, flexShrink: 0, fontSize: 13 }}>✓</span>

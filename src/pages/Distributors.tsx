@@ -16,18 +16,18 @@ import {
 
 const DIST_PROMPTS: PromptItem[] = [
   {
-    text: "What's the full story on PO #8841 — email trail, supplier status, everything.",
+    text: "What's the full story on PO #8841, email trail, supplier status, everything.",
     label: "Order context",
     response: {
-      headline: "PO #8841 — Acme Industrial Supply",
-      rows: [["Customer", "Acme Industrial"], ["Status", "Partial — awaiting sub approval"], ["Supplier", "Hartwell MFG · replied Mon"], ["Waiting on", "Customer OK for SKU-2291 sub"], ["Open since", "6 days"]],
+      headline: "PO #8841, Acme Industrial Supply",
+      rows: [["Customer", "Acme Industrial"], ["Status", "Partial, awaiting sub approval"], ["Supplier", "Hartwell MFG · replied Mon"], ["Waiting on", "Customer OK for SKU-2291 sub"], ["Open since", "6 days"]],
     },
   },
   {
     text: "Where's the Hartwell shipment for PO #8841? Is it going to arrive on time?",
     label: "Live tracking",
     response: {
-      headline: "PO #8841 — I-65 near Nashville, TN",
+      headline: "PO #8841, I-65 near Nashville, TN",
       rows: [["GPS source", "Samsara · updated 15 min ago"], ["Carrier ETA", "Fri 10:00am"], ["Real ETA", "Fri 12:30pm (+2h30m)"], ["Issue", "Ice advisory on I-65 north of Nashville"], ["Delivery window", "Fri 7am–5pm · will make it"]],
     },
   },
@@ -44,7 +44,7 @@ const DIST_PROMPTS: PromptItem[] = [
         ["PO #8871", "Hartwell MFG", "1 day"],
       ],
       highlightRow: 1,
-      note: "PO #8841 is most urgent — customer has been following up",
+      note: "PO #8841 is most urgent, customer has been following up",
     },
   },
   {
@@ -130,14 +130,14 @@ const Distributors = () => {
   return (
     <>
       <Helmet>
-        <title>min. for Distributors | Your order desk's memory</title>
-        <meta name="description" content="Every supplier relationship, order history, and exception pattern — searchable and actionable by your whole team." />
-        <meta name="keywords" content="wholesale distribution, order desk, order management, supplier follow-ups, backorder tracking, customer service, ERP, distributors" />
+        <title>min. for Distributors | Joint Order Memory</title>
+        <meta name="description" content="Your order desk doesn't have a memory. min. gives it one. Every PO, backorder, substitution, and price override becomes a Joint Memory your whole desk can search and act on." />
+        <meta name="keywords" content="wholesale distribution, order desk, order management, supplier follow-ups, backorder tracking, customer service, distributors, joint memory" />
         <link rel="canonical" href="https://getmin.ai/distributors" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/distributors" />
-        <meta property="og:title" content="min. for Distributors | Your order desk's memory" />
-        <meta property="og:description" content="Every supplier relationship and order history — searchable by your whole team." />
+        <meta property="og:title" content="min. for Distributors | Joint Order Memory" />
+        <meta property="og:description" content="Every commitment, every price, every sub, every exception. One Joint Memory, one email at a time." />
       </Helmet>
 
       <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
@@ -150,17 +150,17 @@ const Distributors = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Your order desk's memory
+                  Joint Order Memory
                 </p>
                 <h1
                   className="hero-stagger-2"
                   style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
                 >
-                  Every order, every supplier,<br />
-                  <span style={{ color: GREEN }}>every exception.</span>
+                  Your order desk doesn't have a memory.{" "}
+                  <span style={{ color: GREEN }}>min. gives it one.</span>
                 </h1>
                 <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  Every customer order, every supplier thread, every pricing commitment your order desk has ever handled — instantly recalled, permanently remembered, and ready to act on.
+                  min. turns every PO, backorder notice, substitution, price override, and expedite into a Joint Memory your whole desk can quote, approve, and chase against. Search six months of commitments in plain English. Chase every stalled thread in one sentence.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -188,9 +188,9 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }} id="skills">
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Search vs. Ask"
-                  headline={<>To understand one order,<br />you open ten threads.</>}
-                  sub="Search gives you a list of emails to dig through. Your minion gives you the full picture in one answer."
+                  eyebrow="Order context"
+                  headline={<>One PO. Ten threads.<br /><span style={{ color: GREEN }}>One answer.</span></>}
+                  sub="min. reads every supplier reply, customer email, sub approval, and internal note across your whole desk, so one order never takes ten threads to understand."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -206,10 +206,10 @@ const Distributors = () => {
                       </div>
 
                       {[
-                        { from: "purchasing@acmeindustrial.com", subj: "Re: PO #8841 — still waiting", time: "Thu 2:18pm" },
-                        { from: "sales@hartwellmfg.com", subj: "Re: Backorder — SKU-2291", time: "Mon 11:30am" },
+                        { from: "purchasing@acmeindustrial.com", subj: "Re: PO #8841, still waiting", time: "Thu 2:18pm" },
+                        { from: "sales@hartwellmfg.com", subj: "Re: Backorder, SKU-2291", time: "Mon 11:30am" },
                         { from: "janet@internal.com", subj: "FW: Acme needs update on 8841", time: "Wed 9:02am" },
-                        { from: "purchasing@acmeindustrial.com", subj: "PO #8841 — original order", time: "Mar 1 4:45pm" },
+                        { from: "purchasing@acmeindustrial.com", subj: "PO #8841, original order", time: "Mar 1 4:45pm" },
                         { from: "orders@hartwellmfg.com", subj: "Order confirmation #HW-9921", time: "Mar 2 8:17am" },
                       ].map((row, i) => (
                         <div key={i} style={{ padding: "8px 10px", borderRadius: 6, marginBottom: 3, background: i === 0 ? "rgba(234,179,8,0.05)" : "transparent", border: i === 0 ? "1px solid rgba(234,179,8,0.1)" : "1px solid transparent", filter: i > 2 ? `blur(${i > 3 ? 2.5 : 1.5}px)` : "none", opacity: i > 3 ? 0.3 : 1 }}>
@@ -240,12 +240,12 @@ const Distributors = () => {
 
                       <ChatRow role="ai" seed="dist-order">
                         <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>
-                          PO #8841 — Acme Industrial Supply
+                          PO #8841, Acme Industrial Supply
                         </p>
                         <DataTable
                           hasHeader={false}
                           rows={[
-                            ["Status", "Partial — awaiting sub approval"],
+                            ["Status", "Partial, awaiting sub approval"],
                             ["Supplier", "Hartwell MFG · replied Mon"],
                             ["Waiting on", "Customer OK on SKU-2291 sub"],
                             ["Customer", "Following up since Wed"],
@@ -265,16 +265,16 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Total recall"
+                  eyebrow="Inbox → Joint Memory"
                   headline={<>Every commitment,<br />every pricing agreement.<br /><span style={{ color: GREEN }}>Already in your email.</span></>}
-                  sub="No setup. No training. Sign in with Gmail or Outlook and your minion indexes your entire email history — your customers' pricing, your suppliers' lead times, your recurring exceptions. Correct it once, it never makes the same mistake twice. But it figures out most of it on its own."
+                  sub="Sign in with Gmail or Outlook. min. reads every PO thread, backorder notice, substitution approval, and price override sitting in history, then digests the spreadsheets and PDFs your ERP can't read, so your Joint Memory updates with every new message."
                 />
 
                 <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-5" style={{ marginBottom: 48 }}>
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 14, padding: 22 }}>
                     <p style={{ color: DIM, fontSize: 11, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.06em" }}>Incoming email</p>
                     <p style={{ color: MUTED, fontSize: 12, fontWeight: 600, marginBottom: 4 }}>From: sales@hartwellmfg.com</p>
-                    <p style={{ color: MUTED, fontSize: 12, marginBottom: 14 }}>Subject: Re: Backorder Notice — SKU-2291</p>
+                    <p style={{ color: MUTED, fontSize: 12, marginBottom: 14 }}>Subject: Re: Backorder Notice, SKU-2291</p>
                     <p style={{ color: TEXT, fontSize: 13, lineHeight: 1.75 }}>
                       Hi, updating you on{" "}
                       <span style={{ background: "rgba(0,171,85,0.18)", borderRadius: 3, padding: "1px 5px", color: "#6EE7B7" }}>PO #8841</span>.{" "}
@@ -314,7 +314,7 @@ const Distributors = () => {
                   {[
                     { stat: "30 sec", label: "to sign in and start asking" },
                     { stat: "Auto", label: "indexes PO details, ETAs, pricing, and exceptions" },
-                    { stat: "All", label: "accounts — orders@, sales@, purchasing@" },
+                    { stat: "All", label: "accounts, orders@, sales@, purchasing@" },
                     { stat: "Always", label: "up to date as new emails arrive" },
                   ].map(({ stat, label }) => (
                     <div key={stat} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px 18px" }}>
@@ -329,7 +329,7 @@ const Distributors = () => {
                     <p style={{ color: TEXT, fontSize: 14, margin: 0 }}>Did we ever commit to a specific price for Valley Parts on SKU-1140?</p>
                   </ChatRow>
                   <ChatRow role="ai" seed="dist-commit">
-                    <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>Yes — 3 pricing commitments found for Valley Parts, SKU-1140</p>
+                    <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>Yes, 3 pricing commitments found for Valley Parts, SKU-1140</p>
                     <DataTable
                       hasHeader
                       rows={[
@@ -350,9 +350,9 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Live tracking"
+                  eyebrow="Check calls & GPS"
                   headline={<>Where's the truck?<br /><span style={{ color: GREEN }}>Real answer. Real ETA.</span></>}
-                  sub="Your minion reads tracking links from supplier and carrier emails, checks the real truck position via Samsara, FourKites, and others, and adjusts the ETA with live weather and traffic data."
+                  sub="min. chases tracking links in supplier and carrier email, pings Samsara and FourKites for the real truck, and revises ETAs before the customer's dispatcher calls to ask."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -363,7 +363,7 @@ const Distributors = () => {
                       </p>
                     </ChatRow>
                     <ChatRow role="ai" seed="trk-dist">
-                      <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>PO #8841 — I-65 near Nashville, TN</p>
+                      <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>PO #8841, I-65 near Nashville, TN</p>
                       <DataTable
                         rows={[
                           ["GPS source", "Samsara · updated 15 min ago"],
@@ -379,7 +379,7 @@ const Distributors = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(234,179,8,0.15)", borderRadius: 16, padding: 24 }}>
                     <p style={{ color: "#FCD34D", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 14, fontWeight: 600 }}>Automatic exception</p>
                     <ChatRow role="ai" seed="trk-dist-exc">
-                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ PO #8857 (Central Dist.) — truck stationary 4hrs</p>
+                      <p style={{ color: "#FCD34D", fontSize: 12, fontWeight: 600, margin: "0 0 8px" }}>⚠ PO #8857 (Central Dist.), truck stationary 4hrs</p>
                       <DataTable
                         rows={[
                           ["Location", "I-70 near Indianapolis, IN"],
@@ -396,7 +396,7 @@ const Distributors = () => {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingLeft: 4, marginTop: 24 }}>
                   {[
-                    "Reads tracking links from supplier and carrier emails — no manual input",
+                    "Reads tracking links from supplier and carrier emails, no manual input",
                     "Real GPS via Samsara, FourKites, project44, MacroPoint, and more",
                     "Raises exceptions automatically so you can notify customers before they ask",
                   ].map((point) => (
@@ -417,13 +417,13 @@ const Distributors = () => {
                 <SectionHeading
                   eyebrow="Exception visibility"
                   headline={<>See every stalled order<br /><span style={{ color: GREEN }}>before it becomes a problem.</span></>}
-                  sub="Backorders, substitutions, freight disputes, expedites — your minion tracks every exception so nothing gets buried."
+                  sub="Backorders, sub approvals, freight disputes, expedites, min. tags every exception in your Joint Memory so nothing gets buried under the next thread."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
                     <p style={{ color: DIM, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 20 }}>
-                      Open exceptions — today
+                      Open exceptions, today
                     </p>
 
                     {[
@@ -434,7 +434,7 @@ const Distributors = () => {
                     ].map((ex, i) => (
                       <div key={i} style={{ background: ex.urgent ? "rgba(234,179,8,0.05)" : "rgba(255,255,255,0.02)", border: ex.urgent ? "1px solid rgba(234,179,8,0.15)" : `1px solid ${BORDER}`, borderRadius: 10, padding: "12px 14px", marginBottom: 8 }}>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-                          <span style={{ color: TEXT, fontSize: 13, fontWeight: 500 }}>{ex.order} — {ex.customer}</span>
+                          <span style={{ color: TEXT, fontSize: 13, fontWeight: 500 }}>{ex.order}, {ex.customer}</span>
                           <span style={{ color: ex.urgent ? "#FCD34D" : DIM, fontSize: 11, fontWeight: ex.urgent ? 600 : 400 }}>{ex.age}</span>
                         </div>
                         <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -448,7 +448,7 @@ const Distributors = () => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.12)", borderRadius: 16, padding: 24 }}>
                       <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                        Your minion catches every backorder notice, substitution request, and freight question as it arrives — and surfaces the ones that have been sitting too long, so you're never surprised by an angry customer call.
+                        min. catches every backorder notice, substitution request, and freight question as it arrives, and surfaces the ones sitting too long, so you're never surprised by an angry customer call.
                       </p>
                     </div>
 
@@ -486,9 +486,9 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Automated follow-ups"
+                  eyebrow="Blast & chase"
                   headline={<>Stop chasing suppliers<br /><span style={{ color: GREEN }}>manually.</span></>}
-                  sub="One prompt follows up on every stalled thread. Auto-cancels when they respond. You only deal with the replies."
+                  sub="One prompt blasts follow-ups on every stalled PO, backorder, and sub approval, and auto-cancels the moment they reply. You only touch the thread once there's actually a decision to make."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -560,9 +560,9 @@ const Distributors = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Automation"
+                  eyebrow="Ops digest"
                   headline={<>Your morning order briefing,<br /><span style={{ color: GREEN }}>before the calls start.</span></>}
-                  sub="Your minion keeps working overnight. You start the day knowing exactly what's on fire and what can wait."
+                  sub="min. chases overnight supplier replies, flags orders stalled on sub approval, and lines up pricing disputes and expedites before the phones start ringing at 8am."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -604,9 +604,9 @@ const Distributors = () => {
                       </div>
 
                       {[
-                        { icon: "⚠️", title: "PO #8841 — Acme Industrial, 6 days stalled", detail: "Waiting on customer sub approval for SKU-2291", kind: "warn" as const },
+                        { icon: "⚠️", title: "PO #8841, Acme Industrial, 6 days stalled", detail: "Waiting on customer sub approval for SKU-2291", kind: "warn" as const },
                         { icon: "🚨", title: "2 expedite requests overnight", detail: "Valley Parts (PO #8857) · Ridge Supply (PO #8891)", kind: "warn" as const },
-                        { icon: "📋", title: "8 orders waiting on supplier responses", detail: "Oldest: 6 days — follow-ups queued", kind: "default" as const },
+                        { icon: "📋", title: "8 orders waiting on supplier responses", detail: "Oldest: 6 days, follow-ups queued", kind: "default" as const },
                         { icon: "💬", title: "3 substitution approvals still pending", detail: "Customers haven't responded · follow-ups sent", kind: "default" as const },
                         { icon: "💰", title: "2 price overrides need manager sign-off", detail: "PO #8876 · PO #8883 · total exposure $2,140", kind: "default" as const },
                       ].map((item, i) => (
@@ -635,8 +635,8 @@ const Distributors = () => {
 
             {/* ── Final CTA ── */}
             <FinalCTA
-              headline={<>Your order desk's best intel is buried in threads.<br /><span style={{ color: GREEN }}>min. surfaces it.</span></>}
-              sub="Every supplier relationship, order history, and exception — permanently remembered."
+              headline={<>Turn every PO thread into<br /><span style={{ color: GREEN }}>your order desk's shared brain.</span></>}
+              sub="Every commitment, every sub approval, every backorder, every override, one email at a time. Zero data entry."
             />
 
           </div>

@@ -12,55 +12,55 @@ import {
 const ALL_SKILLS = [
   {
     title: "Recall",
-    desc: "Ask a question, get an answer — not a list of emails to dig through. Your minion cross-references your entire email history and gives you structured answers in seconds. Averages, timelines, commitments, context — all from a plain English question.",
+    desc: "Ask a question, get an answer, not a list of emails to dig through. min. cross-references your entire Joint Memory and gives you structured answers in seconds. Averages, timelines, commitments, context, all from a plain English question.",
     to: "/skills/recall",
     seed: "feat-retrieval",
   },
   {
     title: "Tracking",
-    desc: "Your minion reads tracking links from carrier emails, checks the real GPS position via Google Maps, Samsara, FourKites, Fedex, UPS, etc., then adjusts the ETA with live weather and traffic data. Raises exceptions automatically when a truck is going to be late.",
+    desc: "min. reads tracking links from carrier emails, checks the real GPS position via Google Maps, Samsara, FourKites, FedEx, UPS, and more, then adjusts the ETA with live weather and traffic data. Raises exceptions automatically when a truck is going to be late.",
     to: "/skills/tracking",
     seed: "feat-tracking",
   },
   {
     title: "Follow-Ups",
-    desc: "Tell your minion to follow up on any email thread, on any cadence. Auto-cancels when the recipient replies or you jump in. Pending follow-ups visible in the Task tab.",
+    desc: "Tell min. to follow up on any email thread, on any cadence. Auto-cancels when the recipient replies or you jump in. Pending follow-ups visible in the Task tab.",
     to: "/skills/follow-ups",
     seed: "feat-followup",
   },
   {
     title: "Alerts",
-    desc: "Set conditions in plain English (\"text me if anyone mentions a delay\") and your minion texts you when it triggers. Real-time monitoring of your inbox.",
+    desc: "Set conditions in plain English (\"text me if anyone mentions a delay\") and min. texts you when it triggers. Real-time monitoring of your inbox.",
     to: "/skills/alerts",
     seed: "feat-alerts",
   },
   {
     title: "Contacts",
-    desc: "Your minion auto-classifies every contact (customer, vendor, partner, or noise) based on conversation history. No manual tagging required.",
+    desc: "min. auto-classifies every contact (customer, vendor, partner, or noise) based on conversation history. No manual tagging required.",
     to: "/skills/contacts",
     seed: "feat-contacts",
   },
   {
     title: "Tasks",
-    desc: "When you ask your minion to do something, like an email blast, it auto-creates a task to track progress. Each task runs in its own dedicated chat window.",
+    desc: "When you ask min. to do something, like an email blast, it auto-creates a task to track progress. Each task runs in its own dedicated chat window.",
     to: "/skills/tasks",
     seed: "feat-tasks",
   },
   {
     title: "Attachments",
-    desc: "Your minion can attach files directly to outgoing emails, auto-size tables to content, and embed images or GIFs inline. Professional emails, effortlessly.",
+    desc: "min. attaches files directly to outgoing emails, auto-sizes tables to content, and embeds images or GIFs inline. Professional emails, effortlessly.",
     to: "/skills/email",
     seed: "feat-email",
   },
   {
     title: "Instructions",
-    desc: "Each minion can have its own standing rules: \"always be concise\", \"answer in formal tone\", \"reply in rhymes\". Personalize how your minion communicates.",
+    desc: "Give min. standing rules: \"always be concise\", \"answer in formal tone\", \"reply in rhymes\". Personalize how min. communicates on your behalf.",
     to: "/skills/instructions",
     seed: "feat-instructions",
   },
   {
     title: "Files",
-    desc: "Upload a CSV, Excel spreadsheet, PDF, or text file and ask questions in plain English. No SQL, no formulas — just answers. Works in group chats so your whole team can collaborate on the same data.",
+    desc: "Upload a CSV, Excel spreadsheet, PDF, or text file and ask questions in plain English. No SQL, no formulas, just answers. Works in group chats so your whole team can collaborate on the same data.",
     to: "/skills/files",
     seed: "feat-files",
   },
@@ -70,7 +70,7 @@ const Features = () => (
   <>
     <Helmet>
       <title>Skills | min.</title>
-      <meta name="description" content="Explore all min. skills: automatic follow-ups, plain English alerts, smart contact classification, task tracking, email power, and custom instructions." />
+      <meta name="description" content="Explore all min. skills: plain English recall, live tracking, automatic follow-ups, alerts, task tracking, and custom instructions. Everything min. can do for your team." />
       <link rel="canonical" href="https://getmin.ai/skills" />
     </Helmet>
 
@@ -89,11 +89,11 @@ const Features = () => (
                 className="hero-stagger-2"
                 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 700, lineHeight: 1.12, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 20px 0" }}
               >
-                Everything your minion<br />
+                Everything min.<br />
                 <span style={{ color: GREEN }}>can do for you.</span>
               </h1>
               <p className="hero-stagger-3" style={{ fontSize: "clamp(1rem, 2.5vw, 1.2rem)", color: MUTED, fontWeight: 400, marginBottom: 0, lineHeight: 1.5 }}>
-                Total recall across your entire inbox. Every skill works in plain English.
+                Total recall across your entire Joint Memory. Every skill works in plain English.
               </p>
             </div>
           </div>
@@ -146,7 +146,7 @@ const Features = () => (
           <SectionHeading
             eyebrow="See it in action"
             headline={<>Built for teams<br /><span style={{ color: GREEN }}>who live in email.</span></>}
-            sub="Whether you're in ops, BD, or account management. Your minion speaks your language."
+            sub="Whether you're in ops, BD, or account management. min. speaks your language."
           />
 
           <Section style={{ marginBottom: 80 }}>
@@ -193,8 +193,8 @@ const Features = () => (
           </Section>
 
           <FinalCTA
-            headline={<>Ready to put your minion<br /><span style={{ color: GREEN }}>to work?</span></>}
-            sub="Sign in with Gmail or Outlook. Your minion starts working in 30 seconds."
+            headline={<>Ready to put min.<br /><span style={{ color: GREEN }}>to work?</span></>}
+            sub="Sign in with Gmail or Outlook. min. starts building your Joint Memory in 30 seconds."
           />
         </div>
       </main>
