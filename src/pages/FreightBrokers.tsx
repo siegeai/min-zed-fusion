@@ -378,7 +378,7 @@ const FreightBrokers = () => {
               <div style={maxW}>
                 <SectionHeading
                   eyebrow="Blast & chase"
-                  headline={<>Send a rate request<br />to 36 carriers.{" "}<span style={{ color: GREEN }}>In one sentence.</span></>}
+                  headline={<>Send a rate request<br />to your top 10 carriers.{" "}<span style={{ color: GREEN }}>In one sentence.</span></>}
                   sub="One prompt blasts FTL dry van or reefer tenders to your lane list, logs every quote, and schedules follow-ups that cancel the second a carrier replies."
                 />
 
@@ -386,16 +386,16 @@ const FreightBrokers = () => {
                   <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 24 }}>
                     <ChatRow role="user" style={{ marginBottom: 20 }}>
                       <p style={{ color: TEXT, fontSize: 13, margin: 0, lineHeight: 1.55 }}>
-                        Send a rate request to my top carriers for FTL dry van LA to Miami, follow up in 2 days if they don't respond
+                        Send a rate request to my top 10 carriers for FTL dry van LA to Miami, follow up in 2 days if they don't respond
                       </p>
                     </ChatRow>
                     <ChatRow role="ai" seed="blast-carriers">
                       <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 14px" }}>
-                        Sending to 36 carriers from your list...
+                        Sending to your top 10 carriers on this lane...
                       </p>
-                      <CarrierDots />
+                      <CarrierDots count={10} />
                       <div style={{ display: "flex", gap: 10, flexWrap: "wrap", fontSize: 12 }}>
-                        <span style={{ background: "rgba(0,171,85,0.12)", color: GREEN, borderRadius: 99, padding: "3px 10px", fontWeight: 500 }}>✓ 36 sent</span>
+                        <span style={{ background: "rgba(0,171,85,0.12)", color: GREEN, borderRadius: 99, padding: "3px 10px", fontWeight: 500 }}>✓ 10 sent</span>
                         <span style={{ background: "rgba(255,255,255,0.05)", color: MUTED, borderRadius: 99, padding: "3px 10px" }}>Auto follow-ups: 2 days</span>
                       </div>
                     </ChatRow>
@@ -404,13 +404,13 @@ const FreightBrokers = () => {
                   <div style={{ background: SURFACE, border: "1px solid rgba(0,171,85,0.15)", borderRadius: 16, padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <div>
                       <p style={{ color: GREEN, fontSize: 12, fontWeight: 600, margin: "0 0 20px", textTransform: "uppercase", letterSpacing: "0.06em" }}>Live response tracker</p>
-                      <ProgressTracker />
+                      <ProgressTracker total={10} />
                     </div>
                     <div style={{ marginTop: 28 }}>
                       {[
                         "Replies trickle in for 48 hours",
                         "Follow-ups auto-cancel when they respond",
-                        '"3/36 replied" becomes "18/36 replied" while you sleep',
+                        '"2/10 replied" becomes "7/10 replied" while you sleep',
                       ].map((point, i) => (
                         <div key={i} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>
                           <span style={{ color: GREEN, flexShrink: 0, marginTop: 1, fontSize: 13 }}>✓</span>
@@ -731,26 +731,26 @@ const FreightBrokers = () => {
                     "Used to take me 35 minutes to cover a Savannah dray load. With min., 4 minutes. I covered three more loads today than I would have yesterday."
                   </p>
                   <p style={{ color: MUTED, fontSize: 13, margin: 0 }}>
-                    <strong style={{ color: TEXT }}>Andy Bergstrom</strong> · Owner, Portage Logistics
+                    <strong style={{ color: TEXT }}>Andy</strong> · Drayage Manager, Portage Logistics
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {[
                     {
-                      name: "Andy Bergstrom",
-                      title: "Owner, Portage Logistics",
+                      name: "Andy",
+                      title: "Drayage Manager, Portage Logistics",
                       quote: "min. found a Savannah → Suwanee carrier in 3 seconds from a thread I forgot I had. Covered the load from my own network at $200 under DAT spot. That's my whole week of min. right there.",
                     },
                     {
-                      name: "Fotis Ramosz",
+                      name: "Fotis",
                       title: "Broker, Matrix",
                       quote: "I used to open 12 Outlook tabs to get PO statuses. Now I just ask. min. reads every carrier reply and gives me one table. Saved me two hours a day.",
                     },
                     {
-                      name: "Round Table Logistics",
-                      title: "Owner",
-                      quote: "Every strawberry load from Jake Larson gets picked up, tracked, and confirmed without me touching my inbox. min. knows the format and handles it.",
+                      name: "Kosta",
+                      title: "Owner, Round Table Logistics",
+                      quote: "min. helps me find coverage for every load, without using a loadboard.",
                     },
                   ].map((c) => (
                     <div key={c.name} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 14, padding: "22px 22px 20px", display: "flex", flexDirection: "column" }}>
