@@ -14,11 +14,43 @@ export interface PromptItem {
 
 const FREIGHT_PROMPTS: PromptItem[] = [
   {
-    text: "What did STG quote us on dry van Chicago to Atlanta?",
-    label: "Rate lookup",
+    text: "Find me carriers that run Toronto to Miami FTL dry van.",
+    label: "Capacity in your network",
     response: {
-      headline: "STG Logistics: $2,200",
-      rows: [["Lane", "Chicago → Atlanta"], ["Equipment", "Dry Van (FTL)"], ["Quoted", "Tue Mar 5 · 11:42am"], ["Ref #", "STG-2024-8821"]],
+      headline: "9 carriers in your network run this lane",
+      rows: [
+        ["Carrier", "Last rate", "Last run"],
+        ["STG Logistics", "$2,800", "14 days ago"],
+        ["Werner Ent.", "$2,750", "6 days ago"],
+        ["Schneider", "$2,900", "21 days ago"],
+        ["Fadi Kanaan", "$2,640", "3 days ago"],
+        ["J.B. Hunt", "$2,820", "11 days ago"],
+      ],
+      note: "Not a load board. Every one has quoted or moved freight for your team before.",
+    },
+  },
+  {
+    text: "Blast a rate request to all of them for a pickup Tuesday.",
+    label: "Blast your network",
+    response: {
+      headline: "✓ Rate request sent to 9 carriers",
+      rows: [["Lane", "Toronto → Miami"], ["Equipment", "Dry Van (FTL)"], ["Pickup", "Tue Mar 12"], ["Follow-up", "Auto in 2 days if no reply"]],
+      note: "Quotes trickle back into one table as carriers respond.",
+    },
+  },
+  {
+    text: "Who's my most reliable Atlanta → Chicago dry van carrier in the last 90 days?",
+    label: "Carrier ranking",
+    response: {
+      headline: "Werner Enterprises · 100% on-time",
+      rows: [
+        ["Carrier", "Loads", "On-time"],
+        ["Werner Enterprises", "11", "100%"],
+        ["Old Dominion", "8", "96%"],
+        ["Schneider", "6", "83%"],
+        ["XPO Logistics", "5", "80%"],
+      ],
+      note: "Ranked from every POD and check-call thread in your inbox.",
     },
   },
   {
@@ -30,11 +62,47 @@ const FREIGHT_PROMPTS: PromptItem[] = [
     },
   },
   {
-    text: "Send check-call requests to every carrier with a load en route today.",
-    label: "Check calls",
+    text: "Send a check-call to every carrier with a load in transit right now.",
+    label: "Bulk check calls",
     response: {
-      headline: "✓ 8 check-call emails sent",
-      rows: [["STG · Load #3371", "Sent · awaiting reply"], ["Werner · Load #3385", "Sent · awaiting reply"], ["XPO · Load #3392", "Sent · awaiting reply"], ["Schneider · Load #3401", "Sent · no update in 18hrs ⚠"]],
+      headline: "✓ Check-calls sent to 23 carriers",
+      rows: [
+        ["STG · Load #3371", "Sent · awaiting reply"],
+        ["Werner · Load #3385", "Sent · awaiting reply"],
+        ["XPO · Load #3392", "Sent · replied 2 min ago"],
+        ["Schneider · Load #3401", "Sent · no update in 18hrs ⚠"],
+        ["+ 19 more", "All sent in parallel"],
+      ],
+      note: "Replies stream back into one table. No more opening 23 tabs.",
+    },
+  },
+  {
+    text: "Flag any active load that hasn't had a check-in in the last 4 hours.",
+    label: "Silent loads",
+    response: {
+      headline: "⚠ 3 loads silent 4+ hours · pinging carriers now",
+      rows: [
+        ["Load #DAL-3385", "STG · last ping 6h ago"],
+        ["Load #MIA-3401", "XPO · last ping 5h ago"],
+        ["Load #SEA-3412", "Werner · last ping 4h ago"],
+        ["Action", "Check-in email sent to all 3"],
+      ],
+      note: "Silent loads surfaced before they become late loads.",
+    },
+  },
+  {
+    text: "Check in with every Acme load delivering in the next 48 hours.",
+    label: "Bulk T&T",
+    response: {
+      headline: "✓ Track & trace sent to 6 carriers on Acme loads",
+      rows: [
+        ["Load #ACM-4412", "STG · delivers Thu 2pm"],
+        ["Load #ACM-4418", "Werner · delivers Thu 4pm"],
+        ["Load #ACM-4420", "XPO · delivers Fri 10am"],
+        ["Load #ACM-4425", "Schneider · delivers Fri 3pm"],
+        ["+ 2 more", "All sent"],
+      ],
+      note: "Responses collected per load. You'll see one summary by 3pm.",
     },
   },
   {
@@ -46,27 +114,26 @@ const FREIGHT_PROMPTS: PromptItem[] = [
     },
   },
   {
-    text: "Text me if any carrier mentions a breakdown or delay overnight.",
-    label: "Overnight alerts",
+    text: "Send a POD request to every carrier that delivered this week without one.",
+    label: "POD chase",
     response: {
-      headline: "✓ Alert created",
-      rows: [["Trigger", "Breakdown or delay mentioned"], ["Monitoring", "All incoming carrier emails"], ["Notify via", "SMS to (312) 555-0142"], ["Active", "Overnight · 7pm–7am"]],
+      headline: "✓ 6 POD requests sent",
+      rows: [["STG · Load #3371", "Delivered Mon · no POD"], ["Werner · Load #3385", "Delivered Tue · no POD"], ["XPO · Load #3392", "Delivered Wed · no POD"], ["Auto follow-up", "24 hrs if still no POD"]],
     },
   },
   {
-    text: "What's the pickup window on the Acme load?",
-    label: "Load details",
+    text: "We have a truck in LA ready tomorrow. Which of my customers ship LA → Texas regularly?",
+    label: "Reverse match",
     response: {
-      headline: "Load #ACM-4412: Confirmed",
-      rows: [["Pickup window", "Thu Mar 7, 8am–12pm"], ["Origin", "Chicago, IL (Dock B)"], ["Carrier", "STG Logistics"], ["Status", "✓ Confirmed"]],
-    },
-  },
-  {
-    text: "Reach out to my west coast customers. We have a truck in LA ready tomorrow for loads to Texas.",
-    label: "Customer outreach",
-    response: {
-      headline: "Drafting outreach to 9 customers",
-      rows: [["Acme Industries", "LA, drafted & ready"], ["Pacific Freight Co", "Long Beach, drafted"], ["West Supply Inc.", "Anaheim, drafted"], ["Action", "Review & send all →"]],
+      headline: "4 customers with repeat LA → TX lanes",
+      rows: [
+        ["Customer", "Loads (90d)", "Avg rate"],
+        ["Acme Industries", "7", "$2,420"],
+        ["Pacific Freight", "5", "$2,380"],
+        ["West Supply", "4", "$2,510"],
+        ["Ridge Logistics", "3", "$2,290"],
+      ],
+      note: "Drafts ready. Send all 4 outreach emails at once?",
     },
   },
   {
@@ -75,14 +142,6 @@ const FREIGHT_PROMPTS: PromptItem[] = [
     response: {
       headline: "3 items need your attention",
       rows: [["XPO Logistics", "Delay on Dallas load (+4hrs)"], ["New quotes", "2 received, below market avg"], ["Follow-ups", "3 carriers haven't replied"]],
-    },
-  },
-  {
-    text: "Blast a rate request to my top 20 carriers for flatbed Seattle to LA, next Tuesday.",
-    label: "Carrier blast",
-    response: {
-      headline: "✓ Sending to 20 carriers",
-      rows: [["Lane", "Seattle → Los Angeles"], ["Equipment", "Flatbed · FTL"], ["Pickup", "Tue Mar 12"], ["Follow-up", "Auto in 2 days if no reply"]],
     },
   },
 ];

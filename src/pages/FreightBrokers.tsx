@@ -66,8 +66,8 @@ const FreightBrokers = () => {
                   Your brokerage doesn't have a memory.{" "}
                   <span style={{ color: GREEN }}>min. gives it one.</span>
                 </h1>
-                <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.3rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.55, maxWidth: 740, marginLeft: "auto", marginRight: "auto" }}>
-                  min. turns every email, load sheet, and quote into a Joint Memory that automatically maps your carriers by the lanes they run, the trucks they have, and the rates they quote. Search your history in plain English. Take action in one sentence.
+                <p className="hero-stagger-3" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.3rem)", color: MUTED, fontWeight: 400, marginBottom: 40, lineHeight: 1.55, maxWidth: 760, marginLeft: "auto", marginRight: "auto" }}>
+                  min. builds your brokerage's own carrier network from every rate con, check call, and POD in your inboxes. Find capacity inside your own network, then blast for rates in one sentence. The edge a load board can't give you.
                 </p>
                 <div className="hero-stagger-4" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   <a href="https://app.getmin.ai/">
@@ -592,26 +592,26 @@ const FreightBrokers = () => {
             <Section style={{ marginTop: 80, marginBottom: 80 }}>
               <div style={maxW}>
                 <SectionHeading
-                  eyebrow="Institutional asset"
-                  headline={<>The carrier intelligence you've earned<br />is trapped in <span style={{ color: GREEN }}>10 inboxes.</span></>}
-                  sub="Worth millions. Unsearchable. Walks out the door every time a rep quits."
+                  eyebrow="The edge load boards can't give you"
+                  headline={<>Your own carrier network<br />is <span style={{ color: GREEN }}>trapped in 10 inboxes.</span></>}
+                  sub="Load boards give you the same lanes everyone else is bidding on. Your real edge is who your team already knows."
                 />
                 <div style={{ maxWidth: 720, margin: "0 auto", color: MUTED, fontSize: "1.02rem", lineHeight: 1.75 }}>
                   <p style={{ margin: "0 0 1.1em" }}>
                     You've spent 8 years figuring out who's reliable, who's cheap but flaky, who runs reefer through the Rockies in January, who blows off small loads, and who runs Texas dray like clockwork.
                   </p>
                   <p style={{ margin: "0 0 1.1em" }}>
-                    That knowledge is real. It's worth millions. It's yours.
+                    That's your <strong style={{ color: TEXT }}>own carrier network</strong>. It's real. It's worth millions. It's yours. And no load board has it.
                   </p>
                   <p style={{ margin: "0 0 1.1em" }}>
-                    And it's invisible, scattered across every broker's inbox, dying a little every time someone quits, forgotten every time you need to cover a lane no one's run in six months.
+                    But it's invisible, scattered across every broker's inbox, dying a little every time someone quits, forgotten every time you need to cover a lane no one's run in six months. So your team falls back on DAT and Truckstop, competing with everyone else on spot rates.
                   </p>
                   <p style={{ margin: "0 0 1.4em" }}>
-                    min. captures it, one email at a time. When a broker goes on vacation or leaves the firm, their carrier relationships, lane history, and rate intelligence <strong style={{ color: TEXT }}>stay inside your business</strong>, not somewhere a person walks out the door with.
+                    min. captures every carrier, lane, and rate, one email at a time, and turns it into a searchable network. When you need capacity on Toronto → Miami, you're pulling from your own list, not bidding on someone else's board. When a broker leaves, their carrier relationships <strong style={{ color: TEXT }}>stay inside your business</strong>.
                   </p>
                   <p style={{ margin: 0, padding: "18px 22px", background: "rgba(0,171,85,0.06)", border: "1px solid rgba(0,171,85,0.18)", borderRadius: 12, color: TEXT, fontWeight: 600, textAlign: "center", fontSize: "1.05rem" }}>
                     TQL has 10,000 people doing this manually.<br />
-                    You don't need 10,000 people. You need <span style={{ color: GREEN }}>min.</span>.
+                    You don't need 10,000 people. You need <span style={{ color: GREEN }}>min.</span>
                   </p>
                 </div>
               </div>
