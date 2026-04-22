@@ -83,7 +83,7 @@ const Footer = () => {
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }} className="mt-12 pt-8">
           <p className="text-gray-400 text-sm italic text-center md:text-left mb-6 md:mb-4 max-w-2xl">
-            Built in San Francisco for the 17,000 American brokerages still fighting to stay independent.
+            Built in Los Angeles for the 17,000 American brokerages still fighting to stay independent.
           </p>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">© 2026 min. All rights reserved.</p>
