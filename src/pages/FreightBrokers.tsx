@@ -38,7 +38,7 @@ const FreightBrokers = () => {
     <>
       <Helmet>
         <title>min. | Collective Memory for freight brokers</title>
-        <meta name="description" content="Your brokerage doesn't have a memory. min. gives it one. min. turns every rate con, check call, and POD into a Collective Carrier Memory your whole team can search and act on." />
+        <meta name="description" content="Your brokerage doesn't have a memory. min. gives it one. min. turns every rate con, check call, and POD into a Collective Freight Memory your whole team can search and act on." />
         <meta name="keywords" content="freight broker, collective memory, carrier intelligence, rate con, check call, POD, claim, private carrier network" />
         <link rel="canonical" href="https://getmin.ai/brokers" />
         <meta property="og:type" content="website" />
@@ -57,7 +57,7 @@ const FreightBrokers = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Collective Carrier Memory
+                  Collective Freight Memory
                 </p>
                 <h1
                   className="hero-stagger-2"

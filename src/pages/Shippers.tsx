@@ -114,13 +114,13 @@ const Shippers = () => {
   return (
     <>
       <Helmet>
-        <title>min. for Shippers | Collective Carrier & Vendor Memory</title>
+        <title>min. for Shippers | Collective Freight & Supplier Memory</title>
         <meta name="description" content="Your shipping team's best rates are hidden in their inboxes. min. turns every PO, RFQ, BOL, and POD into a Collective Memory your whole team can search and act on." />
         <meta name="keywords" content="shipper, procurement, logistics assistant, RFQ, shipment tracking, rate comparison, supply chain, freight management, collective memory" />
         <link rel="canonical" href="https://getmin.ai/shippers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://getmin.ai/shippers" />
-        <meta property="og:title" content="min. for Shippers | Collective Carrier & Vendor Memory" />
+        <meta property="og:title" content="min. for Shippers | Collective Freight & Supplier Memory" />
         <meta property="og:description" content="Your shipping team doesn't have a memory. min. gives it one. Every rate, every carrier, every PO, one searchable brain." />
       </Helmet>
 
@@ -134,7 +134,7 @@ const Shippers = () => {
             <div className="hero-glow" style={{ paddingTop: 32, marginBottom: 80 }}>
               <div style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
                 <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Collective Carrier &amp; Vendor Memory
+                  Collective Freight &amp; Supplier Memory
                 </p>
                 <h1
                   className="hero-stagger-2"
