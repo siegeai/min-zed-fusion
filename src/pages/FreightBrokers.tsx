@@ -100,17 +100,14 @@ const FreightBrokers = () => {
                 <SectionHeading
                   eyebrow="Collective Memory"
                   headline={<>Your brokerage's shared brain.<br /><span style={{ color: GREEN }}>Finally outside someone's head.</span></>}
-                  sub="min. connects to every broker's inbox and builds a single, shared intelligence layer from all of it. Not a static database. A living memory that updates with every email."
+                  sub="A living memory that updates with every email, not a static database."
                 />
                 <div style={{ maxWidth: 720, margin: "0 auto", color: MUTED, fontSize: "1.02rem", lineHeight: 1.75 }}>
                   <p style={{ margin: "0 0 1.1em" }}>
-                    min. doesn't just read text. It digests the documents where your data is actually trapped, emails, rate tables, load sheets, carrier quote replies, rate confirmations, BOLs, PODs, Excel docs, PDFs. Everything unstructured becomes structured memory.
+                    min. digests what's trapped in your inbox, rate cons, load sheets, rate tables, quote replies, BOLs, PODs, Excel docs, PDFs, and turns it into structured memory.
                   </p>
                   <p style={{ margin: "0 0 1.1em" }}>
-                    If a carrier quotes a lane once, min. remembers they run that lane, what equipment they have, and what rate they gave. Every rate con, every check call, every POD, every claim feeds the same memory.
-                  </p>
-                  <p style={{ margin: "0 0 1.1em" }}>
-                    Over time, your brokerage ends up with something no competitor has: a living Collective Memory that knows who runs what lane, who covers on time, who pushes back on rates, who no-shows, and who your team should call first.
+                    Quote a lane once and min. remembers the carrier, the equipment, the rate. Every outcome, on-time, late, refused, no-show, claim, feeds back. A Collective Memory that knows who runs what lane and who your team should call first.
                   </p>
                   <p style={{ margin: 0, color: TEXT, fontWeight: 600 }}>
                     No data entry. min. grows smarter with every email your team sends and receives.
