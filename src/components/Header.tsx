@@ -1,110 +1,17 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const NAV_LINK_STYLE: React.CSSProperties = { color: "#6B7280" };
 const NAV_LINK_HOVER = "#F9FAFB";
 
-const TEAMS_ITEMS = [
-  { label: "Operations", to: "/teams/operations" },
-  { label: "Business Development", to: "/teams/business-development" },
-  { label: "Account Management", to: "/teams/account-management" },
-];
-
-const INDUSTRIES_ITEMS = [
-  { label: "Brokers", to: "/brokers" },
-  { label: "Shippers", to: "/shippers" },
-  { label: "3PLs", to: "/3pl" },
-  { label: "Distributors", to: "/distributors" },
-];
-
-function Dropdown({
-  label,
-  items,
-}: {
-  label: string;
-  items: { label: string; to: string }[];
-}) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  return (
-    <div ref={ref} style={{ position: "relative" }}>
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="text-sm font-normal transition-colors duration-200 flex items-center gap-1"
-        style={{ ...NAV_LINK_STYLE, background: "none", border: "none", cursor: "pointer", padding: 0 }}
-        onMouseEnter={(e) => (e.currentTarget.style.color = NAV_LINK_HOVER)}
-        onMouseLeave={(e) => { if (!open) e.currentTarget.style.color = "#6B7280"; }}
-      >
-        {label}
-        <ChevronDown style={{ width: 14, height: 14, transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "rotate(0)" }} />
-      </button>
-
-      {open && (
-        <div
-          style={{
-            position: "absolute",
-            top: "calc(100% + 8px)",
-            left: "50%",
-            transform: "translateX(-50%)",
-            background: "rgba(30,38,48,0.98)",
-            backdropFilter: "blur(16px)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: 12,
-            padding: "8px 0",
-            minWidth: 200,
-            boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
-            zIndex: 200,
-          }}
-        >
-          {items.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              onClick={() => setOpen(false)}
-              className="block text-sm transition-colors duration-150"
-              style={{
-                padding: "8px 16px",
-                color: "#9CA3AF",
-                fontWeight: 400,
-                textDecoration: "none",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#F9FAFB";
-                e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.04)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#9CA3AF";
-                e.currentTarget.style.backgroundColor = "transparent";
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-const MOBILE_SECTIONS = [
-  { heading: "Industries", items: INDUSTRIES_ITEMS },
-  { heading: "Teams", items: TEAMS_ITEMS },
-];
-
 const MOBILE_LINKS = [
-  { label: "Contact Us", to: "/contact" },
+  { label: "Platform", to: "/" },
+  { label: "Security", to: "/security" },
+  { label: "Company", to: "/about" },
   { label: "Careers", to: "/careers" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Header = () => {
@@ -157,16 +64,23 @@ const Header = () => {
             </Link>
 
             <nav className="hidden md:flex items-center space-x-6">
-              <Dropdown label="Teams" items={TEAMS_ITEMS} />
-              <Dropdown label="Industries" items={INDUSTRIES_ITEMS} />
               <Link
-                to="/contact"
+                to="/security"
                 className="text-sm font-normal transition-colors duration-200"
                 style={NAV_LINK_STYLE}
                 onMouseEnter={(e) => (e.currentTarget.style.color = NAV_LINK_HOVER)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7280")}
               >
-                Contact Us
+                Security
+              </Link>
+              <Link
+                to="/about"
+                className="text-sm font-normal transition-colors duration-200"
+                style={NAV_LINK_STYLE}
+                onMouseEnter={(e) => (e.currentTarget.style.color = NAV_LINK_HOVER)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7280")}
+              >
+                Company
               </Link>
               <Link
                 to="/careers"
@@ -176,6 +90,15 @@ const Header = () => {
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7280")}
               >
                 Careers
+              </Link>
+              <Link
+                to="/contact"
+                className="text-sm font-normal transition-colors duration-200"
+                style={NAV_LINK_STYLE}
+                onMouseEnter={(e) => (e.currentTarget.style.color = NAV_LINK_HOVER)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7280")}
+              >
+                Contact
               </Link>
             </nav>
           </div>
@@ -243,32 +166,6 @@ const Header = () => {
           }}
         >
           <div style={{ padding: "24px 24px 40px" }}>
-            {MOBILE_SECTIONS.map((section) => (
-              <div key={section.heading} style={{ marginBottom: 28 }}>
-                <p style={{
-                  color: "#4B5563", fontSize: 11, fontWeight: 600,
-                  letterSpacing: "0.08em", textTransform: "uppercase",
-                  marginBottom: 10,
-                }}>
-                  {section.heading}
-                </p>
-                {section.items.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    style={{
-                      display: "block", color: "#D1D5DB", fontSize: 16,
-                      fontWeight: 400, textDecoration: "none",
-                      padding: "10px 0",
-                      borderBottom: "1px solid rgba(255,255,255,0.05)",
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            ))}
-
             <div style={{ marginBottom: 32 }}>
               {MOBILE_LINKS.map((link) => (
                 <Link

@@ -7,13 +7,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { usePostHog } from "posthog-js/react";
 import { useEffect } from "react";
 import Index from "./pages/Index";
-import FreightBrokers from "./pages/FreightBrokers";
-import Shippers from "./pages/Shippers";
-import ThirdPartyLogistics from "./pages/ThirdPartyLogistics";
-import Distributors from "./pages/Distributors";
-import Operations from "./pages/teams/Operations";
-import BusinessDevelopment from "./pages/teams/BusinessDevelopment";
-import AccountManagement from "./pages/teams/AccountManagement";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
@@ -40,10 +33,20 @@ function PostHogPageView() {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      const id = hash.slice(1);
+      // Defer past route render so the target node exists in the DOM.
+      const t = setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        else window.scrollTo(0, 0);
+      }, 60);
+      return () => clearTimeout(t);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 
@@ -59,13 +62,6 @@ const App = () => (
           <TrustBadges />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/brokers" element={<FreightBrokers />} />
-            <Route path="/shippers" element={<Shippers />} />
-            <Route path="/3pl" element={<ThirdPartyLogistics />} />
-            <Route path="/distributors" element={<Distributors />} />
-            <Route path="/teams/operations" element={<Operations />} />
-            <Route path="/teams/business-development" element={<BusinessDevelopment />} />
-            <Route path="/teams/account-management" element={<AccountManagement />} />
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />

@@ -1,135 +1,216 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Mail, Copy, Check, Zap, MessageCircle, Users, BarChart3, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import {
+  Mail,
+  Copy,
+  Check,
+  MessageCircle,
+  Users,
+  BarChart3,
+  Zap,
+  Clock,
+} from "lucide-react";
+import PillNav from "@/components/PillNav";
+import MinFooter from "@/components/MinFooter";
+import {
+  IconTile,
+  CARD_SURFACE,
+  CARD_INNER_HIGHLIGHT,
+  HeroAmbientGlow,
+  PillButton,
+} from "@/components/MinPrimitives";
 
-const Contact = () => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
+const INQUIRIES = [
+  {
+    Icon: MessageCircle,
+    title: "General",
+    body: "Questions, feedback, or just say hi.",
+  },
+  {
+    Icon: Users,
+    title: "Support",
+    body: "Need help getting more out of min.?",
+  },
+  {
+    Icon: BarChart3,
+    title: "Sales & Partnerships",
+    body: "Ready to plug min. into your brokerage?",
+  },
+  {
+    Icon: Zap,
+    title: "Investors & Press",
+    body: "Media inquiries and investment conversations.",
+  },
+];
+
+export default function Contact() {
   const email = "hello@getmin.ai";
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleEmailClick = () => {
-    window.location.href = `mailto:${email}`;
-  };
-
-  const handleCopyEmail = async () => {
+  async function handleCopy() {
     try {
       await navigator.clipboard.writeText(email);
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2000);
-    } catch (err) {
-      console.log('Failed to copy email:', err);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch (e) {
+      console.warn("clipboard:", e);
     }
-  };
+  }
 
-  const supportedInquiries = [{
-    icon: <MessageCircle className="w-5 h-5 text-green-600" />,
-    title: "General Inquiries",
-    description: "Questions, feedback, or just want to say hi?"
-  }, {
-    icon: <Users className="w-5 h-5 text-blue-600" />,
-    title: "Support & Help",
-    description: "Need help getting the most out of min.?"
-  }, {
-    icon: <BarChart3 className="w-5 h-5 text-purple-600" />,
-    title: "Sales & Partnerships",
-    description: "Ready to transform your workflow?"
-  }, {
-    icon: <Zap className="w-5 h-5 text-orange-600" />,
-    title: "Investors & Press",
-    description: "Media inquiries and investment opportunities"
-  }];
+  return (
+    <>
+      <Helmet>
+        <title>Contact min. | One inbox for everything</title>
+        <meta
+          name="description"
+          content="Reach min. anytime at hello@getmin.ai. Sales, support, partnerships, investors, press. One shared inbox, fast replies."
+        />
+        <link rel="canonical" href="https://getmin.ai/contact" />
+      </Helmet>
 
-  return <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-white to-green-50/20"></div>
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: `
-            linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)
-          `,
-        backgroundSize: '40px 40px'
-      }}></div>
-      </div>
+      <div className="min-h-screen bg-black text-slate-200 font-sans antialiased overflow-x-hidden">
+        <PillNav />
 
-      <div className="relative z-10">
-        <Header />
-        
-        <main className="pt-32 pb-16">
-          <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 leading-tight">
-                One inbox for <span className="text-green-600/90">everything</span>
+        <main>
+          {/* Hero */}
+          <section className="relative pt-36 md:pt-44 pb-12 overflow-hidden">
+            <HeroAmbientGlow />
+            <div className="relative max-w-3xl mx-auto px-6 text-center">
+              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-6">
+                Contact
+              </p>
+              <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
+                One inbox for{" "}
+                <span className="text-blue-300">everything</span>.
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">We practice what we preach. Just like our customers, we use min. to manage all our external communications through a shared inbox.</p>
-              
-              {/* Dogfooding highlight */}
-              <div className="bg-gradient-to-r from-green-50/80 to-blue-50/80 rounded-2xl p-6 border border-green-100/60 mb-12 max-w-2xl mx-auto">
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <Zap className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-medium text-gray-900">Powered by min.</span>
-                </div>
-                <p className="text-sm text-gray-600 leading-relaxed">This single email address handles support tickets, sales inquiries, investor relations, press requests, recruiting, and general feedback - all done using our own product.</p>
-              </div>
+              <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+                We dogfood min. The same inbox handles support, sales,
+                partnerships, investors, press, and recruiting, all powered by
+                our own product.
+              </p>
             </div>
+          </section>
 
-            {/* Main email contact card */}
-            <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 p-12 rounded-2xl border border-green-100/60 shadow-lg mb-16 text-center">
-              <div className="flex justify-center mb-6">
-                <Mail className="w-12 h-12 text-green-600" />
-              </div>
-              
-              <h2 className="text-3xl font-semibold text-gray-900 mb-4">Reach us here 24/7/365</h2>
-              
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-4 py-2 border border-emerald-500/30">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <Clock className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-200 font-medium text-sm">Avg response time: under 2 hours</span>
+          {/* Email card */}
+          <section className="pb-16">
+            <div className="max-w-2xl mx-auto px-6">
+              <div
+                className={`${CARD_SURFACE} p-8 md:p-10 text-center`}
+                style={CARD_INNER_HIGHLIGHT}
+              >
+                <div className="flex justify-center mb-5">
+                  <IconTile Icon={Mail} size="lg" tint="blue" glow="strong" />
                 </div>
-              </div>
-              
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/60 max-w-md mx-auto">
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-900 font-medium text-2xl">{email}</span>
-                  <button onClick={handleCopyEmail} className="p-3 hover:bg-gray-100/50 rounded-lg transition-colors" title="Copy email">
-                    {copiedEmail ? <Check className="w-5 h-5 text-green-600" /> : <Copy className="w-5 h-5 text-gray-500" />}
+                <h2 className="text-white text-2xl font-semibold tracking-[-0.01em] mb-3">
+                  Reach us, 24/7/365.
+                </h2>
+
+                <div className="flex justify-center mb-6">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1.5">
+                    <span
+                      className="block w-1.5 h-1.5 rounded-full bg-emerald-400"
+                      style={{ boxShadow: "0 0 8px rgba(52,211,153,0.7)" }}
+                    />
+                    <Clock
+                      className="w-3.5 h-3.5 text-emerald-300"
+                      strokeWidth={2}
+                    />
+                    <span className="text-[11px] tracking-[0.12em] uppercase text-emerald-300 font-medium">
+                      Avg. reply &lt; 2 hours
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  className={`${CARD_SURFACE} flex items-center justify-between gap-3 px-4 py-3 mb-6 max-w-sm mx-auto`}
+                  style={CARD_INNER_HIGHLIGHT}
+                >
+                  <span className="text-white font-medium font-mono text-sm">
+                    {email}
+                  </span>
+                  <button
+                    onClick={handleCopy}
+                    className="grid place-items-center w-8 h-8 rounded-md hover:bg-white/5 transition-colors"
+                    aria-label="Copy email"
+                  >
+                    {copied ? (
+                      <Check className="w-4 h-4 text-emerald-400" />
+                    ) : (
+                      <Copy className="w-4 h-4 text-slate-400" />
+                    )}
                   </button>
                 </div>
+                <PillButton href={`mailto:${email}`}>
+                  <Mail className="w-4 h-4" strokeWidth={2} />
+                  Send us an email
+                </PillButton>
               </div>
-              
-              <Button onClick={handleEmailClick} size="lg" className="bg-green-600/90 hover:bg-green-700/90 text-white font-medium px-8">
-                Send us an email
-              </Button>
             </div>
+          </section>
 
-            {/* What we handle */}
-            <div className="mb-16">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
-                What can you reach us about?
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {supportedInquiries.map((inquiry, index) => <div key={index} className="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-gray-100/60 hover:bg-white/80 transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      {inquiry.icon}
-                      <h4 className="text-lg font-medium text-gray-900">{inquiry.title}</h4>
+          {/* Inquiry types */}
+          <section className="py-16">
+            <div className="max-w-5xl mx-auto px-6">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
+                What you can reach us about
+              </p>
+              <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
+                One address, four conversations.
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {INQUIRIES.map((q) => (
+                  <div
+                    key={q.title}
+                    className={`${CARD_SURFACE} p-6 flex items-start gap-4`}
+                    style={CARD_INNER_HIGHLIGHT}
+                  >
+                    <div className="shrink-0">
+                      <IconTile Icon={q.Icon} size="sm" tint="blue" />
                     </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">{inquiry.description}</p>
-                  </div>)}
+                    <div>
+                      <h3 className="text-white text-base font-semibold tracking-[-0.01em] mb-1">
+                        {q.title}
+                      </h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">
+                        {q.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>            
-          </div>
+            </div>
+          </section>
+
+          {/* Powered-by-min note */}
+          <section className="pb-24 pt-4">
+            <div className="max-w-2xl mx-auto px-6 text-center">
+              <div
+                className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3 py-1.5"
+                style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+              >
+                <Zap
+                  className="w-3.5 h-3.5 text-blue-300"
+                  strokeWidth={2}
+                  fill="currentColor"
+                />
+                <span className="text-[11px] tracking-[0.12em] uppercase text-blue-200 font-medium">
+                  Powered by min.
+                </span>
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed mt-5">
+                Every reply you get from us routes through min., the same
+                quoting and capacity engine our customers run on.
+              </p>
+            </div>
+          </section>
         </main>
 
-        <Footer />
+        <MinFooter />
       </div>
-    </div>;
-};
-
-export default Contact;
+    </>
+  );
+}

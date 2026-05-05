@@ -1,395 +1,1548 @@
 import { Helmet } from "react-helmet-async";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import {
-  BG, SURFACE, GREEN, BORDER, TEXT, MUTED, DIM,
-  Section, Divider,
-} from "@/components/LandingShared";
+  Search,
+  Sparkles,
+  Mail,
+  FileText,
+  FileSpreadsheet,
+  Zap,
+  Database,
+  Network,
+  Brain,
+  Truck,
+  ArrowRight,
+  Users,
+  Bell,
+  Activity,
+  Circle,
+  CheckCircle2,
+  Building2,
+  User,
+  TrendingUp,
+  Fuel,
+  Cloud,
+  ArrowDown,
+} from "lucide-react";
 
-const PROOF_ASKS = [
-  {
-    ask: "Who runs Toronto to Miami FTL Dry Van?",
-    result: "Every carrier who has ever emailed anyone in your office about that lane. Not just the ones you remember.",
-  },
-  {
-    ask: "What shipments deliver in the next 48 hours?",
-    result: "Every load in motion, every carrier, every last known status, in one table.",
-  },
-  {
-    ask: "Show me every lead I've quoted but haven't heard back from.",
-    result: "Pulled straight from your team's sent folder. Drafted follow-ups ready to go.",
-  },
-  {
-    ask: "What did we agree to with that vendor?",
-    result: "Answered from the actual email thread, without you opening it.",
-  },
-  {
-    ask: "Send a POD request to every carrier that delivered this week.",
-    result: "Done. Every missing POD chased. Responses come back to one place.",
-  },
-];
+/* ───────── Design Primitives ───────── */
 
-const MOAT_ROWS = [
-  { them: "Waits for you to type it in", us: "Reads every email, load sheet, and PDF automatically" },
-  { them: "Sees one inbox at a time", us: "Reads every inbox in your company and builds one shared memory" },
-  { them: "Answers the questions you ask", us: "Knows what you never thought to ask, because it already read it" },
-  { them: "Loses context when someone leaves", us: "Keeps every relationship, rate, and commitment, permanently" },
-  { them: "A phone book your team has to maintain", us: "A shared brain that maintains itself" },
-];
+type Tint = "blue" | "amber" | "slate";
+type Size = "sm" | "md" | "lg" | "xl";
+
+const TINT_BG: Record<Tint, string> = {
+  blue: "bg-gradient-to-b from-blue-500/[0.18] to-blue-500/[0.04]",
+  amber: "bg-gradient-to-b from-amber-400/[0.20] to-amber-500/[0.04]",
+  slate: "bg-gradient-to-b from-white/[0.07] to-white/[0.01]",
+};
+const TINT_BORDER: Record<Tint, string> = {
+  blue: "border-blue-400/25",
+  amber: "border-amber-400/30",
+  slate: "border-white/[0.08]",
+};
+const TINT_ICON: Record<Tint, string> = {
+  blue: "text-blue-300",
+  amber: "text-amber-400",
+  slate: "text-slate-200",
+};
+const TINT_GLOW: Record<Tint, string> = {
+  blue: "rgba(96,140,255,0.45)",
+  amber: "rgba(251,191,36,0.40)",
+  slate: "rgba(255,255,255,0.18)",
+};
+const SIZE_BOX: Record<Size, string> = {
+  sm: "w-9 h-9 rounded-lg",
+  md: "w-11 h-11 rounded-xl",
+  lg: "w-14 h-14 rounded-2xl",
+  xl: "w-16 h-16 rounded-2xl",
+};
+const SIZE_ICON: Record<Size, string> = {
+  sm: "w-[15px] h-[15px]",
+  md: "w-[18px] h-[18px]",
+  lg: "w-6 h-6",
+  xl: "w-7 h-7",
+};
+
+function IconTile({
+  Icon,
+  size = "md",
+  tint = "blue",
+  glow = "soft",
+  filled = false,
+  className = "",
+}: {
+  Icon: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string }>;
+  size?: Size;
+  tint?: Tint;
+  glow?: "none" | "soft" | "strong";
+  filled?: boolean;
+  className?: string;
+}) {
+  const glowSpread = glow === "strong" ? "-inset-4 blur-xl" : "-inset-2 blur-md";
+  return (
+    <span
+      className={[
+        "relative inline-flex items-center justify-center border",
+        SIZE_BOX[size],
+        TINT_BG[tint],
+        TINT_BORDER[tint],
+        className,
+      ].join(" ")}
+      style={{
+        boxShadow:
+          "inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.25)",
+      }}
+    >
+      {glow !== "none" && (
+        <span
+          aria-hidden
+          className={`pointer-events-none absolute ${glowSpread} rounded-[inherit] -z-10`}
+          style={{
+            background: `radial-gradient(circle, ${TINT_GLOW[tint]}, transparent 70%)`,
+          }}
+        />
+      )}
+      <Icon
+        className={`relative ${SIZE_ICON[size]} ${TINT_ICON[tint]}`}
+        strokeWidth={1.75}
+        {...(filled ? { fill: "currentColor" } : {})}
+      />
+    </span>
+  );
+}
+
+const CARD_SURFACE =
+  "rounded-2xl border border-white/[0.07] bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-sm";
+const CARD_SURFACE_LG =
+  "rounded-3xl border border-white/[0.07] bg-gradient-to-b from-white/[0.05] to-white/[0.01] backdrop-blur-sm";
+const CARD_INNER_HIGHLIGHT = {
+  boxShadow:
+    "inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.01)",
+} as const;
+import PillNav from "@/components/PillNav";
+import MinFooter from "@/components/MinFooter";
 
 const Index = () => {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "min. | Your company's shared brain",
-    description: "Your company doesn't have a memory. min. gives it one. min. turns every email, load sheet, and document into a Collective Memory your whole team can search, act on, and build on.",
-    url: "https://getmin.ai",
-    mainEntity: {
-      "@type": "SoftwareApplication",
-      name: "min.",
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
-    },
-  };
-
   return (
     <>
       <Helmet>
-        <title>min. | Your company's shared brain</title>
-        <meta name="description" content="Your company doesn't have a memory. min. gives it one. min. turns every email, load sheet, and document into a Collective Memory your whole team can search, act on, and build on." />
+        <title>min. | Quote faster. Find capacity. Compound your carrier network.</title>
+        <meta
+          name="description"
+          content="min. is the quoting and capacity engine for freight brokers. Source carriers from your private network in seconds, blast RFQs in one sentence, and watch your network compound with every booking."
+        />
         <link rel="canonical" href="https://getmin.ai" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://getmin.ai/" />
-        <meta property="og:title" content="min. | Your company's shared brain" />
-        <meta property="og:description" content="min. turns every email, load sheet, and document into a Collective Memory your whole team can search, act on, and build on. Zero data entry." />
-        <meta name="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div style={{ backgroundColor: BG, minHeight: "100vh", color: TEXT, overflowX: "hidden" }}>
-        <Header />
+      <div className="min-h-screen bg-black text-slate-200 font-sans antialiased overflow-x-hidden">
+        <PillNav />
 
-        <main style={{ paddingTop: 100 }}>
-          <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
-
-            {/* ── 1. Hero ── */}
-            <div className="hero-glow" style={{ paddingTop: 48, marginBottom: 80 }}>
-              <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-                <p className="hero-stagger-1" style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-                  Collective Memory
-                </p>
-                <h1
-                  className="hero-stagger-1"
-                  style={{ fontSize: "clamp(2.6rem, 6vw, 4.8rem)", fontWeight: 700, lineHeight: 1.08, letterSpacing: "-0.03em", color: TEXT, margin: "0 0 24px 0" }}
-                >
-                  Your company doesn't have a memory.{" "}
-                  <span style={{ color: GREEN }}>min. gives it one.</span>
-                </h1>
-                <p className="hero-stagger-2" style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.3rem)", color: MUTED, fontWeight: 400, marginBottom: 48, lineHeight: 1.6, maxWidth: 760, margin: "0 auto 48px" }}>
-                  min. turns every email, load sheet, quote, and document into a Collective Memory your whole team can query in plain English and act on in one sentence. Zero data entry. Always up to date.
-                </p>
-                <div className="hero-stagger-3" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-                  <a href="https://app.getmin.ai/">
-                    <Button size="lg" className="cta-glow text-white font-normal text-base px-8" style={{ backgroundColor: GREEN, border: "none" }}>
-                      Get early access
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <Divider />
-
-            {/* ── 2. The Problem ── */}
-            <Section style={{ marginTop: 80, marginBottom: 80 }}>
-              <div style={{ maxWidth: 800, margin: "0 auto" }}>
-                <div style={{ marginBottom: 40 }}>
-                  <p style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT, marginBottom: 12 }}>
-                    Your business isn't missing data.
-                  </p>
-                  <p style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT, marginBottom: 12 }}>
-                    It's missing a shared place
-                  </p>
-                  <p style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT }}>
-                    for that data to live.
-                  </p>
-                </div>
-                <p style={{ color: MUTED, fontSize: "1.05rem", lineHeight: 1.7, maxWidth: 640 }}>
-                  The real business runs in inboxes, threads, and people's heads. Client history. Pricing exceptions. Lane rates. Vendor lead times. Carrier performance. The promises made on a Tuesday afternoon that nobody logged. All of it siloed across a dozen inboxes, one resignation away from disappearing forever.
-                </p>
-              </div>
-            </Section>
-
-            <Divider />
-
-            {/* ── 3. The Insight ── */}
-            <Section style={{ marginTop: 80, marginBottom: 80 }}>
-              <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
-                <p style={{ fontSize: "clamp(1.4rem, 3.2vw, 2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT, marginBottom: 24 }}>
-                  Bring your emails to life.{" "}
-                  <span style={{ color: GREEN }}>Your company's shared brain.</span>
-                </p>
-                <p style={{ color: MUTED, fontSize: "1.05rem", lineHeight: 1.7, maxWidth: 680, margin: "0 auto" }}>
-                  min. connects to every inbox, every sent folder, every thread, and digests the documents where your data is actually trapped. Emails, rate tables, load sheets, quotes, rate confirmations, BOLs, PODs, spreadsheets, PDFs. Everything unstructured becomes structured memory your whole team can query and act on.
-                </p>
-              </div>
-            </Section>
-
-            <Divider />
-
-            {/* ── 4. Three Pillars: Memory, Search, Action ── */}
-            <Section style={{ marginTop: 80, marginBottom: 80 }}>
-              <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center", marginBottom: 48 }}>
-                <p style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 14 }}>
-                  How min. works
-                </p>
-                <p style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT }}>
-                  Memory. Search.{" "}
-                  <span style={{ color: GREEN }}>Action.</span>
-                </p>
-              </div>
-              <div style={{ maxWidth: 960, margin: "0 auto" }}>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {[
-                    {
-                      title: "Collective Memory",
-                      desc: "min. reads every email, attachment, and document your team sends or receives. It doesn't just scan text, it digests load sheets, rate tables, PDFs, and spreadsheets, turning unstructured chaos into structured memory.",
-                      example: "\"If a carrier quotes a lane once, min. remembers the lane, the rate, and the equipment.\"",
-                    },
-                    {
-                      title: "Intelligent Search",
-                      desc: "Ask a logistics expert's question in plain English. min. pulls the exact answer from your entire company's email history in seconds, not a list of links to dig through.",
-                      example: "\"Who runs Toronto to Miami FTL Dry Van?\"",
-                    },
-                    {
-                      title: "Action",
-                      desc: "If it lives in email, min. can do it. Draft, send, chase, confirm, follow up. The repetitive outreach that fills your team's day happens on one sentence.",
-                      example: "\"Send a POD request to every carrier that delivered this week without one.\"",
-                    },
-                  ].map((col) => (
-                    <div
-                      key={col.title}
-                      style={{
-                        background: SURFACE,
-                        border: `1px solid ${BORDER}`,
-                        borderRadius: 20,
-                        padding: 32,
-                        position: "relative",
-                        overflow: "hidden",
-                      }}
-                    >
-                      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,171,85,0.025) 0%, transparent 50%)", pointerEvents: "none", borderRadius: 20 }} />
-                      <div style={{ position: "relative", zIndex: 1 }}>
-                        <h3 style={{ color: GREEN, fontSize: "1.3rem", fontWeight: 700, marginBottom: 14, letterSpacing: "-0.01em" }}>
-                          {col.title}
-                        </h3>
-                        <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.65, marginBottom: 20 }}>
-                          {col.desc}
-                        </p>
-                        <p style={{ color: DIM, fontSize: 13, fontStyle: "italic", lineHeight: 1.5 }}>
-                          {col.example}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Section>
-
-            <Divider />
-
-            {/* ── 5. Who It's For ── */}
-            <Section style={{ marginTop: 80, marginBottom: 80 }}>
-              <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
-                <p style={{ fontSize: "clamp(1.3rem, 3vw, 1.8rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT, marginBottom: 40 }}>
-                  Built for relationship-driven businesses{" "}
-                  <span style={{ color: GREEN }}>where the real work happens in email.</span>
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                  {[
-                    "A new hire who can query the same Collective Memory as your most experienced rep on day one",
-                    "An owner whose top rep just gave notice, and whose carrier network, rates, and relationships stay with the company",
-                    "A team that stops opening 12 Outlook tabs to chase statuses, quotes, and PODs, and asks in one sentence instead",
-                  ].map((scenario) => (
-                    <div
-                      key={scenario}
-                      style={{
-                        background: SURFACE,
-                        border: `1px solid ${BORDER}`,
-                        borderRadius: 16,
-                        padding: "28px 24px",
-                      }}
-                    >
-                      <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.6, fontStyle: "italic", margin: 0 }}>
-                        {scenario}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Section>
-
-            <Divider />
-
-            {/* ── 6. The Proof ── */}
-            <Section style={{ marginTop: 80, marginBottom: 80 }}>
-              <div style={{ maxWidth: 720, margin: "0 auto" }}>
-                <div style={{ textAlign: "center", marginBottom: 40 }}>
-                  <p style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 14 }}>
-                    Ask anything
-                  </p>
-                  <p style={{ fontSize: "clamp(1.4rem, 3.2vw, 2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT }}>
-                    In plain English.{" "}
-                    <span style={{ color: GREEN }}>min. already read it.</span>
-                  </p>
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                  {PROOF_ASKS.map((item) => (
-                    <div
-                      key={item.ask}
-                      style={{
-                        background: SURFACE,
-                        border: `1px solid ${BORDER}`,
-                        borderRadius: 14,
-                        padding: "20px 24px",
-                      }}
-                    >
-                      <p style={{ color: TEXT, fontSize: 16, lineHeight: 1.55, margin: 0, fontWeight: 500, marginBottom: 6 }}>
-                        "{item.ask}"
-                      </p>
-                      <p style={{ color: GREEN, fontSize: 14, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
-                        {item.result}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <p style={{ color: DIM, fontSize: 14, textAlign: "center", marginTop: 28, lineHeight: 1.6, fontStyle: "italic" }}>
-                  min. is a teammate who read every email your company ever sent, and who never forgets a single one.
-                </p>
-              </div>
-            </Section>
-
-            <Divider />
-
-            {/* ── 7. The Moat ── */}
-            <Section style={{ marginTop: 80, marginBottom: 80 }}>
-              <div style={{ maxWidth: 860, margin: "0 auto" }}>
-                <div style={{ textAlign: "center", marginBottom: 36 }}>
-                  <p style={{ color: GREEN, fontSize: 13, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 14 }}>
-                    Why min. is different
-                  </p>
-                  <p style={{ fontSize: "clamp(1.4rem, 3.2vw, 2rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT }}>
-                    Your CRM tracks outcomes.{" "}
-                    <span style={{ color: GREEN }}>min. captures everything else.</span>
-                  </p>
-                </div>
-                <div style={{ overflow: "hidden", borderRadius: 16, border: `1px solid ${BORDER}` }}>
-                  <div
-                    className="grid grid-cols-2"
-                    style={{
-                      background: "rgba(255,255,255,0.03)",
-                      borderBottom: `1px solid ${BORDER}`,
-                      padding: "14px 24px",
-                    }}
-                  >
-                    <span style={{ color: DIM, fontSize: 13, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" }}>
-                      Typical tool in your stack
-                    </span>
-                    <span style={{ color: GREEN, fontSize: 13, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" }}>
-                      min.
-                    </span>
-                  </div>
-                  {MOAT_ROWS.map((row, i) => (
-                    <div
-                      key={i}
-                      className="grid grid-cols-2"
-                      style={{
-                        padding: "16px 24px",
-                        borderBottom: i < MOAT_ROWS.length - 1 ? `1px solid ${BORDER}` : "none",
-                        background: i % 2 === 0 ? "transparent" : "rgba(255,255,255,0.015)",
-                      }}
-                    >
-                      <span style={{ color: MUTED, fontSize: 15, lineHeight: 1.55, paddingRight: 16 }}>
-                        {row.them}
-                      </span>
-                      <span style={{ color: TEXT, fontSize: 15, lineHeight: 1.55, fontWeight: 500 }}>
-                        {row.us}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Section>
-
-            <Divider />
-
-            {/* ── 8. The Closer ── */}
-            <Section style={{ marginTop: 80, marginBottom: 80 }}>
-              <div style={{ maxWidth: 740, margin: "0 auto", textAlign: "center" }}>
-                <p style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)", fontWeight: 600, lineHeight: 1.4, letterSpacing: "-0.02em", color: TEXT, marginBottom: 12 }}>
-                  Every company compounds financial capital.
-                </p>
-                <p style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)", fontWeight: 600, lineHeight: 1.4, letterSpacing: "-0.02em", color: TEXT, marginBottom: 12 }}>
-                  Almost none compound what their people know.
-                </p>
-                <p style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)", fontWeight: 600, lineHeight: 1.4, letterSpacing: "-0.02em", color: GREEN, marginBottom: 24 }}>
-                  min. builds the memory that finally does.
-                </p>
-                <p style={{ color: MUTED, fontSize: "1.05rem", lineHeight: 1.7, maxWidth: 640, margin: "0 auto" }}>
-                  Not a static database you query once a quarter. A living Collective Memory, built one email at a time, owned by your company, not by whichever rep happens to still be sitting at their desk.
-                </p>
-              </div>
-            </Section>
-
-            <Divider />
-
-            {/* ── 9. Final CTA ── */}
-            <Section style={{ marginBottom: 56 }}>
-              <div
-                style={{
-                  textAlign: "center",
-                  background: "linear-gradient(135deg, rgba(0,171,85,0.1) 0%, rgba(0,171,85,0.03) 100%)",
-                  border: "1px solid rgba(0,171,85,0.18)",
-                  borderRadius: 24,
-                  padding: "72px 40px",
-                  maxWidth: 860,
-                  margin: "0 auto",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                <div style={{ position: "absolute", inset: 0, opacity: 0.025, backgroundImage: "linear-gradient(rgba(0,171,85,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(0,171,85,0.8) 1px, transparent 1px)", backgroundSize: "40px 40px", borderRadius: 24 }} />
-                <div style={{ position: "relative", zIndex: 1 }}>
-                  <p style={{ fontSize: "clamp(1.3rem, 3vw, 1.8rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: TEXT, marginBottom: 8 }}>
-                    Turn your inbox into
-                  </p>
-                  <p style={{ fontSize: "clamp(1.3rem, 3vw, 1.8rem)", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-0.02em", color: GREEN, marginBottom: 36 }}>
-                    your company's shared brain.
-                  </p>
-                  <a href="https://app.getmin.ai/">
-                    <Button size="lg" className="cta-glow text-white font-normal text-base px-10" style={{ backgroundColor: GREEN, border: "none" }}>
-                      Get early access
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </a>
-                  <p style={{ color: DIM, fontSize: 13, marginTop: 16 }}>
-                    One email at a time. Zero data entry. Nothing your team learns ever gets lost again.
-                  </p>
-                </div>
-              </div>
-            </Section>
-
-          </div>
+        <main>
+          <Hero />
+          <CollectiveMemorySection />
+          <IntelligentSearchSection />
+          <TakeActionSection />
+          <SharedBrainSection />
         </main>
 
-        <Footer />
+        <MinFooter />
       </div>
     </>
   );
 };
 
 export default Index;
+
+/* ───────── HERO ───────── */
+
+function Hero() {
+  return (
+    <section
+      id="platform"
+      className="relative pt-36 md:pt-44 pb-20 md:pb-28 overflow-hidden scroll-mt-24"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 45% at 50% 30%, rgba(80,120,255,0.18) 0%, rgba(80,120,255,0.05) 35%, transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 35%, black 30%, transparent 80%)",
+        }}
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6 text-center">
+        <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-7">
+          The Quoting & Capacity Engine for Freight Brokers
+        </p>
+        <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
+          Quote faster. Find capacity.
+          <br />
+          Build a carrier network
+          <br />
+          that <span className="text-blue-300">compounds</span>.
+        </h1>
+        <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+          min. consolidates live market demand, your team's historical pricing,
+          and real-time fuel and weather signals into one quoting engine.
+          Source coverage in seconds, get rates from matching carriers in one
+          click, and watch your carrier pool grow with every booking.
+        </p>
+
+        <div className="mt-16 md:mt-20">
+          <HeroSourceChips />
+        </div>
+
+        <div className="mt-10">
+          <PillarTShape />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HeroSourceChips() {
+  const sources = [
+    { Icon: Mail, label: "Emails" },
+    { Icon: FileText, label: "PDFs & PODs" },
+    { Icon: FileSpreadsheet, label: "Excel Docs" },
+  ];
+  return (
+    <div className="flex justify-center gap-2.5 sm:gap-3">
+      {sources.map(({ Icon, label }) => (
+        <div
+          key={label}
+          className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-gradient-to-b from-white/[0.06] to-white/[0.01] backdrop-blur-sm px-3.5 sm:px-4 py-2"
+          style={{
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+          }}
+        >
+          <Icon className="w-4 h-4 text-slate-300" strokeWidth={1.75} />
+          <span className="text-xs sm:text-sm text-slate-200 font-medium tracking-tight">
+            {label}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function HeroConnector({ paths }: { paths: string[] }) {
+  return (
+    <div className="relative h-10 mx-auto max-w-md">
+      <svg
+        aria-hidden
+        viewBox="0 0 400 60"
+        preserveAspectRatio="none"
+        className="absolute inset-0 w-full h-full overflow-visible"
+      >
+        <defs>
+          <linearGradient id="line-down" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="rgba(180,210,255,0.35)" />
+            <stop offset="100%" stopColor="rgba(80,120,255,0)" />
+          </linearGradient>
+          <linearGradient id="line-glow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="rgba(96,140,255,0.6)" />
+            <stop offset="100%" stopColor="rgba(96,140,255,0)" />
+          </linearGradient>
+        </defs>
+        {paths.map((d, i) => (
+          <g key={i}>
+            <path
+              d={d}
+              stroke="url(#line-glow)"
+              strokeWidth="3"
+              fill="none"
+              opacity="0.35"
+              style={{ filter: "blur(2px)" }}
+            />
+            <path
+              d={d}
+              stroke="url(#line-down)"
+              strokeWidth="1"
+              fill="none"
+            />
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+}
+
+function PillarTShape() {
+  return (
+    <div className="max-w-2xl mx-auto">
+      <HeroConnector
+        paths={[
+          "M80 0 Q200 8 200 60",
+          "M200 0 L200 60",
+          "M320 0 Q200 8 200 60",
+        ]}
+      />
+
+      {/* Top: Carrier Network graphic — featured carrier card with RPG-style attribute bars,
+           surrounded by satellite carrier nodes connected by network lines */}
+      <CarrierNetworkGraphic />
+      <p className="text-center text-[11px] tracking-[0.18em] uppercase text-slate-500 mt-4 font-medium">
+        Compounds with every booking
+      </p>
+
+      {/* Connectors to bottom row */}
+      <HeroConnector
+        paths={["M200 0 Q120 30 80 60", "M200 0 Q280 30 320 60"]}
+      />
+
+      {/* Bottom: Find Capacity + Quote in Seconds */}
+      <div className="grid grid-cols-2 gap-4 mx-auto max-w-md">
+        <SmallPillarCard
+          Icon={Search}
+          tint="blue"
+          title="Find Capacity"
+          desc="Source carriers from your network in seconds."
+        />
+        <SmallPillarCard
+          Icon={Zap}
+          tint="amber"
+          filled
+          title="Quote in Seconds"
+          desc="Blast RFQs and collect responses in one place."
+        />
+      </div>
+    </div>
+  );
+}
+
+/* ───────── Carrier Network graphic (hero centerpiece) ───────── */
+
+const ROSTER = [
+  { initials: "PB", name: "Polar Bear Transit", tier: "A" as const, ovr: 82 },
+  { initials: "NF", name: "Northern Freight", tier: "A" as const, ovr: 79 },
+  { initials: "HL", name: "Heartland Lines", tier: "B" as const, ovr: 71 },
+];
+
+function CarrierNetworkGraphic() {
+  return (
+    <div className="relative mx-auto w-[320px] sm:w-[360px]">
+      {/* Ambient glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -inset-12 rounded-[44px] blur-2xl -z-10"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 50%, rgba(96,140,255,0.45), transparent 70%)",
+        }}
+      />
+
+      {/* Network status header — names what we're looking at */}
+      <div className="flex items-center justify-between mb-3 px-1.5">
+        <div className="flex items-center gap-1.5">
+          <span
+            className="block w-1.5 h-1.5 rounded-full bg-emerald-400"
+            style={{ boxShadow: "0 0 6px rgba(52,211,153,0.8)" }}
+          />
+          <span className="text-[9px] tracking-[0.22em] uppercase text-slate-300 font-mono font-semibold">
+            Your Carrier Network
+          </span>
+        </div>
+        <span className="text-[9px] text-slate-400 font-mono tabular-nums tracking-[0.14em]">
+          872 CARRIERS
+        </span>
+      </div>
+
+      {/* Featured carrier card — minimal chrome, attributes shown as a radar polygon */}
+      <div
+        className="relative rounded-2xl border border-blue-400/35 bg-gradient-to-b from-blue-500/[0.08] to-white/[0.01] backdrop-blur-sm overflow-hidden"
+        style={{
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.10), 0 14px 36px -18px rgba(96,140,255,0.5)",
+        }}
+      >
+        <div className="relative px-3.5 pt-3.5 pb-3">
+          {/* Carrier header */}
+          <div className="flex items-center gap-2.5 mb-1">
+            <span
+              className="grid place-items-center w-9 h-9 rounded-md bg-gradient-to-b from-blue-500/[0.25] to-blue-500/[0.05] border border-blue-400/40 text-[10px] font-mono font-semibold text-blue-100"
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.10)" }}
+            >
+              AL
+            </span>
+            <div className="flex-1 min-w-0 text-left">
+              <p className="text-white text-[13px] font-semibold leading-tight truncate">
+                Apex Logistics
+              </p>
+              <p className="text-[9px] text-slate-500 font-mono uppercase tracking-[0.14em] mt-0.5">
+                FTL · Reefer
+              </p>
+            </div>
+            <TierBadge tier="S" />
+          </div>
+
+          {/* Radar / stat polygon */}
+          <RadarChart
+            stats={[
+              { label: "RESP", value: 92 },
+              { label: "TIME", value: 97 },
+              { label: "PRICE", value: 86 },
+              { label: "CAP", value: 73 },
+              { label: "COVER", value: 81 },
+              { label: "REL", value: 95 },
+            ]}
+          />
+
+          {/* Bottom meta */}
+          <div className="flex items-center gap-1.5 mt-1 pt-2.5 border-t border-white/[0.06]">
+            <span
+              className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 text-[9px] font-mono text-slate-200"
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+            >
+              ORD→MIA
+            </span>
+            <span
+              className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 text-[9px] font-mono text-slate-300"
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+            >
+              +12 LANES
+            </span>
+            <span className="ml-auto text-[9px] text-slate-400 font-mono tracking-wide tabular-nums">
+              45 BOOKINGS
+              <span className="text-slate-600 mx-1">|</span>
+              86 QUOTES
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Roster — clearly labeled list of OTHER carriers in the network */}
+      <div
+        className="mt-2 rounded-xl border border-white/[0.07] bg-white/[0.025] backdrop-blur-sm p-2"
+        style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+      >
+        <div className="flex items-center justify-between px-1 mb-1.5">
+          <span className="text-[8px] tracking-[0.22em] uppercase text-slate-500 font-mono">
+            Also in your network
+          </span>
+          <span className="text-[8px] tracking-[0.18em] uppercase text-slate-500 font-mono">
+            File · OVR
+          </span>
+        </div>
+        <div className="space-y-0.5">
+          {ROSTER.map((c) => (
+            <RosterRow key={c.initials} {...c} />
+          ))}
+        </div>
+        <div className="flex items-center justify-center mt-1.5 pt-1.5 border-t border-white/[0.05]">
+          <span className="text-[9px] text-slate-400 font-mono tabular-nums tracking-wide">
+            + 869 more
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Game-style radar / stat polygon for a carrier's tracked attributes. */
+function RadarChart({
+  stats,
+}: {
+  stats: { label: string; value: number }[];
+}) {
+  const cx = 100;
+  const cy = 70;
+  const radius = 42;
+  const n = stats.length;
+
+  // Vertex angles — start at the top, walk clockwise.
+  const angles = Array.from(
+    { length: n },
+    (_, i) => -Math.PI / 2 + i * ((2 * Math.PI) / n)
+  );
+
+  const vertexPos = angles.map((a) => ({
+    x: cx + radius * Math.cos(a),
+    y: cy + radius * Math.sin(a),
+  }));
+  const valuePoints = stats.map((s, i) => {
+    const r = (radius * Math.max(0, Math.min(100, s.value))) / 100;
+    return { x: cx + r * Math.cos(angles[i]), y: cy + r * Math.sin(angles[i]) };
+  });
+  const polyPath =
+    `M ${valuePoints[0].x.toFixed(2)} ${valuePoints[0].y.toFixed(2)} ` +
+    valuePoints
+      .slice(1)
+      .map((p) => `L ${p.x.toFixed(2)} ${p.y.toFixed(2)}`)
+      .join(" ") +
+    " Z";
+
+  const ringScales = [0.33, 0.66, 1];
+  const ringPaths = ringScales.map((rs) => {
+    const pts = angles.map((a) => ({
+      x: cx + radius * rs * Math.cos(a),
+      y: cy + radius * rs * Math.sin(a),
+    }));
+    return (
+      `M ${pts[0].x.toFixed(2)} ${pts[0].y.toFixed(2)} ` +
+      pts
+        .slice(1)
+        .map((p) => `L ${p.x.toFixed(2)} ${p.y.toFixed(2)}`)
+        .join(" ") +
+      " Z"
+    );
+  });
+
+  return (
+    <svg
+      viewBox="0 0 200 140"
+      className="w-full h-auto block"
+      aria-hidden
+    >
+      <defs>
+        <radialGradient id="radar-fill" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stopColor="rgba(120,170,255,0.55)" />
+          <stop offset="100%" stopColor="rgba(96,140,255,0.16)" />
+        </radialGradient>
+      </defs>
+
+      {/* Concentric grid rings */}
+      {ringPaths.map((d, i) => (
+        <path
+          key={i}
+          d={d}
+          fill="none"
+          stroke="rgba(180,210,255,0.12)"
+          strokeWidth="0.5"
+        />
+      ))}
+
+      {/* Axis spokes */}
+      {vertexPos.map((p, i) => (
+        <line
+          key={i}
+          x1={cx}
+          y1={cy}
+          x2={p.x}
+          y2={p.y}
+          stroke="rgba(180,210,255,0.10)"
+          strokeWidth="0.5"
+        />
+      ))}
+
+      {/* Value polygon — glowing fill + outline */}
+      <path
+        d={polyPath}
+        fill="url(#radar-fill)"
+        stroke="rgb(140,180,255)"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+        style={{ filter: "drop-shadow(0 0 6px rgba(96,140,255,0.7))" }}
+      />
+
+      {/* Vertex dots at each value point */}
+      {valuePoints.map((p, i) => (
+        <circle
+          key={i}
+          cx={p.x}
+          cy={p.y}
+          r="1.6"
+          fill="#dde8ff"
+          style={{ filter: "drop-shadow(0 0 3px rgba(96,140,255,0.95))" }}
+        />
+      ))}
+
+      {/* Vertex labels (placed just outside each spoke) */}
+      {angles.map((a, i) => {
+        const lx = cx + (radius + 11) * Math.cos(a);
+        const ly = cy + (radius + 11) * Math.sin(a);
+        return (
+          <text
+            key={i}
+            x={lx}
+            y={ly}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fontSize="6.2"
+            fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
+            letterSpacing="0.14em"
+            fontWeight={600}
+            fill="rgba(160,180,210,0.85)"
+          >
+            {stats[i].label}
+          </text>
+        );
+      })}
+    </svg>
+  );
+}
+
+function TierBadge({ tier }: { tier: "S" | "A" | "B" | "C" }) {
+  const palette: Record<string, string> = {
+    S: "from-amber-300/40 to-amber-500/10 border-amber-400/60 text-amber-200",
+    A: "from-blue-400/40 to-blue-500/10 border-blue-400/60 text-blue-200",
+    B: "from-slate-300/30 to-slate-500/10 border-slate-300/40 text-slate-200",
+    C: "from-slate-400/20 to-slate-600/10 border-slate-400/30 text-slate-300",
+  };
+  const glow: Record<string, string> = {
+    S: "0 0 10px rgba(251,191,36,0.45)",
+    A: "0 0 8px rgba(96,140,255,0.40)",
+    B: "none",
+    C: "none",
+  };
+  return (
+    <span
+      className={`grid place-items-center w-5 h-5 rounded-md border bg-gradient-to-b ${palette[tier]} text-[10px] font-mono font-bold leading-none`}
+      style={{
+        boxShadow: `inset 0 1px 0 rgba(255,255,255,0.10), ${glow[tier]}`,
+      }}
+    >
+      {tier}
+    </span>
+  );
+}
+
+function RosterRow({
+  initials,
+  name,
+  tier,
+  ovr,
+}: {
+  initials: string;
+  name: string;
+  tier: "A" | "B" | "C";
+  ovr: number;
+}) {
+  return (
+    <div className="flex items-center gap-2 px-1 py-1 rounded-md hover:bg-white/[0.03] transition-colors">
+      <span
+        className="grid place-items-center w-6 h-6 rounded bg-gradient-to-b from-white/[0.06] to-white/[0.01] border border-white/10 text-[9px] font-mono font-semibold text-slate-200 tracking-wider"
+        style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+      >
+        {initials}
+      </span>
+      <span className="flex-1 min-w-0 text-[11px] text-slate-200 font-medium leading-tight truncate">
+        {name}
+      </span>
+      <TierBadge tier={tier} />
+      <span className="text-[10px] text-slate-300 font-mono font-semibold tabular-nums w-[20px] text-right">
+        {ovr}
+      </span>
+    </div>
+  );
+}
+
+function StatBar({ label, value }: { label: string; value: number }) {
+  const segments = 10;
+  const lit = Math.round(value / 10);
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-[9px] tracking-[0.16em] uppercase text-slate-400 font-mono font-medium w-[40px] text-left">
+        {label}
+      </span>
+      <div className="flex-1 flex gap-[2px]">
+        {Array.from({ length: segments }).map((_, i) => {
+          const on = i < lit;
+          return (
+            <div
+              key={i}
+              className={`flex-1 h-1.5 rounded-[1px] ${
+                on ? "bg-blue-400" : "bg-white/[0.06]"
+              }`}
+              style={
+                on
+                  ? {
+                      boxShadow:
+                        "0 0 4px rgba(96,140,255,0.55), inset 0 1px 0 rgba(255,255,255,0.18)",
+                    }
+                  : undefined
+              }
+            />
+          );
+        })}
+      </div>
+      <span
+        className="text-[10px] text-blue-200 font-mono font-semibold tabular-nums w-[20px] text-right leading-none"
+        style={{ textShadow: "0 0 6px rgba(96,140,255,0.4)" }}
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
+
+function SmallPillarCard({
+  Icon,
+  title,
+  desc,
+  tint = "slate",
+  filled = false,
+}: {
+  Icon: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string }>;
+  title: string;
+  desc: string;
+  tint?: Tint;
+  filled?: boolean;
+}) {
+  return (
+    <div
+      className={`${CARD_SURFACE} p-5 text-center`}
+      style={CARD_INNER_HIGHLIGHT}
+    >
+      <div className="mb-3 flex justify-center">
+        <IconTile Icon={Icon} size="md" tint={tint} filled={filled} />
+      </div>
+      <h3 className="text-white text-sm font-semibold tracking-[-0.01em] mb-1">
+        {title}
+      </h3>
+      <p className="text-xs text-slate-400 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
+/* ───────── THE COLLECTIVE MEMORY ───────── */
+
+function CollectiveMemorySection() {
+  return (
+    <section id="network" className="relative py-24 md:py-32 scroll-mt-24">
+      <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader
+          Icon={Network}
+          title="Your Carrier Network"
+          desc="Every email, every quote, every booking compounds into a private capacity network. The more your team works, the stronger your liquidity gets."
+        />
+
+        {/* 2-up top row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <BigFeatureCard
+            Icon={Network}
+            title="Network Compounds With Every Booking"
+            body="Every quote, every cover, every POD adds a new edge to your carrier graph. The carriers your team has worked with, the lanes they run, how fast they respond, and the rates they hit. All permanent, all compounding."
+            visual={<EmailRowsMock />}
+          />
+          <BigFeatureCard
+            Icon={Database}
+            title="What Feeds the Network"
+            body="Emails, Load Sheets, Excel Rate Tables, Carrier Quotes, Rate Confirmations, BOLs, PODs. Every interaction becomes capacity intelligence."
+            visual={<FileTilesMock />}
+          />
+        </div>
+
+        {/* 3-up bottom row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <FeatureCard
+            Icon={Truck}
+            title="Automatic Lane Mapping"
+            body="If a carrier quotes a lane once, min. remembers they run that lane, their equipment, and the rate given. Liquidity for next time."
+            visual={<LaneSliderMock from="ORD" to="DFW" />}
+          />
+          <FeatureCard
+            Icon={Sparkles}
+            title="Zero Data Entry"
+            body="No CRM. No carrier sheet. Your network grows automatically with every email your team sends and receives."
+            visual={<NotificationIconsMock />}
+          />
+          <FeatureCard
+            Icon={Users}
+            title="The Network Stays With You"
+            body="When a rep leaves, their carrier relationships, lane history, and rate cards stay inside the company. The network is the brokerage's greatest asset."
+            visual={<HandoffIconsMock />}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SectionHeader({
+  Icon,
+  title,
+  desc,
+  align = "center",
+}: {
+  Icon?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  desc?: string;
+  align?: "center" | "left";
+}) {
+  const wrap =
+    align === "center"
+      ? "text-center max-w-3xl mx-auto mb-14"
+      : "max-w-2xl mb-12";
+  return (
+    <div className={wrap}>
+      {Icon && (
+        <div className={`mb-7 ${align === "center" ? "flex justify-center" : ""}`}>
+          <IconTile Icon={Icon} size="xl" tint="blue" glow="strong" />
+        </div>
+      )}
+      <h2 className="text-white font-semibold tracking-[-0.025em] text-4xl md:text-5xl mb-5">
+        {title}
+      </h2>
+      {desc && (
+        <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+          {desc}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function BigFeatureCard({
+  Icon,
+  title,
+  body,
+  visual,
+}: {
+  Icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  body: string;
+  visual?: React.ReactNode;
+}) {
+  return (
+    <div
+      className={`${CARD_SURFACE_LG} p-6 md:p-8 flex flex-col`}
+      style={CARD_INNER_HIGHLIGHT}
+    >
+      <div className="mb-5">
+        <IconTile Icon={Icon} size="md" tint="blue" />
+      </div>
+      <h3 className="text-white text-xl font-semibold tracking-[-0.01em] mb-3">
+        {title}
+      </h3>
+      <p className="text-sm text-slate-400 leading-relaxed mb-6">{body}</p>
+      <div className="mt-auto">{visual}</div>
+    </div>
+  );
+}
+
+function FeatureCard({
+  Icon,
+  title,
+  body,
+  visual,
+}: {
+  Icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  body: string;
+  visual?: React.ReactNode;
+}) {
+  return (
+    <div
+      className={`${CARD_SURFACE} p-6 flex flex-col`}
+      style={CARD_INNER_HIGHLIGHT}
+    >
+      <div className="mb-4">
+        <IconTile Icon={Icon} size="sm" tint="blue" />
+      </div>
+      <h3 className="text-white text-base font-semibold tracking-[-0.01em] mb-2">
+        {title}
+      </h3>
+      <p className="text-sm text-slate-400 leading-relaxed mb-5">{body}</p>
+      <div className="mt-auto">{visual}</div>
+    </div>
+  );
+}
+
+/* ───────── Visual Mocks ───────── */
+
+function MockSurface({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-xl border border-white/[0.08] bg-black/50 ${className}`}
+      style={{
+        boxShadow:
+          "inset 0 1px 0 rgba(255,255,255,0.04), inset 0 -1px 0 rgba(0,0,0,0.3)",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function EmailRowsMock() {
+  const rows = [
+    { initials: "AL", w: "w-[78%]", active: false },
+    { initials: "PB", w: "w-[62%]", active: false },
+    { initials: "NF", w: "w-[88%]", active: true },
+  ];
+  return (
+    <MockSurface className="p-3.5">
+      <div className="space-y-2.5">
+        {rows.map((r, i) => (
+          <div key={i} className="flex items-center gap-2.5">
+            <span
+              className={[
+                "shrink-0 grid place-items-center w-6 h-6 rounded-md text-[9px] font-mono tracking-wider border",
+                r.active
+                  ? "bg-blue-500/15 border-blue-400/30 text-blue-200"
+                  : "bg-white/[0.04] border-white/10 text-slate-400",
+              ].join(" ")}
+            >
+              {r.initials}
+            </span>
+            <div className="flex-1 space-y-1.5">
+              <div
+                className={`h-1.5 ${r.w} rounded-full`}
+                style={{
+                  background: r.active
+                    ? "linear-gradient(90deg, rgba(96,140,255,0.75), rgba(96,140,255,0.15))"
+                    : "linear-gradient(90deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04))",
+                }}
+              />
+              <div className="h-1 w-[40%] rounded-full bg-white/[0.06]" />
+            </div>
+            {r.active && (
+              <Sparkles className="w-3.5 h-3.5 text-blue-300 shrink-0" />
+            )}
+          </div>
+        ))}
+      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-6 -bottom-px h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(96,140,255,0.6), transparent)",
+        }}
+      />
+    </MockSurface>
+  );
+}
+
+function FileTilesMock() {
+  const tiles = [
+    { Icon: Mail, label: "EML" },
+    { Icon: FileText, label: "PDF" },
+    { Icon: FileSpreadsheet, label: "XLSX" },
+    { Icon: FileText, label: "POD" },
+  ];
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      {tiles.map((t, i) => (
+        <div
+          key={i}
+          className="relative h-14 rounded-lg border border-white/[0.08] bg-gradient-to-b from-white/[0.05] to-white/[0.01] flex items-center gap-3 px-3"
+          style={{
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+          }}
+        >
+          <span className="grid place-items-center w-8 h-8 rounded-md bg-white/[0.04] border border-white/10">
+            <t.Icon className="w-4 h-4 text-slate-300" strokeWidth={1.75} />
+          </span>
+          <span className="font-mono text-[11px] tracking-wider text-slate-300">
+            {t.label}
+          </span>
+          <span
+            aria-hidden
+            className="ml-auto block w-1.5 h-1.5 rounded-full bg-emerald-400/70 shadow-[0_0_8px_rgba(52,211,153,0.7)]"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function LaneSliderMock({ from, to }: { from: string; to: string }) {
+  return (
+    <MockSurface className="px-4 py-5">
+      <div className="flex items-center gap-3">
+        <span className="text-[10px] font-mono tracking-[0.18em] text-slate-400">
+          {from}
+        </span>
+        <div className="relative flex-1 h-px bg-white/[0.08]">
+          <div
+            className="absolute top-0 left-0 h-px"
+            style={{
+              width: "58%",
+              background:
+                "linear-gradient(90deg, rgba(96,140,255,0.85), rgba(96,140,255,0.15))",
+            }}
+          />
+          <span
+            className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
+            style={{
+              left: "58%",
+              background:
+                "radial-gradient(circle, rgba(180,210,255,1) 0%, rgba(96,140,255,1) 60%, rgba(96,140,255,0) 100%)",
+              boxShadow:
+                "0 0 0 2px rgba(96,140,255,0.18), 0 0 16px rgba(96,140,255,0.7)",
+            }}
+          />
+        </div>
+        <span className="text-[10px] font-mono tracking-[0.18em] text-slate-400">
+          {to}
+        </span>
+      </div>
+      <p className="mt-3 text-[10px] tracking-[0.14em] uppercase text-slate-500">
+        Carrier coverage <span className="text-slate-300">58%</span>
+      </p>
+    </MockSurface>
+  );
+}
+
+function NotificationIconsMock() {
+  const items = [
+    { Icon: Mail, label: "Quote received", meta: "2m" },
+    { Icon: Truck, label: "POD attached", meta: "5m" },
+    { Icon: Activity, label: "Lane indexed", meta: "now" },
+  ];
+  return (
+    <MockSurface className="p-2 space-y-1.5">
+      {items.map((it, i) => (
+        <div key={i} className="flex items-center gap-2.5 px-2 py-1.5">
+          <span className="grid place-items-center w-6 h-6 rounded-md bg-white/[0.04] border border-white/10 shrink-0">
+            <it.Icon className="w-3.5 h-3.5 text-slate-300" strokeWidth={1.75} />
+          </span>
+          <span className="text-[11px] text-slate-300 flex-1 truncate">
+            {it.label}
+          </span>
+          <span className="text-[10px] font-mono text-slate-500">{it.meta}</span>
+        </div>
+      ))}
+    </MockSurface>
+  );
+}
+
+function HandoffIconsMock() {
+  return (
+    <MockSurface className="px-4 py-5">
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col items-center gap-1.5">
+          <span className="grid place-items-center w-9 h-9 rounded-full bg-white/[0.04] border border-white/10">
+            <User className="w-4 h-4 text-slate-300" strokeWidth={1.75} />
+          </span>
+          <span className="text-[9px] tracking-[0.14em] uppercase text-slate-500">
+            Rep
+          </span>
+        </div>
+        <div className="flex-1 mx-3 relative h-px">
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(96,140,255,0.5), transparent)",
+            }}
+          />
+          <ArrowRight className="absolute -top-2 right-0 w-3.5 h-3.5 text-blue-300" />
+        </div>
+        <div className="flex flex-col items-center gap-1.5">
+          <span
+            className="grid place-items-center w-9 h-9 rounded-full bg-blue-500/12 border border-blue-400/30"
+            style={{ boxShadow: "0 0 16px rgba(96,140,255,0.25)" }}
+          >
+            <Building2 className="w-4 h-4 text-blue-300" strokeWidth={1.75} />
+          </span>
+          <span className="text-[9px] tracking-[0.14em] uppercase text-blue-300">
+            Company
+          </span>
+        </div>
+      </div>
+    </MockSurface>
+  );
+}
+
+/* ───────── INTELLIGENT SEARCH ───────── */
+
+function IntelligentSearchSection() {
+  return (
+    <section id="capacity" className="relative py-24 md:py-32 scroll-mt-24">
+      <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader
+          Icon={Search}
+          title="Find Capacity Instantly"
+          desc="Ask in plain English. min. surfaces every carrier in your network that has ever run that lane, not just the ones the broker on the load happens to remember."
+        />
+
+        <SearchDemoCard />
+      </div>
+    </section>
+  );
+}
+
+function SearchDemoCard() {
+  const carriers = [
+    { name: "Apex Logistics", lane: "YYZ → MIA" },
+    { name: "Polar Bear Transit", lane: "YYZ → MIA" },
+    { name: "Northern Freight", lane: "YYZ → MIA" },
+  ];
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4">
+      <div className="flex flex-col gap-4 self-start">
+        <SubCard Icon={Truck} title="Capacity Sourcing">
+          Source coverage from your private carrier network, instantly.
+        </SubCard>
+        <SubCard Icon={Search} title="How min. finds capacity">
+          min. searches every quote, email, and rate con your team has ever
+          sent or received. Every carrier in your network for that lane
+          surfaces, not just the ones the broker on the load remembers.
+        </SubCard>
+      </div>
+
+      <div
+        className={`${CARD_SURFACE} overflow-hidden`}
+        style={CARD_INNER_HIGHLIGHT}
+      >
+        <div className="px-5 py-4 border-b border-white/[0.06] flex items-start gap-3">
+          <IconTile Icon={Search} size="sm" tint="slate" glow="none" />
+          <div className="flex-1 min-w-0">
+            <p className="text-[10px] tracking-[0.18em] uppercase text-slate-500 mb-1">
+              Search
+            </p>
+            <p className="font-mono text-slate-200 text-sm">
+              "Find me carriers that run Toronto to Miami, FTL Reefer."
+            </p>
+          </div>
+        </div>
+        <div className="px-5 py-4">
+          <p className="text-[10px] tracking-[0.18em] uppercase text-slate-500 mb-3">
+            Results from Memory
+          </p>
+          <ul className="divide-y divide-white/[0.05]">
+            {carriers.map((c) => (
+              <li
+                key={c.name}
+                className="flex items-center justify-between py-3"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="grid place-items-center w-8 h-8 rounded-md bg-gradient-to-b from-white/[0.05] to-white/[0.01] border border-white/10 text-[10px] font-mono tracking-wider text-slate-400">
+                    {c.name
+                      .split(" ")
+                      .map((w) => w[0])
+                      .join("")
+                      .slice(0, 2)}
+                  </span>
+                  <div>
+                    <p className="text-white text-sm font-medium">{c.name}</p>
+                    <p className="text-xs text-slate-500">FTL Reefer</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <button className="flex items-center gap-1 text-[10px] tracking-[0.14em] uppercase text-blue-300/90 hover:text-blue-200">
+                    <Activity className="w-3 h-3" strokeWidth={2} />
+                    View History
+                  </button>
+                  <span
+                    className="rounded-md border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.01] px-2 py-1 text-[11px] font-mono text-slate-200"
+                    style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }}
+                  >
+                    {c.lane}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SubCard({
+  Icon,
+  title,
+  children,
+  tint = "blue",
+  filled = false,
+}: {
+  Icon: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string }>;
+  title: string;
+  children: React.ReactNode;
+  tint?: Tint;
+  filled?: boolean;
+}) {
+  return (
+    <div className={`${CARD_SURFACE} p-5`} style={CARD_INNER_HIGHLIGHT}>
+      <div className="mb-3">
+        <IconTile Icon={Icon} size="sm" tint={tint} filled={filled} />
+      </div>
+      <h3 className="text-white text-sm font-semibold tracking-[-0.01em] mb-1.5">
+        {title}
+      </h3>
+      <p className="text-xs text-slate-400 leading-relaxed">{children}</p>
+    </div>
+  );
+}
+
+/* ───────── TAKE ACTION ───────── */
+
+function TakeActionSection() {
+  return (
+    <section id="quoting" className="relative py-24 md:py-32 scroll-mt-24">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Left: text + sub-card */}
+          <div className="lg:pr-10 flex flex-col gap-6">
+            <div>
+              <h2 className="flex items-center gap-3 text-white font-semibold tracking-[-0.025em] text-3xl md:text-4xl mb-5">
+                <IconTile Icon={Zap} size="md" tint="amber" filled glow="strong" />
+                Quote in Seconds
+              </h2>
+              <p className="text-slate-400 leading-relaxed mb-4">
+                Drop in a load. min. blends live market demand, your team's
+                pricing history, and real-time fuel and weather data to land on
+                the right rate, fast. Then blasts the RFQ to your network and
+                ranks responses against history.
+              </p>
+              <p className="text-white text-sm font-medium">
+                Four data streams in. One quote out.
+              </p>
+
+              <div className="mt-6">
+                <QuoteSignals />
+              </div>
+            </div>
+
+            <SubCard Icon={Zap} title="How min. quotes" tint="amber" filled>
+              min. consolidates four signals in one place: <span className="text-slate-200">live market demand</span> for the lane, your team's
+              {" "}<span className="text-slate-200">historical pricing</span>, current
+              {" "}<span className="text-slate-200">fuel costs</span>, and
+              {" "}<span className="text-slate-200">weather along the route</span>.
+              You get a starting rate that already reflects what the market
+              looks like, not a number from last quarter's spreadsheet.
+            </SubCard>
+          </div>
+
+          {/* Right: demo panel */}
+          <div className="space-y-4">
+            <div
+              className={`${CARD_SURFACE} overflow-hidden`}
+              style={CARD_INNER_HIGHLIGHT}
+            >
+              <div className="px-5 py-4 border-b border-white/[0.06] flex items-start gap-3">
+                <IconTile Icon={Zap} size="sm" tint="amber" filled />
+                <div className="flex-1 min-w-0">
+                  <p className="text-[10px] tracking-[0.18em] uppercase text-amber-400/90 mb-1">
+                    Quote
+                  </p>
+                  <p className="font-mono text-slate-200 text-sm leading-relaxed">
+                    "Send this load to my network and get me quotes."
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-5">
+                <LoadDetailsCard />
+              </div>
+            </div>
+
+            <IncomingQuotesCard />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function QuoteSignals() {
+  const signals = [
+    { Icon: TrendingUp, label: "Market Demand", meta: "DAT · live" },
+    { Icon: Database, label: "Your History", meta: "12 mo" },
+    { Icon: Fuel, label: "Fuel", meta: "EIA · today" },
+    { Icon: Cloud, label: "Weather", meta: "Route" },
+  ];
+  return (
+    <MockSurface className="p-3.5">
+      <p className="text-[10px] tracking-[0.18em] uppercase text-slate-500 mb-2.5 font-medium">
+        Signals consolidated
+      </p>
+      <div className="grid grid-cols-2 gap-2">
+        {signals.map((s) => (
+          <div
+            key={s.label}
+            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg border border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-white/[0.01]"
+            style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+          >
+            <span className="grid place-items-center w-7 h-7 rounded-md border border-blue-400/25 bg-gradient-to-b from-blue-500/[0.15] to-blue-500/[0.03] shrink-0">
+              <s.Icon
+                className="w-[14px] h-[14px] text-blue-300"
+                strokeWidth={1.75}
+              />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-[11px] text-white font-medium leading-tight truncate">
+                {s.label}
+              </p>
+              <p className="text-[9px] tracking-[0.12em] uppercase text-slate-500 leading-tight font-mono mt-0.5">
+                {s.meta}
+              </p>
+            </div>
+            <span
+              className="block w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"
+              style={{ boxShadow: "0 0 8px rgba(52,211,153,0.7)" }}
+            />
+          </div>
+        ))}
+      </div>
+      <div className="mt-2.5 flex items-center justify-center">
+        <ArrowDown className="w-3.5 h-3.5 text-slate-500" strokeWidth={2} />
+      </div>
+      <div
+        className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg border border-amber-400/30 bg-gradient-to-b from-amber-500/[0.12] to-amber-500/[0.02]"
+        style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+      >
+        <div className="flex items-center gap-2">
+          <Zap
+            className="w-3.5 h-3.5 text-amber-400"
+            strokeWidth={2}
+            fill="currentColor"
+          />
+          <p className="text-[11px] tracking-[0.12em] uppercase text-amber-200 font-medium">
+            Suggested rate
+          </p>
+        </div>
+        <p
+          className="text-amber-100 text-sm font-semibold tabular-nums"
+          style={{ textShadow: "0 0 12px rgba(251,191,36,0.4)" }}
+        >
+          $3,420
+        </p>
+      </div>
+    </MockSurface>
+  );
+}
+
+function LoadDetailsCard() {
+  const rows = [
+    ["Pickup", "Toronto, ON"],
+    ["Dropoff", "Miami, FL"],
+    ["Equipment", "FTL Reefer"],
+    ["Commodity", "35,000 lbs oranges"],
+    ["Schedule", "Ready for Monday, Deliver by Friday"],
+  ];
+  return (
+    <div
+      className="rounded-xl border border-white/[0.08] bg-gradient-to-b from-[#0a0d12] to-black overflow-hidden"
+      style={{
+        boxShadow:
+          "inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px -8px rgba(0,0,0,0.6)",
+      }}
+    >
+      <div className="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-transparent">
+        <span
+          className="block w-2.5 h-2.5 rounded-full bg-red-500"
+          style={{ boxShadow: "inset 0 0 0 0.5px rgba(0,0,0,0.25)" }}
+        />
+        <span
+          className="block w-2.5 h-2.5 rounded-full bg-amber-400"
+          style={{ boxShadow: "inset 0 0 0 0.5px rgba(0,0,0,0.25)" }}
+        />
+        <span
+          className="block w-2.5 h-2.5 rounded-full bg-emerald-500"
+          style={{ boxShadow: "inset 0 0 0 0.5px rgba(0,0,0,0.25)" }}
+        />
+        <span className="ml-2.5 text-[11px] text-slate-400 font-medium tracking-tight">
+          Load Details
+        </span>
+      </div>
+      <dl className="px-4 py-4 grid grid-cols-[110px_1fr] gap-y-2.5 text-[13px] font-mono">
+        {rows.map(([k, v]) => (
+          <FragmentRow key={k} k={k} v={v} highlight={k === "Schedule"} />
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+function FragmentRow({
+  k,
+  v,
+  highlight,
+}: {
+  k: string;
+  v: string;
+  highlight?: boolean;
+}) {
+  return (
+    <>
+      <dt className="text-slate-500">{k}:</dt>
+      <dd className={highlight ? "text-amber-300" : "text-slate-200"}>{v}</dd>
+    </>
+  );
+}
+
+function IncomingQuotesCard() {
+  const quotes = [
+    {
+      name: "Apex Logistics",
+      time: "Just now",
+      price: "$3,400",
+      note: "Can pick up Wednesday but deliver on Tuesday.",
+    },
+    {
+      name: "Polar Bear Transit",
+      time: "2 mins ago",
+      price: "$3,550",
+      note: "Can deliver and have sent their carrier package.",
+    },
+    {
+      name: "Northern Freight",
+      time: "5 mins ago",
+      price: "$3,800",
+      note: null as string | null,
+    },
+  ];
+  return (
+    <div
+      className={`${CARD_SURFACE} overflow-hidden`}
+      style={CARD_INNER_HIGHLIGHT}
+    >
+      <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2">
+        <span
+          className="block w-1.5 h-1.5 rounded-full bg-emerald-400"
+          style={{ boxShadow: "0 0 8px rgba(52,211,153,0.7)" }}
+        />
+        <p className="text-[10px] tracking-[0.18em] uppercase text-slate-400 font-medium">
+          Incoming Quotes
+        </p>
+      </div>
+      <ul className="divide-y divide-white/[0.05]">
+        {quotes.map((q) => (
+          <li key={q.name} className="px-5 py-4">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="grid place-items-center w-8 h-8 rounded-md bg-gradient-to-b from-white/[0.05] to-white/[0.01] border border-white/10 text-[10px] font-mono tracking-wider text-slate-400 shrink-0">
+                  {q.name
+                    .split(" ")
+                    .map((w) => w[0])
+                    .join("")
+                    .slice(0, 2)}
+                </span>
+                <div className="min-w-0">
+                  <p className="text-white text-sm font-medium truncate">
+                    {q.name}
+                  </p>
+                  <p className="text-[11px] text-slate-500">{q.time}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 shrink-0">
+                <button
+                  className="flex items-center gap-1.5 rounded-md border border-white/[0.08] bg-gradient-to-b from-white/[0.05] to-white/[0.01] px-2.5 py-1 text-[10px] tracking-[0.12em] uppercase text-slate-300 hover:text-white hover:border-white/15 transition-colors"
+                  style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+                >
+                  <Mail className="w-3 h-3" strokeWidth={2} />
+                  Open Email
+                </button>
+                <p
+                  className="text-emerald-400 text-sm font-semibold tabular-nums"
+                  style={{ textShadow: "0 0 12px rgba(52,211,153,0.35)" }}
+                >
+                  {q.price}
+                </p>
+              </div>
+            </div>
+            {q.note && (
+              <div className="mt-2.5 rounded-md border border-white/[0.05] bg-black/40 px-3 py-1.5 text-[11px] text-slate-400 inline-flex items-baseline gap-2">
+                <span className="text-[9px] tracking-[0.14em] uppercase text-slate-500 font-mono">
+                  Note
+                </span>
+                <span>{q.note}</span>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/* ───────── SHARED BRAIN BOTTOM ───────── */
+
+function SharedBrainSection() {
+  const flow = [
+    {
+      Icon: Zap,
+      tint: "amber" as const,
+      title: "Quote",
+      desc: "Blast RFQs to your network in one sentence. Live quotes route back to a single panel.",
+    },
+    {
+      Icon: Search,
+      tint: "blue" as const,
+      title: "Capacity",
+      desc: "Surface every carrier in your network for the lane in seconds, not just the names anyone remembers.",
+    },
+    {
+      Icon: Network,
+      tint: "blue" as const,
+      title: "Network",
+      desc: "Every quote and booking compounds your carrier graph. Your liquidity gets stronger every day.",
+    },
+  ];
+
+  return (
+    <section className="relative py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader
+          title="A network that compounds with every booking."
+          desc="Quote, cover, repeat. Every load your team works adds carriers, lanes, and rates to your private network, so the next quote is faster and the next cover is easier."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-y-8 max-w-5xl mx-auto">
+          <FlowCell {...flow[0]} />
+          <FlowArrow />
+          <FlowCell {...flow[1]} />
+          <FlowArrow />
+          <FlowCell {...flow[2]} />
+        </div>
+
+        <p className="text-center text-slate-500 text-xs mt-12 max-w-xl mx-auto">
+          Day 0: thousands of messy contacts in your inbox.
+          Day 1: searchable private capacity network that money can't buy.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function FlowCell({
+  Icon,
+  tint,
+  title,
+  desc,
+}: {
+  Icon: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string }>;
+  tint: "blue" | "amber";
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="flex flex-col items-center text-center px-2">
+      <div className="mb-5">
+        <IconTile
+          Icon={Icon}
+          size="xl"
+          tint={tint}
+          glow="strong"
+          filled={tint === "amber"}
+        />
+      </div>
+      <h3 className="text-white text-xl font-semibold tracking-[-0.015em] mb-3">
+        {title}
+      </h3>
+      <p className="text-sm text-slate-400 leading-relaxed max-w-[260px]">
+        {desc}
+      </p>
+    </div>
+  );
+}
+
+function FlowArrow() {
+  return (
+    <div className="hidden md:flex items-center justify-center pt-8">
+      <div className="relative w-24 lg:w-32 flex items-center">
+        <div className="flex-1 h-px bg-gradient-to-r from-white/0 via-white/15 to-white/15" />
+        <ArrowRight className="w-4 h-4 text-slate-500 -ml-2" />
+      </div>
+    </div>
+  );
+}
+
+/* unused import shim */
+void Bell; void Circle; void Activity;

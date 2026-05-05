@@ -1,221 +1,242 @@
-
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Mail, Copy, Check, Zap, Heart, Code, Palette, Users, Lightbulb, Coffee } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import {
+  Mail,
+  Copy,
+  Check,
+  Code,
+  Lightbulb,
+  Heart,
+  Users,
+  Zap,
+} from "lucide-react";
+import PillNav from "@/components/PillNav";
+import MinFooter from "@/components/MinFooter";
+import {
+  IconTile,
+  CARD_SURFACE,
+  CARD_INNER_HIGHLIGHT,
+  HeroAmbientGlow,
+  PillButton,
+} from "@/components/MinPrimitives";
 
-const Careers = () => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
+const TRAITS = [
+  {
+    Icon: Code,
+    title: "Builders",
+    body: "You'd rather ship a prototype than write a doc about it.",
+  },
+  {
+    Icon: Lightbulb,
+    title: "Thinkers",
+    body: "You see liquidity where others see chaos in an inbox.",
+  },
+  {
+    Icon: Heart,
+    title: "Operators",
+    body: "You've felt the pain of brokerage workflow firsthand.",
+  },
+  {
+    Icon: Users,
+    title: "Collaborators",
+    body: "You give honest feedback and take it the same way.",
+  },
+];
+
+const BENEFITS = [
+  "Competitive salary + meaningful equity",
+  "Health, dental, and vision",
+  "Flexible PTO and parental leave",
+  "Remote-first, optional LA office",
+  "Annual learning budget",
+  "Whatever hardware you need",
+];
+
+export default function Careers() {
   const email = "hello@getmin.ai";
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleEmailClick = () => {
-    window.location.href = `mailto:${email}`;
-  };
-
-  const handleCopyEmail = async () => {
+  async function handleCopy() {
     try {
       await navigator.clipboard.writeText(email);
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2000);
-    } catch (err) {
-      console.log('Failed to copy email:', err);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch (e) {
+      console.warn("clipboard:", e);
     }
-  };
-
-  const benefits = [
-    "Competitive salary and equity",
-    "Comprehensive health, dental, and vision insurance",
-    "Flexible PTO and parental leave",
-    "Remote-first culture with optional office access",
-    "Learning and development budget",
-    "Latest equipment and tools"
-  ];
-
-  const whatWeWant = [
-    {
-      icon: <Code className="w-6 h-6 text-green-600" />,
-      title: "Builders",
-      description: "People who love creating things that actually solve problems"
-    },
-    {
-      icon: <Lightbulb className="w-6 h-6 text-yellow-600" />,
-      title: "Thinkers",
-      description: "Creative minds who see solutions where others see challenges"
-    },
-    {
-      icon: <Heart className="w-6 h-6 text-red-500" />,
-      title: "Dreamers",
-      description: "Passionate individuals who believe technology can make work better"
-    },
-    {
-      icon: <Users className="w-6 h-6 text-blue-600" />,
-      title: "Collaborators",
-      description: "Team players who thrive in transparent, supportive environments"
-    }
-  ];
+  }
 
   return (
-    <div className="min-h-screen bg-slate-950 relative overflow-hidden">
-      {/* Background layers - dark */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/20 via-slate-950 to-slate-900/50" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(rgba(52, 211, 153, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 211, 153, 0.4) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
+    <>
+      <Helmet>
+        <title>Careers at min. | Build the network that compounds</title>
+        <meta
+          name="description"
+          content="Help us build the quoting and capacity engine for freight brokers. Email hello@getmin.ai with what you've built. No traditional postings."
+        />
+        <link rel="canonical" href="https://getmin.ai/careers" />
+      </Helmet>
 
-      <div className="relative z-10">
-        <Header />
-        
-        <main className="pt-32 pb-16">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-medium text-slate-100 mb-6 leading-tight">
-                Join the <span className="text-emerald-400">min.</span> revolution
+      <div className="min-h-screen bg-black text-slate-200 font-sans antialiased overflow-x-hidden">
+        <PillNav />
+
+        <main>
+          {/* Hero */}
+          <section className="relative pt-36 md:pt-44 pb-16 overflow-hidden">
+            <HeroAmbientGlow />
+            <div className="relative max-w-3xl mx-auto px-6 text-center">
+              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-6">
+                Careers
+              </p>
+              <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
+                Build the network that{" "}
+                <span className="text-blue-300">compounds</span>.
               </h1>
-              <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
-                We're building the future of communication. No traditional job postings, no lengthy applications. 
-                Just passionate people doing amazing work.
+              <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+                No job postings. No five-round interviews. Email us what you've
+                built and what you want to build next.
               </p>
             </div>
+          </section>
 
-            {/* Main email recruitment section */}
-            <div className="bg-slate-900/80 backdrop-blur-sm p-12 rounded-2xl border border-slate-700/60 shadow-xl mb-16 text-center">
-              <div className="flex justify-center mb-6">
-                <div className="relative">
-                  <Mail className="w-12 h-12 text-emerald-400" />
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full animate-pulse" />
+          {/* Email card */}
+          <section className="pb-16">
+            <div className="max-w-2xl mx-auto px-6">
+              <div
+                className={`${CARD_SURFACE} p-8 md:p-10 text-center`}
+                style={CARD_INNER_HIGHLIGHT}
+              >
+                <div className="flex justify-center mb-5">
+                  <IconTile Icon={Mail} size="lg" tint="blue" glow="strong" />
                 </div>
-              </div>
-              
-              <h2 className="text-3xl font-semibold text-slate-100 mb-4">Ready to build something amazing?</h2>
-              <p className="text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Skip the traditional hiring dance. Just email us your resume, showcase your best work, 
-                and tell us about projects that make you proud. We'll know if you're a fit! ✨
-              </p>
-              
-              <div className="bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 mb-8 border border-slate-600/50 max-w-md mx-auto">
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-100 font-medium text-2xl">{email}</span>
-                  <button 
-                    onClick={handleCopyEmail} 
-                    className="p-3 hover:bg-slate-700/50 rounded-lg transition-colors" 
-                    title="Copy email"
+                <h2 className="text-white text-2xl font-semibold tracking-[-0.01em] mb-3">
+                  Email is the application.
+                </h2>
+                <p className="text-slate-400 text-sm leading-relaxed mb-7 max-w-md mx-auto">
+                  Send a resume or a link to something you're proud of. Tell us
+                  why you're excited about freight. We'll write back.
+                </p>
+                <div
+                  className={`${CARD_SURFACE} flex items-center justify-between gap-3 px-4 py-3 mb-6 max-w-sm mx-auto`}
+                  style={CARD_INNER_HIGHLIGHT}
+                >
+                  <span className="text-white font-medium font-mono text-sm">
+                    {email}
+                  </span>
+                  <button
+                    onClick={handleCopy}
+                    className="grid place-items-center w-8 h-8 rounded-md hover:bg-white/5 transition-colors"
+                    aria-label="Copy email"
                   >
-                    {copiedEmail ? (
-                      <Check className="w-5 h-5 text-emerald-400" />
+                    {copied ? (
+                      <Check className="w-4 h-4 text-emerald-400" />
                     ) : (
-                      <Copy className="w-5 h-5 text-slate-400" />
+                      <Copy className="w-4 h-4 text-slate-400" />
                     )}
                   </button>
                 </div>
+                <PillButton href={`mailto:${email}?subject=Careers`}>
+                  <Mail className="w-4 h-4" strokeWidth={2} />
+                  Email us
+                </PillButton>
               </div>
-              
-              <Button 
-                onClick={handleEmailClick} 
-                size="lg" 
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-8 mb-6"
-              >
-                <Coffee className="w-4 h-4 mr-2" />
-                Let's chat about your future
-              </Button>
+            </div>
+          </section>
 
-              <div className="bg-slate-800/60 rounded-xl p-4 border border-slate-600/50 max-w-2xl mx-auto">
-                <p className="text-sm text-emerald-200 font-medium mb-2">📧 What to include in your email:</p>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Your resume, links to projects you're proud of, a brief note about what excites you about min., 
-                  and anything else that shows who you are as a creator!
+          {/* Who we're looking for */}
+          <section className="py-16">
+            <div className="max-w-5xl mx-auto px-6">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
+                Who we're looking for
+              </p>
+              <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
+                Four kinds of people.
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {TRAITS.map((t) => (
+                  <div
+                    key={t.title}
+                    className={`${CARD_SURFACE} p-6`}
+                    style={CARD_INNER_HIGHLIGHT}
+                  >
+                    <div className="mb-4">
+                      <IconTile Icon={t.Icon} size="sm" tint="blue" />
+                    </div>
+                    <h3 className="text-white text-base font-semibold tracking-[-0.01em] mb-2">
+                      {t.title}
+                    </h3>
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      {t.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Benefits + Vibe */}
+          <section className="py-16">
+            <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                className={`${CARD_SURFACE} p-7`}
+                style={CARD_INNER_HIGHLIGHT}
+              >
+                <h3 className="text-white text-lg font-semibold tracking-[-0.01em] mb-5">
+                  Benefits
+                </h3>
+                <ul className="space-y-2.5">
+                  {BENEFITS.map((b) => (
+                    <li
+                      key={b}
+                      className="text-sm text-slate-400 flex items-start gap-2"
+                    >
+                      <span className="text-blue-300 mt-1.5 block w-1 h-1 rounded-full bg-blue-300 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div
+                className={`${CARD_SURFACE} p-7 flex flex-col`}
+                style={CARD_INNER_HIGHLIGHT}
+              >
+                <div className="mb-4">
+                  <IconTile Icon={Zap} size="sm" tint="amber" filled />
+                </div>
+                <h3 className="text-white text-lg font-semibold tracking-[-0.01em] mb-3">
+                  How we work
+                </h3>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  We ship fast, talk to brokers every week, and use min. on our
+                  own inbox every day. Small team, big surface area, real
+                  problems.
                 </p>
               </div>
             </div>
+          </section>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-              <div className="lg:col-span-2">
-                <h2 className="text-2xl font-normal text-slate-100 mb-8">Who we're looking for</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {whatWeWant.map((trait, index) => (
-                    <div key={index} className="bg-slate-900/80 backdrop-blur-sm p-6 rounded-xl border border-slate-700/60 shadow-sm">
-                      <div className="flex items-center gap-3 mb-3">
-                        {trait.icon}
-                        <h3 className="text-lg font-normal text-slate-100">{trait.title}</h3>
-                      </div>
-                      <p className="text-slate-400 text-sm leading-relaxed font-light">
-                        {trait.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/60 mt-8">
-                  <h3 className="text-xl font-normal text-slate-100 mb-4 flex items-center gap-2">
-                    <Palette className="w-5 h-5 text-violet-400" />
-                    Any role, any experience level
-                  </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed font-light mb-4">
-                    Whether you're a seasoned engineer, a design wizard, a growth hacker, a customer success ninja, 
-                    or something completely different – if you're passionate about making communication better, we want to hear from you.
-                  </p>
-                  <p className="text-violet-300 text-sm font-medium">
-                    From interns to senior roles, remote to in-person – let's figure out what works! 🚀
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-normal text-slate-100 mb-8">Why min.?</h2>
-                <div className="bg-slate-900/80 backdrop-blur-sm p-6 rounded-xl border border-slate-700/60 shadow-sm">
-                  <h3 className="text-lg font-normal text-slate-100 mb-4">Benefits & Perks</h3>
-                  <ul className="space-y-3">
-                    {benefits.map((benefit, index) => (
-                      <li key={index} className="text-slate-400 text-sm font-light flex items-start">
-                        <span className="text-emerald-400 mr-2">•</span>
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="bg-slate-900/80 backdrop-blur-sm p-6 rounded-xl border border-slate-700/60 shadow-sm mt-6">
-                  <h3 className="text-lg font-normal text-slate-100 mb-4">Our Vibe</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed font-light">
-                    We're building something that matters, but we're not taking ourselves too seriously. 
-                    We ship fast, learn faster, and actually have fun doing it. Plus, we use our own product daily! 🎯
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-emerald-600/90 rounded-2xl p-8 text-center text-white border border-emerald-500/30">
-              <h2 className="text-2xl font-normal mb-4 flex items-center justify-center gap-2">
-                <Zap className="w-6 h-6" />
-                Ready to join the team?
-              </h2>
-              <p className="text-emerald-100/90 mb-6 font-light max-w-2xl mx-auto">
-                Don't overthink it. If you're excited about what we're building and think you can contribute, 
-                just hit send on that email. The worst thing that can happen is we have a great conversation! 
+          {/* Final CTA */}
+          <section className="pb-24 pt-8">
+            <div className="max-w-2xl mx-auto px-6 text-center">
+              <h3 className="text-white text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
+                Don't overthink it.
+              </h3>
+              <p className="text-slate-400 mb-7">
+                Hit send. Worst case, a great conversation.
               </p>
-              <Button 
-                variant="secondary" 
-                className="bg-white/95 text-emerald-800 hover:bg-white font-normal"
-                onClick={handleEmailClick}
-              >
-                <Heart className="w-4 h-4 mr-2" />
+              <PillButton href={`mailto:${email}?subject=Careers`}>
                 Start the conversation
-              </Button>
+              </PillButton>
             </div>
-          </div>
+          </section>
         </main>
 
-        <Footer />
+        <MinFooter />
       </div>
-    </div>
+    </>
   );
-};
-
-export default Careers;
+}
