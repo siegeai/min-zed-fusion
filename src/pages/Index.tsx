@@ -1079,7 +1079,7 @@ function IntelligentSearchSection() {
         <SectionHeader
           Icon={Search}
           title="Find coverage instantly."
-          desc="Every shipper rate request is matched against every carrier in your private network and our extended, comprehensive network of over 50,000 carriers. Network quotes consistently beat public loadboard spot rates."
+          desc="Every shipper rate request is matched against every carrier in your private network and our extended, comprehensive network of over 50,000 carriers. Network rates consistently beat public loadboard rates."
         />
 
         <div className="max-w-2xl mx-auto">
