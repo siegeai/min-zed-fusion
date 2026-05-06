@@ -139,8 +139,8 @@ const Index = () => {
         <main>
           <Hero />
           <CollectiveMemorySection />
-          <IntelligentSearchSection />
           <TakeActionSection />
+          <IntelligentSearchSection />
           <SharedBrainSection />
         </main>
 
@@ -764,22 +764,37 @@ function SectionHeader({
   title,
   desc,
   align = "center",
+  tint = "blue",
+  filled = false,
+  eyebrow,
 }: {
-  Icon?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  Icon?: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string }>;
   title: string;
   desc?: string;
   align?: "center" | "left";
+  tint?: Tint;
+  filled?: boolean;
+  eyebrow?: string;
 }) {
   const wrap =
     align === "center"
       ? "text-center max-w-3xl mx-auto mb-14"
       : "max-w-2xl mb-12";
+  const eyebrowColor =
+    tint === "amber" ? "text-amber-300/90" : "text-blue-300/90";
   return (
     <div className={wrap}>
       {Icon && (
         <div className={`mb-7 ${align === "center" ? "flex justify-center" : ""}`}>
-          <IconTile Icon={Icon} size="xl" tint="blue" glow="strong" />
+          <IconTile Icon={Icon} size="xl" tint={tint} glow="strong" filled={filled} />
         </div>
+      )}
+      {eyebrow && (
+        <p
+          className={`text-[11px] tracking-[0.22em] uppercase font-semibold mb-4 ${eyebrowColor}`}
+        >
+          {eyebrow}
+        </p>
       )}
       <h2 className="text-white font-semibold tracking-[-0.025em] text-4xl md:text-5xl mb-5">
         {title}
@@ -867,39 +882,38 @@ function MockSurface({ children, className = "" }: { children: React.ReactNode; 
 
 function EmailRowsMock() {
   const rows = [
-    { initials: "AL", w: "w-[78%]", active: false },
-    { initials: "PB", w: "w-[62%]", active: false },
-    { initials: "NF", w: "w-[88%]", active: true },
+    { name: "Apex Logistics", w: "w-[78%]", active: false },
+    { name: "Polar Bear Transit", w: "w-[62%]", active: false },
+    { name: "Northern Freight", w: "w-[88%]", active: true },
   ];
   return (
     <MockSurface className="p-3.5">
       <div className="space-y-2.5">
-        {rows.map((r, i) => (
-          <div key={i} className="flex items-center gap-2.5">
-            <span
-              className={[
-                "shrink-0 grid place-items-center w-6 h-6 rounded-md text-[9px] font-mono tracking-wider border",
-                r.active
-                  ? "bg-blue-500/15 border-blue-400/30 text-blue-200"
-                  : "bg-white/[0.04] border-white/10 text-slate-400",
-              ].join(" ")}
-            >
-              {r.initials}
-            </span>
-            <div className="flex-1 space-y-1.5">
+        {rows.map((r) => (
+          <div key={r.name} className="flex items-center gap-2.5">
+            {r.active ? (
+              <Sparkles className="w-3.5 h-3.5 text-blue-300 shrink-0" />
+            ) : (
+              <Mail className="w-3.5 h-3.5 text-slate-500 shrink-0" strokeWidth={1.75} />
+            )}
+            <div className="flex-1 min-w-0 space-y-1.5">
+              <p
+                className={[
+                  "text-[11px] font-medium leading-none truncate",
+                  r.active ? "text-blue-100" : "text-slate-200",
+                ].join(" ")}
+              >
+                {r.name}
+              </p>
               <div
-                className={`h-1.5 ${r.w} rounded-full`}
+                className={`h-1 ${r.w} rounded-full`}
                 style={{
                   background: r.active
                     ? "linear-gradient(90deg, rgba(96,140,255,0.75), rgba(96,140,255,0.15))"
                     : "linear-gradient(90deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04))",
                 }}
               />
-              <div className="h-1 w-[40%] rounded-full bg-white/[0.06]" />
             </div>
-            {r.active && (
-              <Sparkles className="w-3.5 h-3.5 text-blue-300 shrink-0" />
-            )}
           </div>
         ))}
       </div>
@@ -917,30 +931,30 @@ function EmailRowsMock() {
 
 function FileTilesMock() {
   const tiles = [
-    { Icon: Mail, label: "EML" },
+    { Icon: Mail, label: "Email" },
     { Icon: FileText, label: "PDF" },
-    { Icon: FileSpreadsheet, label: "XLSX" },
-    { Icon: FileText, label: "POD" },
+    { Icon: FileSpreadsheet, label: "Excel" },
+    { Icon: FileText, label: "Proof of Delivery" },
   ];
   return (
     <div className="grid grid-cols-2 gap-2">
-      {tiles.map((t, i) => (
+      {tiles.map((t) => (
         <div
-          key={i}
+          key={t.label}
           className="relative h-14 rounded-lg border border-white/[0.08] bg-gradient-to-b from-white/[0.05] to-white/[0.01] flex items-center gap-3 px-3"
           style={{
             boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
           }}
         >
-          <span className="grid place-items-center w-8 h-8 rounded-md bg-white/[0.04] border border-white/10">
+          <span className="grid place-items-center w-8 h-8 rounded-md bg-white/[0.04] border border-white/10 shrink-0">
             <t.Icon className="w-4 h-4 text-slate-300" strokeWidth={1.75} />
           </span>
-          <span className="font-mono text-[11px] tracking-wider text-slate-300">
+          <span className="text-[11px] font-medium text-slate-200 truncate">
             {t.label}
           </span>
           <span
             aria-hidden
-            className="ml-auto block w-1.5 h-1.5 rounded-full bg-emerald-400/70 shadow-[0_0_8px_rgba(52,211,153,0.7)]"
+            className="ml-auto block w-1.5 h-1.5 rounded-full bg-emerald-400/70 shrink-0 shadow-[0_0_8px_rgba(52,211,153,0.7)]"
           />
         </div>
       ))}
@@ -1055,91 +1069,300 @@ function IntelligentSearchSection() {
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           Icon={Search}
-          title="Find Capacity Instantly"
-          desc="Ask in plain English. min. surfaces every carrier in your network that has ever run that lane, not just the ones the broker on the load happens to remember."
+          title="Find capacity instantly."
+          desc="Every shipper rate request is matched against every carrier in your private network and our extended, comprehensive network of over 50,000 carriers."
         />
 
-        <SearchDemoCard />
+        <div className="max-w-2xl mx-auto">
+          <CapacityFlowDemo />
+        </div>
       </div>
     </section>
   );
 }
 
-function SearchDemoCard() {
-  const carriers = [
-    { name: "Apex Logistics", lane: "YYZ → MIA" },
-    { name: "Polar Bear Transit", lane: "YYZ → MIA" },
-    { name: "Northern Freight", lane: "YYZ → MIA" },
-  ];
+/* ─── Capacity flow: incoming request → match → send → ranked quotes ─── */
 
+function CapacityFlowDemo() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4">
-      <div className="flex flex-col gap-4 self-start">
-        <SubCard Icon={Truck} title="Capacity Sourcing">
-          Source coverage from your private carrier network, instantly.
-        </SubCard>
-        <SubCard Icon={Search} title="How min. finds capacity">
-          min. searches every quote, email, and rate con your team has ever
-          sent or received. Every carrier in your network for that lane
-          surfaces, not just the ones the broker on the load remembers.
-        </SubCard>
-      </div>
+    <div className="space-y-2">
+      <FlowStage step="1" label="Incoming rate request" tint="slate">
+        <LoadRequestCard />
+      </FlowStage>
 
-      <div
-        className={`${CARD_SURFACE} overflow-hidden`}
-        style={CARD_INNER_HIGHLIGHT}
+      <FlowConnector label="MATCHED" />
+
+      <FlowStage
+        step="2"
+        label="Ranked against your network · 8 carriers"
+        tint="blue"
       >
-        <div className="px-5 py-4 border-b border-white/[0.06] flex items-start gap-3">
-          <IconTile Icon={Search} size="sm" tint="slate" glow="none" />
-          <div className="flex-1 min-w-0">
-            <p className="text-[10px] tracking-[0.18em] uppercase text-slate-500 mb-1">
-              Search
-            </p>
-            <p className="font-mono text-slate-200 text-sm">
-              "Find me carriers that run Toronto to Miami, FTL Reefer."
-            </p>
-          </div>
-        </div>
-        <div className="px-5 py-4">
-          <p className="text-[10px] tracking-[0.18em] uppercase text-slate-500 mb-3">
-            Results from Memory
-          </p>
-          <ul className="divide-y divide-white/[0.05]">
-            {carriers.map((c) => (
-              <li
-                key={c.name}
-                className="flex items-center justify-between py-3"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="grid place-items-center w-8 h-8 rounded-md bg-gradient-to-b from-white/[0.05] to-white/[0.01] border border-white/10 text-[10px] font-mono tracking-wider text-slate-400">
-                    {c.name
-                      .split(" ")
-                      .map((w) => w[0])
-                      .join("")
-                      .slice(0, 2)}
-                  </span>
-                  <div>
-                    <p className="text-white text-sm font-medium">{c.name}</p>
-                    <p className="text-xs text-slate-500">FTL Reefer</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <button className="flex items-center gap-1 text-[10px] tracking-[0.14em] uppercase text-blue-300/90 hover:text-blue-200">
-                    <Activity className="w-3 h-3" strokeWidth={2} />
-                    View History
-                  </button>
-                  <span
-                    className="rounded-md border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.01] px-2 py-1 text-[11px] font-mono text-slate-200"
-                    style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }}
-                  >
-                    {c.lane}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <MatchedCarriersList />
+        <SendRequestButton count={8} />
+      </FlowStage>
+
+      <FlowConnector label="QUOTES IN" />
+
+      <FlowStage
+        step="3"
+        label="Ranked by price + reliability"
+        tint="emerald"
+      >
+        <RankedQuotesList />
+      </FlowStage>
+    </div>
+  );
+}
+
+const STEP_TINTS = {
+  slate: {
+    border: "border-white/[0.10]",
+    bg: "bg-gradient-to-b from-white/[0.04] to-white/[0.01]",
+    chip: "text-slate-300 border-white/15 bg-white/[0.05]",
+    label: "text-slate-400",
+  },
+  blue: {
+    border: "border-blue-400/30",
+    bg: "bg-gradient-to-b from-blue-500/[0.06] to-white/[0.01]",
+    chip: "text-blue-200 border-blue-400/40 bg-blue-500/[0.12]",
+    label: "text-blue-300",
+  },
+  emerald: {
+    border: "border-emerald-400/30",
+    bg: "bg-gradient-to-b from-emerald-500/[0.06] to-white/[0.01]",
+    chip: "text-emerald-200 border-emerald-400/40 bg-emerald-500/[0.12]",
+    label: "text-emerald-300",
+  },
+} as const;
+
+function FlowStage({
+  step,
+  label,
+  tint = "slate",
+  children,
+}: {
+  step: string;
+  label: string;
+  tint?: keyof typeof STEP_TINTS;
+  children: React.ReactNode;
+}) {
+  const t = STEP_TINTS[tint];
+  return (
+    <div
+      className={`relative rounded-2xl border ${t.border} ${t.bg} backdrop-blur-sm p-4 md:p-5`}
+      style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+    >
+      <div className="flex items-center gap-2.5 mb-3">
+        <span
+          className={`grid place-items-center w-6 h-6 rounded-md text-[11px] font-mono font-semibold tabular-nums border ${t.chip}`}
+          style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08)" }}
+        >
+          {step}
+        </span>
+        <span
+          className={`text-[10px] tracking-[0.20em] uppercase font-mono font-semibold ${t.label}`}
+        >
+          {label}
+        </span>
       </div>
+      <div className="space-y-3">{children}</div>
+    </div>
+  );
+}
+
+function FlowConnector({ label }: { label: string }) {
+  return (
+    <div className="flex items-center justify-center gap-2 py-1">
+      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/[0.10] to-transparent max-w-[80px]" />
+      <ArrowDown className="w-3 h-3 text-slate-500" strokeWidth={2} />
+      <span className="text-[9px] tracking-[0.22em] uppercase text-slate-500 font-mono font-medium">
+        {label}
+      </span>
+      <ArrowDown className="w-3 h-3 text-slate-500" strokeWidth={2} />
+      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/[0.10] to-transparent max-w-[80px]" />
+    </div>
+  );
+}
+
+function LoadRequestCard() {
+  const fields = [
+    ["From", "Acme Foods"],
+    ["Pickup", "Toronto, ON"],
+    ["Dropoff", "Miami, FL"],
+    ["Equipment", "FTL Reefer"],
+    ["Commodity", "35,000 lbs oranges"],
+  ];
+  return (
+    <div className="rounded-xl border border-white/10 bg-black/40 px-4 py-3.5">
+      <div className="flex items-center justify-between mb-2.5">
+        <span className="text-[10px] font-mono font-semibold text-slate-300 tracking-wider">
+          LOAD #2419
+        </span>
+        <span className="text-[9px] font-mono text-slate-500 tabular-nums">
+          MON → FRI
+        </span>
+      </div>
+      <dl className="grid grid-cols-[80px_1fr] gap-y-1.5 text-[12px] font-mono">
+        {fields.map(([k, v]) => (
+          <div key={k} className="contents">
+            <dt className="text-slate-500">{k}:</dt>
+            <dd className="text-slate-200">{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+function MatchedCarriersList() {
+  const matches = [
+    { initials: "AL", name: "Apex Logistics", tier: "S" as const, ovr: 87, best: true },
+    { initials: "PB", name: "Polar Bear Transit", tier: "A" as const, ovr: 82 },
+    { initials: "NF", name: "Northern Freight", tier: "A" as const, ovr: 79 },
+  ];
+  return (
+    <div className="rounded-xl border border-white/10 bg-black/40 overflow-hidden">
+      <ul className="divide-y divide-white/[0.05]">
+        {matches.map((m) => (
+          <li
+            key={m.initials}
+            className={`flex items-center gap-2.5 px-3.5 py-2.5 ${
+              m.best ? "bg-blue-500/[0.06]" : ""
+            }`}
+          >
+            <span
+              className={`grid place-items-center w-8 h-8 rounded-md border text-[10px] font-mono font-semibold tracking-wider ${
+                m.best
+                  ? "bg-gradient-to-b from-blue-500/[0.22] to-blue-500/[0.05] border-blue-400/40 text-blue-100"
+                  : "bg-gradient-to-b from-white/[0.06] to-white/[0.01] border-white/10 text-slate-300"
+              }`}
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }}
+            >
+              {m.initials}
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-white text-[12px] font-medium leading-tight truncate">
+                {m.name}
+              </p>
+              {m.best && (
+                <p
+                  className="text-[9px] tracking-[0.16em] uppercase text-blue-300 font-mono font-semibold mt-0.5"
+                  style={{ textShadow: "0 0 8px rgba(96,140,255,0.5)" }}
+                >
+                  ★ Best match
+                </p>
+              )}
+            </div>
+            <TierBadge tier={m.tier} />
+            <span className="text-[11px] text-slate-200 font-mono font-semibold tabular-nums w-[26px] text-right">
+              {m.ovr}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <div className="px-3.5 py-2 border-t border-white/[0.05] text-[9px] tracking-[0.18em] uppercase text-slate-500 font-mono text-center">
+        + 5 more matches in your network
+      </div>
+    </div>
+  );
+}
+
+function SendRequestButton({ count }: { count: number }) {
+  return (
+    <button
+      className="group w-full flex items-center justify-center gap-2 rounded-xl border border-amber-400/40 bg-gradient-to-b from-amber-400/[0.18] to-amber-500/[0.04] px-4 py-2.5 text-amber-100 hover:from-amber-400/[0.25] hover:to-amber-500/[0.08] transition-all"
+      style={{
+        boxShadow:
+          "inset 0 1px 0 rgba(255,255,255,0.10), 0 0 16px -4px rgba(251,191,36,0.35)",
+      }}
+    >
+      <Zap className="w-3.5 h-3.5 text-amber-300" strokeWidth={2} fill="currentColor" />
+      <span className="text-[11px] tracking-[0.16em] uppercase font-mono font-semibold">
+        Send rate request to all {count}
+      </span>
+      <ArrowRight className="w-3.5 h-3.5 text-amber-300 group-hover:translate-x-0.5 transition-transform" strokeWidth={2} />
+    </button>
+  );
+}
+
+function RankedQuotesList() {
+  const quotes = [
+    {
+      rank: 1,
+      initials: "AL",
+      name: "Apex Logistics",
+      price: "$3,400",
+      tier: "S" as const,
+      rel: 95,
+      best: true,
+    },
+    {
+      rank: 2,
+      initials: "PB",
+      name: "Polar Bear Transit",
+      price: "$3,550",
+      tier: "A" as const,
+      rel: 89,
+    },
+    {
+      rank: 3,
+      initials: "NF",
+      name: "Northern Freight",
+      price: "$3,800",
+      tier: "A" as const,
+      rel: 84,
+    },
+  ];
+  return (
+    <div className="rounded-xl border border-white/10 bg-black/40 overflow-hidden">
+      <ul className="divide-y divide-white/[0.05]">
+        {quotes.map((q) => (
+          <li
+            key={q.initials}
+            className={`flex items-center gap-2.5 px-3.5 py-2.5 ${
+              q.best ? "bg-emerald-500/[0.05]" : ""
+            }`}
+          >
+            <span
+              className={`grid place-items-center w-6 h-6 rounded-md text-[10px] font-mono font-bold tabular-nums ${
+                q.best
+                  ? "bg-emerald-400/15 border border-emerald-400/40 text-emerald-200"
+                  : "bg-white/[0.04] border border-white/10 text-slate-400"
+              }`}
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }}
+            >
+              #{q.rank}
+            </span>
+            <span
+              className="grid place-items-center w-7 h-7 rounded-md bg-gradient-to-b from-white/[0.06] to-white/[0.01] border border-white/10 text-[10px] font-mono font-semibold text-slate-300"
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+            >
+              {q.initials}
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-white text-[12px] font-medium leading-tight truncate">
+                {q.name}
+              </p>
+              <p className="text-[9px] text-slate-500 font-mono tracking-wide tabular-nums">
+                REL {q.rel}
+              </p>
+            </div>
+            <TierBadge tier={q.tier} />
+            <span
+              className={`text-[12px] font-mono font-semibold tabular-nums w-[42px] text-right ${
+                q.best ? "text-emerald-300" : "text-slate-200"
+              }`}
+              style={
+                q.best
+                  ? { textShadow: "0 0 10px rgba(52,211,153,0.4)" }
+                  : undefined
+              }
+            >
+              {q.price}
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -1176,64 +1399,17 @@ function TakeActionSection() {
   return (
     <section id="quoting" className="relative py-24 md:py-32 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Left: text + sub-card */}
-          <div className="lg:pr-10 flex flex-col gap-6">
-            <div>
-              <h2 className="flex items-center gap-3 text-white font-semibold tracking-[-0.025em] text-3xl md:text-4xl mb-5">
-                <IconTile Icon={Zap} size="md" tint="amber" filled glow="strong" />
-                Quote in Seconds
-              </h2>
-              <p className="text-slate-400 leading-relaxed mb-4">
-                Drop in a load. min. blends live market demand, your team's
-                pricing history, and real-time fuel and weather data to land on
-                the right rate, fast. Then blasts the RFQ to your network and
-                ranks responses against history.
-              </p>
-              <p className="text-white text-sm font-medium">
-                Four data streams in. One quote out.
-              </p>
+        <SectionHeader
+          Icon={Zap}
+          tint="amber"
+          filled
+          eyebrow="Unified Quoting Agent"
+          title="Quote in seconds."
+          desc="One engine that fuses live market demand, your team's historical pricing, and real-time fuel and weather data into a single recommended rate. Get the right number before you reply to the shipper."
+        />
 
-              <div className="mt-6">
-                <QuoteSignals />
-              </div>
-            </div>
-
-            <SubCard Icon={Zap} title="How min. quotes" tint="amber" filled>
-              min. consolidates four signals in one place: <span className="text-slate-200">live market demand</span> for the lane, your team's
-              {" "}<span className="text-slate-200">historical pricing</span>, current
-              {" "}<span className="text-slate-200">fuel costs</span>, and
-              {" "}<span className="text-slate-200">weather along the route</span>.
-              You get a starting rate that already reflects what the market
-              looks like, not a number from last quarter's spreadsheet.
-            </SubCard>
-          </div>
-
-          {/* Right: demo panel */}
-          <div className="space-y-4">
-            <div
-              className={`${CARD_SURFACE} overflow-hidden`}
-              style={CARD_INNER_HIGHLIGHT}
-            >
-              <div className="px-5 py-4 border-b border-white/[0.06] flex items-start gap-3">
-                <IconTile Icon={Zap} size="sm" tint="amber" filled />
-                <div className="flex-1 min-w-0">
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-amber-400/90 mb-1">
-                    Quote
-                  </p>
-                  <p className="font-mono text-slate-200 text-sm leading-relaxed">
-                    "Send this load to my network and get me quotes."
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-5">
-                <LoadDetailsCard />
-              </div>
-            </div>
-
-            <IncomingQuotesCard />
-          </div>
+        <div className="max-w-md mx-auto">
+          <QuoteSignals />
         </div>
       </div>
     </section>
@@ -1460,13 +1636,13 @@ function SharedBrainSection() {
       Icon: Zap,
       tint: "amber" as const,
       title: "Quote",
-      desc: "Blast RFQs to your network in one sentence. Live quotes route back to a single panel.",
+      desc: "Give shippers a price in seconds. min. fuses live market demand, your history, fuel, and weather into one recommended rate.",
     },
     {
       Icon: Search,
       tint: "blue" as const,
       title: "Capacity",
-      desc: "Surface every carrier in your network for the lane in seconds, not just the names anyone remembers.",
+      desc: "Match every shipper request against your carrier network, then blast the RFQ to the top carriers in one click.",
     },
     {
       Icon: Network,
