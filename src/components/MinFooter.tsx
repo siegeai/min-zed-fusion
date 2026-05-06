@@ -70,10 +70,22 @@ export default function MinFooter() {
             © 2026 min. Logistics AI, Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
-            <a href="#" aria-label="Twitter" className="text-slate-400 hover:text-white text-xs">
+            <a
+              href="https://x.com/getminai"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="min. on X"
+              className="text-slate-400 hover:text-white text-xs"
+            >
               Twitter
             </a>
-            <a href="#" aria-label="LinkedIn" className="text-slate-400 hover:text-white text-xs">
+            <a
+              href="https://www.linkedin.com/company/min-box"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="min. on LinkedIn"
+              className="text-slate-400 hover:text-white text-xs"
+            >
               LinkedIn
             </a>
           </div>
