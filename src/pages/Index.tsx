@@ -389,12 +389,12 @@ function CarrierNetworkGraphic() {
           {/* Radar / stat polygon */}
           <RadarChart
             stats={[
-              { label: "RESP", value: 92 },
-              { label: "TIME", value: 97 },
-              { label: "PRICE", value: 86 },
-              { label: "CAP", value: 73 },
-              { label: "COVER", value: 81 },
-              { label: "REL", value: 95 },
+              { label: "Response", value: 92 },
+              { label: "On-Time", value: 97 },
+              { label: "Pricing", value: 86 },
+              { label: "Capacity", value: 73 },
+              { label: "Coverage", value: 81 },
+              { label: "Reliability", value: 95 },
             ]}
           />
 
@@ -455,8 +455,8 @@ function RadarChart({
 }: {
   stats: { label: string; value: number }[];
 }) {
-  const cx = 100;
-  const cy = 70;
+  const cx = 110;
+  const cy = 75;
   const radius = 42;
   const n = stats.length;
 
@@ -500,7 +500,7 @@ function RadarChart({
 
   return (
     <svg
-      viewBox="0 0 200 140"
+      viewBox="0 0 220 154"
       className="w-full h-auto block"
       aria-hidden
     >
@@ -559,8 +559,8 @@ function RadarChart({
 
       {/* Vertex labels (placed just outside each spoke) */}
       {angles.map((a, i) => {
-        const lx = cx + (radius + 11) * Math.cos(a);
-        const ly = cy + (radius + 11) * Math.sin(a);
+        const lx = cx + (radius + 12) * Math.cos(a);
+        const ly = cy + (radius + 12) * Math.sin(a);
         return (
           <text
             key={i}
@@ -568,11 +568,11 @@ function RadarChart({
             y={ly}
             textAnchor="middle"
             dominantBaseline="middle"
-            fontSize="6.2"
-            fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
-            letterSpacing="0.14em"
+            fontSize="7"
+            fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+            letterSpacing="0.04em"
             fontWeight={600}
-            fill="rgba(160,180,210,0.85)"
+            fill="rgba(180,200,230,0.9)"
           >
             {stats[i].label}
           </text>
