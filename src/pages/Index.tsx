@@ -440,7 +440,7 @@ function CarrierNetworkGraphic() {
             Also in your network
           </span>
           <span className="text-[8px] tracking-[0.18em] uppercase text-slate-500 font-mono">
-            File · OVR
+            Tier · OVR
           </span>
         </div>
         <div className="space-y-0.5">
@@ -723,7 +723,7 @@ function CollectiveMemorySection() {
         <SectionHeader
           Icon={Network}
           title="Your Carrier Network"
-          desc="Every email, every quote, every booking compounds into a private capacity network. The more your team works, the stronger your liquidity gets."
+          desc="Every email, every quote, every booking compounds into YOUR private capacity network. The more your team works, the stronger your liquidity gets."
         />
 
         {/* 2-up top row */}
