@@ -133,7 +133,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Quote faster. Find coverage. Build a carrier network that grows itself.</title>
+        <title>min. | Quote instantly. Find coverage. Build a carrier network that grows itself.</title>
         <meta
           name="description"
           content="min. is the quoting and capacity engine for freight brokers. Source carriers from your private network in seconds, blast RFQs in one sentence, and watch your network compound with every booking."
@@ -194,7 +194,7 @@ function Hero() {
           The Quoting & Capacity Engine for Freight Brokers
         </p>
         <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
-          Quote faster. Find coverage.
+          Quote instantly. Find coverage.
           <br />
           Build a carrier network
           <br />

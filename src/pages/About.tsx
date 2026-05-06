@@ -267,7 +267,7 @@ export default function About() {
                 Ready to see your carrier network compound?
               </h3>
               <p className="text-slate-400 mb-7 max-w-xl mx-auto">
-                Quote faster, find capacity instantly, and watch every booking
+                Quote faster, find coverage instantly, and watch every booking
                 make the next one easier.
               </p>
               <a
