@@ -22,7 +22,15 @@ import {
   Fuel,
   Cloud,
   ArrowDown,
+  HelpCircle,
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
 
 /* ───────── Design Primitives ───────── */
 
@@ -142,6 +150,7 @@ const Index = () => {
           <TakeActionSection />
           <IntelligentSearchSection />
           <SharedBrainSection />
+          <FAQSection />
         </main>
 
         <MinFooter />
@@ -1795,6 +1804,160 @@ function FlowArrow() {
         <ArrowRight className="w-4 h-4 text-slate-500 -ml-2" />
       </div>
     </div>
+  );
+}
+
+/* ───────── FAQ ───────── */
+
+const FAQS: { q: string; a: React.ReactNode }[] = [
+  {
+    q: "How does it work?",
+    a: (
+      <>
+        Connect your Gmail or Outlook in one click. From that moment on, your
+        AI minion starts reading every reply and rate confirmation in your
+        history and silently builds your carrier network in the background.
+        Most accounts are fully indexed within a few hours, no training, no
+        setup calls.
+      </>
+    ),
+  },
+  {
+    q: "Do I need to connect my TMS?",
+    a: (
+      <>
+        No. There's no time-consuming TMS integration to do. Your inbox
+        already has 10x more data than any TMS, every quote, every cover,
+        every commitment, every relationship. min. reads that directly, so you
+        don't have to migrate anything or wait on IT.
+      </>
+    ),
+  },
+  {
+    q: "How does the quote engine work?",
+    a: (
+      <>
+        Our proprietary algorithm blends four data streams into a single
+        signal no other platform can produce: live market demand, your team's
+        historical lane pricing, real-time fuel, and route-level weather. The
+        result is the most accurate rate for{" "}
+        <span className="text-slate-200">your</span> business, not a generic
+        DAT spot price.
+      </>
+    ),
+  },
+  {
+    q: "Does it work for teams?",
+    a: (
+      <>
+        min. works best in teams. It merges every teammate's carrier network
+        into one shared graph, so the lanes one rep has covered become
+        capacity for the whole desk. The bigger the team, the deeper the
+        network and the stronger your collective capacity.
+      </>
+    ),
+  },
+  {
+    q: "What is your data policy? Is it safe?",
+    a: (
+      <>
+        Your data is yours. We{" "}
+        <span className="text-slate-200">never sell it</span>, never broker
+        it, and never train models on it, ours or any provider's. Everything
+        is encrypted in transit with TLS 1.3, hosted on SOC 2 Type II
+        infrastructure, and we hold a 9.7 ESOF score with Google CASA Tier 2
+        verification.{" "}
+        <Link
+          to="/security"
+          className="text-blue-300 underline underline-offset-2 hover:text-blue-200"
+        >
+          Read the full security page →
+        </Link>
+      </>
+    ),
+  },
+  {
+    q: "How long does setup take?",
+    a: (
+      <>
+        Seconds to start, a few hours to fully index. Sign in with Gmail or
+        Outlook and min. begins working immediately. Up to 50,000 threads are
+        indexed in under 20 minutes, and your carrier network keeps
+        compounding from day one onward.
+      </>
+    ),
+  },
+  {
+    q: "What happens to the carrier network if a rep leaves?",
+    a: (
+      <>
+        It stays with the company. Carrier relationships, lane history, rate
+        cards, and response patterns live in the shared network, not in a
+        rep's head or personal inbox. When someone leaves, the institutional
+        capacity stays with the desk.
+      </>
+    ),
+  },
+  {
+    q: "How is this different from a public loadboard?",
+    a: (
+      <>
+        Loadboards show you anyone willing to take a load today.
+        min. shows you the carriers <span className="text-slate-200">your team has already worked with</span>,
+        ranked by who actually runs the lane, who responds fast, and who hits
+        their commitments. Network quotes consistently beat public spot
+        rates.
+      </>
+    ),
+  },
+];
+
+function FAQSection() {
+  return (
+    <section id="faq" className="relative py-24 md:py-32 scroll-mt-24">
+      <div className="max-w-3xl mx-auto px-6">
+        <SectionHeader
+          Icon={HelpCircle}
+          eyebrow="FAQ"
+          title="Questions, answered."
+          desc="Everything brokers ask us before getting started."
+        />
+
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full flex flex-col gap-3"
+        >
+          {FAQS.map((faq, i) => (
+            <AccordionItem
+              key={i}
+              value={`faq-${i}`}
+              className={`${CARD_SURFACE} border-b-0 px-5 md:px-6 transition-colors hover:border-white/[0.12]`}
+              style={CARD_INNER_HIGHLIGHT}
+            >
+              <AccordionTrigger
+                className="text-left text-white text-[15px] md:text-base font-medium tracking-[-0.005em] py-5 hover:no-underline [&>svg]:text-slate-400 [&>svg]:h-4 [&>svg]:w-4"
+              >
+                {faq.q}
+              </AccordionTrigger>
+              <AccordionContent className="pb-5 pt-0 text-sm text-slate-400 leading-relaxed">
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+
+        <div className="mt-12 text-center">
+          <p className="text-sm text-slate-500 mb-2">Still have questions?</p>
+          <a
+            href="mailto:hello@getmin.ai"
+            className="text-blue-300 hover:text-blue-200 text-sm font-medium underline underline-offset-4 transition-colors"
+          >
+            hello@getmin.ai
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
