@@ -125,7 +125,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Quote faster. Find capacity. Compound your carrier network.</title>
+        <title>min. | Quote faster. Find coverage. Build a carrier network that grows itself.</title>
         <meta
           name="description"
           content="min. is the quoting and capacity engine for freight brokers. Source carriers from your private network in seconds, blast RFQs in one sentence, and watch your network compound with every booking."
@@ -185,11 +185,11 @@ function Hero() {
           The Quoting & Capacity Engine for Freight Brokers
         </p>
         <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
-          Quote faster. Find capacity.
+          Quote faster. Find coverage.
           <br />
           Build a carrier network
           <br />
-          that <span className="text-blue-300">compounds</span>.
+          that <span className="text-blue-300">grows itself</span>.
         </h1>
         <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
           min. consolidates live market demand, your team's historical pricing,
@@ -306,7 +306,7 @@ function PillarTShape() {
         <SmallPillarCard
           Icon={Search}
           tint="blue"
-          title="Find Capacity"
+          title="Find Coverage"
           desc="Source carriers from your network in seconds."
         />
         <SmallPillarCard
@@ -1069,8 +1069,8 @@ function IntelligentSearchSection() {
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           Icon={Search}
-          title="Find capacity instantly."
-          desc="Every shipper rate request is matched against every carrier in your private network and our extended, comprehensive network of over 50,000 carriers."
+          title="Find coverage instantly."
+          desc="Every shipper rate request is matched against every carrier in your private network and our extended, comprehensive network of over 50,000 carriers. Network quotes consistently beat public loadboard spot rates."
         />
 
         <div className="max-w-2xl mx-auto">
@@ -1109,6 +1109,10 @@ function CapacityFlowDemo() {
         tint="emerald"
       >
         <RankedQuotesList />
+        <LoadboardComparison
+          networkBest={3400}
+          loadboardAvg={4150}
+        />
       </FlowStage>
     </div>
   );
@@ -1282,6 +1286,80 @@ function SendRequestButton({ count }: { count: number }) {
       </span>
       <ArrowRight className="w-3.5 h-3.5 text-amber-300 group-hover:translate-x-0.5 transition-transform" strokeWidth={2} />
     </button>
+  );
+}
+
+function LoadboardComparison({
+  networkBest,
+  loadboardAvg,
+}: {
+  networkBest: number;
+  loadboardAvg: number;
+}) {
+  const savings = loadboardAvg - networkBest;
+  const pct = Math.round((savings / loadboardAvg) * 100);
+  const fmt = (n: number) =>
+    `$${n.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+  return (
+    <div
+      className="rounded-xl border border-emerald-400/30 bg-gradient-to-b from-emerald-500/[0.10] to-emerald-500/[0.02] backdrop-blur-sm overflow-hidden"
+      style={{
+        boxShadow:
+          "inset 0 1px 0 rgba(255,255,255,0.06), 0 0 18px -8px rgba(52,211,153,0.35)",
+      }}
+    >
+      <div className="px-3.5 py-2 border-b border-emerald-400/15 flex items-center justify-between">
+        <div className="flex items-center gap-1.5">
+          <Sparkles className="w-3 h-3 text-emerald-300" strokeWidth={2} />
+          <span className="text-[9px] tracking-[0.22em] uppercase text-emerald-300 font-mono font-semibold">
+            vs Public Loadboard
+          </span>
+        </div>
+        <span className="text-[9px] tracking-[0.16em] uppercase text-slate-500 font-mono">
+          DAT spot · today
+        </span>
+      </div>
+      <div className="px-3.5 py-3 flex items-center gap-3">
+        <div className="flex-1 flex items-center gap-2.5">
+          <div className="text-left">
+            <p className="text-[9px] tracking-[0.16em] uppercase text-slate-500 font-mono mb-0.5">
+              Loadboard avg
+            </p>
+            <p className="text-[14px] font-mono text-slate-400 line-through tabular-nums leading-none">
+              {fmt(loadboardAvg)}
+            </p>
+          </div>
+          <ArrowRight className="w-3.5 h-3.5 text-slate-500 shrink-0" strokeWidth={2} />
+          <div className="text-left">
+            <p className="text-[9px] tracking-[0.16em] uppercase text-emerald-300/80 font-mono mb-0.5">
+              Your network
+            </p>
+            <p
+              className="text-[14px] font-mono font-semibold text-emerald-300 tabular-nums leading-none"
+              style={{ textShadow: "0 0 10px rgba(52,211,153,0.45)" }}
+            >
+              {fmt(networkBest)}
+            </p>
+          </div>
+        </div>
+        <div
+          className="rounded-lg border border-emerald-400/40 bg-emerald-400/[0.12] px-2.5 py-1.5 text-center"
+          style={{
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.10)",
+          }}
+        >
+          <p className="text-[8px] tracking-[0.18em] uppercase text-emerald-300 font-mono leading-none">
+            Save
+          </p>
+          <p
+            className="text-emerald-200 text-base font-mono font-bold tabular-nums leading-none mt-0.5"
+            style={{ textShadow: "0 0 10px rgba(52,211,153,0.5)" }}
+          >
+            {pct}%
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
