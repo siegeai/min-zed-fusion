@@ -450,7 +450,7 @@ function CarrierNetworkGraphic() {
         </div>
         <div className="flex items-center justify-center mt-1.5 pt-1.5 border-t border-white/[0.05]">
           <span className="text-[9px] text-slate-400 font-mono tabular-nums tracking-wide">
-            + 869 more
+            + 868 more
           </span>
         </div>
       </div>
@@ -759,7 +759,7 @@ function CollectiveMemorySection() {
           <FeatureCard
             Icon={Users}
             title="The Network Stays With You"
-            body="When a rep leaves, their carrier relationships, lane history, and rate cards stay inside the company. The network is the brokerage's greatest asset."
+            body="When a rep leaves, their carrier relationships, lane history, and rate cards stay inside the company. The network is your greatest asset."
             visual={<HandoffIconsMock />}
           />
         </div>
@@ -1041,7 +1041,7 @@ function HandoffIconsMock() {
             <User className="w-4 h-4 text-slate-300" strokeWidth={1.75} />
           </span>
           <span className="text-[9px] tracking-[0.14em] uppercase text-slate-500">
-            Rep
+            Your Rep
           </span>
         </div>
         <div className="flex-1 mx-3 relative h-px">
@@ -1062,7 +1062,7 @@ function HandoffIconsMock() {
             <Building2 className="w-4 h-4 text-blue-300" strokeWidth={1.75} />
           </span>
           <span className="text-[9px] tracking-[0.14em] uppercase text-blue-300">
-            Company
+            Competitor
           </span>
         </div>
       </div>
