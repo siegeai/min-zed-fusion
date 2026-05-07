@@ -1085,7 +1085,7 @@ function IntelligentSearchSection() {
               your private network and our extended, comprehensive network of
               over{" "}
               <span className="text-blue-300 font-semibold tabular-nums">
-                845,000+ carriers
+                745,000+ carriers
               </span>{" "}
               with rates that consistently beat public load boards.
             </>
