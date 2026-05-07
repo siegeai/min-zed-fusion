@@ -779,7 +779,7 @@ function SectionHeader({
 }: {
   Icon?: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string }>;
   title: string;
-  desc?: string;
+  desc?: React.ReactNode;
   align?: "center" | "left";
   tint?: Tint;
   filled?: boolean;
@@ -1079,7 +1079,17 @@ function IntelligentSearchSection() {
         <SectionHeader
           Icon={Search}
           title="Find coverage instantly."
-          desc="Every shipper rate request is matched against every carrier in your private network and our extended, comprehensive network of over 50,000 carriers. Network rates consistently beat public loadboard rates."
+          desc={
+            <>
+              Every shipper rate request is matched against every carrier in
+              your private network and our extended, comprehensive network of
+              over{" "}
+              <span className="text-blue-300 font-semibold tabular-nums">
+                845,000+ carriers
+              </span>{" "}
+              with rates that consistently beat public load boards.
+            </>
+          }
         />
 
         <div className="max-w-2xl mx-auto">
@@ -1850,10 +1860,10 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "Does it work for teams?",
     a: (
       <>
-        min. works best in teams. It merges every teammate's carrier network
-        into one shared graph, so the lanes one rep has covered become
-        capacity for the whole desk. The bigger the team, the deeper the
-        network and the stronger your collective capacity.
+        min. works best in teams. You can opt in to merge every teammate's
+        carrier network into one shared carrier graph, so the lanes one rep
+        has covered become capacity for the whole desk. The bigger the team,
+        the deeper the network and the stronger your collective capacity.
       </>
     ),
   },
@@ -1899,10 +1909,10 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     ),
   },
   {
-    q: "How is this different from a public loadboard?",
+    q: "How is this different from a public load board?",
     a: (
       <>
-        Loadboards show you anyone willing to take a load today.
+        Load boards show you anyone willing to take a load today.
         min. shows you the carriers <span className="text-slate-200">your team has already worked with</span>,
         ranked by who actually runs the lane, who responds fast, and who hits
         their commitments. Network quotes consistently beat public spot
