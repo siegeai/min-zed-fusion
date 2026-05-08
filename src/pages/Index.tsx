@@ -723,7 +723,7 @@ function CollectiveMemorySection() {
         <SectionHeader
           Icon={Network}
           title="Your Carrier Network"
-          desc="Every email, every quote, every booking compounds into YOUR private capacity network. The more your team works, the stronger your liquidity gets."
+          desc="Every email, every quote, every booking compounds into YOUR private capacity network. The more your team works, the stronger your network gets."
         />
 
         {/* 2-up top row */}
@@ -731,7 +731,7 @@ function CollectiveMemorySection() {
           <BigFeatureCard
             Icon={Network}
             title="Network Compounds With Every Booking"
-            body="Every quote, every cover, every POD adds a new edge to your carrier graph. The carriers your team has worked with, the lanes they run, how fast they respond, and the rates they hit. All permanent, all compounding."
+            body="Every quote, every booking, adds a new edge to your carrier network. The carriers your team has worked with, the lanes they run, how fast they respond, and the rates provided."
             visual={<EmailRowsMock />}
           />
           <BigFeatureCard
@@ -747,13 +747,13 @@ function CollectiveMemorySection() {
           <FeatureCard
             Icon={Truck}
             title="Automatic Lane Mapping"
-            body="If a carrier quotes a lane once, min. remembers they run that lane, their equipment, and the rate given. Liquidity for next time."
+            body="If a carrier quotes a lane once, min. remembers they run that lane, their equipment, and the rate given."
             visual={<LaneSliderMock from="ORD" to="DFW" />}
           />
           <FeatureCard
             Icon={Sparkles}
             title="Zero Data Entry"
-            body="No CRM. No carrier sheet. Your network grows automatically with every email your team sends and receives."
+            body="Your network grows automatically with every email your team sends and receives."
             visual={<NotificationIconsMock />}
           />
           <FeatureCard
@@ -943,7 +943,7 @@ function FileTilesMock() {
     { Icon: Mail, label: "Email" },
     { Icon: FileText, label: "PDF" },
     { Icon: FileSpreadsheet, label: "Excel" },
-    { Icon: FileText, label: "Proof of Delivery" },
+    { Icon: FileText, label: "BOL/POD" },
   ];
   return (
     <div className="grid grid-cols-2 gap-2">
@@ -1086,8 +1086,8 @@ function IntelligentSearchSection() {
               over{" "}
               <span className="text-blue-300 font-semibold tabular-nums">
                 745,000+ carriers
-              </span>{" "}
-              with rates that consistently beat public load boards.
+              </span>
+              .
             </>
           }
         />
@@ -1128,10 +1128,6 @@ function CapacityFlowDemo() {
         tint="emerald"
       >
         <RankedQuotesList />
-        <LoadboardComparison
-          networkBest={3400}
-          loadboardAvg={4150}
-        />
       </FlowStage>
     </div>
   );
@@ -1217,14 +1213,6 @@ function LoadRequestCard() {
   ];
   return (
     <div className="rounded-xl border border-white/10 bg-black/40 px-4 py-3.5">
-      <div className="flex items-center justify-between mb-2.5">
-        <span className="text-[10px] font-mono font-semibold text-slate-300 tracking-wider">
-          LOAD #2419
-        </span>
-        <span className="text-[9px] font-mono text-slate-500 tabular-nums">
-          MON → FRI
-        </span>
-      </div>
       <dl className="grid grid-cols-[80px_1fr] gap-y-1.5 text-[12px] font-mono">
         {fields.map(([k, v]) => (
           <div key={k} className="contents">
@@ -1430,12 +1418,6 @@ function RankedQuotesList() {
             >
               #{q.rank}
             </span>
-            <span
-              className="grid place-items-center w-7 h-7 rounded-md bg-gradient-to-b from-white/[0.06] to-white/[0.01] border border-white/10 text-[10px] font-mono font-semibold text-slate-300"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
-            >
-              {q.initials}
-            </span>
             <div className="flex-1 min-w-0">
               <p className="text-white text-[12px] font-medium leading-tight truncate">
                 {q.name}
@@ -1444,7 +1426,6 @@ function RankedQuotesList() {
                 REL {q.rel}
               </p>
             </div>
-            <TierBadge tier={q.tier} />
             <span
               className={`text-[12px] font-mono font-semibold tabular-nums w-[42px] text-right ${
                 q.best ? "text-emerald-300" : "text-slate-200"
@@ -1753,7 +1734,7 @@ function SharedBrainSection() {
     <section className="relative py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          title="A network that compounds with every booking."
+          title="Your own carrier network that compounds with every booking."
           desc="Quote, cover, repeat. Every load your team works adds carriers, lanes, and rates to your private network, so the next quote is faster and the next cover is easier."
         />
 
