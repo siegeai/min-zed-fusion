@@ -150,6 +150,7 @@ const Index = () => {
           <TakeActionSection />
           <IntelligentSearchSection />
           <SharedBrainSection />
+          <CallToActionSection />
           <FAQSection />
         </main>
 
@@ -207,7 +208,21 @@ function Hero() {
           click, and watch your carrier pool grow with every booking.
         </p>
 
-        <div className="mt-16 md:mt-20">
+        <div className="mt-9 flex flex-col items-center gap-3">
+          <a
+            href="https://app.getmin.ai/find"
+            className="inline-flex items-center gap-2 rounded-full bg-slate-50 text-black text-sm md:text-base font-semibold px-6 py-3 hover:bg-slate-200 transition-colors"
+            style={{ boxShadow: "0 0 30px -6px rgba(255,255,255,0.35)" }}
+          >
+            Try it for free
+            <ArrowRight className="w-4 h-4" strokeWidth={2.25} />
+          </a>
+          <p className="text-xs text-slate-500 tracking-wide">
+            no credit card, no sign up
+          </p>
+        </div>
+
+        <div className="mt-14 md:mt-16">
           <HeroSourceChips />
         </div>
 
@@ -1902,6 +1917,41 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     ),
   },
 ];
+
+/* ───────── CTA ───────── */
+
+function CallToActionSection() {
+  return (
+    <section className="relative py-20 md:py-28 scroll-mt-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 50% at 50% 50%, rgba(80,120,255,0.14) 0%, rgba(80,120,255,0.04) 35%, transparent 70%)",
+        }}
+      />
+      <div className="relative max-w-3xl mx-auto px-6 text-center">
+        <h2 className="text-white font-semibold tracking-[-0.025em] leading-[1.05] text-3xl md:text-5xl">
+          Quote instantly. Find coverage.
+        </h2>
+        <div className="mt-9 flex flex-col items-center gap-3">
+          <a
+            href="https://app.getmin.ai/find"
+            className="inline-flex items-center gap-2 rounded-full bg-slate-50 text-black text-sm md:text-base font-semibold px-6 py-3 hover:bg-slate-200 transition-colors"
+            style={{ boxShadow: "0 0 30px -6px rgba(255,255,255,0.35)" }}
+          >
+            Try it for free
+            <ArrowRight className="w-4 h-4" strokeWidth={2.25} />
+          </a>
+          <p className="text-xs text-slate-500 tracking-wide">
+            no credit card, no sign up
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function FAQSection() {
   return (
