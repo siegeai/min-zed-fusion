@@ -1099,7 +1099,7 @@ function IntelligentSearchSection() {
               Every shipper rate request is matched against every carrier in
               your private network and our extended network of{" "}
               <span className="text-blue-300 font-semibold tabular-nums">
-                230,000+ vetted carriers
+                243,000+ vetted carriers
               </span>
               .
             </>
@@ -1300,7 +1300,7 @@ function MatchedCarriersList() {
       {/* Extended network section */}
       <div className="px-3.5 py-1.5 bg-white/[0.025] border-t border-white/[0.06] text-[9px] tracking-[0.2em] uppercase text-slate-400 font-mono font-semibold flex items-center justify-between">
         <span>From the extended network</span>
-        <span className="text-slate-600 tracking-wider">230k+ vetted</span>
+        <span className="text-slate-600 tracking-wider">243k+ vetted</span>
       </div>
       <ul className="divide-y divide-white/[0.05]">
         {extendedMatches.map((m) => (
@@ -1957,7 +1957,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         number can show up, and you're left squinting at safety scores and
         praying the truck shows. min. only routes loads through two pools:
         carriers <span className="text-slate-200">your team has already worked with</span>,
-        and a vetted extended network of 230,000+ carriers we screen for
+        and a vetted extended network of 243,000+ carriers we screen for
         active authority, insurance limits, safety rating, and a clean
         track record. Anyone who doesn't meet the bar never reaches your inbox.
       </>
