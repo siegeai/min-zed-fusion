@@ -1128,7 +1128,7 @@ function CapacityFlowDemo() {
 
       <FlowStage
         step="2"
-        label="Ranked against your network · 8 carriers"
+        label="Ranked across your network + extended · 28 carriers"
         tint="blue"
       >
         <MatchedCarriersList />
@@ -1221,8 +1221,8 @@ function FlowConnector({ label }: { label: string }) {
 function LoadRequestCard() {
   const fields = [
     ["From", "Acme Foods"],
-    ["Pickup", "Toronto, ON"],
-    ["Dropoff", "Miami, FL"],
+    ["Pickup", "Miami, FL"],
+    ["Dropoff", "Toronto, ON"],
     ["Equipment", "FTL Reefer"],
     ["Commodity", "35,000 lbs oranges"],
   ];
@@ -1241,15 +1241,23 @@ function LoadRequestCard() {
 }
 
 function MatchedCarriersList() {
-  const matches = [
+  const privateMatches = [
     { initials: "AL", name: "Apex Logistics", tier: "S" as const, ovr: 87, best: true },
     { initials: "PB", name: "Polar Bear Transit", tier: "A" as const, ovr: 82 },
     { initials: "NF", name: "Northern Freight", tier: "A" as const, ovr: 79 },
   ];
+  const extendedMatches = [
+    { initials: "RT", name: "Ridgeline Transport", laneMatch: 94 },
+    { initials: "SK", name: "Skyway Carrier Co.", laneMatch: 91 },
+  ];
   return (
     <div className="rounded-xl border border-white/10 bg-black/40 overflow-hidden">
+      {/* Private network section */}
+      <div className="px-3.5 py-1.5 bg-white/[0.025] text-[9px] tracking-[0.2em] uppercase text-slate-400 font-mono font-semibold">
+        From your network
+      </div>
       <ul className="divide-y divide-white/[0.05]">
-        {matches.map((m) => (
+        {privateMatches.map((m) => (
           <li
             key={m.initials}
             className={`flex items-center gap-2.5 px-3.5 py-2.5 ${
@@ -1286,8 +1294,46 @@ function MatchedCarriersList() {
           </li>
         ))}
       </ul>
-      <div className="px-3.5 py-2 border-t border-white/[0.05] text-[9px] tracking-[0.18em] uppercase text-slate-500 font-mono text-center">
-        + 5 more matches in your network
+      <div className="px-3.5 py-1.5 border-t border-white/[0.05] text-[9px] tracking-[0.18em] uppercase text-slate-600 font-mono text-center">
+        + 5 more in your network
+      </div>
+
+      {/* Extended network section */}
+      <div className="px-3.5 py-1.5 bg-white/[0.025] border-t border-white/[0.06] text-[9px] tracking-[0.2em] uppercase text-slate-400 font-mono font-semibold flex items-center justify-between">
+        <span>From the extended network</span>
+        <span className="text-slate-600 tracking-wider">745k+</span>
+      </div>
+      <ul className="divide-y divide-white/[0.05]">
+        {extendedMatches.map((m) => (
+          <li
+            key={m.initials}
+            className="flex items-center gap-2.5 px-3.5 py-2.5"
+          >
+            <span
+              className="grid place-items-center w-8 h-8 rounded-md border bg-gradient-to-b from-white/[0.04] to-white/[0.01] border-white/[0.08] text-slate-400 text-[10px] font-mono font-semibold tracking-wider"
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+            >
+              {m.initials}
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-slate-200 text-[12px] font-medium leading-tight truncate">
+                {m.name}
+              </p>
+              <p className="text-[9px] tracking-[0.14em] uppercase text-slate-500 font-mono mt-0.5">
+                Extended · public
+              </p>
+            </div>
+            <span className="text-[9px] tracking-[0.14em] uppercase text-slate-500 font-mono">
+              Lane match
+            </span>
+            <span className="text-[11px] text-slate-300 font-mono font-semibold tabular-nums w-[32px] text-right">
+              {m.laneMatch}%
+            </span>
+          </li>
+        ))}
+      </ul>
+      <div className="px-3.5 py-1.5 border-t border-white/[0.05] text-[9px] tracking-[0.18em] uppercase text-slate-600 font-mono text-center">
+        + 18 more in the extended network
       </div>
     </div>
   );
@@ -1304,7 +1350,7 @@ function SendRequestButton({ count }: { count: number }) {
     >
       <Zap className="w-3.5 h-3.5 text-amber-300" strokeWidth={2} fill="currentColor" />
       <span className="text-[11px] tracking-[0.16em] uppercase font-mono font-semibold">
-        Send rate request to all {count}
+        Send rate request to top {count}
       </span>
       <ArrowRight className="w-3.5 h-3.5 text-amber-300 group-hover:translate-x-0.5 transition-transform" strokeWidth={2} />
     </button>
@@ -1579,8 +1625,8 @@ function QuoteSignals() {
 
 function LoadDetailsCard() {
   const rows = [
-    ["Pickup", "Toronto, ON"],
-    ["Dropoff", "Miami, FL"],
+    ["Pickup", "Miami, FL"],
+    ["Dropoff", "Toronto, ON"],
     ["Equipment", "FTL Reefer"],
     ["Commodity", "35,000 lbs oranges"],
     ["Schedule", "Ready for Monday, Deliver by Friday"],
