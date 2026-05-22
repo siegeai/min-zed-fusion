@@ -17,10 +17,6 @@ import {
   Circle,
   CheckCircle2,
   Building2,
-  User,
-  TrendingUp,
-  Fuel,
-  Cloud,
   ArrowDown,
   HelpCircle,
 } from "lucide-react";
@@ -147,8 +143,8 @@ const Index = () => {
         <main>
           <Hero />
           <CollectiveMemorySection />
-          <TakeActionSection />
           <IntelligentSearchSection />
+          <TakeActionSection />
           <SharedBrainSection />
           <CallToActionSection />
           <FAQSection />
@@ -192,20 +188,18 @@ function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-6 text-center">
         <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-7">
-          The Quoting & Capacity Engine for Freight Brokers
+          Carrier Capacity Sourcing
         </p>
         <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
-          Quote instantly. Find coverage.
-          <br />
           Build a carrier network
           <br />
           that <span className="text-blue-300">grows itself</span>.
         </h1>
         <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          min. consolidates live market demand, your team's historical pricing,
-          and real-time fuel and weather signals into one quoting engine.
-          Source coverage in seconds, get rates from matching carriers in one
-          click, and watch your carrier pool grow with every booking.
+          Turn your emails into your own private carrier network. We index every
+          carrier your team has ever booked or spoken to by the lanes they cover
+          and the truck types they run, handle the outreach, and collect the
+          bids for you.
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3">
@@ -1049,37 +1043,46 @@ function NotificationIconsMock() {
 
 function HandoffIconsMock() {
   return (
-    <MockSurface className="px-4 py-5">
-      <div className="flex items-center justify-between">
-        <div className="flex flex-col items-center gap-1.5">
-          <span className="grid place-items-center w-9 h-9 rounded-full bg-white/[0.04] border border-white/10">
-            <User className="w-4 h-4 text-slate-300" strokeWidth={1.75} />
-          </span>
-          <span className="text-[9px] tracking-[0.14em] uppercase text-slate-500">
-            Your Rep
-          </span>
+    <MockSurface className="px-4 py-6">
+      <div className="flex items-center justify-between gap-3">
+        {/* Reps — relationships flow inward */}
+        <div className="flex flex-col gap-3">
+          {[0, 1].map((i) => (
+            <span
+              key={i}
+              className="grid place-items-center w-9 h-9 rounded-full bg-white/[0.04] border border-white/10"
+            >
+              <Users className="w-4 h-4 text-slate-400" strokeWidth={1.75} />
+            </span>
+          ))}
         </div>
-        <div className="flex-1 mx-3 relative h-px">
+
+        {/* Connectors converging on the company */}
+        <div className="flex-1 relative h-[52px]">
           <div
-            className="absolute inset-0"
+            className="absolute left-0 right-1 top-[22%] h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(96,140,255,0.5), transparent)",
+                "linear-gradient(90deg, transparent, rgba(251,191,36,0.55), rgba(251,191,36,0.55))",
             }}
           />
-          <ArrowRight className="absolute -top-2 right-0 w-3.5 h-3.5 text-blue-300" />
+          <div
+            className="absolute left-0 right-1 bottom-[22%] h-px"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(251,191,36,0.55), rgba(251,191,36,0.55))",
+            }}
+          />
+          <ArrowRight className="absolute top-1/2 -translate-y-1/2 right-0 w-3.5 h-3.5 text-amber-300" />
         </div>
-        <div className="flex flex-col items-center gap-1.5">
-          <span
-            className="grid place-items-center w-9 h-9 rounded-full bg-blue-500/12 border border-blue-400/30"
-            style={{ boxShadow: "0 0 16px rgba(96,140,255,0.25)" }}
-          >
-            <Building2 className="w-4 h-4 text-blue-300" strokeWidth={1.75} />
-          </span>
-          <span className="text-[9px] tracking-[0.14em] uppercase text-blue-300">
-            Competitor
-          </span>
-        </div>
+
+        {/* The company — keeps the network */}
+        <span
+          className="grid place-items-center w-12 h-12 rounded-xl bg-amber-500/[0.12] border border-amber-400/30 shrink-0"
+          style={{ boxShadow: "0 0 18px rgba(251,191,36,0.3)" }}
+        >
+          <Building2 className="w-5 h-5 text-amber-300" strokeWidth={1.75} />
+        </span>
       </div>
     </MockSurface>
   );
@@ -1094,16 +1097,7 @@ function IntelligentSearchSection() {
         <SectionHeader
           Icon={Search}
           title="Find coverage instantly."
-          desc={
-            <>
-              Every shipper rate request is matched against every carrier in
-              your private network and our extended network of{" "}
-              <span className="text-blue-300 font-semibold tabular-nums">
-                243,000+ vetted carriers
-              </span>
-              .
-            </>
-          }
+          desc="Every shipper rate request is matched against every carrier in your private network, ranked by who runs the lane, who responds fast, and who hits their commitments."
         />
 
         <div className="max-w-2xl mx-auto">
@@ -1127,21 +1121,11 @@ function CapacityFlowDemo() {
 
       <FlowStage
         step="2"
-        label="Ranked across your network + extended · 28 carriers"
+        label="Ranked across your network · 8 carriers"
         tint="blue"
       >
         <MatchedCarriersList />
         <SendRequestButton count={8} />
-      </FlowStage>
-
-      <FlowConnector label="QUOTES IN" />
-
-      <FlowStage
-        step="3"
-        label="Ranked by price + reliability"
-        tint="emerald"
-      >
-        <RankedQuotesList />
       </FlowStage>
     </div>
   );
@@ -1245,10 +1229,6 @@ function MatchedCarriersList() {
     { initials: "PB", name: "Polar Bear Transit", tier: "A" as const, ovr: 82 },
     { initials: "NF", name: "Northern Freight", tier: "A" as const, ovr: 79 },
   ];
-  const extendedMatches = [
-    { initials: "RT", name: "Ridgeline Transport", laneMatch: 94 },
-    { initials: "SK", name: "Skyway Carrier Co.", laneMatch: 91 },
-  ];
   return (
     <div className="rounded-xl border border-white/10 bg-black/40 overflow-hidden">
       {/* Private network section */}
@@ -1295,44 +1275,6 @@ function MatchedCarriersList() {
       </ul>
       <div className="px-3.5 py-1.5 border-t border-white/[0.05] text-[9px] tracking-[0.18em] uppercase text-slate-600 font-mono text-center">
         + 5 more in your network
-      </div>
-
-      {/* Extended network section */}
-      <div className="px-3.5 py-1.5 bg-white/[0.025] border-t border-white/[0.06] text-[9px] tracking-[0.2em] uppercase text-slate-400 font-mono font-semibold flex items-center justify-between">
-        <span>From the extended network</span>
-        <span className="text-slate-600 tracking-wider">243k+ vetted</span>
-      </div>
-      <ul className="divide-y divide-white/[0.05]">
-        {extendedMatches.map((m) => (
-          <li
-            key={m.initials}
-            className="flex items-center gap-2.5 px-3.5 py-2.5"
-          >
-            <span
-              className="grid place-items-center w-8 h-8 rounded-md border bg-gradient-to-b from-white/[0.04] to-white/[0.01] border-white/[0.08] text-slate-400 text-[10px] font-mono font-semibold tracking-wider"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
-            >
-              {m.initials}
-            </span>
-            <div className="flex-1 min-w-0">
-              <p className="text-slate-200 text-[12px] font-medium leading-tight truncate">
-                {m.name}
-              </p>
-              <p className="text-[9px] tracking-[0.14em] uppercase text-slate-500 font-mono mt-0.5">
-                Extended · public
-              </p>
-            </div>
-            <span className="text-[9px] tracking-[0.14em] uppercase text-slate-500 font-mono">
-              Lane match
-            </span>
-            <span className="text-[11px] text-slate-300 font-mono font-semibold tabular-nums w-[32px] text-right">
-              {m.laneMatch}%
-            </span>
-          </li>
-        ))}
-      </ul>
-      <div className="px-3.5 py-1.5 border-t border-white/[0.05] text-[9px] tracking-[0.18em] uppercase text-slate-600 font-mono text-center">
-        + 18 more in the extended network
       </div>
     </div>
   );
@@ -1542,83 +1484,25 @@ function TakeActionSection() {
           tint="amber"
           filled
           eyebrow="Unified Quoting Agent"
-          title="Quote in seconds."
-          desc="One engine that fuses live market demand, your team's historical pricing, and real-time fuel and weather data into a single recommended rate. Get the right number before you reply to the shipper."
+          title="Quoting."
+          desc="One engine that collects incoming carrier rates, live market demand, historical data, and real-time weather and fuel data."
         />
 
         <div className="max-w-md mx-auto">
-          <QuoteSignals />
+          <div
+            className="relative rounded-2xl border border-emerald-400/30 bg-gradient-to-b from-emerald-500/[0.06] to-white/[0.01] backdrop-blur-sm p-4 md:p-5"
+            style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+          >
+            <div className="flex items-center gap-2.5 mb-3">
+              <span className="text-[10px] tracking-[0.20em] uppercase font-mono font-semibold text-emerald-300">
+                Ranked by price + reliability
+              </span>
+            </div>
+            <RankedQuotesList />
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function QuoteSignals() {
-  const signals = [
-    { Icon: TrendingUp, label: "Market Demand", meta: "DAT · live" },
-    { Icon: Database, label: "Your History", meta: "12 mo" },
-    { Icon: Fuel, label: "Fuel", meta: "EIA · today" },
-    { Icon: Cloud, label: "Weather", meta: "Route" },
-  ];
-  return (
-    <MockSurface className="p-3.5">
-      <p className="text-[10px] tracking-[0.18em] uppercase text-slate-500 mb-2.5 font-medium">
-        Signals consolidated
-      </p>
-      <div className="grid grid-cols-2 gap-2">
-        {signals.map((s) => (
-          <div
-            key={s.label}
-            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg border border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-white/[0.01]"
-            style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
-          >
-            <span className="grid place-items-center w-7 h-7 rounded-md border border-blue-400/25 bg-gradient-to-b from-blue-500/[0.15] to-blue-500/[0.03] shrink-0">
-              <s.Icon
-                className="w-[14px] h-[14px] text-blue-300"
-                strokeWidth={1.75}
-              />
-            </span>
-            <div className="min-w-0 flex-1">
-              <p className="text-[11px] text-white font-medium leading-tight truncate">
-                {s.label}
-              </p>
-              <p className="text-[9px] tracking-[0.12em] uppercase text-slate-500 leading-tight font-mono mt-0.5">
-                {s.meta}
-              </p>
-            </div>
-            <span
-              className="block w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"
-              style={{ boxShadow: "0 0 8px rgba(52,211,153,0.7)" }}
-            />
-          </div>
-        ))}
-      </div>
-      <div className="mt-2.5 flex items-center justify-center">
-        <ArrowDown className="w-3.5 h-3.5 text-slate-500" strokeWidth={2} />
-      </div>
-      <div
-        className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg border border-amber-400/30 bg-gradient-to-b from-amber-500/[0.12] to-amber-500/[0.02]"
-        style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
-      >
-        <div className="flex items-center gap-2">
-          <Zap
-            className="w-3.5 h-3.5 text-amber-400"
-            strokeWidth={2}
-            fill="currentColor"
-          />
-          <p className="text-[11px] tracking-[0.12em] uppercase text-amber-200 font-medium">
-            Suggested rate
-          </p>
-        </div>
-        <p
-          className="text-amber-100 text-sm font-semibold tabular-nums"
-          style={{ textShadow: "0 0 12px rgba(251,191,36,0.4)" }}
-        >
-          $3,420
-        </p>
-      </div>
-    </MockSurface>
   );
 }
 
@@ -1771,22 +1655,22 @@ function IncomingQuotesCard() {
 function SharedBrainSection() {
   const flow = [
     {
-      Icon: Zap,
-      tint: "amber" as const,
-      title: "Quote",
-      desc: "Give shippers a price in seconds. min. fuses live market demand, your history, fuel, and weather into one recommended rate.",
+      Icon: Network,
+      tint: "blue" as const,
+      title: "Network",
+      desc: "Every quote and booking compounds your carrier graph. Your liquidity gets stronger every day.",
     },
     {
       Icon: Search,
       tint: "blue" as const,
       title: "Capacity",
-      desc: "Match every shipper request against your carrier network, then blast the RFQ to the top carriers in one click.",
+      desc: "Match every shipper request against your carrier network, send out an RFQ to the top carriers with one click.",
     },
     {
-      Icon: Network,
-      tint: "blue" as const,
-      title: "Network",
-      desc: "Every quote and booking compounds your carrier graph. Your liquidity gets stronger every day.",
+      Icon: Zap,
+      tint: "amber" as const,
+      title: "Quote",
+      desc: "min collects all incoming rates coming from carriers and ranks based on performance history and price.",
     },
   ];
 
@@ -1980,7 +1864,7 @@ function CallToActionSection() {
       />
       <div className="relative max-w-3xl mx-auto px-6 text-center">
         <h2 className="text-white font-semibold tracking-[-0.025em] leading-[1.05] text-3xl md:text-5xl">
-          Quote instantly. Find coverage.
+          Your private carrier capacity tool.
         </h2>
         <div className="mt-9 flex flex-col items-center gap-3">
           <a
