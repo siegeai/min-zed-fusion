@@ -207,11 +207,9 @@ function Hero() {
           instantly{" "}
           <span className="text-blue-300">knows you</span>.
         </h1>
-        <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          min. is the memory layer for the agentic web. Your emails, meetings,
-          calls, and customer history — auto-organized into one private memory,
-          then plugged into Claude, Cursor, ChatGPT, and every AI you use.
-          Without memory, AI is dumb. With min., it's built for you.
+        <p className="mt-7 text-slate-400 text-lg md:text-xl leading-snug max-w-xl mx-auto">
+          Plug in once. Without memory, AI is generic.{" "}
+          <span className="text-slate-200">With min., it's yours.</span>
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3">
