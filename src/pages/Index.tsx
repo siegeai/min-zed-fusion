@@ -143,7 +143,7 @@ const Index = () => {
         <title>min. | Unified memory for your AI tools. Your tools don't know you. We'll fix that.</title>
         <meta
           name="description"
-          content="Unified memory for your AI tools. min. pools sales, support, success, and ops into one shared memory — and every AI tool on your team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
+          content="Unified memory for your AI tools. min. unifies sales, support, success, and ops into one shared memory — and every AI tool on your team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -207,7 +207,7 @@ function Hero() {
           <span className="text-blue-300">We'll fix that.</span>
         </h1>
         <p className="mt-7 text-slate-400 text-lg md:text-xl leading-snug max-w-2xl mx-auto">
-          Pool sales, support, success, and ops into one shared memory.{" "}
+          Unify sales, support, success, and ops into one shared memory.{" "}
           <span className="text-slate-200">
             Every AI tool on your team can recall across all of it, instantly.
           </span>
@@ -324,7 +324,7 @@ function PillarTShape() {
       {/* Top: Unified Memory Core — query → pooled function bands → cross-functional recall */}
       <UnifiedMemoryCore />
       <p className="text-center text-[11px] tracking-[0.18em] uppercase text-slate-500 mt-4 font-medium">
-        One pool · Any AI · One query
+        One memory · Any AI · One query
       </p>
 
       {/* Connectors to bottom row */}
@@ -2123,7 +2123,7 @@ function SharedBrainSection() {
     {
       Icon: Plug,
       tint: "amber" as const,
-      title: "Recall, pooled",
+      title: "Recall, unified",
       desc: "Any AI, any seat, one query — recalls across sales, support, success, and ops at once. The whole company's memory, in the app you'd open anyway.",
     },
   ];
@@ -2132,8 +2132,8 @@ function SharedBrainSection() {
     <section id="teams" className="relative py-24 md:py-32 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          eyebrow="Pooled Team Memory"
-          title="One pool. Recalled by every AI on the team."
+          eyebrow="Unified Team Memory"
+          title="One unified memory. Recalled by every AI on the team."
           desc="Sales sees what support resolved. Support sees what success promised. Success sees what sales pitched. Ops sees the whole picture. Any AI, any seat — one query, all of it. Onboarding is days, not months. Knowledge doesn't walk out the door."
         />
 
@@ -2147,7 +2147,7 @@ function SharedBrainSection() {
 
         {/* Audience callouts */}
         <p className="text-center text-[11px] tracking-[0.22em] uppercase text-slate-500 font-mono mt-16 mb-5">
-          Four teams · One pool · Every AI knows what the others know
+          Four teams · One memory · Every AI knows what the others know
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
           <AudienceCard
@@ -2302,17 +2302,17 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         Built for teams, also great for individuals. Solo users get a private
         memory that follows them across every AI they open. Teams get all of
         that{" "}
-        <span className="text-slate-200">plus pooled memory</span> across
+        <span className="text-slate-200">plus unified memory</span> across
         sales, support, success, and ops — any AI, any seat, one query pulls
         from all of it. Onboarding is days, not months.
       </>
     ),
   },
   {
-    q: "How does pooled memory work across teams?",
+    q: "How does unified memory work across teams?",
     a: (
       <>
-        One pool, segmented by permission. Sales reps can see what support
+        One unified memory, segmented by permission. Sales reps can see what support
         resolved, support sees what success promised, success sees what sales
         pitched, ops sees the whole picture — anything you grant access to.
         Sensitive items can stay private to a person, a function, or a deal.
