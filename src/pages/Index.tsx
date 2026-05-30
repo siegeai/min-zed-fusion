@@ -140,10 +140,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | The agentic memory layer. Every AI you use, instantly knows you.</title>
+        <title>min. | Your AI doesn't know you. We'll fix that.</title>
         <meta
           name="description"
-          content="min. is the agentic memory layer for sales, support, customer success, and operators. Your emails, calls, docs, and customer history — auto-organized into one private memory, then loaded into Claude, Cursor, ChatGPT, and every AI tool you use."
+          content="Your AI doesn't know you. min. quietly turns every email, call, and decision into a personal memory your AI can use — so you stop explaining yourself to Claude, Cursor, ChatGPT, and every tool you open."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -199,17 +199,17 @@ function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-6 text-center">
         <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-7">
-          The Agentic Memory Layer
+          Memory for every AI you use
         </p>
         <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
-          Every AI you use,
+          Your AI doesn't know you.
           <br />
-          instantly{" "}
-          <span className="text-blue-300">knows you</span>.
+          <span className="text-blue-300">We'll fix that.</span>
         </h1>
         <p className="mt-7 text-slate-400 text-lg md:text-xl leading-snug max-w-xl mx-auto">
-          Plug in once. Without memory, AI is generic.{" "}
-          <span className="text-slate-200">With min., it's yours.</span>
+          Every email, every call, every decision — quietly turned into a
+          personal memory your AI can use.{" "}
+          <span className="text-slate-200">Stop explaining yourself.</span>
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3">
