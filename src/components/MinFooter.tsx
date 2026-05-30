@@ -4,10 +4,10 @@ const COLUMNS = [
   {
     heading: "Platform",
     links: [
-      { label: "Quoting", to: "/#quoting" },
-      { label: "Capacity Sourcing", to: "/#capacity" },
-      { label: "Carrier Network", to: "/#network" },
-      { label: "Email Ingestion", to: "/#network" },
+      { label: "Your Memory", to: "/#memory" },
+      { label: "Instant Recall", to: "/#recall" },
+      { label: "Plug into Every AI", to: "/#plug-in" },
+      { label: "Team Memory", to: "/#teams" },
     ],
   },
   {
@@ -42,7 +42,7 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              The quoting and capacity engine for freight brokers. Source coverage from your private network in seconds, blast RFQs in one sentence, and watch your network compound with every booking.
+              The agentic memory layer for the modern workplace. Auto-organized from your inbox, calls, and tools — then loaded into every AI you use via MCP. One memory. Every tool. Built for you.
             </p>
           </div>
 

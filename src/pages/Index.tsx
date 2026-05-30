@@ -19,6 +19,17 @@ import {
   Building2,
   ArrowDown,
   HelpCircle,
+  MessageSquare,
+  Calendar,
+  BookOpen,
+  HardDrive,
+  Mic,
+  Plug,
+  Cpu,
+  Layers,
+  Headphones,
+  TrendingUp,
+  Briefcase,
 } from "lucide-react";
 import {
   Accordion,
@@ -129,10 +140,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Quote instantly. Find coverage. Build a carrier network that grows itself.</title>
+        <title>min. | The agentic memory layer. Every AI you use, instantly knows you.</title>
         <meta
           name="description"
-          content="min. is the quoting and capacity engine for freight brokers. Source carriers from your private network in seconds, blast RFQs in one sentence, and watch your network compound with every booking."
+          content="min. is the agentic memory layer for sales, support, customer success, and operators. Your emails, calls, docs, and customer history — auto-organized into one private memory, then loaded into Claude, Cursor, ChatGPT, and every AI tool you use."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -188,18 +199,19 @@ function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-6 text-center">
         <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-7">
-          Carrier Capacity Sourcing
+          The Agentic Memory Layer
         </p>
         <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
-          Build a carrier network
+          Every AI you use,
           <br />
-          that <span className="text-blue-300">grows itself</span>.
+          instantly{" "}
+          <span className="text-blue-300">knows you</span>.
         </h1>
         <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          Turn your emails into your own private carrier network. We index every
-          carrier your team has ever booked or spoken to by the lanes they cover
-          and the truck types they run, handle the outreach, and collect the
-          bids for you.
+          min. is the memory layer for the agentic web. Your emails, meetings,
+          calls, and customer history — auto-organized into one private memory,
+          then plugged into Claude, Cursor, ChatGPT, and every AI you use.
+          Without memory, AI is dumb. With min., it's built for you.
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3">
@@ -230,9 +242,12 @@ function Hero() {
 
 function HeroSourceChips() {
   const sources = [
-    { Icon: Mail, label: "Emails" },
-    { Icon: FileText, label: "PDFs & PODs" },
-    { Icon: FileSpreadsheet, label: "Excel Docs" },
+    { Icon: Mail, label: "Email" },
+    { Icon: MessageSquare, label: "Slack" },
+    { Icon: Calendar, label: "Calendar" },
+    { Icon: BookOpen, label: "Notion" },
+    { Icon: HardDrive, label: "Drive" },
+    { Icon: Mic, label: "Calls" },
   ];
   return (
     <div className="flex justify-center gap-2.5 sm:gap-3">
@@ -307,11 +322,11 @@ function PillarTShape() {
         ]}
       />
 
-      {/* Top: Carrier Network graphic — featured carrier card with RPG-style attribute bars,
-           surrounded by satellite carrier nodes connected by network lines */}
+      {/* Top: Memory graphic — featured entity card with depth-of-context bars,
+           plus a roster of other entities in your memory */}
       <CarrierNetworkGraphic />
       <p className="text-center text-[11px] tracking-[0.18em] uppercase text-slate-500 mt-4 font-medium">
-        Compounds with every booking
+        Compounds with every conversation
       </p>
 
       {/* Connectors to bottom row */}
@@ -319,32 +334,32 @@ function PillarTShape() {
         paths={["M200 0 Q120 30 80 60", "M200 0 Q280 30 320 60"]}
       />
 
-      {/* Bottom: Find Capacity + Quote in Seconds */}
+      {/* Bottom: Recall + Plug Into Every AI */}
       <div className="grid grid-cols-2 gap-4 mx-auto max-w-md">
         <SmallPillarCard
           Icon={Search}
           tint="blue"
-          title="Find Coverage"
-          desc="Source carriers from your network in seconds."
+          title="Instant Recall"
+          desc="Surface the right context in any AI, in milliseconds."
         />
         <SmallPillarCard
-          Icon={Zap}
+          Icon={Plug}
           tint="amber"
           filled
-          title="Quote in Seconds"
-          desc="Blast RFQs and collect responses in one place."
+          title="Plug into every AI"
+          desc="Claude, Cursor, ChatGPT, Granola — all instantly yours."
         />
       </div>
     </div>
   );
 }
 
-/* ───────── Carrier Network graphic (hero centerpiece) ───────── */
+/* ───────── Memory graphic (hero centerpiece) ───────── */
 
 const ROSTER = [
-  { initials: "PB", name: "Polar Bear Transit", tier: "A" as const, ovr: 82 },
-  { initials: "NF", name: "Northern Freight", tier: "A" as const, ovr: 79 },
-  { initials: "HL", name: "Heartland Lines", tier: "B" as const, ovr: 71 },
+  { initials: "ST", name: "Stripe", tier: "A" as const, ovr: 92 },
+  { initials: "DD", name: "Datadog", tier: "A" as const, ovr: 88 },
+  { initials: "LN", name: "Linear", tier: "B" as const, ovr: 76 },
 ];
 
 function CarrierNetworkGraphic() {
@@ -368,11 +383,11 @@ function CarrierNetworkGraphic() {
             style={{ boxShadow: "0 0 6px rgba(52,211,153,0.8)" }}
           />
           <span className="text-[9px] tracking-[0.22em] uppercase text-slate-300 font-mono font-semibold">
-            Your Carrier Network
+            Your Memory
           </span>
         </div>
         <span className="text-[9px] text-slate-400 font-mono tabular-nums tracking-[0.14em]">
-          872 CARRIERS
+          12.8K MEMORIES
         </span>
       </div>
 
@@ -391,14 +406,14 @@ function CarrierNetworkGraphic() {
               className="grid place-items-center w-9 h-9 rounded-md bg-gradient-to-b from-blue-500/[0.25] to-blue-500/[0.05] border border-blue-400/40 text-[10px] font-mono font-semibold text-blue-100"
               style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.10)" }}
             >
-              AL
+              AC
             </span>
             <div className="flex-1 min-w-0 text-left">
               <p className="text-white text-[13px] font-semibold leading-tight truncate">
-                Apex Logistics
+                Acme Corp
               </p>
               <p className="text-[9px] text-slate-500 font-mono uppercase tracking-[0.14em] mt-0.5">
-                FTL · Reefer
+                Enterprise · $280K ARR
               </p>
             </div>
             <TierBadge tier="S" />
@@ -407,33 +422,33 @@ function CarrierNetworkGraphic() {
           {/* Radar / stat polygon */}
           <RadarChart
             stats={[
-              { label: "Response", value: 92 },
-              { label: "On-Time", value: 97 },
-              { label: "Pricing", value: 86 },
-              { label: "Capacity", value: 73 },
-              { label: "Coverage", value: 81 },
-              { label: "Reliability", value: 95 },
+              { label: "Engagement", value: 92 },
+              { label: "Recency", value: 97 },
+              { label: "Sentiment", value: 86 },
+              { label: "Risk", value: 28 },
+              { label: "Expansion", value: 81 },
+              { label: "Depth", value: 95 },
             ]}
           />
 
           {/* Bottom meta */}
           <div className="flex items-center gap-1.5 mt-1 pt-2.5 border-t border-white/[0.06]">
             <span
-              className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 text-[9px] font-mono text-slate-200"
+              className="rounded-md border border-emerald-400/30 bg-emerald-400/[0.10] px-1.5 py-0.5 text-[9px] font-mono text-emerald-300"
               style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
             >
-              ORD→MIA
+              DEAL OPEN
             </span>
             <span
               className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 text-[9px] font-mono text-slate-300"
               style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
             >
-              +12 LANES
+              +12 THREADS
             </span>
             <span className="ml-auto text-[9px] text-slate-400 font-mono tracking-wide tabular-nums">
-              45 BOOKINGS
+              47 MEETINGS
               <span className="text-slate-600 mx-1">|</span>
-              86 QUOTES
+              312 EMAILS
             </span>
           </div>
         </div>
@@ -446,10 +461,10 @@ function CarrierNetworkGraphic() {
       >
         <div className="flex items-center justify-between px-1 mb-1.5">
           <span className="text-[8px] tracking-[0.22em] uppercase text-slate-500 font-mono">
-            Also in your network
+            Other accounts in memory
           </span>
           <span className="text-[8px] tracking-[0.18em] uppercase text-slate-500 font-mono">
-            Tier · OVR
+            Tier · Depth
           </span>
         </div>
         <div className="space-y-0.5">
@@ -459,7 +474,7 @@ function CarrierNetworkGraphic() {
         </div>
         <div className="flex items-center justify-center mt-1.5 pt-1.5 border-t border-white/[0.05]">
           <span className="text-[9px] text-slate-400 font-mono tabular-nums tracking-wide">
-            + 868 more
+            + 412 more accounts · 1,847 people
           </span>
         </div>
       </div>
@@ -727,26 +742,26 @@ function SmallPillarCard({
 
 function CollectiveMemorySection() {
   return (
-    <section id="network" className="relative py-24 md:py-32 scroll-mt-24">
+    <section id="memory" className="relative py-24 md:py-32 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          Icon={Network}
-          title="Your Carrier Network"
-          desc="Every email, every quote, every booking compounds into YOUR private capacity network. The more your team works, the stronger your network gets."
+          Icon={Brain}
+          title="Your memory. Your moat."
+          desc="Every email, every meeting, every customer interaction compounds into YOUR private memory. The more you work, the smarter every AI you use gets."
         />
 
         {/* 2-up top row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <BigFeatureCard
-            Icon={Network}
-            title="Network Compounds With Every Booking"
-            body="Every quote, every booking, adds a new edge to your carrier network. The carriers your team has worked with, the lanes they run, how fast they respond, and the rates provided."
+            Icon={Brain}
+            title="Memory Compounds With Every Conversation"
+            body="Every email sent, every meeting taken, every customer touchpoint adds a new edge to your memory. The people you know, the deals you've worked, the decisions you've made — all instantly recallable."
             visual={<EmailRowsMock />}
           />
           <BigFeatureCard
             Icon={Database}
-            title="What Feeds the Network"
-            body="Emails, Load Sheets, Excel Rate Tables, Carrier Quotes, Rate Confirmations, BOLs, PODs. Every interaction becomes capacity intelligence."
+            title="What Feeds Your Memory"
+            body="Email, Slack, Calendar, Notion, Drive, calls, tickets, CRM. Every signal across your workflow becomes structured, searchable context."
             visual={<FileTilesMock />}
           />
         </div>
@@ -754,21 +769,21 @@ function CollectiveMemorySection() {
         {/* 3-up bottom row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <FeatureCard
-            Icon={Truck}
-            title="Automatic Lane Mapping"
-            body="If a carrier quotes a lane once, min. remembers they run that lane, their equipment, and the rate given."
-            visual={<LaneSliderMock from="ORD" to="DFW" />}
+            Icon={Layers}
+            title="Auto-Organized Entities"
+            body="People, companies, deals, projects, decisions. min. extracts them automatically and links them across every source. No tagging. No CRM hygiene."
+            visual={<LaneSliderMock from="Acme" to="Renewal" />}
           />
           <FeatureCard
             Icon={Sparkles}
             title="Zero Data Entry"
-            body="Your network grows automatically with every email your team sends and receives."
+            body="Your memory grows automatically with every email, meeting, and message. No CRM. No notes app. No data-hygiene chores."
             visual={<NotificationIconsMock />}
           />
           <FeatureCard
             Icon={Users}
-            title="The Network Stays With You"
-            body="When a rep leaves, their carrier relationships, lane history, and rate cards stay inside the company. The network is your greatest asset."
+            title="Memory Stays With The Team"
+            body="When someone leaves, their customer relationships and institutional knowledge stay inside the team. Memory is your company's greatest asset."
             visual={<HandoffIconsMock />}
           />
         </div>
@@ -900,9 +915,9 @@ function MockSurface({ children, className = "" }: { children: React.ReactNode; 
 
 function EmailRowsMock() {
   const rows = [
-    { name: "Apex Logistics", w: "w-[78%]", active: false },
-    { name: "Polar Bear Transit", w: "w-[62%]", active: false },
-    { name: "Northern Freight", w: "w-[88%]", active: true },
+    { name: "Acme Corp · renewal thread", w: "w-[78%]", active: false },
+    { name: "Stripe · weekly sync notes", w: "w-[62%]", active: false },
+    { name: "Datadog · churn-risk signal", w: "w-[88%]", active: true },
   ];
   return (
     <MockSurface className="p-3.5">
@@ -950,9 +965,9 @@ function EmailRowsMock() {
 function FileTilesMock() {
   const tiles = [
     { Icon: Mail, label: "Email" },
-    { Icon: FileText, label: "PDF" },
-    { Icon: FileSpreadsheet, label: "Excel" },
-    { Icon: FileText, label: "BOL/POD" },
+    { Icon: MessageSquare, label: "Slack" },
+    { Icon: Calendar, label: "Calendar" },
+    { Icon: Mic, label: "Calls" },
   ];
   return (
     <div className="grid grid-cols-2 gap-2">
@@ -1012,7 +1027,7 @@ function LaneSliderMock({ from, to }: { from: string; to: string }) {
         </span>
       </div>
       <p className="mt-3 text-[10px] tracking-[0.14em] uppercase text-slate-500">
-        Carrier coverage <span className="text-slate-300">58%</span>
+        Linked entities <span className="text-slate-300">14</span>
       </p>
     </MockSurface>
   );
@@ -1020,9 +1035,9 @@ function LaneSliderMock({ from, to }: { from: string; to: string }) {
 
 function NotificationIconsMock() {
   const items = [
-    { Icon: Mail, label: "Quote received", meta: "2m" },
-    { Icon: Truck, label: "POD attached", meta: "5m" },
-    { Icon: Activity, label: "Lane indexed", meta: "now" },
+    { Icon: Mail, label: "Email indexed", meta: "2m" },
+    { Icon: Mic, label: "Meeting logged", meta: "5m" },
+    { Icon: Activity, label: "Entity updated", meta: "now" },
   ];
   return (
     <MockSurface className="p-2 space-y-1.5">
@@ -1092,12 +1107,13 @@ function HandoffIconsMock() {
 
 function IntelligentSearchSection() {
   return (
-    <section id="capacity" className="relative py-24 md:py-32 scroll-mt-24">
+    <section id="recall" className="relative py-24 md:py-32 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           Icon={Search}
-          title="Find coverage instantly."
-          desc="Every shipper rate request is matched against every carrier in your private network, ranked by who runs the lane, who responds fast, and who hits their commitments."
+          eyebrow="Instant Recall"
+          title="Recall anything, instantly."
+          desc="Ask in any AI — Claude, Cursor, ChatGPT. min. returns the exact context: the deal history, the last conversation, the customer's prior tickets, the doc you wrote two months ago. Without you ever opening a search bar."
         />
 
         <div className="max-w-2xl mx-auto">
@@ -1113,15 +1129,15 @@ function IntelligentSearchSection() {
 function CapacityFlowDemo() {
   return (
     <div className="space-y-2">
-      <FlowStage step="1" label="Incoming rate request" tint="slate">
+      <FlowStage step="1" label="Query from any AI" tint="slate">
         <LoadRequestCard />
       </FlowStage>
 
-      <FlowConnector label="MATCHED" />
+      <FlowConnector label="MEMORY RECALLED" />
 
       <FlowStage
         step="2"
-        label="Ranked across your network · 8 carriers"
+        label="Ranked from your private memory · 8 hits"
         tint="blue"
       >
         <MatchedCarriersList />
@@ -1202,38 +1218,66 @@ function FlowConnector({ label }: { label: string }) {
 }
 
 function LoadRequestCard() {
-  const fields = [
-    ["From", "Acme Foods"],
-    ["Pickup", "Miami, FL"],
-    ["Dropoff", "Toronto, ON"],
-    ["Equipment", "FTL Reefer"],
-    ["Commodity", "35,000 lbs oranges"],
-  ];
   return (
     <div className="rounded-xl border border-white/10 bg-black/40 px-4 py-3.5">
-      <dl className="grid grid-cols-[80px_1fr] gap-y-1.5 text-[12px] font-mono">
-        {fields.map(([k, v]) => (
-          <div key={k} className="contents">
-            <dt className="text-slate-500">{k}:</dt>
-            <dd className="text-slate-200">{v}</dd>
-          </div>
+      <div className="flex items-center justify-between mb-2.5">
+        <div className="flex items-center gap-2">
+          <span className="grid place-items-center w-5 h-5 rounded-md bg-gradient-to-b from-amber-400/[0.25] to-amber-500/[0.05] border border-amber-400/40">
+            <Sparkles
+              className="w-3 h-3 text-amber-300"
+              strokeWidth={2.25}
+              fill="currentColor"
+            />
+          </span>
+          <span className="text-[10px] font-mono tracking-[0.18em] uppercase text-slate-400">
+            Claude Desktop · via MCP
+          </span>
+        </div>
+        <span className="text-[9px] font-mono text-slate-500 tabular-nums tracking-wide">
+          0.18s
+        </span>
+      </div>
+      <p
+        className="text-slate-100 text-[13.5px] leading-snug font-medium"
+        style={{ fontFeatureSettings: '"ss01"' }}
+      >
+        "What's the latest on Acme Corp's renewal? Anyone on my team talked
+        to them this week?"
+      </p>
+      <div className="mt-3 pt-2.5 border-t border-white/[0.06] flex items-center gap-2 flex-wrap">
+        <span className="text-[9px] tracking-[0.16em] uppercase text-slate-500 font-mono">
+          Needs:
+        </span>
+        {[
+          { Icon: Briefcase, label: "Account" },
+          { Icon: TrendingUp, label: "Deal" },
+          { Icon: Calendar, label: "Last meeting" },
+          { Icon: Mail, label: "Recent emails" },
+        ].map(({ Icon, label }) => (
+          <span
+            key={label}
+            className="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[10px] font-mono text-slate-300"
+          >
+            <Icon className="w-2.5 h-2.5 text-slate-400" strokeWidth={2} />
+            {label}
+          </span>
         ))}
-      </dl>
+      </div>
     </div>
   );
 }
 
 function MatchedCarriersList() {
   const privateMatches = [
-    { initials: "AL", name: "Apex Logistics", tier: "S" as const, ovr: 87, best: true },
-    { initials: "PB", name: "Polar Bear Transit", tier: "A" as const, ovr: 82 },
-    { initials: "NF", name: "Northern Freight", tier: "A" as const, ovr: 79 },
+    { initials: "AC", name: "Acme Corp · renewal thread (12 emails)", tier: "S" as const, ovr: 98, best: true },
+    { initials: "MT", name: "Meeting · May 19 · Q3 expansion notes", tier: "A" as const, ovr: 94 },
+    { initials: "DL", name: "Deal record · $280K · Stage 4", tier: "A" as const, ovr: 91 },
   ];
   return (
     <div className="rounded-xl border border-white/10 bg-black/40 overflow-hidden">
-      {/* Private network section */}
+      {/* Private memory section */}
       <div className="px-3.5 py-1.5 bg-white/[0.025] text-[9px] tracking-[0.2em] uppercase text-slate-400 font-mono font-semibold">
-        From your network
+        From your private memory
       </div>
       <ul className="divide-y divide-white/[0.05]">
         {privateMatches.map((m) => (
@@ -1274,7 +1318,7 @@ function MatchedCarriersList() {
         ))}
       </ul>
       <div className="px-3.5 py-1.5 border-t border-white/[0.05] text-[9px] tracking-[0.18em] uppercase text-slate-600 font-mono text-center">
-        + 5 more in your network
+        + 5 more related memories
       </div>
     </div>
   );
@@ -1291,7 +1335,7 @@ function SendRequestButton({ count }: { count: number }) {
     >
       <Zap className="w-3.5 h-3.5 text-amber-300" strokeWidth={2} fill="currentColor" />
       <span className="text-[11px] tracking-[0.16em] uppercase font-mono font-semibold">
-        Send rate request to top {count}
+        Load top {count} into Claude
       </span>
       <ArrowRight className="w-3.5 h-3.5 text-amber-300 group-hover:translate-x-0.5 transition-transform" strokeWidth={2} />
     </button>
@@ -1477,32 +1521,111 @@ function SubCard({
 
 function TakeActionSection() {
   return (
-    <section id="quoting" className="relative py-24 md:py-32 scroll-mt-24">
+    <section id="plug-in" className="relative py-24 md:py-32 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          Icon={Zap}
+          Icon={Plug}
           tint="amber"
           filled
-          eyebrow="Unified Quoting Agent"
-          title="Quoting."
-          desc="One engine that collects incoming carrier rates, live market demand, historical data, and real-time weather and fuel data."
+          eyebrow="Plug-and-Play via MCP"
+          title="Plug into every AI you use."
+          desc="min. exposes your memory through MCP — the open agentic protocol. One memory. Every AI tool. Every agent your team builds. Plug it in once, and every tool you use is instantly built for you."
         />
 
-        <div className="max-w-md mx-auto">
-          <div
-            className="relative rounded-2xl border border-emerald-400/30 bg-gradient-to-b from-emerald-500/[0.06] to-white/[0.01] backdrop-blur-sm p-4 md:p-5"
-            style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
-          >
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-[10px] tracking-[0.20em] uppercase font-mono font-semibold text-emerald-300">
-                Ranked by price + reliability
-              </span>
-            </div>
-            <RankedQuotesList />
-          </div>
+        <div className="max-w-2xl mx-auto">
+          <AIIntegrationGrid />
         </div>
       </div>
     </section>
+  );
+}
+
+/* AI integration grid — shows target AI tools as plug-in destinations */
+const AI_INTEGRATIONS: { name: string; meta: string; status: "live" | "live" }[] = [
+  { name: "Claude Desktop", meta: "MCP · official", status: "live" },
+  { name: "Claude Code", meta: "MCP · official", status: "live" },
+  { name: "Cursor", meta: "MCP · official", status: "live" },
+  { name: "ChatGPT", meta: "Plugin · live", status: "live" },
+  { name: "Granola", meta: "MCP · live", status: "live" },
+  { name: "Linear", meta: "MCP · live", status: "live" },
+  { name: "Custom agents", meta: "MCP SDK · open", status: "live" },
+  { name: "Your tool, next", meta: "Roll your own", status: "live" },
+];
+
+function AIIntegrationGrid() {
+  return (
+    <div
+      className="relative rounded-2xl border border-amber-400/30 bg-gradient-to-b from-amber-500/[0.06] to-white/[0.01] backdrop-blur-sm p-4 md:p-5"
+      style={{
+        boxShadow:
+          "inset 0 1px 0 rgba(255,255,255,0.05), 0 0 30px -10px rgba(251,191,36,0.25)",
+      }}
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between gap-2.5 mb-4">
+        <div className="flex items-center gap-2">
+          <span
+            className="block w-1.5 h-1.5 rounded-full bg-emerald-400"
+            style={{ boxShadow: "0 0 6px rgba(52,211,153,0.8)" }}
+          />
+          <span className="text-[10px] tracking-[0.20em] uppercase font-mono font-semibold text-amber-300">
+            Memory loaded into
+          </span>
+        </div>
+        <span className="text-[9px] tracking-[0.16em] uppercase font-mono text-slate-500 tabular-nums">
+          8 active · MCP v2
+        </span>
+      </div>
+
+      {/* Integration tiles */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        {AI_INTEGRATIONS.map((tool) => (
+          <div
+            key={tool.name}
+            className="relative rounded-lg border border-white/[0.08] bg-gradient-to-b from-white/[0.05] to-white/[0.01] p-3"
+            style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+          >
+            <div className="flex items-start justify-between gap-1 mb-2.5">
+              <span className="grid place-items-center w-7 h-7 rounded-md bg-gradient-to-b from-amber-500/[0.18] to-amber-500/[0.04] border border-amber-400/30">
+                <Cpu
+                  className="w-3.5 h-3.5 text-amber-300"
+                  strokeWidth={1.75}
+                />
+              </span>
+              <span
+                aria-hidden
+                className="block w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"
+                style={{ boxShadow: "0 0 8px rgba(52,211,153,0.7)" }}
+              />
+            </div>
+            <p className="text-white text-[11.5px] font-semibold leading-tight">
+              {tool.name}
+            </p>
+            <p className="text-[9px] tracking-[0.12em] uppercase text-slate-500 font-mono mt-1 leading-tight">
+              {tool.meta}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Footer */}
+      <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between gap-2 text-[10px] font-mono tracking-wide">
+        <span className="text-slate-500 uppercase">
+          One memory · Every agent
+        </span>
+        <span
+          className="inline-flex items-center gap-1.5 text-amber-200"
+          style={{ textShadow: "0 0 8px rgba(251,191,36,0.4)" }}
+        >
+          <Zap
+            className="w-3 h-3 text-amber-300"
+            strokeWidth={2}
+            fill="currentColor"
+          />
+          INSTANT
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -1655,31 +1778,32 @@ function IncomingQuotesCard() {
 function SharedBrainSection() {
   const flow = [
     {
-      Icon: Network,
+      Icon: Database,
       tint: "blue" as const,
-      title: "Network",
-      desc: "Every quote and booking compounds your carrier graph. Your liquidity gets stronger every day.",
+      title: "Capture",
+      desc: "Every email, call, meeting, doc, and ticket flows in automatically. No CRM hygiene. No second system to update.",
     },
     {
-      Icon: Search,
+      Icon: Layers,
       tint: "blue" as const,
-      title: "Capacity",
-      desc: "Match every shipper request against your carrier network, send out an RFQ to the top carriers with one click.",
+      title: "Organize",
+      desc: "min. auto-extracts people, accounts, deals, and decisions — then links them across every source into one living memory graph.",
     },
     {
-      Icon: Zap,
+      Icon: Plug,
       tint: "amber" as const,
-      title: "Quote",
-      desc: "min collects all incoming rates coming from carriers and ranks based on performance history and price.",
+      title: "Recall",
+      desc: "Every AI you use plugs into that memory via MCP. Claude, Cursor, ChatGPT — instantly built around your context.",
     },
   ];
 
   return (
-    <section className="relative py-24 md:py-32">
+    <section id="teams" className="relative py-24 md:py-32 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          title="Your own carrier network that compounds with every booking."
-          desc="Quote, cover, repeat. Every load your team works adds carriers, lanes, and rates to your private network, so the next quote is faster and the next cover is easier."
+          eyebrow="Team Memory"
+          title="When the team has memory, the team compounds."
+          desc="Sales reps know every prior conversation before the call. Support engineers see every ticket the customer ever filed. CS knows the expansion thread before it surfaces. Operators see the full picture across every team. Onboarding is days, not months. Knowledge doesn't walk out the door."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-y-8 max-w-5xl mx-auto">
@@ -1690,9 +1814,33 @@ function SharedBrainSection() {
           <FlowCell {...flow[2]} />
         </div>
 
+        {/* Audience callouts */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mt-14">
+          <AudienceCard
+            Icon={TrendingUp}
+            label="Sales"
+            line="Walk into every call already caught up. Pipeline notes, prior touches, decision-makers — loaded."
+          />
+          <AudienceCard
+            Icon={Headphones}
+            label="Support"
+            line="Every ticket the customer ever filed, every workaround you ever shipped — recallable in a sentence."
+          />
+          <AudienceCard
+            Icon={Sparkles}
+            label="Customer Success"
+            line="Renewal signals, expansion threads, sentiment shifts — surface before they become surprises."
+          />
+          <AudienceCard
+            Icon={Briefcase}
+            label="Operators"
+            line="See the full picture across every team. Decisions backed by every prior conversation, decision, and outcome."
+          />
+        </div>
+
         <p className="text-center text-slate-500 text-xs mt-12 max-w-xl mx-auto">
-          Day 0: thousands of messy contacts in your inbox.
-          Day 1: searchable private capacity network that money can't buy.
+          Day 0: a sea of messy threads across ten tools.
+          Day 1: one living memory that every AI you use can read.
         </p>
       </div>
     </section>
@@ -1742,66 +1890,112 @@ function FlowArrow() {
   );
 }
 
+function AudienceCard({
+  Icon,
+  label,
+  line,
+}: {
+  Icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  label: string;
+  line: string;
+}) {
+  return (
+    <div
+      className="rounded-xl border border-white/[0.07] bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-4 md:p-5 text-left"
+      style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)" }}
+    >
+      <div className="flex items-center gap-2.5 mb-2">
+        <span className="grid place-items-center w-7 h-7 rounded-md bg-gradient-to-b from-blue-500/[0.18] to-blue-500/[0.04] border border-blue-400/25">
+          <Icon className="w-3.5 h-3.5 text-blue-300" strokeWidth={1.75} />
+        </span>
+        <span className="text-[10px] tracking-[0.20em] uppercase text-blue-200 font-mono font-semibold">
+          For {label}
+        </span>
+      </div>
+      <p className="text-slate-300 text-[13px] leading-relaxed">{line}</p>
+    </div>
+  );
+}
+
 /* ───────── FAQ ───────── */
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
-    q: "How does it work?",
+    q: "How does this actually work?",
     a: (
       <>
-        Connect your Gmail or Outlook in one click. From that moment on, your
-        AI minion starts reading every reply and rate confirmation in your
-        history and silently builds your carrier network in the background.
-        Most accounts are fully indexed within a few hours, no training, no
-        setup calls.
+        Connect Gmail or Outlook in one click. From that moment, min. silently
+        reads every email, calendar event, meeting transcript, and doc you
+        give it permission to see, and builds a private memory graph of
+        people, accounts, deals, decisions, and threads. Then it exposes that
+        memory to every AI tool you use via{" "}
+        <span className="text-slate-200">MCP</span>, the open agentic
+        protocol. Most accounts are fully indexed in a few hours. No training,
+        no setup calls.
       </>
     ),
   },
   {
-    q: "Do I need to connect my TMS?",
+    q: "Which AI tools can plug into my memory?",
     a: (
       <>
-        No. There's no time-consuming TMS integration to do. Your inbox
-        already has 10x more data than any TMS, every quote, every cover,
-        every commitment, every relationship. min. reads that directly, so you
-        don't have to migrate anything or wait on IT.
+        Anything that speaks MCP. Today that's{" "}
+        <span className="text-slate-200">
+          Claude Desktop, Claude Code, Cursor, ChatGPT, Granola, Linear
+        </span>
+        , and any custom agent your team builds with the MCP SDK. New tools
+        added weekly. One memory, every tool, instantly.
       </>
     ),
   },
   {
-    q: "How does the quote engine work?",
+    q: "How is this different from a vector DB or a notes app?",
     a: (
       <>
-        Our proprietary algorithm blends four data streams into a single
-        signal no other platform can produce: live market demand, your team's
-        historical lane pricing, real-time fuel, and route-level weather. The
-        result is the most accurate rate for{" "}
-        <span className="text-slate-200">your</span> business, not a generic
-        DAT spot price.
+        Vector DBs and notes apps store text. min. stores{" "}
+        <span className="text-slate-200">structured memory</span> — people,
+        companies, deals, calls, decisions — and updates them automatically as
+        your work evolves. It's not a destination you visit; it's the layer
+        underneath every AI tool you already use. LLMs without memory are
+        dumb. min. plugs you in.
       </>
     ),
   },
   {
-    q: "Does it work for teams?",
+    q: "Does this work for individuals, or only teams?",
     a: (
       <>
-        min. works best in teams. You can opt in to merge every teammate's
-        carrier network into one shared carrier graph, so the lanes one rep
-        has covered become capacity for the whole desk. The bigger the team,
-        the deeper the network and the stronger your collective capacity.
+        Both. Individuals get a private memory that follows them across every
+        AI tool they use. Teams get all of that{" "}
+        <span className="text-slate-200">plus shared workspace memory</span>:
+        sales reps see every prior conversation with the account, support
+        engineers see every ticket the customer ever filed, customer success
+        sees the expansion thread before it surfaces. Onboarding is days, not
+        months.
       </>
     ),
   },
   {
-    q: "What is your data policy? Is it safe?",
+    q: "What happens to memory when a teammate leaves?",
     a: (
       <>
-        Your data is yours. We{" "}
+        It stays with the team. Customer relationships, deal history,
+        institutional context, and prior decisions live in the shared memory,
+        not in someone's head or personal inbox. New hires inherit it from day
+        one. Memory doesn't walk out the door.
+      </>
+    ),
+  },
+  {
+    q: "Is my data safe? Do you train on it?",
+    a: (
+      <>
+        Your memory is yours. We{" "}
         <span className="text-slate-200">never sell it</span>, never broker
-        it, and never train models on it, ours or any provider's. Everything
-        is encrypted in transit with TLS 1.3, hosted on SOC 2 Type II
-        infrastructure, and we hold a 9.7 ESOF score with Google CASA Tier 2
-        verification.{" "}
+        it, never train models on it — ours or any provider's. Every
+        connected AI tool only sees what you authorize. Encrypted in transit
+        with TLS 1.3, hosted on SOC 2 Type II infrastructure, end-to-end
+        encrypted at rest.{" "}
         <Link
           to="/security"
           className="text-blue-300 underline underline-offset-2 hover:text-blue-200"
@@ -1812,38 +2006,21 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     ),
   },
   {
-    q: "How long does setup take?",
+    q: "How does it stay updated?",
     a: (
       <>
-        Seconds to start, a few hours to fully index. Sign in with Gmail or
-        Outlook and min. begins working immediately. Up to 50,000 threads are
-        indexed in under 20 minutes, and your carrier network keeps
-        compounding from day one onward.
+        Continuously. Every new email, message, meeting, transcript, or doc
+        gets indexed in real-time. Your memory is never stale, never
+        re-indexing. The longer you work, the smarter every AI you use gets.
       </>
     ),
   },
   {
-    q: "What happens to the carrier network if a rep leaves?",
+    q: "Can I export my memory?",
     a: (
       <>
-        It stays with the company. Carrier relationships, lane history, rate
-        cards, and response patterns live in the shared network, not in a
-        rep's head or personal inbox. When someone leaves, the institutional
-        capacity stays with the desk.
-      </>
-    ),
-  },
-  {
-    q: "How is this different from a public load board?",
-    a: (
-      <>
-        Public load boards are the Craigslist of freight — anyone with an MC
-        number can show up, and you're left squinting at safety scores and
-        praying the truck shows. min. only routes loads through two pools:
-        carriers <span className="text-slate-200">your team has already worked with</span>,
-        and a vetted extended network of 243,000+ carriers we screen for
-        active authority, insurance limits, safety rating, and a clean
-        track record. Anyone who doesn't meet the bar never reaches your inbox.
+        Always. JSON or Markdown, your choice. min. is built on open MCP — no
+        lock-in. Your memory is yours to take anywhere.
       </>
     ),
   },
@@ -1864,8 +2041,12 @@ function CallToActionSection() {
       />
       <div className="relative max-w-3xl mx-auto px-6 text-center">
         <h2 className="text-white font-semibold tracking-[-0.025em] leading-[1.05] text-3xl md:text-5xl">
-          Your private carrier capacity tool.
+          Be in every AI.
         </h2>
+        <p className="mt-5 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+          One memory. Every tool. Every agent. Without min., your AI is just smart.
+          With it, your AI is built for you.
+        </p>
         <div className="mt-9 flex flex-col items-center gap-3">
           <a
             href="https://app.getmin.ai/find"
@@ -1892,7 +2073,7 @@ function FAQSection() {
           Icon={HelpCircle}
           eyebrow="FAQ"
           title="Questions, answered."
-          desc="Everything brokers ask us before getting started."
+          desc="Everything teams ask us before getting started."
         />
 
         <Accordion
