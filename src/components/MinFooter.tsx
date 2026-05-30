@@ -42,7 +42,7 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              The agentic memory layer for the modern workplace. Auto-organized from your inbox, calls, and tools — then loaded into every AI you use via MCP. One memory. Every tool. Built for you.
+              Your AI doesn't know you. We'll fix that. min. quietly turns every email, call, and decision into a personal memory the apps you already open — Claude, Cursor, ChatGPT — pick up automatically.
             </p>
           </div>
 

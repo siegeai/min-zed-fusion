@@ -1228,7 +1228,7 @@ function LoadRequestCard() {
             />
           </span>
           <span className="text-[10px] font-mono tracking-[0.18em] uppercase text-slate-400">
-            Claude Desktop · via MCP
+            Claude Desktop · live
           </span>
         </div>
         <span className="text-[9px] font-mono text-slate-500 tabular-nums tracking-wide">
@@ -1525,9 +1525,9 @@ function TakeActionSection() {
           Icon={Plug}
           tint="amber"
           filled
-          eyebrow="Plug-and-Play via MCP"
-          title="Plug into every AI you use."
-          desc="min. exposes your memory through MCP — the open agentic protocol. One memory. Every AI tool. Every agent your team builds. Plug it in once, and every tool you use is instantly built for you."
+          eyebrow="Already in every app you open"
+          title="Open the AI. We're already there."
+          desc="Claude. Cursor. ChatGPT. Whatever you open next. min. is already sitting there, handing each one everything you've ever told the others. No copy-pasting. No starting over. No 'let me give you some context first.'"
         />
 
         <div className="max-w-2xl mx-auto">
@@ -1540,14 +1540,14 @@ function TakeActionSection() {
 
 /* AI integration grid — shows target AI tools as plug-in destinations */
 const AI_INTEGRATIONS: { name: string; meta: string; status: "live" | "live" }[] = [
-  { name: "Claude Desktop", meta: "MCP · official", status: "live" },
-  { name: "Claude Code", meta: "MCP · official", status: "live" },
-  { name: "Cursor", meta: "MCP · official", status: "live" },
+  { name: "Claude Desktop", meta: "Native · live", status: "live" },
+  { name: "Claude Code", meta: "Native · live", status: "live" },
+  { name: "Cursor", meta: "Native · live", status: "live" },
   { name: "ChatGPT", meta: "Plugin · live", status: "live" },
-  { name: "Granola", meta: "MCP · live", status: "live" },
-  { name: "Linear", meta: "MCP · live", status: "live" },
-  { name: "Custom agents", meta: "MCP SDK · open", status: "live" },
-  { name: "Your tool, next", meta: "Roll your own", status: "live" },
+  { name: "Granola", meta: "Live", status: "live" },
+  { name: "Linear", meta: "Live", status: "live" },
+  { name: "Your custom AI", meta: "Open SDK", status: "live" },
+  { name: "Whatever's next", meta: "Coming soon-ish", status: "live" },
 ];
 
 function AIIntegrationGrid() {
@@ -1571,7 +1571,7 @@ function AIIntegrationGrid() {
           </span>
         </div>
         <span className="text-[9px] tracking-[0.16em] uppercase font-mono text-slate-500 tabular-nums">
-          8 active · MCP v2
+          8 connected
         </span>
       </div>
 
@@ -1609,7 +1609,7 @@ function AIIntegrationGrid() {
       {/* Footer */}
       <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between gap-2 text-[10px] font-mono tracking-wide">
         <span className="text-slate-500 uppercase">
-          One memory · Every agent
+          One memory · Every app
         </span>
         <span
           className="inline-flex items-center gap-1.5 text-amber-200"
@@ -1791,7 +1791,7 @@ function SharedBrainSection() {
       Icon: Plug,
       tint: "amber" as const,
       title: "Recall",
-      desc: "Every AI you use plugs into that memory via MCP. Claude, Cursor, ChatGPT — instantly built around your context.",
+      desc: "Open the AI you'd open anyway. It already knows the customer, the deal, the conversation you were just having. Built for you, before you start typing.",
     },
   ];
 
@@ -1922,14 +1922,14 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "How does this actually work?",
     a: (
       <>
-        Connect Gmail or Outlook in one click. From that moment, min. silently
+        Connect Gmail or Outlook in one click. From that moment, min. quietly
         reads every email, calendar event, meeting transcript, and doc you
-        give it permission to see, and builds a private memory graph of
-        people, accounts, deals, decisions, and threads. Then it exposes that
-        memory to every AI tool you use via{" "}
-        <span className="text-slate-200">MCP</span>, the open agentic
-        protocol. Most accounts are fully indexed in a few hours. No training,
-        no setup calls.
+        give it permission to see, and builds a private memory of the people
+        you talk to, the deals you're working, the decisions you've made, and
+        every thread that touches them. Then every AI you open — Claude,
+        Cursor, ChatGPT — picks it up automatically. Most accounts are fully
+        indexed in a few hours. No training, no setup calls, no notes app to
+        keep tidy.
       </>
     ),
   },
@@ -2039,11 +2039,11 @@ function CallToActionSection() {
       />
       <div className="relative max-w-3xl mx-auto px-6 text-center">
         <h2 className="text-white font-semibold tracking-[-0.025em] leading-[1.05] text-3xl md:text-5xl">
-          Be in every AI.
+          Let's fix that.
         </h2>
         <p className="mt-5 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-          One memory. Every tool. Every agent. Without min., your AI is just smart.
-          With it, your AI is built for you.
+          Plug into the apps you already open. Your AI starts knowing
+          you today.
         </p>
         <div className="mt-9 flex flex-col items-center gap-3">
           <a
