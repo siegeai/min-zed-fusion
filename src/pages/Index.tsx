@@ -140,7 +140,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Serious memory for work. Your AI doesn't know you. We'll fix that.</title>
+        <title>min. | Serious memory for work. Your tools don't know you. We'll fix that.</title>
         <meta
           name="description"
           content="Serious memory for work. min. pools sales, support, success, and ops into one shared memory — and every AI on the team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
@@ -202,7 +202,7 @@ function Hero() {
           Serious memory for work
         </p>
         <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
-          Your AI doesn't know you.
+          Your tools don't know you.
           <br />
           <span className="text-blue-300">We'll fix that.</span>
         </h1>
