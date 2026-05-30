@@ -140,10 +140,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Your AI doesn't know you. We'll fix that.</title>
+        <title>min. | Serious memory for work. Your AI doesn't know you. We'll fix that.</title>
         <meta
           name="description"
-          content="Your AI doesn't know you. min. quietly turns every email, call, and decision into a personal memory your AI can use — so you stop explaining yourself to Claude, Cursor, ChatGPT, and every tool you open."
+          content="Serious memory for work. min. pools sales, support, success, and ops into one shared memory — and every AI on the team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -199,17 +199,18 @@ function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-6 text-center">
         <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-7">
-          Memory for every AI you use
+          Serious memory for work
         </p>
         <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
           Your AI doesn't know you.
           <br />
           <span className="text-blue-300">We'll fix that.</span>
         </h1>
-        <p className="mt-7 text-slate-400 text-lg md:text-xl leading-snug max-w-xl mx-auto">
-          Every email, every call, every decision — quietly turned into a
-          personal memory your AI can use.{" "}
-          <span className="text-slate-200">Stop explaining yourself.</span>
+        <p className="mt-7 text-slate-400 text-lg md:text-xl leading-snug max-w-2xl mx-auto">
+          Pool sales, support, success, and ops into one shared memory.{" "}
+          <span className="text-slate-200">
+            Every AI on the team can recall across all of it, instantly.
+          </span>
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3">
@@ -1790,8 +1791,8 @@ function SharedBrainSection() {
     {
       Icon: Plug,
       tint: "amber" as const,
-      title: "Recall",
-      desc: "Open the AI you'd open anyway. It already knows the customer, the deal, the conversation you were just having. Built for you, before you start typing.",
+      title: "Recall, pooled",
+      desc: "Any AI, any seat, one query — recalls across sales, support, success, and ops at once. The whole company's memory, in the app you'd open anyway.",
     },
   ];
 
@@ -1799,9 +1800,9 @@ function SharedBrainSection() {
     <section id="teams" className="relative py-24 md:py-32 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          eyebrow="Team Memory"
-          title="When the team has memory, the team compounds."
-          desc="Sales reps know every prior conversation before the call. Support engineers see every ticket the customer ever filed. CS knows the expansion thread before it surfaces. Operators see the full picture across every team. Onboarding is days, not months. Knowledge doesn't walk out the door."
+          eyebrow="Pooled Team Memory"
+          title="One pool. Recalled by every AI on the team."
+          desc="Sales sees what support resolved. Support sees what success promised. Success sees what sales pitched. Ops sees the whole picture. Any AI, any seat — one query, all of it. Onboarding is days, not months. Knowledge doesn't walk out the door."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-y-8 max-w-5xl mx-auto">
@@ -1813,7 +1814,10 @@ function SharedBrainSection() {
         </div>
 
         {/* Audience callouts */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mt-14">
+        <p className="text-center text-[11px] tracking-[0.22em] uppercase text-slate-500 font-mono mt-16 mb-5">
+          Four teams · One pool · Every AI knows what the others know
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
           <AudienceCard
             Icon={TrendingUp}
             label="Sales"
@@ -1963,13 +1967,26 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "Does this work for individuals, or only teams?",
     a: (
       <>
-        Both. Individuals get a private memory that follows them across every
-        AI tool they use. Teams get all of that{" "}
-        <span className="text-slate-200">plus shared workspace memory</span>:
-        sales reps see every prior conversation with the account, support
-        engineers see every ticket the customer ever filed, customer success
-        sees the expansion thread before it surfaces. Onboarding is days, not
-        months.
+        Built for teams, also great for individuals. Solo users get a private
+        memory that follows them across every AI they open. Teams get all of
+        that{" "}
+        <span className="text-slate-200">plus pooled memory</span> across
+        sales, support, success, and ops — any AI, any seat, one query pulls
+        from all of it. Onboarding is days, not months.
+      </>
+    ),
+  },
+  {
+    q: "How does pooled memory work across teams?",
+    a: (
+      <>
+        One pool, segmented by permission. Sales reps can see what support
+        resolved, support sees what success promised, success sees what sales
+        pitched, ops sees the whole picture — anything you grant access to.
+        Sensitive items can stay private to a person, a function, or a deal.
+        Every AI a teammate opens recalls{" "}
+        <span className="text-slate-200">across whatever they're allowed to see</span>,
+        in one query.
       </>
     ),
   },
@@ -2042,8 +2059,8 @@ function CallToActionSection() {
           Let's fix that.
         </h2>
         <p className="mt-5 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-          Plug into the apps you already open. Your AI starts knowing
-          you today.
+          Plug into the apps you already open. Your whole team's
+          memory, in every AI — today.
         </p>
         <div className="mt-9 flex flex-col items-center gap-3">
           <a
