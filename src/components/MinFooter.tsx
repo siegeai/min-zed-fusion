@@ -42,7 +42,7 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Your AI doesn't know you. We'll fix that. min. quietly turns every email, call, and decision into a personal memory the apps you already open (Claude, Cursor, ChatGPT) pick up automatically.
+              Your AI doesn't know you. We'll fix that. min. is the unified work memory that scales you across every AI tool your team uses. Sales, support, success, and ops, recalled by every AI in one query.
             </p>
           </div>
 
