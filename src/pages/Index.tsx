@@ -321,11 +321,10 @@ function PillarTShape() {
         ]}
       />
 
-      {/* Top: Memory graphic — featured entity card with depth-of-context bars,
-           plus a roster of other entities in your memory */}
-      <CarrierNetworkGraphic />
+      {/* Top: Unified Memory Core — query → pooled function bands → cross-functional recall */}
+      <UnifiedMemoryCore />
       <p className="text-center text-[11px] tracking-[0.18em] uppercase text-slate-500 mt-4 font-medium">
-        Compounds with every conversation
+        One pool · Any AI · One query
       </p>
 
       {/* Connectors to bottom row */}
@@ -349,6 +348,339 @@ function PillarTShape() {
           desc="Claude, Cursor, ChatGPT, Granola — all instantly yours."
         />
       </div>
+    </div>
+  );
+}
+
+/* ───────── Unified Memory Core (NEW hero centerpiece) ─────────
+   Live AI query → central memory pool with 4 function bands →
+   cross-functional recall response. Built from scratch. */
+
+const POOL_BANDS = [
+  {
+    Icon: TrendingUp,
+    label: "Sales",
+    count: "4,210",
+    today: "+18",
+    depth: 84,
+    color: {
+      stripe: "from-blue-400 via-blue-300 to-blue-500",
+      bar: "from-blue-500 to-blue-300",
+      glow: "rgba(96,140,255,0.55)",
+      text: "text-blue-200",
+      meta: "text-blue-300/80",
+      border: "border-blue-400/30",
+    },
+  },
+  {
+    Icon: Headphones,
+    label: "Support",
+    count: "3,847",
+    today: "+12",
+    depth: 76,
+    color: {
+      stripe: "from-emerald-400 via-emerald-300 to-emerald-500",
+      bar: "from-emerald-500 to-emerald-300",
+      glow: "rgba(52,211,153,0.55)",
+      text: "text-emerald-200",
+      meta: "text-emerald-300/80",
+      border: "border-emerald-400/30",
+    },
+  },
+  {
+    Icon: Sparkles,
+    label: "Success",
+    count: "2,931",
+    today: "+7",
+    depth: 58,
+    color: {
+      stripe: "from-amber-400 via-amber-300 to-amber-500",
+      bar: "from-amber-500 to-amber-300",
+      glow: "rgba(251,191,36,0.55)",
+      text: "text-amber-200",
+      meta: "text-amber-300/80",
+      border: "border-amber-400/30",
+    },
+  },
+  {
+    Icon: Briefcase,
+    label: "Ops",
+    count: "1,859",
+    today: "+9",
+    depth: 37,
+    color: {
+      stripe: "from-fuchsia-400 via-fuchsia-300 to-fuchsia-500",
+      bar: "from-fuchsia-500 to-fuchsia-300",
+      glow: "rgba(217,70,239,0.55)",
+      text: "text-fuchsia-200",
+      meta: "text-fuchsia-300/80",
+      border: "border-fuchsia-400/30",
+    },
+  },
+] as const;
+
+function UnifiedMemoryCore() {
+  return (
+    <div className="relative mx-auto w-full max-w-[440px]">
+      {/* Deep ambient glow behind everything */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -inset-16 rounded-[64px] blur-3xl -z-10"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(96,140,255,0.45) 0%, rgba(96,140,255,0.12) 35%, transparent 70%)",
+        }}
+      />
+
+      {/* ─── Top: Live AI query bubble ─── */}
+      <div
+        className="relative rounded-xl border border-white/[0.10] bg-gradient-to-b from-white/[0.05] to-white/[0.01] backdrop-blur-sm px-3.5 py-2.5"
+        style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08)" }}
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <span className="grid place-items-center w-4 h-4 rounded-[5px] bg-gradient-to-b from-amber-400/[0.30] to-amber-500/[0.08] border border-amber-400/40">
+            <Sparkles
+              className="w-2.5 h-2.5 text-amber-300"
+              strokeWidth={2.25}
+              fill="currentColor"
+            />
+          </span>
+          <span className="text-[9px] font-mono tracking-[0.18em] uppercase text-slate-400">
+            Claude Desktop
+          </span>
+          <span className="ml-auto text-[9px] font-mono text-slate-500 tabular-nums tracking-wide">
+            live
+          </span>
+        </div>
+        <p className="text-slate-100 text-[12.5px] leading-snug font-medium">
+          "Show me everything we know about Acme Corp."
+        </p>
+      </div>
+
+      {/* ─── Connector: query → core (with pulsing dot) ─── */}
+      <RecallConnector direction="down" />
+
+      {/* ─── Center: the Unified Memory Core ─── */}
+      <div
+        className="relative rounded-2xl border border-blue-400/35 bg-gradient-to-b from-blue-500/[0.10] via-blue-500/[0.03] to-white/[0.01] backdrop-blur-sm overflow-hidden"
+        style={{
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.10), inset 0 0 0 1px rgba(96,140,255,0.06), 0 18px 48px -20px rgba(96,140,255,0.6)",
+        }}
+      >
+        {/* Top spine — animated shimmer accent */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, rgba(96,140,255,0.85), transparent)",
+          }}
+        />
+
+        {/* Header */}
+        <div className="px-3.5 pt-3 pb-2.5 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="relative grid place-items-center w-6 h-6 rounded-md bg-gradient-to-br from-blue-400/30 to-blue-600/10 border border-blue-400/40">
+              <Brain
+                className="w-3.5 h-3.5 text-blue-200"
+                strokeWidth={2}
+              />
+              <span
+                aria-hidden
+                className="absolute inset-0 rounded-md"
+                style={{
+                  boxShadow: "0 0 14px rgba(96,140,255,0.55)",
+                }}
+              />
+            </span>
+            <span className="text-[10px] tracking-[0.22em] uppercase text-slate-200 font-mono font-semibold">
+              Unified Memory
+            </span>
+          </div>
+          <span className="text-[10px] text-slate-400 font-mono tabular-nums tracking-[0.14em]">
+            12,847 MEMORIES
+          </span>
+        </div>
+
+        {/* Function bands — Sales / Support / Success / Ops */}
+        <div className="px-3 pb-3 space-y-1.5">
+          {POOL_BANDS.map((b) => (
+            <PoolBand key={b.label} band={b} />
+          ))}
+        </div>
+
+        {/* Footer — pool status */}
+        <div className="px-3.5 py-2 border-t border-white/[0.06] bg-white/[0.015] flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <span
+              className="block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+              style={{ boxShadow: "0 0 6px rgba(52,211,153,0.8)" }}
+            />
+            <span className="text-[9px] tracking-[0.20em] uppercase text-slate-400 font-mono font-semibold">
+              Recall live
+            </span>
+          </div>
+          <span className="text-[9px] tracking-[0.16em] uppercase text-slate-500 font-mono tabular-nums">
+            0.18s · cross-functional
+          </span>
+        </div>
+      </div>
+
+      {/* ─── Connector: core → recall response ─── */}
+      <RecallConnector direction="up" />
+
+      {/* ─── Bottom: cross-functional recall response chip ─── */}
+      <div
+        className="relative rounded-xl border border-emerald-400/30 bg-gradient-to-b from-emerald-500/[0.10] to-emerald-500/[0.02] backdrop-blur-sm px-3.5 py-2.5"
+        style={{
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.06), 0 0 22px -8px rgba(52,211,153,0.4)",
+        }}
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <CheckCircle2
+            className="w-3 h-3 text-emerald-300"
+            strokeWidth={2.25}
+          />
+          <span className="text-[9px] font-mono tracking-[0.20em] uppercase text-emerald-300 font-semibold">
+            Recalled · cross-functional
+          </span>
+          <span className="ml-auto text-[9px] font-mono text-slate-500 tabular-nums tracking-wide">
+            7 sources · 12 entities
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          {[
+            {
+              dot: "bg-blue-400",
+              chip: "border-blue-400/30 text-blue-200",
+              label: "Sales · renewal thread",
+            },
+            {
+              dot: "bg-emerald-400",
+              chip: "border-emerald-400/30 text-emerald-200",
+              label: "Support · 3 open tickets",
+            },
+            {
+              dot: "bg-amber-400",
+              chip: "border-amber-400/30 text-amber-200",
+              label: "Success · expansion call",
+            },
+            {
+              dot: "bg-fuchsia-400",
+              chip: "border-fuchsia-400/30 text-fuchsia-200",
+              label: "Ops · MSA on file",
+            },
+          ].map((p, i) => (
+            <span
+              key={i}
+              className={`inline-flex items-center gap-1 rounded-md border bg-white/[0.04] px-1.5 py-0.5 text-[10px] font-mono ${p.chip}`}
+            >
+              <span className={`block w-1 h-1 rounded-full ${p.dot}`} />
+              {p.label}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PoolBand({
+  band,
+}: {
+  band: (typeof POOL_BANDS)[number];
+}) {
+  const { Icon, label, count, today, depth, color } = band;
+  return (
+    <div
+      className={`relative flex items-center gap-2.5 rounded-lg border ${color.border} bg-white/[0.02] px-2.5 py-1.5 overflow-hidden`}
+      style={{
+        boxShadow: `inset 0 1px 0 rgba(255,255,255,0.05), 0 0 14px -8px ${color.glow}`,
+      }}
+    >
+      {/* Left color stripe */}
+      <span
+        aria-hidden
+        className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b ${color.stripe}`}
+        style={{ boxShadow: `0 0 8px ${color.glow}` }}
+      />
+
+      {/* Icon */}
+      <span
+        className={`grid place-items-center w-6 h-6 rounded-md border ${color.border} bg-white/[0.04] shrink-0`}
+      >
+        <Icon
+          className={`w-3 h-3 ${color.text}`}
+          strokeWidth={2}
+        />
+      </span>
+
+      {/* Label */}
+      <span
+        className={`text-[10px] tracking-[0.18em] uppercase font-mono font-bold w-[60px] ${color.text}`}
+      >
+        {label}
+      </span>
+
+      {/* Count */}
+      <span className="text-[10px] text-slate-300 font-mono font-semibold tabular-nums w-[44px] text-right">
+        {count}
+      </span>
+
+      {/* Depth bar */}
+      <div className="flex-1 h-1.5 rounded-full bg-white/[0.05] overflow-hidden">
+        <div
+          className={`h-full bg-gradient-to-r ${color.bar} rounded-full`}
+          style={{
+            width: `${depth}%`,
+            boxShadow: `0 0 8px ${color.glow}`,
+          }}
+        />
+      </div>
+
+      {/* Today delta */}
+      <span
+        className={`text-[9px] font-mono font-semibold tabular-nums tracking-wide ${color.meta} w-[26px] text-right`}
+      >
+        {today}
+      </span>
+    </div>
+  );
+}
+
+/** Vertical connector with a pulsing dot — sells "live flow" between sections. */
+function RecallConnector({ direction }: { direction: "up" | "down" }) {
+  const arrow = direction === "down" ? "↓" : "↑";
+  return (
+    <div className="relative h-7 mx-auto w-[2px] my-1">
+      {/* Static gradient line */}
+      <div
+        className="absolute inset-0 w-px left-1/2 -translate-x-1/2"
+        style={{
+          background:
+            direction === "down"
+              ? "linear-gradient(180deg, rgba(96,140,255,0.6), rgba(96,140,255,0.10))"
+              : "linear-gradient(180deg, rgba(52,211,153,0.10), rgba(52,211,153,0.6))",
+        }}
+      />
+      {/* Pulsing dot */}
+      <span
+        aria-hidden
+        className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full animate-pulse"
+        style={{
+          background:
+            direction === "down"
+              ? "radial-gradient(circle, rgba(180,210,255,1) 0%, rgba(96,140,255,1) 50%, rgba(96,140,255,0) 100%)"
+              : "radial-gradient(circle, rgba(190,255,220,1) 0%, rgba(52,211,153,1) 50%, rgba(52,211,153,0) 100%)",
+          boxShadow:
+            direction === "down"
+              ? "0 0 12px rgba(96,140,255,0.8)"
+              : "0 0 12px rgba(52,211,153,0.8)",
+        }}
+      />
+      <span className="sr-only">{arrow}</span>
     </div>
   );
 }
