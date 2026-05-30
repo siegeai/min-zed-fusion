@@ -59,20 +59,20 @@ const BELIEFS = [
     Icon: Zap,
     tint: "amber" as const,
     filled: true,
-    title: "Quoting is the work",
-    body: "Brokers don't lose deals on strategy. They lose them on speed. We make quoting a one-sentence action.",
+    title: "Memory is the work",
+    body: "LLMs without memory are just smart. With it, they're built for you. We make the memory layer that turns every AI tool into yours.",
   },
   {
     Icon: Search,
     tint: "blue" as const,
-    title: "Capacity should be findable",
-    body: "Every carrier your team has ever talked to should surface in seconds. Not just the ones the broker on the load remembers.",
+    title: "Context shouldn't live in silos",
+    body: "Your customers don't experience your departments. Your AI shouldn't either. Sales, support, success, ops — one memory, recalled in one query.",
   },
   {
     Icon: Network,
     tint: "blue" as const,
-    title: "Networks should compound",
-    body: "Every quote, cover, and POD should add a permanent edge to your carrier graph. Your liquidity should get stronger every booking.",
+    title: "Memory should compound",
+    body: "Every email, every call, every decision should make every AI on the team smarter tomorrow than it was today. Knowledge doesn't walk out the door.",
   },
 ];
 
@@ -86,7 +86,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is the quoting and capacity engine for freight brokers. Source coverage from your private network in seconds, blast RFQs in one sentence, and watch your network compound with every booking.",
+      "min. is the unified memory layer for sales, support, success, and ops. Every AI tool on your team can recall across all of it, instantly.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -102,10 +102,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | The quoting & capacity engine for freight brokers</title>
+        <title>About min. | Unified memory for your AI tools</title>
         <meta
           name="description"
-          content="min. is the quoting and capacity engine for freight brokers. Source coverage from your private network in seconds, blast RFQs in one sentence, and watch your network compound with every booking."
+          content="min. is the unified memory layer for sales, support, success, and ops. Every AI tool on your team can recall across all of it, instantly."
         />
         <link rel="canonical" href="https://getmin.ai/about" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -130,15 +130,15 @@ export default function About() {
                 About min.
               </p>
               <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                We're building the quoting and
+                We're building the{" "}
+                <span className="text-blue-300">unified memory layer</span>
                 <br className="hidden sm:block" />{" "}
-                capacity engine for{" "}
-                <span className="text-blue-300">freight brokers</span>.
+                for every AI tool you use.
               </h1>
               <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                Brokerages don't need another CRM. They need a private carrier
-                network that grows with every email, so quoting takes one
-                sentence and capacity is always one search away.
+                Teams don't need another CRM. They need one memory across every
+                email, every call, every decision — that grows smarter the more
+                they work, and that every AI on the team can recall in one query.
               </p>
             </div>
           </section>
@@ -185,19 +185,23 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-slate-400 leading-relaxed">
                 <p>
-                  We watched brokers re-paste the same load into ten emails,
-                  hunt through Outlook for "the carrier who ran this last
-                  spring," and lose deals because a quote took two hours
-                  instead of two minutes.
+                  We watched teams re-paste the same context into Claude, then
+                  Cursor, then ChatGPT — every single chat starting from zero.
+                  Sales reps walking into calls without the support history.
+                  Success teams blindsided by deal terms sales promised six
+                  months ago. Knowledge stranded in someone's head, walking out
+                  the door with every departure.
                 </p>
                 <p>
-                  The data was already there, sitting in the inbox. It just
-                  wasn't organized into a network anyone could query.
+                  The data was already there. Sitting in Gmail, in Slack, in
+                  Notion, in a hundred meeting transcripts. It just wasn't
+                  unified into a single memory any AI could read.
                 </p>
                 <p>
-                  So we built min. The quoting and capacity engine that turns
-                  every email into a carrier you can find, and every booking
-                  into a network that's worth more tomorrow than it was today.
+                  So we built min. The unified memory layer that turns every
+                  email, call, and decision into recallable context — pooled
+                  across sales, support, success, and ops, and instantly
+                  available to every AI tool the team opens.
                 </p>
               </div>
             </div>
@@ -213,7 +217,7 @@ export default function About() {
                 <TeamCard
                   name="Eric Wang"
                   title="CEO"
-                  bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building the network that compounds for every brokerage."
+                  bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building the unified memory layer every AI tool teams use is missing."
                   avatar={
                     <Avatar className="w-16 h-16 shrink-0 border border-white/10">
                       <AvatarImage
@@ -246,7 +250,7 @@ export default function About() {
                 <TeamCard
                   name="Fadi Kanaan"
                   title="Head of Operations"
-                  bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Started in freight covering carriers at Titanium Transportation. Now connecting min. to the brokerages that need it most."
+                  bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now connecting min. to the sales, support, and success teams that need unified memory most."
                   avatar={<FadiAvatar />}
                   socials={[
                     {
@@ -264,11 +268,11 @@ export default function About() {
           <section id="cta" className="pb-24 pt-8">
             <div className="max-w-3xl mx-auto px-6 text-center">
               <h3 className="text-white text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
-                Ready to see your carrier network compound?
+                Ready to give every AI on your team memory?
               </h3>
               <p className="text-slate-400 mb-7 max-w-xl mx-auto">
-                Quote faster, find coverage instantly, and watch every booking
-                make the next one easier.
+                Stop explaining yourself to every AI. Unify sales, support,
+                success, and ops into one memory — recalled in one query.
               </p>
               <a
                 href="mailto:hello@getmin.ai?subject=Demo%20Request"

@@ -34,7 +34,7 @@ const INQUIRIES = [
   {
     Icon: BarChart3,
     title: "Sales & Partnerships",
-    body: "Ready to plug min. into your brokerage?",
+    body: "Ready to plug min. into your team's AI stack?",
   },
   {
     Icon: Zap,
@@ -89,8 +89,9 @@ export default function Contact() {
               </h1>
               <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 We dogfood min. The same inbox handles support, sales,
-                partnerships, investors, press, and recruiting, all powered by
-                our own product.
+                partnerships, investors, press, and recruiting — every reply
+                drawn from one unified memory that every AI on our team can
+                read.
               </p>
             </div>
           </section>
@@ -203,7 +204,7 @@ export default function Contact() {
               </div>
               <p className="text-slate-400 text-sm leading-relaxed mt-5">
                 Every reply you get from us routes through min., the same
-                quoting and capacity engine our customers run on.
+                unified memory layer our customers run on.
               </p>
             </div>
           </section>
