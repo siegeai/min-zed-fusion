@@ -65,7 +65,7 @@ const PLANS: Plan[] = [
     },
     memory: "5 GB",
     tagline:
-      "Memory that follows you across every AI you use. The daily driver.",
+      "One seat. Every meeting, email, and chat, recallable by every AI you use at work.",
     inheritFrom: "Free",
     features: [
       { text: "Unlimited connected AI apps", included: true },
@@ -201,7 +201,7 @@ const Pricing = () => {
         <title>Pricing | min.</title>
         <meta
           name="description"
-          content="Memory that follows you across every AI you use. Start free. Upgrade when your AI feels too smart to throw away."
+          content="Work memory that scales you across every AI tool. Start free. Scale up as your team's memory grows."
         />
         <link rel="canonical" href="https://getmin.ai/pricing" />
       </Helmet>
@@ -238,11 +238,11 @@ const Pricing = () => {
                 Pricing
               </p>
               <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.05] text-4xl md:text-5xl lg:text-6xl max-w-3xl mx-auto">
-                Memory that follows you across{" "}
-                <span className="text-blue-300">every AI</span> you use.
+                Work memory that{" "}
+                <span className="text-blue-300">scales you</span> across every AI tool.
               </h1>
               <p className="mt-6 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                Start free. Upgrade when your AI feels too smart to throw away.
+                Start free. Scale up as your team's memory grows.
               </p>
 
               <div className="mt-10 flex justify-center">

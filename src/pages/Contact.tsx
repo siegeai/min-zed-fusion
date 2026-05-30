@@ -22,19 +22,19 @@ import {
 
 const INQUIRIES = [
   {
-    Icon: MessageCircle,
-    title: "General",
-    body: "Questions, feedback, or just say hi.",
+    Icon: BarChart3,
+    title: "Sales",
+    body: "Ready to plug min. into your team's AI stack.",
   },
   {
     Icon: Users,
     title: "Support",
-    body: "Need help getting more out of min.?",
+    body: "Need help getting more out of min.",
   },
   {
-    Icon: BarChart3,
-    title: "Sales & Partnerships",
-    body: "Ready to plug min. into your team's AI stack?",
+    Icon: MessageCircle,
+    title: "Partnerships",
+    body: "Integrations, agencies, and co-marketing.",
   },
   {
     Icon: Zap,
@@ -64,10 +64,10 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact min. | One inbox for everything</title>
+        <title>Contact min.</title>
         <meta
           name="description"
-          content="Reach min. anytime at hello@getmin.ai. Sales, support, partnerships, investors, press. One shared inbox, fast replies."
+          content="Get in touch with min. Sales, support, partnerships, investors, press. Email hello@getmin.ai, average reply under 2 hours."
         />
         <link rel="canonical" href="https://getmin.ai/contact" />
       </Helmet>
@@ -84,14 +84,12 @@ export default function Contact() {
                 Contact
               </p>
               <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                One inbox for{" "}
-                <span className="text-blue-300">everything</span>.
+                Talk to{" "}
+                <span className="text-blue-300">a human</span>.
               </h1>
               <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                We dogfood min. The same inbox handles support, sales,
-                partnerships, investors, press, and recruiting. Every reply is
-                drawn from one unified memory that every AI on our team can
-                read.
+                Sales, support, partnerships, investors, press. One email,
+                fast replies, no chatbots.
               </p>
             </div>
           </section>
@@ -107,7 +105,7 @@ export default function Contact() {
                   <IconTile Icon={Mail} size="lg" tint="blue" glow="strong" />
                 </div>
                 <h2 className="text-white text-2xl font-semibold tracking-[-0.01em] mb-3">
-                  Reach us, 24/7/365.
+                  hello@getmin.ai
                 </h2>
 
                 <div className="flex justify-center mb-6">
@@ -154,13 +152,13 @@ export default function Contact() {
           </section>
 
           {/* Inquiry types */}
-          <section className="py-16">
+          <section className="pb-24">
             <div className="max-w-5xl mx-auto px-6">
               <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
-                What you can reach us about
+                What to reach out about
               </p>
               <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
-                One address, four conversations.
+                Pick a topic.
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {INQUIRIES.map((q) => (
@@ -183,29 +181,6 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-            </div>
-          </section>
-
-          {/* Powered-by-min note */}
-          <section className="pb-24 pt-4">
-            <div className="max-w-2xl mx-auto px-6 text-center">
-              <div
-                className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3 py-1.5"
-                style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
-              >
-                <Zap
-                  className="w-3.5 h-3.5 text-blue-300"
-                  strokeWidth={2}
-                  fill="currentColor"
-                />
-                <span className="text-[11px] tracking-[0.12em] uppercase text-blue-200 font-medium">
-                  Powered by min.
-                </span>
-              </div>
-              <p className="text-slate-400 text-sm leading-relaxed mt-5">
-                Every reply you get from us routes through min., the same
-                unified memory layer our customers run on.
-              </p>
             </div>
           </section>
         </main>
