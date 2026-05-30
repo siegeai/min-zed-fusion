@@ -140,10 +140,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Serious memory for work. Your tools don't know you. We'll fix that.</title>
+        <title>min. | Unified memory for your AI tools. Your tools don't know you. We'll fix that.</title>
         <meta
           name="description"
-          content="Serious memory for work. min. pools sales, support, success, and ops into one shared memory — and every AI on the team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
+          content="Unified memory for your AI tools. min. pools sales, support, success, and ops into one shared memory — and every AI tool on your team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -199,7 +199,7 @@ function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-6 text-center">
         <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-7">
-          Serious memory for work
+          Unified memory for your AI tools
         </p>
         <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
           Your tools don't know you.
