@@ -66,7 +66,7 @@ const BELIEFS = [
     Icon: Search,
     tint: "blue" as const,
     title: "Context shouldn't live in silos",
-    body: "Your customers don't experience your departments. Your AI shouldn't either. Sales, support, success, ops — one memory, recalled in one query.",
+    body: "Your customers don't experience your departments. Your AI shouldn't either. Sales, support, success, ops. One memory, recalled in one query.",
   },
   {
     Icon: Network,
@@ -137,7 +137,7 @@ export default function About() {
               </h1>
               <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
                 Teams don't need another CRM. They need one memory across every
-                email, every call, every decision — that grows smarter the more
+                email, every call, every decision, that grows smarter the more
                 they work, and that every AI on the team can recall in one query.
               </p>
             </div>
@@ -186,7 +186,7 @@ export default function About() {
               <div className="space-y-4 text-slate-400 leading-relaxed">
                 <p>
                   We watched teams re-paste the same context into Claude, then
-                  Cursor, then ChatGPT — every single chat starting from zero.
+                  Cursor, then ChatGPT. Every single chat starting from zero.
                   Sales reps walking into calls without the support history.
                   Success teams blindsided by deal terms sales promised six
                   months ago. Knowledge stranded in someone's head, walking out
@@ -199,7 +199,7 @@ export default function About() {
                 </p>
                 <p>
                   So we built min. The unified memory layer that turns every
-                  email, call, and decision into recallable context — pooled
+                  email, call, and decision into recallable context, unified
                   across sales, support, success, and ops, and instantly
                   available to every AI tool the team opens.
                 </p>
@@ -272,7 +272,7 @@ export default function About() {
               </h3>
               <p className="text-slate-400 mb-7 max-w-xl mx-auto">
                 Stop explaining yourself to every AI. Unify sales, support,
-                success, and ops into one memory — recalled in one query.
+                success, and ops into one memory, recalled in one query.
               </p>
               <a
                 href="mailto:hello@getmin.ai?subject=Demo%20Request"
@@ -361,38 +361,38 @@ function FadiAvatar() {
         aria-label="Fadi Kanaan portrait"
       >
         <defs>
-          {/* Background — same vibrant sky-blue as Eric */}
+          {/* Background: same vibrant sky-blue as Eric */}
           <radialGradient id="fk-bg" cx="0.5" cy="0.42" r="0.62">
             <stop offset="0%" stopColor="#6dcdf0" />
             <stop offset="100%" stopColor="#33a4cf" />
           </radialGradient>
 
-          {/* Skin — warm olive with subtle vertical falloff */}
+          {/* Skin: warm olive with subtle vertical falloff */}
           <linearGradient id="fk-skin" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#dfa985" />
             <stop offset="60%" stopColor="#c89570" />
             <stop offset="100%" stopColor="#a87555" />
           </linearGradient>
 
-          {/* Beard — warm-black with brown undertone */}
+          {/* Beard: warm-black with brown undertone */}
           <linearGradient id="fk-beard" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#2a1a10" />
             <stop offset="100%" stopColor="#0e0804" />
           </linearGradient>
 
-          {/* Hair — slightly cooler than beard so they read as separate */}
+          {/* Hair: slightly cooler than beard so they read as separate */}
           <linearGradient id="fk-hair" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#1c130b" />
             <stop offset="100%" stopColor="#0c0703" />
           </linearGradient>
 
-          {/* Polo — denim/slate blue */}
+          {/* Polo: denim/slate blue */}
           <linearGradient id="fk-polo" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#6383a4" />
             <stop offset="100%" stopColor="#385876" />
           </linearGradient>
 
-          {/* Glasses lens — very subtle cool tint with sheen */}
+          {/* Glasses lens: very subtle cool tint with sheen */}
           <linearGradient id="fk-lens" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.28" />
             <stop offset="50%" stopColor="#ffffff" stopOpacity="0.04" />
@@ -433,7 +433,7 @@ function FadiAvatar() {
             fill="#26405c"
             opacity="0.35"
           />
-          {/* Collar — proper turn-down shape, with deeper inner panel for depth */}
+          {/* Collar: proper turn-down shape, with deeper inner panel for depth */}
           <path
             d="M 33 60 L 36 55 L 40 60 L 36 64 Z"
             fill="#2f4d6a"
@@ -475,7 +475,7 @@ function FadiAvatar() {
           <ellipse cx="22.4" cy="39.4" rx="1.3" ry="2.6" fill="#8a5d3a" opacity="0.6" />
           <ellipse cx="57.5" cy="39" rx="2.7" ry="4.2" fill="#c89570" />
           <ellipse cx="57.6" cy="39.4" rx="1.3" ry="2.6" fill="#8a5d3a" opacity="0.6" />
-          {/* Hoop earrings — silver with highlight */}
+          {/* Hoop earrings: silver with highlight */}
           <ellipse cx="22.2" cy="43" rx="1.4" ry="0.7" fill="none" stroke="#dfe5ee" strokeWidth="0.55" />
           <ellipse cx="22.2" cy="43" rx="1.4" ry="0.7" fill="none" stroke="#ffffff" strokeWidth="0.25" opacity="0.7" strokeDasharray="0.6 2" />
           <ellipse cx="57.8" cy="43" rx="1.4" ry="0.7" fill="none" stroke="#dfe5ee" strokeWidth="0.55" />
@@ -510,7 +510,7 @@ function FadiAvatar() {
                Q 23.5 41.5 23 39 Z"
             fill="url(#fk-beard)"
           />
-          {/* Mustache strip — slightly thicker than the cheek beard band */}
+          {/* Mustache strip: slightly thicker than the cheek beard band */}
           <path
             d="M 30 47.2
                Q 33 46.3 36 46.4
@@ -522,7 +522,7 @@ function FadiAvatar() {
                Q 34 48.9 30 49.4 Z"
             fill="url(#fk-beard)"
           />
-          {/* Beard highlight wash on top edge — gives the mass dimension */}
+          {/* Beard highlight wash on top edge: gives the mass dimension */}
           <path
             d="M 24 40
                Q 27 43 30.5 43.8
@@ -539,7 +539,7 @@ function FadiAvatar() {
             fill="#3a2418"
             opacity="0.5"
           />
-          {/* Beard texture — short hair strokes following face contour */}
+          {/* Beard texture: short hair strokes following face contour */}
           <g stroke="#5a3a22" strokeWidth="0.35" strokeLinecap="round" opacity="0.55" fill="none">
             <path d="M 28 50 L 28.5 52" />
             <path d="M 30 52 L 30.4 54" />
@@ -613,7 +613,7 @@ function FadiAvatar() {
             fill="#000000"
             opacity="0.18"
           />
-          {/* Buzzcut stubble texture across scalp — fine dots */}
+          {/* Buzzcut stubble texture across scalp: fine dots */}
           <g fill="#3a2418" opacity="0.4">
             <circle cx="29" cy="22" r="0.3" />
             <circle cx="33" cy="20" r="0.3" />

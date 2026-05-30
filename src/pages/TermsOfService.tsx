@@ -68,7 +68,7 @@ const TermsOfService = () => {
           role="main"
           aria-labelledby="terms-title"
         >
-          {/* ambient background layers — match Hero */}
+          {/* ambient background layers (match Hero) */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0"
@@ -198,7 +198,7 @@ const TermsOfService = () => {
                   <li>
                     <strong className="text-slate-200">
                       We only store email metadata (headers, timestamps, thread
-                      IDs) — no email content is permanently stored
+                      IDs). No email content is permanently stored
                     </strong>
                   </li>
                   <li>
@@ -284,7 +284,7 @@ const TermsOfService = () => {
                     functionality
                   </li>
                   <li>
-                    Right to data portability — export your data in standard
+                    Right to data portability: export your data in standard
                     formats
                   </li>
                   <li>

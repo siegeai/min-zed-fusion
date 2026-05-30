@@ -42,7 +42,7 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Your AI doesn't know you. We'll fix that. min. quietly turns every email, call, and decision into a personal memory the apps you already open — Claude, Cursor, ChatGPT — pick up automatically.
+              Your AI doesn't know you. We'll fix that. min. quietly turns every email, call, and decision into a personal memory the apps you already open (Claude, Cursor, ChatGPT) pick up automatically.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default function MinFooter() {
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-slate-500 text-xs">
-            © 2026 min. Logistics AI, Inc. All rights reserved.
+            © 2026 min., Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             <a

@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
           role="main"
           aria-labelledby="privacy-policy-title"
         >
-          {/* ambient background layers — match Hero */}
+          {/* ambient background layers (match Hero) */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0"
@@ -120,8 +120,8 @@ const PrivacyPolicy = () => {
                   <li>Account information (name, email address, password)</li>
                   <li>
                     <strong className="text-slate-200">
-                      Email metadata only (headers, timestamps, thread IDs) —
-                      no email content is permanently stored
+                      Email metadata only (headers, timestamps, thread IDs).
+                      No email content is permanently stored
                     </strong>
                   </li>
                   <li>Usage data and analytics to improve our service</li>
@@ -179,7 +179,7 @@ const PrivacyPolicy = () => {
                     Multi-factor authentication and role-based access controls
                   </li>
                   <li>
-                    Data minimization principles — we only collect what we need
+                    Data minimization principles. We only collect what we need
                   </li>
                   <li>
                     Regular penetration testing and vulnerability assessments

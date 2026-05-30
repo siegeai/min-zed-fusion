@@ -89,7 +89,7 @@ export default function Contact() {
               </h1>
               <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 We dogfood min. The same inbox handles support, sales,
-                partnerships, investors, press, and recruiting — every reply
+                partnerships, investors, press, and recruiting. Every reply is
                 drawn from one unified memory that every AI on our team can
                 read.
               </p>

@@ -46,12 +46,12 @@ const PLANS: Plan[] = [
       },
       { text: "Recall + remember across sessions", included: true },
       { text: "End-to-end encrypted", included: true },
-      { text: "Export anywhere — no lock-in", included: true },
+      { text: "Export anywhere. No lock-in.", included: true },
       { text: "30-day active recall window", included: false },
       { text: "Single-device", included: false },
     ],
     cta: {
-      label: "Get started — no card needed",
+      label: "Get started, no card needed",
       href: "https://app.getmin.ai/find",
     },
   },
@@ -69,7 +69,7 @@ const PLANS: Plan[] = [
     inheritFrom: "Free",
     features: [
       { text: "Unlimited connected AI apps", included: true },
-      { text: "Unlimited recall — no monthly query cap", included: true },
+      { text: "Unlimited recall, no monthly query cap", included: true },
       { text: "Full conversation history retention", included: true },
       {
         text: "Email + file connectors (Gmail, Outlook, Drive, Dropbox)",
@@ -143,7 +143,7 @@ type CompareRow = { row: string; values: [CompareValue, CompareValue, CompareVal
 const COMPARE: CompareRow[] = [
   { row: "Memory", values: ["200 MB", "5 GB", "50 GB / user", "Custom"] },
   { row: "Monthly price", values: ["$0", "$18", "$35 / user", "Custom / user"] },
-  { row: "Annual price", values: ["—", "$14 / mo", "$30 / user / mo", "—"] },
+  { row: "Annual price", values: ["n/a", "$14 / mo", "$30 / user / mo", "n/a"] },
   { row: "Connected AI apps", values: ["1", "Unlimited", "Unlimited", "Unlimited"] },
   { row: "Auto profile", values: [true, true, true, true] },
   { row: "Recall + remember", values: [true, true, true, true] },
@@ -169,19 +169,19 @@ const ADDONS = [
 const FAQS = [
   {
     q: "What counts toward my memory?",
-    a: "Indexed text from your inbox, notes, meeting transcripts, and uploaded files. Raw attachments stored in S3 don't count — only the extracted, searchable text.",
+    a: "Indexed text from your inbox, notes, meeting transcripts, and uploaded files. Raw attachments stored in S3 don't count. Only the extracted, searchable text.",
   },
   {
     q: "Can I downgrade later?",
-    a: "Yes. If you're over the lower tier's cap when you downgrade, your memory is soft-frozen — still readable by your AI, but new writes pause until you delete enough or upgrade again. We never delete your data.",
+    a: "Yes. If you're over the lower tier's cap when you downgrade, your memory is soft-frozen. Still readable by your AI, but new writes pause until you delete enough or upgrade again. We never delete your data.",
   },
   {
     q: "Does the AI access my memory in real-time?",
-    a: "Yes. Every connected AI app — Claude Desktop, Cursor, ChatGPT via plugin — sees your memory the moment it's added. No re-indexing delay.",
+    a: "Yes. Every connected AI app (Claude Desktop, Cursor, ChatGPT via plugin) sees your memory the moment it's added. No re-indexing delay.",
   },
   {
     q: "Can I export my memory?",
-    a: "Always. JSON or Markdown, your choice. We're built on open MCP — no lock-in.",
+    a: "Always. JSON or Markdown, your choice. We're built on open MCP. No lock-in.",
   },
   {
     q: "Is my data used to train AI models?",
@@ -380,7 +380,7 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
         </h3>
       </div>
 
-      {/* Memory size — the visual focal point */}
+      {/* Memory size: the visual focal point */}
       <div className="mb-5">
         <p className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] tabular-nums leading-none">
           {plan.memory}
@@ -404,7 +404,7 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
         </div>
       </div>
 
-      {/* Tagline — reserved height so cards align */}
+      {/* Tagline (reserved height so cards align) */}
       <p className="text-slate-400 text-[13px] leading-relaxed mb-5 min-h-[60px]">
         {plan.tagline}
       </p>
@@ -521,7 +521,7 @@ function CompareTable() {
                         strokeWidth={2.5}
                       />
                     ) : v === false ? (
-                      <span className="text-slate-600">—</span>
+                      <span className="text-slate-600">n/a</span>
                     ) : (
                       <span
                         className={

@@ -2,7 +2,7 @@
  * Shared design primitives used across the dark-themed marketing pages
  * (Index, About, Careers, Contact, Security).
  *
- * Inline equivalents existed in Index.tsx and About.tsx — keeping a single
+ * Inline equivalents existed in Index.tsx and About.tsx; keeping a single
  * source of truth here so pages stay visually consistent.
  */
 
@@ -113,7 +113,7 @@ export function HeroAmbientGlow() {
   );
 }
 
-/** Pill-shaped CTA button — uses bg-slate-50 to dodge the global html.dark bg-white override. */
+/** Pill-shaped CTA button. Uses bg-slate-50 to dodge the global html.dark bg-white override. */
 export function PillButton({
   href,
   children,

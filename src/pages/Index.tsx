@@ -143,7 +143,7 @@ const Index = () => {
         <title>min. | Unified memory for your AI tools. Your tools don't know you. We'll fix that.</title>
         <meta
           name="description"
-          content="Unified memory for your AI tools. min. unifies sales, support, success, and ops into one shared memory — and every AI tool on your team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
+          content="Unified memory for your AI tools. min. unifies sales, support, success, and ops into one shared memory, and every AI tool on your team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -321,7 +321,7 @@ function PillarTShape() {
         ]}
       />
 
-      {/* Top: Unified Memory Core — query → pooled function bands → cross-functional recall */}
+      {/* Top: Unified Memory Core: query → pooled function bands → cross-functional recall */}
       <UnifiedMemoryCore />
       <p className="text-center text-[11px] tracking-[0.18em] uppercase text-slate-500 mt-4 font-medium">
         One memory · Any AI · One query
@@ -345,7 +345,7 @@ function PillarTShape() {
           tint="amber"
           filled
           title="Plug into every AI"
-          desc="Claude, Cursor, ChatGPT, Granola — all instantly yours."
+          desc="Claude, Cursor, ChatGPT, Granola. All instantly yours."
         />
       </div>
     </div>
@@ -468,7 +468,7 @@ function UnifiedMemoryCore() {
             "inset 0 1px 0 rgba(255,255,255,0.10), inset 0 0 0 1px rgba(96,140,255,0.06), 0 18px 48px -20px rgba(96,140,255,0.6)",
         }}
       >
-        {/* Top spine — animated shimmer accent */}
+        {/* Top spine: animated shimmer accent */}
         <div
           aria-hidden
           className="absolute inset-x-0 top-0 h-px"
@@ -503,14 +503,14 @@ function UnifiedMemoryCore() {
           </span>
         </div>
 
-        {/* Function bands — Sales / Support / Success / Ops */}
+        {/* Function bands: Sales / Support / Success / Ops */}
         <div className="px-3 pb-3 space-y-1.5">
           {POOL_BANDS.map((b) => (
             <PoolBand key={b.label} band={b} />
           ))}
         </div>
 
-        {/* Footer — pool status */}
+        {/* Footer: pool status */}
         <div className="px-3.5 py-2 border-t border-white/[0.06] bg-white/[0.015] flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <span
@@ -650,7 +650,7 @@ function PoolBand({
   );
 }
 
-/** Vertical connector with a pulsing dot — sells "live flow" between sections. */
+/** Vertical connector with a pulsing dot: sells "live flow" between sections. */
 function RecallConnector({ direction }: { direction: "up" | "down" }) {
   const arrow = direction === "down" ? "↓" : "↑";
   return (
@@ -706,7 +706,7 @@ function CarrierNetworkGraphic() {
         }}
       />
 
-      {/* Network status header — names what we're looking at */}
+      {/* Network status header: names what we're looking at */}
       <div className="flex items-center justify-between mb-3 px-1.5">
         <div className="flex items-center gap-1.5">
           <span
@@ -722,7 +722,7 @@ function CarrierNetworkGraphic() {
         </span>
       </div>
 
-      {/* Featured carrier card — minimal chrome, attributes shown as a radar polygon */}
+      {/* Featured carrier card: minimal chrome, attributes shown as a radar polygon */}
       <div
         className="relative rounded-2xl border border-blue-400/35 bg-gradient-to-b from-blue-500/[0.08] to-white/[0.01] backdrop-blur-sm overflow-hidden"
         style={{
@@ -785,7 +785,7 @@ function CarrierNetworkGraphic() {
         </div>
       </div>
 
-      {/* Roster — clearly labeled list of OTHER carriers in the network */}
+      {/* Roster: clearly labeled list of OTHER carriers in the network */}
       <div
         className="mt-2 rounded-xl border border-white/[0.07] bg-white/[0.025] backdrop-blur-sm p-2"
         style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
@@ -824,7 +824,7 @@ function RadarChart({
   const radius = 42;
   const n = stats.length;
 
-  // Vertex angles — start at the top, walk clockwise.
+  // Vertex angles: start at the top, walk clockwise.
   const angles = Array.from(
     { length: n },
     (_, i) => -Math.PI / 2 + i * ((2 * Math.PI) / n)
@@ -899,7 +899,7 @@ function RadarChart({
         />
       ))}
 
-      {/* Value polygon — glowing fill + outline */}
+      {/* Value polygon: glowing fill + outline */}
       <path
         d={polyPath}
         fill="url(#radar-fill)"
@@ -1086,7 +1086,7 @@ function CollectiveMemorySection() {
           <BigFeatureCard
             Icon={Brain}
             title="Memory Compounds With Every Conversation"
-            body="Every email sent, every meeting taken, every customer touchpoint adds a new edge to your memory. The people you know, the deals you've worked, the decisions you've made — all instantly recallable."
+            body="Every email sent, every meeting taken, every customer touchpoint adds a new edge to your memory. The people you know, the deals you've worked, the decisions you've made. All instantly recallable."
             visual={<EmailRowsMock />}
           />
           <BigFeatureCard
@@ -1391,7 +1391,7 @@ function HandoffIconsMock() {
   return (
     <MockSurface className="px-4 py-6">
       <div className="flex items-center justify-between gap-3">
-        {/* Reps — relationships flow inward */}
+        {/* Reps: relationships flow inward */}
         <div className="flex flex-col gap-3">
           {[0, 1].map((i) => (
             <span
@@ -1422,7 +1422,7 @@ function HandoffIconsMock() {
           <ArrowRight className="absolute top-1/2 -translate-y-1/2 right-0 w-3.5 h-3.5 text-amber-300" />
         </div>
 
-        {/* The company — keeps the network */}
+        {/* The company: keeps the network */}
         <span
           className="grid place-items-center w-12 h-12 rounded-xl bg-amber-500/[0.12] border border-amber-400/30 shrink-0"
           style={{ boxShadow: "0 0 18px rgba(251,191,36,0.3)" }}
@@ -1444,7 +1444,7 @@ function IntelligentSearchSection() {
           Icon={Search}
           eyebrow="Instant Recall"
           title="Recall anything, instantly."
-          desc="Ask in any AI — Claude, Cursor, ChatGPT. min. returns the exact context: the deal history, the last conversation, the customer's prior tickets, the doc you wrote two months ago. Without you ever opening a search bar."
+          desc="Ask in any AI (Claude, Cursor, ChatGPT). min. returns the exact context: the deal history, the last conversation, the customer's prior tickets, the doc you wrote two months ago. Without you ever opening a search bar."
         />
 
         <div className="max-w-2xl mx-auto">
@@ -1871,7 +1871,7 @@ function TakeActionSection() {
   );
 }
 
-/* AI integration grid — shows target AI tools as plug-in destinations */
+/* AI integration grid: shows target AI tools as plug-in destinations */
 const AI_INTEGRATIONS: { name: string; meta: string; status: "live" | "live" }[] = [
   { name: "Claude Desktop", meta: "Native · live", status: "live" },
   { name: "Claude Code", meta: "Native · live", status: "live" },
@@ -2118,13 +2118,13 @@ function SharedBrainSection() {
       Icon: Layers,
       tint: "blue" as const,
       title: "Organize",
-      desc: "min. auto-extracts people, accounts, deals, and decisions — then links them across every source into one living memory graph.",
+      desc: "min. auto-extracts people, accounts, deals, and decisions, then links them across every source into one living memory graph.",
     },
     {
       Icon: Plug,
       tint: "amber" as const,
       title: "Recall, unified",
-      desc: "Any AI, any seat, one query — recalls across sales, support, success, and ops at once. The whole company's memory, in the app you'd open anyway.",
+      desc: "Any AI, any seat, one query. Recalls across sales, support, success, and ops at once. The whole company's memory, in the app you'd open anyway.",
     },
   ];
 
@@ -2134,7 +2134,7 @@ function SharedBrainSection() {
         <SectionHeader
           eyebrow="Unified Team Memory"
           title="One unified memory. Recalled by every AI on the team."
-          desc="Sales sees what support resolved. Support sees what success promised. Success sees what sales pitched. Ops sees the whole picture. Any AI, any seat — one query, all of it. Onboarding is days, not months. Knowledge doesn't walk out the door."
+          desc="Sales sees what support resolved. Support sees what success promised. Success sees what sales pitched. Ops sees the whole picture. Any AI, any seat. One query, all of it. Onboarding is days, not months. Knowledge doesn't walk out the door."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-y-8 max-w-5xl mx-auto">
@@ -2153,17 +2153,17 @@ function SharedBrainSection() {
           <AudienceCard
             Icon={TrendingUp}
             label="Sales"
-            line="Walk into every call already caught up. Pipeline notes, prior touches, decision-makers — loaded."
+            line="Walk into every call already caught up. Pipeline notes, prior touches, decision-makers. All loaded."
           />
           <AudienceCard
             Icon={Headphones}
             label="Support"
-            line="Every ticket the customer ever filed, every workaround you ever shipped — recallable in a sentence."
+            line="Every ticket the customer ever filed, every workaround you ever shipped, recallable in a sentence."
           />
           <AudienceCard
             Icon={Sparkles}
             label="Customer Success"
-            line="Renewal signals, expansion threads, sentiment shifts — surface before they become surprises."
+            line="Renewal signals, expansion threads, sentiment shifts. Surface before they become surprises."
           />
           <AudienceCard
             Icon={Briefcase}
@@ -2262,8 +2262,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         reads every email, calendar event, meeting transcript, and doc you
         give it permission to see, and builds a private memory of the people
         you talk to, the deals you're working, the decisions you've made, and
-        every thread that touches them. Then every AI you open — Claude,
-        Cursor, ChatGPT — picks it up automatically. Most accounts are fully
+        every thread that touches them. Then every AI you open (Claude,
+        Cursor, ChatGPT) picks it up automatically. Most accounts are fully
         indexed in a few hours. No training, no setup calls, no notes app to
         keep tidy.
       </>
@@ -2287,8 +2287,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Vector DBs and notes apps store text. min. stores{" "}
-        <span className="text-slate-200">structured memory</span> — people,
-        companies, deals, calls, decisions — and updates them automatically as
+        <span className="text-slate-200">structured memory</span>: people,
+        companies, deals, calls, decisions. And updates them automatically as
         your work evolves. It's not a destination you visit; it's the layer
         underneath every AI tool you already use. LLMs without memory are
         dumb. min. plugs you in.
@@ -2303,7 +2303,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         memory that follows them across every AI they open. Teams get all of
         that{" "}
         <span className="text-slate-200">plus unified memory</span> across
-        sales, support, success, and ops — any AI, any seat, one query pulls
+        sales, support, success, and ops. Any AI, any seat, one query pulls
         from all of it. Onboarding is days, not months.
       </>
     ),
@@ -2314,7 +2314,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
       <>
         One unified memory, segmented by permission. Sales reps can see what support
         resolved, support sees what success promised, success sees what sales
-        pitched, ops sees the whole picture — anything you grant access to.
+        pitched, ops sees the whole picture, anything you grant access to.
         Sensitive items can stay private to a person, a function, or a deal.
         Every AI a teammate opens recalls{" "}
         <span className="text-slate-200">across whatever they're allowed to see</span>,
@@ -2339,7 +2339,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
       <>
         Your memory is yours. We{" "}
         <span className="text-slate-200">never sell it</span>, never broker
-        it, never train models on it — ours or any provider's. Every
+        it, never train models on it, ours or any provider's. Every
         connected AI tool only sees what you authorize. Encrypted in transit
         with TLS 1.3, hosted on SOC 2 Type II infrastructure, end-to-end
         encrypted at rest.{" "}
@@ -2366,7 +2366,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "Can I export my memory?",
     a: (
       <>
-        Always. JSON or Markdown, your choice. min. is built on open MCP — no
+        Always. JSON or Markdown, your choice. min. is built on open MCP. No
         lock-in. Your memory is yours to take anywhere.
       </>
     ),
@@ -2392,7 +2392,7 @@ function CallToActionSection() {
         </h2>
         <p className="mt-5 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
           Plug into the apps you already open. Your whole team's
-          memory, in every AI — today.
+          memory, in every AI, today.
         </p>
         <div className="mt-9 flex flex-col items-center gap-3">
           <a
