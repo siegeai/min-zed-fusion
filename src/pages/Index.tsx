@@ -209,7 +209,7 @@ function Hero() {
         <p className="mt-7 text-slate-400 text-lg md:text-xl leading-snug max-w-2xl mx-auto">
           Pool sales, support, success, and ops into one shared memory.{" "}
           <span className="text-slate-200">
-            Every AI on the team can recall across all of it, instantly.
+            Every AI tool on your team can recall across all of it, instantly.
           </span>
         </p>
 
