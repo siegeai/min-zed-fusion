@@ -18,6 +18,7 @@ type Plan = {
   name: string;
   swatch: string; // tailwind bg class for the colored dot
   memory: string;
+  memoryHuman: string; // human-scale translation of the memory size
   tagline: string;
   inheritFrom?: string;
   features: Feature[];
@@ -34,6 +35,7 @@ const PLANS: Plan[] = [
     monthlyPrice: { display: "$0", sub: "forever" },
     annualPrice: { display: "$0", sub: "forever" },
     memory: "200 MB",
+    memoryHuman: "A few months worth of your work memory.",
     tagline: "Enough to make one AI tool feel like it knows you.",
     features: [
       {
@@ -64,6 +66,7 @@ const PLANS: Plan[] = [
       sub: "/ mo billed annually · save $48/yr",
     },
     memory: "5 GB",
+    memoryHuman: "About 5 years of your work, recallable in any AI.",
     tagline:
       "One seat. Every meeting, email, and chat, recallable by every AI you use at work.",
     inheritFrom: "Free",
@@ -94,6 +97,7 @@ const PLANS: Plan[] = [
       sub: "/ user / mo billed annually · save $60 / user / yr",
     },
     memory: "50 GB",
+    memoryHuman: "A career's worth of work memory, per teammate.",
     tagline: "Shared memory for teams who think out loud together.",
     inheritFrom: "Plus",
     features: [
@@ -119,6 +123,7 @@ const PLANS: Plan[] = [
     monthlyPrice: { display: "Let's talk", sub: "per user · volume pricing" },
     annualPrice: { display: "Let's talk", sub: "per user · volume pricing" },
     memory: "500 GB+",
+    memoryHuman: "Your whole company's memory, across every team, every year.",
     tagline: "When your team's collective memory is the moat.",
     inheritFrom: "Pro",
     features: [
@@ -250,6 +255,9 @@ const Pricing = () => {
               </div>
             </header>
 
+            {/* GB ≠ GB explainer */}
+            <GbExplainer />
+
             {/* Plan grid */}
             <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7 mb-20 md:mb-28 mt-6">
               {PLANS.map((p) => (
@@ -290,6 +298,46 @@ const Pricing = () => {
     </>
   );
 };
+
+/* ─────────── GB ≠ GB explainer ─────────── */
+
+function GbExplainer() {
+  return (
+    <div className="relative mt-12 mb-10 max-w-4xl mx-auto">
+      <div
+        className={`${CARD} relative overflow-hidden p-5 md:p-6`}
+        style={{
+          ...CARD_INNER,
+          background:
+            "linear-gradient(180deg, rgba(96,140,255,0.10) 0%, rgba(96,140,255,0.02) 100%)",
+        }}
+      >
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-5">
+          <div className="flex items-center gap-3 shrink-0">
+            <span
+              className="inline-flex items-center gap-1 rounded-full border border-blue-400/30 bg-blue-500/15 px-2.5 py-1 text-[10px] font-mono font-bold tracking-[0.16em] uppercase text-blue-200"
+              style={{ boxShadow: "0 0 14px -4px rgba(96,140,255,0.5)" }}
+            >
+              GB &ne; GB
+            </span>
+            <span className="text-white text-base md:text-lg font-semibold tracking-[-0.01em] whitespace-nowrap">
+              This isn't Dropbox.
+            </span>
+          </div>
+          <p className="text-slate-400 text-[14px] md:text-[15px] leading-snug">
+            1 GB of cloud storage is a couple of HD movies. 1 GB of min.
+            memory is{" "}
+            <span className="text-slate-200">
+              a career's worth of indexed, recallable context
+            </span>
+            . Every email, every meeting, every decision, computed live by
+            every AI tool you open.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /* ─────────── Billing toggle ─────────── */
 
@@ -385,8 +433,8 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
         <p className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] tabular-nums leading-none">
           {plan.memory}
         </p>
-        <p className="text-[10px] text-slate-500 font-mono tracking-[0.18em] uppercase mt-2">
-          of indexed memory
+        <p className="text-[12.5px] text-slate-300 mt-2 leading-snug min-h-[34px]">
+          {plan.memoryHuman}
         </p>
       </div>
 
