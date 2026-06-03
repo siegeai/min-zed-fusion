@@ -140,10 +140,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Unified memory for your AI tools. Your tools don't know you. We'll fix that.</title>
+        <title>min. | The world's smartest AI has no idea who you are. Your inbox does.</title>
         <meta
           name="description"
-          content="Unified memory for your AI tools. min. unifies sales, support, success, and ops into one shared memory, and every AI tool on your team (Claude, Cursor, ChatGPT) can recall across all of it, instantly."
+          content="The world's smartest AI has no idea who you are. Your inbox does. Plug your memory into any AI (Claude, Cursor, ChatGPT) and watch it get instantly better. Unified work memory for sales, support, success, and ops."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -201,16 +201,18 @@ function Hero() {
         <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-7">
           Unified memory for your AI tools
         </p>
-        <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-[44px] sm:text-6xl md:text-7xl">
-          Your tools don't know you.
+        <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.04] text-4xl sm:text-5xl md:text-6xl">
+          The world's smartest AI
           <br />
-          <span className="text-blue-300">We'll fix that.</span>
+          has no idea who you are.
+          <br />
+          <span className="text-blue-300">Your inbox does.</span>
         </h1>
         <p className="mt-7 text-slate-400 text-lg md:text-xl leading-snug max-w-2xl mx-auto">
-          Unify sales, support, success, and ops into one shared memory.{" "}
-          <span className="text-slate-200">
-            Every AI tool on your team can recall across all of it, instantly.
-          </span>
+          Plug your memory into any AI tool, and watch it get{" "}
+          <span className="text-slate-100 font-medium">instantly better</span>.
+          Unify sales, support, success, and ops so every AI on the team
+          recalls across all of it in one query.
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3">
