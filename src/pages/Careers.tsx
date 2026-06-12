@@ -115,8 +115,8 @@ export default function Careers() {
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed mb-7 max-w-md mx-auto">
                   Send a resume or a link to something you're proud of. Tell us
-                  why you're excited about building one brain for a company's
-                  knowledge. We'll write back.
+                  why you're excited about giving every team a memory that
+                  compounds. We'll write back.
                 </p>
                 <div
                   className={`${CARD_SURFACE} flex items-center justify-between gap-3 px-4 py-3 mb-6 max-w-sm mx-auto`}

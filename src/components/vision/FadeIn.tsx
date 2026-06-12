@@ -2,10 +2,11 @@ import { motion } from 'motion/react';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 
 /**
- * Scroll-reveal wrapper. Uses a getBoundingClientRect check on mount + scroll
- * (reliable in every environment, unlike IntersectionObserver which can stay
- * dormant in background/headless tabs) plus a short mount safety-net so content
- * is never left permanently hidden.
+ * Scroll-reveal wrapper. Uses a getBoundingClientRect check on mount, scroll,
+ * and resize (reliable in every environment, unlike IntersectionObserver which
+ * can stay dormant in background/headless tabs). Rechecks after layout settles
+ * (rAF + window load) so late image/font shifts don't strand visible content.
+ * Off-screen content stays hidden until it actually scrolls into view.
  */
 export function FadeIn({ children, delay = 0, className = "" }: { children: ReactNode, delay?: number, className?: string, key?: any }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,30 +16,35 @@ export function FadeIn({ children, delay = 0, className = "" }: { children: Reac
     const el = ref.current;
     if (!el) return;
 
+    let revealed = false;
     const check = () => {
+      if (revealed) return true;
       const r = el.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
       if (r.top < vh - 50 && r.bottom > 0) {
+        revealed = true;
         setShow(true);
+        cleanup();
         return true;
       }
       return false;
     };
 
-    if (check()) return;
-
-    const onScroll = () => { if (check()) cleanup(); };
+    const onScroll = () => check();
     const cleanup = () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
+      window.removeEventListener('load', onScroll);
     };
+
+    if (check()) return;
+
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
+    window.addEventListener('load', onScroll);
+    const raf = requestAnimationFrame(() => check());
 
-    // Safety net: reveal shortly after mount even if no scroll occurs.
-    const t = setTimeout(() => setShow(true), 600);
-
-    return () => { cleanup(); clearTimeout(t); };
+    return () => { cleanup(); cancelAnimationFrame(raf); };
   }, []);
 
   return (

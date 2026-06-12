@@ -15,7 +15,7 @@ const Index = () => {
         <title>min. | Talk to your tools and data, all in one place</title>
         <meta
           name="description"
-          content="min organizes your company's emails, docs, CRM, and ERP into a memory for every team and project. Ask anything and get answers grounded in your knowledge, and keep everyone aligned in Slack, Teams, or the AI of your choice."
+          content="min. lets you organize your emails, docs, CRM, and ERP into a channel for every team and project. Ask anything, get work done, and never start from scratch, in Slack, Teams, or the AI of your choice."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>

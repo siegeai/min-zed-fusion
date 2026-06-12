@@ -299,7 +299,12 @@ export function SearchMockup() {
               {/* Chat History Flow Area */}
               <div ref={chatContainerRef} className="flex-1 w-full flex flex-col gap-6 p-5 md:p-6 overflow-y-auto scrollbar-thin">
                 <AnimatePresence mode="wait">
-                  <div key={activeId} className="flex flex-col gap-6 w-full max-w-2xl mx-auto">
+                  <motion.div
+                    key={activeId}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2, ease: 'easeIn' }}
+                    className="flex flex-col gap-6 w-full max-w-2xl mx-auto"
+                  >
                 
                 {/* 1. User Message (always shown when use case starts) */}
                 <motion.div 
@@ -374,8 +379,8 @@ export function SearchMockup() {
                     </div>
                   </motion.div>
                 )}
-                
-              </div>
+
+              </motion.div>
             </AnimatePresence>
           </div>
 

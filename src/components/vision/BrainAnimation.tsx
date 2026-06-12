@@ -216,7 +216,7 @@ export default function BrainAnimation() {
             transition={{ delay: 0.1 }}
             className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto font-normal leading-relaxed"
           >
-            Watch min instantly pull scattered documents, emails, calls, and CRM/ERP records and sort them into the right team and project memories.
+            Watch min instantly pull scattered documents, emails, calls, and CRM/ERP records and sort them into the right team and project channels.
           </motion.p>
         </div>
 
@@ -226,61 +226,71 @@ export default function BrainAnimation() {
           {/* Animation Core Area */}
           <div className="w-full h-full relative flex items-center justify-center overflow-visible">
             
-            {/* Center Brain: Simple, Minimal, Styled Line-Art Vector Brain */}
+            {/* Center Brain: two mirrored hemispheres built from circular arcs */}
             <div className="relative w-[525px] h-[525px] flex items-center justify-center z-10">
-              <svg viewBox="0 0 100 100" className="w-full h-full text-gray-200 transition-colors duration-500" fill="none">
+              <svg viewBox="0 0 200 200" className="w-full h-full" fill="none">
                 {/* Subtle Background Radial Gradient Glow only when organized */}
                 <AnimatePresence>
                   {status === 'organized' && (
-                    <motion.circle 
+                    <motion.circle
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 0.25, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.6 }}
-                      cx="50" cy="50" r="38" 
-                      fill="url(#brainGlowRad)" 
+                      cx="100" cy="100" r="78"
+                      fill="url(#brainGlowRad)"
                     />
                   )}
                 </AnimatePresence>
 
-                {/* Symmetrical left and right brain contours */}
-                <motion.path 
-                  d="M 50 15 
-                     C 31 15, 17 28, 17 46 
-                     C 17 56, 23 62, 20 70 
-                     C 16 80, 25 88, 36 88 
-                     C 42 88, 44 81, 50 83" 
-                  stroke={status === 'organized' ? '#E2E8F0' : status === 'organizing' ? '#93C5FD' : '#E2E8F0'} 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  fill="white" 
-                  className="shadow-sm filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.01)]"
-                />
-                <motion.path 
-                  d="M 50 15 
-                     C 69 15, 83 28, 83 46 
-                     C 83 56, 77 62, 80 70 
-                     C 84 80, 75 88, 64 88 
-                     C 58 88, 56 81, 50 83" 
-                  stroke={status === 'organized' ? '#E2E8F0' : status === 'organizing' ? '#93C5FD' : '#E2E8F0'} 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                {/* Left hemisphere: outline of tangent circular arcs (lobes), straight medial edge */}
+                <motion.path
+                  d="M 97 26
+                     A 30 30 0 0 0 64 38
+                     A 30 30 0 0 0 41 62
+                     A 30 30 0 0 0 33 94
+                     A 30 30 0 0 0 38 126
+                     A 28 28 0 0 0 53 152
+                     A 26 26 0 0 0 78 168
+                     A 14 14 0 0 0 97 173
+                     L 97 26 Z"
+                  animate={{ stroke: status === 'organizing' ? '#BFDBFE' : '#E2E8F0' }}
+                  transition={{ duration: 0.5 }}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   fill="white"
-                  className="shadow-sm filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.01)]"
+                  className="filter drop-shadow-[0_6px_14px_rgba(15,23,42,0.04)]"
                 />
+                {/* Left gyri: two long inner contours echoing the outline */}
+                <path d="M 88 48 C 62 56, 50 80, 49 106" stroke="#EEF1F5" strokeWidth="2.2" strokeLinecap="round" />
+                <path d="M 86 150 C 68 145, 56 128, 53 110" stroke="#EEF1F5" strokeWidth="2.2" strokeLinecap="round" />
+                <path d="M 90 94 C 80 90, 73 82, 71 72" stroke="#EEF1F5" strokeWidth="2.2" strokeLinecap="round" />
 
-                {/* Simple lobe line accents representing the hemispheres beautifully */}
-                <path d="M 31 32 C 31 38, 43 40, 50 36 M 41 22 C 39 32, 47 34, 50 42" stroke="#F1F5F9" strokeWidth="1.2" />
-                <path d="M 69 32 C 69 38, 57 40, 50 36 M 59 22 C 61 32, 53 34, 50 42" stroke="#F1F5F9" strokeWidth="1.2" />
-                <path d="M 19 50 C 25 50, 32 55, 39 55 C 43 55, 47 49, 50 51" stroke="#F1F5F9" strokeWidth="1.2" />
-                <path d="M 81 50 C 75 50, 68 55, 61 55 C 57 55, 53 49, 50 51" stroke="#F1F5F9" strokeWidth="1.2" />
-                <path d="M 28 73 C 32 66, 40 69, 50 64" stroke="#F1F5F9" strokeWidth="1.2" />
-                <path d="M 72 73 C 68 66, 60 69, 50 64" stroke="#F1F5F9" strokeWidth="1.2" />
-                
-                {/* Divider line */}
-                <line x1="50" y1="15" x2="50" y2="83" stroke="#F1F5F9" strokeWidth="1.5" strokeDasharray="2 2" />
+                {/* Right hemisphere: exact mirror of the left */}
+                <g transform="translate(200 0) scale(-1 1)">
+                  <motion.path
+                    d="M 97 26
+                       A 30 30 0 0 0 64 38
+                       A 30 30 0 0 0 41 62
+                       A 30 30 0 0 0 33 94
+                       A 30 30 0 0 0 38 126
+                       A 28 28 0 0 0 53 152
+                       A 26 26 0 0 0 78 168
+                       A 14 14 0 0 0 97 173
+                       L 97 26 Z"
+                    animate={{ stroke: status === 'organizing' ? '#BFDBFE' : '#E2E8F0' }}
+                    transition={{ duration: 0.5 }}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="white"
+                    className="filter drop-shadow-[0_6px_14px_rgba(15,23,42,0.04)]"
+                  />
+                  <path d="M 88 48 C 62 56, 50 80, 49 106" stroke="#EEF1F5" strokeWidth="2.2" strokeLinecap="round" />
+                  <path d="M 86 150 C 68 145, 56 128, 53 110" stroke="#EEF1F5" strokeWidth="2.2" strokeLinecap="round" />
+                  <path d="M 90 94 C 80 90, 73 82, 71 72" stroke="#EEF1F5" strokeWidth="2.2" strokeLinecap="round" />
+                </g>
 
                 <defs>
                   <radialGradient id="brainGlowRad" cx="50%" cy="50%" r="50%">
@@ -290,18 +300,31 @@ export default function BrainAnimation() {
                 </defs>
               </svg>
 
-              {/* Minimalist State Indicator Widget right in the brain center */}
-              <div className="absolute z-20 inset-0 flex items-center justify-center p-6">
-                <div className="w-[125px] h-[125px] rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center flex-col p-3 text-center">
-                  <span className="text-[11px] font-bold text-gray-800 tracking-wider uppercase font-sans leading-tight">
-                    Collective<br />Memory
+              {/* Status pill narrating the animation state */}
+              <div className="absolute z-20 inset-0 flex items-center justify-center pointer-events-none">
+                <motion.div
+                  key={status}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-center gap-2 rounded-full bg-white border border-gray-200 shadow-md px-4 py-2"
+                >
+                  {status === 'organized' ? (
+                    <span className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
+                      <Check className="w-2.5 h-2.5 text-white" strokeWidth={3.5} />
+                    </span>
+                  ) : (
+                    <span className={`w-2 h-2 rounded-full ${status === 'organizing' ? 'bg-blue-500 animate-pulse' : 'bg-amber-400'}`} />
+                  )}
+                  <span className="text-xs font-semibold text-gray-800 whitespace-nowrap">
+                    {status === 'messy' ? 'Scattered across your tools' : status === 'organizing' ? 'min is organizing...' : 'Organized into channels'}
                   </span>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {/* Scattered Document Cards smoothly transitioning */}
-            {INITIAL_FILES.map((file) => {
+            {INITIAL_FILES.map((file, idx) => {
               const isLeft = file.side === 'left';
               const stackX = file.organizedX + file.stackIndex * 6;
               const stackY = file.organizedY + file.stackIndex * 8;
@@ -318,16 +341,9 @@ export default function BrainAnimation() {
                     scale: 1,
                     opacity: 1,
                     zIndex: 10,
-                  } : status === 'organizing' ? {
-                    // Smooth mid-way drift
-                    x: stackX * 0.4,
-                    y: stackY * 0.4,
-                    rotate: file.messyRotate * 0.4,
-                    scale: 0.85 - file.stackIndex * 0.02,
-                    opacity: 0.7,
-                    zIndex: 30 - file.stackIndex,
                   } : {
-                    // Organized and layered inside hemispheres
+                    // Stream straight into the hemisphere stacks; no mid-point
+                    // pile-up at the center.
                     x: stackX,
                     y: stackY,
                     rotate: stackRotate,
@@ -335,11 +351,12 @@ export default function BrainAnimation() {
                     opacity: 1,
                     zIndex: 30 - file.stackIndex,
                   }}
-                  transition={{ 
-                    type: 'spring', 
-                    stiffness: status === 'organizing' ? 140 : 85, 
-                    damping: status === 'organizing' ? 22 : 14,
+                  transition={{
+                    type: 'spring',
+                    stiffness: status === 'organizing' ? 110 : 85,
+                    damping: status === 'organizing' ? 20 : 14,
                     mass: 1.0,
+                    delay: status === 'organizing' ? idx * 0.06 : 0,
                   }}
                   className={`absolute rounded-xl border bg-white border-gray-200/80 p-2 text-[11px] pr-3.5 flex items-center gap-3 transition-shadow cursor-default select-none group w-[212px] ${
                     status === 'organized' 
