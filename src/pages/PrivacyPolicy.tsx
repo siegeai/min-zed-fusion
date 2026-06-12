@@ -4,11 +4,7 @@ import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
 
 const CARD =
-  "rounded-2xl border border-white/[0.07] bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-sm";
-const CARD_INNER = {
-  boxShadow:
-    "inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.01)",
-} as const;
+  "rounded-2xl border border-gray-100 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.02)]";
 
 function Section({
   id,
@@ -23,16 +19,15 @@ function Section({
     <section
       id={id}
       className={`${CARD} p-6 md:p-8 mb-4`}
-      style={CARD_INNER}
       aria-labelledby={`${id}-h`}
     >
       <h2
         id={`${id}-h`}
-        className="text-white text-xl md:text-2xl font-semibold tracking-[-0.015em] mb-4"
+        className="text-gray-900 text-xl md:text-2xl font-semibold tracking-[-0.015em] mb-4"
       >
         {title}
       </h2>
-      <div className="text-slate-400 text-[15px] leading-relaxed space-y-3">
+      <div className="text-gray-600 text-[15px] leading-relaxed space-y-3">
         {children}
       </div>
     </section>
@@ -51,10 +46,10 @@ const PrivacyPolicy = () => {
         <link rel="canonical" href="https://getmin.ai/privacy" />
       </Helmet>
 
-      <div className="min-h-screen bg-black text-slate-200 font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-500 text-white px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-gray-900 text-white px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-gray-400"
           tabIndex={1}
         >
           Skip to main content
@@ -74,15 +69,15 @@ const PrivacyPolicy = () => {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(ellipse 60% 40% at 50% 10%, rgba(80,120,255,0.14) 0%, rgba(80,120,255,0.04) 35%, transparent 70%)",
+                "radial-gradient(ellipse 60% 40% at 50% 10%, rgba(80,120,255,0.06) 0%, rgba(80,120,255,0.02) 35%, transparent 70%)",
             }}
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            className="pointer-events-none absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                "linear-gradient(rgba(0,0,0,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.4) 1px, transparent 1px)",
               backgroundSize: "60px 60px",
               maskImage:
                 "radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%)",
@@ -91,20 +86,20 @@ const PrivacyPolicy = () => {
 
           <div className="relative max-w-4xl mx-auto px-6">
             <header className="text-center mb-12 md:mb-16">
-              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-5">
+              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-gray-400 mb-5">
                 Legal
               </p>
               <h1
                 id="privacy-policy-title"
-                className="text-white font-semibold tracking-[-0.025em] leading-[1.05] text-4xl md:text-5xl lg:text-6xl"
+                className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.05] text-4xl md:text-5xl lg:text-6xl"
               >
                 Privacy Policy
               </h1>
-              <p className="mt-6 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                Your privacy is our priority. We're committed to protecting
-                your data with industry-leading security practices.
+              <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                Your company's collective memory deserves real protection. We
+                safeguard your data with industry-leading security practices.
               </p>
-              <p className="mt-5 text-xs text-slate-500 font-mono tracking-wide">
+              <p className="mt-5 text-xs text-gray-500 font-mono tracking-wide">
                 Last updated: January 2026
               </p>
             </header>
@@ -116,10 +111,10 @@ const PrivacyPolicy = () => {
                   when you create an account, use our AI communication platform,
                   or contact us for support. This includes:
                 </p>
-                <ul className="list-disc pl-6 space-y-1.5 marker:text-slate-600">
+                <ul className="list-disc pl-6 space-y-1.5 marker:text-gray-400">
                   <li>Account information (name, email address, password)</li>
                   <li>
-                    <strong className="text-slate-200">
+                    <strong className="text-gray-900">
                       Email metadata only (headers, timestamps, thread IDs).
                       No email content is permanently stored
                     </strong>
@@ -131,7 +126,7 @@ const PrivacyPolicy = () => {
                   </li>
                 </ul>
                 <p>
-                  <strong className="text-slate-200">Important:</strong> We do
+                  <strong className="text-gray-900">Important:</strong> We do
                   not store email content. All email content is fetched
                   dynamically from your email provider's APIs and processed in
                   real-time only.
@@ -144,7 +139,7 @@ const PrivacyPolicy = () => {
                   critical importance of data handling. We use your information
                   to:
                 </p>
-                <ul className="list-disc pl-6 space-y-1.5 marker:text-slate-600">
+                <ul className="list-disc pl-6 space-y-1.5 marker:text-gray-400">
                   <li>Provide and improve our AI communication services</li>
                   <li>
                     Process and manage your communications through our AI
@@ -164,9 +159,9 @@ const PrivacyPolicy = () => {
                   We take security very seriously and follow industry best
                   practices to protect your data:
                 </p>
-                <ul className="list-disc pl-6 space-y-1.5 marker:text-slate-600">
+                <ul className="list-disc pl-6 space-y-1.5 marker:text-gray-400">
                   <li>
-                    <strong className="text-slate-200">
+                    <strong className="text-gray-900">
                       All our vendors are SOC 2 Type II certified and GDPR
                       compliant
                     </strong>
@@ -200,9 +195,9 @@ const PrivacyPolicy = () => {
                   Our AI agents process your communications to provide
                   intelligent automation. We ensure:
                 </p>
-                <ul className="list-disc pl-6 space-y-1.5 marker:text-slate-600">
+                <ul className="list-disc pl-6 space-y-1.5 marker:text-gray-400">
                   <li>
-                    <strong className="text-slate-200">
+                    <strong className="text-gray-900">
                       We do not use your data to train our own AI models or any
                       third-party models
                     </strong>
@@ -215,7 +210,7 @@ const PrivacyPolicy = () => {
                   <li>Transparent AI decision-making processes</li>
                 </ul>
                 <p>
-                  <strong className="text-slate-200">
+                  <strong className="text-gray-900">
                     OpenAI Integration:
                   </strong>{" "}
                   We use OpenAI's API to process messages. OpenAI does not use
@@ -235,7 +230,7 @@ const PrivacyPolicy = () => {
                   We do not sell, trade, or rent your personal information. We
                   may share data only in these limited circumstances:
                 </p>
-                <ul className="list-disc pl-6 space-y-1.5 marker:text-slate-600">
+                <ul className="list-disc pl-6 space-y-1.5 marker:text-gray-400">
                   <li>With your explicit consent</li>
                   <li>To comply with legal requirements</li>
                   <li>
@@ -245,7 +240,7 @@ const PrivacyPolicy = () => {
                   <li>To protect our rights and prevent fraud</li>
                 </ul>
                 <p>
-                  <strong className="text-slate-200">
+                  <strong className="text-gray-900">
                     Google API Compliance:
                   </strong>{" "}
                   We comply with Google's API Services User Data Policy. We do
@@ -260,9 +255,9 @@ const PrivacyPolicy = () => {
                 title="6. Your Rights & Data Deletion"
               >
                 <p>You have comprehensive rights over your data:</p>
-                <ul className="list-disc pl-6 space-y-1.5 marker:text-slate-600">
+                <ul className="list-disc pl-6 space-y-1.5 marker:text-gray-400">
                   <li>
-                    <strong className="text-slate-200">
+                    <strong className="text-gray-900">
                       Immediate deletion: When you delete your account, all
                       data is removed immediately from our databases
                     </strong>
@@ -282,7 +277,7 @@ const PrivacyPolicy = () => {
                   Contact us at{" "}
                   <a
                     href="mailto:hello@getmin.ai"
-                    className="text-blue-300 hover:text-blue-200 underline-offset-2 hover:underline"
+                    className="text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline"
                   >
                     hello@getmin.ai
                   </a>{" "}
@@ -299,7 +294,7 @@ const PrivacyPolicy = () => {
                   Email:{" "}
                   <a
                     href="mailto:hello@getmin.ai"
-                    className="text-blue-300 hover:text-blue-200 underline-offset-2 hover:underline"
+                    className="text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline"
                   >
                     hello@getmin.ai
                   </a>

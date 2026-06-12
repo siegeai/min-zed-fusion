@@ -1,78 +1,30 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Linkedin, X, BookOpen, Zap, Search, Network } from "lucide-react";
+import { Linkedin, X, BookOpen, Zap, Layers, Network } from "lucide-react";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
+import { IconTile, CARD_SURFACE } from "@/components/MinPrimitives";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-
-const CARD_SURFACE =
-  "rounded-2xl border border-white/[0.07] bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-sm";
-const CARD_INNER_HIGHLIGHT = {
-  boxShadow:
-    "inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.01)",
-} as const;
-
-type Tint = "blue" | "amber";
-
-function IconTile({
-  Icon,
-  tint = "blue",
-  filled = false,
-}: {
-  Icon: React.ComponentType<{ className?: string; strokeWidth?: number; fill?: string }>;
-  tint?: Tint;
-  filled?: boolean;
-}) {
-  const bg =
-    tint === "amber"
-      ? "bg-gradient-to-b from-amber-400/[0.20] to-amber-500/[0.04] border-amber-400/30"
-      : "bg-gradient-to-b from-blue-500/[0.18] to-blue-500/[0.04] border-blue-400/25";
-  const iconColor = tint === "amber" ? "text-amber-400" : "text-blue-300";
-  const glowColor =
-    tint === "amber" ? "rgba(251,191,36,0.40)" : "rgba(96,140,255,0.45)";
-  return (
-    <span
-      className={`relative inline-flex items-center justify-center w-11 h-11 rounded-xl border ${bg}`}
-      style={{
-        boxShadow:
-          "inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.25)",
-      }}
-    >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -inset-2 rounded-[inherit] blur-md -z-10"
-        style={{
-          background: `radial-gradient(circle, ${glowColor}, transparent 70%)`,
-        }}
-      />
-      <Icon
-        className={`relative w-[18px] h-[18px] ${iconColor}`}
-        strokeWidth={1.75}
-        {...(filled ? { fill: "currentColor" } : {})}
-      />
-    </span>
-  );
-}
 
 const BELIEFS = [
   {
     Icon: Zap,
     tint: "amber" as const,
     filled: true,
-    title: "Memory is the work",
-    body: "LLMs without memory are just smart. With it, they're built for you. We make the memory layer that turns every AI tool into yours.",
+    title: "AI is only as good as its memory",
+    body: "Models don't know your business. min feeds your AI your company's collective memory, so every answer is grounded in real context instead of guesswork.",
   },
   {
-    Icon: Search,
+    Icon: Layers,
     tint: "blue" as const,
     title: "Context shouldn't live in silos",
-    body: "Your customers don't experience your departments. Your AI shouldn't either. Sales, support, success, ops. One memory, recalled in one query.",
+    body: "Emails, docs, calls, CRM, ERP. Your customers don't experience your departments, and your AI shouldn't either. Connected across every team, answered in a single question.",
   },
   {
     Icon: Network,
     tint: "blue" as const,
-    title: "Memory should compound",
-    body: "Every email, every call, every decision should make every AI on the team smarter tomorrow than it was today. Knowledge doesn't walk out the door.",
+    title: "You stay in control of your data",
+    body: "Collective memory only works if it's safe to build. You decide exactly what data is shared, with whom, and when. Nothing leaves your control by default.",
   },
 ];
 
@@ -86,7 +38,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is the unified memory layer for sales, support, success, and ops. Every AI tool on your team can recall across all of it, instantly.",
+      "min. unifies your company's emails, docs, calls, CRM, and ERP into memory for every team and project your team can ask and chat with, inside Slack, Microsoft Teams, or the LLM of your choice.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -102,43 +54,36 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | Unified memory for your AI tools</title>
+        <title>About min. | Talk to your tools and data, all in one place</title>
         <meta
           name="description"
-          content="min. is the unified memory layer for sales, support, success, and ops. Every AI tool on your team can recall across all of it, instantly."
+          content="min. unifies your company's emails, docs, calls, CRM, and ERP into memory for every team and project your team can ask and chat with, inside Slack, Microsoft Teams, or the LLM of your choice."
         />
         <link rel="canonical" href="https://getmin.ai/about" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-black text-slate-200 font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
         <PillNav />
 
         <main>
           {/* Hero */}
           <section className="relative pt-36 md:pt-44 pb-20 overflow-hidden">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(ellipse 50% 35% at 50% 25%, rgba(96,140,255,0.15) 0%, transparent 70%)",
-              }}
-            />
             <div className="relative max-w-4xl mx-auto px-6 text-center">
-              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-6">
+              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-gray-400 mb-6">
                 About min.
               </p>
-              <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                We're building the{" "}
-                <span className="text-blue-300">unified memory layer</span>
+              <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
+                We're building your company's{" "}
+                <span className="text-blue-600">collective memory</span>
                 <br className="hidden sm:block" />{" "}
-                for every AI tool you use.
+                so your AI finally knows your business.
               </h1>
-              <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                Teams don't need another CRM. They need one memory across every
-                email, every call, every decision, that grows smarter the more
-                they work, and that every AI on the team can recall in one query.
+              <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                Talk to your tools and data, all in one place. min unifies your
+                emails, docs, calls, CRM, and ERP into a memory for every team and project
+                that your team can ask, chat with, and stay aligned around,
+                inside Slack, Microsoft Teams, or the LLM of your choice.
               </p>
             </div>
           </section>
@@ -146,26 +91,22 @@ export default function About() {
           {/* What we believe */}
           <section className="py-16 md:py-20">
             <div className="max-w-5xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-500 mb-3 text-center">
                 What we believe
               </p>
-              <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
+              <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
                 Three things, anchored.
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {BELIEFS.map((b) => (
-                  <div
-                    key={b.title}
-                    className={`${CARD_SURFACE} p-6`}
-                    style={CARD_INNER_HIGHLIGHT}
-                  >
+                  <div key={b.title} className={`${CARD_SURFACE} p-6`}>
                     <div className="mb-4">
                       <IconTile Icon={b.Icon} tint={b.tint} filled={b.filled} />
                     </div>
-                    <h3 className="text-white text-base font-semibold tracking-[-0.01em] mb-2">
+                    <h3 className="text-gray-900 text-base font-semibold tracking-[-0.01em] mb-2">
                       {b.title}
                     </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                    <p className="text-sm text-gray-600 leading-relaxed">
                       {b.body}
                     </p>
                   </div>
@@ -177,31 +118,31 @@ export default function About() {
           {/* Story */}
           <section className="py-16 md:py-20">
             <div className="max-w-2xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-500 mb-3">
                 Origin
               </p>
-              <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-8">
-                We built this for ourselves first.
+              <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-8">
+                AI models don't know your business.
               </h2>
-              <div className="space-y-4 text-slate-400 leading-relaxed">
+              <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  We watched teams re-paste the same context into Claude, then
-                  Cursor, then ChatGPT. Every single chat starting from zero.
-                  Sales reps walking into calls without the support history.
-                  Success teams blindsided by deal terms sales promised six
-                  months ago. Knowledge stranded in someone's head, walking out
-                  the door with every departure.
+                  The smartest model on earth still walks into your company
+                  blind. It has never read your onboarding docs, never sat on a
+                  support call, never seen how a deal actually closed. So teams
+                  re-paste the same context into ChatGPT, then Gemini, then
+                  Claude, every chat starting from zero.
                 </p>
                 <p>
-                  The data was already there. Sitting in Gmail, in Slack, in
-                  Notion, in a hundred meeting transcripts. It just wasn't
-                  unified into a single memory any AI could read.
+                  The knowledge was always there. Sitting in email, in shared
+                  docs, in call recordings, in the CRM and ERP. It just wasn't
+                  unified into memory for every team and project that an AI could actually
+                  read, and that the whole team could stay aligned around.
                 </p>
                 <p>
-                  So we built min. The unified memory layer that turns every
-                  email, call, and decision into recallable context, unified
-                  across sales, support, success, and ops, and instantly
-                  available to every AI tool the team opens.
+                  So we built min: the collective memory layer that grounds your
+                  AI in your company's real context. Ask anything of it
+                  from Slack, Microsoft Teams, or the LLM of your choice, while
+                  you stay in absolute control of exactly what data is shared.
                 </p>
               </div>
             </div>
@@ -210,21 +151,21 @@ export default function About() {
           {/* Team */}
           <section className="py-16 md:py-20">
             <div className="max-w-5xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-6 text-center">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-500 mb-6 text-center">
                 Team
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <TeamCard
                   name="Eric Wang"
                   title="CEO"
-                  bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building the unified memory layer every AI tool teams use is missing."
+                  bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building the collective memory layer that grounds every team's AI in their real business context."
                   avatar={
-                    <Avatar className="w-16 h-16 shrink-0 border border-white/10">
+                    <Avatar className="w-16 h-16 shrink-0 border border-gray-200">
                       <AvatarImage
                         src="/lovable-uploads/a08e6a56-3aaf-4f91-b83a-909a4d24b497.png"
                         alt="Eric Wang"
                       />
-                      <AvatarFallback className="bg-white/5 text-slate-300">
+                      <AvatarFallback className="bg-gray-50 text-gray-600">
                         EW
                       </AvatarFallback>
                     </Avatar>
@@ -250,7 +191,7 @@ export default function About() {
                 <TeamCard
                   name="Fadi Kanaan"
                   title="Head of Operations"
-                  bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now connecting min. to the sales, support, and success teams that need unified memory most."
+                  bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now connecting min. to the teams that need their collective memory unified and grounded the most."
                   avatar={<FadiAvatar />}
                   socials={[
                     {
@@ -267,16 +208,16 @@ export default function About() {
           {/* CTA */}
           <section id="cta" className="pb-24 pt-8">
             <div className="max-w-3xl mx-auto px-6 text-center">
-              <h3 className="text-white text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
-                Ready to give every AI on your team memory?
+              <h3 className="font-display text-gray-900 text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
+                Ready to give your AI your company's memory?
               </h3>
-              <p className="text-slate-400 mb-7 max-w-xl mx-auto">
-                Stop explaining yourself to every AI. Unify sales, support,
-                success, and ops into one memory, recalled in one query.
+              <p className="text-gray-600 mb-7 max-w-xl mx-auto">
+                Stop re-explaining your business to every model. Unify your
+                tools and data into memory for every team and project, on your terms.
               </p>
               <a
                 href="mailto:hello@getmin.ai?subject=Demo%20Request"
-                className="inline-block rounded-full bg-slate-50 text-black text-sm font-medium px-5 py-2.5 hover:bg-slate-200 transition-colors"
+                className="inline-block rounded-full bg-black text-white text-sm font-medium px-5 py-2.5 hover:bg-gray-800 transition-colors"
               >
                 Book Demo
               </a>
@@ -303,18 +244,15 @@ function TeamCard({
   title: string;
   bio: string;
   avatar: React.ReactNode;
-  socials?: { Icon: React.ComponentType<{ className?: string; strokeWidth?: number }>; href: string; label: string }[];
+  socials?: { Icon: React.ElementType; href: string; label: string }[];
 }) {
   return (
-    <div
-      className={`${CARD_SURFACE} p-6 md:p-7`}
-      style={CARD_INNER_HIGHLIGHT}
-    >
+    <div className={`${CARD_SURFACE} p-6 md:p-7`}>
       <div className="flex items-start gap-5">
         {avatar}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 mb-1 flex-wrap">
-            <h3 className="text-white text-lg font-semibold tracking-[-0.01em]">
+            <h3 className="text-gray-900 text-lg font-semibold tracking-[-0.01em]">
               {name}
             </h3>
             {socials.length > 0 && (
@@ -325,7 +263,7 @@ function TeamCard({
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-gray-900 transition-colors"
                     aria-label={s.label}
                   >
                     <s.Icon className="w-4 h-4" strokeWidth={1.75} />
@@ -334,10 +272,10 @@ function TeamCard({
               </div>
             )}
           </div>
-          <p className="text-blue-300 text-xs font-medium tracking-wide mb-3">
+          <p className="text-blue-600 text-xs font-medium tracking-wide mb-3">
             {title}
           </p>
-          <p className="text-sm text-slate-400 leading-relaxed">{bio}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{bio}</p>
         </div>
       </div>
     </div>
@@ -353,7 +291,7 @@ function TeamCard({
  */
 function FadiAvatar() {
   return (
-    <div className="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-white/10 bg-white">
+    <div className="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-gray-200 bg-white">
       <svg
         viewBox="0 0 80 80"
         xmlns="http://www.w3.org/2000/svg"

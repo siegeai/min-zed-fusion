@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { DIM, BORDER } from "@/components/LandingShared";
+
+const DIM = "#6B7280";
+const BORDER = "rgba(0,0,0,0.08)";
 
 const TrustBadges = () => (
   <div
@@ -11,16 +13,17 @@ const TrustBadges = () => (
       display: "flex",
       alignItems: "center",
       gap: 14,
-      background: "rgba(22,28,36,0.85)",
+      background: "rgba(255,255,255,0.85)",
       backdropFilter: "blur(8px)",
       border: `1px solid ${BORDER}`,
-      borderRadius: 8,
-      padding: "6px 12px",
-      opacity: 0.6,
+      borderRadius: 9999,
+      padding: "6px 14px",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
+      opacity: 0.7,
       transition: "opacity 0.3s",
     }}
     onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
-    onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.6"; }}
+    onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.7"; }}
   >
     <Link
       to="/security"

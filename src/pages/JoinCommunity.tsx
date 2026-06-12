@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import PillNav from "@/components/PillNav";
+import MinFooter from "@/components/MinFooter";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Zap, HeadphonesIcon, TrendingUp, AlertCircle } from "lucide-react";
 import { useEffect, useRef } from "react";
@@ -101,7 +101,7 @@ const JoinCommunity = () => {
 
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-[#FAFAF9] relative overflow-hidden">
       <Helmet>
         <title>Join the min. Community | Try it now</title>
         <meta name="description" content="Join our Discord community for instant support, early access to features, and direct communication with the team." />
@@ -121,8 +121,8 @@ const JoinCommunity = () => {
       </div>
 
       <div className="relative z-10">
-        <Header />
-        
+        <PillNav />
+
         <main className="pt-32 pb-16">
           <div className="max-w-5xl mx-auto px-6">
             {/* Hero Section */}
@@ -200,7 +200,7 @@ const JoinCommunity = () => {
           </div>
         </main>
 
-        <Footer />
+        <MinFooter />
       </div>
 
       <style>{`

@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 
 const COLUMNS = [
   {
-    heading: "Platform",
+    heading: "Product",
     links: [
-      { label: "Your Memory", to: "/#memory" },
-      { label: "Instant Recall", to: "/#recall" },
-      { label: "Plug into Every AI", to: "/#plug-in" },
-      { label: "Team Memory", to: "/#teams" },
+      { label: "Overview", to: "/#product" },
+      { label: "Channels", to: "/#channels" },
+      { label: "Collective Memory", to: "/#memory" },
+      { label: "Features", to: "/#features" },
+      { label: "Pricing", to: "/pricing" },
     ],
   },
   {
@@ -16,7 +17,6 @@ const COLUMNS = [
       { label: "About Us", to: "/about" },
       { label: "Careers", to: "/careers" },
       { label: "Contact", to: "/contact" },
-      { label: "Blog", to: "/" },
     ],
   },
   {
@@ -24,37 +24,38 @@ const COLUMNS = [
     links: [
       { label: "Privacy Policy", to: "/privacy" },
       { label: "Terms of Service", to: "/terms" },
-      { label: "Security Details", to: "/security" },
+      { label: "Security", to: "/security" },
     ],
   },
 ];
 
 export default function MinFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#050505] pt-20 pb-10 mt-auto">
-      <div className="max-w-6xl mx-auto px-6">
+    <footer className="border-t border-gray-200 bg-white mt-auto">
+      <div className="max-w-6xl mx-auto px-6 pt-20 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 md:gap-8">
           <div>
             <Link
               to="/"
-              className="inline-block text-white text-xl font-semibold tracking-tight mb-4"
+              className="inline-block font-display text-xl font-semibold tracking-tight text-gray-900 mb-4"
             >
               min.
             </Link>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Your AI doesn't know you. We'll fix that. min. is the unified work memory that scales you across every AI tool your team uses. Sales, support, success, and ops, recalled by every AI in one query.
+            <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+              min organizes your company's emails, docs, CRM, and ERP into a
+              memory for every team and project, so every team gets answers and stays aligned.
             </p>
           </div>
 
           {COLUMNS.map((col) => (
             <div key={col.heading}>
-              <h4 className="text-white text-sm font-medium mb-4">{col.heading}</h4>
+              <h4 className="text-gray-900 text-sm font-semibold mb-4">{col.heading}</h4>
               <ul className="space-y-3">
                 {col.links.map((l) => (
                   <li key={l.label}>
                     <Link
                       to={l.to}
-                      className="text-slate-400 text-sm hover:text-white transition-colors"
+                      className="text-gray-500 text-sm hover:text-black transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -65,17 +66,16 @@ export default function MinFooter() {
           ))}
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <p className="text-slate-500 text-xs">
-            © 2026 min., Inc. All rights reserved.
+        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="text-gray-400 text-xs">
+            © {new Date().getFullYear()} min., Inc. All rights reserved.
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-6">
             <a
               href="https://x.com/getminai"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="min. on X"
-              className="text-slate-400 hover:text-white text-xs"
+              className="text-gray-400 hover:text-black text-xs transition-colors"
             >
               Twitter
             </a>
@@ -83,8 +83,7 @@ export default function MinFooter() {
               href="https://www.linkedin.com/company/min-box"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="min. on LinkedIn"
-              className="text-slate-400 hover:text-white text-xs"
+              className="text-gray-400 hover:text-black text-xs transition-colors"
             >
               LinkedIn
             </a>

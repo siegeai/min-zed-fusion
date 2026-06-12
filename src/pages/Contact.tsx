@@ -15,7 +15,6 @@ import MinFooter from "@/components/MinFooter";
 import {
   IconTile,
   CARD_SURFACE,
-  CARD_INNER_HIGHLIGHT,
   HeroAmbientGlow,
   PillButton,
 } from "@/components/MinPrimitives";
@@ -24,12 +23,12 @@ const INQUIRIES = [
   {
     Icon: BarChart3,
     title: "Sales",
-    body: "Ready to plug min. into your team's AI stack.",
+    body: "Ready to unify your company's tools and data into memory for every team and project.",
   },
   {
     Icon: Users,
     title: "Support",
-    body: "Need help getting more out of min.",
+    body: "Need help getting more out of min. across Slack, Teams, or your LLM.",
   },
   {
     Icon: MessageCircle,
@@ -67,12 +66,12 @@ export default function Contact() {
         <title>Contact min.</title>
         <meta
           name="description"
-          content="Get in touch with min. Sales, support, partnerships, investors, press. Email hello@getmin.ai, average reply under 2 hours."
+          content="Talk to your tools and data, all in one place. Get in touch with min. for sales, support, partnerships, investors, press. Email hello@getmin.ai, average reply under 2 hours."
         />
         <link rel="canonical" href="https://getmin.ai/contact" />
       </Helmet>
 
-      <div className="min-h-screen bg-black text-slate-200 font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
         <PillNav />
 
         <main>
@@ -80,14 +79,14 @@ export default function Contact() {
           <section className="relative pt-36 md:pt-44 pb-12 overflow-hidden">
             <HeroAmbientGlow />
             <div className="relative max-w-3xl mx-auto px-6 text-center">
-              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-6">
+              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-gray-400 mb-6">
                 Contact
               </p>
-              <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
+              <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
                 Talk to{" "}
-                <span className="text-blue-300">a human</span>.
+                <span className="text-blue-600">a human</span>.
               </h1>
-              <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+              <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 Sales, support, partnerships, investors, press. One email,
                 fast replies, no chatbots.
               </p>
@@ -97,28 +96,22 @@ export default function Contact() {
           {/* Email card */}
           <section className="pb-16">
             <div className="max-w-2xl mx-auto px-6">
-              <div
-                className={`${CARD_SURFACE} p-8 md:p-10 text-center`}
-                style={CARD_INNER_HIGHLIGHT}
-              >
+              <div className={`${CARD_SURFACE} p-8 md:p-10 text-center`}>
                 <div className="flex justify-center mb-5">
                   <IconTile Icon={Mail} size="lg" tint="blue" glow="strong" />
                 </div>
-                <h2 className="text-white text-2xl font-semibold tracking-[-0.01em] mb-3">
+                <h2 className="text-gray-900 text-2xl font-semibold tracking-[-0.01em] mb-3">
                   hello@getmin.ai
                 </h2>
 
                 <div className="flex justify-center mb-6">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1.5">
-                    <span
-                      className="block w-1.5 h-1.5 rounded-full bg-emerald-400"
-                      style={{ boxShadow: "0 0 8px rgba(52,211,153,0.7)" }}
-                    />
+                  <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5">
+                    <span className="block w-1.5 h-1.5 rounded-full bg-gray-900" />
                     <Clock
-                      className="w-3.5 h-3.5 text-emerald-300"
+                      className="w-3.5 h-3.5 text-gray-500"
                       strokeWidth={2}
                     />
-                    <span className="text-[11px] tracking-[0.12em] uppercase text-emerald-300 font-medium">
+                    <span className="text-[11px] tracking-[0.12em] uppercase text-gray-600 font-medium">
                       Avg. reply &lt; 2 hours
                     </span>
                   </div>
@@ -126,20 +119,19 @@ export default function Contact() {
 
                 <div
                   className={`${CARD_SURFACE} flex items-center justify-between gap-3 px-4 py-3 mb-6 max-w-sm mx-auto`}
-                  style={CARD_INNER_HIGHLIGHT}
                 >
-                  <span className="text-white font-medium font-mono text-sm">
+                  <span className="text-gray-900 font-medium font-mono text-sm">
                     {email}
                   </span>
                   <button
                     onClick={handleCopy}
-                    className="grid place-items-center w-8 h-8 rounded-md hover:bg-white/5 transition-colors"
+                    className="grid place-items-center w-8 h-8 rounded-md hover:bg-gray-50 transition-colors"
                     aria-label="Copy email"
                   >
                     {copied ? (
-                      <Check className="w-4 h-4 text-emerald-400" />
+                      <Check className="w-4 h-4 text-gray-900" />
                     ) : (
-                      <Copy className="w-4 h-4 text-slate-400" />
+                      <Copy className="w-4 h-4 text-gray-500" />
                     )}
                   </button>
                 </div>
@@ -154,10 +146,10 @@ export default function Contact() {
           {/* Inquiry types */}
           <section className="pb-24">
             <div className="max-w-5xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-500 mb-3 text-center">
                 What to reach out about
               </p>
-              <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
+              <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
                 Pick a topic.
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -165,16 +157,15 @@ export default function Contact() {
                   <div
                     key={q.title}
                     className={`${CARD_SURFACE} p-6 flex items-start gap-4`}
-                    style={CARD_INNER_HIGHLIGHT}
                   >
                     <div className="shrink-0">
                       <IconTile Icon={q.Icon} size="sm" tint="blue" />
                     </div>
                     <div>
-                      <h3 className="text-white text-base font-semibold tracking-[-0.01em] mb-1">
+                      <h3 className="text-gray-900 text-base font-semibold tracking-[-0.01em] mb-1">
                         {q.title}
                       </h3>
-                      <p className="text-sm text-slate-400 leading-relaxed">
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         {q.body}
                       </p>
                     </div>

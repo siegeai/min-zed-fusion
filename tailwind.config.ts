@@ -19,6 +19,13 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				display: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+			},
+			spacing: {
+				'4.5': '1.125rem',
+			},
 			colors: {
 				brand: {
 					bg: '#161C24',

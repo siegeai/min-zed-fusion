@@ -94,15 +94,15 @@ export default function Security() {
   return (
     <>
       <Helmet>
-        <title>Security at min. | Enterprise-grade by default</title>
+        <title>Security at min. | Your collective memory, protected</title>
         <meta
           name="description"
-          content="9.7 ESOF score, SOC 2 Type II infrastructure, zero training on your data. min. treats security as the foundation, not the afterthought."
+          content="9.7 ESOF score, SOC 2 Type II infrastructure, zero training on your data. min. unifies your company's emails, docs, calls, and tools into memory for every team and project, and guards it as the foundation, not the afterthought."
         />
         <link rel="canonical" href="https://getmin.ai/security" />
       </Helmet>
 
-      <div className="min-h-screen bg-black text-slate-200 font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
         <PillNav />
 
         <main>
@@ -113,17 +113,15 @@ export default function Security() {
               <div className="flex justify-center mb-6">
                 <IconTile Icon={Shield} size="xl" tint="blue" glow="strong" />
               </div>
-              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-slate-400 mb-4">
+              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">
                 Security
               </p>
-              <h1 className="text-white font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                Enterprise-grade by{" "}
-                <span className="text-blue-300">default</span>.
+              <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
+                Your collective memory,{" "}
+                <span className="text-blue-600">protected</span>.
               </h1>
-              <p className="mt-7 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                Built by engineers who shipped infrastructure at DoorDash,
-                Coursera, and Sunnybrook Research Hospital. Security is the
-                foundation, not the addendum.
+              <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+                min. unifies your emails, docs, calls, CRM, and ERP into memory for every team and project. Built by engineers who shipped infrastructure at DoorDash, Coursera, and Sunnybrook Research Hospital, every one of them guarded from the foundation up.
               </p>
             </div>
           </section>
@@ -139,17 +137,14 @@ export default function Security() {
                   <IconTile Icon={Award} size="lg" tint="blue" glow="strong" />
                 </div>
                 <div className="flex items-center justify-center gap-5 mb-3">
-                  <div
-                    className="text-5xl md:text-6xl font-semibold text-white tabular-nums tracking-[-0.04em]"
-                    style={{ textShadow: "0 0 24px rgba(96,140,255,0.3)" }}
-                  >
+                  <div className="text-5xl md:text-6xl font-semibold text-gray-900 tabular-nums tracking-[-0.04em]">
                     9.7
                   </div>
                   <div className="text-left">
-                    <div className="text-white text-base md:text-lg font-semibold">
+                    <div className="text-gray-900 text-base md:text-lg font-semibold">
                       ESOF Score
                     </div>
-                    <div className="text-slate-500 text-xs md:text-sm">
+                    <div className="text-gray-500 text-xs md:text-sm">
                       Enterprise Security Operations Framework
                     </div>
                   </div>
@@ -162,7 +157,7 @@ export default function Security() {
                       fill="currentColor"
                     />
                   ))}
-                  <span className="ml-2 text-slate-400 text-xs tracking-[0.12em] uppercase font-medium">
+                  <span className="ml-2 text-gray-500 text-xs tracking-[0.12em] uppercase font-medium">
                     Top 1%
                   </span>
                 </div>
@@ -173,10 +168,10 @@ export default function Security() {
           {/* Features grid */}
           <section className="py-16">
             <div className="max-w-6xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-400 mb-3 text-center">
                 Foundations
               </p>
-              <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
+              <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
                 Security on every layer.
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -189,10 +184,10 @@ export default function Security() {
                     <div className="mb-4">
                       <IconTile Icon={f.Icon} size="sm" tint="blue" />
                     </div>
-                    <h3 className="text-white text-base font-semibold tracking-[-0.01em] mb-2">
+                    <h3 className="text-gray-900 text-base font-semibold tracking-[-0.01em] mb-2">
                       {f.title}
                     </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                    <p className="text-sm text-gray-600 leading-relaxed">
                       {f.body}
                     </p>
                   </div>
@@ -204,13 +199,13 @@ export default function Security() {
           {/* Data Pledge */}
           <section className="py-16">
             <div className="max-w-5xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-400 mb-3 text-center">
                 Our Data Pledge
               </p>
-              <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-3">
+              <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-3">
                 Plain English. No legal gymnastics.
               </h2>
-              <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
+              <p className="text-gray-600 text-center mb-12 max-w-xl mx-auto">
                 Three things that are true today and will be true forever.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -223,10 +218,10 @@ export default function Security() {
                     <div className="flex justify-center mb-4">
                       <IconTile Icon={CheckCircle} size="md" tint="blue" />
                     </div>
-                    <h3 className="text-white text-base font-semibold tracking-[-0.01em] mb-2">
+                    <h3 className="text-gray-900 text-base font-semibold tracking-[-0.01em] mb-2">
                       {p.title}
                     </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                    <p className="text-sm text-gray-600 leading-relaxed">
                       {p.body}
                     </p>
                   </div>
@@ -242,13 +237,13 @@ export default function Security() {
                 className={`${CARD_SURFACE} p-8 md:p-10`}
                 style={CARD_INNER_HIGHLIGHT}
               >
-                <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
+                <p className="text-[11px] tracking-[0.2em] uppercase text-gray-400 mb-3 text-center">
                   Infrastructure & compliance
                 </p>
-                <h3 className="text-white text-xl md:text-2xl font-semibold tracking-[-0.01em] text-center mb-2">
+                <h3 className="text-gray-900 text-xl md:text-2xl font-semibold tracking-[-0.01em] text-center mb-2">
                   We use providers that hold the certifications that matter.
                 </h3>
-                <p className="text-slate-400 text-sm text-center mb-7 max-w-xl mx-auto">
+                <p className="text-gray-600 text-sm text-center mb-7 max-w-xl mx-auto">
                   Your data sits behind every certification a Fortune 500
                   procurement team would ask for.
                 </p>
@@ -256,10 +251,7 @@ export default function Security() {
                   {CERTS.map((c) => (
                     <span
                       key={c}
-                      className="rounded-full border border-white/10 bg-gradient-to-b from-white/[0.05] to-white/[0.01] px-3.5 py-1.5 text-xs text-slate-200 font-medium"
-                      style={{
-                        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
-                      }}
+                      className="rounded-full border border-gray-200 bg-gray-50 px-3.5 py-1.5 text-xs text-gray-700 font-medium"
                     >
                       {c}
                     </span>
@@ -272,10 +264,10 @@ export default function Security() {
           {/* Trusted partnerships */}
           <section className="py-16">
             <div className="max-w-5xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mb-3 text-center">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-400 mb-3 text-center">
                 Trusted partnerships
               </p>
-              <h2 className="text-white text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
+              <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
                 Vetted by the platforms our customers already trust.
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -322,10 +314,10 @@ export default function Security() {
           {/* CTA */}
           <section className="pb-24 pt-8">
             <div className="max-w-2xl mx-auto px-6 text-center">
-              <h3 className="text-white text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
+              <h3 className="font-display text-gray-900 text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
                 Need to dig deeper?
               </h3>
-              <p className="text-slate-400 mb-7">
+              <p className="text-gray-600 mb-7">
                 Happy to share documentation, walk through compliance, or get
                 you on a call with our security team.
               </p>
@@ -355,14 +347,14 @@ function PartnerCard({
   return (
     <div className={`${CARD_SURFACE} p-7`} style={CARD_INNER_HIGHLIGHT}>
       <div className="flex items-center gap-3 mb-3">
-        <span className="grid place-items-center w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10">
+        <span className="grid place-items-center w-11 h-11 rounded-xl bg-gray-50 border border-gray-200">
           {logo}
         </span>
-        <span className="text-white text-base font-semibold tracking-[-0.01em]">
+        <span className="text-gray-900 text-base font-semibold tracking-[-0.01em]">
           {name}
         </span>
       </div>
-      <p className="text-sm text-slate-400 leading-relaxed">{body}</p>
+      <p className="text-sm text-gray-600 leading-relaxed">{body}</p>
     </div>
   );
 }

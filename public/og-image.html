@@ -4,44 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>min. OG Image Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         .og-container {
             width: 1200px;
             height: 630px;
             position: relative;
-            background: #161C24;
+            background: #FAFAF9;
             overflow: hidden;
-        }
-        .bg-grid {
-            position: absolute;
-            inset: 0;
-            opacity: 0.03;
-            background-image:
-                linear-gradient(rgba(0, 171, 85, 0.6) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 171, 85, 0.6) 1px, transparent 1px);
-            background-size: 50px 50px;
         }
         .glow-1 {
             position: absolute;
-            top: -200px;
+            top: -220px;
             left: 50%;
             transform: translateX(-50%);
-            width: 800px;
-            height: 500px;
-            background: radial-gradient(ellipse at center, rgba(0, 171, 85, 0.1) 0%, transparent 70%);
-        }
-        .glow-2 {
-            position: absolute;
-            bottom: -150px;
-            right: -100px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 171, 85, 0.06) 0%, transparent 70%);
+            width: 900px;
+            height: 520px;
+            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
         }
         .content {
             position: relative;
@@ -54,115 +38,113 @@
             box-sizing: border-box;
         }
         .logo {
-            font-size: 44px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px;
             font-weight: 600;
-            color: #F9FAFB;
-            margin-bottom: 36px;
+            color: #0A0A0A;
+            letter-spacing: -0.02em;
+            margin-bottom: 38px;
+        }
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: #0A0A0A;
         }
         .headline {
-            font-size: 72px;
-            font-weight: 700;
-            color: #F9FAFB;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 74px;
+            font-weight: 600;
+            color: #0A0A0A;
             line-height: 1.05;
             letter-spacing: -0.03em;
-            margin-bottom: 20px;
-        }
-        .headline-green {
-            color: #00AB55;
+            margin-bottom: 24px;
         }
         .subheadline {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 400;
-            color: #9CA3AF;
+            color: #6B7280;
             line-height: 1.4;
-            max-width: 700px;
+            max-width: 760px;
         }
         .prompt-bar {
             display: flex;
             align-items: center;
             gap: 14px;
-            background: #1E2630;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
             padding: 16px 22px;
-            max-width: 650px;
+            max-width: 680px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
         }
         .prompt-avatar {
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            background: #00AB55;
+            background: #0A0A0A;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            color: white;
+            font-size: 16px;
             flex-shrink: 0;
         }
         .prompt-text {
             font-size: 20px;
-            color: #E5E7EB;
+            color: #374151;
             font-weight: 400;
-        }
-        .prompt-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 22px;
-            background: #00AB55;
-            margin-left: 3px;
-            vertical-align: text-bottom;
-            border-radius: 1px;
         }
         .footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 26px;
+            border-top: 1px solid rgba(0, 0, 0, 0.07);
         }
         .domain {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 24px;
-            color: #00AB55;
-            font-weight: 500;
+            color: #0A0A0A;
+            font-weight: 600;
         }
         .features {
             display: flex;
-            gap: 28px;
+            gap: 14px;
         }
         .feature-pill {
             font-size: 16px;
-            color: #6B7280;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            color: #4B5563;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 99px;
-            padding: 6px 16px;
+            padding: 7px 16px;
         }
     </style>
 </head>
 <body>
     <div class="og-container">
-        <div class="bg-grid"></div>
         <div class="glow-1"></div>
-        <div class="glow-2"></div>
 
         <div class="content">
             <div>
                 <div class="logo">min.</div>
                 <div class="headline">
-                    Stop re-reading<br>
-                    <span class="headline-green">your emails.</span>
+                    Talk to your tools and<br>
+                    data, all in one place.
                 </div>
                 <div class="subheadline">
-                    Your minion already read them. Tell it what to do next.
+                    min organizes your emails, docs, CRM, and ERP into a memory for every team and project.
                 </div>
             </div>
 
             <div>
                 <div class="prompt-bar">
-                    <div class="prompt-avatar">You</div>
+                    <div class="prompt-avatar">✨</div>
                     <div class="prompt-text">
-                        Follow up with everyone who hasn't replied this week.<span class="prompt-cursor"></span>
+                        What are the next steps for the Acme account?
                     </div>
                 </div>
             </div>
@@ -170,27 +152,13 @@
             <div class="footer">
                 <div class="domain">getmin.ai</div>
                 <div class="features">
-                    <span class="feature-pill">Follow-ups</span>
-                    <span class="feature-pill">Status checks</span>
-                    <span class="feature-pill">Outreach</span>
-                    <span class="feature-pill">Morning briefings</span>
+                    <span class="feature-pill">Ask</span>
+                    <span class="feature-pill">Chat</span>
+                    <span class="feature-pill">Slack &amp; Teams</span>
+                    <span class="feature-pill">Any LLM</span>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Instructions for generating the image:
-        // 1. Open this HTML file in a browser
-        // 2. Take a screenshot at exactly 1200x630 pixels
-        // 3. Save as og-image.png in the public folder
-        //
-        // Or use Playwright/Puppeteer:
-        // const browser = await chromium.launch();
-        // const page = await browser.newPage();
-        // await page.setViewportSize({ width: 1200, height: 630 });
-        // await page.goto('file:///path/to/og-image.html');
-        // await page.screenshot({ path: 'og-image.png' });
-    </script>
 </body>
 </html>
