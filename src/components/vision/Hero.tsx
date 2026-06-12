@@ -11,7 +11,7 @@ export default function Hero() {
 
       <FadeIn delay={0.2}>
         <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-          min lets you organize your emails, docs, CRM, and ERP into a channel
+          min. lets you organize your emails, docs, CRM, and ERP into a channel
           for every team and project. Ask anything, get work done, and never
           start from scratch.
         </p>
