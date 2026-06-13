@@ -227,18 +227,18 @@ export function SearchMockup() {
       {/* Simulated chat frame */}
       <div className="relative rounded-[2rem] border border-gray-200/60 bg-white/40 backdrop-blur-xl shadow-2xl p-2 pb-0 overflow-hidden ring-1 ring-gray-900/5 mt-0 w-full text-left font-sans">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-        <div className="rounded-t-3xl border-x border-t border-gray-200/50 bg-[#FDFCFC] overflow-hidden shadow-inner flex flex-col h-[580px] relative">
-          
-          {/* Header */}
-          <div className="h-14 border-b border-gray-100 flex items-center px-6 gap-4 bg-white/60 shrink-0">
-            <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full border border-black/10 bg-red-400"></div>
-              <div className="w-3 h-3 rounded-full border border-black/10 bg-amber-400"></div>
-              <div className="w-3 h-3 rounded-full border border-black/10 bg-green-400"></div>
+        <div className="rounded-t-3xl border-x border-t border-gray-200/50 bg-[#FDFCFC] overflow-hidden shadow-inner flex flex-col h-[540px] sm:h-[580px] relative">
+
+          {/* Browser titlebar (desktop only; on mobile the channel header reads as the app top bar) */}
+          <div className="h-12 sm:h-14 border-b border-gray-100 hidden sm:flex items-center px-3 sm:px-6 gap-2.5 sm:gap-4 bg-white/60 shrink-0">
+            <div className="flex gap-1.5 sm:gap-2 shrink-0">
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-black/10 bg-red-400"></div>
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-black/10 bg-amber-400"></div>
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-black/10 bg-green-400"></div>
             </div>
-            <div className="ml-4 px-3 py-1.5 rounded-md bg-gray-100 text-xs font-mono text-gray-500 flex-1 max-w-sm flex items-center gap-2">
-              <span className="w-3 h-3 rounded-sm bg-gray-200"></span>
-              app.getmin.ai/chat
+            <div className="ml-1 sm:ml-4 px-3 py-1.5 rounded-md bg-gray-100 text-xs font-mono text-gray-500 flex-1 min-w-0 max-w-sm flex items-center gap-2">
+              <span className="w-3 h-3 rounded-sm bg-gray-200 shrink-0"></span>
+              <span className="truncate">app.getmin.ai/chat</span>
             </div>
           </div>
 
@@ -274,36 +274,56 @@ export function SearchMockup() {
             {/* The active channel */}
             <div className="flex-1 flex flex-col min-w-0 min-h-0">
               {/* Channel header */}
-              <div className="h-[52px] shrink-0 border-b border-gray-100 flex items-center justify-between px-5 bg-white/60">
-                <div className="flex items-center gap-2 min-w-0">
-                  <Hash className="w-4 h-4 text-gray-400 shrink-0" strokeWidth={2.5} />
-                  <span className="text-sm font-semibold text-gray-900 truncate">{currentUseCase.channel.name}</span>
-                  <span className="hidden sm:inline-flex shrink-0 text-[10px] font-semibold uppercase tracking-wide text-gray-500 bg-gray-100 rounded-full px-2 py-0.5">{currentUseCase.channel.tag}</span>
+              <div className="h-[52px] shrink-0 border-b border-gray-100 flex items-center px-3 sm:px-5 bg-white/60">
+                {/* Mobile: tappable channel chips (the desktop rail is hidden < md) */}
+                <div className="flex md:hidden items-center gap-1.5 overflow-x-auto w-full [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                  {USE_CASES.map((uc) => {
+                    const active = uc.id === activeId;
+                    return (
+                      <button
+                        key={uc.id}
+                        onClick={() => handleUseCaseSelect(uc.id)}
+                        className={`shrink-0 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-colors cursor-pointer ${active ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-500'}`}
+                      >
+                        <Hash className="w-3 h-3 shrink-0" strokeWidth={2.5} />
+                        {uc.channel.name}
+                      </button>
+                    );
+                  })}
                 </div>
-                <div className="flex items-center gap-3 shrink-0">
-                  <div className="hidden sm:flex items-center gap-1">
-                    {currentUseCase.channel.tools.map((s, i) => (
-                      <span key={i} className="w-6 h-6 rounded-md bg-gray-50 border border-gray-100 flex items-center justify-center">
-                        {s.imgSrc ? (
-                          <img src={s.imgSrc} alt="" className="w-4 h-4 object-contain" referrerPolicy="no-referrer" />
-                        ) : (
-                          <span className="flex scale-[0.78]">{s.icon}</span>
-                        )}
-                      </span>
-                    ))}
+
+                {/* Desktop: single active-channel display */}
+                <div className="hidden md:flex items-center justify-between w-full">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <Hash className="w-4 h-4 text-gray-400 shrink-0" strokeWidth={2.5} />
+                    <span className="text-sm font-semibold text-gray-900 truncate">{currentUseCase.channel.name}</span>
+                    <span className="inline-flex shrink-0 text-[10px] font-semibold uppercase tracking-wide text-gray-500 bg-gray-100 rounded-full px-2 py-0.5">{currentUseCase.channel.tag}</span>
                   </div>
-                  <span className="text-[11px] font-medium text-gray-400 whitespace-nowrap">{currentUseCase.channel.members} members</span>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <div className="flex items-center gap-1">
+                      {currentUseCase.channel.tools.map((s, i) => (
+                        <span key={i} className="w-6 h-6 rounded-md bg-gray-50 border border-gray-100 flex items-center justify-center">
+                          {s.imgSrc ? (
+                            <img src={s.imgSrc} alt="" className="w-4 h-4 object-contain" referrerPolicy="no-referrer" />
+                          ) : (
+                            <span className="flex scale-[0.78]">{s.icon}</span>
+                          )}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-[11px] font-medium text-gray-400 whitespace-nowrap">{currentUseCase.channel.members} members</span>
+                  </div>
                 </div>
               </div>
 
               {/* Chat History Flow Area */}
-              <div ref={chatContainerRef} className="flex-1 w-full flex flex-col gap-6 p-5 md:p-6 overflow-y-auto scrollbar-thin">
+              <div ref={chatContainerRef} className="flex-1 w-full flex flex-col gap-4 sm:gap-6 p-4 sm:p-6 overflow-y-auto scrollbar-thin">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeId}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.2, ease: 'easeIn' }}
-                    className="flex flex-col gap-6 w-full max-w-2xl mx-auto"
+                    className="flex flex-col gap-4 sm:gap-6 w-full max-w-2xl mx-auto"
                   >
                 
                 {/* 1. User Message (always shown when use case starts) */}
@@ -313,8 +333,8 @@ export function SearchMockup() {
                   transition={{ duration: 0.4 }}
                   className="flex gap-4 justify-end"
                 >
-                  <div className="max-w-[80%] flex flex-col items-end">
-                    <div className="px-5 py-3 rounded-2xl text-[15px] leading-relaxed bg-gray-100 text-gray-900 rounded-tr-sm shadow-sm border border-gray-200/20">
+                  <div className="max-w-[85%] flex flex-col items-end">
+                    <div className="px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl text-[14px] sm:text-[15px] leading-relaxed bg-gray-100 text-gray-900 rounded-tr-sm shadow-sm border border-gray-200/20">
                       {currentUseCase.userPrompt}
                     </div>
                   </div>
@@ -353,7 +373,7 @@ export function SearchMockup() {
                     
                     <div className="flex-1 flex flex-col gap-4">
                       {/* Response Message bubble */}
-                      <div className="px-5 py-3 rounded-2xl text-[15px] leading-relaxed text-gray-800 rounded-tl-sm bg-white border border-gray-100 shadow-sm">
+                      <div className="px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl text-[14px] sm:text-[15px] leading-relaxed text-gray-800 rounded-tl-sm bg-white border border-gray-100 shadow-sm">
                         {currentUseCase.aiResponse}
                       </div>
 
@@ -388,7 +408,7 @@ export function SearchMockup() {
           <div className="p-4 bg-gradient-to-t from-white via-white/95 to-transparent shrink-0 select-none border-t border-gray-100">
             <div className="max-w-2xl mx-auto">
               <div className="flex flex-col rounded-2xl border border-gray-200 bg-white/80 p-2.5 gap-2 cursor-default">
-                <div className="w-full bg-transparent text-[15px] text-gray-400 py-1 px-2.5 select-none">
+                <div className="w-full bg-transparent text-[14px] sm:text-[15px] text-gray-400 py-1 px-2.5 select-none truncate">
                   {currentUseCase.inputPlaceholder}
                 </div>
                 
@@ -445,7 +465,7 @@ function SourceItem({ imgSrc, icon, bg, title, subtitle, delay }: { imgSrc?: str
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.3 }}
-      className="flex items-start gap-3 p-3 rounded-xl border border-gray-200/85 bg-white shadow-sm min-w-[210px] flex-1 cursor-default hover:bg-gray-50/50 transition-colors shrink-0"
+      className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl border border-gray-200/85 bg-white shadow-sm min-w-0 sm:min-w-[210px] flex-1 cursor-default hover:bg-gray-50/50 transition-colors shrink-0"
     >
        <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${bg || 'bg-gray-50'}`}>
           {imgSrc && (

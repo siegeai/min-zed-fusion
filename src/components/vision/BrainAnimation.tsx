@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  FileText, Mail, FileSpreadsheet, Image, Presentation, 
+import {
+  FileText, Mail, FileSpreadsheet, Image, Presentation,
   Sparkles, RefreshCw, Check, Layers, ChevronRight, HelpCircle
 } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface FileItem {
   id: string;
@@ -167,6 +168,10 @@ const INITIAL_FILES: FileItem[] = [
 
 export default function BrainAnimation() {
   const [status, setStatus] = useState<'messy' | 'organizing' | 'organized'>('messy');
+  const isMobile = useIsMobile();
+  // On mobile the whole group is CSS-scaled to 0.6; tighten the scatter so cards
+  // don't fly off the screen edges during the messy phase.
+  const spread = isMobile ? 0.62 : 1;
 
   useEffect(() => {
     let timer: any;
@@ -221,10 +226,10 @@ export default function BrainAnimation() {
         </div>
 
         {/* Clean, Frameless Canvas container */}
-        <div className="relative flex flex-col h-[650px] justify-center items-center overflow-visible select-none">
-          
-          {/* Animation Core Area */}
-          <div className="w-full h-full relative flex items-center justify-center overflow-visible">
+        <div className="relative flex flex-col h-[440px] sm:h-[650px] justify-center items-center overflow-visible select-none">
+
+          {/* Animation Core Area (scaled down on mobile so the brain + cards fit) */}
+          <div className="w-full h-full relative flex items-center justify-center overflow-visible scale-[0.6] sm:scale-100">
             
             {/* Center Brain: two mirrored hemispheres built from circular arcs */}
             <div className="relative w-[525px] h-[525px] flex items-center justify-center z-10">
@@ -299,28 +304,6 @@ export default function BrainAnimation() {
                   </radialGradient>
                 </defs>
               </svg>
-
-              {/* Status pill narrating the animation state */}
-              <div className="absolute z-20 inset-0 flex items-center justify-center pointer-events-none">
-                <motion.div
-                  key={status}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex items-center gap-2 rounded-full bg-white border border-gray-200 shadow-md px-4 py-2"
-                >
-                  {status === 'organized' ? (
-                    <span className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
-                      <Check className="w-2.5 h-2.5 text-white" strokeWidth={3.5} />
-                    </span>
-                  ) : (
-                    <span className={`w-2 h-2 rounded-full ${status === 'organizing' ? 'bg-blue-500 animate-pulse' : 'bg-amber-400'}`} />
-                  )}
-                  <span className="text-xs font-semibold text-gray-800 whitespace-nowrap">
-                    {status === 'messy' ? 'Scattered across your tools' : status === 'organizing' ? 'min is organizing...' : 'Organized into channels'}
-                  </span>
-                </motion.div>
-              </div>
             </div>
 
             {/* Scattered Document Cards smoothly transitioning */}
@@ -335,8 +318,8 @@ export default function BrainAnimation() {
                 <motion.div
                   key={file.id}
                   animate={status === 'messy' ? {
-                    x: file.messyX,
-                    y: file.messyY,
+                    x: file.messyX * spread,
+                    y: file.messyY * spread,
                     rotate: file.messyRotate,
                     scale: 1,
                     opacity: 1,
@@ -407,6 +390,28 @@ export default function BrainAnimation() {
               );
             })}
 
+          </div>
+
+          {/* Status pill narrating the animation state (full size, above the scaled brain) */}
+          <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
+            <motion.div
+              key={status}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center gap-2 rounded-full bg-white border border-gray-200 shadow-md px-4 py-2"
+            >
+              {status === 'organized' ? (
+                <span className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
+                  <Check className="w-2.5 h-2.5 text-white" strokeWidth={3.5} />
+                </span>
+              ) : (
+                <span className={`w-2 h-2 rounded-full ${status === 'organizing' ? 'bg-blue-500 animate-pulse' : 'bg-amber-400'}`} />
+              )}
+              <span className="text-xs font-semibold text-gray-800 whitespace-nowrap">
+                {status === 'messy' ? 'Scattered across your tools' : status === 'organizing' ? 'min is organizing...' : 'Organized into channels'}
+              </span>
+            </motion.div>
           </div>
 
         </div>

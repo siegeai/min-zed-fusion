@@ -9,23 +9,23 @@ export function AnimatedMockup() {
   return (
     <div className="relative rounded-[2rem] border border-gray-200/60 bg-white/40 backdrop-blur-xl shadow-2xl p-2 pb-0 overflow-hidden ring-1 ring-gray-900/5 mt-0 w-full text-left">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-      <div className="rounded-t-3xl border-x border-t border-gray-200/50 bg-[#FDFCFC] overflow-hidden shadow-inner flex flex-col h-[740px] relative">
-        
+      <div className="rounded-t-3xl border-x border-t border-gray-200/50 bg-[#FDFCFC] overflow-hidden shadow-inner flex flex-col h-[560px] sm:h-[740px] relative">
+
         {/* Header */}
-        <div className="h-14 border-b border-gray-100 flex items-center px-6 gap-4 bg-white/60 shrink-0">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full border border-black/10 bg-red-400"></div>
-            <div className="w-3 h-3 rounded-full border border-black/10 bg-amber-400"></div>
-            <div className="w-3 h-3 rounded-full border border-black/10 bg-green-400"></div>
+        <div className="h-12 sm:h-14 border-b border-gray-100 flex items-center px-3 sm:px-6 gap-2.5 sm:gap-4 bg-white/60 shrink-0">
+          <div className="flex gap-1.5 sm:gap-2 shrink-0">
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-black/10 bg-red-400"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-black/10 bg-amber-400"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-black/10 bg-green-400"></div>
           </div>
-          <div className="ml-4 px-3 py-1.5 rounded-md bg-gray-100 text-xs font-mono text-gray-500 flex-1 max-w-sm flex items-center gap-2">
-            <span className="w-3 h-3 rounded-sm bg-gray-200"></span>
-            app.getmin.ai/chat
+          <div className="ml-1 sm:ml-4 px-3 py-1.5 rounded-md bg-gray-100 text-xs font-mono text-gray-500 flex-1 min-w-0 max-w-sm flex items-center gap-2">
+            <span className="w-3 h-3 rounded-sm bg-gray-200 shrink-0"></span>
+            <span className="truncate">app.getmin.ai/chat</span>
           </div>
         </div>
 
         {/* Body */}
-        <div className="flex-1 flex p-6 gap-6 overflow-hidden relative">
+        <div className="flex-1 flex p-2.5 sm:p-6 gap-6 overflow-hidden relative">
            
            {/* Left Sidebar - Integrations */}
            <div className="w-56 hidden md:flex flex-col gap-1 relative z-10 shrink-0 bg-white/60 p-3.5 rounded-xl border border-gray-100/80 shadow-sm backdrop-blur-sm">
@@ -47,40 +47,40 @@ export function AnimatedMockup() {
            {/* Chat Window */}
            <div className="flex-1 rounded-xl bg-white border border-gray-100/80 shadow-sm flex flex-col relative z-10 h-full overflow-hidden">
              
-             <div className="h-14 border-b border-gray-100 flex items-center justify-between px-6 bg-gray-50/50">
-               <div className="flex items-center gap-3">
-                 <div className="font-semibold text-gray-900 text-sm"># acme</div>
-                 <span className="px-2 py-0.5 rounded-md bg-zinc-100 text-zinc-600 text-[10px] font-semibold border border-zinc-200 uppercase tracking-wide">Shared</span>
+             <div className="h-12 sm:h-14 border-b border-gray-100 flex items-center justify-between px-4 sm:px-6 gap-2 bg-gray-50/50">
+               <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                 <div className="font-semibold text-gray-900 text-sm whitespace-nowrap"># acme</div>
+                 <span className="px-2 py-0.5 rounded-md bg-zinc-100 text-zinc-600 text-[10px] font-semibold border border-zinc-200 uppercase tracking-wide shrink-0">Shared</span>
                </div>
-               <div className="flex items-center">
-                 <div className="w-7 h-7 rounded-full bg-indigo-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-indigo-700 relative z-40 shadow-sm">AL</div>
-                  <div className="w-7 h-7 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-amber-700 relative z-30 -ml-2 shadow-sm">JS</div>
-                 <div className="w-7 h-7 rounded-full bg-emerald-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-emerald-700 relative z-20 -ml-2 shadow-sm">SM</div>
-                 <div className="w-7 h-7 rounded-full bg-black border-2 border-white flex items-center justify-center text-[10px] font-bold text-white relative z-10 -ml-2 shadow-sm">✨</div>
+               <div className="flex items-center shrink-0">
+                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-indigo-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-indigo-700 relative z-40 shadow-sm">AL</div>
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-amber-700 relative z-30 -ml-2 shadow-sm">JS</div>
+                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-emerald-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-emerald-700 relative z-20 -ml-2 shadow-sm">SM</div>
+                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black border-2 border-white flex items-center justify-center text-[10px] font-bold text-white relative z-10 -ml-2 shadow-sm">✨</div>
                </div>
              </div>
 
-             <div className="flex-1 p-6 flex flex-col gap-6 overflow-y-auto">
+             <div className="flex-1 p-3 sm:p-6 flex flex-col gap-4 sm:gap-6 overflow-y-auto">
                
-               <ChatMessage 
+               <ChatMessage
                  avatar="AL" avatarColor="bg-indigo-100 text-indigo-700"
                  name="Alex" time="10:42 AM"
-                 text="Hey team, I'm creating a memory capsule so that we can transition this new customer from the sales org to customer success and implementation team."
+                 text="Setting up this channel to hand Acme off from sales to customer success."
                />
 
-                <motion.div 
+                <motion.div
                  initial={{ opacity: 0, y: 10 }}
                  animate={{ opacity: 1, y: 0 }}
                  transition={{ delay: 0.5, duration: 0.5 }}
-                 className="flex gap-4 mt-2"
+                 className="flex gap-2.5 sm:gap-4 mt-2"
                >
-                 <div className="w-9 h-9 rounded-full bg-black flex items-center justify-center text-xs font-medium text-white shrink-0 shadow-sm mt-1">✨</div>
-                 <div className="flex-1">
+                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black flex items-center justify-center text-xs font-medium text-white shrink-0 shadow-sm mt-1">✨</div>
+                 <div className="flex-1 min-w-0">
                    <div className="flex items-baseline gap-2 mb-1.5 ml-1">
                      <span className="text-sm font-semibold text-gray-900">min. AI</span>
                      <span className="text-xs text-gray-400">10:46 AM</span>
                    </div>
-                   <div className="bg-gray-50/80 p-5 rounded-2xl rounded-tl-none border border-gray-100 relative shadow-sm">
+                   <div className="bg-gray-50/80 p-3 sm:p-5 rounded-2xl rounded-tl-none border border-gray-100 relative shadow-sm">
                      <p className="text-sm text-gray-700 mb-4 font-medium">I'll organize the context for you. Drop any references here:</p>
                      
                      {/* Drop Target Zone */}
@@ -207,16 +207,16 @@ function DroppedItem({ icon: Icon, imgSrc, customIcon, title, subtitle, color, b
          repeat: Infinity,
          ease: 'easeOut'
        }}
-       className={`flex items-center gap-3 p-3 rounded-xl border bg-white ${border} shadow-sm z-10 w-full hover:border-gray-300 transition-colors`}
+       className={`flex items-center gap-3 p-2.5 sm:p-3 rounded-xl border bg-white ${border} shadow-sm z-10 w-full hover:border-gray-300 transition-colors`}
     >
-       <div className={`w-[36px] h-[36px] flex items-center justify-center rounded-lg ${bg} ${color}`}>
+       <div className={`w-8 h-8 sm:w-[36px] sm:h-[36px] shrink-0 flex items-center justify-center rounded-lg ${bg} ${color}`}>
          {imgSrc && <img src={imgSrc} alt={title} className="w-[18px] h-[18px] object-contain" />}
          {customIcon && customIcon}
          {Icon && <Icon className="w-[18px] h-[18px]" strokeWidth={2.5} />}
        </div>
-       <div>
-         <div className="text-sm font-semibold text-gray-900 leading-tight mb-0.5">{title}</div>
-         <div className="text-[11px] text-gray-500 font-semibold">{subtitle}</div>
+       <div className="min-w-0">
+         <div className="text-[13px] sm:text-sm font-semibold text-gray-900 leading-tight mb-0.5 truncate">{title}</div>
+         <div className="text-[11px] text-gray-500 font-semibold truncate">{subtitle}</div>
        </div>
     </motion.div>
   )
