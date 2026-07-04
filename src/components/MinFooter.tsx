@@ -4,10 +4,9 @@ const COLUMNS = [
   {
     heading: "Product",
     links: [
-      { label: "Overview", to: "/#product" },
-      { label: "Channels", to: "/#channels" },
-      { label: "Collective Memory", to: "/#memory" },
-      { label: "Features", to: "/#features" },
+      { label: "The capsule", to: "/#capsule" },
+      { label: "How it works", to: "/#how" },
+      { label: "Merge and share", to: "/#share" },
       { label: "Pricing", to: "/pricing" },
     ],
   },
@@ -42,8 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              min organizes your company's emails, docs, CRM, and ERP into a
-              memory for every team and project, so every team gets answers and stays aligned.
+              min. turns your email and meetings into a live shared memory of
+              every relationship. Zero manual work. Merge it, share it with your
+              team.
             </p>
           </div>
 

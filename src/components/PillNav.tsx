@@ -4,11 +4,11 @@ import { Menu, X } from "lucide-react";
 import { motion } from "motion/react";
 
 const NAV_LINKS = [
-  { label: "Product", to: "/#product" },
-  { label: "Features", to: "/#features" },
+  { label: "The capsule", to: "/#capsule" },
+  { label: "How it works", to: "/#how" },
+  { label: "Share", to: "/#share" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },
-  { label: "Company", to: "/about" },
 ];
 
 export default function PillNav() {
@@ -44,13 +44,13 @@ export default function PillNav() {
               href="https://app.getmin.ai"
               className="text-sm font-medium text-gray-500 hover:text-black transition-colors px-3 py-2"
             >
-              Log in
+              Sign in
             </a>
             <a
               href="https://app.getmin.ai"
               className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
             >
-              Get Access
+              Connect your inbox
             </a>
           </div>
 
@@ -83,13 +83,13 @@ export default function PillNav() {
               href="https://app.getmin.ai"
               className="rounded-full border border-gray-200 text-gray-700 text-sm font-medium py-3 text-center"
             >
-              Log in
+              Sign in
             </a>
             <a
               href="https://app.getmin.ai"
               className="rounded-full bg-black text-white text-sm font-medium py-3 text-center"
             >
-              Get Access
+              Connect your inbox
             </a>
           </div>
         </div>
