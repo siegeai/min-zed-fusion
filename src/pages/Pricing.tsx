@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Check, ArrowRight, User } from "lucide-react";
+import { Check, ArrowRight, Users } from "lucide-react";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
 
@@ -13,6 +13,7 @@ type Plan = {
   name: string;
   swatch: string; // tailwind bg class for the colored dot
   audience: string; // who it's for, the small label above price
+  recall: { label: string; strong: boolean }; // the paid lever, shown as a chip
   tagline: string;
   inheritFrom?: string;
   features: string[];
@@ -25,33 +26,34 @@ const PLANS: Plan[] = [
   {
     name: "Free",
     swatch: "bg-gray-400",
-    audience: "For one person",
+    audience: "For your whole team",
     price: { display: "$0", sub: "forever" },
+    recall: { label: "Recalls the last 3 months", strong: false },
     tagline:
-      "Turn your email and meetings into a living capsule for every relationship. Yours alone.",
+      "Invite everyone, free. Living capsules, merged and shared across the whole team.",
     features: [
+      "Unlimited teammates, free",
       "A living capsule for every relationship",
-      "Built automatically from Gmail or Outlook, plus meetings",
-      "Your feed, constellation, and prep",
-      "Insights, your eyes only",
-      "Share any capsule with the other side, free",
+      "Merge, share, and one shared team memory",
+      "Built automatically from email and meetings",
+      "Feed, constellation, prep, and your-eyes-only insights",
     ],
     cta: { label: "Connect your inbox", href: APP_URL },
   },
   {
-    name: "Team",
+    name: "Pro",
     swatch: "bg-emerald-500",
-    audience: "For your team",
-    price: { display: "$20", sub: "/ user / mo" },
+    audience: "For teams who rely on it",
+    price: { display: "$20", sub: "/ active teammate / mo" },
+    recall: { label: "Recalls the full history, all-time", strong: true },
     tagline:
-      "For teams who work the same relationships. One shared memory that outlasts anyone leaving.",
+      "Recall the whole history of every relationship. Billed only for teammates who are active.",
     inheritFrom: "Free",
     features: [
-      "Invite your whole team",
-      "Merge capsules to see the whole relationship",
-      "One shared memory across everyone",
-      "When someone leaves, the relationships stay",
+      "Full history, all-time recall",
+      "Invite everyone free, pay only for active teammates",
       "Roles and admin controls",
+      "Priority support",
     ],
     cta: { label: "Start with your team", href: APP_URL },
     highlighted: true,
@@ -61,9 +63,10 @@ const PLANS: Plan[] = [
     swatch: "bg-gray-900",
     audience: "For your whole company",
     price: { display: "Custom", sub: "let's talk" },
+    recall: { label: "Recalls the full history, all-time", strong: true },
     tagline:
       "When your team's memory is the thing you cannot afford to lose.",
-    inheritFrom: "Team",
+    inheritFrom: "Pro",
     features: [
       "SSO, SAML, and SCIM",
       "SOC 2 Type II and data residency",
@@ -82,47 +85,48 @@ type CompareValue = string | boolean;
 type CompareRow = { row: string; values: [CompareValue, CompareValue, CompareValue] };
 
 const COMPARE: CompareRow[] = [
-  { row: "Price", values: ["$0 forever", "$20 / user / mo", "Custom"] },
-  { row: "Who it's for", values: ["One person", "Your team", "Your company"] },
+  { row: "Price", values: ["$0 forever", "$20 / active teammate / mo", "Custom"] },
+  { row: "Teammates", values: ["Unlimited, free", "Unlimited, invite free", "Unlimited"] },
+  { row: "Recall window", values: ["Last 3 months", "All-time", "All-time"] },
   { row: "A capsule for every relationship", values: [true, true, true] },
   { row: "Built from email and meetings", values: [true, true, true] },
+  { row: "Merge capsules with teammates", values: [true, true, true] },
+  { row: "One shared team memory", values: [true, true, true] },
+  { row: "Share a capsule with the other side", values: [true, true, true] },
   { row: "Feed, constellation, and prep", values: [true, true, true] },
   { row: "Insights, your eyes only", values: [true, true, true] },
-  { row: "Share a capsule with the other side", values: [true, true, true] },
-  { row: "Merge capsules with teammates", values: [false, true, true] },
-  { row: "One shared team memory", values: [false, true, true] },
   { row: "Roles and admin", values: [false, true, true] },
   { row: "SSO, SAML, SCIM", values: [false, false, true] },
   { row: "SOC 2 Type II", values: [true, true, true] },
   { row: "Data residency", values: [false, false, true] },
   { row: "Audit log", values: [false, false, true] },
-  { row: "Support", values: ["Community", "Email", "Dedicated"] },
+  { row: "Support", values: ["Community", "Priority", "Dedicated"] },
 ];
 
 const FAQS = [
   {
-    q: "Is min. really free for one person?",
-    a: "Yes, solo and forever. Every relationship you have becomes a capsule, built automatically from the email and meetings you already have. You only pay when you bring teammates in to merge and share.",
+    q: "Is min. really free for my whole team?",
+    a: "Yes. Invite everyone at no cost. You all get living capsules, merge and share, and one shared team memory. Free recalls the last 3 months of every relationship. You upgrade only to reach further back.",
   },
   {
-    q: "What am I paying for on Team?",
-    a: "Teammates. Team is billed per user per month, for when two of you work the same relationships. You merge capsules into one view, your memory becomes shared, and when someone leaves the relationships stay.",
+    q: "What does Pro add?",
+    a: "The full memory. Free recalls the last 3 months; Pro recalls the entire history of every relationship, all-time, plus roles and admin. Older context is always captured, it just becomes recallable the moment you upgrade.",
   },
   {
-    q: "What happens when I invite a teammate?",
-    a: "Your workspace becomes a Team workspace. Each person gets a seat, your capsules can merge, and the memory is shared across everyone you invite.",
+    q: "What does \"per active teammate\" mean?",
+    a: "You invite as many people as you like for free. Each month you're billed only for the teammates who actually used min. Inactive teammates cost nothing, so growing your team is never taxed.",
+  },
+  {
+    q: "So inviting teammates is always free?",
+    a: "Always. Spreading min. across your team should never cost you. You pay for how far back the memory reaches, not for headcount, and only for people who are active.",
   },
   {
     q: "Can I share a capsule for free?",
-    a: "Yes. Sharing a capsule with the person on the other side is free on every plan. They sign in as themselves and see only the emails and meetings between the two of you. A grant, not an export, revocable any time.",
+    a: "Yes, on every plan. Sharing a capsule with the person on the other side is free. They sign in as themselves and see only the emails and meetings between the two of you. A grant, not an export, revocable any time.",
   },
   {
-    q: "Do you store my email?",
-    a: "No. min. keeps distilled memory, not your raw email. Message bodies are not stored, and your insights are your eyes only.",
-  },
-  {
-    q: "Is my data used to train AI models?",
-    a: "Never. Your memory is yours. We don't train on it, sell it, or share it with anyone unless you choose to share a capsule.",
+    q: "Do you store my email, and is my data used to train AI?",
+    a: "No and never. min. keeps distilled memory, not your raw email, and message bodies are not stored. Your memory is yours. We don't train on it, sell it, or share it unless you share a capsule.",
   },
 ];
 
@@ -137,7 +141,7 @@ const Pricing = () => {
         <title>Pricing | min.</title>
         <meta
           name="description"
-          content="min. is relationship memory that is free for one person, forever. Every relationship becomes a living capsule, built from your email and meetings. You pay per teammate, only when your team merges and shares the memory."
+          content="min. is relationship memory that is free for your whole team. Invite everyone at no cost to merge and share living capsules. You pay to recall the full history, billed only for teammates who are active."
         />
         <link rel="canonical" href="https://getmin.ai/pricing" />
       </Helmet>
@@ -153,13 +157,14 @@ const Pricing = () => {
                 Pricing
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.05] text-4xl md:text-5xl lg:text-6xl max-w-3xl mx-auto">
-                Start free. Grow with your{" "}
+                Free for your whole{" "}
                 <span className="text-emerald-600">team</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                Every relationship you have becomes a living capsule, built
-                automatically from your email and meetings. Free for one person,
-                forever. You pay only when your team merges and shares the memory.
+                Every relationship becomes a living capsule, built automatically
+                from your email and meetings. Invite everyone at no cost. You pay
+                only to recall the full history, and only for teammates who are
+                active.
               </p>
             </header>
 
@@ -173,8 +178,8 @@ const Pricing = () => {
               ))}
             </section>
 
-            {/* Solo note */}
-            <SoloNote />
+            {/* Invite-free note */}
+            <InviteNote />
 
             {/* Compare plans */}
             <section className="mb-20 md:mb-28">
@@ -205,20 +210,18 @@ function GrowthExplainer() {
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-5">
           <div className="flex items-center gap-3 shrink-0">
             <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-mono font-bold tracking-[0.16em] uppercase text-emerald-700">
-              Pay for teammates
+              Seats are free
             </span>
             <span className="text-gray-900 text-base md:text-lg font-semibold tracking-[-0.01em] whitespace-nowrap">
-              Not for memory.
+              Pay for memory, not seats.
             </span>
           </div>
           <p className="text-gray-600 text-[14px] md:text-[15px] leading-snug">
-            min. builds a capsule for every relationship you have at no cost, for
-            as long as you like, and{" "}
-            <span className="text-gray-900">
-              sharing one with the other side is always free
-            </span>
-            . You pay per teammate, only when your team works the same
-            relationships together.
+            Invite your whole team at no cost and start merging and sharing right
+            away. min. recalls{" "}
+            <span className="text-gray-900">the last 3 months for free</span>. Pro
+            reaches back through the full history of every relationship, billed
+            only for the teammates who are active.
           </p>
         </div>
       </div>
@@ -226,21 +229,21 @@ function GrowthExplainer() {
   );
 }
 
-/* ─────────── Solo note ─────────── */
+/* ─────────── Invite-free note ─────────── */
 
-function SoloNote() {
+function InviteNote() {
   return (
     <div className="max-w-3xl mx-auto mb-20 md:mb-28">
       <div className="flex items-start gap-3 justify-center text-center md:text-left">
         <span className="hidden md:inline-flex shrink-0 mt-0.5">
-          <User className="w-4 h-4 text-gray-400" strokeWidth={2} />
+          <Users className="w-4 h-4 text-gray-400" strokeWidth={2} />
         </span>
         <p className="text-gray-500 text-[13.5px] leading-relaxed">
           <span className="text-gray-900 font-medium">
-            Free is built for one person.
+            Inviting teammates is always free.
           </span>{" "}
-          The moment you invite a teammate to merge and share, you move to Team,
-          and your capsules become one memory everyone can build on.
+          You're billed only for the people who are active each month, and only
+          to recall the full history. Growth inside your team is never taxed.
         </p>
       </div>
     </div>
@@ -277,7 +280,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       </p>
 
       {/* Price: the focal point */}
-      <div className="mb-4 min-h-[52px]">
+      <div className="mb-3 min-h-[52px]">
         <div className="flex items-baseline gap-1.5 flex-wrap">
           <span className="text-gray-900 text-4xl md:text-5xl font-semibold tracking-[-0.02em] tabular-nums leading-none">
             {plan.price.display}
@@ -290,8 +293,21 @@ function PlanCard({ plan }: { plan: Plan }) {
         </div>
       </div>
 
+      {/* Recall lever chip */}
+      <div className="mb-4">
+        <span
+          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-medium ${
+            plan.recall.strong
+              ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
+              : "border border-gray-200 bg-gray-50 text-gray-600"
+          }`}
+        >
+          {plan.recall.label}
+        </span>
+      </div>
+
       {/* Tagline (reserved height so cards align) */}
-      <p className="text-gray-600 text-[13px] leading-relaxed mb-5 min-h-[60px]">
+      <p className="text-gray-600 text-[13px] leading-relaxed mb-5 min-h-[54px]">
         {plan.tagline}
       </p>
 
