@@ -99,6 +99,21 @@
   .constellation-drift { animation: none; }
 }
 
+/* Integrations logo marquee (seamless infinite scroll) */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-scroll 34s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
 /* CTA subtle lift on hover */
 .cta-glow {
   position: relative;

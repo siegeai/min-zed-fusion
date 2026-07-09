@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
 import LandingHero from "@/components/landing/LandingHero";
+import Integrations from "@/components/landing/Integrations";
 import CapsuleTypes from "@/components/landing/CapsuleTypes";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
@@ -27,6 +28,7 @@ const Index = () => {
 
         <main className="flex-1">
           <LandingHero />
+          <Integrations />
           <CapsuleTypes />
           <CapsuleUpClose />
           <HowItWorks />
