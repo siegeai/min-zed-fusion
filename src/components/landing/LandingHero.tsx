@@ -7,7 +7,7 @@ const APP_URL = "https://app.getmin.ai";
 
 export default function LandingHero() {
   return (
-    <section className="relative overflow-hidden px-4 pt-32 pb-16 md:pt-40 md:pb-24">
+    <section className="relative overflow-hidden px-4 pt-32 pb-6 md:pt-36 md:pb-8">
       <Constellation className="opacity-70" />
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">

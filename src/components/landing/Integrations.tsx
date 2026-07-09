@@ -23,7 +23,7 @@ const FADE =
 export default function Integrations() {
   const loop = [...NAMES, ...NAMES];
   return (
-    <section className="px-4 py-16 md:py-20">
+    <section className="px-4 pt-4 pb-14 md:pt-6 md:pb-16">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="font-display text-[1.7rem] font-semibold tracking-tight text-gray-900 md:text-4xl">
           Every relationship, context at your fingertips.
@@ -35,7 +35,7 @@ export default function Integrations() {
       </div>
 
       <div
-        className="relative mt-12 overflow-hidden"
+        className="relative mt-9 overflow-hidden"
         style={{ maskImage: FADE, WebkitMaskImage: FADE }}
       >
         <div className="marquee-track flex w-max items-center">
