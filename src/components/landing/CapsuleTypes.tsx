@@ -67,7 +67,7 @@ export default function CapsuleTypes() {
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-[2.5rem]">
-              A capsule for every relationship.
+              A living capsule for every relationship.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
               People, companies, and groups. Each one a living memory that builds

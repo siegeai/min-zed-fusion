@@ -28,7 +28,7 @@ const PLANS: Plan[] = [
     recall: { label: "Last 3 months", strong: false },
     features: [
       "Unlimited teammates",
-      "A capsule for every relationship",
+      "A living capsule for every relationship",
       "Merge and share across your team",
       "Built from email and meetings",
     ],
