@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Linkedin, X, BookOpen, Zap, Layers, Network } from "lucide-react";
+import { Linkedin, X, BookOpen, Zap, Lock, Network } from "lucide-react";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
 import { IconTile, CARD_SURFACE } from "@/components/MinPrimitives";
@@ -8,23 +8,23 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const BELIEFS = [
   {
+    Icon: Network,
+    tint: "blue" as const,
+    title: "Relationships are the real work",
+    body: "Careers, deals, and companies are built on relationships, not a sales process. The tool should serve the relationship, not turn it into data entry.",
+  },
+  {
     Icon: Zap,
     tint: "amber" as const,
     filled: true,
-    title: "AI is only as good as its memory",
-    body: "Models don't know your business. min feeds your AI your company's collective memory, so every answer is grounded in real context instead of guesswork.",
+    title: "Memory should build itself",
+    body: "Nobody should keep a relationship alive by hand. The memory should form on its own from the work you already do, every call and every email.",
   },
   {
-    Icon: Layers,
+    Icon: Lock,
     tint: "blue" as const,
-    title: "Context shouldn't live in silos",
-    body: "Emails, docs, calls, CRM, ERP. Your customers don't experience your departments, and your AI shouldn't either. Connected across every team, answered in a single question.",
-  },
-  {
-    Icon: Network,
-    tint: "blue" as const,
-    title: "You stay in control of your data",
-    body: "Collective memory only works if it's safe to build. You decide exactly what data is shared, with whom, and when. Nothing leaves your control by default.",
+    title: "Your memory is yours",
+    body: "A memory this personal only works if it's safe. You decide what is shared and with whom. Your insights stay yours alone.",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. unifies your company's emails, docs, calls, CRM, and ERP into memory for every team and project your team can ask and chat with, inside Slack, Microsoft Teams, or the LLM of your choice.",
+      "min. turns your email and meetings into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -54,10 +54,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | Talk to your tools and data, all in one place</title>
+        <title>About min. | The relationship assistant that never forgets</title>
         <meta
           name="description"
-          content="min. unifies your company's emails, docs, calls, CRM, and ERP into memory for every team and project your team can ask and chat with, inside Slack, Microsoft Teams, or the LLM of your choice."
+          content="min. turns your email and meetings into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone."
         />
         <link rel="canonical" href="https://getmin.ai/about" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -74,16 +74,14 @@ export default function About() {
                 About min.
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                We're building your company's{" "}
-                <span className="text-blue-600">collective memory</span>
+                We're building perfect memory
                 <br className="hidden sm:block" />{" "}
-                so your AI finally knows your business.
+                for <span className="text-blue-600">every relationship</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                Talk to your tools and data, all in one place. min unifies your
-                emails, docs, calls, CRM, and ERP into a memory for every team and project
-                that your team can ask, chat with, and stay aligned around,
-                inside Slack, Microsoft Teams, or the LLM of your choice.
+                min. turns your email and meetings into a living memory of every
+                person, company, and group you work with. The people whose work
+                runs on relationships should never have to rely on memory alone.
               </p>
             </div>
           </section>
@@ -122,27 +120,26 @@ export default function About() {
                 Origin
               </p>
               <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-8">
-                AI models don't know your business.
+                You can't remember everyone. Your work needs you to.
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  The smartest model on earth still walks into your company
-                  blind. It has never read your onboarding docs, never sat on a
-                  support call, never seen how a deal actually closed. So teams
-                  re-paste the same context into ChatGPT, then Gemini, then
-                  Claude, every chat starting from zero.
+                  The work that matters most, closing the deal, keeping the
+                  client, landing the hire, comes down to relationships. But every
+                  relationship is a growing pile of calls, emails, and promises,
+                  and no one can hold all of it in their head.
                 </p>
                 <p>
-                  The knowledge was always there. Sitting in email, in shared
-                  docs, in call recordings, in the CRM and ERP. It just wasn't
-                  unified into memory for every team and project that an AI could actually
-                  read, and that the whole team could stay aligned around.
+                  So the important things slip. You walk into a meeting trying to
+                  recall what you agreed last time. A promise goes unkept. A
+                  relationship you meant to nurture goes quiet. Not from not
+                  caring, but from being human.
                 </p>
                 <p>
-                  So we built min: the collective memory layer that grounds your
-                  AI in your company's real context. Ask anything of it
-                  from Slack, Microsoft Teams, or the LLM of your choice, while
-                  you stay in absolute control of exactly what data is shared.
+                  So we built min.: a living memory for every relationship, built
+                  automatically from your email and meetings. It remembers what you
+                  can't, so being great with people stops depending on a perfect
+                  memory.
                 </p>
               </div>
             </div>
@@ -158,7 +155,7 @@ export default function About() {
                 <TeamCard
                   name="Eric Wang"
                   title="CEO"
-                  bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building the collective memory layer that grounds every team's AI in their real business context."
+                  bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building min., so no relationship is ever lost to a bad memory."
                   avatar={
                     <Avatar className="w-16 h-16 shrink-0 border border-gray-200">
                       <AvatarImage
@@ -191,7 +188,7 @@ export default function About() {
                 <TeamCard
                   name="Fadi Kanaan"
                   title="Head of Operations"
-                  bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now connecting min. to the teams that need their collective memory unified and grounded the most."
+                  bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now getting min. into the hands of the teams whose work runs on relationships."
                   avatar={<FadiAvatar />}
                   socials={[
                     {
@@ -209,17 +206,17 @@ export default function About() {
           <section id="cta" className="pb-24 pt-8">
             <div className="max-w-3xl mx-auto px-6 text-center">
               <h3 className="font-display text-gray-900 text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
-                Ready to give your AI your company's memory?
+                Never walk in cold again.
               </h3>
               <p className="text-gray-600 mb-7 max-w-xl mx-auto">
-                Stop re-explaining your business to every model. Unify your
-                tools and data into memory for every team and project, on your terms.
+                Turn your email and meetings into a living memory of every
+                relationship. Two minutes to connect, and min. does the rest.
               </p>
               <a
-                href="mailto:hello@getmin.ai?subject=Demo%20Request"
+                href="https://app.getmin.ai"
                 className="inline-block rounded-full bg-black text-white text-sm font-medium px-5 py-2.5 hover:bg-gray-800 transition-colors"
               >
-                Book Demo
+                Connect your inbox
               </a>
             </div>
           </section>
