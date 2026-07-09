@@ -6,6 +6,7 @@ import CapsuleTypes from "@/components/landing/CapsuleTypes";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Assistant from "@/components/landing/Assistant";
+import Share from "@/components/landing/Share";
 import Privacy from "@/components/landing/Privacy";
 import FinalCTA from "@/components/landing/FinalCTA";
 
@@ -30,6 +31,7 @@ const Index = () => {
           <CapsuleUpClose />
           <HowItWorks />
           <Assistant />
+          <Share />
           <Privacy />
           <FinalCTA />
         </main>
