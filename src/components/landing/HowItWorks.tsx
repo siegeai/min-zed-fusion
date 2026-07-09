@@ -1,4 +1,4 @@
-import { Plug, Sparkles, RefreshCw } from "lucide-react";
+import { Plug, Sparkles, Share2 } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 
 const STEPS = [
@@ -6,19 +6,19 @@ const STEPS = [
     n: "01",
     Icon: Plug,
     title: "Connect.",
-    body: "Gmail or Outlook, plus your meetings. Two minutes.",
+    body: "Sync your email and meeting provider. Two minutes, and you never touch it again.",
   },
   {
     n: "02",
     Icon: Sparkles,
-    title: "min. distills.",
-    body: "Facts, commitments, money, dates, from every thread and call. Automatically.",
+    title: "min. summarizes.",
+    body: "The relationship, the facts, the commitments, from every thread and call. Automatically.",
   },
   {
     n: "03",
-    Icon: RefreshCw,
-    title: "Every capsule stays current.",
-    body: "New calls and emails flow in on their own. You never update anything.",
+    Icon: Share2,
+    title: "Share.",
+    body: "Share a relationship capsule with anyone on your team, so everyone stays up to date.",
   },
 ];
 

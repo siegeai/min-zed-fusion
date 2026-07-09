@@ -2,11 +2,10 @@ import { Helmet } from "react-helmet-async";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
 import LandingHero from "@/components/landing/LandingHero";
-import ProblemStrip from "@/components/landing/ProblemStrip";
+import CapsuleTypes from "@/components/landing/CapsuleTypes";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
-import MergeShare from "@/components/landing/MergeShare";
-import SurfaceTiles from "@/components/landing/SurfaceTiles";
+import Assistant from "@/components/landing/Assistant";
 import Privacy from "@/components/landing/Privacy";
 import FinalCTA from "@/components/landing/FinalCTA";
 
@@ -14,10 +13,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Relationship memory for small teams</title>
+        <title>min. | The relationship assistant that never forgets</title>
         <meta
           name="description"
-          content="min. turns your email and meetings into a live shared memory of every relationship. Zero manual work. Merge it, share it with your team."
+          content="min. is your relationship assistant with perfect recall. It remembers every person, company, and group you work with, built from your email and meetings, so you never walk in cold or drop a commitment."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -27,11 +26,10 @@ const Index = () => {
 
         <main className="flex-1">
           <LandingHero />
-          <ProblemStrip />
+          <CapsuleTypes />
           <CapsuleUpClose />
           <HowItWorks />
-          <MergeShare />
-          <SurfaceTiles />
+          <Assistant />
           <Privacy />
           <FinalCTA />
         </main>

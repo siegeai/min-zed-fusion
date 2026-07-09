@@ -16,22 +16,22 @@ export default function LandingHero() {
           <FadeIn delay={0.05}>
             <span className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white/70 px-3 py-1 text-[12.5px] font-medium text-gray-600 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              Relationship memory, not a CRM
+              Relationship memory, zero upkeep
             </span>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              A living capsule for
-              <br className="hidden sm:block" /> every relationship.
+              A relationship assistant
+              <br className="hidden sm:block" /> that never forgets.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              min. turns your email and meetings into a live shared memory of
-              every relationship. Zero manual work. Merge it, share it with your
-              team.
+              A living memory of every relationship you have. People, companies,
+              and groups, built automatically from your email and meetings, ready
+              the moment you need it.
             </p>
           </FadeIn>
 

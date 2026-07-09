@@ -1,4 +1,4 @@
-import { History, Wand2, Lock, Users } from "lucide-react";
+import { History, Wand2, MessageSquareText, Users } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import Capsule from "./Capsule";
 
@@ -6,22 +6,22 @@ const ANNOTATIONS = [
   {
     Icon: History,
     title: "Live history",
-    body: "Every call and email, distilled to what mattered: what was decided, promised, paid. The scheduling noise never makes it in.",
+    body: "Every call and email, summarized into what mattered: the who, what, when, where, and why. The scheduling noise never makes it in.",
   },
   {
     Icon: Wand2,
     title: "Zero manual work",
-    body: "Nobody fills anything in. Connect once and every capsule builds and maintains itself. That is why CRMs die and this does not.",
+    body: "min. extracts the important details from your emails and meetings on its own. Every capsule builds and maintains itself.",
   },
   {
-    Icon: Lock,
-    title: "Insights, your eyes only",
-    body: "Where things stand, open loops, risks, standing offers. Concrete and dated, not generic.",
+    Icon: MessageSquareText,
+    title: "Ask the AI anything",
+    body: "Ask any question about the relationship, or dive deeper on what was discussed. Your whole history, one question away.",
   },
   {
     Icon: Users,
     title: "Share and merge",
-    body: "Merge with a teammate to see the whole relationship. Or share it with the person on the other side. They sign in as themselves and see only what is between the two of you.",
+    body: "You choose who gets access. Share and merge capsules with teammates to see the whole relationship, or bring someone up to speed in seconds.",
   },
 ];
 
@@ -64,8 +64,8 @@ export default function CapsuleUpClose() {
               One relationship, one capsule.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
-              Everything that ever happened between you and one person, distilled
-              and current.
+              Everything summarized into an easy to read memory capsule: the who,
+              what, when, where, and why.
             </p>
           </div>
         </FadeIn>
