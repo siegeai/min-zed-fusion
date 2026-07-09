@@ -28,12 +28,12 @@ const TRAITS = [
   {
     Icon: Lightbulb,
     title: "Thinkers",
-    body: "You see structure where others see a pile of scattered docs and threads.",
+    body: "You see structure where others see a pile of scattered threads and calls.",
   },
   {
     Icon: Heart,
     title: "Operators",
-    body: "You've felt the pain of knowledge trapped in ten different tools.",
+    body: "You've felt the pain of a dropped follow-up, or walking into a meeting cold.",
   },
   {
     Icon: Users,
@@ -72,10 +72,10 @@ export default function Careers() {
   return (
     <>
       <Helmet>
-        <title>Careers at min. | Build the collective company memory</title>
+        <title>Careers at min. | Build relationship memory</title>
         <meta
           name="description"
-          content="Help us unify every company's emails, docs, calls, CRM, and ERP into memory for every team and project teams can ask anything of. Email hello@getmin.ai with what you've built. No traditional postings."
+          content="Help us build a living memory for every relationship, so no one's work is ever held back by a bad memory. Email hello@getmin.ai with what you've built. No traditional postings."
         />
         <link rel="canonical" href="https://getmin.ai/careers" />
       </Helmet>
@@ -92,9 +92,8 @@ export default function Careers() {
                 Careers
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                Build the{" "}
-                <span className="text-blue-600">collective memory</span> of
-                every company.
+                Build the memory behind{" "}
+                <span className="text-blue-600">every relationship</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 No job postings. No five-round interviews. Email us what you've
@@ -115,8 +114,8 @@ export default function Careers() {
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed mb-7 max-w-md mx-auto">
                   Send a resume or a link to something you're proud of. Tell us
-                  why you're excited about giving every team a memory that
-                  compounds. We'll write back.
+                  why you're excited to give people perfect memory for the
+                  relationships their work runs on. We'll write back.
                 </p>
                 <div
                   className={`${CARD_SURFACE} flex items-center justify-between gap-3 px-4 py-3 mb-6 max-w-sm mx-auto`}
@@ -199,7 +198,7 @@ export default function Careers() {
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   We ship fast, talk to teams every week, and use min. on our
-                  own emails, docs, and calls every day. Small team, big surface
+                  own email and meetings every day. Small team, big surface
                   area, real problems.
                 </p>
               </div>

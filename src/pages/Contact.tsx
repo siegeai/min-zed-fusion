@@ -23,12 +23,12 @@ const INQUIRIES = [
   {
     Icon: BarChart3,
     title: "Sales",
-    body: "Ready to unify your company's tools and data into memory for every team and project.",
+    body: "Ready to bring min. to your team, or want to see it on your own relationships.",
   },
   {
     Icon: Users,
     title: "Support",
-    body: "Need help getting more out of min. across Slack, Teams, or your LLM.",
+    body: "Need help getting more out of min. across your team.",
   },
   {
     Icon: MessageCircle,
@@ -66,7 +66,7 @@ export default function Contact() {
         <title>Contact min.</title>
         <meta
           name="description"
-          content="Talk to your tools and data, all in one place. Get in touch with min. for sales, support, partnerships, investors, press. Email hello@getmin.ai, average reply under 2 hours."
+          content="Relationship memory for teams. Get in touch with min. for sales, support, partnerships, investors, press. Email hello@getmin.ai, average reply under 2 hours."
         />
         <link rel="canonical" href="https://getmin.ai/contact" />
       </Helmet>

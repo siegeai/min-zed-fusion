@@ -96,8 +96,8 @@ const PrivacyPolicy = () => {
                 Privacy Policy
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                Your company's collective memory deserves real protection. We
-                safeguard your data with industry-leading security practices.
+                Your relationship memory deserves real protection. We safeguard
+                your data with industry-leading security practices.
               </p>
               <p className="mt-5 text-xs text-gray-500 font-mono tracking-wide">
                 Last updated: January 2026
