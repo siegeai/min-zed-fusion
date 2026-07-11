@@ -1,99 +1,42 @@
-import { Lock, Phone, Mail, UserPlus, ArrowRight } from "lucide-react";
+import { Lock, Lightbulb, ArrowRight } from "lucide-react";
 
 /**
- * The relationship capsule: a live memory of every call and email between you
- * and one person, built with zero manual work. This is the artifact the whole
- * landing page orbits. All content is fictional, real-shaped demo data.
+ * The relationship capsule, hero-sized: a structured BRIEFING, not a feed.
+ * Mirrors the product's engagement brief (title + what/when/why), open action
+ * items, and the your-eyes-only insights strip. All content is fictional,
+ * real-shaped demo data.
  */
 
-type Beat = {
-  date: string;
-  kind: "call" | "email" | "intro";
-  meta?: string;
-  text: string;
-};
-
-export const demoCapsule = {
-  name: "Jordan Lee",
-  role: "Founder & CEO, Aperture",
-  initials: "JL",
-  lastTouch: "3 days ago",
-  cadence: "14 emails · 3 calls",
-  insights: [
-    "Considering a $50K angel check, pending conflict review.",
-    "Demo promised Jun 11, never scheduled.",
-    "Strong on product. Retention is the open question.",
+const BRIEF = {
+  title: "Aperture: $50K angel check, in diligence",
+  rows: [
+    {
+      label: "What",
+      text: "A $50K angel investment in Aperture's seed round, agreed on the Jun 8 diligence call.",
+    },
+    {
+      label: "When",
+      text: "Intro May 24 via Priya Nair. Deck sent Jun 2, diligence Jun 8, demo promised Jun 11.",
+    },
+    {
+      label: "Why",
+      text: "Jordan needs retention proven before the round closes. You are waiting on the cap table.",
+    },
   ],
-  history: [
-    {
-      date: "Jun 14",
-      kind: "email",
-      text: "Jordan asked to push the demo to next week. No new date proposed.",
-    },
-    {
-      date: "Jun 8",
-      kind: "call",
-      meta: "38 min",
-      text: "Diligence call. Agreed $50K stays an angel check, not the whole round. Jordan to send the updated cap table.",
-    },
-    {
-      date: "Jun 2",
-      kind: "email",
-      text: "Sent the deck. Jordan flagged retention as the one thing to prove.",
-    },
-    {
-      date: "May 24",
-      kind: "intro",
-      text: "Warm intro from Priya Nair. Jordan asked to meet.",
-    },
-  ] as Beat[],
 };
 
-const KIND_META: Record<Beat["kind"], { Icon: React.ElementType; label: string }> = {
-  call: { Icon: Phone, label: "Call" },
-  email: { Icon: Mail, label: "Email" },
-  intro: { Icon: UserPlus, label: "Intro" },
-};
+const ACTIONS = [
+  "Send the cohort retention data, promised on the Jun 8 call.",
+  "Get the demo on the calendar, slipped since Jun 11.",
+];
 
-function BeatRow({ beat, last }: { beat: Beat; last: boolean }) {
-  const { Icon, label } = KIND_META[beat.kind];
-  return (
-    <li className="relative flex gap-3.5 pl-1">
-      {/* rail */}
-      <div className="flex flex-col items-center">
-        <span className="mt-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500">
-          <Icon className="h-3 w-3" strokeWidth={1.9} />
-        </span>
-        {!last && <span className="w-px flex-1 bg-gray-200" />}
-      </div>
-      <div className={last ? "pb-0" : "pb-5"}>
-        <div className="mb-1 flex items-center gap-2">
-          <span className="text-[11px] font-medium uppercase tracking-wide text-gray-400">
-            {label}
-          </span>
-          <span className="text-[11px] text-gray-300">·</span>
-          <span className="text-[11px] font-medium text-gray-400">{beat.date}</span>
-          {beat.meta && (
-            <>
-              <span className="text-[11px] text-gray-300">·</span>
-              <span className="text-[11px] text-gray-400">{beat.meta}</span>
-            </>
-          )}
-        </div>
-        <p className="text-[13.5px] leading-relaxed text-gray-700">{beat.text}</p>
-      </div>
-    </li>
-  );
-}
+const INSIGHTS = [
+  "Considering a $50K angel check, pending conflict review.",
+  "Demo promised Jun 11, never scheduled.",
+  "Strong on product. Retention is the open question.",
+];
 
-export default function Capsule({
-  className = "",
-  cropOnMobile = false,
-}: {
-  className?: string;
-  cropOnMobile?: boolean;
-}) {
-  const c = demoCapsule;
+export default function Capsule({ className = "" }: { className?: string }) {
   return (
     <div
       data-capsule
@@ -104,36 +47,53 @@ export default function Capsule({
       ].join(" ")}
     >
       {/* Person header */}
-      <div className="flex items-center gap-3.5 border-b border-gray-100 px-5 py-4 sm:px-6 sm:py-5">
+      <div className="flex items-center gap-3.5 border-b border-gray-100 px-5 py-4 sm:px-6">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 text-sm font-semibold text-white">
-          {c.initials}
+          JL
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
             <h3 className="truncate font-display text-[17px] font-semibold text-gray-900">
-              {c.name}
+              Jordan Lee
             </h3>
             <span className="hidden h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 sm:block" />
           </div>
-          <p className="truncate text-[13px] text-gray-500">{c.role}</p>
+          <p className="truncate text-[13px] text-gray-500">Founder & CEO, Aperture</p>
         </div>
         <div className="hidden shrink-0 text-right sm:block">
-          <p className="text-[12px] font-medium text-gray-700">Last touch {c.lastTouch}</p>
-          <p className="text-[11.5px] text-gray-400">{c.cadence}</p>
+          <p className="text-[12px] font-medium text-gray-700">Last touch 3 days ago</p>
+          <p className="text-[11.5px] text-gray-400">3 calls · 14 emails · since May</p>
         </div>
       </div>
 
-      {/* History */}
-      <div className="px-5 py-5 sm:px-6">
-        <div className="mb-4 flex items-center justify-between">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-400">
-            History
-          </span>
-          <span className="text-[11px] text-gray-400">distilled, not stored</span>
+      {/* Engagement brief: the who/what/when/why at a glance */}
+      <div className="px-5 pb-4 pt-4 sm:px-6">
+        <p className="font-display text-[15px] font-semibold leading-snug text-gray-900">
+          {BRIEF.title}
+        </p>
+        <div className="mt-3 space-y-2">
+          {BRIEF.rows.map((r) => (
+            <div key={r.label} className="flex gap-2.5">
+              <span className="w-11 shrink-0 pt-[2px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+                {r.label}
+              </span>
+              <p className="text-[13px] leading-relaxed text-gray-600">{r.text}</p>
+            </div>
+          ))}
         </div>
-        <ul className={cropOnMobile ? "" : ""}>
-          {c.history.map((b, i) => (
-            <BeatRow key={i} beat={b} last={i === c.history.length - 1} />
+      </div>
+
+      {/* Open action items */}
+      <div className="border-t border-gray-100 px-5 py-3.5 sm:px-6">
+        <p className="mb-2 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
+          Action items
+        </p>
+        <ul className="space-y-1.5">
+          {ACTIONS.map((a) => (
+            <li key={a} className="flex gap-2 text-[13px] leading-snug text-gray-700">
+              <ArrowRight className="mt-[3px] h-3 w-3 shrink-0 text-gray-400" strokeWidth={2} />
+              <span>{a}</span>
+            </li>
           ))}
         </ul>
       </div>
@@ -150,9 +110,9 @@ export default function Capsule({
           </span>
         </div>
         <ul className="space-y-1.5">
-          {c.insights.map((line, i) => (
-            <li key={i} className="flex gap-2 text-[13px] leading-snug text-gray-700">
-              <ArrowRight className="mt-[3px] h-3 w-3 shrink-0 text-emerald-500" strokeWidth={2} />
+          {INSIGHTS.map((line) => (
+            <li key={line} className="flex gap-2 text-[13px] leading-snug text-gray-700">
+              <Lightbulb className="mt-[2.5px] h-3 w-3 shrink-0 text-emerald-500" strokeWidth={2} />
               <span>{line}</span>
             </li>
           ))}

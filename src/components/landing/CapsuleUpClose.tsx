@@ -1,6 +1,6 @@
 import { History, Wand2, MessageSquareText, Users } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
-import Capsule from "./Capsule";
+import CapsuleWorkspace from "./CapsuleWorkspace";
 
 const ANNOTATIONS = [
   {
@@ -25,35 +25,6 @@ const ANNOTATIONS = [
   },
 ];
 
-function Annotation({
-  a,
-  align,
-}: {
-  a: (typeof ANNOTATIONS)[number];
-  align: "left" | "right";
-}) {
-  return (
-    <div className={align === "right" ? "lg:text-right" : "lg:text-left"}>
-      <div
-        className={[
-          "mb-2.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm",
-        ].join(" ")}
-      >
-        <a.Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
-      </div>
-      <h3 className="font-display text-[16px] font-semibold text-gray-900">{a.title}</h3>
-      <p
-        className={[
-          "mt-1.5 text-[14px] leading-relaxed text-gray-500 lg:max-w-xs",
-          align === "right" ? "lg:ml-auto" : "",
-        ].join(" ")}
-      >
-        {a.body}
-      </p>
-    </div>
-  );
-}
-
 export default function CapsuleUpClose() {
   return (
     <section id="capsule" className="scroll-mt-24 px-4 py-20 md:py-28">
@@ -65,38 +36,29 @@ export default function CapsuleUpClose() {
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
               Everything summarized into an easy to read memory capsule: the who,
-              what, when, where, and why.
+              what, when, where, and why. Then ask it anything.
             </p>
           </div>
         </FadeIn>
 
-        <div className="mt-14 grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_minmax(360px,1.15fr)_1fr] lg:gap-8">
-          {/* Left annotations */}
-          <div className="order-2 flex flex-col gap-10 lg:order-1 lg:gap-14">
-            <FadeIn delay={0.05}>
-              <Annotation a={ANNOTATIONS[0]} align="right" />
-            </FadeIn>
-            <FadeIn delay={0.12}>
-              <Annotation a={ANNOTATIONS[1]} align="right" />
-            </FadeIn>
+        <FadeIn delay={0.1}>
+          <div className="mx-auto mt-14 max-w-5xl">
+            <CapsuleWorkspace />
           </div>
+        </FadeIn>
 
-          {/* Capsule */}
-          <FadeIn delay={0.1} className="order-1 lg:order-2">
-            <div className="mx-auto w-full max-w-md">
-              <Capsule />
-            </div>
-          </FadeIn>
-
-          {/* Right annotations */}
-          <div className="order-3 flex flex-col gap-10 lg:gap-14">
-            <FadeIn delay={0.05}>
-              <Annotation a={ANNOTATIONS[2]} align="left" />
+        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {ANNOTATIONS.map((a, i) => (
+            <FadeIn key={a.title} delay={0.05 + i * 0.06}>
+              <div>
+                <div className="mb-2.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm">
+                  <a.Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+                </div>
+                <h3 className="font-display text-[16px] font-semibold text-gray-900">{a.title}</h3>
+                <p className="mt-1.5 text-[14px] leading-relaxed text-gray-500">{a.body}</p>
+              </div>
             </FadeIn>
-            <FadeIn delay={0.12}>
-              <Annotation a={ANNOTATIONS[3]} align="left" />
-            </FadeIn>
-          </div>
+          ))}
         </div>
       </div>
     </section>
