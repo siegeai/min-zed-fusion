@@ -29,7 +29,7 @@ export default function FinalCTA() {
                 href="#capsule"
                 className="rounded-full px-8 py-3.5 font-medium text-gray-300 transition-colors duration-200 hover:bg-white/5"
               >
-                See a relationship capsule
+                See example capsule
               </a>
             </div>
             <p className="mt-8 text-[13px] text-gray-500">

@@ -48,7 +48,7 @@ export default function LandingHero() {
                 href="#capsule"
                 className="rounded-full px-5 py-3.5 text-[15px] font-medium text-gray-600 transition-colors hover:bg-black/5 hover:text-gray-900"
               >
-                See a relationship capsule
+                See example capsule
               </a>
             </div>
           </FadeIn>
