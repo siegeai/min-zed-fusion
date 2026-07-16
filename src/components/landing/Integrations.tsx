@@ -6,8 +6,8 @@
  */
 
 const NAMES = [
-  "Gmail",
-  "Outlook",
+  "Google Calendar",
+  "Outlook Calendar",
   "Zoom",
   "Google Meet",
   "Microsoft Teams",
@@ -15,6 +15,8 @@ const NAMES = [
   "Otter",
   "Fireflies",
   "Fathom",
+  "Gmail",
+  "Outlook",
 ];
 
 const FADE =
@@ -29,7 +31,7 @@ export default function Integrations() {
           Every relationship, context at your fingertips.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-[15.5px] leading-relaxed text-gray-500">
-          Built automatically from your email and every meeting, across the tools
+          Built automatically from your calendar, meetings, and email, across the tools
           you already use.
         </p>
       </div>

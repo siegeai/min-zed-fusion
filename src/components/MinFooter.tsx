@@ -41,7 +41,7 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              min. turns your email and meetings into a live shared memory of
+              min. turns your calendar and email into a live shared memory of
               every relationship. Zero manual work. Merge it, share it with your
               team.
             </p>

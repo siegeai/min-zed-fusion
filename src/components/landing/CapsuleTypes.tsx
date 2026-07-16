@@ -71,7 +71,7 @@ export default function CapsuleTypes() {
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
               People, companies, and groups. Each one a living memory that builds
-              itself from your email and meetings.
+              itself from your calendar and email.
             </p>
           </div>
         </FadeIn>

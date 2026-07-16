@@ -198,7 +198,7 @@ export default function Careers() {
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   We ship fast, talk to teams every week, and use min. on our
-                  own email and meetings every day. Small team, big surface
+                  own calendars and email every day. Small team, big surface
                   area, real problems.
                 </p>
               </div>

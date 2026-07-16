@@ -30,7 +30,7 @@ export default function LandingHero() {
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
               A living memory of every relationship you have. People, companies,
-              and groups, built automatically from your email and meetings, ready
+              and groups, built automatically from your calendar and email, ready
               the moment you need it.
             </p>
           </FadeIn>
@@ -41,7 +41,7 @@ export default function LandingHero() {
                 href={APP_URL}
                 className="inline-flex items-center gap-2 rounded-full bg-black px-7 py-3.5 text-[15px] font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl"
               >
-                Connect your inbox
+                Connect your calendar
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />
               </a>
               <a
@@ -55,7 +55,7 @@ export default function LandingHero() {
 
           <FadeIn delay={0.34}>
             <p className="mt-7 text-[13px] text-gray-400">
-              Works with Gmail and Outlook. Two minute setup.
+              Works with Google and Outlook calendars. Two minute setup.
             </p>
           </FadeIn>
         </div>

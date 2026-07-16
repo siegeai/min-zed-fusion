@@ -22,7 +22,7 @@ export default function FinalCTA() {
                 href={APP_URL}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-medium text-black shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100"
               >
-                Connect your inbox
+                Connect your calendar
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />
               </a>
               <a
@@ -33,7 +33,7 @@ export default function FinalCTA() {
               </a>
             </div>
             <p className="mt-8 text-[13px] text-gray-500">
-              Works with Gmail and Outlook. Your memory, your eyes only.
+              Works with Google and Outlook calendars. Your memory, your eyes only.
             </p>
           </div>
         </div>

@@ -30,9 +30,9 @@ const PLANS: Plan[] = [
       "Unlimited teammates",
       "A living capsule for every relationship",
       "Merge and share across your team",
-      "Built from email and meetings",
+      "Built from your calendar and email",
     ],
-    cta: { label: "Connect your inbox", href: APP_URL },
+    cta: { label: "Connect your calendar", href: APP_URL },
   },
   {
     name: "Pro",

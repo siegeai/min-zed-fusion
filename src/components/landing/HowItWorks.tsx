@@ -6,13 +6,13 @@ const STEPS = [
     n: "01",
     Icon: Plug,
     title: "Connect.",
-    body: "Sync your email and meeting provider. Two minutes, and you never touch it again.",
+    body: "Connect your calendar. Two minutes, and add email whenever you're ready.",
   },
   {
     n: "02",
     Icon: Sparkles,
     title: "min. summarizes.",
-    body: "The relationship, the facts, the commitments, from every thread and call. Automatically.",
+    body: "The relationship, the facts, the commitments, from every meeting and thread. Automatically.",
   },
   {
     n: "03",

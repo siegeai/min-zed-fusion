@@ -11,7 +11,7 @@ const ANNOTATIONS = [
   {
     Icon: Wand2,
     title: "Zero manual work",
-    body: "min. extracts the important details from your emails and meetings on its own. Every capsule builds and maintains itself.",
+    body: "min. extracts the important details from your meetings and email on its own. Every capsule builds and maintains itself.",
   },
   {
     Icon: MessageSquareText,

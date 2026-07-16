@@ -38,7 +38,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. turns your email and meetings into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone.",
+      "min. turns your calendar and email into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -57,7 +57,7 @@ export default function About() {
         <title>About min. | The relationship assistant that never forgets</title>
         <meta
           name="description"
-          content="min. turns your email and meetings into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone."
+          content="min. turns your calendar and email into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone."
         />
         <link rel="canonical" href="https://getmin.ai/about" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -79,7 +79,7 @@ export default function About() {
                 for <span className="text-blue-600">every relationship</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                min. turns your email and meetings into a living memory of every
+                min. turns your calendar and email into a living memory of every
                 person, company, and group you work with. The people whose work
                 runs on relationships should never have to rely on memory alone.
               </p>
@@ -137,7 +137,7 @@ export default function About() {
                 </p>
                 <p>
                   So we built min.: a living memory for every relationship, built
-                  automatically from your email and meetings. It remembers what you
+                  automatically from your calendar and email. It remembers what you
                   can't, so being great with people stops depending on a perfect
                   memory.
                 </p>
@@ -209,14 +209,14 @@ export default function About() {
                 Never walk in cold again.
               </h3>
               <p className="text-gray-600 mb-7 max-w-xl mx-auto">
-                Turn your email and meetings into a living memory of every
+                Turn your calendar and email into a living memory of every
                 relationship. Two minutes to connect, and min. does the rest.
               </p>
               <a
                 href="https://app.getmin.ai"
                 className="inline-block rounded-full bg-black text-white text-sm font-medium px-5 py-2.5 hover:bg-gray-800 transition-colors"
               >
-                Connect your inbox
+                Connect your calendar
               </a>
             </div>
           </section>

@@ -50,7 +50,7 @@ export default function PillNav() {
               href="https://app.getmin.ai"
               className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
             >
-              Connect your inbox
+              Connect your calendar
             </a>
           </div>
 
@@ -89,7 +89,7 @@ export default function PillNav() {
               href="https://app.getmin.ai"
               className="rounded-full bg-black text-white text-sm font-medium py-3 text-center"
             >
-              Connect your inbox
+              Connect your calendar
             </a>
           </div>
         </div>
