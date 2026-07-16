@@ -31,8 +31,8 @@ export default function Integrations() {
           Every relationship, context at your fingertips.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-[15.5px] leading-relaxed text-gray-500">
-          Built automatically from your calendar, meetings, and email, across the tools
-          you already use.
+          It sits in on your meetings and keeps up with your email, across the
+          tools you already use.
         </p>
       </div>
 

@@ -84,10 +84,10 @@ export default function Assistant() {
               Be the person who always remembers.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-gray-500">
-              Your work runs on relationships, but you're only human. min.
-              remembers what you can't, so you never walk in cold or let one go
-              quiet. Being great with people stops being a gift. It becomes a
-              system.
+              Your work runs on relationships, but you're only human. min. sits
+              in on every call and email, remembering what you can't, so you
+              never walk in cold or let one go quiet. Being great with people
+              stops being a gift. It becomes a system.
             </p>
           </div>
         </FadeIn>

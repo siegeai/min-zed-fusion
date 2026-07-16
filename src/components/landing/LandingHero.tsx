@@ -29,9 +29,9 @@ export default function LandingHero() {
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              A living memory of every relationship you have. People, companies,
-              and groups, built automatically from your calendar and email, ready
-              the moment you need it.
+              min. sits in on your calls and email, quietly remembering. Every
+              person, company, and group becomes a living memory, ready the
+              moment you need it.
             </p>
           </FadeIn>
 
