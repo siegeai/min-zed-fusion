@@ -189,7 +189,11 @@ function AskRail() {
           type="button"
           onClick={() => ask(primary)}
           disabled={busy}
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 py-2.5 text-[13.5px] font-medium text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100/70 disabled:opacity-60"
+          className={[
+            "mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 py-2.5 text-[13.5px] font-medium text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100/70 disabled:opacity-60",
+            // Breathe until the visitor engages with anything, then go quiet.
+            asked.length === 0 && !busy ? "prep-pulse" : "",
+          ].join(" ")}
         >
           <CalendarClock className="h-4 w-4" strokeWidth={2} />
           {primary.q}
