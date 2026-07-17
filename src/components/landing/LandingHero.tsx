@@ -29,9 +29,9 @@ export default function LandingHero() {
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              min. sits in on your calls and email, quietly remembering. Then
-              it works ahead of you, surfacing the insights and easy-to-miss
-              details you'd never catch, right before every meeting.
+              min. sits in on your calls and email, quietly remembering. Ask
+              it anything, and it turns that memory into the intelligence to
+              deepen and grow every relationship.
             </p>
           </FadeIn>
 
