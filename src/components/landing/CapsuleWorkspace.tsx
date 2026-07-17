@@ -42,7 +42,7 @@ const INSIGHTS: { text: string; detail: Detail }[] = [
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "Sam runs the workflows the pilot has to fit. He has asked for the onboarding checklist twice and offered his ops workflow doc so you can see the setup end to end.",
+      body: "Sam runs the workflows the pilot has to fit. She has asked for the onboarding checklist twice and offered her ops workflow doc so you can see the setup end to end.",
     },
   },
 ];
@@ -111,7 +111,7 @@ const PROMPTS: Prompt[] = [
   },
   {
     q: "What does Sam need from me?",
-    a: "The onboarding checklist, he has asked for it twice since the walkthrough. He also wants the team demo on the calendar so his ops team sees the setup before kickoff.",
+    a: "The onboarding checklist, she has asked for it twice since the walkthrough. She also wants the team demo on the calendar so her ops team sees the setup before kickoff.",
   },
   {
     q: "Did Jordan send the pilot agreement?",

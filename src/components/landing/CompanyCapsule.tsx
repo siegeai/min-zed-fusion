@@ -22,7 +22,7 @@ export function CompanyLink({
     <button
       type="button"
       onClick={onClick}
-      className={`cursor-pointer underline decoration-gray-300 decoration-dotted underline-offset-2 transition-colors hover:text-gray-900 hover:decoration-emerald-500 ${className}`}
+      className={`inline-flex cursor-pointer items-center gap-1 rounded-md border border-emerald-200 bg-emerald-50 px-1.5 py-px align-baseline font-medium text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100/70 ${className}`}
     >
       {children}
     </button>
