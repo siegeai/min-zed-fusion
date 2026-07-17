@@ -1,12 +1,23 @@
-import { ArrowLeft, Lock, Lightbulb, Linkedin, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import {
+  ArrowLeft,
+  Lock,
+  Lightbulb,
+  Linkedin,
+  ArrowRight,
+  ChevronDown,
+  Video,
+  Mail,
+} from "lucide-react";
 import { FlatAvatar, ApertureLogo } from "./DemoAvatars";
+import { ExpandableRow, type Detail } from "./Expandable";
 
 /**
  * The demo COMPANY capsule as swappable card CONTENT, product-style
  * navigation: clicking "Aperture" inside a capsule swaps that capsule to this
- * company view in place, and the back button returns to where you were. The
- * host capsule owns the view state; this module provides the link and the
- * content.
+ * company view in place, and the back button returns to where you were. Every
+ * row is click-to-expand, brief lines, WHO cards, and insights all open into
+ * their source and the fuller context, mirroring the product.
  */
 
 export function CompanyLink({
@@ -29,54 +40,163 @@ export function CompanyLink({
   );
 }
 
-const BRIEF = {
-  title: "Aperture: $12K pilot, kickoff July 1",
-  rows: [
-    {
-      label: "What",
-      text: "A 30 day pilot for the ops team, agreed Jun 8. $12K annual once it sticks.",
-    },
-    {
-      label: "Where",
-      text: "Rolling out to the six person ops team first, then company wide if setup stays light.",
-    },
-    {
-      label: "When",
-      text: "Intro May 24, proposal Jun 2, walkthrough Jun 8. Kickoff July 1.",
-    },
-    {
-      label: "Why",
-      text: "Aperture is scaling ops without adding headcount. Jordan wants tooling in before Q3 planning.",
-    },
-  ],
-};
+const BRIEF_TITLE = "Aperture: $12K pilot, kickoff July 1";
 
-const WHO: { who: "jordan" | "sam" | "dana"; name: string; role: string; context: string }[] = [
+const BRIEF: { label: string; text: string; detail: Detail }[] = [
+  {
+    label: "What",
+    text: "A 30 day pilot for the ops team, agreed Jun 8. $12K annual once it sticks.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Scoped on the walkthrough: full access for the six person ops team, $12K annual once the pilot converts. No commitment past the 30 days.",
+    },
+  },
+  {
+    label: "Where",
+    text: "Rolling out to the six person ops team first, then company wide if setup stays light.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Sam's ops team is the beachhead. Jordan wants the rest of Aperture on it only after ops proves the setup stays under an hour.",
+    },
+  },
+  {
+    label: "When",
+    text: "Intro May 24, proposal Jun 2, walkthrough Jun 8. Kickoff July 1.",
+    detail: {
+      kind: "email",
+      source: "Email thread",
+      body: "Priya Nair made the intro May 24. The proposal went out Jun 2, the walkthrough ran Jun 8, and kickoff was set for July 1 on the call.",
+    },
+  },
+  {
+    label: "Why",
+    text: "Aperture is scaling ops without adding headcount. Jordan wants tooling in before Q3 planning.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Aperture doubled clients this year without growing the team. Jordan said the ops tooling decision has to land before Q3 planning locks.",
+    },
+  },
+];
+
+const WHO: {
+  who: "jordan" | "sam" | "dana";
+  name: string;
+  role: string;
+  context: string;
+  detail: Detail;
+}[] = [
   {
     who: "jordan",
     name: "Jordan Lee",
     role: "Founder & CEO",
     context: "Your champion. Sold on the product, wants onboarding proven light.",
+    detail: {
+      kind: "call",
+      source: "3 calls · 9 emails",
+      body: "Every conversation runs through Jordan. He made the $12K call on the walkthrough, owes you the signed agreement, and is waiting on your onboarding checklist.",
+    },
   },
   {
     who: "sam",
     name: "Sam Torres",
     role: "Ops lead",
     context: "Will run the pilot day to day. Asked for the onboarding checklist twice.",
+    detail: {
+      kind: "call",
+      source: "1 call · 6 emails",
+      body: "Joined the Jun 8 walkthrough and drove the workflow questions. She has asked for the onboarding checklist twice and offered her ops workflow doc.",
+    },
   },
   {
     who: "dana",
     name: "Dana Whitmore",
     role: "Head of IT",
     context: "Running the security review. Owes sign off before kickoff.",
+    detail: {
+      kind: "email",
+      source: "Email · Jun 10",
+      body: "Looped in by Jordan two days after the walkthrough. She has your security overview and has not raised anything, sign off is expected before kickoff.",
+    },
   },
 ];
 
-const INSIGHTS = [
-  "All three stakeholders engaged this month. Momentum is real.",
-  "Dana's security sign off is the only blocker left before July 1.",
-  "Sam is the daily user to win. The pilot lives or dies with the ops team.",
+const INSIGHTS: { text: string; detail: Detail }[] = [
+  {
+    text: "All three stakeholders engaged this month. Momentum is real.",
+    detail: {
+      kind: "email",
+      source: "4 calls · 19 emails",
+      body: "Jordan, Sam, and Dana have all been active in the last two weeks, and reply times are under a day on every thread.",
+    },
+  },
+  {
+    text: "Dana's security sign off is the only blocker left before July 1.",
+    detail: {
+      kind: "email",
+      source: "Email · Jun 10",
+      body: "Jordan looped Dana in two days after the walkthrough. She has the security overview and has not raised anything, so the sign off is the last gate.",
+    },
+  },
+  {
+    text: "Sam is the daily user to win. The pilot lives or dies with the ops team.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Sam runs the workflows the pilot has to fit. She has asked for the onboarding checklist twice and offered her ops workflow doc so you can see the setup end to end.",
+    },
+  },
 ];
+
+/** A WHO card that expands in place: avatar + context, then the fuller story. */
+function ExpandableWhoCard({ p }: { p: (typeof WHO)[number] }) {
+  const [open, setOpen] = useState(false);
+  const SourceIcon = p.detail.kind === "call" ? Video : Mail;
+  return (
+    <div className="rounded-xl border border-gray-100 bg-[#FBFBFA] transition-colors hover:border-gray-200">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="group flex w-full items-start gap-2.5 px-3 py-2.5 text-left"
+      >
+        <FlatAvatar who={p.who} size={32} label={p.name} />
+        <div className="min-w-0 flex-1">
+          <p className="text-[13px] font-medium leading-tight text-gray-900">
+            {p.name}
+            <span className="ml-1.5 font-normal text-gray-400">{p.role}</span>
+          </p>
+          <p className="mt-0.5 text-[12.5px] leading-snug text-gray-600">{p.context}</p>
+        </div>
+        <ChevronDown
+          className={[
+            "mt-1 h-3.5 w-3.5 shrink-0 text-gray-300 transition-transform duration-200 group-hover:text-gray-400",
+            open ? "rotate-180" : "",
+          ].join(" ")}
+          strokeWidth={2}
+        />
+      </button>
+      <div
+        className={[
+          "grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none",
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+        ].join(" ")}
+      >
+        <div className="overflow-hidden">
+          <div className="mx-3 mb-2.5 rounded-lg border border-gray-100 bg-white px-3 py-2">
+            <span className="inline-flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-gray-400">
+              <SourceIcon className="h-3 w-3" strokeWidth={2} />
+              {p.detail.source}
+            </span>
+            <p className="mt-1 text-[12.5px] leading-relaxed text-gray-600">{p.detail.body}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
   return (
@@ -104,48 +224,41 @@ export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
         </div>
       </div>
 
-      {/* Engagement brief */}
+      {/* Engagement brief, every row expands into its source */}
       <div className="px-5 pb-4 pt-4 sm:px-6">
         <p className="font-display text-[15px] font-semibold leading-snug text-gray-900">
-          {BRIEF.title}
+          {BRIEF_TITLE}
         </p>
-        <div className="mt-3 space-y-2">
-          {BRIEF.rows.map((r) => (
-            <div key={r.label} className="flex gap-2.5">
-              <span className="w-12 shrink-0 pt-[2px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
-                {r.label}
-              </span>
-              <p className="text-[13px] leading-relaxed text-gray-600">{r.text}</p>
-            </div>
+        <ul className="mt-2.5 space-y-0.5">
+          {BRIEF.map((r) => (
+            <ExpandableRow
+              key={r.label}
+              detail={r.detail}
+              leading={
+                <span className="w-12 shrink-0 pt-[2px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+                  {r.label}
+                </span>
+              }
+            >
+              <span className="text-[13px] leading-relaxed text-gray-600">{r.text}</span>
+            </ExpandableRow>
           ))}
-        </div>
+        </ul>
       </div>
 
-      {/* WHO */}
+      {/* WHO, each person expands into their thread with you */}
       <div className="border-t border-gray-100 px-5 py-4 sm:px-6">
         <p className="mb-2.5 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
           Who
         </p>
         <div className="space-y-2">
           {WHO.map((p) => (
-            <div
-              key={p.name}
-              className="flex items-start gap-2.5 rounded-xl border border-gray-100 bg-[#FBFBFA] px-3 py-2.5"
-            >
-              <FlatAvatar who={p.who} size={32} label={p.name} />
-              <div className="min-w-0">
-                <p className="text-[13px] font-medium leading-tight text-gray-900">
-                  {p.name}
-                  <span className="ml-1.5 font-normal text-gray-400">{p.role}</span>
-                </p>
-                <p className="mt-0.5 text-[12.5px] leading-snug text-gray-600">{p.context}</p>
-              </div>
-            </div>
+            <ExpandableWhoCard key={p.name} p={p} />
           ))}
         </div>
       </div>
 
-      {/* Insights */}
+      {/* Insights, click any for the full context */}
       <div className="border-t border-gray-100 bg-[#F7FAF8] px-5 py-4 sm:px-6">
         <div className="mb-2.5 flex items-center gap-2">
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500">
@@ -156,12 +269,20 @@ export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
             Your eyes only
           </span>
         </div>
-        <ul className="space-y-1.5">
-          {INSIGHTS.map((line) => (
-            <li key={line} className="flex gap-2 text-[13px] leading-snug text-gray-700">
-              <Lightbulb className="mt-[2.5px] h-3 w-3 shrink-0 text-emerald-500" strokeWidth={2} />
-              <span>{line}</span>
-            </li>
+        <ul className="space-y-0.5">
+          {INSIGHTS.map((i) => (
+            <ExpandableRow
+              key={i.text}
+              detail={i.detail}
+              leading={
+                <Lightbulb
+                  className="mt-[2.5px] h-3 w-3 shrink-0 text-emerald-500"
+                  strokeWidth={2}
+                />
+              }
+            >
+              <span className="text-[13px] leading-snug text-gray-700">{i.text}</span>
+            </ExpandableRow>
           ))}
         </ul>
       </div>
