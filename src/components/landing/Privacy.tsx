@@ -1,4 +1,4 @@
-import { Shield, EyeOff, Send } from "lucide-react";
+import { Shield, EyeOff, KeyRound } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 
 const POINTS = [
@@ -11,8 +11,8 @@ const POINTS = [
     text: "Insights are your eyes only. Sharing is explicit, scoped to one relationship, and revocable.",
   },
   {
-    Icon: Send,
-    text: "Nothing is sent to anyone unless you share it.",
+    Icon: KeyRound,
+    text: "Collaborative like Figma or a Google doc, on your terms. You decide who sees each relationship, with view or edit access you can change anytime.",
   },
 ];
 
