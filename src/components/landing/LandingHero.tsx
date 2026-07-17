@@ -23,7 +23,7 @@ export default function LandingHero() {
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
               A relationship assistant
-              <br className="hidden sm:block" /> that never forgets.
+              <br className="hidden sm:block" /> that grows your connections.
             </h1>
           </FadeIn>
 
