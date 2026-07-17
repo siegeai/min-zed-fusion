@@ -88,11 +88,14 @@ export default function Capsule({ className = "" }: { className?: string }) {
     >
       {/* Person header */}
       <div className="flex items-center gap-3.5 border-b border-gray-100 px-5 py-4 sm:px-6">
-        <FlatAvatar who="jordan" size={44} label="Jordan Lee" />
+        <div className="flex shrink-0 -space-x-2.5">
+          <FlatAvatar who="you" size={40} label="You" className="border-2 border-white" />
+          <FlatAvatar who="jordan" size={40} label="Jordan Lee" className="border-2 border-white" />
+        </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
             <h3 className="truncate font-display text-[17px] font-semibold text-gray-900">
-              Jordan Lee
+              You &amp; Jordan Lee
             </h3>
             <span className="hidden h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 sm:block" />
           </div>

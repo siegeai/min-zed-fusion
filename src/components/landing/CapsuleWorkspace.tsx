@@ -38,18 +38,18 @@ const INSIGHTS: { text: string; detail: Detail }[] = [
     },
   },
   {
-    text: "Warm intro to Meridian's ops team offered Jun 8, never used.",
+    text: "Sam is the daily user to win. The pilot lives or dies with ops.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "Offered unprompted at the end of the walkthrough. Meridian is evaluating tools like yours this quarter, so the referral is worth using while their budget cycle is open.",
+      body: "Sam runs the workflows the pilot has to fit. He has asked for the onboarding checklist twice and offered his ops workflow doc so you can see the setup end to end.",
     },
   },
 ];
 
 const ACTIONS: { text: string; detail: Detail }[] = [
   {
-    text: "Send Jordan the onboarding checklist, promised Jun 8.",
+    text: "Send Jordan and Sam the onboarding checklist, promised Jun 8.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
@@ -78,21 +78,21 @@ const HISTORY = [
   {
     Icon: Video,
     date: "Jun 8, 2026",
-    text: "Walkthrough call. Agreed on a 30 day pilot for the ops team, kickoff July 1. Jordan to send the signed agreement.",
+    text: "Walkthrough call, all three of you. Agreed on a 30 day pilot for the ops team, kickoff July 1.",
     detail: {
       kind: "call",
       source: "Call · 38 min",
-      body: "Also covered: the security review with his IT lead, the Meridian referral he offered, and timing for the onboarding checklist. Ended with both sides agreeing to start before Q3.",
+      body: "38 minutes. Sam walked through the ops workflows, Jordan confirmed $12K annual once it sticks and promised the signed agreement, and you promised the onboarding checklist.",
     } as Detail,
   },
   {
     Icon: Mail,
     date: "Jun 2, 2026",
-    text: "Sent the proposal. Jordan flagged onboarding time as the one thing to prove.",
+    text: "Sent the proposal. Jordan flagged onboarding time and copied Sam in.",
     detail: {
       kind: "email",
       source: "Email thread",
-      body: "You sent the proposal and one pager. Jordan replied the same day, called the product strong, and named his team's setup time as the one thing he wants proven.",
+      body: "You sent the proposal and one pager. Jordan replied the same day, named setup time as the one thing to prove, and copied Sam in, who asked to join the walkthrough.",
     } as Detail,
   },
 ];
@@ -102,20 +102,20 @@ type Prompt = { q: string; a: string; primary?: boolean };
 const PROMPTS: Prompt[] = [
   {
     q: "Prep me for a meeting",
-    a: "You owe Jordan the onboarding checklist from the Jun 8 call, and the team demo promised for Jun 11 still is not scheduled. He owes you the signed pilot agreement. Lead with the checklist, onboarding is the one thing he flagged to prove, then leave with a demo date on the calendar.",
+    a: "You owe Jordan and Sam the onboarding checklist from the Jun 8 call, and the team demo promised for Jun 11 still is not scheduled. Jordan owes you the signed pilot agreement. Lead with the checklist, Sam has asked for it twice, then leave with a demo date on the calendar.",
     primary: true,
   },
   {
-    q: "What does Jordan care about?",
-    a: "Onboarding time, above everything. He called it the one thing to prove after the proposal on Jun 2, and it is what the pilot hangs on. He is sold on the product otherwise, kickoff is just waiting on his security review.",
+    q: "Where do things stand with this group?",
+    a: "The pilot is committed, kickoff July 1, and the security sign off is the last blocker. Your side owes the onboarding checklist and the team demo. Momentum is good, all three of you have talked twice in the past two weeks.",
   },
   {
     q: "What have we committed to each other?",
-    a: "You promised the onboarding checklist and a team demo for Jun 11, both still open. Jordan agreed on the Jun 8 call to send the signed pilot agreement, and offered a warm intro to Meridian's ops team that you have not used yet.",
+    a: "You owe the onboarding checklist and the team demo. Jordan owes the signed pilot agreement. Sam offered his ops workflow doc on the walkthrough, and it has not arrived yet.",
   },
   {
-    q: "Summarize our last conversation",
-    a: "Jun 8, a 38 minute walkthrough. You agreed on a 30 day pilot for his ops team, kickoff July 1. Jordan committed to the signed agreement, you committed to the onboarding checklist, and the team demo was left unscheduled.",
+    q: "What came out of our last meeting?",
+    a: "The Jun 8 walkthrough, all three of you on for 38 minutes. A 30 day pilot for the ops team, kickoff July 1. Jordan committed to the signed agreement, you committed to the onboarding checklist, and the team demo was left unscheduled.",
   },
 ];
 
@@ -194,11 +194,11 @@ function AskRail() {
   return (
     <div className="flex flex-col border-t border-gray-100 bg-[#FBFBFA] px-5 py-5 sm:px-6 lg:border-l lg:border-t-0">
       <h4 className="font-display text-[15px] font-semibold text-gray-900">
-        Ask about Jordan
+        Ask about this group
       </h4>
       <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">
-        Query everything min. remembers about this relationship. Try it, this
-        one is live.
+        Query everything min. remembers across this group. Try it, this one
+        is live.
       </p>
 
       {/* Conversation */}
@@ -278,7 +278,7 @@ function AskRail() {
 
       {done && (
         <p className="mt-5 text-[12.5px] leading-relaxed text-gray-500">
-          That is min. on one relationship.{" "}
+          That is min. on one group.{" "}
           <a
             href="https://app.getmin.ai"
             className="font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
@@ -290,7 +290,7 @@ function AskRail() {
       )}
 
       <div className="mt-5 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 lg:mt-auto">
-        <span className="flex-1 truncate text-[13px] text-gray-400">Ask about Jordan…</span>
+        <span className="flex-1 truncate text-[13px] text-gray-400">Ask about this group…</span>
         <Send className="h-3.5 w-3.5 shrink-0 text-gray-400" strokeWidth={2} />
       </div>
     </div>
@@ -308,20 +308,21 @@ export default function CapsuleWorkspace() {
         <div className="min-w-0 px-5 py-5 sm:px-7 sm:py-6">
           {/* Header */}
           <div className="flex flex-wrap items-center gap-3">
-            <div className="flex -space-x-2.5">
+            <div className="flex shrink-0 -space-x-2.5">
               <FlatAvatar who="you" size={40} label="You" className="border-2 border-white" />
               <FlatAvatar who="jordan" size={40} label="Jordan Lee" className="border-2 border-white" />
+              <FlatAvatar who="sam" size={40} label="Sam Torres" className="border-2 border-white" />
             </div>
             <div className="min-w-0">
               <h3 className="font-display text-[17px] font-semibold text-gray-900">
-                You &amp; Jordan Lee
+                You, Jordan &amp; Sam
               </h3>
               <p className="text-[12.5px] text-gray-500">
-                Founder &amp; CEO, <CompanyLink>Aperture</CompanyLink>
+                The <CompanyLink>Aperture</CompanyLink> pilot · working group
               </p>
             </div>
             <div className="ml-auto hidden items-center gap-1.5 sm:flex">
-              {["3 calls", "14 emails", "since May"].map((c) => (
+              {["4 calls", "19 emails", "since May"].map((c) => (
                 <span
                   key={c}
                   className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500"
