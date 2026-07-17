@@ -4,9 +4,11 @@ import {
   Lightbulb,
   ArrowRight,
   CalendarClock,
+  Building2,
   Send,
   Video,
   Mail,
+  type LucideIcon,
 } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
@@ -99,7 +101,7 @@ const HISTORY = [
 
 type Prompt = { q: string; a: string; primary?: boolean };
 
-const PROMPTS: Prompt[] = [
+const GROUP_PROMPTS: Prompt[] = [
   {
     q: "Prep me for a meeting",
     a: "You owe Jordan and Sam the onboarding checklist from the Jun 8 call, and the team demo promised for Jun 11 still is not scheduled. Jordan owes you the signed pilot agreement. Lead with the checklist, Sam has asked for it twice, then leave with a demo date on the calendar.",
@@ -119,6 +121,26 @@ const PROMPTS: Prompt[] = [
   },
 ];
 
+const COMPANY_PROMPTS: Prompt[] = [
+  {
+    q: "Where does the Aperture pilot stand?",
+    a: "A 30 day pilot for the ops team, $12K annual once it converts, kickoff July 1. Jordan is sold, Sam will run it day to day, and Dana's security sign off is the one gate left. You still owe the onboarding checklist Sam has asked for twice.",
+    primary: true,
+  },
+  {
+    q: "Who at Aperture should I focus on?",
+    a: "Sam Torres. She runs the workflows the pilot has to fit and is the daily user who makes or breaks it. Jordan is your champion, but Sam is the one to win, and she is still waiting on the onboarding checklist.",
+  },
+  {
+    q: "What is blocking the July 1 kickoff?",
+    a: "Two things. Dana's security sign off on Aperture's side, and the onboarding checklist you promised on the Jun 8 call. Clear both and the pilot starts on time.",
+  },
+  {
+    q: "Who owes what right now?",
+    a: "You owe Sam and Jordan the onboarding checklist. Jordan owes you the signed pilot agreement from the walkthrough. Dana owes the security sign off. Three open loops, all movable this week.",
+  },
+];
+
 type Msg = { role: "user" | "assistant"; text: string };
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -129,7 +151,16 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function AskRail() {
+type RailConfig = {
+  prompts: Prompt[];
+  title: string;
+  blurb: string;
+  placeholder: string;
+  scope: string; // "one group" / "one company"
+  PrimaryIcon: LucideIcon;
+};
+
+function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon }: RailConfig) {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [asked, setAsked] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
@@ -185,7 +216,7 @@ function AskRail() {
     );
   };
 
-  const remaining = PROMPTS.filter((p) => !asked.includes(p.q));
+  const remaining = prompts.filter((p) => !asked.includes(p.q));
   const primary = remaining.find((p) => p.primary);
   const chips = remaining.filter((p) => !p.primary);
   const done = remaining.length === 0 && !busy;
@@ -194,12 +225,9 @@ function AskRail() {
   return (
     <div className="flex flex-col border-t border-gray-100 bg-[#FBFBFA] px-5 py-5 sm:px-6 lg:border-l lg:border-t-0">
       <h4 className="font-display text-[15px] font-semibold text-gray-900">
-        Ask about this group
+        {title}
       </h4>
-      <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">
-        Query everything min. remembers across this group. Try it, this one
-        is live.
-      </p>
+      <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">{blurb}</p>
 
       {/* Conversation */}
       {messages.length > 0 && (
@@ -250,7 +278,7 @@ function AskRail() {
             asked.length === 0 && !busy ? "prep-pulse" : "",
           ].join(" ")}
         >
-          <CalendarClock className="h-4 w-4" strokeWidth={2} />
+          <PrimaryIcon className="h-4 w-4" strokeWidth={2} />
           {primary.q}
         </button>
       )}
@@ -278,7 +306,7 @@ function AskRail() {
 
       {done && (
         <p className="mt-5 text-[12.5px] leading-relaxed text-gray-500">
-          That is min. on one group.{" "}
+          That is min. on {scope}.{" "}
           <a
             href="https://app.getmin.ai"
             className="font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
@@ -290,7 +318,7 @@ function AskRail() {
       )}
 
       <div className="mt-5 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 lg:mt-auto">
-        <span className="flex-1 truncate text-[13px] text-gray-400">Ask about this group…</span>
+        <span className="flex-1 truncate text-[13px] text-gray-400">{placeholder}</span>
         <Send className="h-3.5 w-3.5 shrink-0 text-gray-400" strokeWidth={2} />
       </div>
     </div>
@@ -307,7 +335,22 @@ export default function CapsuleWorkspace() {
       className="w-full overflow-hidden rounded-[22px] border border-gray-200/80 bg-white shadow-[0_16px_60px_-16px_rgba(0,0,0,0.18)]"
     >
       {view === "company" ? (
-        <CompanyCapsuleContent onBack={() => setView("group")} />
+        <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr]">
+          {/* ── The company record ── */}
+          <div className="min-w-0">
+            <CompanyCapsuleContent onBack={() => setView("group")} embedded />
+          </div>
+
+          {/* ── The company ask rail (live) ── */}
+          <AskRail
+            prompts={COMPANY_PROMPTS}
+            title="Ask about Aperture"
+            blurb="Query everything min. remembers across Aperture, every person and thread. Try it, this one is live."
+            placeholder="Ask about Aperture…"
+            scope="one company"
+            PrimaryIcon={Building2}
+          />
+        </div>
       ) : (
       <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr]">
         {/* ── The record ── */}
@@ -412,7 +455,14 @@ export default function CapsuleWorkspace() {
         </div>
 
         {/* ── The ask rail (live) ── */}
-        <AskRail />
+        <AskRail
+          prompts={GROUP_PROMPTS}
+          title="Ask about this group"
+          blurb="Query everything min. remembers across this group. Try it, this one is live."
+          placeholder="Ask about this group…"
+          scope="one group"
+          PrimaryIcon={CalendarClock}
+        />
       </div>
       )}
     </div>

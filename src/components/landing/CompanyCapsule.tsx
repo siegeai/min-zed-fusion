@@ -200,7 +200,13 @@ function ExpandableWhoCard({ p }: { p: (typeof WHO)[number] }) {
   );
 }
 
-export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
+export function CompanyCapsuleContent({
+  onBack,
+  embedded = false,
+}: {
+  onBack: () => void;
+  embedded?: boolean;
+}) {
   return (
     <div className="modal-in">
       {/* Header with back navigation */}
@@ -289,17 +295,19 @@ export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
         </ul>
       </div>
 
-      {/* Footer */}
-      <div className="flex items-center justify-between gap-3 border-t border-gray-100 px-5 py-3 sm:px-6">
-        <p className="text-[12px] text-gray-400">min. generates one of these for every company.</p>
-        <a
-          href="https://app.getmin.ai"
-          className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-medium text-emerald-700 hover:text-emerald-800"
-        >
-          Connect your calendar
-          <ArrowRight className="h-3 w-3" strokeWidth={2} />
-        </a>
-      </div>
+      {/* Footer — omitted when embedded beside the ask rail, which carries the CTA */}
+      {!embedded && (
+        <div className="flex items-center justify-between gap-3 border-t border-gray-100 px-5 py-3 sm:px-6">
+          <p className="text-[12px] text-gray-400">min. generates one of these for every company.</p>
+          <a
+            href="https://app.getmin.ai"
+            className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-medium text-emerald-700 hover:text-emerald-800"
+          >
+            Connect your calendar
+            <ArrowRight className="h-3 w-3" strokeWidth={2} />
+          </a>
+        </div>
+      )}
     </div>
   );
 }
