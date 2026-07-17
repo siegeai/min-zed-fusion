@@ -355,7 +355,7 @@ export default function CapsuleWorkspace() {
                   detail={i.detail}
                   leading={
                     <Lightbulb
-                      className="mt-[3px] h-3.5 w-3.5 shrink-0 text-emerald-500"
+                      className="mt-[4px] h-3.5 w-3.5 shrink-0 text-emerald-500"
                       strokeWidth={2}
                     />
                   }
@@ -376,7 +376,7 @@ export default function CapsuleWorkspace() {
                   detail={a.detail}
                   leading={
                     <ArrowRight
-                      className="mt-[3px] h-3.5 w-3.5 shrink-0 text-gray-400"
+                      className="mt-[4px] h-3.5 w-3.5 shrink-0 text-gray-400"
                       strokeWidth={2}
                     />
                   }

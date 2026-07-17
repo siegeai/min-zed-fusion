@@ -128,7 +128,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
         <div className="mt-3 space-y-2">
           {BRIEF.rows.map((r) => (
             <div key={r.label} className="flex gap-2.5">
-              <span className="w-11 shrink-0 pt-[2px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+              <span className="w-11 shrink-0 pt-[3px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
                 {r.label}
               </span>
               <p className="text-[13px] leading-relaxed text-gray-600">{r.text}</p>
@@ -148,7 +148,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
               key={a.text}
               detail={a.detail}
               leading={
-                <ArrowRight className="mt-[3px] h-3 w-3 shrink-0 text-gray-400" strokeWidth={2} />
+                <ArrowRight className="mt-[4px] h-3 w-3 shrink-0 text-gray-400" strokeWidth={2} />
               }
             >
               <span className="text-[13px] leading-snug text-gray-700">{a.text}</span>
@@ -175,7 +175,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
               detail={i.detail}
               leading={
                 <Lightbulb
-                  className="mt-[2.5px] h-3 w-3 shrink-0 text-emerald-500"
+                  className="mt-[4px] h-3 w-3 shrink-0 text-emerald-500"
                   strokeWidth={2}
                 />
               }

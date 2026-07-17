@@ -5,6 +5,7 @@ import {
   Lightbulb,
   Linkedin,
   ArrowRight,
+  ArrowUpRight,
   ChevronDown,
   Video,
   Mail,
@@ -33,9 +34,10 @@ export function CompanyLink({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex cursor-pointer items-center gap-1 rounded-md border border-emerald-200 bg-emerald-50 px-1.5 py-px align-baseline font-medium text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100/70 ${className}`}
+      className={`company-pill prep-pulse inline-flex cursor-pointer items-center gap-1 rounded-md border border-emerald-300 bg-emerald-50 px-1.5 py-px align-baseline font-medium text-emerald-700 transition-colors hover:border-emerald-400 hover:bg-emerald-100/70 ${className}`}
     >
       {children}
+      <ArrowUpRight className="h-3 w-3 shrink-0 text-emerald-500" strokeWidth={2.4} />
     </button>
   );
 }
@@ -235,7 +237,7 @@ export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
               key={r.label}
               detail={r.detail}
               leading={
-                <span className="w-12 shrink-0 pt-[2px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+                <span className="w-12 shrink-0 pt-[3px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
                   {r.label}
                 </span>
               }
@@ -276,7 +278,7 @@ export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
               detail={i.detail}
               leading={
                 <Lightbulb
-                  className="mt-[2.5px] h-3 w-3 shrink-0 text-emerald-500"
+                  className="mt-[4px] h-3 w-3 shrink-0 text-emerald-500"
                   strokeWidth={2}
                 />
               }
@@ -289,7 +291,7 @@ export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
 
       {/* Footer */}
       <div className="flex items-center justify-between gap-3 border-t border-gray-100 px-5 py-3 sm:px-6">
-        <p className="text-[12px] text-gray-400">In min., every company gets one of these.</p>
+        <p className="text-[12px] text-gray-400">min. generates one of these for every company.</p>
         <a
           href="https://app.getmin.ai"
           className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-medium text-emerald-700 hover:text-emerald-800"
