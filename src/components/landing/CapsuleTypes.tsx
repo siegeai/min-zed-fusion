@@ -1,5 +1,6 @@
 import { User, Building2, Users } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
+import { FlatAvatar, ApertureLogo } from "./DemoAvatars";
 
 const TYPES = [
   {
@@ -9,9 +10,7 @@ const TYPES = [
     body: "One person, and the entire history between you. What you agreed, what is owed, what happens next.",
     visual: (
       <div className="flex items-center gap-2.5">
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 text-[12px] font-semibold text-white">
-          JL
-        </span>
+        <FlatAvatar who="jordan" size={36} label="Jordan Lee" />
         <div className="min-w-0">
           <p className="text-[13px] font-medium text-gray-900">Jordan Lee</p>
           <p className="text-[11.5px] text-gray-400">Founder, Aperture</p>
@@ -26,9 +25,7 @@ const TYPES = [
     body: "Everyone you know at an account, rolled into a single relationship. The whole company, not scattered across inboxes.",
     visual: (
       <div className="flex items-center gap-2.5">
-        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 text-[13px] font-semibold text-white">
-          A
-        </span>
+        <ApertureLogo size={36} />
         <div className="min-w-0">
           <p className="text-[13px] font-medium text-gray-900">Aperture</p>
           <p className="text-[11.5px] text-gray-400">5 people you know</p>
@@ -44,15 +41,9 @@ const TYPES = [
     visual: (
       <div className="flex items-center gap-2.5">
         <div className="flex -space-x-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-gray-900 text-[11px] font-semibold text-white">
-            You
-          </span>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-amber-500 text-[11px] font-semibold text-white">
-            JL
-          </span>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-emerald-500 text-[11px] font-semibold text-white">
-            PN
-          </span>
+          <FlatAvatar who="you" size={36} label="You" className="border-2 border-white" />
+          <FlatAvatar who="jordan" size={36} label="Jordan Lee" className="border-2 border-white" />
+          <FlatAvatar who="priya" size={36} label="Priya Nair" className="border-2 border-white" />
         </div>
         <p className="text-[12.5px] text-gray-500">The Aperture round</p>
       </div>

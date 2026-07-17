@@ -9,6 +9,7 @@ import {
   Mail,
 } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
+import { FlatAvatar } from "./DemoAvatars";
 
 /**
  * The capsule as a desktop WORKSPACE, and a LIVE demo: the relationship record
@@ -307,12 +308,8 @@ export default function CapsuleWorkspace() {
           {/* Header */}
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex -space-x-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-gray-900 text-[11px] font-semibold text-white">
-                You
-              </span>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-emerald-500 to-emerald-600 text-[12px] font-semibold text-white">
-                JL
-              </span>
+              <FlatAvatar who="you" size={40} label="You" className="border-2 border-white" />
+              <FlatAvatar who="jordan" size={40} label="Jordan Lee" className="border-2 border-white" />
             </div>
             <div className="min-w-0">
               <h3 className="font-display text-[17px] font-semibold text-gray-900">

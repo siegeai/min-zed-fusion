@@ -1,5 +1,6 @@
 import { Lock, Lightbulb, ArrowRight } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
+import { FlatAvatar } from "./DemoAvatars";
 
 /**
  * The relationship capsule, hero-sized: a structured BRIEFING, not a feed.
@@ -86,9 +87,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
     >
       {/* Person header */}
       <div className="flex items-center gap-3.5 border-b border-gray-100 px-5 py-4 sm:px-6">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 text-sm font-semibold text-white">
-          JL
-        </span>
+        <FlatAvatar who="jordan" size={44} label="Jordan Lee" />
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
             <h3 className="truncate font-display text-[17px] font-semibold text-gray-900">

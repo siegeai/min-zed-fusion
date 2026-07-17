@@ -1,5 +1,6 @@
 import { GitMerge, Send, X, Check, Lock } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
+import { FlatAvatar } from "./DemoAvatars";
 
 function ShareDialog() {
   return (
@@ -11,9 +12,7 @@ function ShareDialog() {
       <div className="px-5 py-5">
         <p className="text-[13px] text-gray-500">Relationship</p>
         <div className="mt-1.5 flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 text-[12px] font-semibold text-white">
-            JL
-          </span>
+          <FlatAvatar who="jordan" size={32} label="Jordan Lee" />
           <div>
             <p className="text-[14px] font-medium text-gray-900">Jordan Lee</p>
             <p className="text-[12px] text-gray-400">Founder & CEO, Aperture</p>
@@ -22,9 +21,7 @@ function ShareDialog() {
 
         <p className="mt-5 text-[13px] text-gray-500">Share with</p>
         <div className="mt-1.5 flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-[10px] font-semibold text-white">
-            AM
-          </span>
+          <FlatAvatar who="avery" size={24} label="Avery Moss" />
           <span className="text-[13.5px] text-gray-700">avery@yourteam.com</span>
         </div>
 
@@ -49,17 +46,11 @@ function MergeChip() {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-gray-200/80 bg-white px-4 py-3 shadow-sm">
       <div className="flex -space-x-2">
-        <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-gray-900 text-[11px] font-semibold text-white">
-          You
-        </span>
-        <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-blue-600 text-[11px] font-semibold text-white">
-          AM
-        </span>
+        <FlatAvatar who="you" size={32} label="You" className="border-2 border-white" />
+        <FlatAvatar who="avery" size={32} label="Avery Moss" className="border-2 border-white" />
       </div>
       <GitMerge className="h-4 w-4 text-gray-400" strokeWidth={2} />
-      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 text-[11px] font-semibold text-white">
-        JL
-      </span>
+      <FlatAvatar who="jordan" size={32} label="Jordan Lee" />
       <span className="text-[13px] text-gray-600">One capsule, both of you.</span>
     </div>
   );
