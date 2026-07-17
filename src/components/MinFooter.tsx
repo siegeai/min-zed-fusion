@@ -41,9 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              min. turns your calendar and email into a live shared memory of
-              every relationship. Zero manual work. Merge it, share it with your
-              team.
+              Your relationship assistant with perfect recall. min. remembers
+              every person, company, and group you work with, so you show up for
+              people the way you always meant to.
             </p>
           </div>
 

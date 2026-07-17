@@ -20,12 +20,12 @@
         }
         .glow-1 {
             position: absolute;
-            top: -220px;
-            left: 50%;
+            top: -240px;
+            left: 62%;
             transform: translateX(-50%);
             width: 900px;
-            height: 520px;
-            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            height: 560px;
+            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.10) 0%, transparent 70%);
         }
         .content {
             position: relative;
@@ -38,37 +38,47 @@
             box-sizing: border-box;
         }
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 40px;
             font-weight: 600;
             color: #0A0A0A;
             letter-spacing: -0.02em;
-            margin-bottom: 38px;
+            margin-bottom: 34px;
         }
-        .logo-mark {
-            width: 34px;
-            height: 34px;
-            border-radius: 9px;
-            background: #0A0A0A;
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 99px;
+            padding: 8px 16px;
+            font-size: 17px;
+            font-weight: 500;
+            color: #4B5563;
+            margin-bottom: 26px;
+        }
+        .badge-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #10B981;
         }
         .headline {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 74px;
+            font-size: 72px;
             font-weight: 600;
             color: #0A0A0A;
             line-height: 1.05;
             letter-spacing: -0.03em;
-            margin-bottom: 24px;
+            margin-bottom: 26px;
         }
         .subheadline {
-            font-size: 30px;
+            font-size: 29px;
             font-weight: 400;
             color: #6B7280;
             line-height: 1.4;
-            max-width: 760px;
+            max-width: 820px;
         }
         .prompt-bar {
             display: flex;
@@ -78,14 +88,14 @@
             border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 16px;
             padding: 16px 22px;
-            max-width: 680px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            max-width: 620px;
+            box-shadow: 0 6px 26px rgba(0, 0, 0, 0.05);
         }
         .prompt-avatar {
             width: 34px;
             height: 34px;
             border-radius: 50%;
-            background: #0A0A0A;
+            background: #059669;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -131,12 +141,13 @@
         <div class="content">
             <div>
                 <div class="logo">min.</div>
+                <div class="badge"><span class="badge-dot"></span>Relationship memory, zero upkeep</div>
                 <div class="headline">
-                    Talk to your tools and<br>
-                    data, all in one place.
+                    A relationship assistant<br>
+                    that never forgets.
                 </div>
                 <div class="subheadline">
-                    A channel for every team and project. Ask anything, get work done, and never start from scratch.
+                    It sits in on your calls and email, quietly remembering every person, company, and group you work with.
                 </div>
             </div>
 
@@ -144,7 +155,7 @@
                 <div class="prompt-bar">
                     <div class="prompt-avatar">✨</div>
                     <div class="prompt-text">
-                        What are the next steps for the Acme account?
+                        Prep me for my meeting with Jordan.
                     </div>
                 </div>
             </div>
@@ -152,10 +163,9 @@
             <div class="footer">
                 <div class="domain">getmin.ai</div>
                 <div class="features">
-                    <span class="feature-pill">Ask</span>
-                    <span class="feature-pill">Chat</span>
-                    <span class="feature-pill">Slack &amp; Teams</span>
-                    <span class="feature-pill">Any LLM</span>
+                    <span class="feature-pill">People</span>
+                    <span class="feature-pill">Companies</span>
+                    <span class="feature-pill">Groups</span>
                 </div>
             </div>
         </div>

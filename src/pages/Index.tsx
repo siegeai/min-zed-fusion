@@ -18,7 +18,7 @@ const Index = () => {
         <title>min. | The relationship assistant that never forgets</title>
         <meta
           name="description"
-          content="min. is your relationship assistant with perfect recall. It remembers every person, company, and group you work with, built from your calendar and email, so you never walk in cold or drop a commitment."
+          content="min. is your relationship assistant with perfect recall. It sits in on your calls and email and remembers every person, company, and group you work with, so you show up for people the way you always meant to."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
