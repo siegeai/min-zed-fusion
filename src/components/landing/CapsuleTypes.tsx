@@ -1,6 +1,7 @@
 import { User, Building2, Users } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import { FlatAvatar, ApertureLogo } from "./DemoAvatars";
+import { CompanyLink } from "./CompanyCapsule";
 
 const TYPES = [
   {
@@ -27,8 +28,10 @@ const TYPES = [
       <div className="flex items-center gap-2.5">
         <ApertureLogo size={36} />
         <div className="min-w-0">
-          <p className="text-[13px] font-medium text-gray-900">Aperture</p>
-          <p className="text-[11.5px] text-gray-400">5 people you know</p>
+          <p className="text-[13px] font-medium text-gray-900">
+            <CompanyLink>Aperture</CompanyLink>
+          </p>
+          <p className="text-[11.5px] text-gray-400">3 people you know</p>
         </div>
       </div>
     ),

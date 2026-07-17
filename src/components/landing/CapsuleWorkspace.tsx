@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
+import { CompanyLink } from "./CompanyCapsule";
 
 /**
  * The capsule as a desktop WORKSPACE, and a LIVE demo: the relationship record
@@ -315,7 +316,9 @@ export default function CapsuleWorkspace() {
               <h3 className="font-display text-[17px] font-semibold text-gray-900">
                 You &amp; Jordan Lee
               </h3>
-              <p className="text-[12.5px] text-gray-500">Founder &amp; CEO, Aperture</p>
+              <p className="text-[12.5px] text-gray-500">
+                Founder &amp; CEO, <CompanyLink>Aperture</CompanyLink>
+              </p>
             </div>
             <div className="ml-auto hidden items-center gap-1.5 sm:flex">
               {["3 calls", "14 emails", "since May"].map((c) => (

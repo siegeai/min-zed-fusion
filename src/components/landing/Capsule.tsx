@@ -1,6 +1,7 @@
 import { Lock, Lightbulb, ArrowRight } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
+import { CompanyLink } from "./CompanyCapsule";
 
 /**
  * The relationship capsule, hero-sized: a structured BRIEFING, not a feed.
@@ -95,7 +96,9 @@ export default function Capsule({ className = "" }: { className?: string }) {
             </h3>
             <span className="hidden h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 sm:block" />
           </div>
-          <p className="truncate text-[13px] text-gray-500">Founder & CEO, Aperture</p>
+          <p className="truncate text-[13px] text-gray-500">
+            Founder & CEO, <CompanyLink>Aperture</CompanyLink>
+          </p>
           <p className="truncate text-[11px] text-gray-400 sm:hidden">
             Last touch 3 days ago · 3 calls · 14 emails
           </p>

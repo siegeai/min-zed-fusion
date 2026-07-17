@@ -12,6 +12,8 @@ const PHOTOS: Record<string, string> = {
   you: "/avatars/you.jpg",
   avery: "/avatars/avery.jpg",
   priya: "/avatars/priya.jpg",
+  sam: "/avatars/sam.jpg",
+  dana: "/avatars/dana.jpg",
 };
 
 export function FlatAvatar({
