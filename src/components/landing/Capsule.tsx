@@ -1,10 +1,13 @@
 import { Lock, Lightbulb, ArrowRight } from "lucide-react";
+import { ExpandableRow, type Detail } from "./Expandable";
 
 /**
  * The relationship capsule, hero-sized: a structured BRIEFING, not a feed.
  * Mirrors the product's engagement brief (title + what/when/why), open action
- * items, and the your-eyes-only insights strip. All content is fictional,
- * real-shaped demo data.
+ * items, and the your-eyes-only insights strip. Like the product, every
+ * insight and action item is click-to-expand: the summary opens into its
+ * source and the fuller context. All content is fictional, real-shaped demo
+ * data.
  */
 
 const BRIEF = {
@@ -25,15 +28,50 @@ const BRIEF = {
   ],
 };
 
-const ACTIONS = [
-  "Send the cohort retention data, promised on the Jun 8 call.",
-  "Get the demo on the calendar, slipped since Jun 11.",
+const ACTIONS: { text: string; detail: Detail }[] = [
+  {
+    text: "Send the cohort retention data, promised on the Jun 8 call.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "You committed to two quarters of cohort retention, cut monthly. Jordan called it the deciding number for the check.",
+    },
+  },
+  {
+    text: "Get the demo on the calendar, slipped since Jun 11.",
+    detail: {
+      kind: "email",
+      source: "Email · Jun 14",
+      body: "Jordan pushed the original slot and never proposed a new date. He has taken your last three calls on Tuesday or Thursday mornings.",
+    },
+  },
 ];
 
-const INSIGHTS = [
-  "Considering a $50K angel check, pending conflict review.",
-  "Demo promised Jun 11, never scheduled.",
-  "Strong on product. Retention is the open question.",
+const INSIGHTS: { text: string; detail: Detail }[] = [
+  {
+    text: "Considering a $50K angel check, pending conflict review.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Jordan wants his counsel to clear a possible overlap with Keller Logistics, an existing investment, before wiring. He was explicit the check does not wait on the round closing.",
+    },
+  },
+  {
+    text: "Demo promised Jun 11, never scheduled.",
+    detail: {
+      kind: "email",
+      source: "Email · Jun 14",
+      body: "Promised on the Jun 8 call for the following week. Jordan asked to push it and never proposed a new date. Three weeks open and counting.",
+    },
+  },
+  {
+    text: "Strong on product. Retention is the open question.",
+    detail: {
+      kind: "email",
+      source: "Email · Jun 2",
+      body: "After the deck, Jordan called the product the strongest he had seen this quarter, then flagged 90 day retention as the one number he needs before the check clears.",
+    },
+  },
 ];
 
 export default function Capsule({ className = "" }: { className?: string }) {
@@ -83,22 +121,27 @@ export default function Capsule({ className = "" }: { className?: string }) {
         </div>
       </div>
 
-      {/* Open action items */}
+      {/* Open action items, click any for the full context */}
       <div className="border-t border-gray-100 px-5 py-3.5 sm:px-6">
         <p className="mb-2 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
           Action items
         </p>
-        <ul className="space-y-1.5">
+        <ul className="space-y-0.5">
           {ACTIONS.map((a) => (
-            <li key={a} className="flex gap-2 text-[13px] leading-snug text-gray-700">
-              <ArrowRight className="mt-[3px] h-3 w-3 shrink-0 text-gray-400" strokeWidth={2} />
-              <span>{a}</span>
-            </li>
+            <ExpandableRow
+              key={a.text}
+              detail={a.detail}
+              leading={
+                <ArrowRight className="mt-[3px] h-3 w-3 shrink-0 text-gray-400" strokeWidth={2} />
+              }
+            >
+              <span className="text-[13px] leading-snug text-gray-700">{a.text}</span>
+            </ExpandableRow>
           ))}
         </ul>
       </div>
 
-      {/* Insights strip, your eyes only */}
+      {/* Insights strip, your eyes only, click any for the full context */}
       <div className="border-t border-gray-100 bg-[#F7FAF8] px-5 py-4 sm:px-6">
         <div className="mb-2.5 flex items-center gap-2">
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500">
@@ -109,12 +152,20 @@ export default function Capsule({ className = "" }: { className?: string }) {
             Your eyes only
           </span>
         </div>
-        <ul className="space-y-1.5">
-          {INSIGHTS.map((line) => (
-            <li key={line} className="flex gap-2 text-[13px] leading-snug text-gray-700">
-              <Lightbulb className="mt-[2.5px] h-3 w-3 shrink-0 text-emerald-500" strokeWidth={2} />
-              <span>{line}</span>
-            </li>
+        <ul className="space-y-0.5">
+          {INSIGHTS.map((i) => (
+            <ExpandableRow
+              key={i.text}
+              detail={i.detail}
+              leading={
+                <Lightbulb
+                  className="mt-[2.5px] h-3 w-3 shrink-0 text-emerald-500"
+                  strokeWidth={2}
+                />
+              }
+            >
+              <span className="text-[13px] leading-snug text-gray-700">{i.text}</span>
+            </ExpandableRow>
           ))}
         </ul>
       </div>

@@ -8,6 +8,7 @@ import {
   Video,
   Mail,
 } from "lucide-react";
+import { ExpandableRow, type Detail } from "./Expandable";
 
 /**
  * The capsule as a desktop WORKSPACE, and a LIVE demo: the relationship record
@@ -17,16 +18,58 @@ import {
  * answer. All content is fictional, real-shaped demo data.
  */
 
-const INSIGHTS = [
-  "Considering a $50K angel check, pending conflict review.",
-  "Demo promised Jun 11, never scheduled. The longest open loop here.",
-  "Warm intro to Meridian's ops team offered Jun 8, never used.",
+const INSIGHTS: { text: string; detail: Detail }[] = [
+  {
+    text: "Considering a $50K angel check, pending conflict review.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Jordan wants his counsel to clear a possible overlap with Keller Logistics, an existing investment, before wiring. He was explicit the check does not wait on the round closing.",
+    },
+  },
+  {
+    text: "Demo promised Jun 11, never scheduled. The longest open loop here.",
+    detail: {
+      kind: "email",
+      source: "Email · Jun 14",
+      body: "Promised on the Jun 8 call for the following week. Jordan asked to push it and never proposed a new date. Three weeks open and counting.",
+    },
+  },
+  {
+    text: "Warm intro to Meridian's ops team offered Jun 8, never used.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Offered unprompted at the end of the diligence call. Meridian is evaluating tools like yours this quarter, so the intro is worth using while their budget cycle is open.",
+    },
+  },
 ];
 
-const ACTIONS = [
-  "Send Jordan the cohort retention data, promised Jun 8.",
-  "Get the demo on the calendar.",
-  "Chase the updated cap table from the diligence call.",
+const ACTIONS: { text: string; detail: Detail }[] = [
+  {
+    text: "Send Jordan the cohort retention data, promised Jun 8.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "You committed to two quarters of cohort retention, cut monthly. Jordan called it the deciding number for the check.",
+    },
+  },
+  {
+    text: "Get the demo on the calendar.",
+    detail: {
+      kind: "email",
+      source: "Email · Jun 14",
+      body: "Jordan pushed the original Jun 11 slot and never proposed a new date. He has taken your last three calls on Tuesday or Thursday mornings.",
+    },
+  },
+  {
+    text: "Chase the updated cap table from the diligence call.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Jordan owes you the post SAFE cap table he promised by the end of that week. It has not arrived in any thread since.",
+    },
+  },
 ];
 
 const HISTORY = [
@@ -34,11 +77,21 @@ const HISTORY = [
     Icon: Video,
     date: "Jun 8, 2026",
     text: "Diligence call. Agreed $50K stays an angel check, not the whole round. Jordan to send the updated cap table.",
+    detail: {
+      kind: "call",
+      source: "Call · 38 min",
+      body: "Also covered: the conflict review with his counsel, the Meridian ops intro he offered, and timing for the retention data. Ended with both sides agreeing to move before the round closes.",
+    } as Detail,
   },
   {
     Icon: Mail,
     date: "Jun 2, 2026",
     text: "Sent the deck. Jordan flagged retention as the one thing to prove.",
+    detail: {
+      kind: "email",
+      source: "Email thread",
+      body: "You sent the seed deck and one pager. Jordan replied the same day, called the product strong, and named 90 day retention as the single number he wants proven.",
+    } as Detail,
   },
 ];
 
@@ -288,15 +341,20 @@ export default function CapsuleWorkspace() {
                 Your eyes only
               </span>
             </div>
-            <ul className="mt-2.5 space-y-1.5">
-              {INSIGHTS.map((line) => (
-                <li key={line} className="flex gap-2 text-[13.5px] leading-snug text-gray-700">
-                  <Lightbulb
-                    className="mt-[3px] h-3.5 w-3.5 shrink-0 text-emerald-500"
-                    strokeWidth={2}
-                  />
-                  <span>{line}</span>
-                </li>
+            <ul className="mt-2 space-y-0.5">
+              {INSIGHTS.map((i) => (
+                <ExpandableRow
+                  key={i.text}
+                  detail={i.detail}
+                  leading={
+                    <Lightbulb
+                      className="mt-[3px] h-3.5 w-3.5 shrink-0 text-emerald-500"
+                      strokeWidth={2}
+                    />
+                  }
+                >
+                  <span className="text-[13.5px] leading-snug text-gray-700">{i.text}</span>
+                </ExpandableRow>
               ))}
             </ul>
           </div>
@@ -304,15 +362,20 @@ export default function CapsuleWorkspace() {
           {/* Action items */}
           <div className="mt-5 border-t border-gray-100 pt-4">
             <SectionLabel>Action items</SectionLabel>
-            <ul className="mt-2.5 space-y-1.5">
+            <ul className="mt-2 space-y-0.5">
               {ACTIONS.map((a) => (
-                <li key={a} className="flex gap-2 text-[13.5px] leading-snug text-gray-700">
-                  <ArrowRight
-                    className="mt-[3px] h-3.5 w-3.5 shrink-0 text-gray-400"
-                    strokeWidth={2}
-                  />
-                  <span>{a}</span>
-                </li>
+                <ExpandableRow
+                  key={a.text}
+                  detail={a.detail}
+                  leading={
+                    <ArrowRight
+                      className="mt-[3px] h-3.5 w-3.5 shrink-0 text-gray-400"
+                      strokeWidth={2}
+                    />
+                  }
+                >
+                  <span className="text-[13.5px] leading-snug text-gray-700">{a.text}</span>
+                </ExpandableRow>
               ))}
             </ul>
           </div>
@@ -320,17 +383,22 @@ export default function CapsuleWorkspace() {
           {/* History */}
           <div className="mt-5 border-t border-gray-100 pt-4">
             <SectionLabel>History</SectionLabel>
-            <ul className="mt-2.5 space-y-3">
+            <ul className="mt-2 space-y-1.5">
               {HISTORY.map((h) => (
-                <li key={h.date} className="flex gap-2.5">
-                  <span className="mt-[1px] flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500">
-                    <h.Icon className="h-3 w-3" strokeWidth={1.9} />
+                <ExpandableRow
+                  key={h.date}
+                  detail={h.detail}
+                  leading={
+                    <span className="mt-[1px] flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500">
+                      <h.Icon className="h-3 w-3" strokeWidth={1.9} />
+                    </span>
+                  }
+                >
+                  <span className="block text-[11px] font-medium text-gray-400">{h.date}</span>
+                  <span className="mt-0.5 block text-[13.5px] leading-relaxed text-gray-700">
+                    {h.text}
                   </span>
-                  <div className="min-w-0">
-                    <p className="text-[11px] font-medium text-gray-400">{h.date}</p>
-                    <p className="mt-0.5 text-[13.5px] leading-relaxed text-gray-700">{h.text}</p>
-                  </div>
-                </li>
+                </ExpandableRow>
               ))}
             </ul>
           </div>
