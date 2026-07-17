@@ -24,7 +24,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="scroll-mt-24 border-y border-gray-100 bg-white px-4 py-20 md:py-24">
+    <section id="how" className="scroll-mt-24 border-y border-gray-100 bg-white px-4 py-14 md:py-24">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-[2.5rem]">

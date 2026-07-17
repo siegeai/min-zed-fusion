@@ -68,7 +68,7 @@ export default function About() {
 
         <main>
           {/* Hero */}
-          <section className="relative pt-36 md:pt-44 pb-20 overflow-hidden">
+          <section className="relative pt-28 md:pt-44 pb-20 overflow-hidden">
             <div className="relative max-w-4xl mx-auto px-6 text-center">
               <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-gray-400 mb-6">
                 About min.

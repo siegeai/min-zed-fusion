@@ -97,6 +97,9 @@ export default function Capsule({ className = "" }: { className?: string }) {
             <span className="hidden h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 sm:block" />
           </div>
           <p className="truncate text-[13px] text-gray-500">Founder & CEO, Aperture</p>
+          <p className="truncate text-[11px] text-gray-400 sm:hidden">
+            Last touch 3 days ago · 3 calls · 14 emails
+          </p>
         </div>
         <div className="hidden shrink-0 text-right sm:block">
           <p className="text-[12px] font-medium text-gray-700">Last touch 3 days ago</p>

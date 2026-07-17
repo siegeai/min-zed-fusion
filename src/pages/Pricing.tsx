@@ -96,7 +96,7 @@ const Pricing = () => {
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
         <PillNav />
 
-        <main className="relative pt-36 md:pt-44 pb-24 md:pb-32">
+        <main className="relative pt-28 md:pt-44 pb-24 md:pb-32">
           <div className="relative max-w-5xl mx-auto px-6">
             <header className="text-center mb-14 md:mb-16">
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.05] text-4xl md:text-6xl">

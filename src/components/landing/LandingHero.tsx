@@ -7,7 +7,7 @@ const APP_URL = "https://app.getmin.ai";
 
 export default function LandingHero() {
   return (
-    <section className="relative overflow-hidden px-4 pt-32 pb-6 md:pt-36 md:pb-8">
+    <section className="relative overflow-hidden px-4 pt-28 pb-6 md:pt-36 md:pb-8">
       <Constellation className="opacity-70" />
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
@@ -39,7 +39,7 @@ export default function LandingHero() {
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <a
                 href={APP_URL}
-                className="inline-flex items-center gap-2 rounded-full bg-black px-7 py-3.5 text-[15px] font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-black px-7 py-3.5 text-[15px] font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl sm:w-auto"
               >
                 Connect your calendar
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />

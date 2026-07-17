@@ -34,7 +34,7 @@ export function ExpandableRow({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="group -mx-1.5 flex w-full items-start gap-2 rounded-lg px-1.5 py-1 text-left transition-colors hover:bg-gray-50"
+        className="group -mx-1.5 flex w-full items-start gap-2 rounded-lg px-1.5 py-1.5 text-left transition-colors hover:bg-gray-50 sm:py-1"
       >
         {leading}
         <span className="min-w-0 flex-1">{children}</span>

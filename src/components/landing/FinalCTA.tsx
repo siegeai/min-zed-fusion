@@ -6,9 +6,9 @@ const APP_URL = "https://app.getmin.ai";
 
 export default function FinalCTA() {
   return (
-    <section className="px-4 py-24">
+    <section className="px-4 py-14 md:py-24">
       <FadeIn>
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] bg-zinc-950 px-8 py-20 text-center md:py-28">
+        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-zinc-950 px-6 py-14 text-center sm:px-8 md:rounded-[2.5rem] md:py-28">
           <Constellation className="opacity-40" />
           <div className="relative">
             <h2 className="mx-auto mb-6 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
@@ -20,7 +20,7 @@ export default function FinalCTA() {
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href={APP_URL}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-medium text-black shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-medium text-black shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100 sm:w-auto"
               >
                 Connect your calendar
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />

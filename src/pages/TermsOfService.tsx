@@ -59,7 +59,7 @@ const TermsOfService = () => {
 
         <main
           id="main-content"
-          className="relative pt-36 md:pt-44 pb-20 md:pb-28 overflow-hidden"
+          className="relative pt-28 md:pt-44 pb-20 md:pb-28 overflow-hidden"
           role="main"
           aria-labelledby="terms-title"
         >

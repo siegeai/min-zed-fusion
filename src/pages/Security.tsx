@@ -107,7 +107,7 @@ export default function Security() {
 
         <main>
           {/* Hero */}
-          <section className="relative pt-36 md:pt-44 pb-12 overflow-hidden">
+          <section className="relative pt-28 md:pt-44 pb-12 overflow-hidden">
             <HeroAmbientGlow />
             <div className="relative max-w-3xl mx-auto px-6 text-center">
               <div className="flex justify-center mb-6">

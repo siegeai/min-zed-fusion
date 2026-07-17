@@ -4,13 +4,14 @@ const DIM = "#6B7280";
 const BORDER = "rgba(0,0,0,0.08)";
 
 const TrustBadges = () => (
+  // Hidden on mobile: a 270px floating pill over a 375px screen covers content.
   <div
+    className="hidden md:flex"
     style={{
       position: "fixed",
       bottom: 16,
       right: 16,
       zIndex: 40,
-      display: "flex",
       alignItems: "center",
       gap: 14,
       background: "rgba(255,255,255,0.85)",

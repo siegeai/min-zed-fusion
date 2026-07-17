@@ -62,7 +62,7 @@ const TYPES = [
 
 export default function CapsuleTypes() {
   return (
-    <section className="border-y border-gray-100 bg-white px-4 py-20 md:py-24">
+    <section className="border-y border-gray-100 bg-white px-4 py-14 md:py-24">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">

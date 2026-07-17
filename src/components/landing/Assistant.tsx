@@ -73,7 +73,7 @@ const TILES = [
 
 export default function Assistant() {
   return (
-    <section className="px-4 py-20 md:py-28">
+    <section className="px-4 py-14 md:py-28">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="mx-auto max-w-3xl text-center">

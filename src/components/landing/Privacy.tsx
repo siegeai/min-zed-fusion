@@ -18,7 +18,7 @@ const POINTS = [
 
 export default function Privacy() {
   return (
-    <section className="px-4 py-20 md:py-28">
+    <section className="px-4 py-14 md:py-28">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-[2.5rem] md:leading-[1.12]">

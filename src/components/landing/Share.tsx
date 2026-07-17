@@ -73,7 +73,7 @@ const OLD_WAY = [
 
 export default function Share() {
   return (
-    <section id="share" className="scroll-mt-24 border-y border-gray-100 bg-white px-4 py-20 md:py-28">
+    <section id="share" className="scroll-mt-24 border-y border-gray-100 bg-white px-4 py-14 md:py-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <FadeIn>
