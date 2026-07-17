@@ -31,7 +31,7 @@ export default function LandingHero() {
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
               min. sits in on your calls and email, quietly remembering. Ask
               it anything, and show up for people the way you always meant to,
-              deepening every relationship that matters.
+              growing every relationship that matters.
             </p>
           </FadeIn>
 
