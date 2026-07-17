@@ -12,34 +12,34 @@ import { FlatAvatar } from "./DemoAvatars";
  */
 
 const BRIEF = {
-  title: "Aperture: $50K angel check, in diligence",
+  title: "Aperture: $12K pilot, kickoff July 1",
   rows: [
     {
       label: "What",
-      text: "A $50K angel investment in Aperture's seed round, agreed on the Jun 8 diligence call.",
+      text: "A 30 day pilot for Aperture's ops team, agreed on the Jun 8 walkthrough call.",
     },
     {
       label: "When",
-      text: "Intro May 24 via Priya Nair. Deck sent Jun 2, diligence Jun 8, demo promised Jun 11.",
+      text: "Intro May 24 via Priya Nair. Proposal sent Jun 2, walkthrough Jun 8, team demo promised Jun 11.",
     },
     {
       label: "Why",
-      text: "Jordan needs retention proven before the round closes. You are waiting on the cap table.",
+      text: "Jordan needs onboarding proven light before kickoff. You are waiting on his security review.",
     },
   ],
 };
 
 const ACTIONS: { text: string; detail: Detail }[] = [
   {
-    text: "Send the cohort retention data, promised on the Jun 8 call.",
+    text: "Send the onboarding checklist, promised on the Jun 8 call.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "You committed to two quarters of cohort retention, cut monthly. Jordan called it the deciding number for the check.",
+      body: "You committed to a step by step checklist proving setup takes under an hour. Jordan called it the deciding factor for the pilot.",
     },
   },
   {
-    text: "Get the demo on the calendar, slipped since Jun 11.",
+    text: "Get the team demo on the calendar, slipped since Jun 11.",
     detail: {
       kind: "email",
       source: "Email · Jun 14",
@@ -50,15 +50,15 @@ const ACTIONS: { text: string; detail: Detail }[] = [
 
 const INSIGHTS: { text: string; detail: Detail }[] = [
   {
-    text: "Considering a $50K angel check, pending conflict review.",
+    text: "Committed to a $12K pilot, pending security review.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "Jordan wants his counsel to clear a possible overlap with Keller Logistics, an existing investment, before wiring. He was explicit the check does not wait on the round closing.",
+      body: "Jordan wants his IT lead to clear the security overview before kickoff. He was explicit the pilot does not wait on the annual contract.",
     },
   },
   {
-    text: "Demo promised Jun 11, never scheduled.",
+    text: "Team demo promised Jun 11, never scheduled.",
     detail: {
       kind: "email",
       source: "Email · Jun 14",
@@ -66,11 +66,11 @@ const INSIGHTS: { text: string; detail: Detail }[] = [
     },
   },
   {
-    text: "Strong on product. Retention is the open question.",
+    text: "Sold on the product. Onboarding time is the open question.",
     detail: {
       kind: "email",
       source: "Email · Jun 2",
-      body: "After the deck, Jordan called the product the strongest he had seen this quarter, then flagged 90 day retention as the one number he needs before the check clears.",
+      body: "After the proposal, Jordan called the product the strongest he had seen this quarter, then flagged his team's setup time as the one thing to prove before rollout.",
     },
   },
 ];

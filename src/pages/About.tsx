@@ -11,7 +11,7 @@ const BELIEFS = [
     Icon: Network,
     tint: "blue" as const,
     title: "Relationships are the real work",
-    body: "Careers, deals, and companies are built on relationships, not a sales process. The tool should serve the relationship, not turn it into data entry.",
+    body: "Careers, customers, and companies are built on relationships, not a sales process. The tool should serve the relationship, not turn it into data entry.",
   },
   {
     Icon: Zap,
@@ -124,7 +124,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  The work that matters most, closing the deal, keeping the
+                  The work that matters most, winning the customer, keeping the
                   client, landing the hire, comes down to relationships. But every
                   relationship is a growing pile of calls, emails, and promises,
                   and no one can hold all of it in their head.

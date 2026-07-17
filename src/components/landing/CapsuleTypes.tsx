@@ -36,8 +36,8 @@ const TYPES = [
   {
     Icon: Users,
     label: "Groups",
-    title: "Every deal team and group",
-    body: "A deal team, a partnership, a recurring group. Everyone who is part of it stays in sync, automatically.",
+    title: "Every project team and group",
+    body: "A project team, a partnership, a recurring group. Everyone who is part of it stays in sync, automatically.",
     visual: (
       <div className="flex items-center gap-2.5">
         <div className="flex -space-x-2">
@@ -45,7 +45,7 @@ const TYPES = [
           <FlatAvatar who="jordan" size={36} label="Jordan Lee" className="border-2 border-white" />
           <FlatAvatar who="priya" size={36} label="Priya Nair" className="border-2 border-white" />
         </div>
-        <p className="text-[12.5px] text-gray-500">The Aperture round</p>
+        <p className="text-[12.5px] text-gray-500">The Aperture pilot</p>
       </div>
     ),
   },

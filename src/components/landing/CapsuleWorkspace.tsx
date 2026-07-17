@@ -21,15 +21,15 @@ import { FlatAvatar } from "./DemoAvatars";
 
 const INSIGHTS: { text: string; detail: Detail }[] = [
   {
-    text: "Considering a $50K angel check, pending conflict review.",
+    text: "Committed to a $12K pilot, pending security review.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "Jordan wants his counsel to clear a possible overlap with Keller Logistics, an existing investment, before wiring. He was explicit the check does not wait on the round closing.",
+      body: "Jordan wants his IT lead to clear the security overview before kickoff. He was explicit the pilot does not wait on the annual contract.",
     },
   },
   {
-    text: "Demo promised Jun 11, never scheduled. The longest open loop here.",
+    text: "Team demo promised Jun 11, never scheduled. The longest open loop here.",
     detail: {
       kind: "email",
       source: "Email · Jun 14",
@@ -41,22 +41,22 @@ const INSIGHTS: { text: string; detail: Detail }[] = [
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "Offered unprompted at the end of the diligence call. Meridian is evaluating tools like yours this quarter, so the intro is worth using while their budget cycle is open.",
+      body: "Offered unprompted at the end of the walkthrough. Meridian is evaluating tools like yours this quarter, so the referral is worth using while their budget cycle is open.",
     },
   },
 ];
 
 const ACTIONS: { text: string; detail: Detail }[] = [
   {
-    text: "Send Jordan the cohort retention data, promised Jun 8.",
+    text: "Send Jordan the onboarding checklist, promised Jun 8.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "You committed to two quarters of cohort retention, cut monthly. Jordan called it the deciding number for the check.",
+      body: "You committed to a step by step checklist proving setup takes under an hour. Jordan called it the deciding factor for the pilot.",
     },
   },
   {
-    text: "Get the demo on the calendar.",
+    text: "Get the team demo on the calendar.",
     detail: {
       kind: "email",
       source: "Email · Jun 14",
@@ -64,11 +64,11 @@ const ACTIONS: { text: string; detail: Detail }[] = [
     },
   },
   {
-    text: "Chase the updated cap table from the diligence call.",
+    text: "Chase the signed pilot agreement from the walkthrough call.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "Jordan owes you the post SAFE cap table he promised by the end of that week. It has not arrived in any thread since.",
+      body: "Jordan owes you the countersigned pilot agreement he promised by the end of that week. It has not arrived in any thread since.",
     },
   },
 ];
@@ -77,21 +77,21 @@ const HISTORY = [
   {
     Icon: Video,
     date: "Jun 8, 2026",
-    text: "Diligence call. Agreed $50K stays an angel check, not the whole round. Jordan to send the updated cap table.",
+    text: "Walkthrough call. Agreed on a 30 day pilot for the ops team, kickoff July 1. Jordan to send the signed agreement.",
     detail: {
       kind: "call",
       source: "Call · 38 min",
-      body: "Also covered: the conflict review with his counsel, the Meridian ops intro he offered, and timing for the retention data. Ended with both sides agreeing to move before the round closes.",
+      body: "Also covered: the security review with his IT lead, the Meridian referral he offered, and timing for the onboarding checklist. Ended with both sides agreeing to start before Q3.",
     } as Detail,
   },
   {
     Icon: Mail,
     date: "Jun 2, 2026",
-    text: "Sent the deck. Jordan flagged retention as the one thing to prove.",
+    text: "Sent the proposal. Jordan flagged onboarding time as the one thing to prove.",
     detail: {
       kind: "email",
       source: "Email thread",
-      body: "You sent the seed deck and one pager. Jordan replied the same day, called the product strong, and named 90 day retention as the single number he wants proven.",
+      body: "You sent the proposal and one pager. Jordan replied the same day, called the product strong, and named his team's setup time as the one thing he wants proven.",
     } as Detail,
   },
 ];
@@ -101,20 +101,20 @@ type Prompt = { q: string; a: string; primary?: boolean };
 const PROMPTS: Prompt[] = [
   {
     q: "Prep me for a meeting",
-    a: "You owe Jordan the cohort retention data from the Jun 8 call, and the demo promised for Jun 11 still is not scheduled. He owes you the updated cap table. Lead with retention, it is the one thing he flagged to prove, then leave with a demo date on the calendar.",
+    a: "You owe Jordan the onboarding checklist from the Jun 8 call, and the team demo promised for Jun 11 still is not scheduled. He owes you the signed pilot agreement. Lead with the checklist, onboarding is the one thing he flagged to prove, then leave with a demo date on the calendar.",
     primary: true,
   },
   {
     q: "What does Jordan care about?",
-    a: "Retention, above everything. He called it the one thing to prove after seeing the deck on Jun 2, and it is what the $50K decision hangs on. He is sold on the product otherwise, the check is just waiting on his conflict review.",
+    a: "Onboarding time, above everything. He called it the one thing to prove after the proposal on Jun 2, and it is what the pilot hangs on. He is sold on the product otherwise, kickoff is just waiting on his security review.",
   },
   {
     q: "What have we committed to each other?",
-    a: "You promised the cohort retention data and a demo for Jun 11, both still open. Jordan agreed on the Jun 8 call to send the updated cap table, and offered a warm intro to Meridian's ops team that you have not used yet.",
+    a: "You promised the onboarding checklist and a team demo for Jun 11, both still open. Jordan agreed on the Jun 8 call to send the signed pilot agreement, and offered a warm intro to Meridian's ops team that you have not used yet.",
   },
   {
     q: "Summarize our last conversation",
-    a: "Jun 8, a 38 minute diligence call. You agreed the $50K stays an angel check, not the whole round. Jordan committed to the updated cap table, you committed to the retention data, and the demo was left unscheduled.",
+    a: "Jun 8, a 38 minute walkthrough. You agreed on a 30 day pilot for his ops team, kickoff July 1. Jordan committed to the signed agreement, you committed to the onboarding checklist, and the team demo was left unscheduled.",
   },
 ];
 

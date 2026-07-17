@@ -17,7 +17,7 @@ function PrepMock() {
 
 function FeedMock() {
   const items = [
-    { dot: "bg-amber-500", t: "Send Jordan the cohort data", s: "Promised Jun 8 · due today" },
+    { dot: "bg-amber-500", t: "Send Jordan the onboarding checklist", s: "Promised Jun 8 · due today" },
     { dot: "bg-emerald-500", t: "Reply to Priya Nair", s: "Warm intro, waiting 2 days" },
     { dot: "bg-gray-300", t: "Follow up with Andy on scope", s: "Went quiet 3 weeks ago" },
   ];
