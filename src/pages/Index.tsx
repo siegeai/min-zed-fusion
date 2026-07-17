@@ -10,7 +10,6 @@ import Assistant from "@/components/landing/Assistant";
 import Share from "@/components/landing/Share";
 import Privacy from "@/components/landing/Privacy";
 import FinalCTA from "@/components/landing/FinalCTA";
-import CompanyCapsuleModal from "@/components/landing/CompanyCapsule";
 
 const Index = () => {
   return (
@@ -37,7 +36,6 @@ const Index = () => {
           <Share />
           <Privacy />
           <FinalCTA />
-          <CompanyCapsuleModal />
         </main>
 
         <MinFooter />

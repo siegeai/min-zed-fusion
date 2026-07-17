@@ -1,7 +1,6 @@
 import { GitMerge, Send, X, Check, Lock } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import { FlatAvatar } from "./DemoAvatars";
-import { CompanyLink } from "./CompanyCapsule";
 
 function ShareDialog() {
   return (
@@ -16,9 +15,7 @@ function ShareDialog() {
           <FlatAvatar who="jordan" size={32} label="Jordan Lee" />
           <div>
             <p className="text-[14px] font-medium text-gray-900">Jordan Lee</p>
-            <p className="text-[12px] text-gray-400">
-              Founder & CEO, <CompanyLink>Aperture</CompanyLink>
-            </p>
+            <p className="text-[12px] text-gray-400">Founder & CEO, Aperture</p>
           </div>
         </div>
 

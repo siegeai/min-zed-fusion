@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
-import { CompanyLink } from "./CompanyCapsule";
+import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
 
 /**
  * The capsule as a desktop WORKSPACE, and a LIVE demo: the relationship record
@@ -106,16 +106,16 @@ const PROMPTS: Prompt[] = [
     primary: true,
   },
   {
-    q: "Where do things stand with this group?",
-    a: "The pilot is committed, kickoff July 1, and the security sign off is the last blocker. Your side owes the onboarding checklist and the team demo. Momentum is good, all three of you have talked twice in the past two weeks.",
+    q: "What is blocking the July 1 kickoff?",
+    a: "Two things. Dana's security sign off on Aperture's side, and the onboarding checklist you promised on the Jun 8 call. Clear both and the pilot starts on time.",
   },
   {
-    q: "What have we committed to each other?",
-    a: "You owe the onboarding checklist and the team demo. Jordan owes the signed pilot agreement. Sam offered his ops workflow doc on the walkthrough, and it has not arrived yet.",
+    q: "What does Sam need from me?",
+    a: "The onboarding checklist, he has asked for it twice since the walkthrough. He also wants the team demo on the calendar so his ops team sees the setup before kickoff.",
   },
   {
-    q: "What came out of our last meeting?",
-    a: "The Jun 8 walkthrough, all three of you on for 38 minutes. A 30 day pilot for the ops team, kickoff July 1. Jordan committed to the signed agreement, you committed to the onboarding checklist, and the team demo was left unscheduled.",
+    q: "Did Jordan send the pilot agreement?",
+    a: "No. He promised the countersigned agreement by the end of the week of Jun 8, and it has not arrived in any thread since. Worth raising when you send the checklist.",
   },
 ];
 
@@ -298,11 +298,17 @@ function AskRail() {
 }
 
 export default function CapsuleWorkspace() {
+  // Clicking "Aperture" swaps the whole workspace to the company capsule in
+  // place, product-style; back returns to the group.
+  const [view, setView] = useState<"group" | "company">("group");
   return (
     <div
       data-capsule
       className="w-full overflow-hidden rounded-[22px] border border-gray-200/80 bg-white shadow-[0_16px_60px_-16px_rgba(0,0,0,0.18)]"
     >
+      {view === "company" ? (
+        <CompanyCapsuleContent onBack={() => setView("group")} />
+      ) : (
       <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr]">
         {/* ── The record ── */}
         <div className="min-w-0 px-5 py-5 sm:px-7 sm:py-6">
@@ -318,7 +324,7 @@ export default function CapsuleWorkspace() {
                 You, Jordan &amp; Sam
               </h3>
               <p className="text-[12.5px] text-gray-500">
-                The <CompanyLink>Aperture</CompanyLink> pilot · working group
+                The <CompanyLink onClick={() => setView("company")}>Aperture</CompanyLink> pilot · working group
               </p>
             </div>
             <div className="ml-auto hidden items-center gap-1.5 sm:flex">
@@ -408,6 +414,7 @@ export default function CapsuleWorkspace() {
         {/* ── The ask rail (live) ── */}
         <AskRail />
       </div>
+      )}
     </div>
   );
 }

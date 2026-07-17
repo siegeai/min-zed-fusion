@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Lock, Lightbulb, ArrowRight } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
-import { CompanyLink } from "./CompanyCapsule";
+import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
 
 /**
  * The relationship capsule, hero-sized: a structured BRIEFING, not a feed.
@@ -77,6 +78,9 @@ const INSIGHTS: { text: string; detail: Detail }[] = [
 ];
 
 export default function Capsule({ className = "" }: { className?: string }) {
+  // Product-style navigation: clicking the company name swaps this capsule to
+  // the company view in place; back returns to the relationship.
+  const [view, setView] = useState<"person" | "company">("person");
   return (
     <div
       data-capsule
@@ -86,6 +90,10 @@ export default function Capsule({ className = "" }: { className?: string }) {
         className,
       ].join(" ")}
     >
+      {view === "company" ? (
+        <CompanyCapsuleContent onBack={() => setView("person")} />
+      ) : (
+        <>
       {/* Person header */}
       <div className="flex items-center gap-3.5 border-b border-gray-100 px-5 py-4 sm:px-6">
         <div className="flex shrink-0 -space-x-2.5">
@@ -100,7 +108,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
             <span className="hidden h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 sm:block" />
           </div>
           <p className="truncate text-[13px] text-gray-500">
-            Founder & CEO, <CompanyLink>Aperture</CompanyLink>
+            Founder & CEO, <CompanyLink onClick={() => setView("company")}>Aperture</CompanyLink>
           </p>
           <p className="truncate text-[11px] text-gray-400 sm:hidden">
             Last touch 3 days ago · 3 calls · 14 emails
@@ -177,6 +185,8 @@ export default function Capsule({ className = "" }: { className?: string }) {
           ))}
         </ul>
       </div>
+        </>
+      )}
     </div>
   );
 }
