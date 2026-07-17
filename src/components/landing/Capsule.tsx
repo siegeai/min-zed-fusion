@@ -13,23 +13,37 @@ import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
  * data.
  */
 
-const BRIEF = {
-  title: "Aperture: $12K pilot, kickoff July 1",
-  rows: [
-    {
-      label: "What",
-      text: "A 30 day pilot for Aperture's ops team, agreed on the Jun 8 walkthrough call.",
+const BRIEF_TITLE = "Aperture: $12K pilot, kickoff July 1";
+
+const BRIEF: { label: string; text: string; detail: Detail }[] = [
+  {
+    label: "What",
+    text: "A 30 day pilot for Aperture's ops team, agreed on the Jun 8 walkthrough call.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Jordan agreed to a 30 day pilot for the ops team, $12K annual once it converts, with no commitment past the 30 days.",
     },
-    {
-      label: "When",
-      text: "Intro May 24 via Priya Nair. Proposal sent Jun 2, walkthrough Jun 8, team demo promised Jun 11.",
+  },
+  {
+    label: "When",
+    text: "Intro May 24 via Priya Nair. Proposal sent Jun 2, walkthrough Jun 8, team demo promised Jun 11.",
+    detail: {
+      kind: "email",
+      source: "Email thread",
+      body: "Priya Nair made the intro May 24. The proposal went out Jun 2, the walkthrough ran Jun 8, and Jordan promised his team a demo the week of Jun 11.",
     },
-    {
-      label: "Why",
-      text: "Jordan needs onboarding proven light before kickoff. You are waiting on his security review.",
+  },
+  {
+    label: "Why",
+    text: "Jordan needs onboarding proven light before kickoff. You are waiting on his security review.",
+    detail: {
+      kind: "call",
+      source: "Call · Jun 8",
+      body: "Jordan will not roll out until setup is proven under an hour. His security review is the last gate before kickoff, and the onboarding checklist is on you.",
     },
-  ],
-};
+  },
+];
 
 const ACTIONS: { text: string; detail: Detail }[] = [
   {
@@ -120,21 +134,26 @@ export default function Capsule({ className = "" }: { className?: string }) {
         </div>
       </div>
 
-      {/* Engagement brief: the who/what/when/why at a glance */}
+      {/* Engagement brief: the who/what/when/why, every row expands into its source */}
       <div className="px-5 pb-4 pt-4 sm:px-6">
         <p className="font-display text-[15px] font-semibold leading-snug text-gray-900">
-          {BRIEF.title}
+          {BRIEF_TITLE}
         </p>
-        <div className="mt-3 space-y-2">
-          {BRIEF.rows.map((r) => (
-            <div key={r.label} className="flex gap-2.5">
-              <span className="w-11 shrink-0 pt-[3px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
-                {r.label}
-              </span>
-              <p className="text-[13px] leading-relaxed text-gray-600">{r.text}</p>
-            </div>
+        <ul className="mt-2.5 space-y-0.5">
+          {BRIEF.map((r) => (
+            <ExpandableRow
+              key={r.label}
+              detail={r.detail}
+              leading={
+                <span className="w-11 shrink-0 pt-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+                  {r.label}
+                </span>
+              }
+            >
+              <span className="text-[13px] leading-relaxed text-gray-600">{r.text}</span>
+            </ExpandableRow>
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* Open action items, click any for the full context */}
@@ -148,7 +167,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
               key={a.text}
               detail={a.detail}
               leading={
-                <ArrowRight className="mt-[4px] h-3 w-3 shrink-0 text-gray-400" strokeWidth={2} />
+                <ArrowRight className="mt-[7px] h-3 w-3 shrink-0 text-gray-400" strokeWidth={2} />
               }
             >
               <span className="text-[13px] leading-snug text-gray-700">{a.text}</span>
@@ -175,7 +194,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
               detail={i.detail}
               leading={
                 <Lightbulb
-                  className="mt-[4px] h-3 w-3 shrink-0 text-emerald-500"
+                  className="mt-[7px] h-3 w-3 shrink-0 text-emerald-500"
                   strokeWidth={2}
                 />
               }

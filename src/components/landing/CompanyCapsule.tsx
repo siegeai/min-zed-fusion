@@ -237,7 +237,7 @@ export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
               key={r.label}
               detail={r.detail}
               leading={
-                <span className="w-12 shrink-0 pt-[3px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+                <span className="w-12 shrink-0 pt-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
                   {r.label}
                 </span>
               }
@@ -278,7 +278,7 @@ export function CompanyCapsuleContent({ onBack }: { onBack: () => void }) {
               detail={i.detail}
               leading={
                 <Lightbulb
-                  className="mt-[4px] h-3 w-3 shrink-0 text-emerald-500"
+                  className="mt-[7px] h-3 w-3 shrink-0 text-emerald-500"
                   strokeWidth={2}
                 />
               }

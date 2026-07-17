@@ -40,7 +40,7 @@ export function ExpandableRow({
         <span className="min-w-0 flex-1">{children}</span>
         <ChevronDown
           className={[
-            "mt-[3px] h-3.5 w-3.5 shrink-0 text-gray-300 transition-transform duration-200 group-hover:text-gray-400",
+            "mt-[5px] h-3.5 w-3.5 shrink-0 text-gray-300 transition-transform duration-200 group-hover:text-gray-400",
             open ? "rotate-180" : "",
           ].join(" ")}
           strokeWidth={2}
