@@ -22,16 +22,18 @@ export default function LandingHero() {
 
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              Your relationships
-              <br className="hidden sm:block" /> live in five places.
+              <span className="text-gray-400">
+                Your relationships live in five places.
+              </span>
+              <br /> min. brings them into one.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
               Calls, email, calendar, and your teammates each hold a different
-              piece. min. keeps one living memory for every person, company, and
-              group, so you stop stitching the story together yourself.
+              piece. One living memory for every person, company, and group, so
+              you stop stitching the story together yourself.
             </p>
           </FadeIn>
 
