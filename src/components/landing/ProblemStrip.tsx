@@ -6,9 +6,9 @@ import { FadeIn } from "@/components/vision/FadeIn";
  */
 
 const PROBLEMS = [
-  "You have a call in ten minutes and cannot remember what you agreed last time.",
-  "You promised to send something three weeks ago. It is still sitting there.",
-  "Someone who mattered went quiet, and you noticed months too late.",
+  "One customer's story is spread across your inbox, your calendar, and calls you half remember.",
+  "A teammate talked to them last week, and you have no idea what was said.",
+  "You are the only thing connecting what they asked for in March to what they need now.",
 ];
 
 export default function ProblemStrip() {

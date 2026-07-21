@@ -22,16 +22,16 @@ export default function LandingHero() {
 
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              Never walk into
-              <br className="hidden sm:block" /> a meeting cold.
+              Your relationships
+              <br className="hidden sm:block" /> live in five places.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              min. sits in on your calls and email, quietly remembering. Before
-              any conversation, know what was said, what you promised, and what
-              to do next.
+              Calls, email, calendar, and your teammates each hold a different
+              piece. min. keeps one living memory for every person, company, and
+              group, so you stop stitching the story together yourself.
             </p>
           </FadeIn>
 
