@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
 import LandingHero from "@/components/landing/LandingHero";
+import ProblemStrip from "@/components/landing/ProblemStrip";
 import Integrations from "@/components/landing/Integrations";
 import CapsuleTypes from "@/components/landing/CapsuleTypes";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
@@ -15,10 +16,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | The relationship assistant that never forgets</title>
+        <title>min. | Never walk into a meeting cold</title>
         <meta
           name="description"
-          content="min. is your relationship assistant with perfect recall. It sits in on your calls and email and remembers every person, company, and group you work with, so you show up for people the way you always meant to."
+          content="min. sits in on your calls and email, quietly remembering every person, company, and group you work with. Before any conversation, know what was said, what you promised, and what to do next."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -28,6 +29,7 @@ const Index = () => {
 
         <main className="flex-1">
           <LandingHero />
+          <ProblemStrip />
           <Integrations />
           <CapsuleTypes />
           <CapsuleUpClose />

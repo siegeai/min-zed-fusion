@@ -22,16 +22,16 @@ export default function LandingHero() {
 
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              A relationship assistant
-              <br className="hidden sm:block" /> that grows your connections.
+              Never walk into
+              <br className="hidden sm:block" /> a meeting cold.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              min. sits in on your calls and email, quietly remembering. Ask
-              it anything, and show up for people the way you always meant to,
-              growing every relationship that matters.
+              min. sits in on your calls and email, quietly remembering. Before
+              any conversation, know what was said, what you promised, and what
+              to do next.
             </p>
           </FadeIn>
 
