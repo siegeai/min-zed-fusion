@@ -225,9 +225,20 @@ function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon }: Rai
 
   return (
     <div className="flex flex-col border-t border-gray-100 bg-[#FBFBFA] px-5 py-5 sm:px-6 lg:border-l lg:border-t-0">
-      <h4 className="font-display text-[15px] font-semibold text-gray-900">
-        {title}
-      </h4>
+      <div className="flex items-center justify-between gap-3">
+        <h4 className="font-display text-[15px] font-semibold text-gray-900">
+          {title}
+        </h4>
+        {/* Product-style share button; jumps to the share and merge section */}
+        <a
+          href="#share"
+          aria-label="Share this capsule"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-600 px-4 py-1.5 text-[12.5px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
+        >
+          <Share2 className="h-3.5 w-3.5" strokeWidth={2.2} />
+          Share
+        </a>
+      </div>
       <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">{blurb}</p>
 
       {/* Conversation */}
@@ -371,24 +382,15 @@ export default function CapsuleWorkspace() {
                 The <CompanyLink onClick={() => setView("company")}>Aperture</CompanyLink> pilot · working group
               </p>
             </div>
-            <div className="ml-auto flex items-center gap-1.5">
+            <div className="ml-auto hidden items-center gap-1.5 sm:flex">
               {["4 calls", "19 emails", "since May"].map((c) => (
                 <span
                   key={c}
-                  className="hidden rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500 sm:inline-block"
+                  className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500"
                 >
                   {c}
                 </span>
               ))}
-              {/* Product-style share button; jumps to the share and merge section */}
-              <a
-                href="#share"
-                aria-label="Share this capsule"
-                className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[12px] font-medium text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100/70"
-              >
-                <Share2 className="h-3 w-3" strokeWidth={2.2} />
-                Share
-              </a>
             </div>
           </div>
 
