@@ -73,7 +73,7 @@ const FAQS = [
   },
   {
     q: "Do you store my email?",
-    a: "No. min. keeps distilled memory, not your raw mail. We never train on it, sell it, or share it.",
+    a: "No. min. keeps distilled memory and metadata, never your raw mail. We never train on it, sell it, or share it.",
   },
 ];
 
