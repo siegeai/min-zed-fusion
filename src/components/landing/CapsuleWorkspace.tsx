@@ -6,6 +6,7 @@ import {
   CalendarClock,
   Building2,
   Send,
+  Share2,
   Video,
   Mail,
   type LucideIcon,
@@ -370,15 +371,24 @@ export default function CapsuleWorkspace() {
                 The <CompanyLink onClick={() => setView("company")}>Aperture</CompanyLink> pilot · working group
               </p>
             </div>
-            <div className="ml-auto hidden items-center gap-1.5 sm:flex">
+            <div className="ml-auto flex items-center gap-1.5">
               {["4 calls", "19 emails", "since May"].map((c) => (
                 <span
                   key={c}
-                  className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500"
+                  className="hidden rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500 sm:inline-block"
                 >
                   {c}
                 </span>
               ))}
+              {/* Product-style share button; jumps to the share and merge section */}
+              <a
+                href="#share"
+                aria-label="Share this capsule"
+                className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[12px] font-medium text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100/70"
+              >
+                <Share2 className="h-3 w-3" strokeWidth={2.2} />
+                Share
+              </a>
             </div>
           </div>
 
