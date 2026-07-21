@@ -41,9 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Your relationship assistant with perfect recall. min. remembers
-              every person, company, and group you work with, so you show up for
-              people the way you always meant to.
+              Relationship intelligence with perfect recall. min. holds one
+              living memory of every person, company, and group you work with,
+              and the insight to show up for people the way you always meant to.
             </p>
           </div>
 
