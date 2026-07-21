@@ -35,7 +35,7 @@ export default function FinalCTA() {
               </a>
             </div>
             <p className="mt-8 text-[13px] text-gray-500">
-              Works with Google and Outlook calendars. Your memory, your eyes only.
+              Works with Google and Outlook calendars. Your capsules, your eyes only.
             </p>
           </div>
         </div>

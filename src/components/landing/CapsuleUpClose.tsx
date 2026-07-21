@@ -35,7 +35,7 @@ export default function CapsuleUpClose() {
               One relationship, one capsule.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
-              Everything summarized into an easy to read memory capsule: the who,
+              Everything summarized into an easy to read capsule: the who,
               what, when, where, and why. Then ask it anything.
             </p>
           </div>

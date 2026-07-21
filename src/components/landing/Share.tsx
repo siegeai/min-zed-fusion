@@ -6,7 +6,7 @@ function ShareDialog() {
   return (
     <div className="w-full max-w-sm overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)]">
       <div className="flex items-center justify-between border-b border-gray-100 px-5 py-3.5">
-        <span className="font-display text-[15px] font-semibold text-gray-900">Share memory</span>
+        <span className="font-display text-[15px] font-semibold text-gray-900">Share capsule</span>
         <X className="h-4 w-4 text-gray-400" strokeWidth={2} />
       </div>
       <div className="px-5 py-5">

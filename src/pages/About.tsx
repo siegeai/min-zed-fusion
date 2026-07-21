@@ -54,7 +54,7 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | One living memory for every relationship</title>
+        <title>About min. | A living capsule for every relationship</title>
         <meta
           name="description"
           content="min. turns your calendar and email into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone."

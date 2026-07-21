@@ -61,7 +61,7 @@ export default function CapsuleTypes() {
               A living capsule for every relationship.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
-              People, companies, and groups. Each one a living memory that builds
+              People, companies, and groups. Each one builds and maintains
               itself from your calendar and email.
             </p>
           </div>

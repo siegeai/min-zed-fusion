@@ -16,10 +16,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | One living memory for every relationship</title>
+        <title>min. | A living capsule for every relationship</title>
         <meta
           name="description"
-          content="One customer sits in your inbox, your calendar, your calls, and your teammates' heads. min. keeps one living memory for every person, company, and group you work with, so you stop stitching the story together yourself."
+          content="One customer sits in your inbox, your calendar, your calls, and your teammates' heads. min. keeps one living capsule for every person, company, and group you work with, so you stop stitching the story together yourself."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
