@@ -299,6 +299,24 @@ const TermsOfService = () => {
                   We strictly comply with Google's API Services User Data
                   Policy:
                 </p>
+                <p className="text-gray-900 font-medium">
+                  The use of raw or derived user data received from Workspace
+                  APIs will adhere to the{" "}
+                  <a
+                    href="https://developers.google.com/terms/api-services-user-data-policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline"
+                  >
+                    Google User Data Policy
+                  </a>
+                  , including the Limited Use requirements.
+                </p>
+                <p className="text-gray-900 font-medium">
+                  We never use raw or derived user data received from Workspace
+                  APIs to train, create, or improve foundational or generalized
+                  machine learning or artificial intelligence models.
+                </p>
                 <ul className="list-disc pl-6 space-y-1.5 marker:text-gray-400">
                   <li>
                     We only access email data necessary for our service
