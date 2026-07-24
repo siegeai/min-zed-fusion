@@ -296,10 +296,6 @@ const TermsOfService = () => {
                 title="8. Google API Compliance"
               >
                 <p>
-                  We strictly comply with Google's API Services User Data
-                  Policy:
-                </p>
-                <p className="text-gray-900 font-medium">
                   The use of raw or derived user data received from Workspace
                   APIs will adhere to the{" "}
                   <a
@@ -310,17 +306,20 @@ const TermsOfService = () => {
                   >
                     Google User Data Policy
                   </a>
-                  , including the Limited Use requirements.
-                </p>
-                <p className="text-gray-900 font-medium">
-                  We never use raw or derived user data received from Workspace
-                  APIs to train, create, or improve foundational or generalized
-                  machine learning or artificial intelligence models.
+                  , including the Limited Use requirements:
                 </p>
                 <ul className="list-disc pl-6 space-y-1.5 marker:text-gray-400">
                   <li>
                     We only access email data necessary for our service
                     functionality
+                  </li>
+                  <li>
+                    <strong className="text-gray-900">
+                      We never use raw or derived user data received from
+                      Workspace APIs to train, create, or improve foundational
+                      or generalized machine learning or artificial intelligence
+                      models
+                    </strong>
                   </li>
                   <li>
                     We do not transfer email data to third parties except as
