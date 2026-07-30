@@ -70,9 +70,9 @@ export default function Share() {
               <br className="hidden sm:block" /> like a doc.
             </h2>
             <p className="mt-5 max-w-md text-[17px] leading-relaxed text-gray-500">
-              One link, and a teammate or partner has the whole relationship,
-              always current. No internal prep call, no forwarded threads, no
-              write up from memory.
+              A capsule is shareable context. One link, and a teammate or
+              partner has the whole relationship, always current. No internal
+              prep call, no forwarded threads, no write up from memory.
             </p>
           </FadeIn>
 

@@ -16,7 +16,7 @@ export default function LandingHero() {
           <FadeIn delay={0.05}>
             <span className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white/70 px-3 py-1 text-[12.5px] font-medium text-gray-600 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              Relationship memory, zero upkeep
+              Relationship context, zero upkeep
             </span>
           </FadeIn>
 

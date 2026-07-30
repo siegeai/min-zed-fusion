@@ -43,7 +43,7 @@ export default function MinFooter() {
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
               Relationship intelligence with perfect recall. min. holds one
               living memory of every person, company, and group you work with,
-              and the insight to show up for people the way you always meant to.
+              and the context to show up for people the way you always meant to.
             </p>
           </div>
 

@@ -17,7 +17,7 @@ const Index = () => {
         <title>min. | A living capsule for every relationship</title>
         <meta
           name="description"
-          content="One customer sits in your inbox, your calendar, your calls, and your teammates' heads. min. keeps one living capsule for every person, company, and group you work with, so you never piece the story together again."
+          content="One customer sits in your inbox, your calendar, your calls, and your teammates' heads. min. keeps the full context of every person, company, and group you work with in one living capsule, so you never piece the story together again."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>

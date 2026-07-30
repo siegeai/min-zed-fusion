@@ -18,7 +18,7 @@ const STEPS = [
     n: "03",
     Icon: Share2,
     title: "Share.",
-    body: "Send one link and a teammate has the whole story. No internal prep call, no forwarded threads, no rewatching recordings.",
+    body: "Send one link and a teammate has full context. No internal prep call, no forwarded threads, no rewatching recordings.",
   },
 ];
 

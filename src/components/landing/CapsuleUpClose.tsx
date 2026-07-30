@@ -16,8 +16,8 @@ export default function CapsuleUpClose() {
               One relationship, one capsule.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
-              A one page TL;DR of the whole relationship, with one click deep
-              dives into every call and email. Then ask it anything.
+              The relationship's full context in a one page TL;DR, with one
+              click deep dives into every call and email. Then ask it anything.
             </p>
           </div>
         </FadeIn>
