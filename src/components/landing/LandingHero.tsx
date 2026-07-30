@@ -33,7 +33,7 @@ export default function LandingHero() {
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
               Calls, email, calendar, and your teammates each hold a different
               piece. One living capsule for every person, company, and group, so
-              you stop stitching the story together yourself.
+              you never piece the story together again.
             </p>
           </FadeIn>
 
