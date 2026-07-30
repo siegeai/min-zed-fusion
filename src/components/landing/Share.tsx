@@ -56,12 +56,6 @@ function MergeChip() {
   );
 }
 
-const OLD_WAY = [
-  "Write up notes from memory",
-  "Forward a tangle of email threads",
-  "Get on a call to brief them",
-];
-
 export default function Share() {
   return (
     <section id="share" className="scroll-mt-24 border-y border-gray-100 bg-white px-4 py-14 md:py-28">
@@ -76,29 +70,10 @@ export default function Share() {
               <br className="hidden sm:block" /> like a doc.
             </h2>
             <p className="mt-5 max-w-md text-[17px] leading-relaxed text-gray-500">
-              Bring a teammate or a partner up to speed in one click. The whole
-              relationship, always current. No handoff meeting required.
+              One link, and a teammate or partner has the whole relationship,
+              always current. No internal prep call, no forwarded threads, no
+              write up from memory.
             </p>
-          </FadeIn>
-
-          <FadeIn delay={0.08}>
-            <div className="mt-7 rounded-2xl border border-gray-100 bg-[#FBFBFA] p-5">
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-400">
-                The old way
-              </p>
-              <ul className="space-y-2">
-                {OLD_WAY.map((o) => (
-                  <li key={o} className="flex items-center gap-2.5 text-[14px]">
-                    <X className="h-3.5 w-3.5 shrink-0 text-gray-300" strokeWidth={2.5} />
-                    <span className="text-gray-400 line-through decoration-gray-300">{o}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-3 flex items-center gap-2.5 border-t border-gray-100 pt-3 text-[14.5px]">
-                <Check className="h-4 w-4 shrink-0 text-emerald-500" strokeWidth={2.5} />
-                <span className="font-medium text-gray-900">With min., share the capsule.</span>
-              </div>
-            </div>
           </FadeIn>
 
           <FadeIn delay={0.14}>

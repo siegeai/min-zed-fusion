@@ -4,10 +4,8 @@ import MinFooter from "@/components/MinFooter";
 import LandingHero from "@/components/landing/LandingHero";
 import ProblemStrip from "@/components/landing/ProblemStrip";
 import Integrations from "@/components/landing/Integrations";
-import CapsuleTypes from "@/components/landing/CapsuleTypes";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
-import Assistant from "@/components/landing/Assistant";
 import Share from "@/components/landing/Share";
 import Privacy from "@/components/landing/Privacy";
 import FinalCTA from "@/components/landing/FinalCTA";
@@ -31,10 +29,8 @@ const Index = () => {
           <LandingHero />
           <ProblemStrip />
           <Integrations />
-          <CapsuleTypes />
           <CapsuleUpClose />
           <HowItWorks />
-          <Assistant />
           <Share />
           <Privacy />
           <FinalCTA />

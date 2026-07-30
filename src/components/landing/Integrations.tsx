@@ -11,10 +11,6 @@ const NAMES = [
   "Zoom",
   "Google Meet",
   "Microsoft Teams",
-  "Granola",
-  "Otter",
-  "Fireflies",
-  "Fathom",
   "Gmail",
   "Outlook",
 ];

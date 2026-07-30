@@ -6,19 +6,19 @@ const STEPS = [
     n: "01",
     Icon: Plug,
     title: "Connect.",
-    body: "Connect your calendar. Two minutes, and add email whenever you're ready.",
+    body: "Connect your calendar and email in two minutes. min. runs in the background from there. No data entry, ever.",
   },
   {
     n: "02",
     Icon: Sparkles,
-    title: "min. summarizes.",
-    body: "The relationship, the facts, the commitments, from every meeting and thread. Automatically.",
+    title: "min. distills.",
+    body: "Every call and thread becomes a one page TL;DR of the relationship, with one click deep dives into each conversation.",
   },
   {
     n: "03",
     Icon: Share2,
     title: "Share.",
-    body: "Share a relationship capsule with anyone on your team, so everyone stays up to date.",
+    body: "Send one link and a teammate has the whole story. No internal prep call, no forwarded threads, no rewatching recordings.",
   },
 ];
 
