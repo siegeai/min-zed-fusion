@@ -23,7 +23,7 @@ export default function LandingHero() {
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
               <span className="text-gray-400">
-                You can't remember every detail of every conversation.
+                You can't hold every relationship in your head.
               </span>
               <br /> min. can.
             </h1>
