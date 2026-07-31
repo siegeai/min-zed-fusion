@@ -12,7 +12,7 @@ const STEPS = [
     n: "02",
     Icon: Sparkles,
     title: "min. distills.",
-    body: "Every call and thread becomes a one page TL;DR of the relationship, with one click deep dives into each conversation.",
+    body: "Every call and thread becomes relationship intelligence: a one page TL;DR with one click deep dives into each conversation.",
   },
   {
     n: "03",

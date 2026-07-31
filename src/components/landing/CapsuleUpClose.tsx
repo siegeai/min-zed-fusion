@@ -27,6 +27,15 @@ export default function CapsuleUpClose() {
             <CapsuleWorkspace />
           </div>
         </FadeIn>
+
+        <FadeIn delay={0.16}>
+          <p className="mx-auto mt-8 max-w-xl text-center text-[15px] leading-relaxed text-gray-500">
+            This is how a $12K pilot doesn't slip through the cracks.{" "}
+            <span className="font-medium text-gray-900">
+              That is relationship intelligence.
+            </span>
+          </p>
+        </FadeIn>
       </div>
     </section>
   );
