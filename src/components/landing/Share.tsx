@@ -37,6 +37,16 @@ function ShareDialog() {
           <Send className="h-3.5 w-3.5" strokeWidth={2} />
           Send capsule
         </button>
+
+        <div className="mt-3 flex items-center justify-between gap-2 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+          <span className="flex min-w-0 items-center gap-2 text-[12.5px] text-gray-500">
+            <Link2 className="h-3.5 w-3.5 shrink-0 text-gray-400" strokeWidth={2} />
+            <span className="truncate">getmin.ai/c/jordan-lee</span>
+          </span>
+          <button className="shrink-0 text-[12.5px] font-medium text-emerald-700">
+            Copy link
+          </button>
+        </div>
       </div>
     </div>
   );
