@@ -31,34 +31,51 @@ function ShareDialog() {
             Avery already knows Jordan
           </p>
 
-          {/* Two capsules of the same Jordan become one */}
-          <div className="mt-2 flex flex-wrap items-center gap-1.5">
-            <span className="flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-2 py-1">
-              <FlatAvatar who="jordan" size={18} label="Jordan Lee" />
-              <span className="text-[10.5px] font-medium text-gray-500">You</span>
-            </span>
-            <span className="flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-2 py-1">
-              <FlatAvatar who="jordan" size={18} label="Jordan Lee" />
-              <span className="text-[10.5px] font-medium text-gray-500">Avery</span>
-            </span>
-            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100">
+          {/* Two capsules of the same Jordan, stats on the cards, becoming one */}
+          <div className="mt-2 grid grid-cols-2 gap-1.5">
+            <div className="rounded-lg border border-gray-200 bg-white px-2 py-1.5">
+              <div className="flex items-center gap-1.5">
+                <FlatAvatar who="jordan" size={16} label="Jordan Lee" />
+                <span className="truncate text-[10.5px] font-medium text-gray-600">
+                  Your capsule
+                </span>
+              </div>
+              <p className="mt-0.5 text-[10.5px] text-gray-400">3 calls · since May</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-white px-2 py-1.5">
+              <div className="flex items-center gap-1.5">
+                <FlatAvatar who="jordan" size={16} label="Jordan Lee" />
+                <span className="truncate text-[10.5px] font-medium text-gray-600">
+                  Avery's capsule
+                </span>
+              </div>
+              <p className="mt-0.5 text-[10.5px] text-gray-400">2 calls · since Feb</p>
+            </div>
+          </div>
+
+          <div className="my-1.5 flex justify-center">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100">
               <GitMerge className="h-3 w-3 text-emerald-700" strokeWidth={2.2} />
-            </span>
-            <span className="flex items-center gap-1.5 rounded-lg border border-emerald-300 bg-white px-2 py-1">
-              <FlatAvatar who="jordan" size={18} label="Jordan Lee" />
-              <span className="flex -space-x-1">
-                <FlatAvatar who="you" size={14} label="You" className="border border-white" />
-                <FlatAvatar who="avery" size={14} label="Avery Moss" className="border border-white" />
-              </span>
             </span>
           </div>
 
-          <p className="mt-2 text-[12px] text-gray-500">
-            Your capsule: 3 calls · since May. Hers: 2 calls · since Feb.
-          </p>
-          <p className="mt-0.5 text-[12px] font-medium text-emerald-700">
-            Share to merge: one capsule, 5 calls · 23 emails · since Feb.
-          </p>
+          <div className="rounded-lg border border-emerald-300 bg-white px-2 py-1.5">
+            <div className="flex items-center justify-between gap-1.5">
+              <div className="flex min-w-0 items-center gap-1.5">
+                <FlatAvatar who="jordan" size={16} label="Jordan Lee" />
+                <span className="truncate text-[10.5px] font-medium text-gray-600">
+                  One capsule
+                </span>
+              </div>
+              <span className="flex shrink-0 -space-x-1">
+                <FlatAvatar who="you" size={14} label="You" className="border border-white" />
+                <FlatAvatar who="avery" size={14} label="Avery Moss" className="border border-white" />
+              </span>
+            </div>
+            <p className="mt-0.5 text-[10.5px] font-medium text-emerald-700">
+              5 calls · 23 emails · since Feb
+            </p>
+          </div>
         </div>
 
         <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-emerald-600 py-2.5 text-[14px] font-medium text-white">
