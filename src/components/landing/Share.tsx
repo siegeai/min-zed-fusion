@@ -1,4 +1,4 @@
-import { GitMerge, Send, X, Check, Lock } from "lucide-react";
+import { GitMerge, Send, X, Check, Lock, Link2 } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import { FlatAvatar } from "./DemoAvatars";
 
@@ -71,17 +71,26 @@ export default function Share() {
             </h2>
             <p className="mt-5 max-w-md text-[17px] leading-relaxed text-gray-500">
               A capsule is shareable context. One link, and a teammate or
-              partner has the whole relationship, always current. No internal
-              prep call, no forwarded threads, no write up from memory.
+              partner has the whole relationship, always current. Paste it into
+              a doc, a thread, or a CRM record. No internal prep call, no
+              forwarded threads, no write up from memory.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.14}>
-            <div className="mt-5 flex items-center gap-2.5 rounded-xl border border-emerald-100 bg-emerald-50/60 px-4 py-3">
-              <Lock className="h-4 w-4 shrink-0 text-emerald-600" strokeWidth={2} />
-              <p className="text-[14.5px] font-medium text-gray-800">
-                When someone leaves, the relationships stay.
-              </p>
+            <div className="mt-5 space-y-3">
+              <div className="flex items-center gap-2.5 rounded-xl border border-emerald-100 bg-emerald-50/60 px-4 py-3">
+                <Link2 className="h-4 w-4 shrink-0 text-emerald-600" strokeWidth={2} />
+                <p className="text-[14.5px] font-medium text-gray-800">
+                  Works with any CRM. No data entry, no upkeep.
+                </p>
+              </div>
+              <div className="flex items-center gap-2.5 rounded-xl border border-emerald-100 bg-emerald-50/60 px-4 py-3">
+                <Lock className="h-4 w-4 shrink-0 text-emerald-600" strokeWidth={2} />
+                <p className="text-[14.5px] font-medium text-gray-800">
+                  When someone leaves, the relationships stay.
+                </p>
+              </div>
             </div>
           </FadeIn>
         </div>

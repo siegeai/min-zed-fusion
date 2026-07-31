@@ -72,6 +72,10 @@ const FAQS = [
     a: "Yes, on every plan. The other side signs in and sees only what is between the two of you. Revocable any time.",
   },
   {
+    q: "Do we have to replace our CRM?",
+    a: "No. min. replaces nothing. It builds itself from your calendar and email, and every capsule is a link you can paste into any CRM, doc, or thread. Whatever your team already uses gets full context instantly.",
+  },
+  {
     q: "Do you store my email?",
     a: "No. min. keeps distilled memory and metadata, never your raw mail. We never train on it, sell it, or share it.",
   },
