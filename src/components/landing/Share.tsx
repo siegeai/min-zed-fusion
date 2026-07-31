@@ -35,7 +35,10 @@ function ShareDialog() {
           <div className="mt-2 grid grid-cols-2 gap-1.5">
             <div className="rounded-lg border border-gray-200 bg-white px-2 py-1.5">
               <div className="flex items-center gap-1.5">
-                <FlatAvatar who="jordan" size={16} label="Jordan Lee" />
+                <span className="flex shrink-0 -space-x-1">
+                  <FlatAvatar who="you" size={16} label="You" className="border border-white" />
+                  <FlatAvatar who="jordan" size={16} label="Jordan Lee" className="border border-white" />
+                </span>
                 <span className="truncate text-[10.5px] font-medium text-gray-600">
                   Your capsule
                 </span>
@@ -44,7 +47,10 @@ function ShareDialog() {
             </div>
             <div className="rounded-lg border border-gray-200 bg-white px-2 py-1.5">
               <div className="flex items-center gap-1.5">
-                <FlatAvatar who="jordan" size={16} label="Jordan Lee" />
+                <span className="flex shrink-0 -space-x-1">
+                  <FlatAvatar who="avery" size={16} label="Avery Moss" className="border border-white" />
+                  <FlatAvatar who="jordan" size={16} label="Jordan Lee" className="border border-white" />
+                </span>
                 <span className="truncate text-[10.5px] font-medium text-gray-600">
                   Avery's capsule
                 </span>
@@ -60,16 +66,14 @@ function ShareDialog() {
           </div>
 
           <div className="rounded-lg border border-emerald-300 bg-white px-2 py-1.5">
-            <div className="flex items-center justify-between gap-1.5">
-              <div className="flex min-w-0 items-center gap-1.5">
-                <FlatAvatar who="jordan" size={16} label="Jordan Lee" />
-                <span className="truncate text-[10.5px] font-medium text-gray-600">
-                  One capsule
-                </span>
-              </div>
+            <div className="flex items-center gap-1.5">
               <span className="flex shrink-0 -space-x-1">
-                <FlatAvatar who="you" size={14} label="You" className="border border-white" />
-                <FlatAvatar who="avery" size={14} label="Avery Moss" className="border border-white" />
+                <FlatAvatar who="you" size={16} label="You" className="border border-white" />
+                <FlatAvatar who="avery" size={16} label="Avery Moss" className="border border-white" />
+                <FlatAvatar who="jordan" size={16} label="Jordan Lee" className="border border-white" />
+              </span>
+              <span className="truncate text-[10.5px] font-medium text-gray-600">
+                One capsule
               </span>
             </div>
             <p className="mt-0.5 text-[10.5px] font-medium text-emerald-700">
