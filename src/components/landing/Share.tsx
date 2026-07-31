@@ -61,7 +61,7 @@ function MergeChip() {
       </div>
       <GitMerge className="h-4 w-4 text-gray-400" strokeWidth={2} />
       <FlatAvatar who="jordan" size={32} label="Jordan Lee" />
-      <span className="text-[13px] text-gray-600">One capsule, both of you.</span>
+      <span className="text-[13px] text-gray-600">Two histories with Jordan, merged into one.</span>
     </div>
   );
 }
