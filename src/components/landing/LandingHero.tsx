@@ -23,15 +23,15 @@ export default function LandingHero() {
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
               Ask anything about
-              <br className="hidden sm:block" /> anyone you work with.
+              <br className="hidden sm:block" /> anyone your work depends on.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
               min. sits in on your meetings and email, keeping a living capsule
-              of every relationship. Ask, and it answers with what you'd
-              otherwise miss.
+              of every customer, partner, and investor. Ask, and it answers
+              with what you'd otherwise miss.
             </p>
           </FadeIn>
 
