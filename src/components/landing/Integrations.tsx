@@ -8,11 +8,22 @@
 const NAMES = [
   "Google Calendar",
   "Outlook Calendar",
+  "Gmail",
+  "Outlook",
   "Zoom",
   "Google Meet",
   "Microsoft Teams",
-  "Gmail",
-  "Outlook",
+  "Webex",
+  "Slack",
+  "Granola",
+  "Otter",
+  "Fireflies",
+  "Fathom",
+  "Grain",
+  "tl;dv",
+  "Avoma",
+  "Read AI",
+  "Circleback",
 ];
 
 const FADE =
