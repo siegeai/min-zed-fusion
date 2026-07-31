@@ -108,17 +108,16 @@ export default function Share() {
         <div>
           <FadeIn>
             <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-emerald-600">
-              Share and merge
+              Notetakers are single player. min. is multiplayer.
             </p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-[2.5rem] md:leading-[1.12]">
               Share a relationship
               <br className="hidden sm:block" /> like a doc.
             </h2>
             <p className="mt-5 max-w-md text-[17px] leading-relaxed text-gray-500">
-              A capsule is shareable context. One link, and a teammate or
-              partner has the whole relationship, always current. Paste it into
-              a doc, a thread, or a CRM record. No internal prep call, no
-              forwarded threads, no write up from memory.
+              A capsule is shareable context. One link and a teammate has the
+              whole relationship, always current, pasted into any doc, thread,
+              or CRM record.
             </p>
           </FadeIn>
 

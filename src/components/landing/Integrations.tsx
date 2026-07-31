@@ -37,10 +37,6 @@ export default function Integrations() {
         <h2 className="font-display text-[1.7rem] font-semibold tracking-tight text-gray-900 md:text-4xl">
           Every relationship, context at your fingertips.
         </h2>
-        <p className="mx-auto mt-4 max-w-lg text-[15.5px] leading-relaxed text-gray-500">
-          It sits in on your meetings and keeps up with your email, across the
-          tools you already use.
-        </p>
       </div>
 
       <div

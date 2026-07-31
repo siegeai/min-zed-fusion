@@ -29,9 +29,10 @@ export default function LandingHero() {
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              min. sits in on your meetings and email, keeping a living capsule
-              of every customer, partner, and investor. Ask, and it answers
-              with what you'd otherwise miss.
+              Your context on anyone lives in five places: calls, email,
+              calendar, notetakers, and your teammates' heads. min. brings it
+              into one living capsule, and answers with what you'd otherwise
+              miss.
             </p>
           </FadeIn>
 

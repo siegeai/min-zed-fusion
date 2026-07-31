@@ -6,7 +6,7 @@ const STEPS = [
     n: "01",
     Icon: Plug,
     title: "Connect.",
-    body: "Connect your calendar and email in two minutes. min. runs in the background from there. No data entry, ever.",
+    body: "Two minutes to connect. Then min. runs in the background. No data entry, ever.",
   },
   {
     n: "02",
@@ -18,7 +18,7 @@ const STEPS = [
     n: "03",
     Icon: Share2,
     title: "Share.",
-    body: "Send one link and a teammate has full context. No internal prep call, no forwarded threads, no rewatching recordings.",
+    body: "Send one link and a teammate has full context. No prep call, no forwarded threads.",
   },
 ];
 

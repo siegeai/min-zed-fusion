@@ -16,8 +16,8 @@ export default function FinalCTA() {
               <br className="hidden sm:block" /> instead of fade.
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
-              Show up for people the way you always meant to. Promises kept,
-              work won. Connect in two minutes. min. does the rest.
+              Show up the way you always meant to. Promises kept, work won.
+              min. does the rest.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a

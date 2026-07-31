@@ -19,8 +19,7 @@ export default function CapsuleUpClose() {
               <span className="font-medium text-gray-900">
                 It reads between the lines, and between the conversations.
               </span>{" "}
-              The whole relationship in a one page TL;DR, with one click deep
-              dives. Then ask it anything.
+              The whole relationship in a one page TL;DR, one click deep dives.
             </p>
           </div>
         </FadeIn>
