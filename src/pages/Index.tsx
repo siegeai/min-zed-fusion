@@ -7,7 +7,6 @@ import Integrations from "@/components/landing/Integrations";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Share from "@/components/landing/Share";
-import Privacy from "@/components/landing/Privacy";
 import FinalCTA from "@/components/landing/FinalCTA";
 
 const Index = () => {
@@ -32,7 +31,6 @@ const Index = () => {
           <CapsuleUpClose />
           <HowItWorks />
           <Share />
-          <Privacy />
           <FinalCTA />
         </main>
 
