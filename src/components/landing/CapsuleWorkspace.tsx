@@ -25,11 +25,11 @@ import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
 
 const INSIGHTS: { text: string; detail: Detail }[] = [
   {
-    text: "Committed to a $12K pilot, pending security review.",
+    text: "Price has come up in three straight conversations, earlier each time. Aperture is comparing options.",
     detail: {
-      kind: "call",
-      source: "Call · Jun 8",
-      body: "Jordan wants his IT lead to clear the security overview before kickoff. He was explicit the pilot does not wait on the annual contract.",
+      kind: "email",
+      source: "Jun 2 · Jun 8 · Jun 14",
+      body: "Jordan asked about annual pricing on Jun 2, Sam raised per seat cost on the walkthrough, and Jordan's Jun 14 email mentions evaluating a couple of tools. Worth reinforcing value before the team demo.",
     },
   },
   {
@@ -117,8 +117,8 @@ const GROUP_PROMPTS: Prompt[] = [
     a: "The onboarding checklist, she has asked for it twice since the walkthrough. She also wants the team demo on the calendar so her ops team sees the setup before kickoff.",
   },
   {
-    q: "Did Jordan send the pilot agreement?",
-    a: "No. He promised the countersigned agreement by the end of the week of Jun 8, and it has not arrived in any thread since. Worth raising when you send the checklist.",
+    q: "Am I competing with anyone for this pilot?",
+    a: "Signs point that way. Price has come up in three straight conversations, and Jordan's Jun 14 email mentions evaluating a couple of tools. Nobody named yet, so treat the team demo as your chance to make the choice easy.",
   },
 ];
 
