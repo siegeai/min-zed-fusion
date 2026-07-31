@@ -31,9 +31,8 @@ export default function LandingHero() {
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              Calls, email, calendar, and your teammates each hold a different
-              piece. One living capsule for every person, company, and group, so
-              you never piece the story together again.
+              min. sits in on your meetings and email. One living capsule for
+              every relationship, always current.
             </p>
           </FadeIn>
 
