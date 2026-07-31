@@ -31,8 +31,7 @@ export default function LandingHero() {
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
               Your context on anyone lives in five places: calls, email,
               calendar, notetakers, and your teammates' heads. min. brings it
-              into one living capsule, and answers with what you'd otherwise
-              miss.
+              into one living capsule that catches what you can't.
             </p>
           </FadeIn>
 
