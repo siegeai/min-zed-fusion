@@ -1,4 +1,4 @@
-import { GitMerge, Send, X, Check, Lock, Link2 } from "lucide-react";
+import { GitMerge, Send, X, Lock, Link2 } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import { FlatAvatar } from "./DemoAvatars";
 
@@ -25,11 +25,17 @@ function ShareDialog() {
           <span className="text-[13.5px] text-gray-700">avery@yourteam.com</span>
         </div>
 
-        <div className="mt-4 flex items-start gap-2 rounded-lg bg-[#F7FAF8] px-3 py-2.5">
-          <Check className="mt-[1px] h-3.5 w-3.5 shrink-0 text-emerald-600" strokeWidth={2.4} />
-          <p className="text-[12.5px] leading-snug text-gray-600">
-            They see the whole relationship, always current. A grant, not an export.
-            Revocable any time.
+        {/* The merge preview: sharing with someone who knows them merges your histories */}
+        <div className="mt-4 rounded-lg border border-emerald-100 bg-emerald-50/60 px-3 py-2.5">
+          <p className="flex items-center gap-1.5 text-[12.5px] font-medium text-gray-800">
+            <GitMerge className="h-3.5 w-3.5 shrink-0 text-emerald-600" strokeWidth={2.2} />
+            Avery already knows Jordan
+          </p>
+          <p className="mt-1 text-[12px] text-gray-500">
+            Your capsule: 3 calls · since May. Hers: 2 calls · since Feb.
+          </p>
+          <p className="mt-0.5 text-[12px] font-medium text-emerald-700">
+            Share to merge: one capsule, 5 calls · 23 emails · since Feb.
           </p>
         </div>
 
@@ -48,65 +54,6 @@ function ShareDialog() {
           </button>
         </div>
       </div>
-    </div>
-  );
-}
-
-function MergeVisual() {
-  return (
-    <div className="w-full max-w-sm rounded-2xl border border-gray-200/80 bg-white p-5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.18)]">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-400">
-        Merge capsules
-      </p>
-
-      {/* Two capsules of the same person */}
-      <div className="mt-3 grid grid-cols-2 gap-2.5">
-        <div className="rounded-xl border border-gray-100 bg-[#FBFBFA] px-3 py-2.5">
-          <div className="flex items-center gap-2">
-            <FlatAvatar who="jordan" size={22} label="Jordan Lee" />
-            <span className="truncate text-[12.5px] font-medium text-gray-900">Jordan Lee</span>
-          </div>
-          <p className="mt-1.5 text-[11.5px] font-medium text-gray-600">Your capsule</p>
-          <p className="text-[11px] text-gray-400">3 calls · 14 emails · since May</p>
-        </div>
-        <div className="rounded-xl border border-gray-100 bg-[#FBFBFA] px-3 py-2.5">
-          <div className="flex items-center gap-2">
-            <FlatAvatar who="jordan" size={22} label="Jordan Lee" />
-            <span className="truncate text-[12.5px] font-medium text-gray-900">Jordan Lee</span>
-          </div>
-          <p className="mt-1.5 text-[11.5px] font-medium text-gray-600">Avery's capsule</p>
-          <p className="text-[11px] text-gray-400">2 calls · 9 emails · since Feb</p>
-        </div>
-      </div>
-
-      {/* Merge glyph */}
-      <div className="my-2.5 flex justify-center">
-        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50">
-          <GitMerge className="h-3.5 w-3.5 text-emerald-600" strokeWidth={2.2} />
-        </span>
-      </div>
-
-      {/* One merged capsule */}
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 px-3 py-2.5">
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex min-w-0 items-center gap-2">
-            <FlatAvatar who="jordan" size={24} label="Jordan Lee" />
-            <span className="truncate text-[13px] font-medium text-gray-900">Jordan Lee</span>
-          </div>
-          <div className="flex shrink-0 -space-x-1.5">
-            <FlatAvatar who="you" size={20} label="You" className="border-2 border-white" />
-            <FlatAvatar who="avery" size={20} label="Avery Moss" className="border-2 border-white" />
-          </div>
-        </div>
-        <p className="mt-1.5 text-[11.5px] font-medium text-emerald-700">
-          One capsule · 5 calls · 23 emails · since Feb
-        </p>
-      </div>
-
-      <p className="mt-3 text-[12px] leading-relaxed text-gray-500">
-        You both know Jordan. Merge what you each know, and the whole story
-        lives in one place.
-      </p>
     </div>
   );
 }
@@ -153,7 +100,6 @@ export default function Share() {
         <FadeIn delay={0.1}>
           <div className="flex flex-col items-center gap-5 lg:items-end">
             <ShareDialog />
-            <MergeVisual />
           </div>
         </FadeIn>
       </div>
