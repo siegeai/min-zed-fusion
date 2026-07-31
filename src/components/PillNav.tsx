@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { motion } from "motion/react";
 
 const NAV_LINKS = [
-  { label: "Living Capsule", to: "/#capsule" },
+  { label: "Living capsule", to: "/#capsule" },
   { label: "How it works", to: "/#how" },
   { label: "Share", to: "/#share" },
   { label: "Pricing", to: "/pricing" },
