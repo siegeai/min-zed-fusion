@@ -22,17 +22,16 @@ export default function LandingHero() {
 
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              <span className="text-gray-400">
-                You can't remember, read, and grow every relationship.
-              </span>
-              <br /> min. can.
+              Ask anything about
+              <br className="hidden sm:block" /> anyone you work with.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              min. sits in on your meetings and email. One living capsule for
-              every relationship, always current.
+              min. sits in on your meetings and email, keeping a living capsule
+              of every relationship. Ask, and it answers with what you'd
+              otherwise miss.
             </p>
           </FadeIn>
 
