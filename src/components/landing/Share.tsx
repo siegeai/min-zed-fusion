@@ -27,11 +27,33 @@ function ShareDialog() {
 
         {/* The merge preview: sharing with someone who knows them merges your histories */}
         <div className="mt-4 rounded-lg border border-emerald-100 bg-emerald-50/60 px-3 py-2.5">
-          <p className="flex items-center gap-1.5 text-[12.5px] font-medium text-gray-800">
-            <GitMerge className="h-3.5 w-3.5 shrink-0 text-emerald-600" strokeWidth={2.2} />
+          <p className="text-[12.5px] font-medium text-gray-800">
             Avery already knows Jordan
           </p>
-          <p className="mt-1 text-[12px] text-gray-500">
+
+          {/* Two capsules of the same Jordan become one */}
+          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            <span className="flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-2 py-1">
+              <FlatAvatar who="jordan" size={18} label="Jordan Lee" />
+              <span className="text-[10.5px] font-medium text-gray-500">You</span>
+            </span>
+            <span className="flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-2 py-1">
+              <FlatAvatar who="jordan" size={18} label="Jordan Lee" />
+              <span className="text-[10.5px] font-medium text-gray-500">Avery</span>
+            </span>
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100">
+              <GitMerge className="h-3 w-3 text-emerald-700" strokeWidth={2.2} />
+            </span>
+            <span className="flex items-center gap-1.5 rounded-lg border border-emerald-300 bg-white px-2 py-1">
+              <FlatAvatar who="jordan" size={18} label="Jordan Lee" />
+              <span className="flex -space-x-1">
+                <FlatAvatar who="you" size={14} label="You" className="border border-white" />
+                <FlatAvatar who="avery" size={14} label="Avery Moss" className="border border-white" />
+              </span>
+            </span>
+          </div>
+
+          <p className="mt-2 text-[12px] text-gray-500">
             Your capsule: 3 calls · since May. Hers: 2 calls · since Feb.
           </p>
           <p className="mt-0.5 text-[12px] font-medium text-emerald-700">
