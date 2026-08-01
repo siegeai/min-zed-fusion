@@ -22,8 +22,8 @@ export default function LandingHero() {
 
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              Ask anything about
-              <br className="hidden sm:block" /> anyone your work depends on.
+              Ask anything
+              <br className="hidden sm:block" /> about your relationships.
             </h1>
           </FadeIn>
 
