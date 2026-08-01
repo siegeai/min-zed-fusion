@@ -73,7 +73,7 @@ const FAQS = [
   },
   {
     q: "Do we have to replace our CRM?",
-    a: "No. min. replaces nothing. It builds itself from your calendar and email, and every capsule is a link you can paste into any CRM, doc, or thread. Whatever your team already uses gets full context instantly.",
+    a: "No. min. is the memory layer for your CRM, and it replaces nothing. It builds itself from your calendar and email, and every capsule is a link you can paste into any CRM, doc, or thread. Whatever your team already uses gets full context instantly.",
   },
   {
     q: "Do you store my email?",

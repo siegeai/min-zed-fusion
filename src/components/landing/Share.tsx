@@ -126,7 +126,7 @@ export default function Share() {
               <div className="flex items-center gap-2.5 rounded-xl border border-emerald-100 bg-emerald-50/60 px-4 py-3">
                 <Link2 className="h-4 w-4 shrink-0 text-emerald-600" strokeWidth={2} />
                 <p className="text-[14.5px] font-medium text-gray-800">
-                  Works with any CRM. No data entry, no upkeep.
+                  The memory layer for any CRM. No data entry, no upkeep.
                 </p>
               </div>
               <div className="flex items-center gap-2.5 rounded-xl border border-emerald-100 bg-emerald-50/60 px-4 py-3">
