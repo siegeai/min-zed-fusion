@@ -30,6 +30,10 @@ export default function HowItWorks() {
           <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-[2.5rem]">
             How it works.
           </h2>
+          <p className="mt-4 max-w-md text-[16px] leading-relaxed text-gray-500">
+            Two minutes of setup, then it runs itself.{" "}
+            <span className="font-medium text-gray-900">There is no step four.</span>
+          </p>
         </FadeIn>
 
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
