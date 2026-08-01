@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 const NAV_LINKS = [
   { label: "Living capsule", to: "/#capsule" },
   { label: "How it works", to: "/#how" },
-  { label: "Share", to: "/#share" },
+  { label: "Shareable", to: "/#share" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },
 ];

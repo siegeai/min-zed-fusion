@@ -29,8 +29,8 @@ const Index = () => {
           <ProblemStrip />
           <Integrations />
           <CapsuleUpClose />
-          <Share />
           <HowItWorks />
+          <Share />
           <FinalCTA />
         </main>
 
