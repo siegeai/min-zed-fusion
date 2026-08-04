@@ -8,6 +8,8 @@ import { FadeIn } from "@/components/vision/FadeIn";
  */
 
 const TOOLS: { name: string; file: string }[] = [
+  { name: "min. bot", file: "min.png" },
+  { name: "min. botless", file: "min.png" },
   { name: "Gmail", file: "gmail.svg" },
   { name: "Outlook", file: "outlook.svg" },
   { name: "Google Calendar", file: "google-calendar.svg" },
@@ -32,20 +34,8 @@ export default function Integrations() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-9 max-w-3xl overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-100">
-          {/* min.'s own recorder first: no third-party notetaker required */}
-          <div className="flex items-center justify-center gap-2.5 border-b border-gray-100 bg-emerald-50/60 px-4 py-3.5">
-            <img
-              src="/favicon.png"
-              alt="min. logo"
-              className="h-5 w-5 rounded-[5px] object-contain"
-            />
-            <p className="text-center text-[13px] font-medium text-gray-700">
-              min. records your meetings itself, botless.{" "}
-              <span className="text-emerald-700">No bot ever joins your calls.</span>
-            </p>
-          </div>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
+        <div className="mx-auto mt-9 max-w-4xl overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-100">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7">
             {TOOLS.map((t) => (
               <div
                 key={t.name}
