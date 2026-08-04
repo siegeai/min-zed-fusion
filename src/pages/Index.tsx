@@ -12,10 +12,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | The TL;DR for your customer relationships</title>
+        <title>The TL;DR for your customer relationships | min.</title>
         <meta
           name="description"
-          content="Your customer context lives in five places: calls, emails, calendars, notetakers, and your teammates' heads. min. distills it all into one shareable capsule, giving your team full context."
+          content="min. records your meetings, reads your email, and distills every customer relationship into a one page TL;DR you share as one link. Free for your whole team."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
