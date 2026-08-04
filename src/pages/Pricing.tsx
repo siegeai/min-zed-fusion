@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Check, ArrowRight } from "lucide-react";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
+import { getDownloadUrl } from "@/lib/download";
 
 const APP_URL = "https://app.getmin.ai";
 
@@ -32,7 +33,7 @@ const PLANS: Plan[] = [
       "Merge and share across your team",
       "Built from your calendar and email",
     ],
-    cta: { label: "Connect your calendar", href: APP_URL },
+    cta: { label: "Download the app", href: getDownloadUrl() },
   },
   {
     name: "Pro",

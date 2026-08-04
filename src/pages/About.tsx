@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Linkedin, X, BookOpen, Zap, Lock, Network } from "lucide-react";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
+import { getDownloadUrl } from "@/lib/download";
 import { IconTile, CARD_SURFACE } from "@/components/MinPrimitives";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
@@ -213,10 +214,10 @@ export default function About() {
                 relationship. Two minutes to connect, and min. does the rest.
               </p>
               <a
-                href="https://app.getmin.ai"
+                href={getDownloadUrl()}
                 className="inline-block rounded-full bg-black text-white text-sm font-medium px-5 py-2.5 hover:bg-gray-800 transition-colors"
               >
-                Connect your calendar
+                Download the app
               </a>
             </div>
           </section>

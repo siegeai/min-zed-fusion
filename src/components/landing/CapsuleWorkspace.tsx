@@ -14,6 +14,7 @@ import {
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
 import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
+import { getDownloadUrl } from "@/lib/download";
 
 /**
  * The capsule as a desktop WORKSPACE, and a LIVE demo: the relationship record
@@ -320,10 +321,10 @@ function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon }: Rai
         <p className="mt-5 text-[12.5px] leading-relaxed text-gray-500">
           That is min. on {scope}.{" "}
           <a
-            href="https://app.getmin.ai"
+            href={getDownloadUrl()}
             className="font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
           >
-            Connect your calendar
+            Download the app
           </a>{" "}
           and ask about your own.
         </p>

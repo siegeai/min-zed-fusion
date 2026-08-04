@@ -2,8 +2,8 @@ import { ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import Capsule from "./Capsule";
 import Constellation from "./Constellation";
+import { getDownloadUrl } from "@/lib/download";
 
-const APP_URL = "https://app.getmin.ai";
 
 export default function LandingHero() {
   return (
@@ -31,10 +31,10 @@ export default function LandingHero() {
           <FadeIn delay={0.26}>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <a
-                href={APP_URL}
+                href={getDownloadUrl()}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-black px-7 py-3.5 text-[15px] font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl sm:w-auto"
               >
-                Connect your calendar
+                Download the app
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />
               </a>
               <a
@@ -48,7 +48,7 @@ export default function LandingHero() {
 
           <FadeIn delay={0.34}>
             <p className="mt-7 text-[13px] text-gray-400">
-              Works with Google and Outlook calendars. Two minute setup.
+              For macOS and Windows. Google and Outlook calendars. Two minute setup.
             </p>
           </FadeIn>
         </div>

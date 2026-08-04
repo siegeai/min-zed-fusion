@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion } from "motion/react";
+import { getDownloadUrl } from "@/lib/download";
 
 const NAV_LINKS = [
   { label: "Living capsule", to: "/#capsule" },
@@ -47,10 +48,10 @@ export default function PillNav() {
               Sign in
             </a>
             <a
-              href="https://app.getmin.ai"
+              href={getDownloadUrl()}
               className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
             >
-              Connect your calendar
+              Download the app
             </a>
           </div>
 
@@ -86,10 +87,10 @@ export default function PillNav() {
               Sign in
             </a>
             <a
-              href="https://app.getmin.ai"
+              href={getDownloadUrl()}
               className="rounded-full bg-black text-white text-sm font-medium py-3 text-center"
             >
-              Connect your calendar
+              Download the app
             </a>
           </div>
         </div>

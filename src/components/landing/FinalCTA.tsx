@@ -1,8 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import Constellation from "./Constellation";
+import { getDownloadUrl } from "@/lib/download";
 
-const APP_URL = "https://app.getmin.ai";
 
 export default function FinalCTA() {
   return (
@@ -21,10 +21,10 @@ export default function FinalCTA() {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href={APP_URL}
+                href={getDownloadUrl()}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-medium text-black shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100 sm:w-auto"
               >
-                Connect your calendar
+                Download the app
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />
               </a>
               <a
@@ -35,7 +35,7 @@ export default function FinalCTA() {
               </a>
             </div>
             <p className="mt-8 text-[13px] text-gray-500">
-              Works with Google and Outlook calendars. Your capsules, your eyes only.
+              For macOS and Windows. Your capsules, your eyes only.
             </p>
           </div>
         </div>

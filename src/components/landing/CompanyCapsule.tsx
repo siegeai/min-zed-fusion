@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { FlatAvatar, ApertureLogo } from "./DemoAvatars";
 import { ExpandableRow, type Detail } from "./Expandable";
+import { getDownloadUrl } from "@/lib/download";
 
 /**
  * The demo COMPANY capsule as swappable card CONTENT, product-style
@@ -300,10 +301,10 @@ export function CompanyCapsuleContent({
         <div className="flex items-center justify-between gap-3 border-t border-gray-100 px-5 py-3 sm:px-6">
           <p className="text-[12px] text-gray-400">min. generates one of these for every company.</p>
           <a
-            href="https://app.getmin.ai"
+            href={getDownloadUrl()}
             className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-medium text-emerald-700 hover:text-emerald-800"
           >
-            Connect your calendar
+            Download the app
             <ArrowRight className="h-3 w-3" strokeWidth={2} />
           </a>
         </div>
