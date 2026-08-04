@@ -117,7 +117,7 @@ export default function Share() {
             <p className="mt-5 max-w-md text-[17px] leading-relaxed text-gray-500">
               A capsule is shareable context. One link and a teammate has the
               whole relationship, always current, pasted into any doc, thread,
-              or CRM record.
+              ticket or CRM record.
             </p>
           </FadeIn>
 
