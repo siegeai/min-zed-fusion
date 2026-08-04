@@ -12,12 +12,13 @@ export default function FinalCTA() {
           <Constellation className="opacity-40" />
           <div className="relative">
             <h2 className="mx-auto mb-6 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
-              Stop stepping into
-              <br className="hidden sm:block" /> client calls blind.
+              All your context,
+              <br className="hidden sm:block" /> at your fingertips.
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
-              Turn months of scattered emails, video calls, and notes into
-              live, shareable customer context in seconds.
+              Every relationship distilled into a living capsule, ready
+              wherever you work, even inside any AI model or tool you already
+              use.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
