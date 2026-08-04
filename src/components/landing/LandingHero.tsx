@@ -24,7 +24,7 @@ export default function LandingHero() {
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
               Your customer context lives in five places: calls, emails,
               calendars, notetakers, and your teammates' heads. min. distills
-              it all into one context window, for your whole team.
+              it all into one context window, one link.
             </p>
           </FadeIn>
 
