@@ -154,8 +154,13 @@
     <div id="root">
       <!-- Static mirror of the live page for crawlers that don't run JavaScript
            (GPTBot, ClaudeBot, PerplexityBot, and friends). React replaces this
-           on mount; the copy below must track the rendered site. -->
-      <main>
+           on mount; the copy below must track the rendered site. `hidden`
+           prevents a flash of unstyled text before React mounts; the noscript
+           style restores it for human visitors with JS off. -->
+      <noscript>
+        <style>#root > main[hidden] { display: block; }</style>
+      </noscript>
+      <main hidden>
         <h1>The TL;DR for your customer relationships.</h1>
         <p>
           Your customer context lives in five places: calls, emails, calendars,
