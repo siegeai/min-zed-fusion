@@ -15,7 +15,7 @@ const Index = () => {
         <title>min. | The TL;DR for your customer relationships</title>
         <meta
           name="description"
-          content="Your customer context lives in five places: calls, emails, calendars, notetakers, and your teammates' heads. min. brings every word of it into one shareable capsule, giving your team full context."
+          content="Your customer context lives in five places: calls, emails, calendars, notetakers, and your teammates' heads. min. distills it all into one shareable capsule, giving your team full context."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
