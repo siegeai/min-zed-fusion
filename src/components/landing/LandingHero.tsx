@@ -24,7 +24,7 @@ export default function LandingHero() {
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
               Your customer context lives in five places: calls, emails,
               calendars, notetakers, and your teammates' heads. min. distills
-              it all into one context window, for your team.
+              it all into one context window, for your whole team.
             </p>
           </FadeIn>
 
@@ -41,7 +41,7 @@ export default function LandingHero() {
                 href="#capsule"
                 className="rounded-full px-5 py-3.5 text-[15px] font-medium text-gray-600 transition-colors hover:bg-black/5 hover:text-gray-900"
               >
-                See example capsule
+                See interactive demo
               </a>
             </div>
           </FadeIn>
