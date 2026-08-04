@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import Capsule from "./Capsule";
 import Constellation from "./Constellation";
-import { getDownloadUrl } from "@/lib/download";
+import { getDownloadTarget } from "@/lib/download";
 
 
 export default function LandingHero() {
@@ -31,10 +31,10 @@ export default function LandingHero() {
           <FadeIn delay={0.26}>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <a
-                href={getDownloadUrl()}
+                href={getDownloadTarget().href}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-black px-7 py-3.5 text-[15px] font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl sm:w-auto"
               >
-                Download the app
+                {getDownloadTarget().label}
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />
               </a>
               <a
