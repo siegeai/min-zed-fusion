@@ -28,11 +28,23 @@ export default function Integrations() {
       <FadeIn>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-[1.7rem] font-semibold tracking-tight text-gray-900 md:text-4xl">
-            Works silently with your existing stack.
+            Notetaker built in. Works with your whole stack.
           </h2>
         </div>
 
         <div className="mx-auto mt-9 max-w-3xl overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-100">
+          {/* min.'s own recorder first: no third-party notetaker required */}
+          <div className="flex items-center justify-center gap-2.5 border-b border-gray-100 bg-emerald-50/60 px-4 py-3.5">
+            <img
+              src="/favicon.png"
+              alt="min. logo"
+              className="h-5 w-5 rounded-[5px] object-contain"
+            />
+            <p className="text-center text-[13px] font-medium text-gray-700">
+              min. records your meetings itself, botless.{" "}
+              <span className="text-emerald-700">No bot ever joins your calls.</span>
+            </p>
+          </div>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
             {TOOLS.map((t) => (
               <div
