@@ -4,7 +4,7 @@ import {
   Lock,
   Lightbulb,
   Linkedin,
-  ArrowRight,
+  Download,
   ArrowUpRight,
   ChevronDown,
   Video,
@@ -305,7 +305,7 @@ export function CompanyCapsuleContent({
             className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-medium text-emerald-700 hover:text-emerald-800"
           >
             {getDownloadTarget().label}
-            <ArrowRight className="h-3 w-3" strokeWidth={2} />
+            <Download className="h-3 w-3" strokeWidth={2} />
           </a>
         </div>
       )}

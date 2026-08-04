@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { Download } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import Constellation from "./Constellation";
 import { getDownloadTarget } from "@/lib/download";
@@ -25,7 +25,7 @@ export default function FinalCTA() {
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-medium text-black shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100 sm:w-auto"
               >
                 {getDownloadTarget().label}
-                <ArrowRight className="h-4 w-4" strokeWidth={2} />
+                <Download className="h-4 w-4" strokeWidth={2} />
               </a>
               <a
                 href="#capsule"

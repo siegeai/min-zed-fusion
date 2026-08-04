@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { Download } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 import Capsule from "./Capsule";
 import Constellation from "./Constellation";
@@ -35,7 +35,7 @@ export default function LandingHero() {
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-black px-7 py-3.5 text-[15px] font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl sm:w-auto"
               >
                 {getDownloadTarget().label}
-                <ArrowRight className="h-4 w-4" strokeWidth={2} />
+                <Download className="h-4 w-4" strokeWidth={2} />
               </a>
               <a
                 href="#capsule"
