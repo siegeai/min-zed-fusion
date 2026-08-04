@@ -30,7 +30,7 @@ export default function Integrations() {
       <FadeIn>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-[1.7rem] font-semibold tracking-tight text-gray-900 md:text-4xl">
-            Notetaker built in. Works with your whole stack.
+            Works with any stack.
           </h2>
         </div>
 
