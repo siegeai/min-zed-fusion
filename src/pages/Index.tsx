@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
 import LandingHero from "@/components/landing/LandingHero";
-import ProblemStrip from "@/components/landing/ProblemStrip";
 import Integrations from "@/components/landing/Integrations";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
@@ -13,10 +12,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | A living capsule for every relationship</title>
+        <title>min. | The TL;DR for your customer relationships</title>
         <meta
           name="description"
-          content="One customer sits in your inbox, your calendar, your calls, and your teammates' heads. min. keeps the full context of every person, company, and group you work with in one living capsule, so you never piece the story together again."
+          content="Your customer context lives in five places: calls, emails, calendars, notetakers, and your teammates' heads. min. brings every word of it into one shareable capsule, giving your team full context."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -26,7 +25,6 @@ const Index = () => {
 
         <main className="flex-1">
           <LandingHero />
-          <ProblemStrip />
           <Integrations />
           <CapsuleUpClose />
           <Share />

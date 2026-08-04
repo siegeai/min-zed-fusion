@@ -6,19 +6,19 @@ const STEPS = [
     n: "01",
     Icon: Plug,
     title: "Connect.",
-    body: "Two minutes to connect. Then min. runs in the background. No data entry, ever.",
+    body: "Two minutes, then min. runs in the background, ingesting your emails, video calls, and recordings. No data entry, ever.",
   },
   {
     n: "02",
     Icon: Sparkles,
-    title: "min. distills.",
-    body: "Every call and thread becomes relationship intelligence: a one page TL;DR with one click deep dives into each conversation.",
+    title: "Summarize.",
+    body: "A one page summary of the whole relationship and every call. Bring anyone up to speed in seconds, without rewatching recordings or digging through notes.",
   },
   {
     n: "03",
     Icon: Share2,
-    title: "Share.",
-    body: "Send one link and a teammate has full context. No prep call, no forwarded threads.",
+    title: "Share, collaborate, query.",
+    body: "Send the secure link and any teammate gets instant customer context. Ask the AI anything about the customer. No internal prep calls.",
   },
 ];
 

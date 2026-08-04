@@ -12,12 +12,12 @@ export default function FinalCTA() {
           <Constellation className="opacity-40" />
           <div className="relative">
             <h2 className="mx-auto mb-6 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
-              Relationships that grow
-              <br className="hidden sm:block" /> instead of fade.
+              Stop stepping into
+              <br className="hidden sm:block" /> client calls blind.
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
-              Show up the way you always meant to. Promises kept, work won.
-              min. does the rest.
+              Turn months of scattered emails, video calls, and notes into
+              live, shareable customer context in seconds.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a

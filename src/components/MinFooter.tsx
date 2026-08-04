@@ -41,9 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Relationship intelligence with perfect recall. min. holds one
-              living memory of every person, company, and group you work with,
-              and the context to show up for people the way you always meant to.
+              One living memory for every customer you work with. min. turns
+              scattered emails and meetings into live, shareable capsules, so
+              your team always steps into calls fully prepped.
             </p>
           </div>
 
