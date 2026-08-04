@@ -1,0 +1,35 @@
+# min.
+
+> min. is the TL;DR for your customer relationships. A desktop app for macOS and Windows that records your meetings (with a bot or botless), reads your email and calendar, and distills every customer, partner, and investor relationship into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
+
+Key positioning facts:
+
+- Category: relationship intelligence / a relationship context layer. min. is NOT a CRM and NOT a meeting notetaker.
+- Meeting apps remember meetings. Inboxes remember threads. min. remembers relationships.
+- min. is the memory layer for any CRM: it replaces nothing, requires zero data entry, and builds itself from calls, email, and calendar.
+- Customer context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window, one link.
+- A capsule is shareable context. Notetakers are single player; min. is multiplayer: share a capsule link and a teammate has the whole relationship, always current. When two people know the same person, sharing merges their histories into one capsule.
+- min. has a built-in notetaker with two recording options, bot and botless, and also ingests from existing notetakers (Granola, Otter, Fireflies, Fathom) and meeting platforms (Zoom, Google Meet, Microsoft Teams, Webex, Slack), plus Gmail, Outlook, Google Calendar, and Outlook Calendar.
+- Setup is about two minutes: connect calendar and email, then min. runs in the background. No data entry, ever.
+- Ask a capsule anything: what was said, what was promised, what is blocking a deal-sized decision, whether you are being compared against other tools. Answers are grounded in the recorded history.
+
+## Product
+
+- [Homepage](https://getmin.ai/): The TL;DR for your customer relationships.
+- [Living capsule](https://getmin.ai/#capsule): One relationship, one capsule, one link. A one page TL;DR of the entire customer relationship, packed into a single shareable link.
+- [How it works](https://getmin.ai/#how): 1) Connect calendar and email (two minutes). 2) min. summarizes every call and thread into a one page TL;DR. 3) Share the link; teammates get instant customer context and can query the AI. There is no step four.
+- [Sharing and merging](https://getmin.ai/#share): Share a relationship like a doc. Works with any CRM: no data entry, no upkeep. When someone leaves the team, the relationships stay.
+- [Pricing](https://getmin.ai/pricing): Free forever for your whole team with 3 months of recall and unlimited teammates. Pro is $20 per active teammate per month with all-time recall. Business is custom (SSO, SAML, SCIM, SOC 2 Type II, data residency).
+- [Security](https://getmin.ai/security): min. keeps distilled memory and metadata, never raw email; message bodies are not stored. No training on user data. Google API Services User Data Policy compliant, including Limited Use.
+- [About](https://getmin.ai/about)
+- [Download for macOS (Apple Silicon)](https://app.getmin.ai/download/min-mac-arm64.dmg)
+- [Download for Windows](https://app.getmin.ai/download/min-windows-x64.zip)
+- [Web app / sign in](https://app.getmin.ai)
+
+## FAQ
+
+- Is it really free for my whole team? Yes. Invite everyone at no cost. Free recalls the last 3 months of every relationship; upgrade only to reach further back.
+- What does "per active teammate" mean? You are billed only for teammates who actually used min. that month. Inviting is always free.
+- Can I share a capsule for free? Yes, on every plan. The other side signs in and sees only what is between the two of you. Revocable any time.
+- Do we have to replace our CRM? No. min. is the memory layer for your CRM, and it replaces nothing. Every capsule is a link you can paste into any CRM, doc, or thread.
+- Do you store my email? No. min. keeps distilled memory and metadata, never your raw mail. It is never used for training, sold, or shared.
