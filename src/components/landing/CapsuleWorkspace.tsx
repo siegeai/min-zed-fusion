@@ -101,7 +101,7 @@ const HISTORY = [
   },
 ];
 
-type Prompt = { q: string; a: string; primary?: boolean };
+export type Prompt = { q: string; a: string; primary?: boolean };
 
 const GROUP_PROMPTS: Prompt[] = [
   {
@@ -123,7 +123,7 @@ const GROUP_PROMPTS: Prompt[] = [
   },
 ];
 
-const COMPANY_PROMPTS: Prompt[] = [
+export const COMPANY_PROMPTS: Prompt[] = [
   {
     q: "Where does the Aperture pilot stand?",
     a: "A 30 day pilot for the ops team, $12K annual once it converts, kickoff July 1. Jordan is sold, Sam will run it day to day, and Dana's security sign off is the one gate left. You still owe the onboarding checklist Sam has asked for twice.",
@@ -153,16 +153,18 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-type RailConfig = {
+export type RailConfig = {
   prompts: Prompt[];
   title: string;
   blurb: string;
   placeholder: string;
   scope: string; // "one group" / "one company"
   PrimaryIcon: LucideIcon;
+  /** The homepage rails link to the share section; standalone pages hide it. */
+  showShare?: boolean;
 };
 
-function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon }: RailConfig) {
+export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon, showShare = true }: RailConfig) {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [asked, setAsked] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
@@ -231,14 +233,16 @@ function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon }: Rai
           {title}
         </h4>
         {/* Product-style share button; jumps to the share and merge section */}
-        <a
-          href="#share"
-          aria-label="Share this capsule"
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-600 px-4 py-1.5 text-[12.5px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
-        >
-          <Share2 className="h-3.5 w-3.5" strokeWidth={2.2} />
-          Share
-        </a>
+        {showShare && (
+          <a
+            href="#share"
+            aria-label="Share this capsule"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-600 px-4 py-1.5 text-[12.5px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
+          >
+            <Share2 className="h-3.5 w-3.5" strokeWidth={2.2} />
+            Share
+          </a>
+        )}
       </div>
       <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">{blurb}</p>
 
