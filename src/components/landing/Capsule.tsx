@@ -3,7 +3,7 @@ import { Lock, Lightbulb, ArrowRight } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
 import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
-import { CopyLink, CAPSULE_PATH } from "./CopyLink";
+import { CAPSULE_PATH } from "./CopyLink";
 
 /**
  * The relationship capsule, hero-sized: a structured BRIEFING, not a feed.
@@ -105,29 +105,23 @@ export default function Capsule({ className = "" }: { className?: string }) {
         className,
       ].join(" ")}
     >
-      {/* Browser chrome: the capsule lives at a real URL */}
-      <div className="flex items-center gap-3 border-b border-gray-100 bg-gray-50/80 px-4 py-2.5">
-        <span className="flex shrink-0 gap-1.5" aria-hidden>
-          <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-        </span>
+      {/* Address bar: the capsule lives at a real URL */}
+      <div className="border-b border-gray-100 bg-gray-50/80 px-4 py-2.5">
         <a
           href={CAPSULE_PATH}
-          className="flex min-w-0 flex-1 items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1 transition-colors hover:border-gray-300"
+          className="flex min-w-0 items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 transition-colors hover:border-gray-300"
         >
           <Lock className="h-2.5 w-2.5 shrink-0 text-gray-400" strokeWidth={2.2} />
           <span className="truncate font-mono text-[11.5px] text-gray-600">
             getmin.ai/c/jordan-lee
           </span>
         </a>
-        <CopyLink className="text-[11.5px]" />
       </div>
 
       {view === "company" ? (
         <CompanyCapsuleContent onBack={() => setView("person")} />
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_150px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_210px]">
           <div className="min-w-0">
       {/* Person header */}
       <div className="flex items-center gap-3.5 border-b border-gray-100 px-5 py-4 sm:px-6">
@@ -230,7 +224,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
             aria-label="Open the full interactive capsule"
             className="relative hidden overflow-hidden border-l border-gray-100 bg-[#FBFBFA] lg:block"
           >
-            <div className="w-[230px] px-4 py-4">
+            <div className="w-[250px] px-4 py-4">
               <h4 className="font-display text-[13.5px] font-semibold text-gray-900">
                 Ask about Jordan
               </h4>
@@ -246,8 +240,13 @@ export default function Capsule({ className = "" }: { className?: string }) {
               <span className="mt-2 block rounded-lg border border-gray-200 bg-white px-3 py-2 text-[11.5px] text-gray-600">
                 Am I competing with anyone for this pilot?
               </span>
+              <span className="ml-auto mt-4 block w-fit max-w-full rounded-2xl rounded-br-sm bg-gray-900 px-3 py-1.5 text-[11px] text-white">
+                Did Jordan send the pilot agreement?
+              </span>
+              <span className="mt-2 block rounded-2xl rounded-bl-sm border border-gray-100 bg-white px-3 py-2 text-[11px] leading-relaxed text-gray-600">
+                No. He promised the countersigned agreement the week of Jun 8, and it has not arrived in any thread since. Worth raising when you send the checklist.
+              </span>
             </div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-r from-transparent to-white" />
           </a>
         </div>
       )}
