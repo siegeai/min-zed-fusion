@@ -224,7 +224,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
             aria-label="Open the full interactive capsule"
             className="relative hidden overflow-hidden border-l border-gray-100 bg-[#FBFBFA] lg:block"
           >
-            <div className="w-[250px] px-4 py-4">
+            <div className="w-[320px] px-4 py-4 [mask-image:linear-gradient(to_right,black_55%,transparent_96%)]">
               <h4 className="font-display text-[13.5px] font-semibold text-gray-900">
                 Ask about Jordan
               </h4>
