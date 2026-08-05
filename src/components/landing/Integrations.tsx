@@ -44,11 +44,9 @@ export default function Integrations() {
                 {t.minMark ? (
                   <span
                     aria-label="min. logo"
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-[5px] bg-gray-900"
+                    className="flex h-6 items-center font-display text-[20px] font-semibold leading-none tracking-tight text-gray-900"
                   >
-                    <span className="font-display text-[9px] font-semibold leading-none text-white">
-                      min.
-                    </span>
+                    min.
                   </span>
                 ) : (
                   <img
