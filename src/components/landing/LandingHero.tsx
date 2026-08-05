@@ -15,16 +15,17 @@ export default function LandingHero() {
         <div className="text-center lg:text-left">
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              The TL;DR for your
-              <br className="hidden sm:block" /> customer relationships.
+              <span className="text-gray-400">
+                A notetaker remembers the meeting.
+              </span>
+              <br /> min. remembers the person.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              Your customer context lives in five places: calls, emails,
-              calendars, notetakers, and your teammates' heads. min. distills
-              it all into one context window, one link.
+              Close the deal. Get the promotion. Get the callback. Every
+              conversation you've ever had with someone, working for you.
             </p>
           </FadeIn>
 

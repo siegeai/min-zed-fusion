@@ -110,7 +110,7 @@ export default function Share() {
         <div>
           <FadeIn>
             <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-emerald-600">
-              Notetakers are single player. min. is multiplayer.
+              Share and merge
             </p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-[2.5rem] md:leading-[1.12]">
               Share a relationship
