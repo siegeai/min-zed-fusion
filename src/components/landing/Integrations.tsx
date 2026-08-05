@@ -7,9 +7,9 @@ import { FadeIn } from "@/components/vision/FadeIn";
  * external icon service.
  */
 
-const TOOLS: { name: string; file: string }[] = [
-  { name: "min. bot", file: "min.png" },
-  { name: "min. botless", file: "min.png" },
+const TOOLS: { name: string; file?: string; minMark?: boolean }[] = [
+  { name: "bot notetaker", minMark: true },
+  { name: "botless notetaker", minMark: true },
   { name: "Gmail", file: "gmail.svg" },
   { name: "Outlook", file: "outlook.svg" },
   { name: "Google Calendar", file: "google-calendar.svg" },
@@ -41,11 +41,22 @@ export default function Integrations() {
                 key={t.name}
                 className="flex flex-col items-center gap-2 border-b border-r border-gray-100 bg-white px-3 py-5"
               >
-                <img
-                  src={`/logos/${t.file}`}
-                  alt={`${t.name} logo`}
-                  className="h-6 w-6 rounded-[5px] object-contain"
-                />
+                {t.minMark ? (
+                  <span
+                    aria-label="min. logo"
+                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-[5px] bg-gray-900"
+                  >
+                    <span className="font-display text-[9px] font-semibold leading-none text-white">
+                      min.
+                    </span>
+                  </span>
+                ) : (
+                  <img
+                    src={`/logos/${t.file}`}
+                    alt={`${t.name} logo`}
+                    className="h-6 w-6 rounded-[5px] object-contain"
+                  />
+                )}
                 <span className="text-center text-[11px] font-medium leading-tight text-gray-500">
                   {t.name}
                 </span>
