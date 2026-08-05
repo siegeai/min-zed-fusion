@@ -110,12 +110,12 @@ const GROUP_PROMPTS: Prompt[] = [
     primary: true,
   },
   {
-    q: "What is blocking the July 1 kickoff?",
-    a: "Two things. Dana's security sign off on Aperture's side, and the onboarding checklist you promised on the Jun 8 call. Clear both and the pilot starts on time.",
-  },
-  {
     q: "What does Sam need from me?",
     a: "The onboarding checklist, she has asked for it twice since the walkthrough. She also wants the team demo on the calendar so her ops team sees the setup before kickoff.",
+  },
+  {
+    q: "What is blocking the July 1 kickoff?",
+    a: "Two things. Dana's security sign off on Aperture's side, and the onboarding checklist you promised on the Jun 8 call. Clear both and the pilot starts on time.",
   },
   {
     q: "Am I competing with anyone for this pilot?",
