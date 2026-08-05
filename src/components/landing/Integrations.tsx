@@ -8,20 +8,21 @@ import { FadeIn } from "@/components/vision/FadeIn";
  */
 
 const TOOLS: { name: string; file?: string; minMark?: boolean }[] = [
-  { name: "bot notetaker", minMark: true },
-  { name: "botless notetaker", minMark: true },
+  // Ordered so the min. tiles close each row on the 7-column desktop grid.
   { name: "Gmail", file: "gmail.svg" },
   { name: "Outlook", file: "outlook.svg" },
   { name: "Google Calendar", file: "google-calendar.svg" },
   { name: "Zoom", file: "zoom.png" },
   { name: "Google Meet", file: "google-meet.svg" },
   { name: "Microsoft Teams", file: "teams.svg" },
+  { name: "bot notetaker", minMark: true },
   { name: "Slack", file: "slack.svg" },
   { name: "Webex", file: "webex.png" },
   { name: "Granola", file: "granola.png" },
   { name: "Otter", file: "otter.png" },
   { name: "Fireflies", file: "fireflies.png" },
   { name: "Fathom", file: "fathom.png" },
+  { name: "botless notetaker", minMark: true },
 ];
 
 export default function Integrations() {
