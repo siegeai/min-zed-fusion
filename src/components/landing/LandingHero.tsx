@@ -55,7 +55,7 @@ export default function LandingHero() {
 
         {/* Capsule */}
         <FadeIn delay={0.2}>
-          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:w-[calc(100%+14rem)] lg:max-w-none lg:[mask-image:linear-gradient(to_right,black_68%,transparent_99%)]">
+          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:w-[calc(100%+14rem)] lg:max-w-none lg:[mask-image:linear-gradient(to_right,black_60%,transparent_92%)]">
             <Capsule />
           </div>
         </FadeIn>
