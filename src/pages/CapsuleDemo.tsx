@@ -187,10 +187,10 @@ const CapsuleDemo = () => {
   return (
     <>
       <Helmet>
-        <title>Jordan Lee · a live min. capsule</title>
+        <title>Jordan Lee · min. capsule demo</title>
         <meta
           name="description"
-          content="A live, fully interactive demo capsule: the entire Jordan Lee relationship at one link. Click any insight, ask it anything."
+          content="A fully interactive demo capsule: the entire Jordan Lee relationship at one link. Click any insight, ask it anything."
         />
         <link rel="canonical" href="https://getmin.ai/c/jordan-lee" />
       </Helmet>
@@ -207,7 +207,7 @@ const CapsuleDemo = () => {
                 min.
               </Link>
               <span className="hidden rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 text-[11px] font-medium text-emerald-700 sm:inline-block">
-                Live demo capsule
+                Interactive demo
               </span>
             </div>
             <div className="flex shrink-0 items-center gap-2">
@@ -224,7 +224,7 @@ const CapsuleDemo = () => {
 
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 md:py-12">
           <p className="mb-6 text-center text-[13.5px] text-gray-500">
-            This is what a teammate opens when you share a capsule. One link,
+            A demo of what a teammate opens when you share a capsule. One link,
             the whole relationship. Everything below is interactive.
           </p>
 
