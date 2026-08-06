@@ -39,9 +39,9 @@ const PLANS: Plan[] = [
     name: "Pro",
     swatch: "bg-emerald-500",
     price: { display: "$20", sub: "/ active teammate / mo" },
-    recall: { label: "All-time", strong: true },
+    recall: { label: "5 years", strong: true },
     inheritFrom: "Free",
-    features: ["Full history, all-time recall", "Roles and admin", "Priority support"],
+    features: ["5 years of recall history", "Roles and admin", "Priority support"],
     cta: { label: "Start with your team", href: APP_URL },
     highlighted: true,
   },
@@ -49,7 +49,7 @@ const PLANS: Plan[] = [
     name: "Business",
     swatch: "bg-gray-900",
     price: { display: "Custom", sub: "let's talk" },
-    recall: { label: "All-time", strong: true },
+    recall: { label: "5 years", strong: true },
     inheritFrom: "Pro",
     features: ["SSO, SAML, and SCIM", "SOC 2 Type II and data residency", "Dedicated onboarding and SLA"],
     cta: {
@@ -62,7 +62,7 @@ const PLANS: Plan[] = [
 const FAQS = [
   {
     q: "Is it really free for my whole team?",
-    a: "Yes. Invite everyone at no cost. Free recalls the last 3 months of every relationship; upgrade only to reach further back.",
+    a: "Yes. min. is free to use, for everyone you invite. Free recalls the last 3 months of every relationship; you pay only to reach 5 years back.",
   },
   {
     q: "What does \"per active teammate\" mean?",
@@ -90,10 +90,10 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing | min.</title>
+        <title>Pricing | min., the relationship AI</title>
         <meta
           name="description"
-          content="min. is free for your whole team. Invite everyone at no cost. You pay only to recall the full history, and only for teammates who are active."
+          content="min., the relationship AI, is free to use for your whole team. You pay only for 5 years of recall history, and only for teammates who are active."
         />
         <link rel="canonical" href="https://getmin.ai/pricing" />
       </Helmet>
@@ -105,11 +105,11 @@ const Pricing = () => {
           <div className="relative max-w-5xl mx-auto px-6">
             <header className="text-center mb-14 md:mb-16">
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.05] text-4xl md:text-6xl">
-                Free for your whole <span className="text-emerald-600">team</span>.
+                Free to <span className="text-emerald-600">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                Invite everyone free. You pay only to recall the full history, and
-                only for teammates who are active.
+                The relationship AI for your whole team. Pay only for 5 years of
+                recall history, and only for teammates who are active.
               </p>
             </header>
 
