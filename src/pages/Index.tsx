@@ -12,10 +12,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>The AI that remembers the person | min.</title>
+        <title>The relationship assistant that helps you win | min.</title>
         <meta
           name="description"
-          content="A notetaker remembers the meeting. min. remembers the person. Every conversation you've ever had with someone, working for you. Free for your whole team."
+          content="The relationship assistant that helps you win. Every conversation you've ever had with someone, working for you. Free for your whole team."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>

@@ -15,10 +15,7 @@ export default function LandingHero() {
         <div className="text-center lg:text-left">
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              <span className="text-gray-400">
-                A notetaker remembers the meeting.
-              </span>
-              <br /> min. remembers the person.
+              The relationship assistant that helps you win.
             </h1>
           </FadeIn>
 

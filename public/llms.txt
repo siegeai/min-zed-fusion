@@ -1,11 +1,11 @@
 # min.
 
-> min. is the AI that remembers the person, not just the meeting. A desktop app for macOS and Windows that records your meetings (with a bot or botless), reads your email and calendar, and distills every customer, partner, and investor relationship into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
+> min. is the relationship assistant that helps you win. A desktop app for macOS and Windows that records your meetings (with a bot or botless), reads your email and calendar, and distills every customer, partner, and investor relationship into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
 
 Key positioning facts:
 
 - Category: relationship intelligence / a relationship context layer. min. is NOT a CRM and NOT a meeting notetaker.
-- A notetaker remembers the meeting. min. remembers the person: every conversation you've ever had with someone, working for you, to close the deal, get the promotion, get the callback.
+- min. is the relationship assistant that helps you win: every conversation you've ever had with someone, working for you, to close the deal, get the promotion, get the callback. A notetaker remembers the meeting; min. remembers the person.
 - min. is the memory layer for any CRM: it replaces nothing, requires zero data entry, and builds itself from calls, email, and calendar.
 - Customer context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window, one link.
 - A capsule is shareable context. Notetakers are single player; min. is multiplayer: share a capsule link and a teammate has the whole relationship, always current. When two people know the same person, sharing merges their histories into one capsule.
