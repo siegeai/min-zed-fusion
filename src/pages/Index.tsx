@@ -15,7 +15,7 @@ const Index = () => {
         <title>The relationship assistant that helps you win | min.</title>
         <meta
           name="description"
-          content="The relationship assistant that helps you win. The AI that turns every call and email into an edge. Free for your whole team."
+          content="The relationship assistant that helps you win. The AI that turns every call and email into your edge. Free for your whole team."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>

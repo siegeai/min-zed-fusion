@@ -5,7 +5,7 @@
 Key positioning facts:
 
 - Category: relationship intelligence / a relationship context layer. min. is NOT a CRM and NOT a meeting notetaker.
-- min. is the relationship assistant that helps you win: the AI that turns every call and email into an edge, to close the deal, get the promotion, get the callback. A notetaker remembers the meeting; min. remembers the person.
+- min. is the relationship assistant that helps you win: the AI that turns every call and email into your edge, to close the deal, get the promotion, get the callback. A notetaker remembers the meeting; min. remembers the person.
 - min. is the memory layer for any CRM: it replaces nothing, requires zero data entry, and builds itself from calls, email, and calendar.
 - Customer context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window, one link.
 - min. works for any arena where relationships decide the outcome: closing a deal, earning a promotion (it remembers a year of one on ones with your manager), or getting a callback from an investor or hiring manager.
