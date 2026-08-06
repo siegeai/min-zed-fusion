@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  Lock,
   Lightbulb,
   ArrowRight,
   CalendarClock,
@@ -619,10 +618,6 @@ function PersonScenario({ data }: { data: ScenarioData }) {
         <div className="mt-5">
           <div className="flex items-center gap-2">
             <SectionLabel>Where you stand</SectionLabel>
-            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700">
-              <Lock className="h-2.5 w-2.5" strokeWidth={2.2} />
-              Your eyes only
-            </span>
           </div>
           <ul className="mt-2 space-y-0.5">
             {data.stand.map((i) => (
@@ -795,10 +790,6 @@ export default function CapsuleWorkspace() {
           <div className="mt-5">
             <div className="flex items-center gap-2">
               <SectionLabel>Where you stand</SectionLabel>
-              <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700">
-                <Lock className="h-2.5 w-2.5" strokeWidth={2.2} />
-                Your eyes only
-              </span>
             </div>
             <ul className="mt-2 space-y-0.5">
               {STAND.map((i) => (

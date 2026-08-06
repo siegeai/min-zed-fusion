@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Lock, Lightbulb, ArrowRight, Video, Mail } from "lucide-react";
+import { Lightbulb, ArrowRight, Video, Mail } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
 import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
@@ -133,15 +133,11 @@ export default function Capsule({ className = "" }: { className?: string }) {
         </div>
       </div>
 
-      {/* Where you stand: the sharp TL;DR, your eyes only, every row expands into its source */}
+      {/* Where you stand: the sharp TL;DR, every row expands into its source */}
       <div className="bg-[#F7FAF8] px-5 pb-4 pt-4 sm:px-6">
         <div className="mb-2 flex items-center gap-2">
           <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-500">
             Where you stand
-          </span>
-          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700">
-            <Lock className="h-2.5 w-2.5" strokeWidth={2.2} />
-            Your eyes only
           </span>
         </div>
         <p className="font-display text-[15px] font-semibold leading-snug text-gray-900">

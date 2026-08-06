@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   ArrowLeft,
-  Lock,
   Lightbulb,
   Linkedin,
   Download,
@@ -199,10 +198,6 @@ export function CompanyCapsuleContent({
         <div className="mb-2 flex items-center gap-2">
           <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-500">
             Where you stand
-          </span>
-          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700">
-            <Lock className="h-2.5 w-2.5" strokeWidth={2.2} />
-            Your eyes only
           </span>
         </div>
         <p className="font-display text-[15px] font-semibold leading-snug text-gray-900">
