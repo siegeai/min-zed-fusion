@@ -1,24 +1,24 @@
-import { Plug, Sparkles, Zap } from "lucide-react";
+import { CalendarDays, Sparkles, Zap } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 
 const STEPS = [
   {
     n: "01",
-    Icon: Plug,
-    title: "Connect.",
-    body: "Two minutes, then min. runs in the background, sits invisibly on your email, and on your calls. No meeting bots, no data entry, ever.",
+    Icon: CalendarDays,
+    title: "Just do your work.",
+    body: "Take the calls, send the email, run the 1:1s. min. sits invisibly on all of it and quietly remembers what you would have lost: the promise, the deadline, the offhand detail. No meeting bots, no data entry, ever.",
   },
   {
     n: "02",
     Icon: Sparkles,
-    title: "Distill.",
-    body: "Every relationship becomes a living capsule: where you stand, action items with deadlines, the whole history. Read it in a minute, expand any line to its source.",
+    title: "Know where you stand.",
+    body: "Every relationship stays distilled into a living capsule, always current: where you stand, action items with deadlines, the whole history. Open it before a call and you are prepped in a minute.",
   },
   {
     n: "03",
     Icon: Zap,
-    title: "Put it to work.",
-    body: "Tell min. what you need. It preps you before the meeting, books the demo, drafts the follow up, chases what is owed. Grounded in everything it remembers.",
+    title: "Think it through, then hand it off.",
+    body: "Consult it like a teammate who was in every room: what am I missing, how should I play this. Then let it do the work, drafting the follow up that lands on what they actually said, the next step email, the nudge on what is owed.",
   },
 ];
 
@@ -31,7 +31,7 @@ export default function HowItWorks() {
             How it works.
           </h2>
           <p className="mt-4 max-w-md text-[16px] leading-relaxed text-gray-500">
-            Two minutes of setup, then it runs itself.{" "}
+            It runs on the work you already do.{" "}
             <span className="font-medium text-gray-900">There is no step four.</span>
           </p>
         </FadeIn>
