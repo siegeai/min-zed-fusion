@@ -72,10 +72,10 @@ export default function Careers() {
   return (
     <>
       <Helmet>
-        <title>Careers at min. | Build relationship memory</title>
+        <title>Careers at min. | Build the assistant that helps people win</title>
         <meta
           name="description"
-          content="Help us build a living memory for every relationship, so no one's work is ever held back by a bad memory. Email hello@getmin.ai with what you've built. No traditional postings."
+          content="Help us build the relationship assistant that helps people win: a living memory of every relationship, put to work. Email hello@getmin.ai with what you've built. No traditional postings."
         />
         <link rel="canonical" href="https://getmin.ai/careers" />
       </Helmet>
@@ -92,8 +92,8 @@ export default function Careers() {
                 Careers
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                Build the memory behind{" "}
-                <span className="text-blue-600">every relationship</span>.
+                Build the assistant behind{" "}
+                <span className="text-blue-600">every win</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 No job postings. No five-round interviews. Email us what you've
@@ -114,8 +114,8 @@ export default function Careers() {
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed mb-7 max-w-md mx-auto">
                   Send a resume or a link to something you're proud of. Tell us
-                  why you're excited to give people perfect memory for the
-                  relationships their work runs on. We'll write back.
+                  why you're excited to build an assistant that remembers every
+                  relationship and puts it to work. We'll write back.
                 </p>
                 <div
                   className={`${CARD_SURFACE} flex items-center justify-between gap-3 px-4 py-3 mb-6 max-w-sm mx-auto`}

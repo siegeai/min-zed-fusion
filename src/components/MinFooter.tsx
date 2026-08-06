@@ -4,7 +4,7 @@ const COLUMNS = [
   {
     heading: "Product",
     links: [
-      { label: "Living capsule", to: "/#capsule" },
+      { label: "Relationship AI", to: "/#capsule" },
       { label: "How it works", to: "/#how" },
       { label: "Pricing", to: "/pricing" },
     ],

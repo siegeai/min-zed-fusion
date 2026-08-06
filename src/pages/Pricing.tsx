@@ -31,7 +31,7 @@ const PLANS: Plan[] = [
       "Unlimited teammates",
       "A living capsule for every relationship",
       "Merge and share across your team",
-      "Built from your calendar and email",
+      "Built from your calls, calendar, and email",
     ],
     cta: { label: getDownloadTarget().label, href: getDownloadTarget().href },
   },

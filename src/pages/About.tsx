@@ -39,7 +39,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. turns your calendar and email into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone.",
+      "min. is the relationship assistant that helps you win. It turns your calls, email, and calendar into a living memory of every relationship, then puts that memory to work: the prep, the follow up, the next move.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -80,9 +80,10 @@ export default function About() {
                 for <span className="text-blue-600">every relationship</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                min. turns your calendar and email into a living memory of every
-                person, company, and group you work with. The people whose work
-                runs on relationships should never have to rely on memory alone.
+                min. turns your calls, calendar, and email into a living memory
+                of every person, company, and group you work with, then puts it
+                to work. The people whose work runs on relationships should
+                never have to rely on memory alone.
               </p>
             </div>
           </section>
@@ -125,8 +126,8 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  The work that matters most, winning the customer, keeping the
-                  client, landing the hire, comes down to relationships. But every
+                  The work that matters most, winning the customer, earning the
+                  promotion, landing the job, comes down to relationships. But every
                   relationship is a growing pile of calls, emails, and promises,
                   and no one can hold all of it in their head.
                 </p>
@@ -138,9 +139,10 @@ export default function About() {
                 </p>
                 <p>
                   So we built min.: a living memory for every relationship, built
-                  automatically from your calendar and email. It remembers what you
-                  can't, so being great with people stops depending on a perfect
-                  memory.
+                  automatically from your calls, calendar, and email. It remembers
+                  what you can't, then acts on it: the prep before the meeting,
+                  the follow up, the nudge at the right moment. Being great with
+                  people stops depending on a perfect memory.
                 </p>
               </div>
             </div>
@@ -207,11 +209,11 @@ export default function About() {
           <section id="cta" className="pb-24 pt-8">
             <div className="max-w-3xl mx-auto px-6 text-center">
               <h3 className="font-display text-gray-900 text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
-                Never walk in cold again.
+                Every relationship, working for you.
               </h3>
               <p className="text-gray-600 mb-7 max-w-xl mx-auto">
-                Turn your calendar and email into a living memory of every
-                relationship. Two minutes to connect, and min. does the rest.
+                Two minutes to connect, then min. remembers everyone you work
+                with and helps you win: the deal, the promotion, the callback.
               </p>
               <a
                 href={getDownloadTarget().href}

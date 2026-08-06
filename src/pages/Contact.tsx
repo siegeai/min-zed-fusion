@@ -66,7 +66,7 @@ export default function Contact() {
         <title>Contact min.</title>
         <meta
           name="description"
-          content="Relationship memory for teams. Get in touch with min. for sales, support, partnerships, investors, press. Email hello@getmin.ai, average reply under 2 hours."
+          content="The relationship assistant that helps you win. Get in touch with min. for sales, support, partnerships, investors, press. Email hello@getmin.ai, average reply under 2 hours."
         />
         <link rel="canonical" href="https://getmin.ai/contact" />
       </Helmet>
