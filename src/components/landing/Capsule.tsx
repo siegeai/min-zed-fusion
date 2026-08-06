@@ -43,7 +43,7 @@ const STAND: { text: string; detail: Detail }[] = [
 
 const ACTIONS: { text: string; detail: Detail }[] = [
   {
-    text: "Send the onboarding checklist, promised Jun 8.",
+    text: "Send the onboarding checklist by tomorrow, promised Jun 8.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
@@ -51,7 +51,7 @@ const ACTIONS: { text: string; detail: Detail }[] = [
     },
   },
   {
-    text: "Get the team demo on the calendar, slipped since Jun 11.",
+    text: "Book the team demo this week, slipping since Jun 11.",
     detail: {
       kind: "email",
       source: "Email · Jun 14",

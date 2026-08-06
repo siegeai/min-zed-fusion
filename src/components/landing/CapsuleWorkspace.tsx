@@ -53,7 +53,7 @@ const STAND: { text: string; detail: Detail }[] = [
 
 const ACTIONS: { text: string; detail: Detail }[] = [
   {
-    text: "Send Jordan and Sam the onboarding checklist, promised Jun 8.",
+    text: "Send Jordan and Sam the onboarding checklist by tomorrow, it was promised Jun 8.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
@@ -61,7 +61,7 @@ const ACTIONS: { text: string; detail: Detail }[] = [
     },
   },
   {
-    text: "Get the team demo on the calendar.",
+    text: "Book the team demo this week, it has been open three weeks.",
     detail: {
       kind: "email",
       source: "Email · Jun 14",
@@ -69,7 +69,7 @@ const ACTIONS: { text: string; detail: Detail }[] = [
     },
   },
   {
-    text: "Chase the signed pilot agreement from the walkthrough call.",
+    text: "Chase the signed pilot agreement today, Jordan promised it three weeks ago.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
