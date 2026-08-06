@@ -17,7 +17,8 @@ export default function CapsuleUpClose() {
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
               <span className="font-medium text-gray-900">
-                It reads between the lines, and between the conversations.
+                It reads between the lines, and across every call, email, and
+                thread.
               </span>{" "}
               One page on the people deciding your deal, your promotion, your
               callback. Always current.
