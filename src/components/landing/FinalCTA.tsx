@@ -12,13 +12,13 @@ export default function FinalCTA() {
           <Constellation className="opacity-40" />
           <div className="relative">
             <h2 className="mx-auto mb-6 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
-              All your context,
-              <br className="hidden sm:block" /> at your fingertips.
+              Every relationship,
+              <br className="hidden sm:block" /> working for you.
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
-              Every relationship distilled into a living capsule, ready
-              wherever you work, even inside any AI model or tool you already
-              use.
+              The whole history distilled, the next move drafted, the follow
+              up already on the calendar. Close the deal. Get the promotion.
+              Get the callback.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a

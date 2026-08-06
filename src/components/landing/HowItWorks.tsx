@@ -1,4 +1,4 @@
-import { Plug, Sparkles, Share2 } from "lucide-react";
+import { Plug, Sparkles, Zap } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 
 const STEPS = [
@@ -6,19 +6,19 @@ const STEPS = [
     n: "01",
     Icon: Plug,
     title: "Connect.",
-    body: "Two minutes, then min. runs in the background, ingesting your emails, video calls, and recordings. No data entry, ever.",
+    body: "Two minutes, then min. runs in the background, reading your email, calendar, and calls. No bot in your meetings, no data entry, ever.",
   },
   {
     n: "02",
     Icon: Sparkles,
-    title: "Summarize.",
-    body: "A one page summary of the whole relationship and every call. Bring anyone up to speed in seconds, without rewatching recordings or digging through notes.",
+    title: "Distill.",
+    body: "Every relationship becomes a living capsule: where you stand, action items with deadlines, the whole history. Read it in a minute, expand any line to its source.",
   },
   {
     n: "03",
-    Icon: Share2,
-    title: "Share, collaborate, query.",
-    body: "Send the secure link and any teammate gets instant customer context. Ask the AI anything about the customer. No internal prep calls.",
+    Icon: Zap,
+    title: "Put it to work.",
+    body: "Tell min. what you need. It preps you before the meeting, books the demo, drafts the follow up, chases what is owed. Grounded in everything it remembers.",
   },
 ];
 
