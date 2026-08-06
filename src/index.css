@@ -139,6 +139,22 @@
   .prep-pulse { animation: none; }
 }
 
+/* Demo scenario pills: the fill sweeping across the active pill IS the
+   countdown, and its animationend advances the demo. Rotation therefore
+   pauses exactly when the animation does, and reduced motion means the
+   demo never rotates on its own. */
+@keyframes pill-countdown {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.pill-countdown {
+  transform-origin: left;
+  animation: pill-countdown 9s linear forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pill-countdown { animation: none; }
+}
+
 /* CTA subtle lift on hover */
 .cta-glow {
   position: relative;

@@ -705,8 +705,26 @@ export default function CapsuleWorkspace() {
   // workspace to the company capsule in place, product-style.
   const [scenario, setScenario] = useState<(typeof SCENARIOS)[number]["key"]>("deal");
   const [view, setView] = useState<"group" | "company">("group");
+  // The demo cycles the three arenas on its own so a passing visitor sees all
+  // three. Hovering or focusing anywhere in it pauses; clicking anything hands
+  // control over for good, so nothing is yanked away mid-read.
+  const [paused, setPaused] = useState(false);
+  const [stopped, setStopped] = useState(false);
+
+  const advance = () => {
+    const i = SCENARIOS.findIndex((s) => s.key === scenario);
+    setScenario(SCENARIOS[(i + 1) % SCENARIOS.length].key);
+    setView("group");
+  };
+
   return (
-    <div>
+    <div
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+      onClickCapture={() => setStopped(true)}
+    >
       <div className="mb-6 flex flex-wrap justify-center gap-2">
         {SCENARIOS.map((s) => (
           <button
@@ -717,14 +735,23 @@ export default function CapsuleWorkspace() {
               setView("group");
             }}
             className={[
-              "inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 text-[13.5px] font-medium transition-colors",
+              "relative overflow-hidden inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 text-[13.5px] font-medium transition-colors",
               s.key === scenario
                 ? "border-gray-900 bg-gray-900 text-white"
                 : "border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900",
             ].join(" ")}
           >
-            <s.Icon className="h-3.5 w-3.5" strokeWidth={2} />
-            {s.label}
+            {s.key === scenario && !stopped && (
+              <span
+                key={scenario}
+                aria-hidden="true"
+                className="pill-countdown absolute inset-y-0 left-0 w-full bg-white/20"
+                style={{ animationPlayState: paused ? "paused" : "running" }}
+                onAnimationEnd={advance}
+              />
+            )}
+            <s.Icon className="relative h-3.5 w-3.5" strokeWidth={2} />
+            <span className="relative">{s.label}</span>
           </button>
         ))}
       </div>
