@@ -6,7 +6,6 @@ import { getDownloadTarget } from "@/lib/download";
 
 const NAV_LINKS = [
   { label: "Living capsule", to: "/#capsule" },
-  { label: "Wins", to: "/#win" },
   { label: "How it works", to: "/#how" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },

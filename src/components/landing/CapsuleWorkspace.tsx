@@ -9,6 +9,9 @@ import {
   Video,
   Zap,
   Mail,
+  Handshake,
+  TrendingUp,
+  Briefcase,
   type LucideIcon,
 } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
@@ -149,6 +152,231 @@ export const COMPANY_PROMPTS: Prompt[] = [
     act: true,
   },
 ];
+
+/**
+ * The two solo scenarios beside the Aperture deal: same capsule spine
+ * (where you stand, action items, history) pointed at a promotion and a
+ * job search. Personas match the Wins section arenas.
+ */
+type ScenarioData = {
+  who: "avery" | "priya";
+  name: string;
+  title: string;
+  role: string;
+  chips: string[];
+  stand: { text: string; detail: Detail }[];
+  actions: { text: string; detail: Detail }[];
+  history: { Icon: LucideIcon; date: string; text: string; detail: Detail }[];
+  railTitle: string;
+  prompts: Prompt[];
+};
+
+const PROMOTION: ScenarioData = {
+  who: "avery",
+  name: "Dana Song",
+  title: "You & Dana Song",
+  role: "Your manager · Engineering",
+  chips: ["14 one on ones", "31 emails", "since Jan"],
+  stand: [
+    {
+      text: "Dana has raised cross team wins in three straight one on ones. That is the bar for staff.",
+      detail: {
+        kind: "call",
+        source: "May 12 · Jun 3 · Jun 24",
+        body: "Cross team impact came up in all three one on ones, unprompted. She is telling you what the promotion case needs.",
+      },
+    },
+    {
+      text: "She asked for numbers on the billing migration and the on call overhaul. Still unsent.",
+      detail: {
+        kind: "call",
+        source: "Check in · May 12",
+        body: "Dana asked for before and after figures on both projects, the two wins she plans to cite in your case.",
+      },
+    },
+    {
+      text: "Calibration is in September. Cases get written in August.",
+      detail: {
+        kind: "call",
+        source: "One on one · Jun 24",
+        body: "Packets go to the committee in early September and Dana drafts hers in August. The window to shape yours is now.",
+      },
+    },
+  ],
+  actions: [
+    {
+      text: "Send Dana both project numbers by Friday, she asked May 12.",
+      detail: {
+        kind: "call",
+        source: "Check in · May 12",
+        body: "Migration close time and on call page counts, before and after. She plans to cite both, and she cannot cite what she does not have.",
+      },
+    },
+    {
+      text: "Draft your promo case this month, packets are written in August.",
+      detail: {
+        kind: "call",
+        source: "One on one · Jun 24",
+        body: "Dana writes her draft in August. Hand her an evidence page before she starts and your case is written in your words, not from memory.",
+      },
+    },
+  ],
+  history: [
+    {
+      Icon: Video,
+      date: "Jun 24",
+      text: "One on one. Dana said the staff case needs cross team evidence.",
+      detail: {
+        kind: "call",
+        source: "One on one · 30 min",
+        body: "She walked through what the committee rewards and pointed at the migration and on call work as your strongest material.",
+      },
+    },
+    {
+      Icon: Video,
+      date: "May 12",
+      text: "Check in. She asked for numbers on the migration and on call.",
+      detail: {
+        kind: "call",
+        source: "Check in · 25 min",
+        body: "First time she named the promotion out loud. She asked for figures on both projects before planning season.",
+      },
+    },
+    {
+      Icon: Video,
+      date: "Jan 9",
+      text: "Goal setting. You both put staff on the plan for this year.",
+      detail: {
+        kind: "call",
+        source: "One on one · 45 min",
+        body: "You set the staff goal together and agreed cross team impact would be the theme of the year.",
+      },
+    },
+  ],
+  railTitle: "How can I help with Dana?",
+  prompts: [
+    {
+      q: "Prep me for my one on one with Dana",
+      a: "She asked for migration and on call numbers on May 12 and they are still unsent. Calibration packets get written in August. Lead with the numbers, then ask her directly what would make the staff case undeniable.",
+      primary: true,
+    },
+    {
+      q: "What does Dana actually care about?",
+      a: "Cross team wins. She has raised them in three straight one on ones, and she plans to cite the billing migration and the on call overhaul. Give her the numbers and she has her case.",
+    },
+    {
+      q: "Draft the update with both numbers",
+      a: "Drafted, in your outbox for review. Migration: close time down 38 percent. On call: pages halved since April. Framed the way Dana talks about impact in your one on ones.",
+      act: true,
+    },
+    {
+      q: "Book 30 minutes with Dana before August",
+      a: "Done. Invite sent for Tuesday 10am, her open slot after staff meeting. Agenda reads: promotion case, evidence review. I will flag it if she moves it.",
+      act: true,
+    },
+  ],
+};
+
+const HIRED: ScenarioData = {
+  who: "priya",
+  name: "Rachel Moore",
+  title: "You & Rachel Moore",
+  role: "Head of Engineering, Northwind",
+  chips: ["2 interviews", "6 emails", "since Jul"],
+  stand: [
+    {
+      text: "Your incident postmortem is why you got the second interview. Rachel brought it up twice.",
+      detail: {
+        kind: "call",
+        source: "Interviews · Jul 10 · Jul 18",
+        body: "She found the postmortem on your blog before the screen and opened both conversations with it. To her, you are the incident person.",
+      },
+    },
+    {
+      text: "Northwind is rebuilding their incident process. Your experience is the fit.",
+      detail: {
+        kind: "call",
+        source: "Interview · Jul 18",
+        body: "Rachel described the rebuild twice and said it drives the quarter. The role is being shaped around exactly what you did last year.",
+      },
+    },
+    {
+      text: "Final round is with the CTO. Rachel decides who gets the slot.",
+      detail: {
+        kind: "email",
+        source: "Email · Jul 21",
+        body: "Two candidates go to the CTO round. Rachel picks them after the panel debrief on Friday.",
+      },
+    },
+  ],
+  actions: [
+    {
+      text: "Send the thank you note today, the panel debriefs Friday.",
+      detail: {
+        kind: "email",
+        source: "Email · Jul 21",
+        body: "The debrief is Friday morning. A note that lands before it keeps your name warm in the room where the decision happens.",
+      },
+    },
+    {
+      text: "Send Rachel the design doc by Thursday, she asked for it Jul 18.",
+      detail: {
+        kind: "call",
+        source: "Interview · Jul 18",
+        body: "She asked to see the systems design doc behind the postmortem. It is your proof of depth, and it is still unsent.",
+      },
+    },
+  ],
+  history: [
+    {
+      Icon: Video,
+      date: "Jul 18",
+      text: "Second interview. Deep dive on incident response.",
+      detail: {
+        kind: "call",
+        source: "Interview · 55 min",
+        body: "Rachel walked through Northwind's rebuild and asked how you would run it. She asked for the design doc at the end.",
+      },
+    },
+    {
+      Icon: Video,
+      date: "Jul 10",
+      text: "First screen. Rachel opened with the postmortem from your blog.",
+      detail: {
+        kind: "call",
+        source: "Screen · 30 min",
+        body: "She had read it before the call and asked what you would do differently now. You advanced the same afternoon.",
+      },
+    },
+    {
+      Icon: Mail,
+      date: "Jul 2",
+      text: "You applied and followed up. Rachel replied the same day.",
+      detail: {
+        kind: "email",
+        source: "Email · Jul 2",
+        body: "Your follow up mentioned the incident work. Her reply came four hours later with the screen invite.",
+      },
+    },
+  ],
+  railTitle: "How can I help with Rachel?",
+  prompts: [
+    {
+      q: "Prep me for the final round",
+      a: "The CTO cares about the incident rebuild, Rachel said it drives the quarter. Retell the postmortem with numbers, then ask how they run incidents today. You are the incident person in this process, stay the incident person.",
+      primary: true,
+    },
+    {
+      q: "What does Rachel remember about me?",
+      a: "The outage postmortem. She found it before the screen and has opened both interviews with it. It is why you are in the process, and the design doc behind it is the proof she asked for.",
+    },
+    {
+      q: "Draft the thank you note",
+      a: "Drafted, in your outbox for review. It thanks Rachel for the deep dive, ties your postmortem to Northwind's rebuild, and confirms the design doc by Thursday. Short, warm, lands before Friday's debrief.",
+      act: true,
+    },
+  ],
+};
 
 type Msg = { role: "user" | "assistant"; text: string };
 
@@ -358,16 +586,164 @@ export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon
   );
 }
 
+/** A solo capsule: the same spine as the deal demo, one person deep. */
+function PersonScenario({ data }: { data: ScenarioData }) {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr]">
+      <div className="min-w-0 px-5 py-5 sm:px-7 sm:py-6">
+        {/* Header */}
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex shrink-0 -space-x-2.5">
+            <FlatAvatar who="you" size={40} label="You" className="border-2 border-white" />
+            <FlatAvatar who={data.who} size={40} label={data.name} className="border-2 border-white" />
+          </div>
+          <div className="min-w-0">
+            <h3 className="font-display text-[17px] font-semibold text-gray-900">
+              {data.title}
+            </h3>
+            <p className="text-[12.5px] text-gray-500">{data.role}</p>
+          </div>
+          <div className="ml-auto hidden items-center gap-1.5 sm:flex">
+            {data.chips.map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Where you stand */}
+        <div className="mt-5">
+          <div className="flex items-center gap-2">
+            <SectionLabel>Where you stand</SectionLabel>
+            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700">
+              <Lock className="h-2.5 w-2.5" strokeWidth={2.2} />
+              Your eyes only
+            </span>
+          </div>
+          <ul className="mt-2 space-y-0.5">
+            {data.stand.map((i) => (
+              <ExpandableRow
+                key={i.text}
+                detail={i.detail}
+                leading={
+                  <Lightbulb
+                    className="mt-[6px] h-3.5 w-3.5 shrink-0 text-emerald-500"
+                    strokeWidth={2}
+                  />
+                }
+              >
+                <span className="text-[13.5px] leading-snug text-gray-700">{i.text}</span>
+              </ExpandableRow>
+            ))}
+          </ul>
+        </div>
+
+        {/* Action items */}
+        <div className="mt-5 border-t border-gray-100 pt-4">
+          <SectionLabel>Action items</SectionLabel>
+          <ul className="mt-2 space-y-0.5">
+            {data.actions.map((a) => (
+              <ExpandableRow
+                key={a.text}
+                detail={a.detail}
+                leading={
+                  <ArrowRight
+                    className="mt-[6px] h-3.5 w-3.5 shrink-0 text-gray-400"
+                    strokeWidth={2}
+                  />
+                }
+              >
+                <span className="text-[13.5px] leading-snug text-gray-700">{a.text}</span>
+              </ExpandableRow>
+            ))}
+          </ul>
+        </div>
+
+        {/* History */}
+        <div className="mt-5 border-t border-gray-100 pt-4">
+          <SectionLabel>History</SectionLabel>
+          <ul className="mt-2 space-y-1.5">
+            {data.history.map((h) => (
+              <ExpandableRow
+                key={h.date}
+                detail={h.detail}
+                leading={
+                  <span className="mt-[1px] flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500">
+                    <h.Icon className="h-3 w-3" strokeWidth={1.9} />
+                  </span>
+                }
+              >
+                <span className="block text-[11px] font-medium text-gray-400">{h.date}</span>
+                <span className="mt-0.5 block text-[13.5px] leading-relaxed text-gray-700">
+                  {h.text}
+                </span>
+              </ExpandableRow>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <AskRail
+        prompts={data.prompts}
+        title={data.railTitle}
+        blurb="Answers and actions, grounded in everything min. remembers. Try it, this one is live."
+        placeholder="Tell min. what you need…"
+        scope="one relationship"
+        PrimaryIcon={CalendarClock}
+      />
+    </div>
+  );
+}
+
+const SCENARIOS = [
+  { key: "deal", label: "Close the deal", Icon: Handshake },
+  { key: "promotion", label: "Get the promotion", Icon: TrendingUp },
+  { key: "hired", label: "Get hired", Icon: Briefcase },
+] as const;
+
 export default function CapsuleWorkspace() {
-  // Clicking "Aperture" swaps the whole workspace to the company capsule in
-  // place, product-style; back returns to the group.
+  // Three arenas to pick from; within the deal, clicking "Aperture" swaps the
+  // workspace to the company capsule in place, product-style.
+  const [scenario, setScenario] = useState<(typeof SCENARIOS)[number]["key"]>("deal");
   const [view, setView] = useState<"group" | "company">("group");
   return (
-    <div
-      data-capsule
-      className="w-full overflow-hidden rounded-[22px] border border-gray-200/80 bg-white shadow-[0_16px_60px_-16px_rgba(0,0,0,0.18)]"
-    >
-      {view === "company" ? (
+    <div>
+      <div className="mb-6 flex flex-wrap justify-center gap-2">
+        {SCENARIOS.map((s) => (
+          <button
+            key={s.key}
+            type="button"
+            onClick={() => {
+              setScenario(s.key);
+              setView("group");
+            }}
+            className={[
+              "inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 text-[13.5px] font-medium transition-colors",
+              s.key === scenario
+                ? "border-gray-900 bg-gray-900 text-white"
+                : "border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900",
+            ].join(" ")}
+          >
+            <s.Icon className="h-3.5 w-3.5" strokeWidth={2} />
+            {s.label}
+          </button>
+        ))}
+      </div>
+
+      <div
+        data-capsule
+        className="w-full overflow-hidden rounded-[22px] border border-gray-200/80 bg-white shadow-[0_16px_60px_-16px_rgba(0,0,0,0.18)]"
+      >
+      {scenario !== "deal" ? (
+        <PersonScenario
+          key={scenario}
+          data={scenario === "promotion" ? PROMOTION : HIRED}
+        />
+      ) : view === "company" ? (
         <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr]">
           {/* ── The company record ── */}
           <div className="min-w-0">
@@ -498,6 +874,7 @@ export default function CapsuleWorkspace() {
         />
       </div>
       )}
+      </div>
     </div>
   );
 }

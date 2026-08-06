@@ -6,7 +6,6 @@ const COLUMNS = [
     links: [
       { label: "Living capsule", to: "/#capsule" },
       { label: "How it works", to: "/#how" },
-      { label: "Wins", to: "/#win" },
       { label: "Pricing", to: "/pricing" },
     ],
   },
