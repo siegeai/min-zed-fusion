@@ -13,14 +13,14 @@ export default function CapsuleUpClose() {
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-[2.75rem] md:leading-[1.1]">
-              One relationship, one capsule, one link.
+              One relationship, one capsule.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
               <span className="font-medium text-gray-900">
                 It reads between the lines, and between the conversations.
               </span>{" "}
-              A one page TL;DR of the entire customer relationship, packed into
-              a single link you can share and collaborate on with anyone.
+              A one page TL;DR of the entire relationship, always current,
+              ready the moment you need it.
             </p>
           </div>
         </FadeIn>

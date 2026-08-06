@@ -5,7 +5,7 @@ import LandingHero from "@/components/landing/LandingHero";
 import Integrations from "@/components/landing/Integrations";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
-import Share from "@/components/landing/Share";
+import Outcomes from "@/components/landing/Outcomes";
 import FinalCTA from "@/components/landing/FinalCTA";
 
 const Index = () => {
@@ -15,7 +15,7 @@ const Index = () => {
         <title>The relationship assistant that helps you win | min.</title>
         <meta
           name="description"
-          content="The relationship assistant that helps you win. Every conversation you've ever had with someone, working for you. Free for your whole team."
+          content="The relationship assistant that helps you win. The AI that turns every call and email into an edge. Free for your whole team."
         />
         <link rel="canonical" href="https://getmin.ai" />
       </Helmet>
@@ -27,7 +27,7 @@ const Index = () => {
           <LandingHero />
           <Integrations />
           <CapsuleUpClose />
-          <Share />
+          <Outcomes />
           <HowItWorks />
           <FinalCTA />
         </main>

@@ -6,7 +6,7 @@ import { getDownloadTarget } from "@/lib/download";
 
 const NAV_LINKS = [
   { label: "Living capsule", to: "/#capsule" },
-  { label: "Shareable", to: "/#share" },
+  { label: "Wins", to: "/#win" },
   { label: "How it works", to: "/#how" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },
@@ -32,31 +32,31 @@ export default function PillNav() {
             min.
           </Link>
 
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-500">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-gray-500">
             {NAV_LINKS.map((l) => (
-              <Link key={l.label} to={l.to} className="hover:text-black transition-colors">
+              <Link key={l.label} to={l.to} className="whitespace-nowrap hover:text-black transition-colors">
                 {l.label}
               </Link>
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2">
             <a
               href="https://app.getmin.ai"
-              className="text-sm font-medium text-gray-500 hover:text-black transition-colors px-3 py-2"
+              className="whitespace-nowrap text-sm font-medium text-gray-500 hover:text-black transition-colors px-3 py-2"
             >
               Sign in
             </a>
             <a
               href={getDownloadTarget().href}
-              className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
+              className="whitespace-nowrap bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
             >
               {getDownloadTarget().label}
             </a>
           </div>
 
           <button
-            className="md:hidden text-gray-900 p-1"
+            className="lg:hidden text-gray-900 p-1"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle navigation"
           >
@@ -66,7 +66,7 @@ export default function PillNav() {
       </motion.nav>
 
       {open && (
-        <div className="fixed inset-0 top-[72px] z-40 md:hidden bg-[#FAFAF9]/97 backdrop-blur-xl px-6 pt-8 pb-12">
+        <div className="fixed inset-0 top-[72px] z-40 lg:hidden bg-[#FAFAF9]/97 backdrop-blur-xl px-6 pt-8 pb-12">
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((l) => (
               <Link

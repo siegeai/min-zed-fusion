@@ -3,7 +3,6 @@ import { Lock, Lightbulb, ArrowRight } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
 import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
-import { CAPSULE_PATH } from "./CopyLink";
 
 /**
  * The relationship capsule, hero-sized: a structured BRIEFING, not a feed.
@@ -105,19 +104,6 @@ export default function Capsule({ className = "" }: { className?: string }) {
         className,
       ].join(" ")}
     >
-      {/* Address bar: the capsule lives at a real URL */}
-      <div className="border-b border-gray-100 bg-gray-50/80 px-4 py-2.5">
-        <a
-          href={CAPSULE_PATH}
-          className="flex min-w-0 items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 transition-colors hover:border-gray-300"
-        >
-          <Lock className="h-2.5 w-2.5 shrink-0 text-gray-400" strokeWidth={2.2} />
-          <span className="truncate font-mono text-[11.5px] text-gray-600">
-            getmin.ai/c/jordan-lee
-          </span>
-        </a>
-      </div>
-
       {view === "company" ? (
         <CompanyCapsuleContent onBack={() => setView("person")} />
       ) : (
@@ -220,8 +206,8 @@ export default function Capsule({ className = "" }: { className?: string }) {
 
           {/* The chat rail, peeking in and fading off the card's edge */}
           <a
-            href={CAPSULE_PATH}
-            aria-label="Open the full interactive capsule"
+            href="#capsule"
+            aria-label="Try the interactive demo"
             className="relative hidden overflow-hidden border-l border-gray-100 bg-[#FBFBFA] lg:block"
           >
             <div className="w-[320px] px-4 py-4">

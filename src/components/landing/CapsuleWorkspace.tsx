@@ -6,7 +6,6 @@ import {
   CalendarClock,
   Building2,
   Send,
-  Share2,
   Video,
   Mail,
   type LucideIcon,
@@ -160,11 +159,9 @@ export type RailConfig = {
   placeholder: string;
   scope: string; // "one group" / "one company"
   PrimaryIcon: LucideIcon;
-  /** The homepage rails link to the share section; standalone pages hide it. */
-  showShare?: boolean;
 };
 
-export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon, showShare = true }: RailConfig) {
+export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon }: RailConfig) {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [asked, setAsked] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
@@ -228,22 +225,9 @@ export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon
 
   return (
     <div className="flex flex-col border-t border-gray-100 bg-[#FBFBFA] px-5 py-5 sm:px-6 lg:border-l lg:border-t-0">
-      <div className="flex items-center justify-between gap-3">
-        <h4 className="font-display text-[15px] font-semibold text-gray-900">
-          {title}
-        </h4>
-        {/* Product-style share button; jumps to the share and merge section */}
-        {showShare && (
-          <a
-            href="#share"
-            aria-label="Share this capsule"
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-600 px-4 py-1.5 text-[12.5px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
-          >
-            <Share2 className="h-3.5 w-3.5" strokeWidth={2.2} />
-            Share
-          </a>
-        )}
-      </div>
+      <h4 className="font-display text-[15px] font-semibold text-gray-900">
+        {title}
+      </h4>
       <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">{blurb}</p>
 
       {/* Conversation */}

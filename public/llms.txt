@@ -5,20 +5,21 @@
 Key positioning facts:
 
 - Category: relationship intelligence / a relationship context layer. min. is NOT a CRM and NOT a meeting notetaker.
-- min. is the relationship assistant that helps you win: every conversation you've ever had with someone, working for you, to close the deal, get the promotion, get the callback. A notetaker remembers the meeting; min. remembers the person.
+- min. is the relationship assistant that helps you win: the AI that turns every call and email into an edge, to close the deal, get the promotion, get the callback. A notetaker remembers the meeting; min. remembers the person.
 - min. is the memory layer for any CRM: it replaces nothing, requires zero data entry, and builds itself from calls, email, and calendar.
 - Customer context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window, one link.
-- A capsule is shareable context. Notetakers are single player; min. is multiplayer: share a capsule link and a teammate has the whole relationship, always current. When two people know the same person, sharing merges their histories into one capsule.
+- min. works for any arena where relationships decide the outcome: closing a deal, earning a promotion (it remembers a year of one on ones with your manager), or getting a callback from an investor or hiring manager.
+- Capsules are shareable: send a teammate a capsule and they have the whole relationship, always current. When two people know the same person, sharing merges their histories into one capsule.
 - min. has a built-in notetaker with two recording options, bot and botless, and also ingests from existing notetakers (Granola, Otter, Fireflies, Fathom) and meeting platforms (Zoom, Google Meet, Microsoft Teams, Webex, Slack), plus Gmail, Outlook, Google Calendar, and Outlook Calendar.
 - Setup is about two minutes: connect calendar and email, then min. runs in the background. No data entry, ever.
 - Ask a capsule anything: what was said, what was promised, what is blocking a deal-sized decision, whether you are being compared against other tools. Answers are grounded in the recorded history.
 
 ## Product
 
-- [Homepage](https://getmin.ai/): The TL;DR for your customer relationships.
-- [Living capsule](https://getmin.ai/#capsule): One relationship, one capsule, one link. A one page TL;DR of the entire customer relationship, packed into a single shareable link.
-- [How it works](https://getmin.ai/#how): 1) Connect calendar and email (two minutes). 2) min. summarizes every call and thread into a one page TL;DR. 3) Share the link; teammates get instant customer context and can query the AI. There is no step four.
-- [Sharing and merging](https://getmin.ai/#share): Share a relationship like a doc. Works with any CRM: no data entry, no upkeep. When someone leaves the team, the relationships stay.
+- [Homepage](https://getmin.ai/): The relationship assistant that helps you win.
+- [Living capsule](https://getmin.ai/#capsule): One relationship, one capsule. A one page TL;DR of the entire relationship, always current, ready the moment you need it.
+- [How it works](https://getmin.ai/#how): 1) Connect calendar and email (two minutes). 2) min. summarizes every call and thread into a one page TL;DR. 3) Share, collaborate, query: teammates get instant context and can ask the AI anything. There is no step four.
+- [Wins](https://getmin.ai/#win): Three arenas, one assistant. Close the deal (what did my team promise this customer), get the promotion (what has my manager cared about all year), get the callback (how do I follow up without being pushy).
 - [Pricing](https://getmin.ai/pricing): Free forever for your whole team with 3 months of recall and unlimited teammates. Pro is $20 per active teammate per month with all-time recall. Business is custom (SSO, SAML, SCIM, SOC 2 Type II, data residency).
 - [Security](https://getmin.ai/security): min. keeps distilled memory and metadata, never raw email; message bodies are not stored. No training on user data. Google API Services User Data Policy compliant, including Limited Use.
 - [About](https://getmin.ai/about)

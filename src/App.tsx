@@ -15,7 +15,6 @@ import TermsOfService from "./pages/TermsOfService";
 import Security from "./pages/Security";
 import Pricing from "./pages/Pricing";
 import JoinCommunity from "./pages/JoinCommunity";
-import CapsuleDemo from "./pages/CapsuleDemo";
 import NotFound from "./pages/NotFound";
 import TrustBadges from "./components/TrustBadges";
 
@@ -72,7 +71,6 @@ const App = () => (
             <Route path="/security" element={<Security />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/join-community" element={<JoinCommunity />} />
-            <Route path="/c/jordan-lee" element={<CapsuleDemo />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -21,13 +21,13 @@ export default function LandingHero() {
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              Close the deal. Get the promotion. Get the callback. Every
-              conversation you've ever had with someone, working for you.
+              Close the deal. Get the promotion. Get the callback. The AI that
+              turns every call and email into an edge.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.26}>
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
               <a
                 href={getDownloadTarget().href}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-black px-7 py-3.5 text-[15px] font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl sm:w-auto"
