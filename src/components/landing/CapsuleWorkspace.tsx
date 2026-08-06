@@ -23,9 +23,9 @@ import { getDownloadTarget } from "@/lib/download";
  * answer. All content is fictional, real-shaped demo data.
  */
 
-const INSIGHTS: { text: string; detail: Detail }[] = [
+const STAND: { text: string; detail: Detail }[] = [
   {
-    text: "Price has come up in three straight conversations, earlier each time. Aperture is comparing options.",
+    text: "Price has come up in three straight conversations. Aperture is comparing options.",
     detail: {
       kind: "email",
       source: "Jun 2 · Jun 8 · Jun 14",
@@ -33,7 +33,7 @@ const INSIGHTS: { text: string; detail: Detail }[] = [
     },
   },
   {
-    text: "Team demo promised Jun 11, never scheduled. The longest open loop here.",
+    text: "Team demo promised Jun 11, never scheduled. The longest open loop.",
     detail: {
       kind: "email",
       source: "Email · Jun 14",
@@ -383,17 +383,17 @@ export default function CapsuleWorkspace() {
             </div>
           </div>
 
-          {/* Insights */}
+          {/* Where you stand */}
           <div className="mt-5">
             <div className="flex items-center gap-2">
-              <SectionLabel>Insights</SectionLabel>
+              <SectionLabel>Where you stand</SectionLabel>
               <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700">
                 <Lock className="h-2.5 w-2.5" strokeWidth={2.2} />
                 Your eyes only
               </span>
             </div>
             <ul className="mt-2 space-y-0.5">
-              {INSIGHTS.map((i) => (
+              {STAND.map((i) => (
                 <ExpandableRow
                   key={i.text}
                   detail={i.detail}

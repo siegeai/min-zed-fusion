@@ -1,53 +1,49 @@
 import { useState } from "react";
-import { Lock, Lightbulb, ArrowRight } from "lucide-react";
+import { Lock, Lightbulb, ArrowRight, Video, Mail } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
 import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
 
 /**
  * The relationship capsule, hero-sized: a structured BRIEFING, not a feed.
- * Mirrors the product's engagement brief (title + what/when/why), open action
- * items, and the your-eyes-only insights strip. Like the product, every
- * insight and action item is click-to-expand: the summary opens into its
- * source and the fuller context. All content is fictional, real-shaped demo
- * data.
+ * The capsule spine is three sharp sections: where you stand, action items,
+ * history. Like the product, every row is click-to-expand: the summary opens
+ * into its source and the fuller context. All content is fictional,
+ * real-shaped demo data.
  */
 
 const BRIEF_TITLE = "Aperture: $12K pilot, kickoff July 1";
 
-const BRIEF: { label: string; text: string; detail: Detail }[] = [
+const STAND: { text: string; detail: Detail }[] = [
   {
-    label: "What",
-    text: "A 30 day pilot for Aperture's ops team, agreed on the Jun 8 walkthrough call.",
-    detail: {
-      kind: "call",
-      source: "Call · Jun 8",
-      body: "Jordan agreed to a 30 day pilot for the ops team, $12K annual once it converts, with no commitment past the 30 days.",
-    },
-  },
-  {
-    label: "When",
-    text: "Intro May 24 via Priya Nair. Proposal sent Jun 2, walkthrough Jun 8, team demo promised Jun 11.",
+    text: "Jordan is sold. Onboarding time is his last doubt.",
     detail: {
       kind: "email",
-      source: "Email thread",
-      body: "Priya Nair made the intro May 24. The proposal went out Jun 2, the walkthrough ran Jun 8, and Jordan promised his team a demo the week of Jun 11.",
+      source: "Email · Jun 2",
+      body: "After the proposal, Jordan called the product the strongest he had seen this quarter, then flagged his team's setup time as the one thing to prove before rollout.",
     },
   },
   {
-    label: "Why",
-    text: "Jordan needs onboarding proven light before kickoff. You are waiting on his security review.",
+    text: "$12K pilot committed, pending his security review.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
-      body: "Jordan will not roll out until setup is proven under an hour. His security review is the last gate before kickoff, and the onboarding checklist is on you.",
+      body: "Jordan wants his IT lead to clear the security overview before kickoff. He was explicit the pilot does not wait on the annual contract.",
+    },
+  },
+  {
+    text: "Price keeps coming up. You are being compared.",
+    detail: {
+      kind: "email",
+      source: "Jun 2 · Jun 8 · Jun 14",
+      body: "Jordan asked about annual pricing on Jun 2, raised per seat cost on the walkthrough, and his Jun 14 email mentions evaluating a couple of tools.",
     },
   },
 ];
 
 const ACTIONS: { text: string; detail: Detail }[] = [
   {
-    text: "Send the onboarding checklist, promised on the Jun 8 call.",
+    text: "Send the onboarding checklist, promised Jun 8.",
     detail: {
       kind: "call",
       source: "Call · Jun 8",
@@ -64,29 +60,35 @@ const ACTIONS: { text: string; detail: Detail }[] = [
   },
 ];
 
-const INSIGHTS: { text: string; detail: Detail }[] = [
+const HISTORY: { Icon: typeof Video; date: string; text: string; detail: Detail }[] = [
   {
-    text: "Committed to a $12K pilot, pending security review.",
+    Icon: Video,
+    date: "Jun 8",
+    text: "Walkthrough call. Agreed the 30 day pilot, kickoff July 1.",
     detail: {
       kind: "call",
-      source: "Call · Jun 8",
-      body: "Jordan wants his IT lead to clear the security overview before kickoff. He was explicit the pilot does not wait on the annual contract.",
+      source: "Call · 38 min",
+      body: "38 minutes. Jordan confirmed $12K annual once it sticks and promised the signed agreement, and you promised the onboarding checklist.",
     },
   },
   {
-    text: "Team demo promised Jun 11, never scheduled.",
+    Icon: Mail,
+    date: "Jun 2",
+    text: "Proposal sent. Jordan flagged onboarding time.",
     detail: {
       kind: "email",
-      source: "Email · Jun 14",
-      body: "Promised on the Jun 8 call for the following week. Jordan asked to push it and never proposed a new date. Three weeks open and counting.",
+      source: "Email thread",
+      body: "You sent the proposal and one pager. Jordan replied the same day and named setup time as the one thing to prove.",
     },
   },
   {
-    text: "Sold on the product. Onboarding time is the open question.",
+    Icon: Mail,
+    date: "May 24",
+    text: "Priya Nair introduced you. Jordan replied within the hour.",
     detail: {
       kind: "email",
-      source: "Email · Jun 2",
-      body: "After the proposal, Jordan called the product the strongest he had seen this quarter, then flagged his team's setup time as the one thing to prove before rollout.",
+      source: "Email · May 24",
+      body: "Priya called min. \"the only tool my team actually opens\" in the intro. Jordan asked for a proposal the same afternoon.",
     },
   },
 ];
@@ -131,23 +133,33 @@ export default function Capsule({ className = "" }: { className?: string }) {
         </div>
       </div>
 
-      {/* Engagement brief: the who/what/when/why, every row expands into its source */}
-      <div className="px-5 pb-4 pt-4 sm:px-6">
+      {/* Where you stand: the sharp TL;DR, your eyes only, every row expands into its source */}
+      <div className="bg-[#F7FAF8] px-5 pb-4 pt-4 sm:px-6">
+        <div className="mb-2 flex items-center gap-2">
+          <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-500">
+            Where you stand
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700">
+            <Lock className="h-2.5 w-2.5" strokeWidth={2.2} />
+            Your eyes only
+          </span>
+        </div>
         <p className="font-display text-[15px] font-semibold leading-snug text-gray-900">
           {BRIEF_TITLE}
         </p>
-        <ul className="mt-2.5 space-y-0.5">
-          {BRIEF.map((r) => (
+        <ul className="mt-2 space-y-0.5">
+          {STAND.map((i) => (
             <ExpandableRow
-              key={r.label}
-              detail={r.detail}
+              key={i.text}
+              detail={i.detail}
               leading={
-                <span className="w-11 shrink-0 pt-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
-                  {r.label}
-                </span>
+                <Lightbulb
+                  className="mt-[7px] h-3 w-3 shrink-0 text-emerald-500"
+                  strokeWidth={2}
+                />
               }
             >
-              <span className="text-[13px] leading-relaxed text-gray-600">{r.text}</span>
+              <span className="text-[13px] leading-snug text-gray-700">{i.text}</span>
             </ExpandableRow>
           ))}
         </ul>
@@ -173,30 +185,27 @@ export default function Capsule({ className = "" }: { className?: string }) {
         </ul>
       </div>
 
-      {/* Insights strip, your eyes only, click any for the full context */}
-      <div className="border-t border-gray-100 bg-[#F7FAF8] px-5 py-4 sm:px-6">
-        <div className="mb-2.5 flex items-center gap-2">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500">
-            Insights
-          </span>
-          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700">
-            <Lock className="h-2.5 w-2.5" strokeWidth={2.2} />
-            Your eyes only
-          </span>
-        </div>
+      {/* History, distilled, click any for the full context */}
+      <div className="border-t border-gray-100 px-5 py-3.5 sm:px-6">
+        <p className="mb-2 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
+          History
+        </p>
         <ul className="space-y-0.5">
-          {INSIGHTS.map((i) => (
+          {HISTORY.map((h) => (
             <ExpandableRow
-              key={i.text}
-              detail={i.detail}
+              key={h.date}
+              detail={h.detail}
               leading={
-                <Lightbulb
-                  className="mt-[7px] h-3 w-3 shrink-0 text-emerald-500"
-                  strokeWidth={2}
-                />
+                <span className="mt-[3px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500">
+                  <h.Icon className="h-2.5 w-2.5" strokeWidth={1.9} />
+                </span>
               }
             >
-              <span className="text-[13px] leading-snug text-gray-700">{i.text}</span>
+              <span className="text-[13px] leading-snug text-gray-700">
+                <span className="font-medium text-gray-400">{h.date}</span>
+                <span className="text-gray-300"> · </span>
+                {h.text}
+              </span>
             </ExpandableRow>
           ))}
         </ul>
