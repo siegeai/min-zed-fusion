@@ -6,7 +6,7 @@ const STEPS = [
     n: "01",
     Icon: Plug,
     title: "Connect.",
-    body: "Two minutes, then min. runs in the background, reading your email, calendar, and calls. No bot in your meetings, no data entry, ever.",
+    body: "Two minutes, then min. runs in the background, sits invisibly on your email, and on your calls. No meeting bots, no data entry, ever.",
   },
   {
     n: "02",
