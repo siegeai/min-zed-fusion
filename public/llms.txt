@@ -1,6 +1,6 @@
 # min.
 
-> min. is the relationship assistant that helps you win. A desktop app for macOS and Windows that records your meetings (with a bot or botless), reads your email and calendar, and distills every customer, partner, and investor relationship into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
+> min. is the relationship assistant that helps you win. A desktop app for macOS and Windows that records your meetings without a bot, reads your email and calendar, and distills every customer, partner, and investor relationship into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
 
 Key positioning facts:
 
@@ -10,7 +10,7 @@ Key positioning facts:
 - Customer context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window, one link.
 - min. works for any arena where relationships decide the outcome: closing a deal, earning a promotion (it remembers a year of one on ones with your manager), or getting a callback from an investor or hiring manager.
 - Capsules are shareable: send a teammate a capsule and they have the whole relationship, always current. When two people know the same person, sharing merges their histories into one capsule.
-- min. has a built-in notetaker with two recording options, bot and botless, and also ingests from existing notetakers (Granola, Otter, Fireflies, Fathom) and meeting platforms (Zoom, Google Meet, Microsoft Teams, Webex, Slack), plus Gmail, Outlook, Google Calendar, and Outlook Calendar.
+- min. has a built-in botless notetaker (no bot joins your meetings), and also ingests from existing notetakers (Granola, Otter, Fireflies, Fathom) and meeting platforms (Zoom, Google Meet, Microsoft Teams, Webex, Slack), plus Gmail, Outlook, Google Calendar, and Outlook Calendar.
 - Setup is about two minutes: connect calendar and email, then min. runs in the background. No data entry, ever.
 - Ask a capsule anything: what was said, what was promised, what is blocking a deal-sized decision, whether you are being compared against other tools. Answers are grounded in the recorded history.
 - min. does not just answer, it acts: book the meeting, draft the follow up, nudge the open loop. Actions come from the real context of the relationship, and drafts land in your outbox for review.

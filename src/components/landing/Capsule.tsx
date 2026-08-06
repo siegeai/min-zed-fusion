@@ -221,10 +221,10 @@ export default function Capsule({ className = "" }: { className?: string }) {
           >
             <div className="w-[320px] px-4 py-4">
               <h4 className="font-display text-[13.5px] font-semibold text-gray-900">
-                Ask about Jordan
+                How can I help with Jordan?
               </h4>
               <p className="mt-1 text-[11.5px] leading-snug text-gray-500">
-                Ask anything. Or have it done.
+                Answers and actions, grounded in the whole history.
               </p>
               <span className="mt-3 block rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-[11.5px] font-medium text-emerald-700">
                 Prep me for my meeting with Jordan

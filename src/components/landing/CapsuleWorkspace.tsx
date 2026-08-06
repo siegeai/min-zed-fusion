@@ -296,7 +296,7 @@ export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon
       {chips.length > 0 && (
         <>
           <p className="mt-5 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
-            {asked.length ? "Ask another" : "Try asking"}
+            {asked.length ? "Try another" : "Try one"}
           </p>
           <div className="mt-2 space-y-2">
             {chips.map((p) => (
@@ -377,9 +377,9 @@ export default function CapsuleWorkspace() {
           {/* ── The company ask rail (live) ── */}
           <AskRail
             prompts={COMPANY_PROMPTS}
-            title="Ask about Aperture"
-            blurb="Ask anything, or hand min. the task. Try it, this one is live."
-            placeholder="Ask about Aperture…"
+            title="How can I help with Aperture?"
+            blurb="Answers and actions, grounded in everything min. remembers. Try it, this one is live."
+            placeholder="Tell min. what you need…"
             scope="one company"
             PrimaryIcon={Building2}
           />
@@ -490,9 +490,9 @@ export default function CapsuleWorkspace() {
         {/* ── The ask rail (live) ── */}
         <AskRail
           prompts={GROUP_PROMPTS}
-          title="Ask about this group"
-          blurb="Ask anything, or hand min. the task. Try it, this one is live."
-          placeholder="Ask about this group…"
+          title="How can I help with this group?"
+          blurb="Answers and actions, grounded in everything min. remembers. Try it, this one is live."
+          placeholder="Tell min. what you need…"
           scope="one group"
           PrimaryIcon={CalendarClock}
         />
