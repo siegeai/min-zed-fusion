@@ -19,7 +19,7 @@ export default function CapsuleUpClose() {
               <span className="font-medium text-gray-900">
                 It reads between the lines, and between the conversations.
               </span>{" "}
-              One page on the person deciding your deal, your promotion, your
+              One page on the people deciding your deal, your promotion, your
               callback. Always current.
             </p>
           </div>
