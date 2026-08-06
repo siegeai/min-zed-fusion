@@ -7,6 +7,7 @@ import {
   Building2,
   Send,
   Video,
+  Zap,
   Mail,
   type LucideIcon,
 } from "lucide-react";
@@ -100,7 +101,7 @@ const HISTORY = [
   },
 ];
 
-export type Prompt = { q: string; a: string; primary?: boolean };
+export type Prompt = { q: string; a: string; primary?: boolean; act?: boolean };
 
 const GROUP_PROMPTS: Prompt[] = [
   {
@@ -113,12 +114,18 @@ const GROUP_PROMPTS: Prompt[] = [
     a: "The onboarding checklist, she has asked for it twice since the walkthrough. She also wants the team demo on the calendar so her ops team sees the setup before kickoff.",
   },
   {
-    q: "What is blocking the July 1 kickoff?",
-    a: "Two things. Dana's security sign off on Aperture's side, and the onboarding checklist you promised on the Jun 8 call. Clear both and the pilot starts on time.",
-  },
-  {
     q: "Am I competing with anyone for this pilot?",
     a: "Signs point that way. Price has come up in three straight conversations, and Jordan's Jun 14 email mentions evaluating a couple of tools. Nobody named yet, so treat the team demo as your chance to make the choice easy.",
+  },
+  {
+    q: "Book the team demo with Jordan and Sam",
+    a: "Done. Invite sent for Thursday 9:30am, Jordan has taken your last three calls on Tuesday or Thursday mornings. Agenda attached: onboarding walkthrough with the checklist. I will flag it if he has not accepted by tomorrow.",
+    act: true,
+  },
+  {
+    q: "Draft the follow up with the checklist",
+    a: "Drafted, in your outbox for review. It recaps the Jun 8 promises, attaches the onboarding checklist Sam asked for twice, and closes by asking for the signed pilot agreement. Tone matched to your thread.",
+    act: true,
   },
 ];
 
@@ -133,12 +140,13 @@ export const COMPANY_PROMPTS: Prompt[] = [
     a: "Sam Torres. She runs the workflows the pilot has to fit and is the daily user who makes or breaks it. Jordan is your champion, but Sam is the one to win, and she is still waiting on the onboarding checklist.",
   },
   {
-    q: "What is blocking the July 1 kickoff?",
-    a: "Two things. Dana's security sign off on Aperture's side, and the onboarding checklist you promised on the Jun 8 call. Clear both and the pilot starts on time.",
-  },
-  {
     q: "Who owes what right now?",
     a: "You owe Sam and Jordan the onboarding checklist. Jordan owes you the signed pilot agreement from the walkthrough. Dana owes the security sign off. Three open loops, all movable this week.",
+  },
+  {
+    q: "Nudge Dana about the security review",
+    a: "Drafted, in your outbox for review. It thanks Dana for running the review, asks if anything is missing from the security overview, and offers a quick call this week. She is the last gate before July 1.",
+    act: true,
   },
 ];
 
@@ -219,7 +227,8 @@ export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon
 
   const remaining = prompts.filter((p) => !asked.includes(p.q));
   const primary = remaining.find((p) => p.primary);
-  const chips = remaining.filter((p) => !p.primary);
+  const chips = remaining.filter((p) => !p.primary && !p.act);
+  const actChips = remaining.filter((p) => p.act);
   const done = remaining.length === 0 && !busy;
   const thinking = busy && messages[messages.length - 1]?.role === "user";
 
@@ -305,6 +314,29 @@ export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon
         </>
       )}
 
+      {/* Actions: min. executes these, not just answers them */}
+      {actChips.length > 0 && (
+        <>
+          <p className="mt-5 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
+            Or have min. do it
+          </p>
+          <div className="mt-2 space-y-2">
+            {actChips.map((p) => (
+              <button
+                key={p.q}
+                type="button"
+                onClick={() => ask(p)}
+                disabled={busy}
+                className="flex w-full items-start gap-2 rounded-xl border border-emerald-200 bg-emerald-50/60 px-3.5 py-2.5 text-left text-[13px] font-medium text-emerald-800 transition-colors hover:border-emerald-300 hover:bg-emerald-50 disabled:opacity-60"
+              >
+                <Zap className="mt-[3px] h-3.5 w-3.5 shrink-0 text-emerald-500" strokeWidth={2} />
+                {p.q}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+
       {done && (
         <p className="mt-5 text-[12.5px] leading-relaxed text-gray-500">
           That is min. on {scope}.{" "}
@@ -346,7 +378,7 @@ export default function CapsuleWorkspace() {
           <AskRail
             prompts={COMPANY_PROMPTS}
             title="Ask about Aperture"
-            blurb="Query everything min. remembers across Aperture, every person and thread. Try it, this one is live."
+            blurb="Ask anything, or hand min. the task. Try it, this one is live."
             placeholder="Ask about Aperture…"
             scope="one company"
             PrimaryIcon={Building2}
@@ -459,7 +491,7 @@ export default function CapsuleWorkspace() {
         <AskRail
           prompts={GROUP_PROMPTS}
           title="Ask about this group"
-          blurb="Query everything min. remembers across this group. Try it, this one is live."
+          blurb="Ask anything, or hand min. the task. Try it, this one is live."
           placeholder="Ask about this group…"
           scope="one group"
           PrimaryIcon={CalendarClock}

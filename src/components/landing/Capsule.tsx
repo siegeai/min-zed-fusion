@@ -224,7 +224,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
                 Ask about Jordan
               </h4>
               <p className="mt-1 text-[11.5px] leading-snug text-gray-500">
-                Ask it anything. It answers.
+                Ask anything. Or have it done.
               </p>
               <span className="mt-3 block rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-[11.5px] font-medium text-emerald-700">
                 Prep me for my meeting with Jordan
@@ -233,13 +233,13 @@ export default function Capsule({ className = "" }: { className?: string }) {
                 Did Jordan send the pilot agreement?
               </span>
               <span className="mt-2 block rounded-lg border border-gray-200 bg-white px-3 py-2 text-[11.5px] text-gray-600">
-                Am I competing with anyone for this pilot?
+                Book the team demo with Jordan
               </span>
               <span className="ml-auto mt-4 block w-fit max-w-full rounded-2xl rounded-br-sm bg-gray-900 px-3 py-1.5 text-[11px] text-white">
-                Did Jordan send the pilot agreement?
+                Book the team demo with Jordan
               </span>
               <span className="mt-2 block rounded-2xl rounded-bl-sm border border-gray-100 bg-white px-3 py-2 text-[11px] leading-relaxed text-gray-600">
-                No. He promised the countersigned agreement the week of Jun 8, and it has not arrived in any thread since. Worth raising when you send the checklist.
+                Done. Invite sent for Thursday 9:30am, Jordan's usual slot, agenda attached. I will flag it if he has not accepted by tomorrow.
               </span>
             </div>
           </a>

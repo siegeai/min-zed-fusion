@@ -13,6 +13,7 @@ Key positioning facts:
 - min. has a built-in notetaker with two recording options, bot and botless, and also ingests from existing notetakers (Granola, Otter, Fireflies, Fathom) and meeting platforms (Zoom, Google Meet, Microsoft Teams, Webex, Slack), plus Gmail, Outlook, Google Calendar, and Outlook Calendar.
 - Setup is about two minutes: connect calendar and email, then min. runs in the background. No data entry, ever.
 - Ask a capsule anything: what was said, what was promised, what is blocking a deal-sized decision, whether you are being compared against other tools. Answers are grounded in the recorded history.
+- min. does not just answer, it acts: book the meeting, draft the follow up, nudge the open loop. Actions come from the real context of the relationship, and drafts land in your outbox for review.
 
 ## Product
 
