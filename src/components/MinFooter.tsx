@@ -40,9 +40,10 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              One living memory for every customer you work with. min. turns
-              scattered emails and meetings into live, shareable capsules, so
-              your team always steps into calls fully prepped.
+              The relationship assistant that helps you win. min. turns
+              scattered calls and emails into a living memory of everyone you
+              work with, then puts it to work: the prep, the follow up, the
+              next move.
             </p>
           </div>
 

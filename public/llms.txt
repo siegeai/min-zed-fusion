@@ -1,13 +1,13 @@
 # min.
 
-> min. is the relationship assistant that helps you win. A desktop app for macOS and Windows that records your meetings without a bot, reads your email and calendar, and distills every customer, partner, and investor relationship into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
+> min. is the relationship assistant that helps you win. A desktop app for macOS and Windows that records your meetings without a bot, reads your email and calendar, and distills every relationship that decides your outcomes, customers, partners, investors, your manager, hiring managers, into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
 
 Key positioning facts:
 
 - Category: relationship intelligence / a relationship context layer. min. is NOT a CRM and NOT a meeting notetaker.
 - min. is the relationship assistant that helps you win: the AI that turns every call and email into your edge, to close the deal, get the promotion, get the callback. A notetaker remembers the meeting; min. remembers the person.
 - min. is the memory layer for any CRM: it replaces nothing, requires zero data entry, and builds itself from calls, email, and calendar.
-- Customer context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window, one link.
+- Relationship context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window.
 - min. works for any arena where relationships decide the outcome: closing a deal, earning a promotion (it remembers a year of one on ones with your manager), or getting a callback from an investor or hiring manager.
 - Capsules are shareable: send a teammate a capsule and they have the whole relationship, always current. When two people know the same person, sharing merges their histories into one capsule.
 - min. has a built-in botless notetaker (no bot joins your meetings), and also ingests from existing notetakers (Granola, Otter, Fireflies, Fathom) and meeting platforms (Zoom, Google Meet, Microsoft Teams, Webex, Slack), plus Gmail, Outlook, Google Calendar, and Outlook Calendar.
@@ -18,7 +18,7 @@ Key positioning facts:
 ## Product
 
 - [Homepage](https://getmin.ai/): The relationship assistant that helps you win.
-- [Living capsule](https://getmin.ai/#capsule): One relationship, one capsule. A one page TL;DR of the entire relationship, whether that is the buyer deciding the deal, the manager deciding your promotion, or the recruiter deciding who gets a callback. Three sharp sections: where you stand, action items, and history. Always current, every line expandable into its source.
+- [Relationship AI](https://getmin.ai/#capsule): One relationship, all the context. One page on the people deciding your deal, your promotion, your callback. Three sharp sections: where you stand, action items, and history. Always current, every line expandable into its source.
 - [How it works](https://getmin.ai/#how): 1) Connect (two minutes, then min. sits invisibly on your email and your calls, no meeting bots). 2) min. distills every relationship into a living capsule: where you stand, action items with deadlines, history. 3) Put it to work: it preps you before meetings, books the demo, drafts the follow up, chases what is owed. There is no step four.
 - [Interactive demo](https://getmin.ai/#capsule): three capsules to pick from, one per arena. Close the deal (the Aperture pilot working group), get the promotion (a year of one on ones with your manager), get hired (two interviews with a head of engineering). Each is fully interactive: expand any line to its source, ask the rail anything, or hand it a task.
 - [Pricing](https://getmin.ai/pricing): Free forever for your whole team with 3 months of recall and unlimited teammates. Pro is $20 per active teammate per month with all-time recall. Business is custom (SSO, SAML, SCIM, SOC 2 Type II, data residency).
