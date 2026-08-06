@@ -19,8 +19,10 @@ export default function CapsuleUpClose() {
               <span className="font-medium text-gray-900">
                 It reads between the lines, and between the conversations.
               </span>{" "}
-              A one page TL;DR of the entire relationship, always current,
-              ready the moment you need it.
+              A one page TL;DR of the entire relationship: the buyer deciding
+              the deal, the manager deciding your promotion, the recruiter
+              deciding who gets a callback. Always current, ready the moment
+              you need it.
             </p>
           </div>
         </FadeIn>

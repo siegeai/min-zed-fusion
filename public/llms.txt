@@ -18,7 +18,7 @@ Key positioning facts:
 ## Product
 
 - [Homepage](https://getmin.ai/): The relationship assistant that helps you win.
-- [Living capsule](https://getmin.ai/#capsule): One relationship, one capsule. A one page TL;DR of the entire relationship with three sharp sections: where you stand, action items, and history. Always current, every line expandable into its source.
+- [Living capsule](https://getmin.ai/#capsule): One relationship, one capsule. A one page TL;DR of the entire relationship, whether that is the buyer deciding the deal, the manager deciding your promotion, or the recruiter deciding who gets a callback. Three sharp sections: where you stand, action items, and history. Always current, every line expandable into its source.
 - [How it works](https://getmin.ai/#how): 1) Connect email, calendar, and calls (two minutes, no bot in your meetings). 2) min. distills every relationship into a living capsule: where you stand, action items with deadlines, history. 3) Put it to work: it preps you before meetings, books the demo, drafts the follow up, chases what is owed. There is no step four.
 - [Wins](https://getmin.ai/#win): Three arenas, one assistant. Close the deal (what did my team promise this customer), get the promotion (what has my manager cared about all year), get the callback (how do I follow up without being pushy).
 - [Pricing](https://getmin.ai/pricing): Free forever for your whole team with 3 months of recall and unlimited teammates. Pro is $20 per active teammate per month with all-time recall. Business is custom (SSO, SAML, SCIM, SOC 2 Type II, data residency).
