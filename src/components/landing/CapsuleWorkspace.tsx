@@ -256,7 +256,7 @@ const PROMOTION: ScenarioData = {
   railTitle: "How can I help with Dana?",
   prompts: [
     {
-      q: "Prep me for my one on one with Dana",
+      q: "Prep me for my 1:1 with Dana",
       a: "She asked for migration and on call numbers on May 12 and they are still unsent. Calibration packets get written in August. Lead with the numbers, then ask her directly what would make the staff case undeniable.",
       primary: true,
     },
