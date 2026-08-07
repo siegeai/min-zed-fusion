@@ -61,7 +61,7 @@ const PLANS: Plan[] = [
 
 const FAQS = [
   {
-    q: "Is it really free for my whole team?",
+    q: "Is it really free?",
     a: "Yes. min. is free to use, for everyone you invite. Free recalls the last 3 months of every relationship, and every referral adds another month of recall. You pay only to reach 5 years back.",
   },
   {
