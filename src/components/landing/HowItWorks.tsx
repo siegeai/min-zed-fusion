@@ -111,13 +111,13 @@ const STEPS = [
   {
     n: "02",
     Scene: CapsuleScene,
-    title: "Know where you stand.",
+    title: "Before calls.",
     body: "Every relationship stays distilled into a living capsule, always current: where you stand, action items with deadlines, the whole history. Open it before a call and you are prepped in a minute.",
   },
   {
     n: "03",
     Scene: HandoffScene,
-    title: "Think it through, then hand it off.",
+    title: "After calls.",
     body: "Consult it like a teammate who was in every room: what am I missing, how should I play this. Then let it do the work, drafting the follow up that lands on what they actually said, the next step email, the nudge on what is owed.",
   },
 ];
