@@ -51,7 +51,12 @@ const PLANS: Plan[] = [
     price: { display: "Custom", sub: "let's talk" },
     recall: { label: "Unlimited", strong: true },
     inheritFrom: "Pro",
-    features: ["SSO, SAML, and SCIM", "SOC 2 Type II and data residency", "Dedicated onboarding and SLA"],
+    features: [
+      "SSO, SAML, and SCIM",
+      "SOC 2 Type II and data residency",
+      "Bring your own database, graph, and vector store",
+      "Dedicated onboarding and SLA",
+    ],
     cta: {
       label: "Contact us",
       href: "mailto:hello@getmin.ai?subject=min.%20Business%20plan",
