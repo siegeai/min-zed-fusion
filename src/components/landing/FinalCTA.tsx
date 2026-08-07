@@ -11,11 +11,6 @@ export default function FinalCTA() {
         <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-zinc-950 px-6 py-14 text-center sm:px-8 md:rounded-[2.5rem] md:py-28">
           <Constellation className="opacity-40" />
           <div className="relative">
-            {/* The H1 carries the claim; this carries the fact that removes
-                the last objection before the download button */}
-            <p className="mx-auto mb-6 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[12.5px] font-medium text-gray-300">
-              Free to use for your whole team.
-            </p>
             <h2 className="mx-auto mb-6 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
               Every relationship,
               <br className="hidden sm:block" /> working for you.

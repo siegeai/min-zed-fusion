@@ -28,10 +28,8 @@ const PLANS: Plan[] = [
     price: { display: "$0", sub: "forever" },
     recall: { label: "Last 3 months", strong: false },
     features: [
-      "Unlimited teammates",
+      "Built in botless notetaker",
       "A living capsule for every relationship",
-      "Built in botless notetaker, no bot joins your meetings",
-      "Merge and share across your team",
       "Built from your calls, calendar, and email",
     ],
     cta: { label: getDownloadTarget().label, href: getDownloadTarget().href },
@@ -75,7 +73,7 @@ const FAQS = [
   },
   {
     q: "Do we have to replace our CRM?",
-    a: "No. min. is the memory layer for your CRM, and it replaces nothing. It builds itself from your calendar and email, and every capsule is a link you can paste into any CRM, doc, or thread. Whatever your team already uses gets full context instantly.",
+    a: "No. A CRM tracks deals. min. closes them. A CRM only knows what someone remembered to type into it, and it never tells you what to do next. min. builds itself from your calls and email, then hands you the move. Keep the CRM for reporting and paste any capsule straight into it.",
   },
   {
     q: "Do you store my email?",
@@ -94,7 +92,7 @@ const Pricing = () => {
         <title>Pricing | min., the relationship AI</title>
         <meta
           name="description"
-          content="min., the relationship AI, is free to use for your whole team. You pay only for 5+ years of recall history, and only for teammates who are active."
+          content="min., the relationship AI, is free to use. You pay only for 3+ months of recall history."
         />
         <link rel="canonical" href="https://getmin.ai/pricing" />
       </Helmet>
@@ -109,8 +107,8 @@ const Pricing = () => {
                 Free to <span className="text-emerald-600">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                The relationship AI for your whole team. Pay only for 5+ years
-                of recall history, and only for teammates who are active.
+                The relationship AI for your whole team. Pay only for 3+ months
+                of recall history.
               </p>
             </header>
 
