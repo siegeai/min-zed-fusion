@@ -107,8 +107,8 @@ const Pricing = () => {
                 Free to <span className="text-emerald-600">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                The relationship AI for your whole team. Pay only for 3+ months
-                of recall history.
+                The only AI built with a healthy obsession. Pay only for 3+
+                months of recall history.
               </p>
             </header>
 
