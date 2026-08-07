@@ -38,7 +38,7 @@ export default function CapsuleUpClose() {
                 strokeWidth={2}
               />
               Built completely automatically from your calendar, meetings, and
-              emails.
+              emails. <span className="font-medium text-gray-900">No data entry, ever.</span>
             </p>
           </div>
         </FadeIn>
