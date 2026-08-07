@@ -30,6 +30,7 @@ const PLANS: Plan[] = [
     features: [
       "Unlimited teammates",
       "A living capsule for every relationship",
+      "Built in botless notetaker, no bot joins your meetings",
       "Merge and share across your team",
       "Built from your calls, calendar, and email",
     ],
@@ -49,7 +50,7 @@ const PLANS: Plan[] = [
     name: "Business",
     swatch: "bg-gray-900",
     price: { display: "Custom", sub: "let's talk" },
-    recall: { label: "5 years", strong: true },
+    recall: { label: "Unlimited", strong: true },
     inheritFrom: "Pro",
     features: ["SSO, SAML, and SCIM", "SOC 2 Type II and data residency", "Dedicated onboarding and SLA"],
     cta: {
@@ -93,7 +94,7 @@ const Pricing = () => {
         <title>Pricing | min., the relationship AI</title>
         <meta
           name="description"
-          content="min., the relationship AI, is free to use for your whole team. You pay only for 5 years of recall history, and only for teammates who are active."
+          content="min., the relationship AI, is free to use for your whole team. You pay only for 5+ years of recall history, and only for teammates who are active."
         />
         <link rel="canonical" href="https://getmin.ai/pricing" />
       </Helmet>
@@ -108,8 +109,8 @@ const Pricing = () => {
                 Free to <span className="text-emerald-600">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                The relationship AI for your whole team. Pay only for 5 years of
-                recall history, and only for teammates who are active.
+                The relationship AI for your whole team. Pay only for 5+ years
+                of recall history, and only for teammates who are active.
               </p>
             </header>
 
