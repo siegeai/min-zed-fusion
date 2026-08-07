@@ -42,7 +42,7 @@ const PLANS: Plan[] = [
     recall: { label: "5 years", strong: true },
     inheritFrom: "Free",
     features: ["5 years of recall history", "Roles and admin", "Priority support"],
-    cta: { label: "Start with your team", href: APP_URL },
+    cta: { label: "Start with 5 years of recall", href: APP_URL },
     highlighted: true,
   },
   {
@@ -74,7 +74,7 @@ const FAQS = [
   },
   {
     q: "Do you store my email?",
-    a: "No. min. keeps distilled memory and metadata, never your raw mail. We never train on it, sell it, or share it. It's bad for business.",
+    a: "No. min. keeps distilled memory and metadata, never your raw mail. We never train on it, sell it, or share it. Our belief is that your context can become one of your biggest professional assets. It's bad for business for us to not take that seriously.",
   },
 ];
 
@@ -89,7 +89,7 @@ const Pricing = () => {
         <title>Pricing | min., the relationship AI</title>
         <meta
           name="description"
-          content="min., the relationship AI, is free to use. You pay only for 3+ months of recall history."
+          content="min., the relationship AI, is free to use. You pay only for more recall history."
         />
         <link rel="canonical" href="https://getmin.ai/pricing" />
       </Helmet>
@@ -104,8 +104,7 @@ const Pricing = () => {
                 Free to <span className="text-emerald-600">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                The only AI with a winning mindset. Pay only for 3+ months of
-                recall history.
+                The only AI with a winning mindset. Pay only for more recall history.
               </p>
             </header>
 
@@ -199,11 +198,11 @@ function PlanCard({ plan }: { plan: Plan }) {
           href={plan.cta.href}
           className={
             isHl
-              ? "inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-black text-white text-sm font-semibold px-5 py-2.5 hover:bg-gray-800 transition-colors"
-              : "inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border border-gray-200 text-gray-700 text-sm font-medium px-5 py-2.5 hover:border-gray-300 hover:text-gray-900 transition-colors"
+              ? "inline-flex w-full items-center justify-center gap-2 rounded-full bg-black text-white text-sm font-semibold px-5 py-2.5 hover:bg-gray-800 transition-colors"
+              : "inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-200 text-gray-700 text-sm font-medium px-5 py-2.5 hover:border-gray-300 hover:text-gray-900 transition-colors"
           }
         >
-          {plan.cta.label}
+          <span className="text-center">{plan.cta.label}</span>
           <ArrowRight className="w-3.5 h-3.5 shrink-0" strokeWidth={2.25} />
         </a>
       </div>
