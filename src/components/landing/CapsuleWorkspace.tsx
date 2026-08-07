@@ -696,7 +696,7 @@ function PersonScenario({ data }: { data: ScenarioData }) {
 
 const SCENARIOS = [
   { key: "deal", label: "Close the deal", Icon: Handshake },
-  { key: "promotion", label: "Get the promotion", Icon: TrendingUp },
+  { key: "promotion", label: "Land that promotion", Icon: TrendingUp },
   { key: "hired", label: "Get hired", Icon: Briefcase },
 ] as const;
 
