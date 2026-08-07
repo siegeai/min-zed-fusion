@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Lightbulb, ArrowRight, Video, Mail } from "lucide-react";
+import { Lightbulb, ArrowRight, Video, Mail, Send } from "lucide-react";
 import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
 import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
@@ -215,7 +215,7 @@ export default function Capsule({ className = "" }: { className?: string }) {
             aria-label="Try the interactive demo"
             className="relative hidden overflow-hidden border-l border-gray-100 bg-[#FBFBFA] lg:block"
           >
-            <div className="w-[320px] px-4 py-4">
+            <div className="flex h-full w-[320px] flex-col px-4 py-4">
               <h4 className="font-display text-[13.5px] font-semibold text-gray-900">
                 How can I help with Jordan?
               </h4>
@@ -236,6 +236,14 @@ export default function Capsule({ className = "" }: { className?: string }) {
               </span>
               <span className="mt-2 block rounded-2xl rounded-bl-sm border border-gray-100 bg-white px-3 py-2 text-[11px] leading-relaxed text-gray-600">
                 Done. Invite sent for Thursday 9:30am, Jordan's usual slot, agenda attached. I will flag it if he has not accepted by tomorrow.
+              </span>
+              {/* The composer, same as the live rail's — the card should read
+                  as a working chat panel, not a screenshot of one */}
+              <span className="mt-auto flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3.5 py-2">
+                <span className="flex-1 truncate text-[11px] text-gray-400">
+                  Tell min. what you need…
+                </span>
+                <Send className="h-3 w-3 shrink-0 text-gray-400" strokeWidth={2} />
               </span>
             </div>
           </a>

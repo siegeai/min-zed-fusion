@@ -155,6 +155,42 @@
   .pill-countdown { animation: none; }
 }
 
+/* ── How it works: three looping mini-scenes ──────────────────────────────
+   Each step's visual animates on a loop. Every resting state is the FINISHED
+   state, so reduced motion (animation: none) shows a complete, sensible
+   picture rather than an empty one. */
+
+/* 01 — min. reading over the work you already do */
+@keyframes hiw-scan {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  12%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(360%); opacity: 0; }
+}
+.hiw-scan { animation: hiw-scan 4.4s ease-in-out infinite; }
+
+/* 02 — the capsule writing itself in, section by section */
+@keyframes hiw-fill {
+  0%, 6%   { transform: scaleX(0); }
+  34%, 86% { transform: scaleX(1); }
+  100%     { transform: scaleX(0); }
+}
+.hiw-fill { transform-origin: left; animation: hiw-fill 5.6s ease-in-out infinite; }
+
+/* 03 — ask, answer, then the action lands */
+@keyframes hiw-pop {
+  0%, 8%   { opacity: 0; transform: translateY(5px); }
+  20%, 86% { opacity: 1; transform: translateY(0); }
+  100%     { opacity: 0; transform: translateY(5px); }
+}
+.hiw-pop { animation: hiw-pop 5.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hiw-fill,
+  .hiw-pop { animation: none; }
+  .hiw-scan { animation: none; opacity: 0; }
+}
+
 /* CTA subtle lift on hover */
 .cta-glow {
   position: relative;
