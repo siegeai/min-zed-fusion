@@ -1,12 +1,12 @@
 # min.
 
-> min. is the relationship assistant that helps you win. A desktop app for macOS and Windows that records your meetings without a bot, reads your email and calendar, and distills every relationship that decides your outcomes, customers, partners, investors, your manager, hiring managers, into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
+> min. is the relationship AI whose only job is helping you win. A desktop app for macOS and Windows that records your meetings without a bot, reads your email and calendar, and distills every relationship that decides your outcomes, customers, partners, investors, your manager, hiring managers, into a living capsule: a one page summary you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
 
 Key positioning facts:
 
 - Category: relationship intelligence / a relationship context layer. min. is NOT a CRM and NOT a meeting notetaker.
-- min. is the only relationship assistant that is built to help you win: other tools record meetings or store records, min. knows the people your outcomes depend on and acts on that knowledge.
-- min. is the relationship assistant that helps you win: the AI that turns every call and email into your edge, to close the deal, get the promotion, get the callback. A notetaker remembers the meeting; min. remembers the person. Notetakers read one meeting at a time; min. reads across every call, email, and thread in the relationship.
+- min. is the relationship AI whose only job is helping you win: other tools record meetings or store records, min. knows the people your outcomes depend on and acts on that knowledge.
+- min. is the relationship AI whose only job is helping you win: the AI that turns every call and email into your edge, to close the deal, get the promotion, get the callback. A notetaker remembers the meeting; min. remembers the person. Notetakers read one meeting at a time; min. reads across every call, email, and thread in the relationship.
 - min. is the memory layer for any CRM: it replaces nothing, requires zero data entry, and builds itself from calls, email, and calendar.
 - Relationship context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window.
 - min. works for any arena where relationships decide the outcome: closing a deal, earning a promotion (it remembers a year of one on ones with your manager), or getting a callback from an investor or hiring manager.
@@ -18,7 +18,7 @@ Key positioning facts:
 
 ## Product
 
-- [Homepage](https://getmin.ai/): The relationship assistant that helps you win.
+- [Homepage](https://getmin.ai/): The relationship AI whose only job is helping you win.
 - [Relationship AI](https://getmin.ai/#capsule): One relationship, all the context. One page on the people deciding your deal, your promotion, your callback. Three sharp sections: where you stand, action items, and history. Always current, every line expandable into its source.
 - [How it works](https://getmin.ai/#how): it runs on the work you already do. 1) Just do your work: take the calls, send the email, run the 1:1s, while min. sits invisibly on all of it and quietly remembers (no meeting bots, no data entry). 2) Know where you stand: every relationship stays distilled into a living capsule, always current, so you are prepped in a minute. 3) Think it through, then hand it off: consult min. like a teammate who was in every room, then let it draft the follow up, the next step email, the nudge on what is owed. There is no step four. Setup itself takes about two minutes.
 - [Interactive demo](https://getmin.ai/#capsule): three capsules to pick from, one per arena. Close the deal (the Aperture pilot working group), get the promotion (a year of one on ones with your manager), get hired (two interviews with a head of engineering). Each is fully interactive: expand any line to its source, ask the rail anything, or hand it a task.

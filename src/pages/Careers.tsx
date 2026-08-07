@@ -75,7 +75,7 @@ export default function Careers() {
         <title>Careers at min. | Build the assistant that helps people win</title>
         <meta
           name="description"
-          content="Help us build the relationship assistant that helps people win: a living memory of every relationship, put to work. Email hello@getmin.ai with what you've built. No traditional postings."
+          content="Help us build the relationship AI whose only job is helping people win: a living memory of every relationship, put to work. Email hello@getmin.ai with what you've built. No traditional postings."
         />
         <link rel="canonical" href="https://getmin.ai/careers" />
       </Helmet>

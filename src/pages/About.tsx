@@ -39,7 +39,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is the relationship assistant that helps you win. It turns your calls, email, and calendar into a living memory of every relationship, then puts that memory to work: the prep, the follow up, the next move.",
+      "min. is the relationship AI whose only job is helping you win. It turns your calls, email, and calendar into a living memory of every relationship, then puts that memory to work: the prep, the follow up, the next move.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -55,7 +55,7 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | The relationship assistant that helps you win</title>
+        <title>About min. | The relationship AI whose only job is helping you win</title>
         <meta
           name="description"
           content="min. turns your calendar and email into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone."
