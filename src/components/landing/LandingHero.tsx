@@ -21,7 +21,7 @@ export default function LandingHero() {
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              Close the deal. Land that promotion. Get the callback. It turns
+              Get the callback. Close the deal. Land that promotion. It turns
               every call and email into your edge.
             </p>
           </FadeIn>

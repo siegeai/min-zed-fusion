@@ -22,8 +22,8 @@ export default function FinalCTA() {
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
               The whole history distilled, the next move drafted, the follow
-              up already on the calendar. Close the deal. Land that promotion.
-              Get the callback.
+              up already on the calendar. Get the callback. Close the deal.
+              Land that promotion.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
