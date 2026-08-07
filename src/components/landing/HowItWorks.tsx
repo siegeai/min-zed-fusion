@@ -1,4 +1,4 @@
-import { Video, Mail, Users, Check, Send } from "lucide-react";
+import { Video, Mail, Users, Check } from "lucide-react";
 import { FadeIn } from "@/components/vision/FadeIn";
 
 /**
@@ -92,12 +92,11 @@ function HandoffScene() {
         follow up?
       </span>
       <span
-        className="hiw-pop mt-auto flex w-fit items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-medium text-emerald-700"
+        className="hiw-pop mt-auto flex w-fit max-w-full items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-medium leading-tight text-emerald-700"
         style={{ animationDelay: "1.15s" }}
       >
-        <Check className="h-3 w-3" strokeWidth={2.5} />
-        Drafted, in your outbox
-        <Send className="h-2.5 w-2.5 text-emerald-500" strokeWidth={2.5} />
+        <Check className="h-3 w-3 shrink-0" strokeWidth={2.5} />
+        Drafted just for you, check it out!
       </span>
     </div>
   );
