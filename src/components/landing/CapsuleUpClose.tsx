@@ -39,7 +39,7 @@ export default function CapsuleUpClose() {
                 className="mr-1.5 inline-block h-3.5 w-3.5 align-[-2px] text-emerald-500"
                 strokeWidth={2}
               />
-              Built completely automatically from your calendar, meetings, and
+              Built completely auto-magically from your calendar, meetings, and
               emails.{" "}
               <span className="font-medium text-gray-900">
                 No data entry, ever.
