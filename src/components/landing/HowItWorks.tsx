@@ -16,9 +16,10 @@ function WorkScene() {
     { Icon: Video, label: "Call with Jordan", w: "78%" },
     { Icon: Mail, label: "Re: pilot agreement", w: "64%" },
     { Icon: Users, label: "1:1 with Dana", w: "70%" },
+    { Icon: Mail, label: "Intro from Priya", w: "52%" },
   ];
   return (
-    <div className="relative h-[150px] overflow-hidden rounded-xl border border-gray-100 bg-white px-3 py-3">
+    <div className="relative h-[172px] overflow-hidden rounded-xl border border-gray-100 bg-white px-3 py-3">
       <div className="space-y-2.5">
         {rows.map((r) => (
           <div key={r.label} className="flex items-center gap-2">
@@ -47,12 +48,12 @@ function WorkScene() {
 function CapsuleScene() {
   const groups = [
     { label: "Where you stand", bars: ["86%", "62%"], tone: "bg-emerald-200" },
-    { label: "Action items", bars: ["74%"], tone: "bg-gray-200" },
-    { label: "History", bars: ["58%"], tone: "bg-gray-200" },
+    { label: "Action items", bars: ["74%", "48%"], tone: "bg-gray-200" },
+    { label: "History", bars: ["58%", "40%"], tone: "bg-gray-200" },
   ];
   let i = 0;
   return (
-    <div className="h-[150px] overflow-hidden rounded-xl border border-gray-100 bg-white px-3 py-3">
+    <div className="h-[172px] overflow-hidden rounded-xl border border-gray-100 bg-white px-3 py-3">
       {groups.map((g, gi) => (
         <div key={g.label} className={gi === 0 ? "" : "mt-2.5"}>
           <p className="text-[8.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
@@ -76,18 +77,19 @@ function CapsuleScene() {
 /* 03 — consult it, then hand it off */
 function HandoffScene() {
   return (
-    <div className="flex h-[150px] flex-col overflow-hidden rounded-xl border border-gray-100 bg-white px-3 py-3">
+    <div className="flex h-[172px] flex-col overflow-hidden rounded-xl border border-gray-100 bg-white px-3 py-3">
       <span
         className="hiw-pop ml-auto block w-fit max-w-[88%] rounded-xl rounded-br-sm bg-gray-900 px-2.5 py-1.5 text-[10px] leading-tight text-white"
         style={{ animationDelay: "0s" }}
       >
-        How should I play this?
+        How should I angle this?
       </span>
       <span
         className="hiw-pop mt-1.5 block w-fit max-w-[92%] rounded-xl rounded-bl-sm border border-gray-100 bg-[#FBFBFA] px-2.5 py-1.5 text-[10px] leading-tight text-gray-600"
         style={{ animationDelay: "0.55s" }}
       >
-        Lead with the checklist. Want me to draft it?
+        Lead with onboarding because it is his last doubt. Want me to draft a
+        follow up?
       </span>
       <span
         className="hiw-pop mt-auto flex w-fit items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-medium text-emerald-700"
