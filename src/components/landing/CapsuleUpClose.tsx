@@ -32,13 +32,18 @@ export default function CapsuleUpClose() {
         <FadeIn delay={0.1}>
           <div className="mx-auto mt-14 max-w-5xl">
             <CapsuleWorkspace />
-            <p className="mx-auto mt-6 flex max-w-xl items-center justify-center gap-2 text-center text-[13.5px] leading-relaxed text-gray-400">
+            {/* One flowing sentence: `flex` here would make the text node and
+                the bolded span separate flex items sitting side by side */}
+            <p className="mx-auto mt-6 max-w-2xl text-center text-[13.5px] leading-relaxed text-gray-400">
               <Sparkles
-                className="h-3.5 w-3.5 shrink-0 text-emerald-500"
+                className="mr-1.5 inline-block h-3.5 w-3.5 align-[-2px] text-emerald-500"
                 strokeWidth={2}
               />
               Built completely automatically from your calendar, meetings, and
-              emails. <span className="font-medium text-gray-900">No data entry, ever.</span>
+              emails.{" "}
+              <span className="font-medium text-gray-900">
+                No data entry, ever.
+              </span>
             </p>
           </div>
         </FadeIn>
