@@ -32,6 +32,6 @@ Key positioning facts:
 ## FAQ
 
 - Is it really free for my whole team? Yes. min. is free to use, for everyone you invite. Free recalls the last 3 months of every relationship, and every referral adds another month of recall. You pay only to reach 5 years back.
-- Can I share a capsule for free? Yes, on every plan. Share a single meeting, a person capsule, or a whole company capsule. The other side signs in and sees only what is between the two of you. Revocable any time.
+- Can I share a capsule for free? Yes, on every plan. Share a single meeting, a person capsule, or a whole company capsule. Revocable any time.
 - Do we have to replace our CRM? No. A CRM tracks deals; min. closes them. A CRM only knows what someone remembered to type into it and never tells you what to do next, while min. builds itself from your calls and email and hands you the move. Keep the CRM for reporting and paste any capsule straight into it.
 - Do you store my email? No. min. keeps distilled memory and metadata, never your raw mail. It is never used for training, sold, or shared.

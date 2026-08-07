@@ -66,7 +66,7 @@ const FAQS = [
   },
   {
     q: "Can I share a capsule for free?",
-    a: "Yes, on every plan. Share a single meeting, a person capsule, or a whole company capsule. The other side signs in and sees only what is between the two of you. Revocable any time.",
+    a: "Yes, on every plan. Share a single meeting, a person capsule, or a whole company capsule. Revocable any time.",
   },
   {
     q: "Do we have to replace our CRM?",
