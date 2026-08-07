@@ -31,6 +31,7 @@ const PLANS: Plan[] = [
       "Built in botless notetaker",
       "A living capsule for every relationship",
       "Built from your calls, calendar, and email",
+      "+1 month of recall per referral",
     ],
     cta: { label: getDownloadTarget().label, href: getDownloadTarget().href },
   },
@@ -61,11 +62,7 @@ const PLANS: Plan[] = [
 const FAQS = [
   {
     q: "Is it really free for my whole team?",
-    a: "Yes. min. is free to use, for everyone you invite. Free recalls the last 3 months of every relationship; you pay only to reach 5 years back.",
-  },
-  {
-    q: "What does \"per active teammate\" mean?",
-    a: "You're billed only for teammates who actually used min. that month. Inviting is always free.",
+    a: "Yes. min. is free to use, for everyone you invite. Free recalls the last 3 months of every relationship, and every referral adds another month of recall. You pay only to reach 5 years back.",
   },
   {
     q: "Can I share a capsule for free?",
