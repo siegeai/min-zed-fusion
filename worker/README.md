@@ -59,6 +59,25 @@ model is only ever given llms.txt, so there is no user count or internal detail
 in its context for it to leak. The instructions above mainly stop it
 *hallucinating* one, which is the likelier failure.
 
+## Client-side behaviour
+
+Two things live in the browser rather than the Worker, both deliberately:
+
+**Conversation persistence** (`localStorage`, key `min.ask.v1`). A conversation
+survives a reload and a return visit, and expires after 7 days. Someone back a
+few days later is mid-evaluation and wants continuity; someone back in a month
+has forgotten the exchange, and resurfacing it reads as surveillance. Restored
+messages are labelled "From your last visit" with a "Today" divider, and
+"Start over" clears them. Nothing is sent anywhere: it is the visitor's own
+browser, so there is no chat data for us to hold or delete.
+
+**Daily question cap** (15/day, key `min.ask.quota.v1`). This is a
+qualification nudge, not a security control. Someone on their fifteenth
+question is an engaged prospect who will get more from a person than a FAQ bot,
+so the panel hands them to hello@getmin.ai and resets at their local midnight.
+It is client-side because the point is to show a warm message; abuse is handled
+server-side by the limits below.
+
 ## Abuse limits
 
 An open endpoint that reaches a paid model is somebody's free API if you let it.
