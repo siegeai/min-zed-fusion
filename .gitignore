@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Worker build/deps
+worker/node_modules
+worker/.wrangler

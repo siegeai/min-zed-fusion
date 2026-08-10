@@ -1,0 +1,14 @@
+name = "ask-min"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+
+# The API key is a secret, never a var:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#
+# Optional: put this Worker on a subdomain you own instead of workers.dev.
+# Requires getmin.ai to be on Cloudflare DNS — it is not today (GitHub Pages),
+# so the workers.dev URL is the working default.
+# [[routes]]
+# pattern = "ask.getmin.ai"
+# custom_domain = true

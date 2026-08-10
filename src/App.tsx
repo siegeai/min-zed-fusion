@@ -17,6 +17,7 @@ import Pricing from "./pages/Pricing";
 import JoinCommunity from "./pages/JoinCommunity";
 import NotFound from "./pages/NotFound";
 import TrustBadges from "./components/TrustBadges";
+import AskMin from "./components/landing/AskMin";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <AskMin />
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>
