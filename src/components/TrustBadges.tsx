@@ -5,12 +5,15 @@ const BORDER = "rgba(0,0,0,0.08)";
 
 const TrustBadges = () => (
   // Hidden on mobile: a 270px floating pill over a 375px screen covers content.
+  // Anchored bottom-LEFT: the Ask min. composer owns the bottom-right corner,
+  // and it is the thing we want people to reach for. Compliance badges are
+  // reassurance you check once, so they yield the corner.
   <div
     className="hidden md:flex"
     style={{
       position: "fixed",
       bottom: 16,
-      right: 16,
+      left: 16,
       zIndex: 40,
       alignItems: "center",
       gap: 14,

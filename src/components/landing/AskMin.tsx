@@ -276,7 +276,7 @@ export default function AskMin() {
   const showOpeners = messages.length === 0 && !capped;
 
   return (
-    <div className="fixed bottom-5 right-4 z-50 w-[calc(100vw-2rem)] sm:bottom-6 sm:right-6 sm:w-[384px]">
+    <div className="fixed bottom-5 right-4 z-50 w-[calc(100vw-2rem)] sm:bottom-6 sm:right-6 sm:w-[420px]">
       {open && (
         <div
           role="dialog"
@@ -418,10 +418,18 @@ export default function AskMin() {
         // depended on focusing it the visitor would never see the message
         // telling them to email the team.
         onClick={() => setOpen(true)}
-        className="flex cursor-text items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.18)] transition-colors focus-within:border-emerald-300"
+        // Sized up deliberately when closed: this is the one control on the page
+        // we want people to reach for, and at the old size it read as a dismissable
+        // widget. Open, it shrinks back to a composer, because by then the panel
+        // above it is the thing holding attention.
+        className={`flex cursor-text items-center rounded-full border border-gray-200 bg-white transition-all duration-200 focus-within:border-emerald-300 ${
+          open
+            ? "gap-2 px-4 py-2.5 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.18)]"
+            : "gap-2.5 px-5 py-3.5 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-[0_16px_44px_-12px_rgba(16,185,129,0.28)]"
+        }`}
       >
         {!open && (
-          <Sparkles className="h-3.5 w-3.5 shrink-0 text-emerald-500" strokeWidth={2} />
+          <Sparkles className="h-4 w-4 shrink-0 text-emerald-500" strokeWidth={2} />
         )}
         <input
           ref={inputRef}
@@ -436,15 +444,19 @@ export default function AskMin() {
             capped ? "Email hello@getmin.ai" : "Ask me or email hello@getmin.ai"
           }
           aria-label="Ask min. a question"
-          className="min-w-0 flex-1 bg-transparent text-[13px] text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60"
+          className={`min-w-0 flex-1 bg-transparent text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 ${
+            open ? "text-[13px]" : "text-[14px]"
+          }`}
         />
         <button
           type="submit"
           disabled={busy || capped || !draft.trim()}
           aria-label="Send"
-          className="grid h-6 w-6 shrink-0 place-items-center rounded-full text-gray-400 transition-colors hover:bg-gray-50 hover:text-gray-700 disabled:opacity-40"
+          className={`grid shrink-0 place-items-center rounded-full text-gray-400 transition-colors hover:bg-gray-50 hover:text-gray-700 disabled:opacity-40 ${
+            open ? "h-6 w-6" : "h-7 w-7"
+          }`}
         >
-          <Send className="h-3.5 w-3.5" strokeWidth={2} />
+          <Send className={open ? "h-3.5 w-3.5" : "h-4 w-4"} strokeWidth={2} />
         </button>
       </form>
     </div>

@@ -135,3 +135,32 @@ used them anyway in half its replies. Instruction-following on small models is
 probabilistic, so anything that must always hold belongs in code. `enforceVoice()`
 strips em and en dashes from every delta before it reaches the browser. Treat
 that as the pattern for any other absolute voice rule.
+
+## Keeping answers short
+
+Answers ran to four paragraphs at first. Telling the prompt "two to four
+sentences" did nothing, and neither did "under 60 words" as a numbered rule:
+measured replies still came back at 106 to 141 words. **Models match
+demonstrated length far better than described length.** The fix that worked was
+the "length you are aiming for" block, three example exchanges written at the
+target length, including a partial-fit answered in one sentence of yes and one
+of no. That pulled every measured reply to 44 to 67 words in a single
+paragraph.
+
+Two things to know if you edit those examples:
+
+- **Do not make an example resemble a question visitors actually ask.** The
+  first draft used a recruiting example, and real recruiting questions then came
+  back *longer* than before (141 words), because the model treats the near
+  duplicate as already handled and elaborates past it. The examples now sit in
+  domains deliberately adjacent to the common questions.
+- **Anything specific in an example gets copied verbatim.** An early version
+  said "each of the six stakeholders" and the model reused that phrasing on
+  questions with a different count. Keep example wording generic enough that
+  copying it is still correct.
+
+Truncating long answers in code was considered and rejected. The honest answers
+are the long ones: they carry a "min. will not do X, that is your ATS" caveat in
+the final sentence, so cutting at a length budget deletes the caveat and turns a
+balanced answer into an oversell. `MAX_TOKENS` stays as a cost ceiling, not a
+shaping tool.
