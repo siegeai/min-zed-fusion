@@ -86,7 +86,8 @@ async function loadKnowledge(): Promise<string> {
   ].join(" ");
 }
 
-function buildSystemPrompt(knowledge: string): string {
+/** Exported so the guardrails can be tested against the real model. */
+export function buildSystemPrompt(knowledge: string): string {
   return `You are the assistant on getmin.ai, min.'s marketing site. A visitor is asking you questions about the product.
 
 Your job is to help them work out whether min. fits the job they actually have. A visitor who gets a straight, specific answer trusts the product and downloads it. One who gets a generic pitch leaves.
@@ -174,6 +175,16 @@ export function sanitize(raw: unknown): { role: "user" | "assistant"; content: s
   return out;
 }
 
+/**
+ * min.'s voice bans em and en dashes. The system prompt says so, but a small
+ * model complies only most of the time — live testing had it slipping through
+ * in half of replies. Enforce it in code instead of hoping. Safe per-delta: a
+ * dash is one decoded character, so it never straddles a chunk boundary.
+ */
+function enforceVoice(text: string): string {
+  return text.replace(/\s*[—–]\s*/g, ", ");
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const origin = request.headers.get("Origin");
@@ -224,11 +235,12 @@ export default {
 
         try {
           const run = client.messages.stream({
-            model: "claude-opus-5",
+            // Cheap but capable: the whole knowledge base is a 40-line fact
+            // sheet, so this is grounded FAQ work, not reasoning. Haiku is
+            // roughly a fifth of Opus pricing and noticeably faster, which
+            // matters more than raw capability in a chat widget.
+            model: "claude-haiku-4-5",
             max_tokens: MAX_TOKENS,
-            // Low effort keeps a chat widget snappy. Per Anthropic's guidance,
-            // low effort with thinking on beats disabling thinking outright.
-            output_config: { effort: "low" },
             system: [
               {
                 type: "text",
@@ -246,7 +258,7 @@ export default {
               event.type === "content_block_delta" &&
               event.delta.type === "text_delta"
             ) {
-              send("delta", { text: event.delta.text });
+              send("delta", { text: enforceVoice(event.delta.text) });
             }
           }
 

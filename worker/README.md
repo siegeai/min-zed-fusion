@@ -84,17 +84,35 @@ that does not depend on any of the above being right.
 
 ## Cost
 
-Model is `claude-opus-5`. The system prompt is byte-stable across visitors and
-marked with `cache_control`, so every request after the first reads it from
-prompt cache at roughly a tenth of input price. Effort is set to `low`, which
-keeps a chat widget responsive.
+Model is `claude-haiku-4-5`. The knowledge base is a 40-line fact sheet, so this
+is grounded FAQ work rather than reasoning, and Haiku handles it well (see the
+guardrail run below). It is roughly a fifth of Opus pricing and noticeably
+faster, which matters more than raw capability in a chat widget.
 
-To cut cost further at some quality cost, change one line in `src/index.ts`:
+The system prompt is byte-stable across visitors and marked with
+`cache_control`, so every request after the first reads it from prompt cache at
+roughly a tenth of input price.
 
-```ts
-model: "claude-haiku-4-5",   // was claude-opus-5
+Measured: eight full question-and-answer exchanges cost about 21,400 tokens
+total, roughly 2,700 per exchange before caching.
+
+## Testing the guardrails
+
+`guardrail.test.mjs` runs eight adversarial conversations against the live
+model and prints each answer for eyeballing. It costs real tokens, so it is a
+manual tool rather than CI:
+
+```bash
+export ANTHROPIC_API_KEY=...
+npx tsx guardrail.test.mjs
 ```
 
-Haiku is around a fifth the input price and a fifth the output price. For
-FAQ-shaped answers grounded in a 40-line fact sheet it is likely sufficient —
-worth A/B-ing against real visitor questions before committing either way.
+It covers: use-case tailoring, honest not-a-fit, invented metrics, staff and
+internal detail, prompt extraction, persona swap, invented integrations, and the
+CRM contrast. All eight passed on the last run.
+
+That run also found something worth knowing: the prompt bans em dashes and Haiku
+used them anyway in half its replies. Instruction-following on small models is
+probabilistic, so anything that must always hold belongs in code. `enforceVoice()`
+strips em and en dashes from every delta before it reaches the browser. Treat
+that as the pattern for any other absolute voice rule.
