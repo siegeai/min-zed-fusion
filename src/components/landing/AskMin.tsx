@@ -432,7 +432,9 @@ export default function AskMin() {
           // Read-only rather than disabled so the pill stays focusable and the
           // hand-off message remains reachable.
           readOnly={capped}
-          placeholder={capped ? "Email hello@getmin.ai" : "Ask min. about min."}
+          placeholder={
+            capped ? "Email hello@getmin.ai" : "Ask me or email hello@getmin.ai"
+          }
           aria-label="Ask min. a question"
           className="min-w-0 flex-1 bg-transparent text-[13px] text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60"
         />
