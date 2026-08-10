@@ -13,8 +13,8 @@ import { Sparkles, X, Send, ArrowDown } from "lucide-react";
  * safe to ship before the Worker is deployed.
  */
 
-// Set this to the Worker's URL after `wrangler deploy` prints it.
-const ASK_ENDPOINT = "";
+// The Worker in worker/. Redeploy it with `npx wrangler deploy` from there.
+const ASK_ENDPOINT = "https://ask-min.ew-baa.workers.dev";
 
 // Shaped to get the visitor talking about their own work — the answers are far
 // better once min. knows what they actually do.
