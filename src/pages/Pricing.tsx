@@ -96,7 +96,7 @@ const Pricing = () => {
           name="description"
           content="min., the relationship AI, is free to use. You pay only for more recall history."
         />
-        <link rel="canonical" href="https://getmin.ai/pricing" />
+        <link rel="canonical" href="https://getmin.ai/pricing/" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">

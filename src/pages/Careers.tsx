@@ -77,7 +77,7 @@ export default function Careers() {
           name="description"
           content="Help us build the relationship AI whose only job is helping people win: a living memory of every relationship, put to work. Email hello@getmin.ai with what you've built. No traditional postings."
         />
-        <link rel="canonical" href="https://getmin.ai/careers" />
+        <link rel="canonical" href="https://getmin.ai/careers/" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">

@@ -69,7 +69,7 @@ const Blog = () => {
         <title>min. Blog | Insights on AI, Startups, and Team Collaboration</title>
         <meta name="description" content="Insights on AI, startups, and the future of lean team collaboration from the min. team. Learn about email automation, external communication, and building better teams." />
         <meta name="keywords" content="AI insights, startup blog, team collaboration, email automation, external communication, min blog" />
-        <link rel="canonical" href="https://getmin.ai/blog" />
+        <link rel="canonical" href="https://getmin.ai/blog/" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

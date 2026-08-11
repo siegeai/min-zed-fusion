@@ -99,7 +99,7 @@ export default function Security() {
           name="description"
           content="9.7 ESOF score, SOC 2 Type II infrastructure, zero training on your data. min. keeps a distilled memory of every relationship, built from your calls, calendar, and email, and guards it as the foundation, not the afterthought."
         />
-        <link rel="canonical" href="https://getmin.ai/security" />
+        <link rel="canonical" href="https://getmin.ai/security/" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">

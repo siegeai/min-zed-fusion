@@ -16,7 +16,7 @@ const Index = () => {
           name="description"
           content="The relationship AI whose only job is helping you win. Get the callback. Close the deal. Land that promotion. min. turns every call and email into your edge."
         />
-        <link rel="canonical" href="https://getmin.ai" />
+        <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden selection:bg-gray-200 selection:text-black">

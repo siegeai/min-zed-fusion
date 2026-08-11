@@ -68,7 +68,7 @@ export default function Contact() {
           name="description"
           content="The relationship AI whose only job is helping you win. Get in touch with min. for sales, support, partnerships, investors, press. Email hello@getmin.ai, average reply under 2 hours."
         />
-        <link rel="canonical" href="https://getmin.ai/contact" />
+        <link rel="canonical" href="https://getmin.ai/contact/" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">

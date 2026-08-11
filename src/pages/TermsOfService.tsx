@@ -47,7 +47,7 @@ const TermsOfService = () => {
           name="description"
           content="The terms covering your use of min., the relationship AI whose only job is helping you win."
         />
-        <link rel="canonical" href="https://getmin.ai/terms" />
+        <link rel="canonical" href="https://getmin.ai/terms/" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">

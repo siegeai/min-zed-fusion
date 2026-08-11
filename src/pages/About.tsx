@@ -60,7 +60,7 @@ export default function About() {
           name="description"
           content="min. turns your calendar and email into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone."
         />
-        <link rel="canonical" href="https://getmin.ai/about" />
+        <link rel="canonical" href="https://getmin.ai/about/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 

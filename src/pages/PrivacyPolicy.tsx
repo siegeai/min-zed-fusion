@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
           name="description"
           content="How min. handles your data. min. keeps distilled memory and metadata, never your raw email. We do not train on it, sell it, or share it."
         />
-        <link rel="canonical" href="https://getmin.ai/privacy" />
+        <link rel="canonical" href="https://getmin.ai/privacy/" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">

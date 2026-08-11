@@ -82,7 +82,10 @@ for (const [route, file] of ROUTES) {
     html = setTag(html, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(description)}$2`);
   }
 
-  const canonical = `${SITE}${route}`;
+  // Trailing slash: GitHub Pages serves dist/<route>/index.html at "/route/"
+  // and 301s "/route" to it. Pointing canonical at the redirecting form tells
+  // Google the canonical URL is not the one that answers 200.
+  const canonical = `${SITE}${route}/`;
   html = setTag(html, /(<meta property="og:url" content=")[^"]*(")/, `$1${canonical}$2`);
   html = /<link rel="canonical"/.test(html)
     ? html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${canonical}" />`)
