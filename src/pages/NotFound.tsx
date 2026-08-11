@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,6 +13,16 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
+    <>
+      {/* GitHub Pages serves the SPA shell for unknown URLs with HTTP 200, so a
+          missing page looks like a real one to a crawler and gets indexed with
+          the homepage's title and description. There is no way to return a real
+          404 status from a static host, so noindex is what keeps junk URLs out
+          of the index. */}
+      <Helmet>
+        <title>Page not found | min.</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>
@@ -21,6 +32,7 @@ const NotFound = () => {
         </a>
       </div>
     </div>
+    </>
   );
 };
 
