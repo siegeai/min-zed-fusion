@@ -16,7 +16,6 @@ import type Anthropic from "@anthropic-ai/sdk";
 
 /** Matches ScenarioData in src/components/landing/CapsuleWorkspace.tsx. */
 export type Capsule = {
-  who: "avery" | "priya";
   name: string;
   title: string;
   role: string;
@@ -55,7 +54,6 @@ export const CAPSULE_TOOL = {
   input_schema: {
     type: "object" as const,
     properties: {
-      who: { type: "string", enum: ["avery", "priya"], description: "Which stock portrait to use" },
       name: { type: "string", description: 'Fictional counterpart, e.g. "Dana Song"' },
       title: { type: "string", description: 'Always "You & <name>"' },
       role: { type: "string", description: 'Their relationship to the visitor, e.g. "Your manager · Engineering"' },
@@ -97,7 +95,7 @@ export const CAPSULE_TOOL = {
         },
       },
     },
-    required: ["who", "name", "title", "role", "chips", "stand", "actions", "history", "railTitle", "prompts"],
+    required: ["name", "title", "role", "chips", "stand", "actions", "history", "railTitle", "prompts"],
   },
 };
 
@@ -229,7 +227,6 @@ export function validateCapsule(x: unknown): Validated {
   const c = x as Record<string, unknown>;
 
   const ok =
-    (c.who === "avery" || c.who === "priya" || fail("who")) &&
     str(c.name, 60, "name") &&
     str(c.title, 80, "title") &&
     str(c.role, 90, "role") &&

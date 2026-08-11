@@ -9,6 +9,56 @@ export const ASK_ENDPOINT = "https://ask-min.ew-baa.workers.dev";
 
 export const CONTACT_ADDRESS = "hello@getmin.ai";
 
+/**
+ * Is this a real, reachable-looking address?
+ *
+ * Gates the send button, so it is the difference between a visitor getting a
+ * reply and their question vanishing into a typo. It is deliberately stricter
+ * than the Worker's check: this one is UX and should catch "me@gmail" before
+ * they hit send, while the server's is a safety net where wrongly rejecting a
+ * valid address is the worse failure.
+ *
+ * Not a full RFC 5322 implementation. That grammar permits quoted strings,
+ * comments and bare IP literals, none of which a visitor types into a contact
+ * form, and matching it would let through exactly the typos this exists to
+ * catch.
+ */
+export function isValidEmail(raw: string): boolean {
+  const v = raw.trim();
+  if (!v || v.length > 254 || /\s/.test(v)) return false;
+
+  // Split on the LAST @, since the local part may legally contain one.
+  const at = v.lastIndexOf("@");
+  if (at <= 0 || at === v.length - 1) return false;
+  const local = v.slice(0, at);
+  const domain = v.slice(at + 1);
+
+  if (local.length > 64) return false;
+  if (!/^[A-Za-z0-9!#$%&'*+/=?^_`{|}~.-]+$/.test(local)) return false;
+  if (local.startsWith(".") || local.endsWith(".") || local.includes("..")) return false;
+
+  if (domain.length > 253) return false;
+  const labels = domain.split(".");
+  // A bare hostname is the classic typo: "me@gmail" or "me@localhost".
+  if (labels.length < 2) return false;
+  if (
+    labels.some(
+      (l) =>
+        !l ||
+        l.length > 63 ||
+        l.startsWith("-") ||
+        l.endsWith("-") ||
+        !/^[A-Za-z0-9-]+$/.test(l),
+    )
+  ) {
+    return false;
+  }
+  // Real TLDs are alphabetic and at least two characters, which rules out
+  // "me@work.c" and "me@1.2.3.4".
+  const tld = labels[labels.length - 1];
+  return tld.length >= 2 && /^[A-Za-z]+$/.test(tld);
+}
+
 export type Draft = { subject: string; body: string };
 
 /** Writes the visitor's unanswered question up as an email they can edit. */
@@ -67,7 +117,6 @@ export async function sendContact(
 
 /** Mirrors ScenarioData in components/landing/CapsuleWorkspace.tsx. */
 export type GeneratedCapsule = {
-  who: "avery" | "priya";
   name: string;
   title: string;
   role: string;

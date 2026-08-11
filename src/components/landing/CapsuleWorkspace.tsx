@@ -160,7 +160,12 @@ export const COMPANY_PROMPTS: Prompt[] = [
  * job search. Personas match the Wins section arenas.
  */
 type ScenarioData = {
-  who: "avery" | "priya";
+  /**
+   * Which stock portrait to use. Absent for generated capsules: those invent a
+   * person, and the stock faces are already spoken for elsewhere on the page,
+   * so reusing one puts Dana Song's photo on someone called Marcus Webb.
+   */
+  who?: "avery" | "priya";
   name: string;
   title: string;
   role: string;
@@ -381,6 +386,31 @@ const HIRED: ScenarioData = {
 
 type Msg = { role: "user" | "assistant"; text: string };
 
+/**
+ * Stands in for a photo when the person is invented. Initials are honest about
+ * that in a way a stock portrait is not, and they cannot collide with a face
+ * used elsewhere on the page.
+ */
+function InitialsAvatar({ name }: { name: string }) {
+  const initials = name
+    .replace(/^(Dr|Mr|Mrs|Ms|Prof)\.?\s+/i, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+
+  return (
+    <div
+      aria-label={name}
+      className="grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-white bg-gray-100 text-[13px] font-semibold text-gray-500"
+    >
+      {initials || "?"}
+    </div>
+  );
+}
+
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
@@ -597,7 +627,16 @@ function PersonScenario({ data, note }: { data: ScenarioData; note?: React.React
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex shrink-0 -space-x-2.5">
             <FlatAvatar who="you" size={40} label="You" className="border-2 border-white" />
-            <FlatAvatar who={data.who} size={40} label={data.name} className="border-2 border-white" />
+            {data.who ? (
+              <FlatAvatar
+                who={data.who}
+                size={40}
+                label={data.name}
+                className="border-2 border-white"
+              />
+            ) : (
+              <InitialsAvatar name={data.name} />
+            )}
           </div>
           <div className="min-w-0">
             <h3 className="font-display text-[17px] font-semibold text-gray-900">

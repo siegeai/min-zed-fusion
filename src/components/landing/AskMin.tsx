@@ -4,6 +4,7 @@ import {
   ASK_ENDPOINT,
   CONTACT_ADDRESS,
   fetchDraft,
+  isValidEmail,
   sendContact,
   type Draft,
 } from "@/lib/ask";
@@ -143,6 +144,12 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
   const [honeypot, setHoneypot] = useState("");
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
+  // Only complain once they have left the field. Flagging "invalid" while
+  // someone is still on the first character of their own address is hostile.
+  const [emailTouched, setEmailTouched] = useState(false);
+
+  const emailOk = isValidEmail(email);
+  const showEmailError = emailTouched && email.trim().length > 0 && !emailOk;
 
   const write = async () => {
     setStage("drafting");
@@ -164,7 +171,11 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
 
   const send = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!draft || busy) return;
+    // Re-checked here, not just on the button: submit also fires on Enter.
+    if (!draft || busy || !emailOk) {
+      setEmailTouched(true);
+      return;
+    }
     setBusy(true);
     try {
       const how = await sendContact(draft, email.trim(), honeypot);
@@ -241,15 +252,27 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        onBlur={() => setEmailTouched(true)}
         placeholder="you@work.com"
         aria-label="Your email, so the team can reply"
+        aria-invalid={showEmailError || undefined}
+        aria-describedby={showEmailError ? "ask-min-email-error" : undefined}
         // The opposite of the composer above: this one genuinely IS an email
         // field, so autofill is a help rather than a nuisance and gets named
         // explicitly instead of left to guesswork.
         name="email"
         autoComplete="email"
-        className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-[12.5px] text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-emerald-300"
+        className={`mt-2 w-full rounded-lg border bg-white px-2.5 py-2 text-[12.5px] text-gray-900 outline-none transition-colors placeholder:text-gray-400 ${
+          showEmailError
+            ? "border-amber-300 focus:border-amber-400"
+            : "border-gray-200 focus:border-emerald-300"
+        }`}
       />
+      {showEmailError && (
+        <p id="ask-min-email-error" className="mt-1.5 text-[11.5px] text-amber-700">
+          That does not look like an email address. The team needs somewhere to reply.
+        </p>
+      )}
       {/* Hidden from people, irresistible to form bots. Anything that fills it
           in gets a cheerful 200 and goes nowhere. */}
       <input
@@ -269,7 +292,7 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
       <div className="mt-2.5 flex items-center gap-2">
         <button
           type="submit"
-          disabled={busy || !email.trim() || !draft?.body.trim()}
+          disabled={busy || !emailOk || !draft?.body.trim()}
           className="rounded-full bg-gray-900 px-3.5 py-1.5 text-[12px] font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-40"
         >
           {busy ? "Sending…" : "Send to the team"}
