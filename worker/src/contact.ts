@@ -4,13 +4,14 @@
  * Two endpoints. POST /draft turns the conversation so far into a subject and
  * body the visitor can edit. POST /contact delivers it.
  *
- * Delivery is optional by design. With no sending key configured, /contact
+ * Delivery is optional by design. With no credentials configured, /contact
  * answers 501 and the client falls back to opening a prefilled mailto, so the
- * feature works the day it ships and starts sending the moment a secret is
+ * feature works the day it ships and starts sending the moment secrets are
  * added, with no code change. That kept a marketing-site Worker from having to
- * hold production credentials just to exist.
+ * hold credentials just to exist.
  */
 import type Anthropic from "@anthropic-ai/sdk";
+import { AwsClient } from "aws4fetch";
 
 export const CONTACT_TO = "hello@getmin.ai";
 
@@ -80,37 +81,75 @@ export function looksLikeEmail(v: string): boolean {
 
 export type SendResult = { ok: true } | { ok: false; status: number; error: string };
 
+export type MailEnv = {
+  AWS_ACCESS_KEY_ID?: string;
+  AWS_SECRET_ACCESS_KEY?: string;
+  AWS_REGION?: string;
+  CONTACT_FROM?: string;
+};
+
 /**
- * Sends through Resend when RESEND_API_KEY is set. reply_to is the visitor, so
- * answering is one click in the inbox rather than a copy and paste.
+ * Sends through Amazon SES v2, signed with SigV4.
+ *
+ * Workers have no AWS SDK and no Node crypto, so aws4fetch does the signing
+ * against WebCrypto. It is a few kB and does nothing else, which is the whole
+ * reason it is here rather than the SDK.
+ *
+ * Returns 501 when no credentials are configured, which the client reads as
+ * "open their mail client instead". That is what lets this Worker be useful
+ * while holding no credentials at all.
  */
 export async function sendContactEmail(
-  env: { RESEND_API_KEY?: string; CONTACT_FROM?: string },
+  env: MailEnv,
   msg: { email: string; subject: string; body: string },
 ): Promise<SendResult> {
-  if (!env.RESEND_API_KEY) {
+  const { AWS_ACCESS_KEY_ID: keyId, AWS_SECRET_ACCESS_KEY: secret } = env;
+  if (!keyId || !secret || !env.CONTACT_FROM) {
     return { ok: false, status: 501, error: "not_configured" };
   }
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${env.RESEND_API_KEY}`,
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({
-      from: env.CONTACT_FROM ?? "min. site <onboarding@resend.dev>",
-      to: [CONTACT_TO],
-      reply_to: msg.email,
-      subject: msg.subject,
-      // Flagged as bot-originated so nobody mistakes it for a direct email, and
-      // the sender address is stated rather than only living in reply_to.
-      text: `${msg.body}\n\n----\nSent from the Ask min. widget on getmin.ai\nReply to: ${msg.email}`,
-    }),
+  const region = env.AWS_REGION ?? "us-east-1";
+  const aws = new AwsClient({
+    accessKeyId: keyId,
+    secretAccessKey: secret,
+    region,
+    // SES v2 still signs under the "ses" service name, not "sesv2".
+    service: "ses",
   });
 
+  const res = await aws.fetch(
+    `https://email.${region}.amazonaws.com/v2/email/outbound-emails`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        FromEmailAddress: env.CONTACT_FROM,
+        Destination: { ToAddresses: [CONTACT_TO] },
+        // Answering is one click from the inbox rather than a copy and paste.
+        ReplyToAddresses: [msg.email],
+        Content: {
+          Simple: {
+            Subject: { Data: msg.subject, Charset: "UTF-8" },
+            Body: {
+              Text: {
+                // Marked as bot-originated so nobody mistakes it for a direct
+                // email, with the sender stated rather than only in ReplyTo.
+                Data: `${msg.body}\n\n----\nSent from the Ask min. widget on getmin.ai\nReply to: ${msg.email}`,
+                Charset: "UTF-8",
+              },
+            },
+          },
+        },
+      }),
+    },
+  );
+
   if (!res.ok) {
-    console.error("resend failed:", res.status, await res.text().catch(() => ""));
+    // SES failures are almost always configuration rather than transient: an
+    // unverified FromEmailAddress, or a sandboxed account that may only send to
+    // verified recipients. Log the body, it names which.
+    const detail = await res.text().catch(() => "");
+    console.error("ses failed:", res.status, detail);
     return { ok: false, status: 502, error: "send_failed" };
   }
   return { ok: true };

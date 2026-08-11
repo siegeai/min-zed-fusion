@@ -89,28 +89,41 @@ server-side by the limits below.
 
 ## Turning on email delivery
 
-`/contact` returns 501 `not_configured` until a key exists, and the client
+`/contact` returns 501 `not_configured` until credentials exist, and the client
 falls back to opening a prefilled `mailto:` so the feature works either way.
-This is why the Worker holds no production credentials: it is useful without
-them.
+That is why this Worker can be useful while holding no credentials at all.
 
-To make it actually send:
+Sending goes through **Amazon SES v2**, signed with SigV4 by `aws4fetch`
+(Workers have no AWS SDK and no Node crypto, and that library is a few kB and
+does nothing else).
 
 ```bash
 cd worker
-npx wrangler secret put RESEND_API_KEY
-npx wrangler secret put CONTACT_FROM   # e.g. "min. <hello@getmin.ai>"
+npx wrangler secret put AWS_ACCESS_KEY_ID
+npx wrangler secret put AWS_SECRET_ACCESS_KEY
+npx wrangler secret put AWS_REGION        # e.g. us-east-1
+npx wrangler secret put CONTACT_FROM      # e.g. "min. <hello@getmin.ai>"
 npx wrangler deploy
 ```
 
-`CONTACT_FROM` must be on a domain verified in Resend, otherwise sends bounce.
-`reply_to` is set to the visitor, so answering is one click from the inbox.
+All four are required; missing any one keeps the endpoint on the mailto path.
 
-Deliberately NOT reused: the AWS SES credentials in `coolmail_frontend/.env`.
-Those are production keys with far broader IAM reach than sending mail, and the
-whole point of this Worker being separate is that finding its URL gets you
-nothing. If SES is preferred over Resend, make a dedicated IAM user scoped to
-`ses:SendEmail` and nothing else.
+Two SES conditions cause almost every failure, and both log the reason via
+`npx wrangler tail`:
+
+- **`CONTACT_FROM` must be a verified SES identity** in that region, either the
+  address itself or its domain. Unverified senders are rejected outright.
+- **A sandboxed SES account may only send to verified recipients.** If the
+  account has not been moved to production access, `hello@getmin.ai` has to be
+  verified too, or nothing arrives.
+
+`ReplyToAddresses` is the visitor, so answering is one click from the inbox.
+
+**Use a dedicated IAM user scoped to `ses:SendEmail`, not the keys from
+`coolmail_frontend/.env`.** Those are production credentials with far broader
+reach than sending mail, and the reason this Worker is a separate service is
+that finding its URL should get an attacker nothing. A key that can only send
+email keeps that true.
 
 Abuse surface, since this one reaches a real inbox: origin-locked like the rest,
 3 requests per minute per IP, a honeypot `website` field that returns a cheerful

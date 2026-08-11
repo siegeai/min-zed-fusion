@@ -21,9 +21,12 @@ import { draftEmail, looksLikeEmail, sendContactEmail } from "./contact";
 
 export interface Env {
   ANTHROPIC_API_KEY: string;
-  /** Optional. Without it /contact returns 501 and the client uses mailto. */
-  RESEND_API_KEY?: string;
-  /** Optional verified sender, e.g. "min. <hello@getmin.ai>". */
+  // Amazon SES, for the /contact hand-off. All optional: without them
+  // /contact returns 501 and the client opens a prefilled mailto instead.
+  AWS_ACCESS_KEY_ID?: string;
+  AWS_SECRET_ACCESS_KEY?: string;
+  AWS_REGION?: string;
+  /** An SES-verified sender, e.g. "min. <hello@getmin.ai>". */
   CONTACT_FROM?: string;
 }
 
