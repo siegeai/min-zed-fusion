@@ -104,8 +104,21 @@ export async function sendContactEmail(
   msg: { email: string; subject: string; body: string },
 ): Promise<SendResult> {
   const { AWS_ACCESS_KEY_ID: keyId, AWS_SECRET_ACCESS_KEY: secret } = env;
+  // Names only, never values. "not_configured" with nothing else is a dead end
+  // when three of four secrets are set and the fourth silently is not.
   if (!keyId || !secret || !env.CONTACT_FROM) {
-    return { ok: false, status: 501, error: "not_configured" };
+    const missing = (
+      [
+        ["AWS_ACCESS_KEY_ID", keyId],
+        ["AWS_SECRET_ACCESS_KEY", secret],
+        ["CONTACT_FROM", env.CONTACT_FROM],
+      ] as const
+    )
+      .filter(([, v]) => !v)
+      .map(([k]) => k)
+      .join(", ");
+    console.error("ses not configured, missing:", missing);
+    return { ok: false, status: 501, error: `not_configured: ${missing}` };
   }
 
   const region = env.AWS_REGION ?? "us-east-1";

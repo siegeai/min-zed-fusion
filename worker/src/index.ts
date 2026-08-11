@@ -18,6 +18,9 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { generateCapsule } from "./capsule";
 import { draftEmail, looksLikeEmail, sendContactEmail } from "./contact";
+import { contactAllowed } from "./limiter";
+
+export { ContactLimiter } from "./limiter";
 
 export interface Env {
   ANTHROPIC_API_KEY: string;
@@ -28,6 +31,12 @@ export interface Env {
   AWS_REGION?: string;
   /** An SES-verified sender, e.g. "min. <hello@getmin.ai>". */
   CONTACT_FROM?: string;
+  /**
+   * Strongly consistent rate limiter for /contact (see src/limiter.ts). The
+   * in-memory counter below is per-isolate and measurably leaks bursts, which
+   * is fine for token spend and not fine for an endpoint that reaches an inbox.
+   */
+  CONTACT_DO?: DurableObjectNamespace;
 }
 
 /** Only these origins may call the Worker. */
@@ -355,7 +364,9 @@ export default {
     // POST /contact delivers it. Returns 501 when no sending key is configured,
     // which the client reads as "open their mail client instead".
     if (path === "/contact") {
-      if (rateLimited(ip, CONTACT_RATE_LIMIT, "contact")) {
+      // Durable limiter first, in-memory as a cheap second pass.
+      if (!(await contactAllowed(env.CONTACT_DO, ip)) ||
+          rateLimited(ip, CONTACT_RATE_LIMIT, "contact")) {
         return json({ error: "rate_limited" }, 429, cors);
       }
       let payload: unknown;

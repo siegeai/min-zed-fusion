@@ -3,6 +3,18 @@ main = "src/index.ts"
 compatibility_date = "2026-08-01"
 compatibility_flags = ["nodejs_compat"]
 
+# Rate limiting for /contact, the one endpoint that puts mail in a real inbox.
+# See src/limiter.ts for why this is a Durable Object rather than the in-memory
+# counter or Cloudflare's ratelimit binding: both were measured leaking bursts,
+# and the failure mode here is a production SES identity getting flagged.
+[[durable_objects.bindings]]
+name = "CONTACT_DO"
+class_name = "ContactLimiter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ContactLimiter"]
+
 # The API key is a secret, never a var:
 #   npx wrangler secret put ANTHROPIC_API_KEY
 #
