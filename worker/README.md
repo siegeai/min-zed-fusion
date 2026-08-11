@@ -78,6 +78,44 @@ so the panel hands them to hello@getmin.ai and resets at their local midnight.
 It is client-side because the point is to show a warm message; abuse is handled
 server-side by the limits below.
 
+## Endpoints
+
+| Route | Does | Notes |
+|---|---|---|
+| `POST /` | Streams a chat answer (SSE) | `done` carries `escalate` |
+| `POST /capsule` | Builds a demo capsule from a described situation | Validated server-side |
+| `POST /draft` | Writes an unanswered question up as an email | Transcript in, subject+body out |
+| `POST /contact` | Delivers it | **501 unless a sending key is set** |
+
+## Turning on email delivery
+
+`/contact` returns 501 `not_configured` until a key exists, and the client
+falls back to opening a prefilled `mailto:` so the feature works either way.
+This is why the Worker holds no production credentials: it is useful without
+them.
+
+To make it actually send:
+
+```bash
+cd worker
+npx wrangler secret put RESEND_API_KEY
+npx wrangler secret put CONTACT_FROM   # e.g. "min. <hello@getmin.ai>"
+npx wrangler deploy
+```
+
+`CONTACT_FROM` must be on a domain verified in Resend, otherwise sends bounce.
+`reply_to` is set to the visitor, so answering is one click from the inbox.
+
+Deliberately NOT reused: the AWS SES credentials in `coolmail_frontend/.env`.
+Those are production keys with far broader IAM reach than sending mail, and the
+whole point of this Worker being separate is that finding its URL gets you
+nothing. If SES is preferred over Resend, make a dedicated IAM user scoped to
+`ses:SendEmail` and nothing else.
+
+Abuse surface, since this one reaches a real inbox: origin-locked like the rest,
+3 requests per minute per IP, a honeypot `website` field that returns a cheerful
+200 and drops the message, and length caps on every field.
+
 ## Abuse limits
 
 An open endpoint that reaches a paid model is somebody's free API if you let it.
