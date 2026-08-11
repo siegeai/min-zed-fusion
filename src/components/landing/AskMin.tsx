@@ -243,6 +243,11 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@work.com"
         aria-label="Your email, so the team can reply"
+        // The opposite of the composer above: this one genuinely IS an email
+        // field, so autofill is a help rather than a nuisance and gets named
+        // explicitly instead of left to guesswork.
+        name="email"
+        autoComplete="email"
         className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-[12.5px] text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-emerald-300"
       />
       {/* Hidden from people, irresistible to form bots. Anything that fills it
@@ -588,6 +593,9 @@ export default function AskMin() {
         // depended on focusing it the visitor would never see the message
         // telling them to email the team.
         onClick={() => setOpen(true)}
+        // Chrome scores the whole form, not just the field, when deciding
+        // whether to offer an autofill dropdown.
+        autoComplete="off"
         // Sized up deliberately when closed: this is the one control on the page
         // we want people to reach for, and at the old size it read as a dismissable
         // widget. Open, it shrinks back to a composer, because by then the panel
@@ -614,6 +622,22 @@ export default function AskMin() {
             capped ? "Email hello@getmin.ai" : "Ask me or email hello@getmin.ai"
           }
           aria-label="Ask min. a question"
+          // Chrome reads the placeholder, sees an address in it, and offers to
+          // autofill an email over the question box. Its heuristics look at the
+          // name, the type and the surrounding form as well as the placeholder,
+          // so all of them have to say "this is not a contact field".
+          // `autocomplete="off"` alone is routinely ignored here.
+          type="text"
+          name="ask-min-question"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck={false}
+          // Password managers run their own heuristics and ignore autocomplete.
+          data-1p-ignore=""
+          data-lpignore="true"
+          data-bwignore=""
+          data-form-type="other"
           className={`min-w-0 flex-1 bg-transparent text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 ${
             open ? "text-[13px]" : "text-[14px]"
           }`}
