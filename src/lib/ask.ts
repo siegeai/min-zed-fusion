@@ -7,6 +7,64 @@
  */
 export const ASK_ENDPOINT = "https://ask-min.ew-baa.workers.dev";
 
+export const CONTACT_ADDRESS = "hello@getmin.ai";
+
+export type Draft = { subject: string; body: string };
+
+/** Writes the visitor's unanswered question up as an email they can edit. */
+export async function fetchDraft(
+  messages: { role: "user" | "assistant"; content: string }[],
+): Promise<Draft> {
+  const res = await fetch(`${ASK_ENDPOINT}/draft`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ messages }),
+  });
+  if (!res.ok) throw new Error("draft");
+  const data = (await res.json()) as { draft?: Draft };
+  if (!data.draft) throw new Error("draft");
+  return data.draft;
+}
+
+/**
+ * Opens the visitor's own mail client with everything filled in.
+ *
+ * The fallback whenever the Worker cannot send: no key configured, rate
+ * limited, or the send failed. They press send themselves, which also means
+ * their real address becomes the reply-to without us having to hold it.
+ */
+export function mailtoFallback(draft: Draft): void {
+  const url = `mailto:${CONTACT_ADDRESS}?subject=${encodeURIComponent(
+    draft.subject,
+  )}&body=${encodeURIComponent(draft.body)}`;
+  window.open(url, "_blank");
+}
+
+/**
+ * Delivers the drafted question. Resolves "sent" when the Worker mailed it and
+ * "mailto" when it could not and the visitor's mail client was opened instead,
+ * so the caller can say which actually happened rather than claiming a send
+ * that did not occur.
+ */
+export async function sendContact(
+  draft: Draft,
+  email: string,
+  honeypot: string,
+): Promise<"sent" | "mailto"> {
+  try {
+    const res = await fetch(`${ASK_ENDPOINT}/contact`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ ...draft, email, website: honeypot }),
+    });
+    if (res.ok) return "sent";
+  } catch {
+    // network failure falls through to the mail client
+  }
+  mailtoFallback(draft);
+  return "mailto";
+}
+
 /** Mirrors ScenarioData in components/landing/CapsuleWorkspace.tsx. */
 export type GeneratedCapsule = {
   who: "avery" | "priya";

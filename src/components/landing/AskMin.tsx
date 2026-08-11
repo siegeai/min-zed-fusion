@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Sparkles, X, Send } from "lucide-react";
-import { ASK_ENDPOINT } from "@/lib/ask";
+import {
+  ASK_ENDPOINT,
+  CONTACT_ADDRESS,
+  fetchDraft,
+  sendContact,
+  type Draft,
+} from "@/lib/ask";
 
 /**
  * "Ask min." — the site's own chat widget.
@@ -122,6 +128,159 @@ function saveHistory(messages: Msg[]) {
   }
 }
 
+/**
+ * The hand-off, offered when the bot could not answer.
+ *
+ * A gap is the most valuable moment in the whole conversation: someone with a
+ * real question, no answer, and one click from leaving. So min. writes the
+ * question up rather than handing over an address and hoping. The draft is
+ * always editable, and nothing is sent until they press the button.
+ */
+function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) {
+  const [stage, setStage] = useState<"offer" | "drafting" | "form" | "sent" | "opened">("offer");
+  const [draft, setDraft] = useState<Draft | null>(null);
+  const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  const write = async () => {
+    setStage("drafting");
+    setFailed(false);
+    try {
+      setDraft(await fetchDraft(messages));
+      setStage("form");
+    } catch {
+      // Drafting failed, so fall back to the question they already typed
+      // rather than dropping them back to nothing.
+      const lastAsked = [...messages].reverse().find((m) => m.role === "user");
+      setDraft({
+        subject: "Question about min.",
+        body: lastAsked?.content ?? "",
+      });
+      setStage("form");
+    }
+  };
+
+  const send = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!draft || busy) return;
+    setBusy(true);
+    try {
+      const how = await sendContact(draft, email.trim(), honeypot);
+      setStage(how === "sent" ? "sent" : "opened");
+    } catch {
+      setFailed(true);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (stage === "sent" || stage === "opened") {
+    return (
+      <div className="mt-3 rounded-xl border border-emerald-100 bg-emerald-50/70 px-3.5 py-3">
+        <p className="text-[12.5px] leading-relaxed text-emerald-900">
+          {stage === "sent"
+            ? "Sent. The team replies within a day, usually sooner."
+            : `Your mail app should be open with it ready to go. Send it and the team picks it up from there.`}
+        </p>
+      </div>
+    );
+  }
+
+  if (stage === "offer") {
+    return (
+      <div className="mt-3 rounded-xl border border-gray-200 bg-white px-3.5 py-3">
+        <p className="text-[12.5px] leading-relaxed text-gray-600">
+          That one is worth a real answer. Want me to write it up for the team?
+          They reply within a day.
+        </p>
+        <div className="mt-2.5 flex items-center gap-2">
+          <button
+            type="button"
+            onClick={write}
+            className="rounded-full bg-gray-900 px-3.5 py-1.5 text-[12px] font-medium text-white transition-colors hover:bg-gray-700"
+          >
+            Write it up
+          </button>
+          <button
+            type="button"
+            onClick={onDone}
+            className="text-[11.5px] font-medium text-gray-400 transition-colors hover:text-gray-700"
+          >
+            No thanks
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (stage === "drafting") {
+    return (
+      <div className="mt-3 rounded-xl border border-gray-200 bg-white px-3.5 py-3" aria-busy="true">
+        <p className="text-[12.5px] text-gray-500">Writing it up…</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={send} className="mt-3 rounded-xl border border-gray-200 bg-white px-3.5 py-3">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-400">
+        To the team
+      </p>
+      <textarea
+        value={draft?.body ?? ""}
+        onChange={(e) => setDraft((d) => (d ? { ...d, body: e.target.value } : d))}
+        rows={4}
+        maxLength={2000}
+        aria-label="Your message to the min. team"
+        className="mt-1.5 w-full resize-none rounded-lg border border-gray-200 bg-[#FBFBFA] px-2.5 py-2 text-[12.5px] leading-relaxed text-gray-700 outline-none transition-colors focus:border-emerald-300"
+      />
+      <input
+        type="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="you@work.com"
+        aria-label="Your email, so the team can reply"
+        className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-[12.5px] text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-emerald-300"
+      />
+      {/* Hidden from people, irresistible to form bots. Anything that fills it
+          in gets a cheerful 200 and goes nowhere. */}
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
+      {failed && (
+        <p className="mt-2 text-[12px] text-amber-700">
+          That did not go through. Try again, or email {CONTACT_ADDRESS} directly.
+        </p>
+      )}
+      <div className="mt-2.5 flex items-center gap-2">
+        <button
+          type="submit"
+          disabled={busy || !email.trim() || !draft?.body.trim()}
+          className="rounded-full bg-gray-900 px-3.5 py-1.5 text-[12px] font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-40"
+        >
+          {busy ? "Sending…" : "Send to the team"}
+        </button>
+        <button
+          type="button"
+          onClick={onDone}
+          className="text-[11.5px] font-medium text-gray-400 transition-colors hover:text-gray-700"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  );
+}
+
 export default function AskMin() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>(loadHistory);
@@ -129,6 +288,8 @@ export default function AskMin() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [capped, setCapped] = useState(() => askedToday() >= DAILY_LIMIT);
+  // Set when the Worker reports the model could not ground its answer.
+  const [escalate, setEscalate] = useState(false);
 
   // How many messages came back from storage, captured once on mount, so the
   // panel can label them as belonging to an earlier visit.
@@ -189,6 +350,7 @@ export default function AskMin() {
     if (askedToday() >= DAILY_LIMIT) setCapped(true);
 
     setError(null);
+    setEscalate(false);
     setDraft("");
     const history: Msg[] = [...messages, { role: "user", content: text }];
     // Open the assistant bubble immediately so the reply streams into place.
@@ -229,7 +391,7 @@ export default function AskMin() {
           if (!evLine || !dataLine) continue;
 
           const event = evLine.slice(7).trim();
-          let payload: { text?: string; message?: string } = {};
+          let payload: { text?: string; message?: string; escalate?: boolean } = {};
           try {
             payload = JSON.parse(dataLine.slice(6));
           } catch {
@@ -246,6 +408,12 @@ export default function AskMin() {
               }
               return next;
             });
+          } else if (event === "done") {
+            // The Worker sets this when the model could not ground the answer.
+            // A gap is the most valuable moment in the conversation: it is
+            // someone with a real question and no answer, which is exactly who
+            // should reach a person rather than leave.
+            setEscalate(Boolean(payload.escalate));
           } else if (event === "error") {
             setError(payload.message ?? "Something went wrong.");
           }
@@ -374,6 +542,10 @@ export default function AskMin() {
               <p className="mt-2.5 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2.5 text-[12.5px] leading-relaxed text-amber-900">
                 {error}
               </p>
+            )}
+
+            {escalate && !busy && !capped && (
+              <HandOff messages={messages} onDone={() => setEscalate(false)} />
             )}
 
             {capped && (
