@@ -301,6 +301,96 @@ export function sanitize(raw: unknown): { role: "user" | "assistant"; content: s
 }
 
 /**
+ * Whether a reply is really a "I cannot answer that", regardless of whether the
+ * model remembered to tag it.
+ *
+ * The tag is the primary signal and it is not reliable: asked about Salesforce
+ * and a roadmap on production, the model skipped it and fell back to "reach out
+ * at hello@getmin.ai", so the hand-off never appeared and the visitor got
+ * exactly the dead end this feature exists to remove. A feature that only works
+ * when the model remembers is not a feature.
+ *
+ * So the tag is treated as a hint and the text is checked too. Both signals run
+ * against the completed reply inside the done event, after every delta has
+ * already gone out, so none of this touches streaming.
+ *
+ * Biased toward false positives on purpose. Offering to write up a question
+ * that was in fact answered costs a declined offer; missing a real gap costs
+ * the visitor.
+ */
+/**
+ * Strips ESCALATE_MARKER out of a streaming reply and remembers that it was
+ * there.
+ *
+ * The marker is supposed to open the reply and sometimes lands mid-sentence
+ * instead. Observed in production: "...without needing a sync. [[ASK_TEAM]]I
+ * don't have anything on..." with the raw tag shown to the visitor, because the
+ * first version only checked position zero.
+ *
+ * Extracted from the handler so the chunk-boundary cases are testable: a marker
+ * split across two deltas must not leak, and a tail that merely looks like the
+ * start of one must not be swallowed.
+ */
+export function createMarkerStripper() {
+  // Holds back only as much tail as could still become a marker, so at most
+  // ESCALATE_MARKER.length - 1 characters are ever delayed.
+  let pending = "";
+  let tagged = false;
+
+  return {
+    get tagged() {
+      return tagged;
+    },
+    /** Feed one delta, get back the text that is safe to send. */
+    push(text: string): string {
+      pending += text;
+      let out = "";
+
+      for (;;) {
+        const at = pending.indexOf(ESCALATE_MARKER);
+        if (at === -1) break;
+        tagged = true;
+        out += pending.slice(0, at);
+        pending = pending.slice(at + ESCALATE_MARKER.length);
+        // Only eat following whitespace when the marker opened the reply. Mid
+        // sentence it is the gap between two sentences and has to survive.
+        if (!out.trim()) pending = pending.replace(/^\s+/, "");
+      }
+
+      let flushTo = pending.length;
+      for (let k = Math.min(ESCALATE_MARKER.length - 1, pending.length); k > 0; k--) {
+        if (ESCALATE_MARKER.startsWith(pending.slice(pending.length - k))) {
+          flushTo = pending.length - k;
+          break;
+        }
+      }
+      out += pending.slice(0, flushTo);
+      pending = pending.slice(flushTo);
+      return out;
+    },
+    /** Held-back text that never became a marker is real text. */
+    flush(): string {
+      const rest = pending;
+      pending = "";
+      return rest;
+    },
+  };
+}
+
+export function readsLikeAGap(reply: string): boolean {
+  const text = reply.toLowerCase();
+  return (
+    // It reached for the address itself, which is it escalating in prose.
+    text.includes("hello@getmin.ai") ||
+    // The stock phrasings for a missing fact.
+    /\bi (?:don't|do not|dont) have\b/.test(text) ||
+    /\bnot something i (?:have|can confirm|know)\b/.test(text) ||
+    /\bi (?:can't|cannot|can not) confirm\b/.test(text) ||
+    /\bthe team can (?:answer|help|tell)\b/.test(text)
+  );
+}
+
+/**
  * min.'s voice bans em and en dashes. The system prompt says so, but a small
  * model complies only most of the time — live testing had it slipping through
  * in half of replies. Enforce it in code instead of hoping. Safe per-delta: a
@@ -515,38 +605,21 @@ export default {
           // It sits at the START of the reply rather than the end so the check
           // needs one small head buffer instead of holding back every chunk in
           // case the tail turns out to be a marker.
-          let head = "";
-          let headDone = false;
-          let escalate = false;
-
-          const emit = (text: string) => {
-            if (headDone) {
-              if (text) send("delta", { text: enforceVoice(text) });
-              return;
-            }
-            head += text;
-            if (head.length < ESCALATE_MARKER.length) return; // not enough to judge yet
-            if (head.startsWith(ESCALATE_MARKER)) {
-              escalate = true;
-              head = head.slice(ESCALATE_MARKER.length).replace(/^\s+/, "");
-            }
-            headDone = true;
-            if (head) send("delta", { text: enforceVoice(head) });
-          };
+          let full = "";
+          const stripper = createMarkerStripper();
 
           for await (const event of run) {
             if (
               event.type === "content_block_delta" &&
               event.delta.type === "text_delta"
             ) {
-              emit(event.delta.text);
+              full += event.delta.text;
+              const out = stripper.push(event.delta.text);
+              if (out) send("delta", { text: enforceVoice(out) });
             }
           }
-          // A reply shorter than the marker never triggered the check above.
-          if (!headDone && head) {
-            headDone = true;
-            send("delta", { text: enforceVoice(head) });
-          }
+          const rest = stripper.flush();
+          if (rest) send("delta", { text: enforceVoice(rest) });
 
           const final = await run.finalMessage();
           if (final.stop_reason === "refusal") {
@@ -554,7 +627,7 @@ export default {
               message: "I can't help with that one. Ask me about min. instead.",
             });
           }
-          send("done", { escalate });
+          send("done", { escalate: stripper.tagged || readsLikeAGap(full) });
         } catch (err) {
           console.error("ask-min failed:", err);
           send("error", {
