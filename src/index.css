@@ -155,6 +155,19 @@
   .pill-countdown { animation: none; }
 }
 
+/* Skeleton rows while a capsule is being generated. Staggered so the wait
+   reads as something assembling rather than something hung. */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+.skeleton-line {
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line { animation: none; }
+}
+
 /* ── How it works: three looping mini-scenes ──────────────────────────────
    Each step's visual animates on a loop. Every resting state is the FINISHED
    state, so reduced motion (animation: none) shows a complete, sensible

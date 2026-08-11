@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Sparkles, X, Send } from "lucide-react";
+import { ASK_ENDPOINT } from "@/lib/ask";
 
 /**
  * "Ask min." — the site's own chat widget.
@@ -12,9 +13,6 @@ import { Sparkles, X, Send } from "lucide-react";
  * With ASK_ENDPOINT empty the widget does not render at all, so the site is
  * safe to ship before the Worker is deployed.
  */
-
-// The Worker in worker/. Redeploy it with `npx wrangler deploy` from there.
-const ASK_ENDPOINT = "https://ask-min.ew-baa.workers.dev";
 
 // Shaped to get the visitor talking about their own work — the answers are far
 // better once min. knows what they actually do.

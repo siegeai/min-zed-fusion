@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import {
+  Sparkles,
   Lightbulb,
   ArrowRight,
   CalendarClock,
@@ -17,6 +18,7 @@ import { ExpandableRow, type Detail } from "./Expandable";
 import { FlatAvatar } from "./DemoAvatars";
 import { CompanyLink, CompanyCapsuleContent } from "./CompanyCapsule";
 import { getDownloadTarget } from "@/lib/download";
+import { fetchCapsule } from "@/lib/ask";
 
 /**
  * The capsule as a desktop WORKSPACE, and a LIVE demo: the relationship record
@@ -586,10 +588,11 @@ export function AskRail({ prompts, title, blurb, placeholder, scope, PrimaryIcon
 }
 
 /** A solo capsule: the same spine as the deal demo, one person deep. */
-function PersonScenario({ data }: { data: ScenarioData }) {
+function PersonScenario({ data, note }: { data: ScenarioData; note?: React.ReactNode }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr]">
       <div className="min-w-0 px-5 py-5 sm:px-7 sm:py-6">
+        {note}
         {/* Header */}
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex shrink-0 -space-x-2.5">
@@ -700,10 +703,166 @@ const SCENARIOS = [
   { key: "hired", label: "Get hired", Icon: Briefcase },
 ] as const;
 
+const EXAMPLE_SITUATIONS = [
+  "I run a design agency and renewals sneak up on me",
+  "I'm job hunting and juggling four interview loops",
+  "I sell enterprise software, six stakeholders a deal",
+  "I'm raising a seed round",
+];
+
+/**
+ * The fourth arena: the visitor's own.
+ *
+ * Three fixed examples show what a capsule is. This one answers "yes, but what
+ * about MY work", which is the question the other three cannot. The model fills
+ * the same typed slots PersonScenario already renders and never emits markup or
+ * class names, so a bad generation is a failed fetch rather than a broken
+ * layout, and the shipped arenas are always one click away.
+ */
+function YourCapsule() {
+  const [draft, setDraft] = useState("");
+  const [data, setData] = useState<ScenarioData | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const build = async (situation: string) => {
+    const text = situation.trim();
+    if (!text || busy) return;
+    setBusy(true);
+    setError(null);
+    try {
+      const c = await fetchCapsule(text);
+      setData({
+        ...c,
+        // The model picks none of this. Icons come from whether a row was a
+        // call or an email, which is the only thing it is asked to classify.
+        history: c.history.map((h) => ({
+          ...h,
+          Icon: h.detail.kind === "call" ? Video : Mail,
+        })),
+      });
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Something went wrong.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (data) {
+    return (
+      <PersonScenario
+        data={data}
+        note={
+          // Load-bearing, not a disclaimer. The names, dates and numbers below
+          // are invented, and without this line a capsule about "your" client
+          // implies min. has already read your mail.
+          <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-xl border border-emerald-100 bg-emerald-50/60 px-3 py-2">
+            <Sparkles className="h-3.5 w-3.5 shrink-0 text-emerald-600" strokeWidth={2} />
+            <p className="text-[12px] text-emerald-900">
+              Built from what you told min. The person and the dates are made up; the
+              shape is real.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setData(null);
+                setDraft("");
+              }}
+              className="ml-auto text-[11.5px] font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-900"
+            >
+              Try another
+            </button>
+          </div>
+        }
+      />
+    );
+  }
+
+  return (
+    <div className="px-5 py-10 sm:px-7 sm:py-16">
+      <div className="mx-auto max-w-lg text-center">
+        <h3 className="font-display text-[19px] font-semibold tracking-[-0.01em] text-gray-900">
+          {busy ? "Building your capsule…" : "See it on your own work"}
+        </h3>
+        <p className="mx-auto mt-2 max-w-md text-[13.5px] leading-relaxed text-gray-500">
+          {busy
+            ? "One relationship from your world, in the same three sections."
+            : "Tell min. what you do in a line. It builds the same capsule around a relationship from your world."}
+        </p>
+
+        {busy ? (
+          <div className="mt-8 space-y-3" aria-live="polite" aria-busy="true">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <div
+                key={i}
+                className="skeleton-line h-3 rounded-full bg-gray-100"
+                style={{ animationDelay: `${i * 120}ms`, width: `${[92, 78, 85, 64, 71][i]}%` }}
+              />
+            ))}
+          </div>
+        ) : (
+          <>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                build(draft);
+              }}
+              className="mt-6 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.15)] transition-colors focus-within:border-emerald-300"
+            >
+              <Sparkles className="h-4 w-4 shrink-0 text-emerald-500" strokeWidth={2} />
+              <input
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                maxLength={280}
+                placeholder="I run partnerships at a fintech…"
+                aria-label="Describe the work you do"
+                className="min-w-0 flex-1 bg-transparent text-[13.5px] text-gray-900 outline-none placeholder:text-gray-400"
+              />
+              <button
+                type="submit"
+                disabled={!draft.trim()}
+                aria-label="Build my capsule"
+                className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-gray-400 transition-colors hover:bg-gray-50 hover:text-gray-700 disabled:opacity-40"
+              >
+                <Send className="h-4 w-4" strokeWidth={2} />
+              </button>
+            </form>
+
+            {error && (
+              <p className="mt-3 text-[12.5px] leading-relaxed text-amber-700">{error}</p>
+            )}
+
+            <div className="mt-5 flex flex-wrap justify-center gap-1.5">
+              {EXAMPLE_SITUATIONS.map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => {
+                    setDraft(s);
+                    build(s);
+                  }}
+                  className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-[12px] text-gray-600 transition-colors hover:border-emerald-300 hover:text-gray-900"
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function CapsuleWorkspace() {
   // Three arenas to pick from; within the deal, clicking "Aperture" swaps the
   // workspace to the company capsule in place, product-style.
-  const [scenario, setScenario] = useState<(typeof SCENARIOS)[number]["key"]>("deal");
+  // "yours" is the generated arena. It is deliberately not in SCENARIOS: the
+  // autoplay rotation cycles the three shipped examples, and a slot that only
+  // exists once a visitor has described their work must never be rotated into.
+  const [scenario, setScenario] = useState<
+    (typeof SCENARIOS)[number]["key"] | "yours"
+  >("deal");
   const [view, setView] = useState<"group" | "company">("group");
   // The demo cycles the three arenas on its own so a passing visitor sees all
   // three. Hovering or focusing anywhere in it pauses; clicking anything hands
@@ -754,13 +913,34 @@ export default function CapsuleWorkspace() {
             <span className="relative">{s.label}</span>
           </button>
         ))}
+
+        {/* The visitor's own arena, set apart because it is the one that is not
+            a canned example. */}
+        <button
+          type="button"
+          onClick={() => {
+            setScenario("yours");
+            setView("group");
+          }}
+          className={[
+            "inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 text-[13.5px] font-medium transition-colors",
+            scenario === "yours"
+              ? "border-emerald-600 bg-emerald-600 text-white"
+              : "border-dashed border-emerald-300 bg-white text-emerald-700 hover:border-emerald-500 hover:bg-emerald-50",
+          ].join(" ")}
+        >
+          <Sparkles className="h-3.5 w-3.5" strokeWidth={2} />
+          Your work
+        </button>
       </div>
 
       <div
         data-capsule
         className="w-full overflow-hidden rounded-[22px] border border-gray-200/80 bg-white shadow-[0_16px_60px_-16px_rgba(0,0,0,0.18)]"
       >
-      {scenario !== "deal" ? (
+      {scenario === "yours" ? (
+        <YourCapsule />
+      ) : scenario !== "deal" ? (
         <PersonScenario
           key={scenario}
           data={scenario === "promotion" ? PROMOTION : HIRED}
