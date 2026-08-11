@@ -125,9 +125,31 @@ reach than sending mail, and the reason this Worker is a separate service is
 that finding its URL should get an attacker nothing. A key that can only send
 email keeps that true.
 
-Abuse surface, since this one reaches a real inbox: origin-locked like the rest,
-3 requests per minute per IP, a honeypot `website` field that returns a cheerful
-200 and drops the message, and length caps on every field.
+### Abuse surface on /contact
+
+This is the only endpoint that reaches a real inbox, so it is the only one whose
+rate limit had to be real. Three mechanisms were measured:
+
+| Mechanism | Test | Result |
+|---|---|---|
+| In-memory `Map` (index.ts) | 4 requests, limit 3 | **4 allowed** |
+| Cloudflare `ratelimit` binding | 20 requests, limit 5 | **18 allowed** |
+| Durable Object (limiter.ts) | 20 requests, limit 5 | **5 allowed** |
+
+The Map lives in one isolate, and isolates are per-colo and recycled. The
+ratelimit binding is eventually consistent. Only the Durable Object is
+single-threaded per key with strongly consistent storage, so the count is exact.
+
+The first two are fine where leaking costs tokens, which is why the chat and
+capsule routes still use the Map. They are not fine here: the failure mode is
+not a bill, it is the SES sending domain getting flagged and every later email
+landing in spam.
+
+So `/contact` is gated on **5 per minute and 20 per day per IP**, plus the
+origin lock, a honeypot `website` field that returns a cheerful 200 and drops
+the message, and length caps on every field. Rejections are not counted, or a
+script would extend its own lockout forever and take any visitor sharing its
+office IP down with it. The limiter fails open.
 
 ## Abuse limits
 
