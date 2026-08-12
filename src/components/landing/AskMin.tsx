@@ -24,7 +24,7 @@ import {
 // Shaped to get the visitor talking about their own work — the answers are far
 // better once min. knows what they actually do.
 const OPENERS = [
-  "I'm in sales. Would this help me?",
+  "I'm a founder. Would this help me?",
   "I keep losing track after conferences.",
   "How is this different from a notetaker?",
   "Is it really free?",
