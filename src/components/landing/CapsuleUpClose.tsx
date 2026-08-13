@@ -16,15 +16,15 @@ export default function CapsuleUpClose() {
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-[2.75rem] md:leading-[1.1]">
-              Relationship context continuously fed into min.
+              This is what min. builds.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-gray-500">
               <span className="font-medium text-gray-900">
                 It reads between the lines, and across every call, email, and
                 thread.
               </span>{" "}
-              One page on the people deciding your deal, your promotion, your
-              callback. Always current.
+              One digital version per person deciding your deal, your promotion,
+                your callback. Always current.
             </p>
           </div>
         </FadeIn>

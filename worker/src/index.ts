@@ -126,7 +126,7 @@ async function loadKnowledge(): Promise<string> {
   // If the fetch fails the bot should still be able to answer the basics
   // rather than hallucinate them.
   return [
-    "min. is the relationship AI whose only job is helping you win.",
+    "min. is AI that builds a digital version of everyone you work with, a relationship AI whose only job is helping you win.",
     "It records meetings without a bot, reads email and calendar, and distills every",
     "relationship into a living capsule: where you stand, action items, history.",
     "It also acts: books meetings, drafts follow ups, chases what is owed.",

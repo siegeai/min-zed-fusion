@@ -15,14 +15,14 @@ export default function LandingHero() {
         <div className="text-center lg:text-left">
           <FadeIn delay={0.1}>
             <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              The relationship AI whose only job is helping you win.
+              AI that builds a digital version of everyone you work with.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              Get the callback. Close the deal. Land that promotion. min. turns
-              every call and email into your unfair advantage.
+              Every call and email with them, distilled into one AI. Get the
+                callback. Close the deal. Land that promotion.
             </p>
           </FadeIn>
 

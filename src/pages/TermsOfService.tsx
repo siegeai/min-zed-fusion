@@ -45,7 +45,7 @@ const TermsOfService = () => {
         <title>Terms of Service | min.</title>
         <meta
           name="description"
-          content="The terms covering your use of min., the relationship AI whose only job is helping you win."
+          content="The terms covering your use of min., AI that builds a digital version of everyone you work with."
         />
         <link rel="canonical" href="https://getmin.ai/terms/" />
       </Helmet>

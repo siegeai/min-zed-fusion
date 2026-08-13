@@ -127,7 +127,7 @@ const BlogPost = () => {
                 </p>
                 <p className="mt-2 text-[15px] leading-relaxed text-gray-600">
                   It sits on your calls and email and keeps every relationship
-                  distilled into one page: where you stand, action items, history.
+                  distilled into one AI: where you stand, action items, history.
                   Free to use, two minute setup.
                 </p>
                 <a

@@ -16,9 +16,9 @@ export default function FinalCTA() {
               <br className="hidden sm:block" /> working for you.
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
-              The whole context continuously fed into your AI that loves
-              winning, the next right move, the follow up already on the
-              calendar.
+              A digital version of everyone you work with, whose only job is
+                helping you win: the next right move, the follow up already on
+                the calendar.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
