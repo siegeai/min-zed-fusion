@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Product Hunt gallery slides, 1270x760, rendered by scripts/generate-ph-slides.mjs.
+     Everything here mirrors the live site's tokens so the gallery and the
+     landing page look like one product rather than two design systems. */
+  :root {
+    --bg: #FAFAF9;
+    --ink: #111827;
+    --dim: #6B7280;
+    --faint: #9CA3AF;
+    --line: rgba(0,0,0,0.08);
+    --emerald: #10B981;
+    --emerald-deep: #047857;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; }
+
+  .slide {
+    width: 1270px; height: 760px;
+    background: var(--bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 58px 72px;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Soft emerald bloom, same trick the hero uses. */
+  .slide::after {
+    content: ""; position: absolute; top: -240px; right: -180px;
+    width: 720px; height: 720px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(16,185,129,0.10) 0%, rgba(16,185,129,0) 68%);
+    pointer-events: none;
+  }
+  .slide > * { position: relative; z-index: 1; }
+
+  .wordmark { font-family: 'Space Grotesk'; font-weight: 700; font-size: 27px; letter-spacing: -0.02em; }
+  .eyebrow {
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  h1 {
+    font-family: 'Space Grotesk'; font-weight: 600; letter-spacing: -0.03em;
+    font-size: 62px; line-height: 1.06;
+  }
+  h2 {
+    font-family: 'Space Grotesk'; font-weight: 600; letter-spacing: -0.025em;
+    font-size: 42px; line-height: 1.1;
+  }
+  .sub { font-size: 20px; line-height: 1.55; color: var(--dim); font-weight: 400; }
+  .top { display: flex; align-items: center; justify-content: space-between; }
+
+  .chips { display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip {
+    border: 1px solid var(--line); background: #fff; border-radius: 999px;
+    padding: 9px 18px; font-size: 15px; font-weight: 500; color: #374151;
+  }
+  .chip.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* The capsule card, straight off the landing page. */
+  .card {
+    background: #fff; border: 1px solid rgba(0,0,0,0.07); border-radius: 22px;
+    box-shadow: 0 26px 70px -26px rgba(0,0,0,0.22);
+    overflow: hidden;
+  }
+  .card-pad { padding: 26px 30px; }
+  .label {
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 12px;
+  }
+  .row { display: flex; gap: 11px; align-items: flex-start; padding: 8px 0; font-size: 16px; line-height: 1.45; color: #374151; }
+  .row .ic { flex: 0 0 auto; margin-top: 3px; }
+  .rule { height: 1px; background: rgba(0,0,0,0.06); margin: 16px 0; }
+
+  .avatars { display: flex; }
+  .avatars img { width: 46px; height: 46px; border-radius: 50%; border: 2.5px solid #fff; object-fit: cover; }
+  .avatars img + img { margin-left: -12px; }
+
+  .pill-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid rgba(16,185,129,0.35); background: rgba(16,185,129,0.08);
+    color: var(--emerald-deep); border-radius: 999px; padding: 4px 11px;
+    font-size: 13px; font-weight: 600;
+  }
+  .meta { font-size: 14px; color: var(--faint); margin-top: 3px; }
+
+  .bubble-q {
+    background: var(--ink); color: #fff; border-radius: 16px 16px 5px 16px;
+    padding: 13px 17px; font-size: 16.5px; max-width: 78%; margin-left: auto;
+  }
+  .bubble-a {
+    background: #fff; border: 1px solid rgba(0,0,0,0.07); border-radius: 16px 16px 16px 5px;
+    padding: 14px 17px; font-size: 16px; line-height: 1.5; color: #374151; max-width: 92%;
+  }
+  .action {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid rgba(16,185,129,0.3); background: rgba(16,185,129,0.06);
+    border-radius: 13px; padding: 12px 15px; font-size: 15.5px; color: #065F46; font-weight: 500;
+  }
+
+  .logos { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+  .logos img { height: 34px; width: auto; opacity: 0.85; }
+
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat .big { font-family: 'Space Grotesk'; font-weight: 600; font-size: 34px; letter-spacing: -0.02em; }
+  .stat .cap { font-size: 15px; color: var(--dim); }
+
+  /* The middle region absorbs the leftover height, so content sits optically
+     centred instead of collecting dead space above the footer. */
+  .body { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+  .foot { display: flex; align-items: center; justify-content: space-between; }
+  .foot .url { font-size: 16px; color: var(--faint); font-weight: 500; }
+  .cta {
+    background: var(--ink); color: #fff; border-radius: 999px;
+    padding: 13px 26px; font-size: 16px; font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 1. What it is ─────────────────────────────────────────────── -->
+<section class="slide" id="s1">
+  <div class="top">
+    <div class="wordmark">min.</div>
+    <div class="eyebrow">Relationship AI</div>
+  </div>
+
+  <div class="body">
+<div style="margin-top:88px; max-width:960px;">
+    <h1>The relationship AI whose<br/>only job is helping you win.</h1>
+    <p class="sub" style="margin-top:26px; max-width:720px; font-size:22px;">
+      min. turns every call and email into your unfair advantage.
+    </p>
+  </div>
+
+  <div class="chips" style="margin-top:44px;">
+    <div class="chip on">Close the deal</div>
+    <div class="chip">Land that promotion</div>
+    <div class="chip">Get hired</div>
+  </div>
+
+  </div>
+  <div class="foot">
+    <div class="url">getmin.ai</div>
+    <div class="cta">Free to use · macOS &amp; Windows</div>
+  </div>
+</section>
+
+<!-- ── 2. The capsule ────────────────────────────────────────────── -->
+<section class="slide" id="s2">
+  <div class="top">
+    <div>
+      <div class="eyebrow" style="margin-bottom:12px;">The capsule</div>
+      <h2>One page on the people<br/>deciding your outcome.</h2>
+    </div>
+    <div class="wordmark" style="opacity:0.35;">min.</div>
+  </div>
+
+  <div class="body">
+<div class="card" style="margin-top:34px;">
+    <div class="card-pad">
+      <div style="display:flex; align-items:center; gap:15px;">
+        <div class="avatars">
+          <img src="../public/avatars/you.jpg" alt="" />
+          <img src="../public/avatars/jordan.jpg" alt="" />
+          <img src="../public/avatars/sam.jpg" alt="" />
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk'; font-weight:600; font-size:21px; letter-spacing:-0.01em;">
+            You, Jordan &amp; Sam
+          </div>
+          <div class="meta">Founder &amp; CEO, Ops lead · Aperture · 3 calls · 14 emails · since May</div>
+        </div>
+        <div style="margin-left:auto;"><span class="pill-badge">Aperture: $12K pilot</span></div>
+      </div>
+
+      <div class="rule"></div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 34px;">
+        <div>
+          <div class="label">Where you stand</div>
+          <div class="row"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><span>Jordan is sold. Onboarding time is his last doubt.</span></div>
+          <div class="row"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><span>$12K pilot committed, pending his security review.</span></div>
+          <div class="row"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><span>Price keeps coming up. You are being compared.</span></div>
+        </div>
+        <div>
+          <div class="label">Action items</div>
+          <div class="row"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span>Send the onboarding checklist by tomorrow, promised Jun 8.</span></div>
+          <div class="row"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span>Book the team demo this week, slipping since Jun 11.</span></div>
+          <div class="row"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span>Chase the signed pilot agreement, owed three weeks.</span></div>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="label">History</div>
+      <div class="row"><span class="ic" style="color:var(--faint); font-size:14px; min-width:52px;">Jun 8</span><span>Walkthrough call. Agreed the 30 day pilot, kickoff July 1.</span></div>
+      <div class="row"><span class="ic" style="color:var(--faint); font-size:14px; min-width:52px;">Jun 2</span><span>Proposal sent. Jordan flagged onboarding time.</span></div>
+    </div>
+  </div>
+
+  </div>
+  <div class="foot">
+    <div class="url">Every line expands into the call or email it came from.</div>
+    <div class="url" style="color:var(--dim); font-weight:600;">getmin.ai</div>
+  </div>
+</section>
+
+<!-- ── 3. It acts ────────────────────────────────────────────────── -->
+<section class="slide" id="s3">
+  <div class="top">
+    <div>
+      <div class="eyebrow" style="margin-bottom:12px;">Ask and act</div>
+      <h2>It doesn't just remember.<br/>It does the work.</h2>
+    </div>
+    <div class="wordmark" style="opacity:0.35;">min.</div>
+  </div>
+
+  <div class="body">
+<div class="card" style="margin-top:34px;">
+    <div class="card-pad" style="background:#FBFBFA;">
+      <div class="label">How can I help with Jordan?</div>
+
+      <div style="display:flex; margin-top:6px;">
+        <div class="bubble-q">Prep me for the call</div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <div class="bubble-a">
+          You owe Jordan and Sam the onboarding checklist from the Jun 8 call, and the
+          team demo promised for Jun 11 still is not scheduled. Jordan owes you the signed
+          pilot agreement. Lead with the checklist, Sam has asked twice, then leave with a
+          demo date on the calendar.
+        </div>
+      </div>
+
+      <div class="label" style="margin-top:24px;">Or have min. do it</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg> Book the team demo with Jordan and Sam</div>
+        <div class="action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg> Draft the follow up with the checklist</div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div class="foot">
+    <div class="url">Books meetings. Drafts follow ups. Chases what is owed.</div>
+    <div class="url" style="color:var(--dim); font-weight:600;">getmin.ai</div>
+  </div>
+</section>
+
+<!-- ── 4. Setup and price ────────────────────────────────────────── -->
+<section class="slide" id="s4">
+  <div class="top">
+    <div>
+      <div class="eyebrow" style="margin-bottom:12px;">Setup</div>
+      <h2>No meeting bots.<br/>No data entry. Ever.</h2>
+    </div>
+    <div class="wordmark" style="opacity:0.35;">min.</div>
+  </div>
+
+  <div class="body">
+<p class="sub" style="margin-top:22px; max-width:840px;">
+    Connect your calendar and email once. min. sits invisibly on the work you already
+    do and builds itself, with a botless notetaker so nothing ever joins your calls.
+  </p>
+
+  <div style="display:flex; gap:56px; margin-top:38px;">
+    <div class="stat"><div class="big">2 min</div><div class="cap">to set up</div></div>
+    <div class="stat"><div class="big">0</div><div class="cap">bots in your meetings</div></div>
+    <div class="stat"><div class="big">Free</div><div class="cap">3 months of recall, +1 per referral</div></div>
+  </div>
+
+  <div class="card" style="margin-top:36px;">
+    <div class="card-pad" style="padding:24px 30px;">
+      <div class="label">Works with any stack</div>
+      <div class="logos">
+        <img src="../public/logos/gmail.svg" alt="Gmail" />
+        <img src="../public/logos/outlook.svg" alt="Outlook" />
+        <img src="../public/logos/google-calendar.svg" alt="Google Calendar" />
+        <img src="../public/logos/zoom.png" alt="Zoom" />
+        <img src="../public/logos/google-meet.svg" alt="Google Meet" />
+        <img src="../public/logos/teams.svg" alt="Microsoft Teams" />
+        <img src="../public/logos/slack.svg" alt="Slack" />
+        <img src="../public/logos/granola.png" alt="Granola" />
+        <img src="../public/logos/otter.png" alt="Otter" />
+        <img src="../public/logos/fireflies.png" alt="Fireflies" />
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div class="foot">
+    <div class="url">Keep your CRM. min. is the memory layer, not a replacement.</div>
+    <div class="cta">getmin.ai</div>
+  </div>
+</section>
+
+</body>
+</html>
