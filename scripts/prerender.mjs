@@ -38,6 +38,7 @@ const ROUTES = [
   ["/security", "Security.tsx"],
   ["/pricing", "Pricing.tsx"],
   ["/join-community", "JoinCommunity.tsx"],
+  ["/blog", "Blog.tsx"],
 ];
 
 /** Pull the Helmet values straight out of the page component. */
@@ -51,6 +52,33 @@ function readMeta(file) {
   return { title, description };
 }
 
+/**
+ * Blog posts are a dynamic route, so their metadata lives in the post data
+ * rather than in a page component. Read straight out of src/content/posts.ts:
+ * a post that exists but is not emitted here would answer 404 to a crawler
+ * while working perfectly in a browser, which is the exact failure this whole
+ * script exists to prevent.
+ */
+function readPosts() {
+  const src = readFileSync(join(root, "src/content/posts.ts"), "utf8");
+  // Tolerates escaped quotes inside a title or excerpt.
+  const STR = '"((?:[^"\\\\]|\\\\.)*)"';
+  const re = new RegExp(
+    "slug:\\s*" + STR + "[\\s\\S]*?title:\\s*" + STR +
+    "[\\s\\S]*?excerpt:\\s*" + STR + "[\\s\\S]*?date:\\s*" + STR,
+    "g",
+  );
+  const out = [];
+  let m;
+  while ((m = re.exec(src))) {
+    const unesc = (v) => v.replace(/\\(.)/g, "$1");
+    out.push({
+      slug: unesc(m[1]), title: unesc(m[2]), description: unesc(m[3]), date: unesc(m[4]),
+    });
+  }
+  return out;
+}
+
 function setTag(html, pattern, replacement) {
   return pattern.test(html) ? html.replace(pattern, replacement) : html;
 }
@@ -59,17 +87,11 @@ const template = readFileSync(join(dist, "index.html"), "utf8");
 const rows = [];
 let missing = 0;
 
-for (const [route, file] of ROUTES) {
-  const { title, description } = readMeta(file);
-  if (!title || !description) {
-    // Loud, and non-fatal: a page without its own metadata still deserves a
-    // 200. It just inherits the homepage's copy until someone adds a Helmet.
-    console.warn(`  ! ${route}: could not read ${!title ? "title" : "description"} from ${file}`);
-    missing++;
-  }
+const esc = (v) => v.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 
+/** Write dist/<route>/index.html with its own title, description and canonical. */
+function emit(route, title, description, extraHead = "") {
   let html = template;
-  const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 
   if (title) {
     html = setTag(html, /<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
@@ -85,16 +107,68 @@ for (const [route, file] of ROUTES) {
   // Trailing slash: GitHub Pages serves dist/<route>/index.html at "/route/"
   // and 301s "/route" to it. Pointing canonical at the redirecting form tells
   // Google the canonical URL is not the one that answers 200.
+  if (route.startsWith("/blog/")) {
+    html = setTag(html, /(<meta property="og:type" content=")[^"]*(")/, `$1article$2`);
+  }
+
   const canonical = `${SITE}${route}/`;
   html = setTag(html, /(<meta property="og:url" content=")[^"]*(")/, `$1${canonical}$2`);
   html = /<link rel="canonical"/.test(html)
     ? html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${canonical}" />`)
     : html.replace("</head>", `    <link rel="canonical" href="${canonical}" />\n  </head>`);
 
+  if (extraHead) html = html.replace("</head>", `${extraHead}\n  </head>`);
+
   const outDir = join(dist, route.replace(/^\//, ""));
   if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, "index.html"), html);
+}
+
+for (const [route, file] of ROUTES) {
+  const { title, description } = readMeta(file);
+  if (!title || !description) {
+    // Loud, and non-fatal: a page without its own metadata still deserves a
+    // 200. It just inherits the homepage's copy until someone adds a Helmet.
+    console.warn(`  ! ${route}: could not read ${!title ? "title" : "description"} from ${file}`);
+    missing++;
+  }
+  emit(route, title, description);
   rows.push({ route, title: (title ?? "(inherited)").slice(0, 52) });
+}
+
+const posts = readPosts();
+if (!posts.length) {
+  // Not fatal, but it means every post URL will 404 for crawlers.
+  console.warn("  ! no posts parsed from src/content/posts.ts");
+}
+for (const post of posts) {
+  const url = `${SITE}/blog/${post.slug}/`;
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    url,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Person", name: "Eric Wang", url: `${SITE}/about/` },
+    publisher: {
+      "@type": "Organization",
+      name: "min.",
+      url: SITE,
+      logo: { "@type": "ImageObject", url: `${SITE}/favicon.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: `${SITE}/og-cover.png`,
+  };
+  const extraHead = [
+    `    <meta property="article:published_time" content="${post.date}" />`,
+    `    <meta property="article:author" content="Eric Wang" />`,
+    `    <script type="application/ld+json">${JSON.stringify(ld)}</script>`,
+  ].join("\n");
+
+  emit(`/blog/${post.slug}`, `${post.title} | min.`, post.description, extraHead);
+  rows.push({ route: `/blog/${post.slug}`, title: post.title.slice(0, 52) });
 }
 
 console.log(`\n  prerendered ${rows.length} routes as real files (was: 404 for all of them)`);

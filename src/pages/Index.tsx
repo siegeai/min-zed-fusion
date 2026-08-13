@@ -6,6 +6,7 @@ import Integrations from "@/components/landing/Integrations";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
 import FinalCTA from "@/components/landing/FinalCTA";
+import LatestWriting from "@/components/landing/LatestWriting";
 
 const Index = () => {
   return (
@@ -27,6 +28,7 @@ const Index = () => {
           <Integrations />
           <CapsuleUpClose />
           <HowItWorks />
+          <LatestWriting />
           <FinalCTA />
         </main>
 
