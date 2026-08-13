@@ -118,6 +118,65 @@
     background: var(--ink); color: #fff; border-radius: 999px;
     padding: 13px 26px; font-size: 16px; font-weight: 600;
   }
+
+  /* Slide 5: the agent panel. Monospace because the audience for this slide
+     reads code, and a tool call rendered in a proportional face reads as a
+     mockup rather than a transcript. */
+  .agent { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace; }
+  .agent .prompt {
+    display: flex; gap: 10px; align-items: baseline;
+    font-size: 16.5px; color: var(--ink); font-weight: 500;
+  }
+  .agent .caret { color: var(--emerald); font-weight: 700; }
+  .toolcall {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid rgba(16,185,129,0.32); background: rgba(16,185,129,0.07);
+    border-radius: 10px; padding: 9px 14px; font-size: 14.5px; color: #065F46;
+  }
+  .toolcall .who { font-weight: 700; }
+  .toolcall .arg { color: #047857; opacity: 0.85; }
+  .ret { border-left: 2px solid rgba(16,185,129,0.28); padding-left: 18px; margin-left: 6px; }
+  .ret .k {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--faint); font-family: 'Inter', sans-serif; margin-bottom: 7px;
+  }
+  .ret .v { font-size: 15px; color: #374151; line-height: 1.65; }
+  .ret .v b { color: var(--ink); font-weight: 600; }
+  .answer {
+    background: #fff; border: 1px solid rgba(0,0,0,0.07); border-radius: 14px;
+    padding: 15px 18px; font-family: 'Inter', sans-serif; font-size: 16px;
+    line-height: 1.55; color: #374151;
+  }
+  .answer b { color: var(--ink); font-weight: 600; }
+
+  /* Slide 6: the graph. Rebuilt rather than screenshotted, because the real
+     view is dark-themed against a light deck AND shows an actual person's
+     network: real names, faces and employers who never agreed to appear in a
+     launch post. Same fictional cast as every other slide. */
+  .graph-wrap { position: relative; height: 452px; }
+  .graph-wrap svg.edges { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .node {
+    position: absolute; transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center; gap: 7px;
+  }
+  .node .dot {
+    border-radius: 50%; background: #fff; display: grid; place-items: center;
+    font-family: 'Space Grotesk'; font-weight: 600; color: #4B5563;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+  }
+  .node .nm { font-size: 12.5px; color: var(--dim); white-space: nowrap; font-weight: 500; }
+  .node.co .nm { color: #6B7280; font-weight: 600; }
+  .node.me .dot {
+    background: var(--ink); color: #fff; font-size: 17px; font-weight: 700;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+  }
+  .node.me .nm { color: var(--ink); font-weight: 700; font-size: 14px; }
+  .ask-pill {
+    display: flex; align-items: center; gap: 10px; width: 420px; margin: 0 auto;
+    border: 1px solid rgba(0,0,0,0.09); background: #fff; border-radius: 999px;
+    padding: 12px 20px; font-size: 15px; color: var(--faint);
+    box-shadow: 0 10px 34px -14px rgba(0,0,0,0.22);
+  }
 </style>
 </head>
 <body>
@@ -299,6 +358,167 @@
     <div class="cta">getmin.ai</div>
   </div>
 </section>
+
+
+<!-- ── 5. MCP into a coding assistant ────────────────────────────── -->
+<section class="slide" id="s5">
+  <div class="top">
+    <div>
+      <div class="eyebrow" style="margin-bottom:12px;">MCP</div>
+      <h2>Your coding agent,<br/>with the customer in the room.</h2>
+    </div>
+    <div class="wordmark" style="opacity:0.35;">min.</div>
+  </div>
+
+  <div class="body">
+  <div class="card" style="margin-top:26px;">
+    <div class="card-pad agent" style="background:#FBFBFA; padding:26px 30px;">
+
+      <div class="prompt"><span class="caret">&gt;</span>
+        <span>Why is Aperture blocked, and what do they still need from us?</span>
+      </div>
+
+      <div style="margin-top:16px;">
+        <span class="toolcall">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+          </svg>
+          <span class="who">min</span> · get_relationship<span class="arg">("jordan@aperture.io")</span>
+        </span>
+      </div>
+
+      <div class="ret" style="margin-top:18px;">
+        <div class="k">Open commitments</div>
+        <div class="v">
+          You owe <b>the onboarding checklist</b>, promised on the Jun 8 call.<br/>
+          Jordan owes <b>the signed pilot agreement</b>, three weeks open.
+        </div>
+        <div class="k" style="margin-top:16px;">Asked for</div>
+        <div class="v">
+          <b>CSV export before kickoff.</b> Raised twice, Jun 2 email and Jun 8 call.<br/>
+          Sam blocks the pilot on it, her ops workflow needs the export.
+        </div>
+        <div class="k" style="margin-top:16px;">Upcoming</div>
+        <div class="v">Pilot kickoff <b>July 1</b>. Security review still pending.</div>
+      </div>
+
+      <div class="answer" style="margin-top:20px;">
+        Building the <b>CSV export</b> first. It was promised on the Jun 8 call, Sam's ops
+        workflow blocks on it, and kickoff is July 1. The checklist you owe should ship
+        with it.
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    <div class="url">Works in Claude Code, Cursor, and any MCP client.</div>
+    <div class="url" style="color:var(--dim); font-weight:600;">getmin.ai</div>
+  </div>
+</section>
+
+
+<!-- ── 6. The graph ──────────────────────────────────────────────── -->
+<section class="slide" id="s6">
+  <div class="top">
+    <div>
+      <div class="eyebrow" style="margin-bottom:12px;">The graph</div>
+      <h2>Everyone you work with,<br/>and how they connect.</h2>
+    </div>
+    <div class="wordmark" style="opacity:0.35;">min.</div>
+  </div>
+
+  <div class="body">
+    <div class="graph-wrap" id="graph">
+      <svg class="edges" id="edges"></svg>
+    </div>
+    <div class="ask-pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v18M3 12h18"/>
+      </svg>
+      Ask min. anything about anyone…
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="url">People, companies and the threads between them. Built automatically.</div>
+    <div class="url" style="color:var(--dim); font-weight:600;">getmin.ai</div>
+  </div>
+</section>
+
+<script>
+(function () {
+  // Laid out in code so the ring spacing is even and the edges land exactly on
+  // node centres. Fictional cast, matching the demo capsules on the other slides.
+  var W = 1126, H = 452, cx = W / 2, cy = H / 2 - 20;
+  var RING = [
+    { r: 132, size: 50, font: 15, people: [
+      ["JL", "Jordan L.", "#10B981"], ["ST", "Sam T.", "#0EA5E9"],
+      ["DS", "Dana S.", "#8B5CF6"], ["PN", "Priya N.", "#F59E0B"],
+      ["RM", "Rachel M.", "#EC4899"], ["MW", "Marcus W.", "#14B8A6"],
+    ], offset: -0.28 },
+    { r: 218, size: 42, font: 13, people: [
+      ["AP", "Aperture", "#10B981", 1], ["KO", "Kosta O.", "#64748B"],
+      ["LH", "Lee H.", "#0EA5E9"], ["MR", "Meridian", "#8B5CF6", 1],
+      ["AT", "Andrea T.", "#F59E0B"], ["JB", "Jackie B.", "#EC4899"],
+      ["CH", "Corey H.", "#14B8A6"], ["NW", "Northwind", "#64748B", 1],
+      ["SF", "Sebastian F.", "#0EA5E9"], ["LZ", "Lucas Z.", "#8B5CF6"],
+    ], offset: 0.14 },
+  ];
+
+  var g = document.getElementById("graph");
+  var svg = document.getElementById("edges");
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  var placed = [];
+
+  RING.forEach(function (ring) {
+    ring.people.forEach(function (p, i) {
+      var a = (i / ring.people.length) * Math.PI * 2 + ring.offset;
+      // Flattened vertically so the cluster fills a 16:9 frame instead of a circle.
+      var x = cx + Math.cos(a) * ring.r * 1.68;
+      var y = cy + Math.sin(a) * ring.r * 0.86;
+      placed.push({ x: x, y: y, c: p[2], inner: ring.r < 200 });
+
+      var el = document.createElement("div");
+      el.className = "node" + (p[3] ? " co" : "");
+      el.style.left = (x / W * 100) + "%";
+      el.style.top = (y / H * 100) + "%";
+      el.innerHTML =
+        '<div class="dot" style="width:' + ring.size + 'px;height:' + ring.size +
+        'px;border:2.5px solid ' + p[2] + ';font-size:' + ring.font + 'px;' +
+        (p[3] ? 'border-radius:14px;background:' + p[2] + '14;' : '') + '">' + p[0] + '</div>' +
+        '<div class="nm">' + p[1] + '</div>';
+      g.appendChild(el);
+    });
+  });
+
+  // Edges: every node back to you, plus a few peer links so it reads as a graph
+  // rather than a star.
+  var lines = "";
+  placed.forEach(function (n) {
+    lines += '<line x1="' + cx + '" y1="' + cy + '" x2="' + n.x + '" y2="' + n.y +
+      '" stroke="' + n.c + '" stroke-width="' + (n.inner ? 1.5 : 1) +
+      '" stroke-opacity="' + (n.inner ? 0.42 : 0.22) + '" />';
+  });
+  [[0, 7], [1, 6], [2, 10], [4, 12], [5, 9], [0, 1], [3, 8]].forEach(function (pair) {
+    var a = placed[pair[0]], b = placed[pair[1]];
+    if (!a || !b) return;
+    lines += '<line x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y +
+      '" stroke="#9CA3AF" stroke-width="1" stroke-opacity="0.28" stroke-dasharray="4 5" />';
+  });
+  svg.innerHTML = lines;
+
+  var me = document.createElement("div");
+  me.className = "node me";
+  me.style.left = (cx / W * 100) + "%";
+  me.style.top = (cy / H * 100) + "%";
+  me.innerHTML = '<div class="dot" style="width:74px;height:74px;">You</div>';
+  g.appendChild(me);
+})();
+</script>
 
 </body>
 </html>

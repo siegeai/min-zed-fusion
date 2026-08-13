@@ -25,6 +25,8 @@ const SLIDES = [
   ["s2", "02-the-capsule"],
   ["s3", "03-it-acts"],
   ["s4", "04-setup-and-price"],
+  ["s5", "05-mcp-coding-agent"],
+  ["s6", "06-the-graph"],
 ];
 
 const browser = await puppeteer.launch({
@@ -47,7 +49,7 @@ try {
     await el.screenshot({ path, type: "png" });
     console.log(`  ${name}.png  1270x760 @2x`);
   }
-  console.log(`\n  4 slides written to press/product-hunt/`);
+  console.log(`\n  ${SLIDES.length} slides written to press/product-hunt/`);
 } finally {
   await browser.close();
 }
