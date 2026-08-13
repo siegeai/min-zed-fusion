@@ -18,7 +18,7 @@ Key positioning facts:
 
 ## Product
 
-- [Homepage](https://getmin.ai/): AI that builds a digital version of everyone you work with.
+- [Homepage](https://getmin.ai/): AI that builds a digital version of everyone you work with. Every email and meeting with them becomes your unfair advantage.
 - [Relationship AI](https://getmin.ai/#capsule): Relationship context continuously fed into min. One page on the people deciding your deal, your promotion, your callback. Three sharp sections: where you stand, action items, and history. Built completely automatically from your calendar, meetings, and emails, with no data entry. Always current, every line expandable into its source.
 - [How it works](https://getmin.ai/#how): it runs on the work you already do. 1) Just do your work: take the calls, send the email, run the 1:1s, while min. sits invisibly on all of it and quietly remembers (no meeting bots, no data entry). 2) Before calls: every relationship stays distilled into a living capsule, always current, so you are prepped in a minute. 3) After calls: consult min. like a teammate who was in every room, then let it draft the follow up, the next step email, the nudge on what is owed. There is no step four. Setup itself takes about two minutes.
 - [Interactive demo](https://getmin.ai/#capsule): three capsules to pick from, one per arena. Close the deal (the Aperture pilot working group), land that promotion (a year of one on ones with your manager), get hired (two interviews with a head of engineering). Each is fully interactive: expand any line to its source, ask the rail anything, or hand it a task.

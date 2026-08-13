@@ -21,8 +21,8 @@ export default function LandingHero() {
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              Every call and email with them, distilled into one AI. Get the
-                callback. Close the deal. Land that promotion.
+              Every email and meeting with them becomes your unfair advantage.
+                Get the callback. Close the deal. Land that promotion.
             </p>
           </FadeIn>
 

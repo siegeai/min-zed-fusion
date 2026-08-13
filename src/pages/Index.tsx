@@ -15,7 +15,7 @@ const Index = () => {
         <title>AI that builds a digital version of everyone you work with | min.</title>
         <meta
           name="description"
-          content="min. builds a digital version of everyone you work with, from every call and email. Get the callback. Close the deal. Land that promotion."
+          content="min. builds a digital version of everyone you work with. Every email and meeting becomes your unfair advantage. Get the callback. Close the deal."
         />
         <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>
