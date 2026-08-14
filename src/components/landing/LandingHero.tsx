@@ -21,9 +21,8 @@ export default function LandingHero() {
 
           <FadeIn delay={0.18}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-gray-500 lg:mx-0">
-              min. sits in your inbox and on your calls and builds a digital
-                version of your customers. Every email and meeting becomes your
-                unfair advantage.
+              min. builds customer context continuously from your meetings and
+                emails. Every email and meeting becomes your unfair advantage.
             </p>
           </FadeIn>
 
