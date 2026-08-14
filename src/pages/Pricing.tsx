@@ -91,10 +91,10 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing | min., the relationship AI</title>
+        <title>Pricing | min., the CRM that builds itself</title>
         <meta
           name="description"
-          content="min., the relationship AI, is free to use. You pay only for more recall history."
+          content="min., the CRM that builds itself, is free to use. You pay only for more recall history."
         />
         <link rel="canonical" href="https://getmin.ai/pricing/" />
       </Helmet>
