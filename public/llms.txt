@@ -1,13 +1,13 @@
 # min.
 
-> min. is AI that builds a digital version of everyone you work with. A relationship AI, and a desktop app for macOS and Windows that records your meetings without a bot, reads your email and calendar, and distills every relationship that decides your outcomes, customers, partners, investors, your manager, hiring managers, into a living capsule: one AI you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
+> min. is the CRM that builds itself: AI that builds a digital version of everyone you work with. A desktop app for macOS and Windows that records your meetings without a bot, reads your email and calendar, and distills every relationship that decides your outcomes, customers, partners, investors, your manager, hiring managers, into a living capsule: one AI you can ask anything, share as a single link, and paste into any doc, thread, ticket, or CRM record.
 
 Key positioning facts:
 
-- Category: relationship intelligence / a relationship context layer. min. is NOT a CRM and NOT a meeting notetaker.
-- min. is AI that builds a digital version of everyone you work with: other tools record meetings or store records, min. knows the people your outcomes depend on and acts on that knowledge.
-- min. is AI that builds a digital version of everyone you work with, whose only job is helping you win: it turns every call and email into your unfair advantage, to get the callback, close the deal, land that promotion. A notetaker remembers the meeting; min. remembers the person. Notetakers read one meeting at a time; min. reads across every call, email, and thread in the relationship.
-- min. is the memory layer for any CRM: it replaces nothing, requires zero data entry, and builds itself from calls, email, and calendar.
+- Category: min. is the CRM that builds itself, a self-building CRM / relationship AI. Unlike a traditional CRM it fills itself from calls and email with zero data entry. min. is NOT a meeting notetaker.
+- min. is the CRM that builds itself, a digital version of everyone you work with: other tools record meetings or store records, min. knows the people your outcomes depend on and acts on that knowledge.
+- min. is the CRM that builds itself, whose only job is helping you win: it turns every call and email into your unfair advantage, to get the callback, close the deal, land that promotion. A notetaker remembers the meeting; min. remembers the person. Notetakers read one meeting at a time; min. reads across every call, email, and thread in the relationship.
+- For teams already running a traditional CRM for reporting: keep it, min. works alongside it and any capsule pastes straight into a record. min. replaces the data entry, not the reporting.
 - Relationship context usually lives in five places: calls, emails, calendars, notetakers, and teammates' heads. min. distills it all into one context window.
 - min. works for any arena where relationships decide the outcome: closing a deal, earning a promotion (it remembers a year of one on ones with your manager), or getting a callback from an investor or hiring manager.
 - Capsules are shareable: send a teammate a capsule and they have the whole relationship, always current. When two people know the same person, sharing merges their histories into one capsule.
@@ -18,7 +18,7 @@ Key positioning facts:
 
 ## Product
 
-- [Homepage](https://getmin.ai/): AI that builds a digital version of everyone you work with. Every email and meeting becomes your unfair advantage.
+- [Homepage](https://getmin.ai/): The CRM that builds itself. Every email and meeting becomes your unfair advantage.
 - [Relationship AI](https://getmin.ai/#capsule): Relationship context continuously fed into min. One page on the people deciding your deal, your promotion, your callback. Three sharp sections: where you stand, action items, and history. Built completely automatically from your calendar, meetings, and emails, with no data entry. Always current, every line expandable into its source.
 - [How it works](https://getmin.ai/#how): it runs on the work you already do. 1) Just do your work: take the calls, send the email, run the 1:1s, while min. sits invisibly on all of it and quietly remembers (no meeting bots, no data entry). 2) Before calls: every relationship stays distilled into a living capsule, always current, so you are prepped in a minute. 3) After calls: consult min. like a teammate who was in every room, then let it draft the follow up, the next step email, the nudge on what is owed. There is no step four. Setup itself takes about two minutes.
 - [Interactive demo](https://getmin.ai/#capsule): three capsules to pick from, one per arena. Close the deal (the Aperture pilot working group), land that promotion (a year of one on ones with your manager), get hired (two interviews with a head of engineering). Each is fully interactive: expand any line to its source, ask the rail anything, or hand it a task.
@@ -36,5 +36,5 @@ Key positioning facts:
 
 - Is it really free? Yes. min. is free to use, for everyone you invite. Free recalls the last 3 months of every relationship, and every referral adds another month of recall. You pay only to reach 5 years back.
 - Can I share a capsule for free? Yes, on every plan. Share a single meeting, a person capsule, or a whole company capsule. Revocable any time.
-- Do we have to replace our CRM? No. A CRM tracks deals; min. closes them. A CRM only knows what someone remembered to type into it and never tells you what to do next, while min. builds itself from your calls and email and hands you the move. Keep the CRM for reporting and paste any capsule straight into it.
+- How is this a CRM if I never enter data? min. is the CRM that builds itself: it fills from your calls and email with zero data entry, and it tells you what to do next. If your team already runs a CRM for reporting, keep it and paste any capsule straight in. min. replaces the data entry, not your reporting.
 - Do you store my email? No. min. keeps distilled memory and metadata, never your raw mail. We never train on it, sell it, or share it. Our belief is that your context can become one of your biggest professional assets. It's bad for business for us to not take that seriously.

@@ -74,8 +74,8 @@ const FAQS = [
     a: "Yes, on every plan. Share a single meeting, a person capsule, or a whole company capsule. Revocable any time.",
   },
   {
-    q: "Do we have to replace our CRM?",
-    a: "No. A CRM tracks deals. min. closes them. A CRM only knows what someone remembered to type into it, and it never tells you what to do next. min. builds itself from your calls and email, then hands you the move. Keep the CRM for reporting and paste any capsule straight into it.",
+    q: "How is this a CRM if I never enter data?",
+    a: "min. is the CRM that builds itself: it fills from your calls and email with zero data entry, and it tells you what to do next. If your team already runs a CRM for reporting, keep it and paste any capsule straight in. min. replaces the data entry, not your reporting.",
   },
   {
     q: "Do you store my email?",

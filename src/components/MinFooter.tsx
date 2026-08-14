@@ -41,9 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              AI that builds a digital version of everyone you work with. min.
-              turns scattered calls and emails into a living memory, then puts it
-              to work: the prep, the follow up, the next move.
+              The CRM that builds itself. min. turns scattered calls and emails into a
+              digital version of everyone you work with, then puts it to work: the
+              prep, the follow up, the next move.
             </p>
           </div>
 
