@@ -109,7 +109,7 @@ const Pricing = () => {
                 Free to <span className="text-emerald-600">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                The only AI with a winning mindset. Pay only for more recall history.
+                The first CRM that likes winning. Pay only for more recall history.
               </p>
             </header>
 
