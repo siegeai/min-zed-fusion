@@ -45,6 +45,23 @@ export default function LandingHero() {
             </div>
           </FadeIn>
 
+          {/* The bridge for launch traffic: the PH tagline sells agent
+              context, so the visitor it sends must find that story above the
+              fold rather than two scrolls down. Additive on purpose — the
+              hero copy itself stays frozen. */}
+          <FadeIn delay={0.3}>
+            <a
+              href="#agents"
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/60 px-4 py-2 text-[13px] font-medium text-emerald-800 transition-colors hover:border-emerald-300 hover:bg-emerald-50"
+            >
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 rounded-full bg-emerald-500"
+              />
+              New: context for your coding agents, over MCP
+            </a>
+          </FadeIn>
+
           <FadeIn delay={0.34}>
             <p className="mt-7 text-[13px] text-gray-400">
               For macOS and Windows. Google and Outlook calendars. Two minute setup.
