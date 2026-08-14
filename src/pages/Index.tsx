@@ -5,6 +5,7 @@ import LandingHero from "@/components/landing/LandingHero";
 import Integrations from "@/components/landing/Integrations";
 import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
 import HowItWorks from "@/components/landing/HowItWorks";
+import AgentContext from "@/components/landing/AgentContext";
 import FinalCTA from "@/components/landing/FinalCTA";
 import LatestWriting from "@/components/landing/LatestWriting";
 
@@ -27,6 +28,7 @@ const Index = () => {
           <LandingHero />
           <Integrations />
           <CapsuleUpClose />
+          <AgentContext />
           <HowItWorks />
           <LatestWriting />
           <FinalCTA />

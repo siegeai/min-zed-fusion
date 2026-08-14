@@ -7,6 +7,7 @@ import { getDownloadTarget } from "@/lib/download";
 const NAV_LINKS = [
   { label: "Relationship AI", to: "/#capsule" },
   { label: "How it works", to: "/#how" },
+  { label: "For agents", to: "/#agents" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },
 ];
