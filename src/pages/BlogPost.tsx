@@ -103,6 +103,20 @@ const BlogPost = () => {
                       </h2>
                     );
                   }
+                  if (b.t === "cta") {
+                    return (
+                      <a
+                        key={i}
+                        href={b.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="my-7 inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-[15px] font-medium text-white transition-colors hover:bg-gray-700"
+                      >
+                        {b.text}
+                        <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    );
+                  }
                   if (b.t === "quote") {
                     return (
                       <blockquote

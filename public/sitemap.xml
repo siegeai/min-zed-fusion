@@ -79,6 +79,12 @@
 
   <!-- Blog -->
   <url>
+    <loc>https://getmin.ai/blog/worlds-first-relationship-ai/</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://getmin.ai/blog/</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>

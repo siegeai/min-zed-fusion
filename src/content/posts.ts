@@ -13,7 +13,8 @@
 export type Block =
   | { t: "p"; text: string }
   | { t: "h2"; text: string }
-  | { t: "quote"; text: string };
+  | { t: "quote"; text: string }
+  | { t: "cta"; text: string; href: string };
 
 export type Post = {
   slug: string;
@@ -29,6 +30,79 @@ export type Post = {
 };
 
 export const POSTS: Post[] = [
+  {
+    slug: "worlds-first-relationship-ai",
+    title: "World’s first relationship AI that helps you win.",
+    excerpt:
+      "min. is live on Product Hunt. Why this is the first relationship AI, why notetakers, CRMs and memory apps do not qualify, and why winning is the point.",
+    date: "2026-08-13",
+    readTime: "3 min read",
+    standfirst:
+      "We launched on Product Hunt today. Big claims deserve a defense, so here is the case for both halves of this one.",
+    body: [
+      { t: "p", text: "min. is live on Product Hunt today." },
+      {
+        t: "cta",
+        text: "See the launch on Product Hunt",
+        href: "https://www.producthunt.com/products/min-4?launch=min-5",
+      },
+      {
+        t: "p",
+        text: "The title of this post is a big claim, and I know what comment sections do to big claims. So let me defend it, because the obvious objection is that software about your work relationships already exists. It does. And none of it is this.",
+      },
+
+      { t: "h2", text: "What everything before this actually remembers" },
+      {
+        t: "p",
+        text: "Notetakers remember the meeting. One at a time, in isolation. The transcript from Tuesday knows nothing about the promise from March.",
+      },
+      {
+        t: "p",
+        text: "CRMs remember what someone typed into them. They are databases of self-reported homework, and they never tell you what to do next.",
+      },
+      {
+        t: "p",
+        text: "Personal CRMs came closest, and they stayed small for a decade because the technology could not reach the substance. They knew that you emailed Sarah 47 days ago. They could never know what you promised her. Metadata, not memory.",
+      },
+      {
+        t: "p",
+        text: "And the new wave of memory apps remembers you. Your screen, your day, your notes to self. Useful, but the hard part of working with people is not remembering yourself.",
+      },
+
+      { t: "h2", text: "The atom is the other person" },
+      {
+        t: "p",
+        text: "Relationship AI organizes around a different unit: the person on the other side of the table. min. reads your meetings and emails with someone and builds a digital version of them. Where you stand, what was promised in both directions, the whole history, distilled into one AI you can ask anything.",
+      },
+      {
+        t: "p",
+        text: "Built only from your meetings and emails with them. Nothing scraped, nothing inferred about strangers. If it never passed between you, min. does not know it.",
+      },
+      {
+        t: "p",
+        text: "And it compounds. The more you work with someone, the sharper their digital version gets. That is the thing nobody built before, which is why the title says first. Not the first tool near your relationships. The first one whose entire job is the relationship itself.",
+      },
+
+      { t: "h2", text: "Why “helps you win”" },
+      {
+        t: "p",
+        text: "Because relationships decide outcomes. The callback, the deal, the promotion, every one of them is decided by people, and the person with the sharpest context wins. Your tools remember meetings and threads. min. remembers the people, then puts what it knows to work: the prep before the call, the follow up that lands on what they actually said, the nudge on what is owed.",
+      },
+      {
+        t: "p",
+        text: "It is free, it sets up in two minutes, and no bot ever joins your calls.",
+      },
+      {
+        t: "cta",
+        text: "Come say hi on the launch",
+        href: "https://www.producthunt.com/products/min-4?launch=min-5",
+      },
+      {
+        t: "p",
+        text: "We are answering questions there all day. Come tell us what you think, especially if you think we are wrong. That is the feedback that makes the digital versions sharper. It works on us too.",
+      },
+    ],
+  },
   {
     slug: "building-stopped-being-the-hard-part",
     title: "Building stopped being the hard part",
