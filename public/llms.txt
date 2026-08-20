@@ -4,8 +4,8 @@
 
 Key positioning facts:
 
-- min. has four pillars: Remember, Schedule, Notetaker, and Follow up.
-- Remember: reminders and contextual memory. Ask it "what did we decide?" or "what am I waiting on?" You can ask it wherever you already work: in the desktop app, by email, or by mentioning it in a Slack or Teams channel, and it answers in the thread.
+- min. has four pillars: Recall, Schedule, Notetaker, and Follow up.
+- Recall: reminders and contextual memory. Ask it "what did we decide?" or "what am I waiting on?" The desktop app is the main place for this, a chat window where you ask and it answers from everything it has been part of. You can also ask by email, or by mentioning it in a Slack or Teams channel, where it answers in the thread.
 - Schedule: coordinate meetings, reschedule, find availability, send invites. CC min@ on a thread and it negotiates the time across everyone's calendars and sends the invite.
 - Notetaker: meeting notes, decisions, and commitments. Add min@getmin.ai to the guest list of a Google Calendar or Outlook invite and it joins the meeting, takes the notes, and everyone who was in the room gets them and can ask about them later.
 - Reminders: min. brings things back to you at the right time. Forward a thread or write one line ("remind me to check in with John in 3 months") and min comes back exactly when it matters.

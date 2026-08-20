@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Users, Video } from "lucide-react";
+import { CornerDownLeft, Users, Video } from "lucide-react";
 import MemoryField from "./MemoryField";
+import { SlackMark, TeamsMark } from "./BrandMarks";
 
 /**
  * The landing page, sixth pass: minimal and sleek, per Eric.
@@ -302,35 +303,44 @@ function FollowUpCard() {
   );
 }
 
-function ReplyCard() {
+/* ── Recall: asking min. in the desktop app ──────────────────────────────
+ *
+ * This was drawn as an email reply, which made the one thing you do OUTSIDE
+ * your inbox look like another inbox feature. It is the app now: your question
+ * as you would type it, the answer unbubbled the way an assistant reads, and
+ * a composer at the foot so the frame reads as software rather than a
+ * transcript.
+ */
+function RecallCard() {
   return (
     <Frame>
-      <div className="flex items-start gap-3 px-4 pt-4">
-        <Avatar initial="m" isMin />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-baseline justify-between gap-3">
-            {/* The reply is the one card where min. is the sender, so the
-                address belongs on the From line the way a mail client shows
-                it, not just in the body. */}
-            <span className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
-              <span className="text-[13.5px] font-semibold text-ink">min.</span>
-              <span className="text-[12.5px]">
-                <MinChip />
-              </span>
-            </span>
-            <span className="shrink-0 text-[12px] text-quiet">now</span>
-          </div>
-          <p className="mt-1 text-[12.5px] leading-relaxed text-quiet">To: you</p>
+      <SurfaceHeader app="min." where="Desktop app" />
+      <div className="px-4 py-4">
+        <div className="flex justify-end">
+          <p className="max-w-[85%] rounded-2xl rounded-br-md bg-paper px-3.5 py-2 text-[13px] leading-relaxed text-ink">
+            what did we decide about the pricing page?
+          </p>
+        </div>
+
+        <div className="mt-4 flex items-start gap-3">
+          <Avatar initial="m" isMin />
+          <p className="min-w-0 flex-1 text-[13px] leading-relaxed text-quiet">
+            On the <span className="text-ink">Aug 12 call</span> you and Priya
+            agreed to hold at $20 a seat and revisit after launch. Sam was
+            going to redo the comparison table.
+          </p>
         </div>
       </div>
-      <div className="mt-3 border-t border-hair/70 px-4 py-3.5">
-        <p className="text-[13.5px] font-semibold text-ink">
-          Re: what did we decide about the pricing page?
-        </p>
-        <p className="mt-1 text-[13.5px] leading-relaxed text-quiet">
-          On the Aug 12 call you and Priya agreed to hold at $20 a seat and
-          revisit after launch. Sam was going to redo the comparison table.
-        </p>
+
+      <div className="border-t border-hair/70 px-4 py-2.5">
+        <div className="flex items-center justify-between gap-3 rounded-full border border-hair px-3.5 py-1.5">
+          <span className="text-[12.5px] text-quiet">Ask min. anything</span>
+          <CornerDownLeft
+            className="h-3.5 w-3.5 shrink-0 text-quiet"
+            strokeWidth={1.75}
+            aria-hidden="true"
+          />
+        </div>
       </div>
     </Frame>
   );
@@ -339,39 +349,59 @@ function ReplyCard() {
 function AskCard() {
   return (
     <Frame>
-      <SurfaceHeader app="Slack" where="#northwind-deal" />
-      <div className="space-y-3.5 px-4 py-3.5">
-        <div className="flex items-start gap-2.5">
-          <SquareAvatar initial="E" tone="bg-indigo-400" />
-          <div className="min-w-0 flex-1">
-            <div className="flex items-baseline gap-2">
-              <span className="text-[12.5px] font-semibold text-ink">
-                Eric Wang
-              </span>
-              <span className="text-[11.5px] text-quiet">2:41 PM</span>
-            </div>
-            <p className="mt-0.5 text-[13px] leading-relaxed text-quiet">
-              <span className="rounded bg-moss-soft px-1 py-0.5 font-medium text-moss">
-                @min
-              </span>{" "}
-              what did we promise Northwind on the last call?
-            </p>
-          </div>
+      {/* Slack: the aubergine rail and the # channel header are the two things
+          that identify it at a glance, so both are here rather than a label
+          saying "Slack". Brand mark is the real one, used nominatively. */}
+      <div className="flex">
+        <div className="flex w-11 shrink-0 flex-col items-center gap-3 bg-[#3F0E40] py-3">
+          <SlackMark className="h-4 w-4 text-white/90" />
+          <span
+            aria-hidden="true"
+            className="grid h-7 w-7 place-items-center rounded-lg bg-white/15 text-[10px] font-bold text-white"
+          >
+            N
+          </span>
         </div>
-        <div className="flex items-start gap-2.5">
-          <SquareAvatar initial="m" tone="bg-ink" />
-          <div className="min-w-0 flex-1">
-            <div className="flex items-baseline gap-2">
-              <span className="text-[12.5px] font-semibold text-ink">
-                min.
-              </span>
-              <AppBadge />
-              <span className="text-[11.5px] text-quiet">2:41 PM</span>
+
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-1.5 border-b border-hair/70 px-4 py-2.5">
+            <span className="text-[13px] font-bold text-ink">
+              <span className="text-quiet">#</span> northwind-deal
+            </span>
+            <span className="text-[11.5px] text-quiet">6</span>
+          </div>
+
+          <div className="space-y-3.5 px-4 py-3.5">
+            <div className="flex items-start gap-2.5">
+              <SquareAvatar initial="E" tone="bg-indigo-400" />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[12.5px] font-bold text-ink">Eric Wang</span>
+                  <span className="text-[11px] text-quiet">2:41 PM</span>
+                </div>
+                <p className="mt-0.5 text-[13px] leading-relaxed text-ink/75">
+                  <span className="rounded bg-[#1D9BD1]/10 px-1 py-0.5 font-medium text-[#1264A3]">
+                    @min
+                  </span>{" "}
+                  what did we promise Northwind on the last call?
+                </p>
+              </div>
             </div>
-            <p className="mt-0.5 text-[13px] leading-relaxed text-quiet">
-              The revised proposal by Friday, and a pilot for their west coast
-              team. Sarah asked for both on Aug 14.
-            </p>
+
+            <div className="flex items-start gap-2.5">
+              <SquareAvatar initial="m" tone="bg-ink" />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[12.5px] font-bold text-ink">min.</span>
+                  <AppBadge />
+                  <span className="text-[11px] text-quiet">2:41 PM</span>
+                </div>
+                <p className="mt-0.5 text-[13px] leading-relaxed text-ink/75">
+                  The revised proposal by Friday, and a pilot for their west
+                  coast team. Sarah asked for both on Aug 14.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -382,36 +412,49 @@ function AskCard() {
 function RitualCard() {
   return (
     <Frame>
-      <SurfaceHeader app="Teams" where="Sales · General" />
+      {/* Teams: the purple bar and the left-accented channel post card are its
+          signature. The only card where nobody asked for anything, which is
+          what a ritual is. */}
+      <div className="flex items-center gap-2 bg-[#5B5FC7] px-4 py-2.5">
+        <TeamsMark className="h-4 w-4 text-white" />
+        <span className="text-[12.5px] font-semibold text-white">Sales</span>
+        <span aria-hidden="true" className="text-[12px] text-white/50">
+          /
+        </span>
+        <span className="truncate text-[12px] text-white/80">General</span>
+      </div>
+
       <div className="px-4 py-3.5">
-        <div className="flex items-center gap-2.5">
-          <Avatar initial="m" isMin />
-          <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
-            <span className="text-[12.5px] font-semibold text-ink">min.</span>
-            <AppBadge />
-            <span className="text-[11.5px] text-quiet">Monday, 8:00 AM</span>
+        <div className="rounded-lg border border-hair border-l-[3px] border-l-[#5B5FC7] bg-white px-3.5 py-3">
+          <div className="flex items-center gap-2.5">
+            <Avatar initial="m" isMin />
+            <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
+              <span className="text-[12.5px] font-semibold text-ink">min.</span>
+              <AppBadge />
+              <span className="text-[11px] text-quiet">Monday, 8:00 AM</span>
+            </div>
           </div>
+          <p className="mt-2.5 text-[13.5px] font-semibold text-ink">
+            Monday summary
+          </p>
+          <ul className="mt-1.5 space-y-1">
+            {[
+              "Northwind moved to contract review.",
+              "4 follow ups went out, 3 came back.",
+              "Sam still owes the comparison table.",
+            ].map((line) => (
+              <li
+                key={line}
+                className="flex gap-2 text-[13px] leading-relaxed text-quiet"
+              >
+                <span aria-hidden="true" className="text-hair">
+                  ·
+                </span>
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <p className="mt-3 text-[13.5px] font-semibold text-ink">
-          Monday summary
-        </p>
-        <ul className="mt-1.5 space-y-1">
-          {[
-            "Northwind moved to contract review.",
-            "4 follow ups went out, 3 came back.",
-            "Sam still owes the comparison table.",
-          ].map((line) => (
-            <li
-              key={line}
-              className="flex gap-2 text-[13px] leading-relaxed text-quiet"
-            >
-              <span aria-hidden="true" className="text-hair">
-                ·
-              </span>
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </Frame>
   );
@@ -449,10 +492,10 @@ const EXAMPLES = [
     Card: FollowUpCard,
   },
   {
-    key: "remember",
-    label: "Remember",
+    key: "recall",
+    label: "Recall",
     line: "Ask what was decided and it tells you who said what.",
-    Card: ReplyCard,
+    Card: RecallCard,
   },
   { key: "ask", label: "Ask", line: "Same answers, in Slack or Teams.", Card: AskCard },
   {
@@ -520,7 +563,7 @@ function Stage() {
 
         {/* Stage. The min-height holds the frame steady so switching does not
             shunt the page around; the tallest card sets it. */}
-        <div className="flex flex-col lg:min-h-[19rem]">
+        <div className="flex flex-col lg:min-h-[20rem]">
           <p
             key={`${current.key}-line`}
             className="mb-5 max-w-[26rem] text-[15px] leading-[1.6] text-quiet motion-safe:animate-[stage-in_320ms_ease-out]"
@@ -544,6 +587,61 @@ function Stage() {
  * what it is, and which is also the treatment Eric asked for the address to
  * have: a highlighted line, the way a dev tool shows you a value.
  */
+function Fan() {
+  const people = [
+    { initial: "P", name: "Priya", tone: "bg-rose-400" },
+    { initial: "E", name: "Eric", tone: "bg-indigo-400" },
+    { initial: "S", name: "Sam", tone: "bg-amber-400" },
+  ];
+  return (
+    <div aria-hidden="true" className="w-[17rem] select-none">
+      <div className="rounded-lg border border-hair bg-white px-3.5 py-2.5 text-center shadow-[0_1px_2px_rgba(12,18,17,0.04)]">
+        <p className="text-[12.5px] font-medium text-ink">Weekly design sync</p>
+        <p className="mt-0.5 text-[11.5px] text-quiet">min. took the notes</p>
+      </div>
+
+      {/* Trunk, then one branch per person. Borders, not paths. */}
+      <div className="mx-auto h-5 w-px bg-hair" />
+      <div className="flex">
+        {people.map((_, i) => (
+          <div key={i} className="flex-1">
+            <div
+              className={`h-px ${i === 0 ? "ml-1/2" : ""} ${
+                i === 0 || i === people.length - 1 ? "mx-auto w-1/2" : "w-full"
+              } bg-hair`}
+              style={
+                i === 0
+                  ? { marginLeft: "50%", width: "50%" }
+                  : i === people.length - 1
+                  ? { marginRight: "50%", width: "50%" }
+                  : undefined
+              }
+            />
+            <div className="mx-auto h-5 w-px bg-hair" />
+          </div>
+        ))}
+      </div>
+
+      <div className="flex">
+        {people.map((p) => (
+          <div key={p.name} className="flex flex-1 flex-col items-center gap-1.5">
+            <span
+              className={`grid h-7 w-7 place-items-center rounded-full text-[11px] font-semibold text-white ${p.tone}`}
+            >
+              {p.initial}
+            </span>
+            <span className="text-[11.5px] text-quiet">{p.name}</span>
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-4 text-center text-[11.5px] leading-relaxed text-quiet">
+        Everyone who was there can ask about it later.
+      </p>
+    </div>
+  );
+}
+
 function AddressField() {
   const { copied, copy } = useCopy();
   return (
@@ -650,7 +748,9 @@ export default function PlainLanding() {
         <Stage />
 
         {/* Teams */}
-        <div id="team" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-36">
+        <div id="team" className="mt-28 scroll-mt-28 md:mt-36">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,34rem)_auto] lg:items-center lg:gap-16">
+            <div>
           <h2 className="font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink">
             It works the same way for your team.
           </h2>
@@ -667,6 +767,11 @@ export default function PlainLanding() {
           <p className="mt-6 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
             Share your own context with your team. You are always in control.
           </p>
+            </div>
+            <div className="hidden lg:block">
+              <Fan />
+            </div>
+          </div>
         </div>
 
         {/* Close */}
