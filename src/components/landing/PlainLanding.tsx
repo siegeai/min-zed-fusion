@@ -791,7 +791,7 @@ export default function PlainLanding() {
         {/* Close */}
         <div className="mt-24 max-w-[38rem] border-t border-hair pt-12">
           <p className="font-display text-[19px] font-semibold tracking-[-0.02em] text-ink">
-            Give it something small today.
+            Give it something to do today.
           </p>
           <div className="mt-5">
             <AddressLine size="sm" />

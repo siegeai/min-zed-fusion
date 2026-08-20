@@ -209,7 +209,7 @@ export default function About() {
           <section id="cta" className="pb-24 pt-8">
             <div className="max-w-3xl mx-auto px-6 text-center">
               <h3 className="font-display text-gray-900 text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
-                Give it something small today.
+                Give it something to do today.
               </h3>
               <p className="text-gray-600 mb-7 max-w-xl mx-auto">
                 Shoot a hello email to min@getmin.ai, or download the app. Free
