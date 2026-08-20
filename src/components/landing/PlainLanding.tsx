@@ -538,11 +538,21 @@ export default function PlainLanding() {
         </div>
 
         {/* ── The examples ── */}
+        {/* The band keeps the reading column's left edge and runs out to the
+            right instead, so the page still rags left while the examples take
+            whatever width the window gives them. The negative margin is the
+            distance from the container's content edge to the viewport, less a
+            gutter, and only applies once the container has stopped growing.
+            Capped on very wide screens so the cards do not inflate past the
+            width a real mail client would use. */}
         <div
           id="does"
-          className="mt-20 scroll-mt-24 [--drift:0.3] sm:[--drift:1]"
+          className="mt-20 scroll-mt-24 [--drift:0.3] sm:[--drift:1] lg:mr-[calc(31rem-50vw)] lg:max-w-[104rem]"
         >
-          <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 sm:gap-y-7">
+          {/* Column counts are chosen so a card never falls under about 330px,
+              which is where the invite's RSVP row and the guest rows start to
+              feel cramped. Two columns wait for md for that reason. */}
+          <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2 md:gap-y-7 lg:grid-cols-3 lg:gap-x-12">
             <ScheduleCard />
             <NotetakerCard />
             <ReminderCard />
