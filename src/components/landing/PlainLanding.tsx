@@ -290,26 +290,27 @@ export default function PlainLanding() {
           </div>
         </div>
 
-        {/* ── Trust, as prose with ink-weighted clauses ── */}
-        <div id="trust" className="mt-28 max-w-[34rem] scroll-mt-24">
+        {/* ── What it does for the team ── */}
+        <div id="team" className="mt-28 max-w-[41rem] scroll-mt-24">
           <h2 className="font-display text-[16.5px] font-semibold tracking-[-0.01em] text-gray-900">
-            Private by default. Share deliberately.
+            It works the same way for your team.
           </h2>
           <p className="mt-4 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
-            min. remembers things privately for you{" "}
-            <span className="text-gray-900">unless you share them</span>. It can
-            sit in a sensitive 1:1 without making it company knowledge.{" "}
-            <span className="text-gray-900">
-              Seeing something is never sharing it.
-            </span>{" "}
-            Shared memory lives in spaces: your team is the first one.
+            <span className="text-gray-900">Team notes.</span> Invite min. to
+            the meeting and everyone who was there gets the notes, and can ask
+            about it later.
           </p>
-          <p className="mt-3.5 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
-            And it{" "}
-            <span className="text-gray-900">
-              never coaches, scores, or manages you
-            </span>
-            . It quietly does the small things so the team does not have to.
+          <p className="mt-3 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
+            <span className="text-gray-900">Team reminders.</span> What was
+            promised and who owes what, brought back when it matters.
+          </p>
+          <p className="mt-3 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
+            <span className="text-gray-900">Team rituals.</span> Daily briefs,
+            Monday summaries, pre-meeting preps. To your inbox or your channel,
+            on your schedule.
+          </p>
+          <p className="mt-5 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
+            Shared only where you share it. A 1:1 stays yours.
           </p>
         </div>
 
