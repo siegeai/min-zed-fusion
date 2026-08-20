@@ -53,7 +53,7 @@ const TermsOfService = () => {
       <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-moss text-white px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           tabIndex={1}
         >
           Skip to main content
@@ -306,7 +306,7 @@ const TermsOfService = () => {
                     href="https://developers.google.com/terms/api-services-user-data-policy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline"
+                    className="text-moss hover:text-moss underline-offset-2 hover:underline"
                   >
                     Google User Data Policy
                   </a>
@@ -419,7 +419,7 @@ const TermsOfService = () => {
                   Email:{" "}
                   <a
                     href="mailto:hello@getmin.ai"
-                    className="text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline"
+                    className="text-moss hover:text-moss underline-offset-2 hover:underline"
                   >
                     hello@getmin.ai
                   </a>

@@ -46,7 +46,7 @@ const PLANS: Plan[] = [
   },
   {
     name: "Pro",
-    swatch: "bg-emerald-500",
+    swatch: "bg-moss",
     price: { display: "$20", sub: "/ active teammate / mo" },
     who: { label: "For your team", strong: true },
     inheritFrom: "Free",
@@ -122,7 +122,7 @@ const Pricing = () => {
           <div className="relative max-w-5xl mx-auto px-6">
             <header className="text-center mb-14 md:mb-16">
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.05] text-4xl md:text-6xl">
-                Free to <span className="text-emerald-600">use</span>.
+                Free to <span className="text-moss">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 Free for you, forever. You pay when min. starts working across
@@ -194,7 +194,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         <span
           className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-medium ${
             plan.who.strong
-              ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
+              ? "border border-moss/25 bg-moss-soft text-moss"
               : "border border-gray-200 bg-gray-50 text-gray-600"
           }`}
         >
@@ -209,7 +209,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       <ul className="flex-1 space-y-2.5 mb-6">
         {plan.features.map((f) => (
           <li key={f} className="flex items-start gap-2 text-[13.5px]">
-            <Check className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" strokeWidth={2.5} />
+            <Check className="w-4 h-4 text-moss mt-0.5 shrink-0" strokeWidth={2.5} />
             <span className="text-gray-600">{f}</span>
           </li>
         ))}

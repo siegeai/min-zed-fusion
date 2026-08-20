@@ -77,7 +77,7 @@ export default function About() {
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
                 Somebody has to do
                 <br className="hidden sm:block" />{" "}
-                the <span className="text-blue-600">little things</span>.
+                the <span className="text-moss">little things</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
                 The notes, the scheduling, the reminders, the follow ups. It is
@@ -272,7 +272,7 @@ function TeamCard({
               </div>
             )}
           </div>
-          <p className="text-blue-600 text-xs font-medium tracking-wide mb-3">
+          <p className="text-moss text-xs font-medium tracking-wide mb-3">
             {title}
           </p>
           <p className="text-sm text-gray-600 leading-relaxed">{bio}</p>

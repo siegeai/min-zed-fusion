@@ -121,7 +121,7 @@ const BlogPost = () => {
                     return (
                       <blockquote
                         key={i}
-                        className="my-7 border-l-2 border-emerald-400 pl-5 font-display text-[20px] md:text-[22px] leading-snug tracking-[-0.01em] text-gray-900"
+                        className="my-7 border-l-2 border-moss/25 pl-5 font-display text-[20px] md:text-[22px] leading-snug tracking-[-0.01em] text-gray-900"
                       >
                         {b.text}
                       </blockquote>

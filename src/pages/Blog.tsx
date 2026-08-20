@@ -83,13 +83,13 @@ const Blog = () => {
                         <span aria-hidden="true">·</span>
                         <span>{p.readTime}</span>
                       </div>
-                      <h2 className="mt-2 font-display text-[22px] md:text-[26px] font-semibold tracking-[-0.02em] text-gray-900 group-hover:text-emerald-700 transition-colors">
+                      <h2 className="mt-2 font-display text-[22px] md:text-[26px] font-semibold tracking-[-0.02em] text-gray-900 group-hover:text-moss transition-colors">
                         {p.title}
                       </h2>
                       <p className="mt-2.5 text-[15px] leading-relaxed text-gray-600 max-w-2xl">
                         {p.excerpt}
                       </p>
-                      <span className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium text-emerald-700">
+                      <span className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium text-moss">
                         Read
                         <ArrowRight
                           className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"

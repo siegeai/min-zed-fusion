@@ -93,7 +93,7 @@ export default function Careers() {
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
                 Build the teammate that does{" "}
-                <span className="text-blue-600">the little things</span>.
+                <span className="text-moss">the little things</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 No job postings. No five-round interviews. Email us what you've
@@ -129,7 +129,7 @@ export default function Careers() {
                     aria-label="Copy email"
                   >
                     {copied ? (
-                      <Check className="w-4 h-4 text-emerald-600" />
+                      <Check className="w-4 h-4 text-moss" />
                     ) : (
                       <Copy className="w-4 h-4 text-gray-400" />
                     )}
@@ -183,7 +183,7 @@ export default function Careers() {
                       key={b}
                       className="text-sm text-gray-600 flex items-start gap-2"
                     >
-                      <span className="mt-1.5 block w-1 h-1 rounded-full bg-blue-600 shrink-0" />
+                      <span className="mt-1.5 block w-1 h-1 rounded-full bg-moss shrink-0" />
                       {b}
                     </li>
                   ))}

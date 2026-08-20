@@ -155,8 +155,8 @@ const BlogPostAntiCRM = () => {
                     
                     <p>You fall back to Gmail or Superhuman or Hey, not because they're better, but because they're closer to the truth.</p>
                     
-                    <div className="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
-                      <p className="text-blue-900 text-lg font-medium">The truth is: Relationships don't live in CRMs. They live in inboxes.</p>
+                    <div className="bg-moss-soft/50 rounded-xl p-6 border border-moss/25">
+                      <p className="text-moss text-lg font-medium">The truth is: Relationships don't live in CRMs. They live in inboxes.</p>
                     </div>
                     
                     <p>That's where trust is built. Where people reply. Where things get said that don't fit in a dropdown menu.</p>

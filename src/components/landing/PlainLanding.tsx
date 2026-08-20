@@ -4,34 +4,32 @@ import Constellation from "./Constellation";
 import { getDownloadTarget } from "@/lib/download";
 
 /**
- * The whole landing page as one typeset document.
+ * The landing page, sixth pass: minimal and sleek, per Eric.
  *
- * Design rules, per Eric: plain text does the work, decoration lives in the
- * BACKGROUND, and the page should be understood in fifteen seconds.
+ * The previous version had drifted. Seven example cards laid out flat ran the
+ * page past 2800px, which is the opposite of the fifteen-second read it was
+ * supposed to be. The examples themselves were right, so none of that copy
+ * changed; what changed is that they no longer all shout at once.
  *
- * Layout, fifth pass. The examples are things you would actually see in your
- * mail client, not code: real message chrome, sender rows, sans-serif bodies.
- * They are not all email either, because using min. is not all email; the
- * notetaker example is a calendar invite with min. on the guest list, and the
- * scheduling example is a normal note to a human with min. on Cc, which is how
- * scheduling actually works.
+ * The band became a rail and a stage. Seven words down the left read in about
+ * two seconds and carry the whole capability list on their own. One example
+ * sits beside them, full size and untilted, because a single card has nothing
+ * to scatter against and precision reads better than arrangement here.
  *
- * Reminder and Follow up are separate cards on purpose. A reminder comes back
- * to you; a follow up goes out to someone else, from your own address, and
- * keeps going until they answer. Collapsing them hid the second one entirely.
+ * Type is Geist and Geist Mono, one super family. The site had been on Inter
+ * with Space Grotesk display, which is the pairing every generated page
+ * reaches for. Mono is load bearing rather than decorative: it marks the two
+ * things that are literally machine addresses, the rail and the email.
  *
- * Four cards of things going in, then three of things coming back, the last
- * two on the surfaces people already sit in. Slack is the asking one and
- * Teams the automatic one, since that is how the two actually get used.
- *
- * Seven leaves the ritual card alone in the left column at the end, which is
- * where it wants to be anyway: it is the one nobody prompted, and it hands
- * straight off to the team section below it.
- *
- * The band breaks out of the reading column to use the horizontal space, while
- * the prose stays at a comfortable measure.
+ * Colour is a green biased neutral ramp against one deep accent, so the greys
+ * belong to the accent rather than sitting next to it.
  */
 
+/*
+ * Shape lock: frames and stage cards are rounded-xl, inline chips are
+ * rounded (4px), and anything that mimics a real client control (avatars,
+ * RSVP pills) keeps that control's own shape. Nothing else invents a radius.
+ */
 const ADDRESS = "min@getmin.ai";
 
 function useCopy() {
@@ -51,7 +49,7 @@ function useCopy() {
 /** The one piece of emphasis in the cards: min. wherever it is addressed. */
 function MinChip() {
   return (
-    <span className="rounded bg-emerald-50 px-1.5 py-0.5 font-medium text-emerald-700">
+    <span className="rounded bg-moss-soft px-1.5 py-0.5 font-medium text-moss">
       {ADDRESS}
     </span>
   );
@@ -62,7 +60,7 @@ function Avatar({ initial, isMin = false }: { initial: string; isMin?: boolean }
     <span
       aria-hidden="true"
       className={`grid h-7 w-7 shrink-0 place-items-center rounded-full text-[11px] font-semibold ${
-        isMin ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"
+        isMin ? "bg-ink text-white" : "bg-hair/60 text-quiet"
       }`}
     >
       {initial}
@@ -70,76 +68,15 @@ function Avatar({ initial, isMin = false }: { initial: string; isMin?: boolean }
   );
 }
 
-function Shell({
-  label,
-  tilt,
-  dy,
-  z,
-  children,
-}: {
-  label: string;
-  tilt: number;
-  dy: number;
-  z: number;
-  children: React.ReactNode;
-}) {
+/** The stage card. No tilt, no label: the rail names it. */
+function Frame({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      className="relative"
-      style={{
-        transform: `rotate(${tilt}deg) translateY(calc(${dy}px * var(--drift, 1)))`,
-        zIndex: z,
-      }}
-    >
-      <p className="mb-2 pl-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gray-400">
-        {label}
-      </p>
-      <div className="rounded-xl border border-gray-200/90 bg-white shadow-[0_18px_50px_-24px_rgba(0,0,0,0.28)] transition-transform duration-300 ease-out hover:-translate-y-1">
-        {children}
-      </div>
+    <div className="overflow-hidden rounded-xl border border-hair bg-white shadow-[0_1px_2px_rgba(12,18,17,0.04),0_16px_40px_-28px_rgba(12,18,17,0.22)]">
+      {children}
     </div>
   );
 }
 
-/* ── Schedule: a normal note to a person, with min. on Cc ─────────────── */
-function ScheduleCard() {
-  return (
-    <Shell label="Schedule" tilt={-0.7} dy={0} z={7}>
-      <div className="flex items-start gap-3 px-4 pt-4">
-        <Avatar initial="E" />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-baseline justify-between gap-3">
-            <span className="text-[13.5px] font-semibold text-gray-900">Eric Wang</span>
-            <span className="shrink-0 text-[12px] text-gray-400">10:24 AM</span>
-          </div>
-          <p className="mt-0.5 text-[12.5px] leading-relaxed text-gray-500">
-            To: sarah@northwind.co
-          </p>
-          <p className="text-[12.5px] leading-relaxed text-gray-500">
-            Cc: <MinChip />
-          </p>
-        </div>
-      </div>
-      <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
-        <p className="text-[13.5px] font-semibold text-gray-900">Intro call</p>
-        <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
-          Sarah, great meeting you. Can we find 30 minutes next week? Putting
-          min. on Cc to sort out a time.
-        </p>
-      </div>
-    </Shell>
-  );
-}
-
-/* ── Notetaker: a calendar invite, min. on the guest list ──────────────────
- *
- * Modelled on the real Google Calendar event panel rather than an idea of one.
- * The tells that make it read as an invite and not a generic card: the colour
- * chip beside the title, the recurrence line under the date, a left rail of
- * icons with content hanging off it, guests as avatar rows with Organizer as a
- * sublabel rather than an inline tag, the "n guests / n yes" count, and Going?
- * as outlined pills. Times are written "to" instead of an en dash, per voice.
- */
 function GuestAvatar({ initial, tone }: { initial: string; tone: string }) {
   return (
     <span
@@ -151,214 +88,14 @@ function GuestAvatar({ initial, tone }: { initial: string; tone: string }) {
   );
 }
 
-function NotetakerCard() {
-  return (
-    <Shell label="Notetaker" tilt={0.55} dy={20} z={6}>
-      {/* Title block: colour chip, name, when, recurrence. */}
-      <div className="flex items-start gap-2.5 px-4 pt-4">
-        <span
-          aria-hidden="true"
-          className="mt-[6px] h-3 w-3 shrink-0 rounded-[3px] bg-indigo-400"
-        />
-        <div className="min-w-0">
-          <p className="text-[15px] leading-tight text-gray-900">
-            Weekly design sync
-          </p>
-          <p className="mt-1.5 text-[12.5px] leading-snug text-gray-500">
-            Thursday, August 21 · 2:00 to 2:30pm
-          </p>
-          <p className="text-[12.5px] leading-snug text-gray-500">
-            Weekly on Thursday
-          </p>
-        </div>
-      </div>
-
-      {/* Conferencing row. */}
-      <div className="mt-4 flex items-start gap-3 px-4">
-        <Video className="mt-px h-4 w-4 shrink-0 text-gray-400" strokeWidth={1.75} />
-        <div className="min-w-0">
-          <p className="text-[12.5px] leading-snug text-gray-700">
-            Join with Google Meet
-          </p>
-          <p className="text-[12px] leading-snug text-gray-400">
-            meet.google.com/rkx-hqvn
-          </p>
-        </div>
-      </div>
-
-      {/* Guests, with min. on the list. */}
-      <div className="mt-4 flex items-start gap-3 px-4 pb-4">
-        <Users className="mt-px h-4 w-4 shrink-0 text-gray-400" strokeWidth={1.75} />
-        <div className="min-w-0 flex-1">
-          <p className="text-[12.5px] leading-snug text-gray-700">3 guests</p>
-          <p className="text-[12px] leading-snug text-gray-400">3 yes</p>
-          <ul className="mt-2.5 space-y-2">
-            <li className="flex items-center gap-2.5">
-              <GuestAvatar initial="P" tone="bg-rose-400" />
-              <span className="min-w-0">
-                <span className="block text-[12.5px] leading-tight text-gray-700">
-                  Priya Shah
-                </span>
-                <span className="block text-[11.5px] leading-tight text-gray-400">
-                  Organizer
-                </span>
-              </span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <GuestAvatar initial="E" tone="bg-indigo-400" />
-              <span className="text-[12.5px] text-gray-700">Eric Wang</span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <GuestAvatar initial="m" tone="bg-gray-900" />
-              <span className="text-[12.5px]">
-                <MinChip />
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      {/* RSVP bar. */}
-      <div className="flex items-center gap-2 border-t border-gray-100 px-4 py-3">
-        <span className="mr-0.5 text-[12.5px] text-gray-500">Going?</span>
-        <span className="rounded-full border border-gray-400 px-3 py-[3px] text-[11.5px] font-medium text-gray-900">
-          Yes
-        </span>
-        <span className="rounded-full border border-gray-200 px-3 py-[3px] text-[11.5px] text-gray-500">
-          No
-        </span>
-        <span className="rounded-full border border-gray-200 px-3 py-[3px] text-[11.5px] text-gray-500">
-          Maybe
-        </span>
-      </div>
-    </Shell>
-  );
-}
-
-/* ── Reminder: comes back to you ───────────────────────────────────────── */
-function ReminderCard() {
-  return (
-    <Shell label="Reminder" tilt={0.7} dy={-12} z={5}>
-      <div className="flex items-start gap-3 px-4 pt-4">
-        <Avatar initial="E" />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-baseline justify-between gap-3">
-            <span className="text-[13.5px] font-semibold text-gray-900">Eric Wang</span>
-            <span className="shrink-0 text-[12px] text-gray-400">4:02 PM</span>
-          </div>
-          <p className="mt-0.5 text-[12.5px] leading-relaxed text-gray-500">
-            To: <MinChip />
-          </p>
-        </div>
-      </div>
-      <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
-        <p className="text-[13.5px] font-semibold text-gray-900">
-          Fwd: Pricing proposal
-        </p>
-        <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
-          Remind me to check in with John in 3 months.
-        </p>
-        {/* The quoted original. Without it the card asks you to take the
-            three months on faith; with it, John is the one who set the date. */}
-        <div className="mt-3 border-l-2 border-gray-200 pl-3">
-          <p className="text-[11.5px] leading-snug text-gray-400">
-            From: John Reyes
-          </p>
-          <p className="text-[11.5px] leading-snug text-gray-400">
-            Aug 19, 3:48 PM
-          </p>
-          <p className="mt-1.5 text-[12.5px] leading-relaxed text-gray-500">
-            Thanks for putting this together. We're not budgeting for new
-            tooling until Q1. Check back with me then.
-          </p>
-        </div>
-      </div>
-    </Shell>
-  );
-}
-
-/* ── Follow up: goes out from your address, until they answer ──────────── */
-function FollowUpCard() {
-  return (
-    <Shell label="Follow up" tilt={-0.5} dy={30} z={4}>
-      <div className="flex items-start gap-3 px-4 pt-4">
-        <Avatar initial="E" />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-baseline justify-between gap-3">
-            <span className="text-[13.5px] font-semibold text-gray-900">Eric Wang</span>
-            <span className="shrink-0 text-[12px] text-gray-400">9:15 AM</span>
-          </div>
-          <p className="mt-0.5 text-[12.5px] leading-relaxed text-gray-500">
-            To: <MinChip />
-          </p>
-        </div>
-      </div>
-      <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
-        <p className="text-[13.5px] font-semibold text-gray-900">
-          Fwd: Contract redlines
-        </p>
-        <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
-          Keep after Maya on this until she replies. Send it from me.
-        </p>
-      </div>
-      <div className="border-t border-gray-100 px-4 py-2.5">
-        <p className="text-[12px] leading-relaxed text-gray-400">
-          Nudged twice from your address. Maya replied Aug 18.
-        </p>
-      </div>
-    </Shell>
-  );
-}
-
-/* ── Remember: what comes back ─────────────────────────────────────────── */
-function ReplyCard() {
-  return (
-    <Shell label="Remember" tilt={-0.6} dy={6} z={3}>
-      <div className="flex items-start gap-3 px-4 pt-4">
-        <Avatar initial="m" isMin />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-baseline justify-between gap-3">
-            {/* The reply is the one card where min. is the sender, so the
-                address belongs on the From line the way a mail client shows
-                it, not just in the body. */}
-            <span className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
-              <span className="text-[13.5px] font-semibold text-gray-900">min.</span>
-              <span className="text-[12.5px]">
-                <MinChip />
-              </span>
-            </span>
-            <span className="shrink-0 text-[12px] text-gray-400">now</span>
-          </div>
-          <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">To: you</p>
-        </div>
-      </div>
-      <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
-        <p className="text-[13.5px] font-semibold text-gray-900">
-          Re: what did we decide about the pricing page?
-        </p>
-        <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
-          On the Aug 12 call you and Priya agreed to hold at $20 a seat and
-          revisit after launch. Sam was going to redo the comparison table.
-        </p>
-      </div>
-    </Shell>
-  );
-}
-
-/* ── Ask: Slack, where people already ask each other things ────────────────
- *
- * Slack tells: the #channel, square avatars rather than circles, and the APP
- * badge every bot carries. The mention gets min.'s green instead of Slack's
- * blue so the eye still tracks one colour across the whole band.
- */
 function SurfaceHeader({ app, where }: { app: string; where: string }) {
   return (
-    <div className="flex items-center gap-2 border-b border-gray-100 px-4 py-2.5">
-      <span className="text-[12px] font-medium text-gray-500">{app}</span>
-      <span aria-hidden="true" className="text-[12px] text-gray-300">
+    <div className="flex items-center gap-2 border-b border-hair/70 px-4 py-2.5">
+      <span className="text-[12px] font-medium text-quiet">{app}</span>
+      <span aria-hidden="true" className="text-[12px] text-hair">
         ·
       </span>
-      <span className="truncate text-[12px] text-gray-400">{where}</span>
+      <span className="truncate text-[12px] text-quiet">{where}</span>
     </div>
   );
 }
@@ -376,28 +113,248 @@ function SquareAvatar({ initial, tone }: { initial: string; tone: string }) {
 
 function AppBadge() {
   return (
-    <span className="rounded-[3px] bg-gray-100 px-1 py-px text-[9px] font-semibold uppercase tracking-wide text-gray-500">
+    <span className="rounded-[3px] bg-hair/60 px-1 py-px text-[9px] font-semibold uppercase tracking-wide text-quiet">
       App
     </span>
   );
 }
 
+function ScheduleCard() {
+  return (
+    <Frame>
+      <div className="flex items-start gap-3 px-4 pt-4">
+        <Avatar initial="E" />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="text-[13.5px] font-semibold text-ink">Eric Wang</span>
+            <span className="shrink-0 text-[12px] text-quiet">10:24 AM</span>
+          </div>
+          <p className="mt-0.5 text-[12.5px] leading-relaxed text-quiet">
+            To: sarah@northwind.co
+          </p>
+          <p className="text-[12.5px] leading-relaxed text-quiet">
+            Cc: <MinChip />
+          </p>
+        </div>
+      </div>
+      <div className="mt-3 border-t border-hair/70 px-4 py-3.5">
+        <p className="text-[13.5px] font-semibold text-ink">Intro call</p>
+        <p className="mt-1 text-[13.5px] leading-relaxed text-quiet">
+          Sarah, great meeting you. Can we find 30 minutes next week? Putting
+          min. on Cc to sort out a time.
+        </p>
+      </div>
+    </Frame>
+  );
+}
+
+function NotetakerCard() {
+  return (
+    <Frame>
+      {/* Title block: colour chip, name, when, recurrence. */}
+      <div className="flex items-start gap-2.5 px-4 pt-4">
+        <span
+          aria-hidden="true"
+          className="mt-[6px] h-3 w-3 shrink-0 rounded-[3px] bg-indigo-400"
+        />
+        <div className="min-w-0">
+          <p className="text-[15px] leading-tight text-ink">
+            Weekly design sync
+          </p>
+          <p className="mt-1.5 text-[12.5px] leading-snug text-quiet">
+            Thursday, August 21 · 2:00 to 2:30pm
+          </p>
+          <p className="text-[12.5px] leading-snug text-quiet">
+            Weekly on Thursday
+          </p>
+        </div>
+      </div>
+
+      {/* Conferencing row. */}
+      <div className="mt-4 flex items-start gap-3 px-4">
+        <Video className="mt-px h-4 w-4 shrink-0 text-quiet" strokeWidth={1.75} />
+        <div className="min-w-0">
+          <p className="text-[12.5px] leading-snug text-ink/75">
+            Join with Google Meet
+          </p>
+          <p className="text-[12px] leading-snug text-quiet">
+            meet.google.com/rkx-hqvn
+          </p>
+        </div>
+      </div>
+
+      {/* Guests, with min. on the list. */}
+      <div className="mt-4 flex items-start gap-3 px-4 pb-4">
+        <Users className="mt-px h-4 w-4 shrink-0 text-quiet" strokeWidth={1.75} />
+        <div className="min-w-0 flex-1">
+          <p className="text-[12.5px] leading-snug text-ink/75">3 guests</p>
+          <p className="text-[12px] leading-snug text-quiet">3 yes</p>
+          <ul className="mt-2.5 space-y-2">
+            <li className="flex items-center gap-2.5">
+              <GuestAvatar initial="P" tone="bg-rose-400" />
+              <span className="min-w-0">
+                <span className="block text-[12.5px] leading-tight text-ink/75">
+                  Priya Shah
+                </span>
+                <span className="block text-[11.5px] leading-tight text-quiet">
+                  Organizer
+                </span>
+              </span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <GuestAvatar initial="E" tone="bg-indigo-400" />
+              <span className="text-[12.5px] text-ink/75">Eric Wang</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <GuestAvatar initial="m" tone="bg-ink" />
+              <span className="text-[12.5px]">
+                <MinChip />
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* RSVP bar. */}
+      <div className="flex items-center gap-2 border-t border-hair/70 px-4 py-3">
+        <span className="mr-0.5 text-[12.5px] text-quiet">Going?</span>
+        <span className="rounded-full border border-ink/35 px-3 py-[3px] text-[11.5px] font-medium text-ink">
+          Yes
+        </span>
+        <span className="rounded-full border border-hair px-3 py-[3px] text-[11.5px] text-quiet">
+          No
+        </span>
+        <span className="rounded-full border border-hair px-3 py-[3px] text-[11.5px] text-quiet">
+          Maybe
+        </span>
+      </div>
+    </Frame>
+  );
+}
+
+function ReminderCard() {
+  return (
+    <Frame>
+      <div className="flex items-start gap-3 px-4 pt-4">
+        <Avatar initial="E" />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="text-[13.5px] font-semibold text-ink">Eric Wang</span>
+            <span className="shrink-0 text-[12px] text-quiet">4:02 PM</span>
+          </div>
+          <p className="mt-0.5 text-[12.5px] leading-relaxed text-quiet">
+            To: <MinChip />
+          </p>
+        </div>
+      </div>
+      <div className="mt-3 border-t border-hair/70 px-4 py-3.5">
+        <p className="text-[13.5px] font-semibold text-ink">
+          Fwd: Pricing proposal
+        </p>
+        <p className="mt-1 text-[13.5px] leading-relaxed text-quiet">
+          Remind me to check in with John in 3 months.
+        </p>
+        {/* The quoted original. Without it the card asks you to take the
+            three months on faith; with it, John is the one who set the date. */}
+        <div className="mt-3 border-l-2 border-hair pl-3">
+          <p className="text-[11.5px] leading-snug text-quiet">
+            From: John Reyes
+          </p>
+          <p className="text-[11.5px] leading-snug text-quiet">
+            Aug 19, 3:48 PM
+          </p>
+          <p className="mt-1.5 text-[12.5px] leading-relaxed text-quiet">
+            Thanks for putting this together. We're not budgeting for new
+            tooling until Q1. Check back with me then.
+          </p>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+function FollowUpCard() {
+  return (
+    <Frame>
+      <div className="flex items-start gap-3 px-4 pt-4">
+        <Avatar initial="E" />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="text-[13.5px] font-semibold text-ink">Eric Wang</span>
+            <span className="shrink-0 text-[12px] text-quiet">9:15 AM</span>
+          </div>
+          <p className="mt-0.5 text-[12.5px] leading-relaxed text-quiet">
+            To: <MinChip />
+          </p>
+        </div>
+      </div>
+      <div className="mt-3 border-t border-hair/70 px-4 py-3.5">
+        <p className="text-[13.5px] font-semibold text-ink">
+          Fwd: Contract redlines
+        </p>
+        <p className="mt-1 text-[13.5px] leading-relaxed text-quiet">
+          Keep after Maya on this until she replies. Send it from me.
+        </p>
+      </div>
+      <div className="border-t border-hair/70 px-4 py-2.5">
+        <p className="text-[12px] leading-relaxed text-quiet">
+          Nudged twice from your address. Maya replied Aug 18.
+        </p>
+      </div>
+    </Frame>
+  );
+}
+
+function ReplyCard() {
+  return (
+    <Frame>
+      <div className="flex items-start gap-3 px-4 pt-4">
+        <Avatar initial="m" isMin />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            {/* The reply is the one card where min. is the sender, so the
+                address belongs on the From line the way a mail client shows
+                it, not just in the body. */}
+            <span className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
+              <span className="text-[13.5px] font-semibold text-ink">min.</span>
+              <span className="text-[12.5px]">
+                <MinChip />
+              </span>
+            </span>
+            <span className="shrink-0 text-[12px] text-quiet">now</span>
+          </div>
+          <p className="mt-1 text-[12.5px] leading-relaxed text-quiet">To: you</p>
+        </div>
+      </div>
+      <div className="mt-3 border-t border-hair/70 px-4 py-3.5">
+        <p className="text-[13.5px] font-semibold text-ink">
+          Re: what did we decide about the pricing page?
+        </p>
+        <p className="mt-1 text-[13.5px] leading-relaxed text-quiet">
+          On the Aug 12 call you and Priya agreed to hold at $20 a seat and
+          revisit after launch. Sam was going to redo the comparison table.
+        </p>
+      </div>
+    </Frame>
+  );
+}
+
 function AskCard() {
   return (
-    <Shell label="Ask" tilt={0.65} dy={24} z={2}>
+    <Frame>
       <SurfaceHeader app="Slack" where="#northwind-deal" />
       <div className="space-y-3.5 px-4 py-3.5">
         <div className="flex items-start gap-2.5">
           <SquareAvatar initial="E" tone="bg-indigo-400" />
           <div className="min-w-0 flex-1">
             <div className="flex items-baseline gap-2">
-              <span className="text-[12.5px] font-semibold text-gray-900">
+              <span className="text-[12.5px] font-semibold text-ink">
                 Eric Wang
               </span>
-              <span className="text-[11.5px] text-gray-400">2:41 PM</span>
+              <span className="text-[11.5px] text-quiet">2:41 PM</span>
             </div>
-            <p className="mt-0.5 text-[13px] leading-relaxed text-gray-600">
-              <span className="rounded bg-emerald-50 px-1 py-0.5 font-medium text-emerald-700">
+            <p className="mt-0.5 text-[13px] leading-relaxed text-quiet">
+              <span className="rounded bg-moss-soft px-1 py-0.5 font-medium text-moss">
                 @min
               </span>{" "}
               what did we promise Northwind on the last call?
@@ -405,45 +362,40 @@ function AskCard() {
           </div>
         </div>
         <div className="flex items-start gap-2.5">
-          <SquareAvatar initial="m" tone="bg-gray-900" />
+          <SquareAvatar initial="m" tone="bg-ink" />
           <div className="min-w-0 flex-1">
             <div className="flex items-baseline gap-2">
-              <span className="text-[12.5px] font-semibold text-gray-900">
+              <span className="text-[12.5px] font-semibold text-ink">
                 min.
               </span>
               <AppBadge />
-              <span className="text-[11.5px] text-gray-400">2:41 PM</span>
+              <span className="text-[11.5px] text-quiet">2:41 PM</span>
             </div>
-            <p className="mt-0.5 text-[13px] leading-relaxed text-gray-600">
+            <p className="mt-0.5 text-[13px] leading-relaxed text-quiet">
               The revised proposal by Friday, and a pilot for their west coast
               team. Sarah asked for both on Aug 14.
             </p>
           </div>
         </div>
       </div>
-    </Shell>
+    </Frame>
   );
 }
 
-/* ── Rituals: Teams, arriving on its own ──────────────────────────────────
- *
- * The only card where nobody asked for anything. That is the whole point of a
- * ritual, so the card carries no prompt above it, just the thing showing up.
- */
 function RitualCard() {
   return (
-    <Shell label="Rituals" tilt={-0.55} dy={-8} z={1}>
+    <Frame>
       <SurfaceHeader app="Teams" where="Sales · General" />
       <div className="px-4 py-3.5">
         <div className="flex items-center gap-2.5">
           <Avatar initial="m" isMin />
           <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
-            <span className="text-[12.5px] font-semibold text-gray-900">min.</span>
+            <span className="text-[12.5px] font-semibold text-ink">min.</span>
             <AppBadge />
-            <span className="text-[11.5px] text-gray-400">Monday, 8:00 AM</span>
+            <span className="text-[11.5px] text-quiet">Monday, 8:00 AM</span>
           </div>
         </div>
-        <p className="mt-3 text-[13.5px] font-semibold text-gray-900">
+        <p className="mt-3 text-[13.5px] font-semibold text-ink">
           Monday summary
         </p>
         <ul className="mt-1.5 space-y-1">
@@ -454,9 +406,9 @@ function RitualCard() {
           ].map((line) => (
             <li
               key={line}
-              className="flex gap-2 text-[13px] leading-relaxed text-gray-600"
+              className="flex gap-2 text-[13px] leading-relaxed text-quiet"
             >
-              <span aria-hidden="true" className="text-gray-300">
+              <span aria-hidden="true" className="text-hair">
                 ·
               </span>
               <span>{line}</span>
@@ -464,30 +416,155 @@ function RitualCard() {
           ))}
         </ul>
       </div>
-    </Shell>
+    </Frame>
   );
 }
 
-function AddressLine() {
+/* ── The rail ─────────────────────────────────────────────────────────────
+ *
+ * Seven words carry the product. Each one names a thing min. does and, read
+ * top to bottom, they are the whole feature list without a single card open.
+ * The line under each is what that thing actually is, in the reader's terms.
+ */
+const EXAMPLES = [
+  {
+    key: "schedule",
+    label: "Schedule",
+    line: "Put min. on Cc and it sorts out the time with them.",
+    Card: ScheduleCard,
+  },
+  {
+    key: "notetaker",
+    label: "Notetaker",
+    line: "Add it to the invite and it writes up the meeting.",
+    Card: NotetakerCard,
+  },
+  {
+    key: "reminder",
+    label: "Reminder",
+    line: "Forward a thread and it comes back when it matters.",
+    Card: ReminderCard,
+  },
+  {
+    key: "follow-up",
+    label: "Follow up",
+    line: "It keeps after someone until they reply, from your address.",
+    Card: FollowUpCard,
+  },
+  {
+    key: "remember",
+    label: "Remember",
+    line: "Ask what was decided and it tells you who said what.",
+    Card: ReplyCard,
+  },
+  { key: "ask", label: "Ask", line: "Same answers, in Slack or Teams.", Card: AskCard },
+  {
+    key: "rituals",
+    label: "Rituals",
+    line: "Briefs and summaries that arrive without being asked.",
+    Card: RitualCard,
+  },
+];
+
+function Stage() {
+  const [active, setActive] = useState(0);
+  const current = EXAMPLES[active];
+  const Card = current.Card;
+
+  return (
+    <div
+      id="does"
+      className="mt-24 scroll-mt-28 md:mt-32"
+      onKeyDown={(e) => {
+        if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+        e.preventDefault();
+        const next =
+          e.key === "ArrowDown"
+            ? (active + 1) % EXAMPLES.length
+            : (active - 1 + EXAMPLES.length) % EXAMPLES.length;
+        setActive(next);
+        document.getElementById(`rail-${EXAMPLES[next].key}`)?.focus();
+      }}
+    >
+      <div className="grid gap-10 lg:grid-cols-[11.5rem_minmax(0,32rem)] lg:gap-14">
+        {/* Rail */}
+        <div role="tablist" aria-label="What min. can do" className="flex flex-col">
+          {EXAMPLES.map((ex, i) => {
+            const on = i === active;
+            return (
+              <button
+                key={ex.key}
+                id={`rail-${ex.key}`}
+                role="tab"
+                type="button"
+                aria-selected={on}
+                tabIndex={on ? 0 : -1}
+                onClick={() => setActive(i)}
+                onMouseEnter={() => setActive(i)}
+                className="group relative -ml-3 flex items-center gap-3 rounded px-3 py-[7px] text-left outline-none focus-visible:ring-1 focus-visible:ring-moss"
+              >
+                <span
+                  aria-hidden="true"
+                  className={`h-px transition-all duration-300 ease-out ${
+                    on ? "w-5 bg-moss" : "w-2 bg-hair group-hover:w-3.5"
+                  }`}
+                />
+                <span
+                  className={`font-mono text-[11.5px] uppercase tracking-[0.16em] transition-colors duration-200 ${
+                    on ? "text-ink" : "text-quiet group-hover:text-ink"
+                  }`}
+                >
+                  {ex.label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Stage. The min-height holds the frame steady so switching does not
+            shunt the page around; the tallest card sets it. */}
+        <div className="lg:min-h-[27rem]">
+          <p
+            key={`${current.key}-line`}
+            className="mb-5 max-w-[26rem] text-[15px] leading-[1.6] text-quiet motion-safe:animate-[stage-in_320ms_ease-out]"
+          >
+            {current.line}
+          </p>
+          <div
+            key={current.key}
+            className="motion-safe:animate-[stage-in_320ms_ease-out]"
+          >
+            <Card />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AddressLine({ size = "lg" }: { size?: "lg" | "sm" }) {
   const { copied, copy } = useCopy();
+  const big = size === "lg";
   return (
     <span className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1">
       <a
         href={`mailto:${ADDRESS}?subject=hi%20min.`}
-        className="group relative font-mono text-[17px] tracking-tight text-gray-900 sm:text-[19px]"
+        className={`group relative font-mono tracking-tight text-ink ${
+          big ? "text-[19px] sm:text-[23px]" : "text-[17px]"
+        }`}
       >
         {ADDRESS}
         <span
           aria-hidden="true"
-          className="absolute -bottom-0.5 left-0 h-px w-full bg-gray-300 transition-colors duration-300 group-hover:bg-gray-900"
+          className="absolute -bottom-1 left-0 h-px w-full bg-hair transition-colors duration-300 group-hover:bg-moss"
         />
       </a>
       <button
         type="button"
         onClick={copy}
         aria-label={`Copy ${ADDRESS}`}
-        className={`w-[5ch] text-left font-mono text-[10.5px] uppercase tracking-[0.16em] outline-none transition-colors duration-300 focus-visible:text-gray-900 ${
-          copied ? "text-emerald-600" : "text-gray-400 hover:text-gray-900"
+        className={`w-[5ch] text-left font-mono text-[10.5px] uppercase tracking-[0.16em] outline-none transition-colors duration-300 focus-visible:text-ink ${
+          copied ? "text-moss" : "text-quiet hover:text-ink"
         }`}
       >
         {copied ? "copied" : "copy"}
@@ -496,39 +573,41 @@ function AddressLine() {
   );
 }
 
+const TEAM = [
+  ["Team notes.", "Everyone who was in the room gets them, and can ask about it later."],
+  ["Team reminders.", "What was promised and who owes what, brought back when it matters."],
+  ["Team rituals.", "Briefs and summaries to your inbox, Slack, or Teams, on your schedule."],
+];
+
 export default function PlainLanding() {
   return (
     <div className="relative overflow-hidden">
-      {/* All decoration lives back here. */}
-      <div aria-hidden className="absolute -right-48 -top-16 h-[540px] w-[760px] opacity-[0.55]">
-        <Constellation />
-      </div>
-      <div aria-hidden className="absolute -left-56 bottom-8 h-[480px] w-[700px] opacity-[0.3]">
+      {/* One faint field, top right. Decoration stays in the background. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 -top-24 h-[520px] w-[720px] opacity-[0.4]"
+      >
         <Constellation />
       </div>
 
-      {/* One container, one left margin. Prose is held to a readable measure
-          inside it; the examples use the full width and spill right. */}
-      <div className="relative mx-auto max-w-[62rem] px-6 pb-28 pt-32 md:pt-40">
-        <div className="max-w-[41rem]">
-          <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-[-0.025em] text-gray-900 [text-wrap:balance] md:text-[3.4rem]">
+      <div className="relative mx-auto max-w-[57rem] px-6 pb-28 pt-28 md:pt-24">
+        {/* Hero */}
+        <div className="max-w-[38rem]">
+          <h1 className="font-display text-[2.7rem] font-semibold leading-[1.04] tracking-[-0.035em] text-ink [text-wrap:balance] md:text-[3.5rem]">
             The AI teammate that does the little things.
           </h1>
-          <p className="mt-6 max-w-[34rem] text-[17.5px] leading-[1.65] text-gray-500 [text-wrap:pretty]">
+          <p className="mt-6 max-w-[31rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
             min. remembers, schedules, takes notes, and follows up. For you and
             your team.
           </p>
 
-          <div className="mt-10">
+          <div className="mt-11">
             <AddressLine />
-            <p className="mt-4 max-w-[34rem] text-[15px] leading-[1.7] text-gray-500 [text-wrap:pretty]">
-              Just shoot a hello email to min. to get started.
-            </p>
-            <p className="mt-1.5 text-[15px] leading-[1.7] text-gray-500">
-              Or{" "}
+            <p className="mt-5 max-w-[30rem] text-[15px] leading-[1.7] text-quiet">
+              Just shoot a hello email to min. to get started, or{" "}
               <a
                 href={getDownloadTarget().href}
-                className="text-gray-900 underline decoration-gray-300 decoration-1 underline-offset-[5px] transition-colors duration-300 hover:decoration-gray-900"
+                className="text-ink underline decoration-hair decoration-1 underline-offset-[5px] transition-colors duration-300 hover:decoration-moss"
               >
                 download the desktop app
               </a>
@@ -537,67 +616,35 @@ export default function PlainLanding() {
           </div>
         </div>
 
-        {/* ── The examples ── */}
-        {/* The band breaks the reading container on BOTH sides and centres on
-            the window. Holding the prose's left edge and growing only to the
-            right read as right-aligned once the window got wide, which is not
-            what an overflowing band should look like.
+        <Stage />
 
-            ml:calc(50%-50vw) is half the container against half the viewport,
-            which lands the element on the window's left edge; w-screen then
-            takes the full width. The inner div re-centres inside that and caps
-            at 120rem so cards stop inflating on very wide displays. */}
-        <div
-          id="does"
-          className="mt-20 scroll-mt-24 [--drift:0.3] sm:[--drift:1] lg:ml-[calc(50%-50vw)] lg:w-screen"
-        >
-          <div className="mx-auto max-w-[120rem] lg:px-8">
-            {/* Column counts are chosen so a card never falls under about
-                330px, which is where the invite's RSVP row and the guest rows
-                start to feel cramped. */}
-            <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2 md:gap-y-7 xl:grid-cols-3 xl:gap-x-12 2xl:grid-cols-4">
-              <ScheduleCard />
-              <NotetakerCard />
-              <ReminderCard />
-              <FollowUpCard />
-              <ReplyCard />
-              <AskCard />
-              <RitualCard />
-            </div>
-          </div>
-        </div>
-
-        {/* ── What it does for the team ── */}
-        <div id="team" className="mt-28 max-w-[41rem] scroll-mt-24">
-          <h2 className="font-display text-[16.5px] font-semibold tracking-[-0.01em] text-gray-900">
+        {/* Teams */}
+        <div id="team" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-36">
+          <h2 className="font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink">
             It works the same way for your team.
           </h2>
-          <p className="mt-4 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
-            <span className="text-gray-900">Team notes.</span> Invite min. to
-            the meeting and everyone who was there gets the notes, and can ask
-            about it later.
-          </p>
-          <p className="mt-3 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
-            <span className="text-gray-900">Team reminders.</span> What was
-            promised and who owes what, brought back when it matters.
-          </p>
-          <p className="mt-3 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
-            <span className="text-gray-900">Team rituals.</span> Daily briefs, weekly
-            summaries. Directly to your team's inbox, Slack, or Teams, on your
-            schedule.
-          </p>
-          <p className="mt-5 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
+          <div className="mt-7 flex flex-col gap-4">
+            {TEAM.map(([lead, rest]) => (
+              <p
+                key={lead}
+                className="text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]"
+              >
+                <span className="text-ink">{lead}</span> {rest}
+              </p>
+            ))}
+          </div>
+          <p className="mt-6 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
             Share your own context with your team. You are always in control.
           </p>
         </div>
 
-        {/* ── Close ── */}
-        <div className="mt-24 max-w-[41rem] border-t border-gray-200/90 pt-12">
-          <p className="font-display text-[16.5px] font-semibold tracking-[-0.01em] text-gray-900">
+        {/* Close */}
+        <div className="mt-24 max-w-[38rem] border-t border-hair pt-12">
+          <p className="font-display text-[19px] font-semibold tracking-[-0.02em] text-ink">
             Give it something small today.
           </p>
-          <div className="mt-4">
-            <AddressLine />
+          <div className="mt-5">
+            <AddressLine size="sm" />
           </div>
         </div>
       </div>

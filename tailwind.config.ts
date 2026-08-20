@@ -20,13 +20,22 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				display: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				display: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
 			},
 			spacing: {
 				'4.5': '1.125rem',
 			},
 			colors: {
+				ink: '#0C1211',
+				paper: '#F8F9F8',
+				quiet: '#6B7472',
+				hair: '#E3E6E4',
+				moss: {
+					DEFAULT: '#0B6E4F',
+					soft: '#EAF3EE',
+				},
 				brand: {
 					bg: '#161C24',
 					surface: '#1E2630',

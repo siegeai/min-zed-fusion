@@ -10,12 +10,12 @@ export type Tint = "blue" | "amber" | "slate";
 export type IconTileSize = "sm" | "md" | "lg" | "xl";
 
 const TINT_BG: Record<Tint, string> = {
-  blue: "bg-blue-50 border-blue-100",
+  blue: "bg-moss-soft border-moss/25",
   amber: "bg-amber-50 border-amber-100",
   slate: "bg-gray-50 border-gray-100",
 };
 const TINT_ICON: Record<Tint, string> = {
-  blue: "text-blue-600",
+  blue: "text-moss",
   amber: "text-amber-500",
   slate: "text-gray-700",
 };

@@ -37,7 +37,7 @@ const BlogPostFanLevel = () => {
           {/* Emails Chart */}
           <div className="bg-white rounded-lg p-4 border">
             <div className="flex items-center gap-2 mb-3">
-              <Mail className="w-4 h-4 text-blue-600" />
+              <Mail className="w-4 h-4 text-moss" />
               <span className="text-sm font-medium text-gray-900">Emails</span>
             </div>
             <div className="space-y-2">
@@ -45,7 +45,7 @@ const BlogPostFanLevel = () => {
                 <div key={index} className="flex items-center gap-2">
                   <span className="text-xs text-gray-500 w-8">D{point.day}</span>
                   <div 
-                    className="h-2 bg-blue-500 rounded transition-all duration-1000"
+                    className="h-2 bg-moss rounded transition-all duration-1000"
                     style={{ 
                       width: `${(point.emails / 300) * 100}%`,
                       opacity: animationStep >= 1 ? 1 : 0.3
@@ -324,9 +324,9 @@ const BlogPostFanLevel = () => {
 
                     <p>And because you're small, every message matters.</p>
 
-                    <div className="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
-                      <p className="text-xl font-medium text-blue-900">But there's no triage. No structure. No system.</p>
-                      <p className="text-blue-800 mt-2">Just a stream of unread threads, and a growing fear you're going to miss something important.</p>
+                    <div className="bg-moss-soft/50 rounded-xl p-6 border border-moss/25">
+                      <p className="text-xl font-medium text-moss">But there's no triage. No structure. No system.</p>
+                      <p className="text-moss mt-2">Just a stream of unread threads, and a growing fear you're going to miss something important.</p>
                     </div>
 
                     <p>So you patch it:</p>
@@ -386,9 +386,9 @@ const BlogPostFanLevel = () => {
 
                     <p>But that's changing.</p>
 
-                    <div className="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
-                      <p className="font-medium text-blue-900">You don't need 10 people to keep being great at email.</p>
-                      <p className="text-blue-800 mt-2">You just need one system that helps you stay personal, responsive, and consistent, even as volume grows.</p>
+                    <div className="bg-moss-soft/50 rounded-xl p-6 border border-moss/25">
+                      <p className="font-medium text-moss">You don't need 10 people to keep being great at email.</p>
+                      <p className="text-moss mt-2">You just need one system that helps you stay personal, responsive, and consistent, even as volume grows.</p>
                     </div>
 
                     <p>If you can keep the feeling of being small while actually scaling?</p>

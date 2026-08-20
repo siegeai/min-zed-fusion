@@ -84,7 +84,7 @@ export default function Contact() {
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
                 Talk to{" "}
-                <span className="text-blue-600">a human</span>.
+                <span className="text-moss">a human</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 Sales, support, partnerships, investors, press. One email,

@@ -189,8 +189,8 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
 
   if (stage === "sent" || stage === "opened") {
     return (
-      <div className="mt-3 rounded-xl border border-emerald-100 bg-emerald-50/70 px-3.5 py-3">
-        <p className="text-[12.5px] leading-relaxed text-emerald-900">
+      <div className="mt-3 rounded-xl border border-moss/25 bg-moss-soft/70 px-3.5 py-3">
+        <p className="text-[12.5px] leading-relaxed text-moss">
           {stage === "sent"
             ? "Sent. The team replies within a day, usually sooner."
             : `Your mail app should be open with it ready to go. Send it and the team picks it up from there.`}
@@ -245,7 +245,7 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
         rows={4}
         maxLength={2000}
         aria-label="Your message to the min. team"
-        className="mt-1.5 w-full resize-none rounded-lg border border-gray-200 bg-[#FBFBFA] px-2.5 py-2 text-[12.5px] leading-relaxed text-gray-700 outline-none transition-colors focus:border-emerald-300"
+        className="mt-1.5 w-full resize-none rounded-lg border border-gray-200 bg-[#FBFBFA] px-2.5 py-2 text-[12.5px] leading-relaxed text-gray-700 outline-none transition-colors focus:border-moss/25"
       />
       <input
         type="email"
@@ -265,7 +265,7 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
         className={`mt-2 w-full rounded-lg border bg-white px-2.5 py-2 text-[12.5px] text-gray-900 outline-none transition-colors placeholder:text-gray-400 ${
           showEmailError
             ? "border-amber-300 focus:border-amber-400"
-            : "border-gray-200 focus:border-emerald-300"
+            : "border-gray-200 focus:border-moss/25"
         }`}
       />
       {showEmailError && (
@@ -557,7 +557,7 @@ export default function AskMin() {
                       type="button"
                       onClick={() => ask(q)}
                       disabled={busy}
-                      className="block w-full rounded-xl border border-gray-200 bg-white px-3.5 py-2.5 text-left text-[13px] text-gray-600 transition-colors hover:border-emerald-300 hover:text-gray-900 disabled:opacity-60"
+                      className="block w-full rounded-xl border border-gray-200 bg-white px-3.5 py-2.5 text-left text-[13px] text-gray-600 transition-colors hover:border-moss/25 hover:text-gray-900 disabled:opacity-60"
                     >
                       {q}
                     </button>
@@ -582,7 +582,7 @@ export default function AskMin() {
                 talking to someone who can go deeper than I can.{" "}
                 <a
                   href="mailto:hello@getmin.ai?subject=Questions%20about%20min."
-                  className="font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
+                  className="font-medium text-moss underline underline-offset-2 hover:text-moss"
                 >
                   Email the team
                 </a>{" "}
@@ -623,14 +623,14 @@ export default function AskMin() {
         // we want people to reach for, and at the old size it read as a dismissable
         // widget. Open, it shrinks back to a composer, because by then the panel
         // above it is the thing holding attention.
-        className={`flex cursor-text items-center rounded-full border border-gray-200 bg-white transition-all duration-200 focus-within:border-emerald-300 ${
+        className={`flex cursor-text items-center rounded-full border border-gray-200 bg-white transition-all duration-200 focus-within:border-moss/25 ${
           open
             ? "gap-2 px-4 py-2.5 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.18)]"
-            : "gap-2.5 px-5 py-3.5 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-[0_16px_44px_-12px_rgba(16,185,129,0.28)]"
+            : "gap-2.5 px-5 py-3.5 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 hover:border-moss/25 hover:shadow-[0_16px_44px_-12px_rgba(16,185,129,0.28)]"
         }`}
       >
         {!open && (
-          <Sparkles className="h-4 w-4 shrink-0 text-emerald-500" strokeWidth={2} />
+          <Sparkles className="h-4 w-4 shrink-0 text-moss" strokeWidth={2} />
         )}
         <input
           ref={inputRef}

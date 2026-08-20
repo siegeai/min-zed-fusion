@@ -281,7 +281,7 @@ const PrivacyPolicy = () => {
                   Contact us at{" "}
                   <a
                     href="mailto:hello@getmin.ai"
-                    className="text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline"
+                    className="text-moss hover:text-moss underline-offset-2 hover:underline"
                   >
                     hello@getmin.ai
                   </a>{" "}
@@ -298,7 +298,7 @@ const PrivacyPolicy = () => {
                   Email:{" "}
                   <a
                     href="mailto:hello@getmin.ai"
-                    className="text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline"
+                    className="text-moss hover:text-moss underline-offset-2 hover:underline"
                   >
                     hello@getmin.ai
                   </a>

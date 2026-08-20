@@ -73,7 +73,7 @@ const JoinCommunity = () => {
       description: "Skip the email back-and-forth. Get instant help from our team and community members."
     },
     {
-      icon: <HeadphonesIcon className="w-6 h-6 text-blue-600" />,
+      icon: <HeadphonesIcon className="w-6 h-6 text-moss" />,
       title: "Direct Team Support",
       description: "Chat directly with our founders and engineering team for personalized guidance."
     },

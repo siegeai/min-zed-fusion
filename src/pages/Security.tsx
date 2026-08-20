@@ -118,7 +118,7 @@ export default function Security() {
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
                 Your context,{" "}
-                <span className="text-blue-600">protected</span>.
+                <span className="text-moss">protected</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 min. keeps a distilled memory of your meetings and mail, never a copy of your mailbox. Built by engineers who shipped infrastructure at DoorDash, Coursera, and Sunnybrook Research Hospital, and guarded from the foundation up.
