@@ -8,13 +8,20 @@ import { getDownloadTarget } from "@/lib/download";
  * Design rules, per Eric: plain text does the work, decoration lives in the
  * BACKGROUND, and the page should be understood in fifteen seconds.
  *
- * Layout, fourth pass. The examples are things you would actually see in your
+ * Layout, fifth pass. The examples are things you would actually see in your
  * mail client, not code: real message chrome, sender rows, sans-serif bodies.
  * They are not all email either, because using min. is not all email; the
- * capture example is a calendar invite with min. on the guest list, and the
+ * notetaker example is a calendar invite with min. on the guest list, and the
  * scheduling example is a normal note to a human with min. on Cc, which is how
- * scheduling actually works. One card is min.'s reply, so the stack shows what
- * comes back and not only what goes in.
+ * scheduling actually works.
+ *
+ * Reminder and Follow up are separate cards on purpose. A reminder comes back
+ * to you; a follow up goes out to someone else, from your own address, and
+ * keeps going until they answer. Collapsing them hid the second one entirely.
+ *
+ * Five cards, so the last one lands alone in the left column. That is the
+ * reply card, which is the only one showing what comes back rather than what
+ * goes in, and it gets its own row aligned with the reading column.
  *
  * The band breaks out of the reading column to use the horizontal space, while
  * the prose stays at a comfortable measure.
@@ -92,7 +99,7 @@ function Shell({
 /* ── Schedule: a normal note to a person, with min. on Cc ─────────────── */
 function ScheduleCard() {
   return (
-    <Shell label="Schedule" tilt={-0.7} dy={0} z={4}>
+    <Shell label="Schedule" tilt={-0.7} dy={0} z={5}>
       <div className="flex items-start gap-3 px-4 pt-4">
         <Avatar initial="E" />
         <div className="min-w-0 flex-1">
@@ -119,43 +126,49 @@ function ScheduleCard() {
   );
 }
 
-/* ── Capture: an actual calendar invite, min. on the guest list ────────── */
-function InviteCard() {
+/* ── Notetaker: a calendar invite, min. on the guest list ──────────────── */
+function NotetakerCard() {
   return (
-    <Shell label="Capture" tilt={0.6} dy={26} z={3}>
-      <div className="flex items-start gap-3.5 px-4 py-4">
-        <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-gray-200 bg-gray-50 leading-none">
-          <span className="text-[9px] font-semibold uppercase tracking-[0.1em] text-gray-400">
-            Aug
-          </span>
-          <span className="mt-0.5 font-display text-[16px] font-semibold text-gray-900">
-            21
-          </span>
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-[13.5px] font-semibold text-gray-900">
-            Weekly design sync
-          </p>
-          <p className="mt-0.5 text-[12.5px] text-gray-500">
-            Thursday, 2:00 to 2:30 PM
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 border-t border-gray-100 px-4 py-3">
-        <span className="text-[12px] text-gray-400">Guests</span>
-        <span className="text-[12.5px] text-gray-600">Eric, Priya, Sam,</span>
-        <span className="text-[12.5px]">
-          <MinChip />
+    <Shell label="Notetaker" tilt={0.55} dy={20} z={4}>
+      <div className="px-4 pt-4">
+        <p className="text-[13.5px] font-semibold text-gray-900">
+          Weekly design sync
+        </p>
+        <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">
+          Thursday, Aug 21, 2:00 to 2:30 PM
+        </p>
+        <span className="mt-2.5 inline-flex rounded-md border border-gray-200 px-2.5 py-1 text-[11.5px] font-medium text-gray-600">
+          Join with Google Meet
         </span>
+      </div>
+      <div className="mt-3.5 border-t border-gray-100 px-4 py-3">
+        <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400">
+          Guests
+        </p>
+        <ul className="mt-1.5 space-y-1">
+          <li className="text-[12.5px] text-gray-600">
+            Eric Wang <span className="text-gray-400">organizer</span>
+          </li>
+          <li className="text-[12.5px] text-gray-600">Priya Shah</li>
+          <li className="text-[12.5px]">
+            <MinChip />
+          </li>
+        </ul>
+      </div>
+      <div className="flex items-center gap-2.5 border-t border-gray-100 px-4 py-2.5">
+        <span className="text-[12px] text-gray-400">Going?</span>
+        <span className="text-[12px] font-medium text-gray-900">Yes</span>
+        <span className="text-[12px] text-gray-400">No</span>
+        <span className="text-[12px] text-gray-400">Maybe</span>
       </div>
     </Shell>
   );
 }
 
-/* ── Follow up: forward a thread, one line ─────────────────────────────── */
-function ForwardCard() {
+/* ── Reminder: comes back to you ───────────────────────────────────────── */
+function ReminderCard() {
   return (
-    <Shell label="Follow up" tilt={0.7} dy={-16} z={2}>
+    <Shell label="Reminder" tilt={0.7} dy={-12} z={3}>
       <div className="flex items-start gap-3 px-4 pt-4">
         <Avatar initial="E" />
         <div className="min-w-0 flex-1">
@@ -173,7 +186,40 @@ function ForwardCard() {
           Fwd: Pricing proposal
         </p>
         <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
-          Remind me to follow up with John in 3 months.
+          Remind me to check in with John in 3 months.
+        </p>
+      </div>
+    </Shell>
+  );
+}
+
+/* ── Follow up: goes out from your address, until they answer ──────────── */
+function FollowUpCard() {
+  return (
+    <Shell label="Follow up" tilt={-0.5} dy={30} z={2}>
+      <div className="flex items-start gap-3 px-4 pt-4">
+        <Avatar initial="E" />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="text-[13.5px] font-semibold text-gray-900">Eric Wang</span>
+            <span className="shrink-0 text-[12px] text-gray-400">9:15 AM</span>
+          </div>
+          <p className="mt-0.5 text-[12.5px] leading-relaxed text-gray-500">
+            To: <MinChip />
+          </p>
+        </div>
+      </div>
+      <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
+        <p className="text-[13.5px] font-semibold text-gray-900">
+          Fwd: Contract redlines
+        </p>
+        <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
+          Keep after Maya on this until she replies. Send it from me.
+        </p>
+      </div>
+      <div className="border-t border-gray-100 px-4 py-2.5">
+        <p className="text-[12px] leading-relaxed text-gray-400">
+          Nudged twice from your address. Maya replied Aug 18.
         </p>
       </div>
     </Shell>
@@ -183,7 +229,7 @@ function ForwardCard() {
 /* ── Remember: what comes back ─────────────────────────────────────────── */
 function ReplyCard() {
   return (
-    <Shell label="Remember" tilt={-0.6} dy={14} z={1}>
+    <Shell label="Remember" tilt={-0.6} dy={6} z={1}>
       <div className="flex items-start gap-3 px-4 pt-4">
         <Avatar initial="m" isMin />
         <div className="min-w-0 flex-1">
@@ -261,8 +307,7 @@ export default function PlainLanding() {
           <div className="mt-10">
             <AddressLine />
             <p className="mt-4 max-w-[34rem] text-[15px] leading-[1.7] text-gray-500 [text-wrap:pretty]">
-              Email it. CC it on a thread that needs scheduling. Invite it to a
-              meeting. That is the whole onboarding.
+              Just shoot a hello email to min. to get started.
             </p>
             <p className="mt-1.5 text-[15px] leading-[1.7] text-gray-500">
               Or{" "}
@@ -284,8 +329,9 @@ export default function PlainLanding() {
         >
           <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 sm:gap-y-7">
             <ScheduleCard />
-            <InviteCard />
-            <ForwardCard />
+            <NotetakerCard />
+            <ReminderCard />
+            <FollowUpCard />
             <ReplyCard />
           </div>
         </div>
@@ -310,7 +356,7 @@ export default function PlainLanding() {
             schedule.
           </p>
           <p className="mt-5 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
-            Shared only where you share it. A 1:1 stays yours.
+            Share your own context with your team. You are always in control.
           </p>
         </div>
 
