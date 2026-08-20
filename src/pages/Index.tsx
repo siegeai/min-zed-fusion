@@ -1,22 +1,21 @@
 import { Helmet } from "react-helmet-async";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
-import LandingHero from "@/components/landing/LandingHero";
-import Integrations from "@/components/landing/Integrations";
-import CapsuleUpClose from "@/components/landing/CapsuleUpClose";
-import HowItWorks from "@/components/landing/HowItWorks";
-import AgentContext from "@/components/landing/AgentContext";
-import FinalCTA from "@/components/landing/FinalCTA";
-import LatestWriting from "@/components/landing/LatestWriting";
+import PlainLanding from "@/components/landing/PlainLanding";
 
+/**
+ * The 2026-08 revamp: one typeset page, understood in fifteen seconds.
+ * Plain text does the work; decoration lives in the background only. The
+ * older sections remain in the tree but are deliberately not composed here.
+ */
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>The CRM that builds itself | min.</title>
+        <title>min. | The AI teammate you teach</title>
         <meta
           name="description"
-          content="min. is the CRM that builds itself, automatically and continuously, from your meetings and emails. Every email and meeting becomes your unfair advantage."
+          content="min. books your meetings, takes the notes, remembers your follow ups, and holds your team's context. Email min@getmin.ai to start. Private by default."
         />
         <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>
@@ -25,13 +24,7 @@ const Index = () => {
         <PillNav />
 
         <main className="flex-1">
-          <LandingHero />
-          <Integrations />
-          <CapsuleUpClose />
-          <AgentContext />
-          <HowItWorks />
-          <LatestWriting />
-          <FinalCTA />
+          <PlainLanding />
         </main>
 
         <MinFooter />

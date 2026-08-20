@@ -5,9 +5,7 @@ import { motion } from "motion/react";
 import { getDownloadTarget } from "@/lib/download";
 
 const NAV_LINKS = [
-  { label: "Relationship AI", to: "/#capsule" },
-  { label: "How it works", to: "/#how" },
-  { label: "For agents", to: "/#agents" },
+  { label: "What it does", to: "/#does" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },
 ];

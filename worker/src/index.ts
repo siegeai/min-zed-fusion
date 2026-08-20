@@ -126,11 +126,11 @@ async function loadKnowledge(): Promise<string> {
   // If the fetch fails the bot should still be able to answer the basics
   // rather than hallucinate them.
   return [
-    "min. is AI that builds a digital version of everyone you work with, a relationship AI whose only job is helping you win.",
-    "It records meetings without a bot, reads email and calendar, and distills every",
-    "relationship into a living capsule: where you stand, action items, history.",
-    "It also acts: books meetings, drafts follow ups, chases what is owed.",
-    "Free to use; paid plans add longer recall history. Download at https://app.getmin.ai.",
+    "min. is the AI teammate you teach: a focused AI for the small daily tasks of work.",
+    "Four pillars: Remember (reminders, contextual memory), Schedule (CC min@ to coordinate meetings),",
+    "Capture (invite it to a meeting for notes, decisions, commitments), and Follow up (reminders and drafts).",
+    "Private by default: it remembers privately for you unless you share, and it never scores or manages you.",
+    "Start by emailing min@getmin.ai, or download the app at https://app.getmin.ai. Free to use.",
   ].join(" ");
 }
 

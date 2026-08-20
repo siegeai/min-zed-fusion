@@ -55,7 +55,7 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | The CRM that builds itself</title>
+        <title>About min. | The AI teammate you teach</title>
         <meta
           name="description"
           content="min. turns your calendar and email into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone."

@@ -74,8 +74,8 @@ const FAQS = [
     a: "Yes, on every plan. Share a single meeting, a person capsule, or a whole company capsule. Revocable any time.",
   },
   {
-    q: "How is this a CRM if I never enter data?",
-    a: "min. is the CRM that builds itself: it fills from your calls and email with zero data entry, and it tells you what to do next. If your team already runs a CRM for reporting, keep it and paste any capsule straight in. min. replaces the data entry, not your reporting.",
+    q: "How do I start using min.?",
+    a: "Email min@getmin.ai, CC it on a thread that needs scheduling, or invite it to a meeting. That is the whole onboarding. The desktop app for macOS and Windows adds the full experience.",
   },
   {
     q: "Do you store my email?",
@@ -91,10 +91,10 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing | min., the CRM that builds itself</title>
+        <title>Pricing | min., the AI teammate you teach</title>
         <meta
           name="description"
-          content="min., the CRM that builds itself, is free to use. You pay only for more recall history."
+          content="min., the AI teammate you teach, is free to use. You pay only for more recall history."
         />
         <link rel="canonical" href="https://getmin.ai/pricing/" />
       </Helmet>
@@ -109,7 +109,7 @@ const Pricing = () => {
                 Free to <span className="text-emerald-600">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                The first CRM that likes winning. Pay only for more recall history.
+                Free to use. Pay only for more recall history.
               </p>
             </header>
 

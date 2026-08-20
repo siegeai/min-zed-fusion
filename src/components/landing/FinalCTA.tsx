@@ -12,13 +12,13 @@ export default function FinalCTA() {
           <Constellation className="opacity-40" />
           <div className="relative">
             <h2 className="mx-auto mb-6 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
-              Every relationship,
-              <br className="hidden sm:block" /> working for you.
+              Hire it in the time it takes
+              <br className="hidden sm:block" /> to send one email.
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
-              A digital version of everyone you work with, whose only job is
-                helping you win: the next right move, the follow up already on
-                the calendar.
+              Email min@getmin.ai and give it something small: a meeting to
+              book, a thread to remember, a follow up to hold. It takes it
+              from there.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -29,14 +29,14 @@ export default function FinalCTA() {
                 <Download className="h-4 w-4" strokeWidth={2} />
               </a>
               <a
-                href="#capsule"
+                href="mailto:min@getmin.ai?subject=hi%20min."
                 className="rounded-full px-8 py-3.5 font-medium text-gray-300 transition-colors duration-200 hover:bg-white/5"
               >
-                See interactive demo
+                Email min@getmin.ai
               </a>
             </div>
             <p className="mt-8 text-[13px] text-gray-500">
-              For macOS and Windows. Your capsules, your eyes only.
+              For macOS and Windows. Private by default.
             </p>
           </div>
         </div>
