@@ -39,7 +39,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is the AI teammate that does the little things. It takes the notes, sorts out the scheduling, remembers what was decided, and follows up, for one person or for a whole team.",
+      "min. is the AI teammate that does the little things right. It takes the notes, sorts out the scheduling, remembers what was decided, and follows up, for one person or for a whole team.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -55,10 +55,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | The AI teammate that does the little things</title>
+        <title>About min. | The AI teammate that does the little things right</title>
         <meta
           name="description"
-          content="Why we built min., the AI teammate that does the little things. The notes, the scheduling, the reminders, and the follow ups, handled, so the work you actually care about gets your attention."
+          content="Why we built min., the AI teammate that does the little things right. The notes, the scheduling, the reminders, and the follow ups, handled, so the work you actually care about gets your attention."
         />
         <link rel="canonical" href="https://getmin.ai/about/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>

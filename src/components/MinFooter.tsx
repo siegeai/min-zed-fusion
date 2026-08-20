@@ -41,7 +41,7 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              The AI teammate that does the little things. min. books your meetings, takes the
+              The AI teammate that does the little things right. min. books your meetings, takes the
               notes, remembers your follow ups, and holds your team's context.
               Private by default.
             </p>

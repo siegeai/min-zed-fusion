@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | The AI teammate that does the little things</title>
+        <title>min. | The AI teammate that does the little things right</title>
         <meta
           name="description"
           content="min. books your meetings, takes the notes, remembers your follow ups, and holds your team's context. Email min@getmin.ai to start. Private by default."

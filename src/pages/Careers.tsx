@@ -72,10 +72,10 @@ export default function Careers() {
   return (
     <>
       <Helmet>
-        <title>Careers at min. | Build the AI teammate that does the little things</title>
+        <title>Careers at min. | Build the AI teammate that does the little things right</title>
         <meta
           name="description"
-          content="Help us build the AI teammate that does the little things: the notes, the scheduling, the reminders, the follow ups. Email hello@getmin.ai with what you've built. No traditional postings."
+          content="Help us build the AI teammate that does the little things right: the notes, the scheduling, the reminders, the follow ups. Email hello@getmin.ai with what you've built. No traditional postings."
         />
         <link rel="canonical" href="https://getmin.ai/careers/" />
       </Helmet>

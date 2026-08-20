@@ -21,7 +21,7 @@ export default function PillNav() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 inset-x-0 z-50 flex justify-center pt-4 md:pt-6 px-4 pointer-events-none"
       >
-        <div className="bg-white/80 backdrop-blur-md border border-gray-200/60 rounded-full pl-5 pr-3 py-2.5 flex items-center justify-between w-full max-w-5xl shadow-sm pointer-events-auto">
+        <div className="bg-white/80 backdrop-blur-md border border-hair rounded-full pl-6 pr-3 py-2.5 flex items-center justify-between w-full max-w-[57rem] shadow-sm pointer-events-auto">
           <Link
             to="/"
             className="font-display font-semibold text-xl tracking-tight text-gray-900"

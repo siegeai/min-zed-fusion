@@ -171,48 +171,45 @@ function NotetakerCard() {
         </div>
       </div>
 
-      {/* Conferencing row. */}
-      <div className="mt-4 flex items-start gap-3 px-4">
-        <Video className="mt-px h-4 w-4 shrink-0 text-quiet" strokeWidth={1.75} />
-        <div className="min-w-0">
-          <p className="text-[12.5px] leading-snug text-ink/75">
-            Join with Google Meet
-          </p>
-          <p className="text-[12px] leading-snug text-quiet">
-            meet.google.com/rkx-hqvn
-          </p>
+      {/* Conferencing and guests share a row: the card is wide enough that
+          stacking them only bought height. */}
+      <div className="mt-4 grid gap-4 px-4 pb-4 sm:grid-cols-2">
+        <div className="flex items-start gap-3">
+          <Video className="mt-px h-4 w-4 shrink-0 text-quiet" strokeWidth={1.75} />
+          <div className="min-w-0">
+            <p className="text-[12.5px] leading-snug text-ink/75">
+              Join with Google Meet
+            </p>
+            <p className="text-[12px] leading-snug text-quiet">
+              meet.google.com/rkx-hqvn
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Guests, with min. on the list. */}
-      <div className="mt-4 flex items-start gap-3 px-4 pb-4">
-        <Users className="mt-px h-4 w-4 shrink-0 text-quiet" strokeWidth={1.75} />
-        <div className="min-w-0 flex-1">
-          <p className="text-[12.5px] leading-snug text-ink/75">3 guests</p>
-          <p className="text-[12px] leading-snug text-quiet">3 yes</p>
-          <ul className="mt-2.5 space-y-2">
-            <li className="flex items-center gap-2.5">
-              <GuestAvatar initial="P" tone="bg-rose-400" />
-              <span className="min-w-0">
-                <span className="block text-[12.5px] leading-tight text-ink/75">
-                  Priya Shah
+        <div className="flex items-start gap-3">
+          <Users className="mt-px h-4 w-4 shrink-0 text-quiet" strokeWidth={1.75} />
+          <div className="min-w-0 flex-1">
+            <p className="text-[12.5px] leading-snug text-ink/75">3 guests, 3 yes</p>
+            <ul className="mt-2 space-y-1.5">
+              <li className="flex items-center gap-2.5">
+                <GuestAvatar initial="P" tone="bg-rose-400" />
+                <span className="text-[12.5px] text-ink/75">
+                  Priya Shah{" "}
+                  <span className="text-quiet">Organizer</span>
                 </span>
-                <span className="block text-[11.5px] leading-tight text-quiet">
-                  Organizer
+              </li>
+              <li className="flex items-center gap-2.5">
+                <GuestAvatar initial="E" tone="bg-indigo-400" />
+                <span className="text-[12.5px] text-ink/75">Eric Wang</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <GuestAvatar initial="m" tone="bg-ink" />
+                <span className="text-[12.5px]">
+                  <MinChip />
                 </span>
-              </span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <GuestAvatar initial="E" tone="bg-indigo-400" />
-              <span className="text-[12.5px] text-ink/75">Eric Wang</span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <GuestAvatar initial="m" tone="bg-ink" />
-              <span className="text-[12.5px]">
-                <MinChip />
-              </span>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -475,7 +472,7 @@ function Stage() {
   return (
     <div
       id="does"
-      className="mt-24 scroll-mt-28 md:mt-32"
+      className="mt-20 scroll-mt-28 md:mt-24"
       onKeyDown={(e) => {
         if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
         e.preventDefault();
@@ -487,7 +484,7 @@ function Stage() {
         document.getElementById(`rail-${EXAMPLES[next].key}`)?.focus();
       }}
     >
-      <div className="grid gap-10 lg:grid-cols-[11.5rem_minmax(0,32rem)] lg:gap-14">
+      <div className="grid gap-10 lg:grid-cols-[max-content_minmax(0,43rem)] lg:gap-16">
         {/* Rail */}
         <div role="tablist" aria-label="What min. can do" className="flex flex-col">
           {EXAMPLES.map((ex, i) => {
@@ -502,7 +499,7 @@ function Stage() {
                 tabIndex={on ? 0 : -1}
                 onClick={() => setActive(i)}
                 onMouseEnter={() => setActive(i)}
-                className="group relative -ml-3 flex items-center gap-3 rounded px-3 py-[7px] text-left outline-none focus-visible:ring-1 focus-visible:ring-moss"
+                className="group relative -ml-3 flex items-center gap-3 rounded px-3 py-1 text-left leading-5 outline-none focus-visible:ring-1 focus-visible:ring-moss"
               >
                 <span
                   aria-hidden="true"
@@ -524,7 +521,7 @@ function Stage() {
 
         {/* Stage. The min-height holds the frame steady so switching does not
             shunt the page around; the tallest card sets it. */}
-        <div className="lg:min-h-[27rem]">
+        <div className="flex flex-col lg:min-h-[19rem]">
           <p
             key={`${current.key}-line`}
             className="mb-5 max-w-[26rem] text-[15px] leading-[1.6] text-quiet motion-safe:animate-[stage-in_320ms_ease-out]"
@@ -562,11 +559,16 @@ function AddressField() {
         type="button"
         onClick={copy}
         aria-label={`Copy ${ADDRESS}`}
-        className={`ml-1 w-[6.5ch] rounded-full px-2.5 py-1.5 text-center font-mono text-[10.5px] uppercase tracking-[0.14em] outline-none transition-colors duration-200 focus-visible:ring-1 focus-visible:ring-moss ${
+        className={`ml-1 grid rounded-full px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.14em] outline-none transition-colors duration-200 focus-visible:ring-1 focus-visible:ring-moss ${
           copied ? "bg-moss-soft text-moss" : "text-quiet hover:bg-paper hover:text-ink"
         }`}
       >
-        {copied ? "copied" : "copy"}
+        <span aria-hidden="true" className="invisible col-start-1 row-start-1">
+          copied
+        </span>
+        <span className="col-start-1 row-start-1 text-center">
+          {copied ? "copied" : "copy"}
+        </span>
       </button>
     </span>
   );
@@ -593,11 +595,16 @@ function AddressLine({ size = "lg" }: { size?: "lg" | "sm" }) {
         type="button"
         onClick={copy}
         aria-label={`Copy ${ADDRESS}`}
-        className={`w-[5ch] text-left font-mono text-[10.5px] uppercase tracking-[0.16em] outline-none transition-colors duration-300 focus-visible:text-ink ${
+        className={`grid font-mono text-[10.5px] uppercase tracking-[0.16em] outline-none transition-colors duration-300 focus-visible:text-ink ${
           copied ? "text-moss" : "text-quiet hover:text-ink"
         }`}
       >
-        {copied ? "copied" : "copy"}
+        <span aria-hidden="true" className="invisible col-start-1 row-start-1">
+          copied
+        </span>
+        <span className="col-start-1 row-start-1 text-left">
+          {copied ? "copied" : "copy"}
+        </span>
       </button>
     </span>
   );
@@ -623,9 +630,9 @@ export default function PlainLanding() {
 
       <div className="relative mx-auto max-w-[57rem] px-6 pb-28 pt-28 md:pt-24">
         {/* Hero */}
-        <div className="max-w-[38rem]">
-          <h1 className="font-display text-[2.7rem] font-semibold leading-[1.04] tracking-[-0.035em] text-ink [text-wrap:balance] md:text-[3.5rem]">
-            The AI teammate that does the little things.
+        <div className="max-w-[44rem]">
+          <h1 className="font-display text-[2.7rem] font-semibold leading-[1.04] tracking-[-0.035em] text-ink [text-wrap:balance] md:text-[3.4rem]">
+            The AI teammate that does the little things right.
           </h1>
           <p className="mt-6 max-w-[31rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
             min. remembers, schedules, takes notes, and follows up. For you and
