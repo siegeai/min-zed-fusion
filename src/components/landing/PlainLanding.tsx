@@ -5,158 +5,136 @@ import { getDownloadTarget } from "@/lib/download";
 /**
  * The whole landing page as one typeset document.
  *
- * Design rules, per Eric: plain text does all the work, almost no graphic
- * elements, anything decorative lives in the BACKGROUND. No cards, no icon
- * tiles, no shadows, no pills. The email address is the interface: it is the
- * hero object, monospace, one click to send, one click to copy.
+ * Design rules, per Eric: plain text does the work, almost no graphic
+ * elements, decoration lives in the BACKGROUND. The one visual is the email
+ * itself, rendered the way a developer tool renders a request.
  *
- * The finesse layer, second pass: a consistent vertical rhythm, balanced
- * headline wrapping, an email treatment that feels tactile (animated
- * underline, no layout shift on copy), numbered pillars with hung numerals,
- * ink-weighted key clauses in the trust prose, and the constellation split
- * into two off-center fields so the background breathes instead of sitting
- * centered like a logo.
+ * Layout, third pass: the examples are a loose stack of floating emails that
+ * overlap slightly, so the range of what you can send reads at a glance
+ * instead of as a list. Each card carries its pillar as a label, which is why
+ * there is no separate pillars section: the examples ARE the feature list,
+ * demonstrated rather than described.
  */
+
+const ADDRESS = "min@getmin.ai";
 
 function useCopy() {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText("min@getmin.ai");
+      await navigator.clipboard.writeText(ADDRESS);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      // Clipboard blocked: the mailto link still works.
+      // Clipboard blocked: the mailto links still work.
     }
   };
   return { copied, copy };
 }
 
-/**
- * The hero object: the first email you send min, rendered the way a developer
- * tool renders a request. Line numbers, one accent color, a copy affordance.
- * This is the only "graphic" on the page, and it is also the documentation.
- */
-function EmailBlock() {
-  const { copied, copy } = useCopy();
-  const lines: { t: React.ReactNode }[] = [
-    {
-      t: (
-        <>
-          <span className="text-gray-500">To:{"      "}</span>
-          <a
-            href="mailto:min@getmin.ai?subject=intro%20call%20with%20sarah"
-            className="text-emerald-400 underline decoration-emerald-400/0 underline-offset-4 transition-colors duration-300 hover:decoration-emerald-400/70"
-          >
-            min@getmin.ai
-          </a>
-        </>
-      ),
-    },
-    {
-      t: (
-        <>
-          <span className="text-gray-500">Subject:{" "}</span>
-          <span className="text-gray-300">intro call with sarah</span>
-        </>
-      ),
-    },
-    { t: <span>&nbsp;</span> },
-    {
-      t: (
-        <span className="text-gray-400">
-          can you find us 30 min next week? cc&rsquo;d sarah.
-        </span>
-      ),
-    },
-  ];
+type Example = {
+  label: string;
+  subject?: string;
+  body: string;
+  /** Degrees of tilt and horizontal drift, hand-set so the stack looks tossed. */
+  tilt: number;
+  shift: number;
+};
 
+const EXAMPLES: Example[] = [
+  {
+    label: "Schedule",
+    subject: "intro call with sarah",
+    body: "can you find us 30 min next week? cc'd sarah.",
+    tilt: -0.8,
+    shift: 0,
+  },
+  {
+    label: "Follow up",
+    body: "remind me to follow up with john in 3 months",
+    tilt: 0.7,
+    shift: 26,
+  },
+  {
+    label: "Capture",
+    subject: "weekly design sync",
+    body: "invited you to this one. send everyone the notes after.",
+    tilt: -0.6,
+    shift: 8,
+  },
+  {
+    label: "Remember",
+    body: "what did we decide about the pricing page?",
+    tilt: 0.9,
+    shift: 34,
+  },
+];
+
+function EmailCard({ ex, index }: { ex: Example; index: number }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-gray-800 bg-gray-950">
-      <div className="flex items-center justify-between border-b border-gray-800/80 px-4 py-2.5">
-        <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-gray-500">
-          new message
-        </span>
-        <button
-          type="button"
-          onClick={copy}
-          aria-label="Copy min@getmin.ai"
-          className={`w-[6ch] whitespace-nowrap text-right font-mono text-[10.5px] uppercase tracking-[0.16em] outline-none transition-colors duration-300 focus-visible:text-white ${
-            copied ? "text-emerald-400" : "text-gray-500 hover:text-white"
-          }`}
-        >
-          {copied ? "copied" : "copy"}
-        </button>
-      </div>
-      <div className="px-4 py-4 font-mono text-[13px] leading-[1.9] sm:text-[13.5px]">
-        {lines.map((l, i) => (
-          <div key={i} className="grid grid-cols-[1.6rem_1fr] gap-x-3">
-            <span aria-hidden="true" className="select-none text-right text-gray-700">
-              {i + 1}
-            </span>
-            <span className="whitespace-pre-wrap">{l.t}</span>
+    <div
+      className="relative"
+      style={{
+        transform: `rotate(${ex.tilt}deg) translateX(calc(${ex.shift}px * var(--drift, 1)))`,
+        zIndex: index + 1,
+        marginTop: index === 0 ? 0 : -6,
+      }}
+    >
+      <div className="rounded-xl border border-gray-800 bg-gray-950 shadow-[0_22px_60px_-24px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-out hover:-translate-y-1.5">
+        <div className="border-b border-gray-800/70 px-4 py-2">
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-500">
+            {ex.label}
+          </span>
+        </div>
+        <div className="px-4 pb-4 pt-3 font-mono text-[12.5px] leading-[1.75] sm:text-[13px]">
+          <div>
+            <span className="text-gray-500">To: </span>
+            <a
+              href={`mailto:${ADDRESS}${
+                ex.subject ? `?subject=${encodeURIComponent(ex.subject)}` : ""
+              }`}
+              className="text-emerald-400 underline decoration-emerald-400/0 underline-offset-4 transition-colors duration-300 hover:decoration-emerald-400/70"
+            >
+              {ADDRESS}
+            </a>
           </div>
-        ))}
+          {ex.subject && (
+            <div>
+              <span className="text-gray-500">Subject: </span>
+              <span className="text-gray-300">{ex.subject}</span>
+            </div>
+          )}
+          <div className="mt-2 text-gray-400">{ex.body}</div>
+        </div>
       </div>
     </div>
   );
 }
 
-/** The compact reprise for the closing block: one line, same language. */
-function EmailLine() {
+function AddressLine() {
   const { copied, copy } = useCopy();
   return (
-    <div className="inline-flex items-baseline gap-4 rounded-lg border border-gray-800 bg-gray-950 px-4 py-3 font-mono text-[13.5px]">
-      <span>
-        <span className="text-gray-500">To: </span>
-        <a
-          href="mailto:min@getmin.ai?subject=hi%20min."
-          className="text-emerald-400 underline decoration-emerald-400/0 underline-offset-4 transition-colors duration-300 hover:decoration-emerald-400/70"
-        >
-          min@getmin.ai
-        </a>
-      </span>
+    <span className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1">
+      <a
+        href={`mailto:${ADDRESS}?subject=hi%20min.`}
+        className="group relative font-mono text-[17px] tracking-tight text-gray-900 sm:text-[19px]"
+      >
+        {ADDRESS}
+        <span
+          aria-hidden="true"
+          className="absolute -bottom-0.5 left-0 h-px w-full bg-gray-300 transition-colors duration-300 group-hover:bg-gray-900"
+        />
+      </a>
       <button
         type="button"
         onClick={copy}
-        aria-label="Copy min@getmin.ai"
-        className={`w-[5ch] text-left font-mono text-[10.5px] uppercase tracking-[0.16em] outline-none transition-colors duration-300 focus-visible:text-white ${
-          copied ? "text-emerald-400" : "text-gray-500 hover:text-white"
+        aria-label={`Copy ${ADDRESS}`}
+        className={`w-[5ch] text-left font-mono text-[10.5px] uppercase tracking-[0.16em] outline-none transition-colors duration-300 focus-visible:text-gray-900 ${
+          copied ? "text-emerald-600" : "text-gray-400 hover:text-gray-900"
         }`}
       >
         {copied ? "copied" : "copy"}
       </button>
-    </div>
-  );
-}
-
-const PILLARS: { n: string; verb: string; items: string[] }[] = [
-  {
-    n: "01",
-    verb: "Remember",
-    items: ["reminders", "contextual memory", "“what did we decide?”", "“what am I waiting on?”"],
-  },
-  {
-    n: "02",
-    verb: "Schedule",
-    items: ["coordinate meetings", "reschedule", "find availability", "send invites"],
-  },
-  {
-    n: "03",
-    verb: "Capture",
-    items: ["meeting notes", "decisions", "commitments"],
-  },
-  {
-    n: "04",
-    verb: "Follow up",
-    items: ["remind at the right time", "draft the follow up"],
-  },
-];
-
-function Dot() {
-  return (
-    <span aria-hidden="true" className="mx-2.5 text-gray-300">
-      ·
     </span>
   );
 }
@@ -164,8 +142,7 @@ function Dot() {
 export default function PlainLanding() {
   return (
     <div className="relative overflow-hidden">
-      {/* All decoration lives back here: two off-center constellation fields,
-          one grazing the hero, one under the closing block. */}
+      {/* All decoration lives back here. */}
       <div aria-hidden className="absolute -right-48 -top-16 h-[540px] w-[760px] opacity-[0.55]">
         <Constellation />
       </div>
@@ -183,9 +160,9 @@ export default function PlainLanding() {
           your team.
         </p>
 
-        {/* ── How to start: the email is the interface ── */}
-        <div className="mt-14">
-          <EmailBlock />
+        {/* ── How to start ── */}
+        <div className="mt-10">
+          <AddressLine />
           <p className="mt-4 max-w-[34rem] text-[15px] leading-[1.7] text-gray-500 [text-wrap:pretty]">
             Email it. CC it on a thread that needs scheduling. Invite it to a
             meeting. That is the whole onboarding.
@@ -202,30 +179,13 @@ export default function PlainLanding() {
           </p>
         </div>
 
-        {/* ── The four pillars, as a typeset list with hung numerals ── */}
-        <div id="does" className="mt-24 scroll-mt-24">
-          {PILLARS.map((p, i) => (
-            <div
-              key={p.verb}
-              className={`grid grid-cols-[2.4rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[2.8rem_8.5rem_1fr] sm:gap-x-6 ${
-                i === 0 ? "border-t" : ""
-              } border-b border-gray-200/90`}
-            >
-              <span className="font-mono text-[11px] tracking-[0.08em] text-gray-300">
-                {p.n}
-              </span>
-              <h2 className="font-display text-[16.5px] font-semibold tracking-[-0.01em] text-gray-900">
-                {p.verb}
-              </h2>
-              <p className="col-span-2 mt-2 flex min-w-0 flex-wrap items-baseline gap-y-1 text-[14.5px] leading-[1.75] text-gray-500 sm:col-span-1 sm:mt-0">
-                {p.items.map((item, j) => (
-                  <span key={item} className="whitespace-nowrap">
-                    {item}
-                    {j < p.items.length - 1 && <Dot />}
-                  </span>
-                ))}
-              </p>
-            </div>
+        {/* ── The examples: a loose stack of emails you'd actually send ── */}
+        <div
+          id="does"
+          className="mt-16 max-w-[33rem] scroll-mt-24 [--drift:0.35] sm:[--drift:1]"
+        >
+          {EXAMPLES.map((ex, i) => (
+            <EmailCard key={ex.label} ex={ex} index={i} />
           ))}
         </div>
 
@@ -252,13 +212,13 @@ export default function PlainLanding() {
           </p>
         </div>
 
-        {/* ── Close: the interface, once more ── */}
+        {/* ── Close ── */}
         <div className="mt-24 border-t border-gray-200/90 pt-12">
           <p className="font-display text-[16.5px] font-semibold tracking-[-0.01em] text-gray-900">
             Give it something small today.
           </p>
           <div className="mt-4">
-            <EmailLine />
+            <AddressLine />
           </div>
         </div>
       </div>
