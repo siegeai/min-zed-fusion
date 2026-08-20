@@ -470,7 +470,7 @@ const EXAMPLES = [
   {
     key: "schedule",
     label: "Schedule",
-    line: "Put min. on Cc and it sorts out the time with them.",
+    line: "Put min. on Cc and it sorts out the time. No email ping pong.",
     Card: ScheduleCard,
   },
   {
