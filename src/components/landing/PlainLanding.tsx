@@ -33,6 +33,19 @@ import { SlackMark, TeamsMark } from "./BrandMarks";
  */
 const ADDRESS = "min@getmin.ai";
 
+/*
+ * Prefilled, subject and body both. A subject alone still opens a blank
+ * compose window, and "just email it" onboarding loses people at exactly that
+ * blank window: they know they are supposed to write to it and not what an AI
+ * teammate is for. One concrete first ask removes the decision.
+ */
+const MAILTO =
+  `mailto:${ADDRESS}` +
+  `?subject=${encodeURIComponent("Hi min.")}` +
+  `&body=${encodeURIComponent(
+    "Hi min.,\n\nRemind me to follow up with [name] in two weeks.\n\n"
+  )}`;
+
 function useCopy() {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
@@ -494,14 +507,14 @@ const EXAMPLES = [
   {
     key: "recall",
     label: "Recall",
-    line: "Ask what was decided and it tells you who said what.",
+    line: "Perfect recall across all your meetings and emails.",
     Card: RecallCard,
   },
   { key: "ask", label: "Ask", line: "Same answers, in Slack or Teams.", Card: AskCard },
   {
     key: "rituals",
     label: "Rituals",
-    line: "Briefs and summaries that arrive without being asked.",
+    line: "Set up recurring briefs and summaries using plain English.",
     Card: RitualCard,
   },
 ];
@@ -647,7 +660,7 @@ function AddressField() {
   return (
     <span className="inline-flex items-center gap-1 rounded-full border border-hair bg-white py-2 pl-6 pr-2 shadow-[0_1px_3px_rgba(12,18,17,0.06)]">
       <a
-        href={`mailto:${ADDRESS}?subject=hi%20min.`}
+        href={MAILTO}
         className="font-mono text-[16px] tracking-tight text-ink transition-colors duration-200 hover:text-moss sm:text-[18px]"
       >
         {ADDRESS}
@@ -677,7 +690,7 @@ function AddressLine({ size = "lg" }: { size?: "lg" | "sm" }) {
   return (
     <span className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1">
       <a
-        href={`mailto:${ADDRESS}?subject=hi%20min.`}
+        href={MAILTO}
         className={`group relative font-mono tracking-tight text-ink ${
           big ? "text-[19px] sm:text-[23px]" : "text-[17px]"
         }`}
@@ -739,7 +752,7 @@ export default function PlainLanding() {
           <div className="mt-10">
             <AddressField />
             <p className="mt-4 text-[14.5px] leading-[1.7] text-quiet">
-              Just shoot a hello email to min. to get started.{" "}
+              Just shoot a hello email to get started.{" "}
               <span className="text-ink">No sign up.</span> Free to use.
             </p>
           </div>
