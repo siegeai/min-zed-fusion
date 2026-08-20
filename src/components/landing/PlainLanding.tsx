@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Users, Video } from "lucide-react";
 import MemoryField from "./MemoryField";
-import { getDownloadTarget } from "@/lib/download";
 
 /**
  * The landing page, sixth pass: minimal and sleek, per Eric.
@@ -548,10 +547,10 @@ function Stage() {
 function AddressField() {
   const { copied, copy } = useCopy();
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-hair bg-white py-1.5 pl-5 pr-1.5 shadow-[0_1px_2px_rgba(12,18,17,0.05)]">
+    <span className="inline-flex items-center gap-1 rounded-full border border-hair bg-white py-2 pl-6 pr-2 shadow-[0_1px_3px_rgba(12,18,17,0.06)]">
       <a
         href={`mailto:${ADDRESS}?subject=hi%20min.`}
-        className="font-mono text-[15px] tracking-tight text-ink transition-colors duration-200 hover:text-moss sm:text-[16px]"
+        className="font-mono text-[16px] tracking-tight text-ink transition-colors duration-200 hover:text-moss sm:text-[18px]"
       >
         {ADDRESS}
       </a>
@@ -640,15 +639,7 @@ export default function PlainLanding() {
           </p>
 
           <div className="mt-10">
-            <div className="flex flex-wrap items-center gap-3">
-              <AddressField />
-              <a
-                href={getDownloadTarget().href}
-                className="inline-flex items-center rounded-full bg-ink px-5 py-[11px] text-[14px] font-medium text-white shadow-[0_1px_2px_rgba(12,18,17,0.10)] transition-transform duration-200 hover:bg-ink/90 active:translate-y-px motion-reduce:transition-none"
-              >
-                {getDownloadTarget().label}
-              </a>
-            </div>
+            <AddressField />
             <p className="mt-4 text-[14.5px] leading-[1.7] text-quiet">
               Just shoot a hello email to min. to get started.{" "}
               <span className="text-ink">No sign up.</span> Free to use.
