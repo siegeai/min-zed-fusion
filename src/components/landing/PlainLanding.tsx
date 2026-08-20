@@ -538,28 +538,32 @@ export default function PlainLanding() {
         </div>
 
         {/* ── The examples ── */}
-        {/* The band keeps the reading column's left edge and runs out to the
-            right instead, so the page still rags left while the examples take
-            whatever width the window gives them. The negative margin is the
-            distance from the container's content edge to the viewport, less a
-            gutter, and only applies once the container has stopped growing.
-            Capped on very wide screens so the cards do not inflate past the
-            width a real mail client would use. */}
+        {/* The band breaks the reading container on BOTH sides and centres on
+            the window. Holding the prose's left edge and growing only to the
+            right read as right-aligned once the window got wide, which is not
+            what an overflowing band should look like.
+
+            ml:calc(50%-50vw) is half the container against half the viewport,
+            which lands the element on the window's left edge; w-screen then
+            takes the full width. The inner div re-centres inside that and caps
+            at 120rem so cards stop inflating on very wide displays. */}
         <div
           id="does"
-          className="mt-20 scroll-mt-24 [--drift:0.3] sm:[--drift:1] lg:mr-[calc(31rem-50vw)] lg:max-w-[104rem]"
+          className="mt-20 scroll-mt-24 [--drift:0.3] sm:[--drift:1] lg:ml-[calc(50%-50vw)] lg:w-screen"
         >
-          {/* Column counts are chosen so a card never falls under about 330px,
-              which is where the invite's RSVP row and the guest rows start to
-              feel cramped. Two columns wait for md for that reason. */}
-          <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2 md:gap-y-7 lg:grid-cols-3 lg:gap-x-12">
-            <ScheduleCard />
-            <NotetakerCard />
-            <ReminderCard />
-            <FollowUpCard />
-            <ReplyCard />
-            <AskCard />
-            <RitualCard />
+          <div className="mx-auto max-w-[120rem] lg:px-8">
+            {/* Column counts are chosen so a card never falls under about
+                330px, which is where the invite's RSVP row and the guest rows
+                start to feel cramped. */}
+            <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2 md:gap-y-7 xl:grid-cols-3 xl:gap-x-12 2xl:grid-cols-4">
+              <ScheduleCard />
+              <NotetakerCard />
+              <ReminderCard />
+              <FollowUpCard />
+              <ReplyCard />
+              <AskCard />
+              <RitualCard />
+            </div>
           </div>
         </div>
 
