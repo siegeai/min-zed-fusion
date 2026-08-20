@@ -628,7 +628,7 @@ export default function PlainLanding() {
         <MemoryField />
       </div>
 
-      <div className="relative mx-auto max-w-[57rem] px-6 pb-28 pt-28 md:pt-24">
+      <div className="relative mx-auto max-w-[57rem] px-6 pb-28 pt-32 md:pt-[9.5rem]">
         {/* Hero */}
         <div className="max-w-[44rem]">
           <h1 className="font-display text-[2.7rem] font-semibold leading-[1.04] tracking-[-0.035em] text-ink [text-wrap:balance] md:text-[3.4rem]">

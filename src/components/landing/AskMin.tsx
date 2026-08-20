@@ -21,13 +21,14 @@ import {
  * safe to ship before the Worker is deployed.
  */
 
-// Shaped to get the visitor talking about their own work — the answers are far
-// better once min. knows what they actually do.
+// One per thing a visitor actually arrives wondering: what it does, how it is
+// not the tool they already have, the feature that surprises people, and the
+// cost. Each maps to a fact in llms.txt, so none of them dead-ends.
 const OPENERS = [
-  "I'm a founder. Would this help me?",
-  "I keep losing track after conferences.",
+  "What can min. actually do?",
   "How is this different from a notetaker?",
-  "Is it really free?",
+  "Can it chase someone until they reply?",
+  "Do I need to sign up to try it?",
 ];
 
 type Msg = { role: "user" | "assistant"; content: string };
@@ -201,8 +202,8 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
 
   if (stage === "offer") {
     return (
-      <div className="mt-3 rounded-xl border border-gray-200 bg-white px-3.5 py-3">
-        <p className="text-[12.5px] leading-relaxed text-gray-600">
+      <div className="mt-3 rounded-xl border border-hair bg-white px-3.5 py-3">
+        <p className="text-[12.5px] leading-relaxed text-quiet">
           That one is worth a real answer. Want me to write it up for the team?
           They reply within a day.
         </p>
@@ -210,14 +211,14 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
           <button
             type="button"
             onClick={write}
-            className="rounded-full bg-gray-900 px-3.5 py-1.5 text-[12px] font-medium text-white transition-colors hover:bg-gray-700"
+            className="rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-colors hover:bg-ink/80"
           >
             Write it up
           </button>
           <button
             type="button"
             onClick={onDone}
-            className="text-[11.5px] font-medium text-gray-400 transition-colors hover:text-gray-700"
+            className="text-[11.5px] font-medium text-quiet transition-colors hover:text-ink/75"
           >
             No thanks
           </button>
@@ -228,15 +229,15 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
 
   if (stage === "drafting") {
     return (
-      <div className="mt-3 rounded-xl border border-gray-200 bg-white px-3.5 py-3" aria-busy="true">
-        <p className="text-[12.5px] text-gray-500">Writing it up…</p>
+      <div className="mt-3 rounded-xl border border-hair bg-white px-3.5 py-3" aria-busy="true">
+        <p className="text-[12.5px] text-quiet">Writing it up…</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={send} className="mt-3 rounded-xl border border-gray-200 bg-white px-3.5 py-3">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-400">
+    <form onSubmit={send} className="mt-3 rounded-xl border border-hair bg-white px-3.5 py-3">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-quiet">
         To the team
       </p>
       <textarea
@@ -245,7 +246,7 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
         rows={4}
         maxLength={2000}
         aria-label="Your message to the min. team"
-        className="mt-1.5 w-full resize-none rounded-lg border border-gray-200 bg-[#FBFBFA] px-2.5 py-2 text-[12.5px] leading-relaxed text-gray-700 outline-none transition-colors focus:border-moss/25"
+        className="mt-1.5 w-full resize-none rounded-lg border border-hair bg-paper px-2.5 py-2 text-[12.5px] leading-relaxed text-ink/75 outline-none transition-colors focus:border-moss/25"
       />
       <input
         type="email"
@@ -262,10 +263,10 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
         // explicitly instead of left to guesswork.
         name="email"
         autoComplete="email"
-        className={`mt-2 w-full rounded-lg border bg-white px-2.5 py-2 text-[12.5px] text-gray-900 outline-none transition-colors placeholder:text-gray-400 ${
+        className={`mt-2 w-full rounded-lg border bg-white px-2.5 py-2 text-[12.5px] text-ink outline-none transition-colors placeholder:text-quiet ${
           showEmailError
             ? "border-amber-300 focus:border-amber-400"
-            : "border-gray-200 focus:border-moss/25"
+            : "border-hair focus:border-moss/25"
         }`}
       />
       {showEmailError && (
@@ -293,14 +294,14 @@ function HandOff({ messages, onDone }: { messages: Msg[]; onDone: () => void }) 
         <button
           type="submit"
           disabled={busy || !emailOk || !draft?.body.trim()}
-          className="rounded-full bg-gray-900 px-3.5 py-1.5 text-[12px] font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-40"
+          className="rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-colors hover:bg-ink/80 disabled:opacity-40"
         >
           {busy ? "Sending…" : "Send to the team"}
         </button>
         <button
           type="button"
           onClick={onDone}
-          className="text-[11.5px] font-medium text-gray-400 transition-colors hover:text-gray-700"
+          className="text-[11.5px] font-medium text-quiet transition-colors hover:text-ink/75"
         >
           Cancel
         </button>
@@ -475,24 +476,24 @@ export default function AskMin() {
         <div
           role="dialog"
           aria-label="Ask min. about min."
-          className="modal-in mb-2.5 overflow-hidden rounded-[22px] border border-gray-200/80 bg-white shadow-[0_16px_60px_-16px_rgba(0,0,0,0.18)]"
+          className="modal-in mb-2.5 overflow-hidden rounded-[22px] border border-hair bg-white shadow-[0_16px_60px_-16px_rgba(0,0,0,0.18)]"
         >
           {/* Header mirrors the capsule rail: same title shape, same blurb weight */}
-          <div className="flex items-start justify-between gap-3 border-b border-gray-100 bg-[#FBFBFA] px-5 pt-5 pb-4">
+          <div className="flex items-start justify-between gap-3 border-b border-hair/70 bg-paper px-5 pt-5 pb-4">
             <div className="min-w-0">
-              <h4 className="font-display text-[15px] font-semibold text-gray-900">
-                How can I help with min.?
+              <h4 className="font-display text-[15px] font-semibold text-ink">
+                Ask about min.
               </h4>
-              <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">
-                Answers grounded in what min. actually does. Tell me what you
-                work on and I will keep it specific.
+              <p className="mt-1 text-[12.5px] leading-relaxed text-quiet">
+                Answers come from what min. actually does. Features, pricing,
+                or how to start.
               </p>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close"
-              className="-mr-1.5 -mt-1 shrink-0 rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-white hover:text-gray-700"
+              className="-mr-1.5 -mt-1 shrink-0 rounded-lg p-1.5 text-quiet transition-colors hover:bg-white hover:text-ink/75"
             >
               <X className="h-4 w-4" strokeWidth={2} />
             </button>
@@ -500,10 +501,10 @@ export default function AskMin() {
 
           <div
             ref={scrollRef}
-            className="max-h-[min(58vh,420px)] overflow-y-auto bg-[#FBFBFA] px-5 pb-5"
+            className="max-h-[min(58vh,420px)] overflow-y-auto bg-paper px-5 pb-5"
           >
             {restoredCount.current > 0 && (
-              <p className="pt-4 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
+              <p className="pt-4 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-quiet">
                 From your last visit
               </p>
             )}
@@ -514,27 +515,27 @@ export default function AskMin() {
                   <div key={i}>
                     {restoredCount.current > 0 && i === restoredCount.current && (
                       <div className="mb-2.5 flex items-center gap-2 pt-1">
-                        <span className="h-px flex-1 bg-gray-200/70" />
-                        <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-gray-400">
+                        <span className="h-px flex-1 bg-hair/70" />
+                        <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-quiet">
                           Today
                         </span>
-                        <span className="h-px flex-1 bg-gray-200/70" />
+                        <span className="h-px flex-1 bg-hair/70" />
                       </div>
                     )}
                     {m.role === "user" ? (
-                      <div className="ml-auto w-fit max-w-[92%] rounded-2xl rounded-br-sm bg-gray-900 px-3.5 py-2 text-[12.5px] text-white">
+                      <div className="ml-auto w-fit max-w-[92%] rounded-2xl rounded-br-sm bg-ink px-3.5 py-2 text-[12.5px] text-white">
                         {m.content}
                       </div>
                     ) : m.content ? (
-                      <div className="w-fit max-w-[96%] whitespace-pre-wrap rounded-2xl rounded-bl-sm border border-gray-100 bg-white px-3.5 py-2 text-[12.5px] leading-relaxed text-gray-700">
+                      <div className="w-fit max-w-[96%] whitespace-pre-wrap rounded-2xl rounded-bl-sm border border-hair/70 bg-white px-3.5 py-2 text-[12.5px] leading-relaxed text-ink/75">
                         {m.content}
                       </div>
                     ) : (
-                      <div className="flex w-fit items-center gap-1 rounded-2xl rounded-bl-sm border border-gray-100 bg-white px-3.5 py-2.5">
+                      <div className="flex w-fit items-center gap-1 rounded-2xl rounded-bl-sm border border-hair/70 bg-white px-3.5 py-2.5">
                         {[0, 1, 2].map((d) => (
                           <span
                             key={d}
-                            className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-300"
+                            className="h-1.5 w-1.5 animate-bounce rounded-full bg-hair"
                             style={{ animationDelay: `${d * 0.15}s` }}
                           />
                         ))}
@@ -547,17 +548,17 @@ export default function AskMin() {
 
             {showOpeners && (
               <>
-                <p className="pt-4 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-gray-400">
+                <p className="pt-4 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-quiet">
                   Try one
                 </p>
-                <div className="mt-2 space-y-2">
+                <div className="mt-2.5 flex flex-wrap gap-2">
                   {OPENERS.map((q) => (
                     <button
                       key={q}
                       type="button"
                       onClick={() => ask(q)}
                       disabled={busy}
-                      className="block w-full rounded-xl border border-gray-200 bg-white px-3.5 py-2.5 text-left text-[13px] text-gray-600 transition-colors hover:border-moss/25 hover:text-gray-900 disabled:opacity-60"
+                      className="rounded-full border border-hair bg-white px-3.5 py-2 text-left text-[12.5px] leading-snug text-quiet transition-colors hover:border-moss/40 hover:text-ink disabled:opacity-60"
                     >
                       {q}
                     </button>
@@ -577,7 +578,7 @@ export default function AskMin() {
             )}
 
             {capped && (
-              <p className="mt-2.5 text-[12.5px] leading-relaxed text-gray-500">
+              <p className="mt-2.5 text-[12.5px] leading-relaxed text-quiet">
                 That is a lot of good questions, which usually means it is worth
                 talking to someone who can go deeper than I can.{" "}
                 <a
@@ -594,7 +595,7 @@ export default function AskMin() {
               <button
                 type="button"
                 onClick={clearHistory}
-                className="mt-4 text-[11.5px] font-medium text-gray-400 transition-colors hover:text-gray-700"
+                className="mt-4 text-[11.5px] font-medium text-quiet transition-colors hover:text-ink/75"
               >
                 Start over
               </button>
@@ -623,7 +624,7 @@ export default function AskMin() {
         // we want people to reach for, and at the old size it read as a dismissable
         // widget. Open, it shrinks back to a composer, because by then the panel
         // above it is the thing holding attention.
-        className={`flex cursor-text items-center rounded-full border border-gray-200 bg-white transition-all duration-200 focus-within:border-moss/25 ${
+        className={`flex cursor-text items-center rounded-full border border-hair bg-white transition-all duration-200 focus-within:border-moss/25 ${
           open
             ? "gap-2 px-4 py-2.5 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.18)]"
             : "gap-2.5 px-5 py-3.5 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 hover:border-moss/25 hover:shadow-[0_16px_44px_-12px_rgba(16,185,129,0.28)]"
@@ -661,7 +662,7 @@ export default function AskMin() {
           data-lpignore="true"
           data-bwignore=""
           data-form-type="other"
-          className={`min-w-0 flex-1 bg-transparent text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 ${
+          className={`min-w-0 flex-1 bg-transparent text-ink outline-none placeholder:text-quiet disabled:opacity-60 ${
             open ? "text-[13px]" : "text-[14px]"
           }`}
         />
@@ -669,7 +670,7 @@ export default function AskMin() {
           type="submit"
           disabled={busy || capped || !draft.trim()}
           aria-label="Send"
-          className={`grid shrink-0 place-items-center rounded-full text-gray-400 transition-colors hover:bg-gray-50 hover:text-gray-700 disabled:opacity-40 ${
+          className={`grid shrink-0 place-items-center rounded-full text-quiet transition-colors hover:bg-paper hover:text-ink/75 disabled:opacity-40 ${
             open ? "h-6 w-6" : "h-7 w-7"
           }`}
         >
