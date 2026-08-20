@@ -305,9 +305,9 @@ export default function PlainLanding() {
             promised and who owes what, brought back when it matters.
           </p>
           <p className="mt-3 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
-            <span className="text-gray-900">Team rituals.</span> Daily briefs,
-            Monday summaries, pre-meeting preps. To your inbox or your channel,
-            on your schedule.
+            <span className="text-gray-900">Team rituals.</span> Daily briefs, weekly
+            summaries. Directly to your team's inbox, Slack, or Teams, on your
+            schedule.
           </p>
           <p className="mt-5 text-[15px] leading-[1.75] text-gray-500 [text-wrap:pretty]">
             Shared only where you share it. A 1:1 stays yours.
