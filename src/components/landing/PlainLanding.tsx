@@ -476,19 +476,19 @@ const EXAMPLES = [
   {
     key: "notetaker",
     label: "Notetaker",
-    line: "Add it to the invite and it writes up the meeting.",
+    line: "Invite it to your team meeting and it writes up notes. And sends everyone a summary.",
     Card: NotetakerCard,
   },
   {
     key: "reminder",
     label: "Reminder",
-    line: "Forward a thread and it comes back when it matters.",
+    line: "Forward it a thread with a reminder and min. will make sure you remember!",
     Card: ReminderCard,
   },
   {
     key: "follow-up",
     label: "Follow up",
-    line: "It keeps after someone until they reply, from your address.",
+    line: "It follows up for you until they reply, from your address.",
     Card: FollowUpCard,
   },
   {
