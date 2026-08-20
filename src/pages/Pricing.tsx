@@ -10,10 +10,18 @@ const APP_URL = "https://app.getmin.ai";
 const CARD =
   "rounded-2xl border border-gray-100 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.02)]";
 
+/**
+ * The plans are split on who min. is working for, not on how far back it can
+ * remember. Recall windows are no longer a thing in the product, and they were
+ * a strange thing to sell anyway: nobody wants to buy memory by the month.
+ *
+ * One person, free, forever. You pay at the point min. starts working across a
+ * team, which is also the point it starts saving a team's worth of time.
+ */
 type Plan = {
   name: string;
   swatch: string;
-  recall: { label: string; strong: boolean };
+  who: { label: string; strong: boolean };
   inheritFrom?: string;
   features: string[];
   cta: { label: string; href: string };
@@ -26,12 +34,13 @@ const PLANS: Plan[] = [
     name: "Free",
     swatch: "bg-gray-400",
     price: { display: "$0", sub: "forever" },
-    recall: { label: "Last 3 months", strong: false },
+    who: { label: "For you", strong: false },
     features: [
-      "Built in botless notetaker",
-      "A living capsule for every relationship",
-      "Built from your calls, calendar, and email",
-      "+1 month of recall per referral",
+      "Notes for every meeting you are in",
+      "Reminders and follow ups",
+      "Scheduling, just put min. on Cc",
+      "Ask it anything it was part of",
+      "Desktop app for macOS and Windows",
     ],
     cta: { label: getDownloadTarget().label, href: getDownloadTarget().href },
   },
@@ -39,17 +48,24 @@ const PLANS: Plan[] = [
     name: "Pro",
     swatch: "bg-emerald-500",
     price: { display: "$20", sub: "/ active teammate / mo" },
-    recall: { label: "5 years", strong: true },
+    who: { label: "For your team", strong: true },
     inheritFrom: "Free",
-    features: ["5 years of recall history", "Roles and admin", "Priority support"],
-    cta: { label: "Start with 5 years of recall", href: APP_URL },
+    features: [
+      "Shared notes for everyone who was there",
+      "Team reminders: what was promised, who owes what",
+      "Rituals: daily briefs and weekly summaries",
+      "Ask min. in Slack or Teams",
+      "Roles and admin",
+      "Priority support",
+    ],
+    cta: { label: "Start with your team", href: APP_URL },
     highlighted: true,
   },
   {
     name: "Business",
     swatch: "bg-gray-900",
     price: { display: "Custom", sub: "let's talk" },
-    recall: { label: "Unlimited", strong: true },
+    who: { label: "For your company", strong: true },
     inheritFrom: "Pro",
     features: [
       "SSO, SAML, and SCIM",
@@ -67,11 +83,11 @@ const PLANS: Plan[] = [
 const FAQS = [
   {
     q: "Is it really free?",
-    a: "Yes. min. is free to use, for everyone you invite. Free recalls the last 3 months of every relationship, and every referral adds another month of recall. You pay only to reach 5 years back.",
+    a: "Yes. Everything min. does for you on your own is free, with no time limit and no card. You pay when you want it working across a team: shared notes, team reminders, and rituals.",
   },
   {
-    q: "Can I share a capsule for free?",
-    a: "Yes, on every plan. Share a single meeting, a person capsule, or a whole company capsule. Revocable any time.",
+    q: "What is an active teammate?",
+    a: "Someone min. actually did something for that month. You can invite the whole company without paying for the whole company, and a teammate who sits out a month is not billed for that month.",
   },
   {
     q: "How do I start using min.?",
@@ -94,7 +110,7 @@ const Pricing = () => {
         <title>Pricing | min., the AI teammate that does the little things</title>
         <meta
           name="description"
-          content="min., the AI teammate that does the little things, is free to use. You pay only for more recall history."
+          content="min., the AI teammate that does the little things, is free for one person, forever. You pay when it starts working across your team."
         />
         <link rel="canonical" href="https://getmin.ai/pricing/" />
       </Helmet>
@@ -109,7 +125,8 @@ const Pricing = () => {
                 Free to <span className="text-emerald-600">use</span>.
               </h1>
               <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                Free to use. Pay only for more recall history.
+                Free for you, forever. You pay when min. starts working across
+                your team.
               </p>
             </header>
 
@@ -176,12 +193,12 @@ function PlanCard({ plan }: { plan: Plan }) {
       <div className="mb-5">
         <span
           className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-medium ${
-            plan.recall.strong
+            plan.who.strong
               ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
               : "border border-gray-200 bg-gray-50 text-gray-600"
           }`}
         >
-          Recall: {plan.recall.label}
+          {plan.who.label}
         </span>
       </div>
 

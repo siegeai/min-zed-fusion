@@ -4,8 +4,8 @@ const COLUMNS = [
   {
     heading: "Product",
     links: [
-      { label: "Relationship AI", to: "/#capsule" },
-      { label: "How it works", to: "/#how" },
+      { label: "What min. can do", to: "/#does" },
+      { label: "For teams", to: "/#team" },
       { label: "Pricing", to: "/pricing" },
     ],
   },

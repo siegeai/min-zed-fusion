@@ -28,12 +28,12 @@ const TRAITS = [
   {
     Icon: Lightbulb,
     title: "Thinkers",
-    body: "You see structure where others see a pile of scattered threads and calls.",
+    body: "You see the shape in a pile of scattered threads, calls, and half-kept promises.",
   },
   {
     Icon: Heart,
     title: "Operators",
-    body: "You've felt the pain of a dropped follow-up, or walking into a meeting cold.",
+    body: "You have felt the dropped follow up, and the meeting you walked into cold.",
   },
   {
     Icon: Users,
@@ -72,10 +72,10 @@ export default function Careers() {
   return (
     <>
       <Helmet>
-        <title>Careers at min. | Build the assistant that helps people win</title>
+        <title>Careers at min. | Build the AI teammate that does the little things</title>
         <meta
           name="description"
-          content="Help us build the relationship AI whose only job is helping people win: a living memory of every relationship, put to work. Email hello@getmin.ai with what you've built. No traditional postings."
+          content="Help us build the AI teammate that does the little things: the notes, the scheduling, the reminders, the follow ups. Email hello@getmin.ai with what you've built. No traditional postings."
         />
         <link rel="canonical" href="https://getmin.ai/careers/" />
       </Helmet>
@@ -92,8 +92,8 @@ export default function Careers() {
                 Careers
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                Build the assistant behind{" "}
-                <span className="text-blue-600">every win</span>.
+                Build the teammate that does{" "}
+                <span className="text-blue-600">the little things</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                 No job postings. No five-round interviews. Email us what you've
@@ -113,9 +113,9 @@ export default function Careers() {
                   Email is the application.
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed mb-7 max-w-md mx-auto">
-                  Send a resume or a link to something you're proud of. Tell us
-                  why you're excited to build an assistant that remembers every
-                  relationship and puts it to work. We'll write back.
+                  Send a resume or a link to something you're proud of. Tell
+                  us why you want to build the teammate that takes the small
+                  work off everyone's plate. We'll write back.
                 </p>
                 <div
                   className={`${CARD_SURFACE} flex items-center justify-between gap-3 px-4 py-3 mb-6 max-w-sm mx-auto`}

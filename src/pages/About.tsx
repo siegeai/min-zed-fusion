@@ -11,21 +11,21 @@ const BELIEFS = [
   {
     Icon: Network,
     tint: "blue" as const,
-    title: "Relationships are the real work",
-    body: "Careers, customers, and companies are built on relationships, not a sales process. The tool should serve the relationship, not turn it into data entry.",
+    title: "The small stuff is the real cost",
+    body: "Nobody burns out on the hard work. They burn out on scheduling, note taking, and chasing replies. That time is worth taking back.",
   },
   {
     Icon: Zap,
     tint: "amber" as const,
     filled: true,
-    title: "Memory should build itself",
-    body: "Nobody should keep a relationship alive by hand. The memory should form on its own from the work you already do, every call and every email.",
+    title: "You should not have to set it up",
+    body: "A tool you have to feed is another job. min. learns from the work you already do: the meetings you sit in and the mail you already send.",
   },
   {
     Icon: Lock,
     tint: "blue" as const,
-    title: "Your memory is yours",
-    body: "A memory this personal only works if it's safe. You decide what is shared and with whom. Your insights stay yours alone.",
+    title: "You stay in control",
+    body: "Something that sits this close to your work only earns it by being safe. You share your own context with your team, and a 1:1 stays yours.",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is AI that builds a digital version of everyone you work with. It turns your calls, email, and calendar into a living memory of every relationship, then puts that memory to work: the prep, the follow up, the next move.",
+      "min. is the AI teammate that does the little things. It takes the notes, sorts out the scheduling, remembers what was decided, and follows up, for one person or for a whole team.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -58,7 +58,7 @@ export default function About() {
         <title>About min. | The AI teammate that does the little things</title>
         <meta
           name="description"
-          content="min. turns your calendar and email into a living memory of every relationship, person, company, and group, so the people whose work runs on relationships never have to rely on memory alone."
+          content="Why we built min., the AI teammate that does the little things. The notes, the scheduling, the reminders, and the follow ups, handled, so the work you actually care about gets your attention."
         />
         <link rel="canonical" href="https://getmin.ai/about/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -75,15 +75,15 @@ export default function About() {
                 About min.
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                We're building perfect memory
+                Somebody has to do
                 <br className="hidden sm:block" />{" "}
-                for <span className="text-blue-600">every relationship</span>.
+                the <span className="text-blue-600">little things</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                min. turns your calls, calendar, and email into a living memory
-                of every person, company, and group you work with, then puts it
-                to work. The people whose work runs on relationships should
-                never have to rely on memory alone.
+                The notes, the scheduling, the reminders, the follow ups. It is
+                a few hours out of everyone's week, every week, and none of it
+                is the work anyone was hired to do. So we built a teammate for
+                it.
               </p>
             </div>
           </section>
@@ -122,27 +122,27 @@ export default function About() {
                 Origin
               </p>
               <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-8">
-                You can't remember everyone. Your work needs you to.
+                The small things are never the priority. They are always the problem.
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  The work that matters most, winning the customer, earning the
-                  promotion, landing the job, comes down to relationships. But every
-                  relationship is a growing pile of calls, emails, and promises,
-                  and no one can hold all of it in their head.
+                  Every job comes with a tail of small obligations. Find a time
+                  that works for four people. Write up what was decided. Come
+                  back to the thread in three months. Ask the person who went
+                  quiet whether they are still interested.
                 </p>
                 <p>
-                  So the important things slip. You walk into a meeting trying to
-                  recall what you agreed last time. A promise goes unkept. A
-                  relationship you meant to nurture goes quiet. Not from not
-                  caring, but from being human.
+                  None of it is hard. All of it takes attention, and attention
+                  is the one thing that does not scale. So the small things slip
+                  quietly: not because anyone stopped caring, but because there
+                  were bigger things in front of them that day.
                 </p>
                 <p>
-                  So we built min.: a living memory for every relationship, built
-                  automatically from your calls, calendar, and email. It remembers
-                  what you can't, then acts on it: the prep before the meeting,
-                  the follow up, the nudge at the right moment. Being great with
-                  people stops depending on a perfect memory.
+                  So we built min. You email it, put it on Cc, or add it to the
+                  invite, and it handles that tail. It is the same for a team:
+                  everyone who was in the room gets the notes, and what was
+                  promised comes back when it matters. No setup, no new place to
+                  work, nothing to maintain.
                 </p>
               </div>
             </div>
@@ -209,11 +209,11 @@ export default function About() {
           <section id="cta" className="pb-24 pt-8">
             <div className="max-w-3xl mx-auto px-6 text-center">
               <h3 className="font-display text-gray-900 text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
-                Every relationship, working for you.
+                Give it something small today.
               </h3>
               <p className="text-gray-600 mb-7 max-w-xl mx-auto">
-                Two minutes to connect, then min. remembers everyone you work
-                with and helps you win: the deal, the promotion, the callback.
+                Shoot a hello email to min@getmin.ai, or download the app. Free
+                for one person, forever.
               </p>
               <a
                 href={getDownloadTarget().href}

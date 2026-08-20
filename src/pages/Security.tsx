@@ -94,10 +94,10 @@ export default function Security() {
   return (
     <>
       <Helmet>
-        <title>Security at min. | Your relationship memory, protected</title>
+        <title>Security at min. | Your context, protected</title>
         <meta
           name="description"
-          content="9.7 ESOF score, SOC 2 Type II infrastructure, zero training on your data. min. keeps a distilled memory of every relationship, built from your calls, calendar, and email, and guards it as the foundation, not the afterthought."
+          content="9.7 ESOF score, SOC 2 Type II infrastructure, zero training on your data. min. keeps a distilled memory of your meetings and mail, never a copy of your mailbox, and guards it as the foundation, not the afterthought."
         />
         <link rel="canonical" href="https://getmin.ai/security/" />
       </Helmet>
@@ -117,11 +117,11 @@ export default function Security() {
                 Security
               </p>
               <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                Your relationship memory,{" "}
+                Your context,{" "}
                 <span className="text-blue-600">protected</span>.
               </h1>
               <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                min. keeps a distilled memory of every relationship, built from your calls, calendar, and email, never a copy of your mailbox. Built by engineers who shipped infrastructure at DoorDash, Coursera, and Sunnybrook Research Hospital, and guarded from the foundation up.
+                min. keeps a distilled memory of your meetings and mail, never a copy of your mailbox. Built by engineers who shipped infrastructure at DoorDash, Coursera, and Sunnybrook Research Hospital, and guarded from the foundation up.
               </p>
             </div>
           </section>

@@ -23,12 +23,12 @@ const INQUIRIES = [
   {
     Icon: BarChart3,
     title: "Sales",
-    body: "Ready to bring min. to your team, or want to see it on your own relationships.",
+    body: "Ready to bring min. to your team, or want to see what it does on your own calendar and inbox.",
   },
   {
     Icon: Users,
     title: "Support",
-    body: "Need help getting more out of min. across your team.",
+    body: "Something is not working, or you want more out of min. across your team.",
   },
   {
     Icon: MessageCircle,
