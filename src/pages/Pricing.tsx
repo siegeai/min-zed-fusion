@@ -91,10 +91,10 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing | min., the AI teammate you teach</title>
+        <title>Pricing | min., the AI teammate that does the little things</title>
         <meta
           name="description"
-          content="min., the AI teammate you teach, is free to use. You pay only for more recall history."
+          content="min., the AI teammate that does the little things, is free to use. You pay only for more recall history."
         />
         <link rel="canonical" href="https://getmin.ai/pricing/" />
       </Helmet>

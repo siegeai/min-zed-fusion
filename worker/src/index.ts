@@ -126,7 +126,7 @@ async function loadKnowledge(): Promise<string> {
   // If the fetch fails the bot should still be able to answer the basics
   // rather than hallucinate them.
   return [
-    "min. is the AI teammate you teach: a focused AI for the small daily tasks of work.",
+    "min. is the AI teammate that does the little things: a focused AI for the small daily tasks of work.",
     "Four pillars: Remember (reminders, contextual memory), Schedule (CC min@ to coordinate meetings),",
     "Capture (invite it to a meeting for notes, decisions, commitments), and Follow up (reminders and drafts).",
     "Private by default: it remembers privately for you unless you share, and it never scores or manages you.",

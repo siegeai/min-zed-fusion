@@ -176,11 +176,11 @@ export default function PlainLanding() {
       <div className="relative mx-auto max-w-[41rem] px-6 pb-28 pt-32 md:pt-44">
         {/* ── What it is ── */}
         <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-[-0.025em] text-gray-900 [text-wrap:balance] md:text-[3.4rem]">
-          The AI teammate you teach.
+          The AI teammate that does the little things.
         </h1>
         <p className="mt-6 max-w-[34rem] text-[17.5px] leading-[1.65] text-gray-500 [text-wrap:pretty]">
-          min. does the small daily tasks of work, for you and your team. It
-          remembers, schedules, captures, and follows up.
+          min. remembers, schedules, takes notes, and follows up. For you and
+          your team.
         </p>
 
         {/* ── How to start: the email is the interface ── */}
