@@ -765,7 +765,8 @@ export default function PlainLanding() {
             ))}
           </div>
           <p className="mt-6 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
-            Share your own context with your team. You are always in control.
+            Share your own context with your team in 1 click. You are
+            always in control.
           </p>
             </div>
             <div className="hidden lg:block">
