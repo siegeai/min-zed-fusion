@@ -643,7 +643,8 @@ export default function PlainLanding() {
               </a>
             </div>
             <p className="mt-4 text-[14.5px] leading-[1.7] text-quiet">
-              Just shoot a hello email to min. to get started. Free to use.
+              Just shoot a hello email to min. to get started.{" "}
+              <span className="text-ink">No sign up.</span> Free to use.
             </p>
           </div>
         </div>

@@ -83,7 +83,7 @@ const PLANS: Plan[] = [
 const FAQS = [
   {
     q: "Is it really free?",
-    a: "Yes. Everything min. does for you on your own is free, with no time limit and no card. You pay when you want it working across a team: shared notes, team reminders, and rituals.",
+    a: "Yes. Everything min. does for you on your own is free, with no sign up, no card, and no time limit. Email min@getmin.ai and it replies. You pay when you want it working across a team: shared notes, team reminders, and rituals.",
   },
   {
     q: "What is an active teammate?",
