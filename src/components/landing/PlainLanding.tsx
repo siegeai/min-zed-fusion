@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Users, Video } from "lucide-react";
 import Constellation from "./Constellation";
 import { getDownloadTarget } from "@/lib/download";
 
@@ -19,9 +20,13 @@ import { getDownloadTarget } from "@/lib/download";
  * to you; a follow up goes out to someone else, from your own address, and
  * keeps going until they answer. Collapsing them hid the second one entirely.
  *
- * Five cards, so the last one lands alone in the left column. That is the
- * reply card, which is the only one showing what comes back rather than what
- * goes in, and it gets its own row aligned with the reading column.
+ * Four cards of things going in, then three of things coming back, the last
+ * two on the surfaces people already sit in. Slack is the asking one and
+ * Teams the automatic one, since that is how the two actually get used.
+ *
+ * Seven leaves the ritual card alone in the left column at the end, which is
+ * where it wants to be anyway: it is the one nobody prompted, and it hands
+ * straight off to the team section below it.
  *
  * The band breaks out of the reading column to use the horizontal space, while
  * the prose stays at a comfortable measure.
@@ -99,7 +104,7 @@ function Shell({
 /* ── Schedule: a normal note to a person, with min. on Cc ─────────────── */
 function ScheduleCard() {
   return (
-    <Shell label="Schedule" tilt={-0.7} dy={0} z={5}>
+    <Shell label="Schedule" tilt={-0.7} dy={0} z={7}>
       <div className="flex items-start gap-3 px-4 pt-4">
         <Avatar initial="E" />
         <div className="min-w-0 flex-1">
@@ -126,40 +131,105 @@ function ScheduleCard() {
   );
 }
 
-/* ── Notetaker: a calendar invite, min. on the guest list ──────────────── */
+/* ── Notetaker: a calendar invite, min. on the guest list ──────────────────
+ *
+ * Modelled on the real Google Calendar event panel rather than an idea of one.
+ * The tells that make it read as an invite and not a generic card: the colour
+ * chip beside the title, the recurrence line under the date, a left rail of
+ * icons with content hanging off it, guests as avatar rows with Organizer as a
+ * sublabel rather than an inline tag, the "n guests / n yes" count, and Going?
+ * as outlined pills. Times are written "to" instead of an en dash, per voice.
+ */
+function GuestAvatar({ initial, tone }: { initial: string; tone: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`grid h-6 w-6 shrink-0 place-items-center rounded-full text-[10px] font-semibold text-white ${tone}`}
+    >
+      {initial}
+    </span>
+  );
+}
+
 function NotetakerCard() {
   return (
-    <Shell label="Notetaker" tilt={0.55} dy={20} z={4}>
-      <div className="px-4 pt-4">
-        <p className="text-[13.5px] font-semibold text-gray-900">
-          Weekly design sync
-        </p>
-        <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">
-          Thursday, Aug 21, 2:00 to 2:30 PM
-        </p>
-        <span className="mt-2.5 inline-flex rounded-md border border-gray-200 px-2.5 py-1 text-[11.5px] font-medium text-gray-600">
-          Join with Google Meet
+    <Shell label="Notetaker" tilt={0.55} dy={20} z={6}>
+      {/* Title block: colour chip, name, when, recurrence. */}
+      <div className="flex items-start gap-2.5 px-4 pt-4">
+        <span
+          aria-hidden="true"
+          className="mt-[6px] h-3 w-3 shrink-0 rounded-[3px] bg-indigo-400"
+        />
+        <div className="min-w-0">
+          <p className="text-[15px] leading-tight text-gray-900">
+            Weekly design sync
+          </p>
+          <p className="mt-1.5 text-[12.5px] leading-snug text-gray-500">
+            Thursday, August 21 · 2:00 to 2:30pm
+          </p>
+          <p className="text-[12.5px] leading-snug text-gray-500">
+            Weekly on Thursday
+          </p>
+        </div>
+      </div>
+
+      {/* Conferencing row. */}
+      <div className="mt-4 flex items-start gap-3 px-4">
+        <Video className="mt-px h-4 w-4 shrink-0 text-gray-400" strokeWidth={1.75} />
+        <div className="min-w-0">
+          <p className="text-[12.5px] leading-snug text-gray-700">
+            Join with Google Meet
+          </p>
+          <p className="text-[12px] leading-snug text-gray-400">
+            meet.google.com/rkx-hqvn
+          </p>
+        </div>
+      </div>
+
+      {/* Guests, with min. on the list. */}
+      <div className="mt-4 flex items-start gap-3 px-4 pb-4">
+        <Users className="mt-px h-4 w-4 shrink-0 text-gray-400" strokeWidth={1.75} />
+        <div className="min-w-0 flex-1">
+          <p className="text-[12.5px] leading-snug text-gray-700">3 guests</p>
+          <p className="text-[12px] leading-snug text-gray-400">3 yes</p>
+          <ul className="mt-2.5 space-y-2">
+            <li className="flex items-center gap-2.5">
+              <GuestAvatar initial="P" tone="bg-rose-400" />
+              <span className="min-w-0">
+                <span className="block text-[12.5px] leading-tight text-gray-700">
+                  Priya Shah
+                </span>
+                <span className="block text-[11.5px] leading-tight text-gray-400">
+                  Organizer
+                </span>
+              </span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <GuestAvatar initial="E" tone="bg-indigo-400" />
+              <span className="text-[12.5px] text-gray-700">Eric Wang</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <GuestAvatar initial="m" tone="bg-gray-900" />
+              <span className="text-[12.5px]">
+                <MinChip />
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* RSVP bar. */}
+      <div className="flex items-center gap-2 border-t border-gray-100 px-4 py-3">
+        <span className="mr-0.5 text-[12.5px] text-gray-500">Going?</span>
+        <span className="rounded-full border border-gray-400 px-3 py-[3px] text-[11.5px] font-medium text-gray-900">
+          Yes
         </span>
-      </div>
-      <div className="mt-3.5 border-t border-gray-100 px-4 py-3">
-        <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400">
-          Guests
-        </p>
-        <ul className="mt-1.5 space-y-1">
-          <li className="text-[12.5px] text-gray-600">
-            Eric Wang <span className="text-gray-400">organizer</span>
-          </li>
-          <li className="text-[12.5px] text-gray-600">Priya Shah</li>
-          <li className="text-[12.5px]">
-            <MinChip />
-          </li>
-        </ul>
-      </div>
-      <div className="flex items-center gap-2.5 border-t border-gray-100 px-4 py-2.5">
-        <span className="text-[12px] text-gray-400">Going?</span>
-        <span className="text-[12px] font-medium text-gray-900">Yes</span>
-        <span className="text-[12px] text-gray-400">No</span>
-        <span className="text-[12px] text-gray-400">Maybe</span>
+        <span className="rounded-full border border-gray-200 px-3 py-[3px] text-[11.5px] text-gray-500">
+          No
+        </span>
+        <span className="rounded-full border border-gray-200 px-3 py-[3px] text-[11.5px] text-gray-500">
+          Maybe
+        </span>
       </div>
     </Shell>
   );
@@ -168,7 +238,7 @@ function NotetakerCard() {
 /* ── Reminder: comes back to you ───────────────────────────────────────── */
 function ReminderCard() {
   return (
-    <Shell label="Reminder" tilt={0.7} dy={-12} z={3}>
+    <Shell label="Reminder" tilt={0.7} dy={-12} z={5}>
       <div className="flex items-start gap-3 px-4 pt-4">
         <Avatar initial="E" />
         <div className="min-w-0 flex-1">
@@ -188,6 +258,20 @@ function ReminderCard() {
         <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
           Remind me to check in with John in 3 months.
         </p>
+        {/* The quoted original. Without it the card asks you to take the
+            three months on faith; with it, John is the one who set the date. */}
+        <div className="mt-3 border-l-2 border-gray-200 pl-3">
+          <p className="text-[11.5px] leading-snug text-gray-400">
+            From: John Reyes
+          </p>
+          <p className="text-[11.5px] leading-snug text-gray-400">
+            Aug 19, 3:48 PM
+          </p>
+          <p className="mt-1.5 text-[12.5px] leading-relaxed text-gray-500">
+            Thanks for putting this together. We're not budgeting for new
+            tooling until Q1. Check back with me then.
+          </p>
+        </div>
       </div>
     </Shell>
   );
@@ -196,7 +280,7 @@ function ReminderCard() {
 /* ── Follow up: goes out from your address, until they answer ──────────── */
 function FollowUpCard() {
   return (
-    <Shell label="Follow up" tilt={-0.5} dy={30} z={2}>
+    <Shell label="Follow up" tilt={-0.5} dy={30} z={4}>
       <div className="flex items-start gap-3 px-4 pt-4">
         <Avatar initial="E" />
         <div className="min-w-0 flex-1">
@@ -229,15 +313,23 @@ function FollowUpCard() {
 /* ── Remember: what comes back ─────────────────────────────────────────── */
 function ReplyCard() {
   return (
-    <Shell label="Remember" tilt={-0.6} dy={6} z={1}>
+    <Shell label="Remember" tilt={-0.6} dy={6} z={3}>
       <div className="flex items-start gap-3 px-4 pt-4">
         <Avatar initial="m" isMin />
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline justify-between gap-3">
-            <span className="text-[13.5px] font-semibold text-gray-900">min.</span>
+            {/* The reply is the one card where min. is the sender, so the
+                address belongs on the From line the way a mail client shows
+                it, not just in the body. */}
+            <span className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
+              <span className="text-[13.5px] font-semibold text-gray-900">min.</span>
+              <span className="text-[12.5px]">
+                <MinChip />
+              </span>
+            </span>
             <span className="shrink-0 text-[12px] text-gray-400">now</span>
           </div>
-          <p className="mt-0.5 text-[12.5px] leading-relaxed text-gray-500">To: you</p>
+          <p className="mt-1 text-[12.5px] leading-relaxed text-gray-500">To: you</p>
         </div>
       </div>
       <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
@@ -248,6 +340,129 @@ function ReplyCard() {
           On the Aug 12 call you and Priya agreed to hold at $20 a seat and
           revisit after launch. Sam was going to redo the comparison table.
         </p>
+      </div>
+    </Shell>
+  );
+}
+
+/* ── Ask: Slack, where people already ask each other things ────────────────
+ *
+ * Slack tells: the #channel, square avatars rather than circles, and the APP
+ * badge every bot carries. The mention gets min.'s green instead of Slack's
+ * blue so the eye still tracks one colour across the whole band.
+ */
+function SurfaceHeader({ app, where }: { app: string; where: string }) {
+  return (
+    <div className="flex items-center gap-2 border-b border-gray-100 px-4 py-2.5">
+      <span className="text-[12px] font-medium text-gray-500">{app}</span>
+      <span aria-hidden="true" className="text-[12px] text-gray-300">
+        ·
+      </span>
+      <span className="truncate text-[12px] text-gray-400">{where}</span>
+    </div>
+  );
+}
+
+function SquareAvatar({ initial, tone }: { initial: string; tone: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`grid h-6 w-6 shrink-0 place-items-center rounded-[5px] text-[10px] font-semibold text-white ${tone}`}
+    >
+      {initial}
+    </span>
+  );
+}
+
+function AppBadge() {
+  return (
+    <span className="rounded-[3px] bg-gray-100 px-1 py-px text-[9px] font-semibold uppercase tracking-wide text-gray-500">
+      App
+    </span>
+  );
+}
+
+function AskCard() {
+  return (
+    <Shell label="Ask" tilt={0.65} dy={24} z={2}>
+      <SurfaceHeader app="Slack" where="#northwind-deal" />
+      <div className="space-y-3.5 px-4 py-3.5">
+        <div className="flex items-start gap-2.5">
+          <SquareAvatar initial="E" tone="bg-indigo-400" />
+          <div className="min-w-0 flex-1">
+            <div className="flex items-baseline gap-2">
+              <span className="text-[12.5px] font-semibold text-gray-900">
+                Eric Wang
+              </span>
+              <span className="text-[11.5px] text-gray-400">2:41 PM</span>
+            </div>
+            <p className="mt-0.5 text-[13px] leading-relaxed text-gray-600">
+              <span className="rounded bg-emerald-50 px-1 py-0.5 font-medium text-emerald-700">
+                @min
+              </span>{" "}
+              what did we promise Northwind on the last call?
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start gap-2.5">
+          <SquareAvatar initial="m" tone="bg-gray-900" />
+          <div className="min-w-0 flex-1">
+            <div className="flex items-baseline gap-2">
+              <span className="text-[12.5px] font-semibold text-gray-900">
+                min.
+              </span>
+              <AppBadge />
+              <span className="text-[11.5px] text-gray-400">2:41 PM</span>
+            </div>
+            <p className="mt-0.5 text-[13px] leading-relaxed text-gray-600">
+              The revised proposal by Friday, and a pilot for their west coast
+              team. Sarah asked for both on Aug 14.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Shell>
+  );
+}
+
+/* ── Rituals: Teams, arriving on its own ──────────────────────────────────
+ *
+ * The only card where nobody asked for anything. That is the whole point of a
+ * ritual, so the card carries no prompt above it, just the thing showing up.
+ */
+function RitualCard() {
+  return (
+    <Shell label="Rituals" tilt={-0.55} dy={-8} z={1}>
+      <SurfaceHeader app="Teams" where="Sales · General" />
+      <div className="px-4 py-3.5">
+        <div className="flex items-center gap-2.5">
+          <Avatar initial="m" isMin />
+          <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
+            <span className="text-[12.5px] font-semibold text-gray-900">min.</span>
+            <AppBadge />
+            <span className="text-[11.5px] text-gray-400">Monday, 8:00 AM</span>
+          </div>
+        </div>
+        <p className="mt-3 text-[13.5px] font-semibold text-gray-900">
+          Monday summary
+        </p>
+        <ul className="mt-1.5 space-y-1">
+          {[
+            "Northwind moved to contract review.",
+            "4 follow ups went out, 3 came back.",
+            "Sam still owes the comparison table.",
+          ].map((line) => (
+            <li
+              key={line}
+              className="flex gap-2 text-[13px] leading-relaxed text-gray-600"
+            >
+              <span aria-hidden="true" className="text-gray-300">
+                ·
+              </span>
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </Shell>
   );
@@ -333,6 +548,8 @@ export default function PlainLanding() {
             <ReminderCard />
             <FollowUpCard />
             <ReplyCard />
+            <AskCard />
+            <RitualCard />
           </div>
         </div>
 
