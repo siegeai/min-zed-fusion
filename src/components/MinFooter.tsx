@@ -68,7 +68,7 @@ export default function MinFooter() {
 
         <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-gray-400 text-xs">
-            Winning since 2026. All rights reserved.
+            2026. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a
