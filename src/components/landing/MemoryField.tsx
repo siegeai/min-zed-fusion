@@ -133,11 +133,12 @@ export default function MemoryField({ className = "" }: { className?: string }) 
     };
 
     resize();
-    if (reduced) {
-      draw();
-    } else {
-      raf = requestAnimationFrame(step);
-    }
+    // Paint one frame synchronously, always. The animation loop cannot be
+    // relied on for the first frame: a tab opened in the background has rAF
+    // suspended, so the graphic would simply be absent until the tab was
+    // focused. Draw first, then animate if we are allowed to.
+    draw();
+    if (!reduced) raf = requestAnimationFrame(step);
 
     const ro = new ResizeObserver(() => {
       resize();
