@@ -5,15 +5,19 @@ import { getDownloadTarget } from "@/lib/download";
 /**
  * The whole landing page as one typeset document.
  *
- * Design rules, per Eric: plain text does the work, almost no graphic
- * elements, decoration lives in the BACKGROUND. The one visual is the email
- * itself, rendered the way a developer tool renders a request.
+ * Design rules, per Eric: plain text does the work, decoration lives in the
+ * BACKGROUND, and the page should be understood in fifteen seconds.
  *
- * Layout, third pass: the examples are a loose stack of floating emails that
- * overlap slightly, so the range of what you can send reads at a glance
- * instead of as a list. Each card carries its pillar as a label, which is why
- * there is no separate pillars section: the examples ARE the feature list,
- * demonstrated rather than described.
+ * Layout, fourth pass. The examples are things you would actually see in your
+ * mail client, not code: real message chrome, sender rows, sans-serif bodies.
+ * They are not all email either, because using min. is not all email; the
+ * capture example is a calendar invite with min. on the guest list, and the
+ * scheduling example is a normal note to a human with min. on Cc, which is how
+ * scheduling actually works. One card is min.'s reply, so the stack shows what
+ * comes back and not only what goes in.
+ *
+ * The band breaks out of the reading column to use the horizontal space, while
+ * the prose stays at a comfortable measure.
  */
 
 const ADDRESS = "min@getmin.ai";
@@ -32,82 +36,174 @@ function useCopy() {
   return { copied, copy };
 }
 
-type Example = {
+/** The one piece of emphasis in the cards: min. wherever it is addressed. */
+function MinChip() {
+  return (
+    <span className="rounded bg-emerald-50 px-1.5 py-0.5 font-medium text-emerald-700">
+      {ADDRESS}
+    </span>
+  );
+}
+
+function Avatar({ initial, isMin = false }: { initial: string; isMin?: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`grid h-7 w-7 shrink-0 place-items-center rounded-full text-[11px] font-semibold ${
+        isMin ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"
+      }`}
+    >
+      {initial}
+    </span>
+  );
+}
+
+function Shell({
+  label,
+  tilt,
+  dy,
+  z,
+  children,
+}: {
   label: string;
-  subject?: string;
-  body: string;
-  /** Degrees of tilt and horizontal drift, hand-set so the stack looks tossed. */
   tilt: number;
-  shift: number;
-};
-
-const EXAMPLES: Example[] = [
-  {
-    label: "Schedule",
-    subject: "intro call with sarah",
-    body: "can you find us 30 min next week? cc'd sarah.",
-    tilt: -0.8,
-    shift: 0,
-  },
-  {
-    label: "Follow up",
-    body: "remind me to follow up with john in 3 months",
-    tilt: 0.7,
-    shift: 26,
-  },
-  {
-    label: "Capture",
-    subject: "weekly design sync",
-    body: "invited you to this one. send everyone the notes after.",
-    tilt: -0.6,
-    shift: 8,
-  },
-  {
-    label: "Remember",
-    body: "what did we decide about the pricing page?",
-    tilt: 0.9,
-    shift: 34,
-  },
-];
-
-function EmailCard({ ex, index }: { ex: Example; index: number }) {
+  dy: number;
+  z: number;
+  children: React.ReactNode;
+}) {
   return (
     <div
       className="relative"
       style={{
-        transform: `rotate(${ex.tilt}deg) translateX(calc(${ex.shift}px * var(--drift, 1)))`,
-        zIndex: index + 1,
-        marginTop: index === 0 ? 0 : -6,
+        transform: `rotate(${tilt}deg) translateY(calc(${dy}px * var(--drift, 1)))`,
+        zIndex: z,
       }}
     >
-      <div className="rounded-xl border border-gray-800 bg-gray-950 shadow-[0_22px_60px_-24px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-out hover:-translate-y-1.5">
-        <div className="border-b border-gray-800/70 px-4 py-2">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-500">
-            {ex.label}
-          </span>
-        </div>
-        <div className="px-4 pb-4 pt-3 font-mono text-[12.5px] leading-[1.75] sm:text-[13px]">
-          <div>
-            <span className="text-gray-500">To: </span>
-            <a
-              href={`mailto:${ADDRESS}${
-                ex.subject ? `?subject=${encodeURIComponent(ex.subject)}` : ""
-              }`}
-              className="text-emerald-400 underline decoration-emerald-400/0 underline-offset-4 transition-colors duration-300 hover:decoration-emerald-400/70"
-            >
-              {ADDRESS}
-            </a>
-          </div>
-          {ex.subject && (
-            <div>
-              <span className="text-gray-500">Subject: </span>
-              <span className="text-gray-300">{ex.subject}</span>
-            </div>
-          )}
-          <div className="mt-2 text-gray-400">{ex.body}</div>
-        </div>
+      <p className="mb-2 pl-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gray-400">
+        {label}
+      </p>
+      <div className="rounded-xl border border-gray-200/90 bg-white shadow-[0_18px_50px_-24px_rgba(0,0,0,0.28)] transition-transform duration-300 ease-out hover:-translate-y-1">
+        {children}
       </div>
     </div>
+  );
+}
+
+/* ── Schedule: a normal note to a person, with min. on Cc ─────────────── */
+function ScheduleCard() {
+  return (
+    <Shell label="Schedule" tilt={-0.7} dy={0} z={4}>
+      <div className="flex items-start gap-3 px-4 pt-4">
+        <Avatar initial="E" />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="text-[13.5px] font-semibold text-gray-900">Eric Wang</span>
+            <span className="shrink-0 text-[12px] text-gray-400">10:24 AM</span>
+          </div>
+          <p className="mt-0.5 text-[12.5px] leading-relaxed text-gray-500">
+            To: sarah@northwind.co
+          </p>
+          <p className="text-[12.5px] leading-relaxed text-gray-500">
+            Cc: <MinChip />
+          </p>
+        </div>
+      </div>
+      <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
+        <p className="text-[13.5px] font-semibold text-gray-900">Intro call</p>
+        <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
+          Sarah, great meeting you. Can we find 30 minutes next week? Putting
+          min. on Cc to sort out a time.
+        </p>
+      </div>
+    </Shell>
+  );
+}
+
+/* ── Capture: an actual calendar invite, min. on the guest list ────────── */
+function InviteCard() {
+  return (
+    <Shell label="Capture" tilt={0.6} dy={26} z={3}>
+      <div className="flex items-start gap-3.5 px-4 py-4">
+        <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-gray-200 bg-gray-50 leading-none">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.1em] text-gray-400">
+            Aug
+          </span>
+          <span className="mt-0.5 font-display text-[16px] font-semibold text-gray-900">
+            21
+          </span>
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="text-[13.5px] font-semibold text-gray-900">
+            Weekly design sync
+          </p>
+          <p className="mt-0.5 text-[12.5px] text-gray-500">
+            Thursday, 2:00 to 2:30 PM
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 border-t border-gray-100 px-4 py-3">
+        <span className="text-[12px] text-gray-400">Guests</span>
+        <span className="text-[12.5px] text-gray-600">Eric, Priya, Sam,</span>
+        <span className="text-[12.5px]">
+          <MinChip />
+        </span>
+      </div>
+    </Shell>
+  );
+}
+
+/* ── Follow up: forward a thread, one line ─────────────────────────────── */
+function ForwardCard() {
+  return (
+    <Shell label="Follow up" tilt={0.7} dy={-16} z={2}>
+      <div className="flex items-start gap-3 px-4 pt-4">
+        <Avatar initial="E" />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="text-[13.5px] font-semibold text-gray-900">Eric Wang</span>
+            <span className="shrink-0 text-[12px] text-gray-400">4:02 PM</span>
+          </div>
+          <p className="mt-0.5 text-[12.5px] leading-relaxed text-gray-500">
+            To: <MinChip />
+          </p>
+        </div>
+      </div>
+      <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
+        <p className="text-[13.5px] font-semibold text-gray-900">
+          Fwd: Pricing proposal
+        </p>
+        <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
+          Remind me to follow up with John in 3 months.
+        </p>
+      </div>
+    </Shell>
+  );
+}
+
+/* ── Remember: what comes back ─────────────────────────────────────────── */
+function ReplyCard() {
+  return (
+    <Shell label="Remember" tilt={-0.6} dy={14} z={1}>
+      <div className="flex items-start gap-3 px-4 pt-4">
+        <Avatar initial="m" isMin />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="text-[13.5px] font-semibold text-gray-900">min.</span>
+            <span className="shrink-0 text-[12px] text-gray-400">now</span>
+          </div>
+          <p className="mt-0.5 text-[12.5px] leading-relaxed text-gray-500">To: you</p>
+        </div>
+      </div>
+      <div className="mt-3 border-t border-gray-100 px-4 py-3.5">
+        <p className="text-[13.5px] font-semibold text-gray-900">
+          Re: what did we decide about the pricing page?
+        </p>
+        <p className="mt-1 text-[13.5px] leading-relaxed text-gray-600">
+          On the Aug 12 call you and Priya agreed to hold at $20 a seat and
+          revisit after launch. Sam was going to redo the comparison table.
+        </p>
+      </div>
+    </Shell>
   );
 }
 
@@ -150,47 +246,52 @@ export default function PlainLanding() {
         <Constellation />
       </div>
 
-      <div className="relative mx-auto max-w-[41rem] px-6 pb-28 pt-32 md:pt-44">
-        {/* ── What it is ── */}
-        <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-[-0.025em] text-gray-900 [text-wrap:balance] md:text-[3.4rem]">
-          The AI teammate that does the little things.
-        </h1>
-        <p className="mt-6 max-w-[34rem] text-[17.5px] leading-[1.65] text-gray-500 [text-wrap:pretty]">
-          min. remembers, schedules, takes notes, and follows up. For you and
-          your team.
-        </p>
+      {/* One container, one left margin. Prose is held to a readable measure
+          inside it; the examples use the full width and spill right. */}
+      <div className="relative mx-auto max-w-[62rem] px-6 pb-28 pt-32 md:pt-40">
+        <div className="max-w-[41rem]">
+          <h1 className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-[-0.025em] text-gray-900 [text-wrap:balance] md:text-[3.4rem]">
+            The AI teammate that does the little things.
+          </h1>
+          <p className="mt-6 max-w-[34rem] text-[17.5px] leading-[1.65] text-gray-500 [text-wrap:pretty]">
+            min. remembers, schedules, takes notes, and follows up. For you and
+            your team.
+          </p>
 
-        {/* ── How to start ── */}
-        <div className="mt-10">
-          <AddressLine />
-          <p className="mt-4 max-w-[34rem] text-[15px] leading-[1.7] text-gray-500 [text-wrap:pretty]">
-            Email it. CC it on a thread that needs scheduling. Invite it to a
-            meeting. That is the whole onboarding.
-          </p>
-          <p className="mt-1.5 text-[15px] leading-[1.7] text-gray-500">
-            Or{" "}
-            <a
-              href={getDownloadTarget().href}
-              className="text-gray-900 underline decoration-gray-300 decoration-1 underline-offset-[5px] transition-colors duration-300 hover:decoration-gray-900"
-            >
-              download the desktop app
-            </a>
-            . Free to use.
-          </p>
+          <div className="mt-10">
+            <AddressLine />
+            <p className="mt-4 max-w-[34rem] text-[15px] leading-[1.7] text-gray-500 [text-wrap:pretty]">
+              Email it. CC it on a thread that needs scheduling. Invite it to a
+              meeting. That is the whole onboarding.
+            </p>
+            <p className="mt-1.5 text-[15px] leading-[1.7] text-gray-500">
+              Or{" "}
+              <a
+                href={getDownloadTarget().href}
+                className="text-gray-900 underline decoration-gray-300 decoration-1 underline-offset-[5px] transition-colors duration-300 hover:decoration-gray-900"
+              >
+                download the desktop app
+              </a>
+              . Free to use.
+            </p>
+          </div>
         </div>
 
-        {/* ── The examples: a loose stack of emails you'd actually send ── */}
+        {/* ── The examples ── */}
         <div
           id="does"
-          className="mt-16 max-w-[33rem] scroll-mt-24 [--drift:0.35] sm:[--drift:1]"
+          className="mt-20 scroll-mt-24 [--drift:0.3] sm:[--drift:1]"
         >
-          {EXAMPLES.map((ex, i) => (
-            <EmailCard key={ex.label} ex={ex} index={i} />
-          ))}
+          <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 sm:gap-y-7">
+            <ScheduleCard />
+            <InviteCard />
+            <ForwardCard />
+            <ReplyCard />
+          </div>
         </div>
 
         {/* ── Trust, as prose with ink-weighted clauses ── */}
-        <div id="trust" className="mt-24 max-w-[34rem] scroll-mt-24">
+        <div id="trust" className="mt-28 max-w-[34rem] scroll-mt-24">
           <h2 className="font-display text-[16.5px] font-semibold tracking-[-0.01em] text-gray-900">
             Private by default. Share deliberately.
           </h2>
@@ -213,7 +314,7 @@ export default function PlainLanding() {
         </div>
 
         {/* ── Close ── */}
-        <div className="mt-24 border-t border-gray-200/90 pt-12">
+        <div className="mt-24 max-w-[41rem] border-t border-gray-200/90 pt-12">
           <p className="font-display text-[16.5px] font-semibold tracking-[-0.01em] text-gray-900">
             Give it something small today.
           </p>
