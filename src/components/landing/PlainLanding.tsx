@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Users, Video } from "lucide-react";
-import Constellation from "./Constellation";
+import MemoryField from "./MemoryField";
 import { getDownloadTarget } from "@/lib/download";
 
 /**
@@ -26,9 +26,10 @@ import { getDownloadTarget } from "@/lib/download";
  */
 
 /*
- * Shape lock: frames and stage cards are rounded-xl, inline chips are
- * rounded (4px), and anything that mimics a real client control (avatars,
- * RSVP pills) keeps that control's own shape. Nothing else invents a radius.
+ * Shape lock, two tiers and no third: every interactive control is a full
+ * pill, matching the nav; every surface is rounded-xl. Inline chips are
+ * rounded (4px) and anything mimicking a real client control (avatars, RSVP
+ * pills) keeps that control's own shape. Nothing else invents a radius.
  */
 const ADDRESS = "min@getmin.ai";
 
@@ -542,6 +543,35 @@ function Stage() {
   );
 }
 
+/**
+ * The primary call to action. It reads as a field you copy out of, which is
+ * what it is, and which is also the treatment Eric asked for the address to
+ * have: a highlighted line, the way a dev tool shows you a value.
+ */
+function AddressField() {
+  const { copied, copy } = useCopy();
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full border border-hair bg-white py-1.5 pl-5 pr-1.5 shadow-[0_1px_2px_rgba(12,18,17,0.05)]">
+      <a
+        href={`mailto:${ADDRESS}?subject=hi%20min.`}
+        className="font-mono text-[15px] tracking-tight text-ink transition-colors duration-200 hover:text-moss sm:text-[16px]"
+      >
+        {ADDRESS}
+      </a>
+      <button
+        type="button"
+        onClick={copy}
+        aria-label={`Copy ${ADDRESS}`}
+        className={`ml-1 w-[6.5ch] rounded-full px-2.5 py-1.5 text-center font-mono text-[10.5px] uppercase tracking-[0.14em] outline-none transition-colors duration-200 focus-visible:ring-1 focus-visible:ring-moss ${
+          copied ? "bg-moss-soft text-moss" : "text-quiet hover:bg-paper hover:text-ink"
+        }`}
+      >
+        {copied ? "copied" : "copy"}
+      </button>
+    </span>
+  );
+}
+
 function AddressLine({ size = "lg" }: { size?: "lg" | "sm" }) {
   const { copied, copy } = useCopy();
   const big = size === "lg";
@@ -582,12 +612,13 @@ const TEAM = [
 export default function PlainLanding() {
   return (
     <div className="relative overflow-hidden">
-      {/* One faint field, top right. Decoration stays in the background. */}
+      {/* The graphic sits behind and to the right of the hero, bleeding off
+          the edge and masked so it never competes with the headline. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-40 -top-24 h-[520px] w-[720px] opacity-[0.4]"
+        className="pointer-events-none absolute right-0 top-0 h-[22rem] w-[92%] [mask-image:linear-gradient(to_right,transparent,black_45%,black_88%,transparent)] md:h-[36rem] md:w-[62%]"
       >
-        <Constellation />
+        <MemoryField />
       </div>
 
       <div className="relative mx-auto max-w-[57rem] px-6 pb-28 pt-28 md:pt-24">
@@ -601,17 +632,18 @@ export default function PlainLanding() {
             your team.
           </p>
 
-          <div className="mt-11">
-            <AddressLine />
-            <p className="mt-5 max-w-[30rem] text-[15px] leading-[1.7] text-quiet">
-              Just shoot a hello email to min. to get started, or{" "}
+          <div className="mt-10">
+            <div className="flex flex-wrap items-center gap-3">
+              <AddressField />
               <a
                 href={getDownloadTarget().href}
-                className="text-ink underline decoration-hair decoration-1 underline-offset-[5px] transition-colors duration-300 hover:decoration-moss"
+                className="inline-flex items-center rounded-full bg-ink px-5 py-[11px] text-[14px] font-medium text-white shadow-[0_1px_2px_rgba(12,18,17,0.10)] transition-transform duration-200 hover:bg-ink/90 active:translate-y-px motion-reduce:transition-none"
               >
-                download the desktop app
+                {getDownloadTarget().label}
               </a>
-              . Free to use.
+            </div>
+            <p className="mt-4 text-[14.5px] leading-[1.7] text-quiet">
+              Just shoot a hello email to min. to get started. Free to use.
             </p>
           </div>
         </div>
