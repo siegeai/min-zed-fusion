@@ -75,7 +75,7 @@ const FAQS = [
   },
   {
     q: "How do I start using min.?",
-    a: "Email min@getmin.ai, CC it on a thread that needs scheduling, or invite it to a meeting. That is the whole onboarding. The desktop app for macOS and Windows adds the full experience.",
+    a: "Shoot a hello email to min@getmin.ai and you are started. You can also CC it on a thread that needs scheduling, or add it to a meeting invite. The desktop app for macOS and Windows adds the full experience.",
   },
   {
     q: "Do you store my email?",
