@@ -1,11 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import MemoryField from "./MemoryField";
-import {
-  addressFor,
-  displayName,
-  suggestMinions,
-  type Minion,
-} from "@/lib/minions";
+import { displayName, suggestMinions, type Minion } from "@/lib/minions";
 
 /**
  * The landing page, minion brief.
@@ -31,31 +26,49 @@ import {
 
 const COPY_RESET_MS = 1800;
 
+type Status = "loading" | "ready" | "unavailable";
+
+/**
+ * Names come from the backend and nowhere else, so there are three real states
+ * and the page has to be honest about all of them. Inventing a name to fill the
+ * gap would put an address on screen that bounces when somebody copies it onto
+ * a calendar invite, which breaks the only conversion action on the page.
+ */
 function useMinion() {
   const [minion, setMinion] = useState<Minion | null>(null);
-  const [rolling, setRolling] = useState(false);
+  const [status, setStatus] = useState<Status>("loading");
   // Every name shown this session, so "try another" never repeats itself.
   const seen = useRef<string[]>([]);
 
   const pull = useCallback(async () => {
-    setRolling(true);
+    setStatus("loading");
     const [next] = await suggestMinions(1, seen.current);
     if (next) {
       seen.current = [...seen.current, next.name].slice(-24);
       setMinion(next);
+      setStatus("ready");
+    } else {
+      setStatus("unavailable");
     }
-    setRolling(false);
   }, []);
 
   useEffect(() => {
     void pull();
   }, [pull]);
 
-  return { minion, rolling, reroll: pull };
+  return { minion, status, reroll: pull };
 }
 
-function NameCard() {
-  const { minion, rolling, reroll } = useMinion();
+/**
+ * The picker is rendered twice, at the top and at the close, but the name is
+ * hoisted to the page so both show the SAME one. Two independent pickers meant
+ * a visitor could be offered Juno in the hero and Milo at the bottom, which
+ * makes "this is your team's name" incoherent, and it doubled the calls.
+ */
+type Picker = ReturnType<typeof useMinion>;
+
+function NameCard({ picker, compact = false }: { picker: Picker; compact?: boolean }) {
+  const { minion, status, reroll } = picker;
   const [copied, setCopied] = useState(false);
   const timer = useRef<number>();
 
@@ -73,35 +86,64 @@ function NameCard() {
     }
   };
 
-  // Placeholder only until the first name lands, so the layout never jumps.
+  if (status === "unavailable") {
+    // The hero already says this. Repeating it in the closing block just tells
+    // the visitor the site is broken twice.
+    if (compact) return null;
+    return (
+      <div>
+        <p className="max-w-[30rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
+          We cannot reach the name list right now, so there is nothing to hand
+          you yet. Worth another go in a moment.
+        </p>
+        <button
+          type="button"
+          onClick={() => void reroll()}
+          className="mt-6 rounded-full border border-hair px-5 py-2.5 text-[14px] font-medium text-ink outline-none transition-[border-color,transform] duration-200 hover:border-quiet/50 focus-visible:ring-2 focus-visible:ring-moss active:scale-[0.98]"
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
+
+  const loading = status === "loading";
   const name = minion?.name ?? "";
-  const shown = name ? displayName(name) : " ";
-  const address = name ? minion!.address : addressFor(" ").trim();
 
   return (
     <div>
       <div
-        // Keyed on the name so React remounts it and the entry animation
-        // replays on every roll. This is the toy; it should feel good.
-        key={name || "placeholder"}
+        // Keyed on the name so the entry animation replays on every roll. This
+        // is the toy; it should feel good.
+        key={name || "loading"}
         className="motion-safe:animate-[name-in_420ms_cubic-bezier(0.22,1.4,0.36,1)]"
       >
-        <p
-          aria-live="polite"
-          className="font-display text-[4rem] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[5.5rem]"
-        >
-          {shown}
-        </p>
-        <p className="mt-3 font-mono text-[15px] tracking-tight text-quiet sm:text-[17px]">
-          {name ? address : " "}
-        </p>
+        {loading ? (
+          // Sized to the real thing so the page does not jump when it lands.
+          <div aria-hidden="true" className="pt-2">
+            <div className="h-[3.4rem] w-[9rem] rounded-lg bg-hair/60 sm:h-[4.6rem] sm:w-[12rem]" />
+            <div className="mt-4 h-4 w-[11rem] rounded bg-hair/50" />
+          </div>
+        ) : (
+          <>
+            <p
+              aria-live="polite"
+              className="font-display text-[4rem] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[5.5rem]"
+            >
+              {displayName(name)}
+            </p>
+            <p className="mt-3 font-mono text-[15px] tracking-tight text-quiet sm:text-[17px]">
+              {minion!.address}
+            </p>
+          </>
+        )}
       </div>
 
       <div className="mt-8 flex flex-wrap items-center gap-3">
         <button
           type="button"
           onClick={copy}
-          disabled={!minion}
+          disabled={loading}
           className="grid rounded-full bg-ink px-5 py-2.5 text-[14px] font-medium text-onink outline-none transition-[background-color,transform] duration-200 hover:bg-ink/90 focus-visible:ring-2 focus-visible:ring-moss active:scale-[0.98] disabled:opacity-50"
         >
           {/* Both labels stacked so the button never resizes on the swap. */}
@@ -113,20 +155,24 @@ function NameCard() {
           </span>
         </button>
 
-        <button
-          type="button"
-          onClick={() => void reroll()}
-          disabled={rolling}
-          className="rounded-full border border-hair px-5 py-2.5 text-[14px] font-medium text-ink outline-none transition-[border-color,transform] duration-200 hover:border-quiet/50 focus-visible:ring-2 focus-visible:ring-moss active:scale-[0.98] disabled:opacity-60"
-        >
-          Try another name
-        </button>
+        {!compact && (
+          <button
+            type="button"
+            onClick={() => void reroll()}
+            disabled={loading}
+            className="rounded-full border border-hair px-5 py-2.5 text-[14px] font-medium text-ink outline-none transition-[border-color,transform] duration-200 hover:border-quiet/50 focus-visible:ring-2 focus-visible:ring-moss active:scale-[0.98] disabled:opacity-60"
+          >
+            Try another name
+          </button>
+        )}
       </div>
 
-      <p className="mt-6 max-w-[30rem] text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
-        Invite {name ? displayName(name) : "them"} to your next team meeting.{" "}
-        {name ? displayName(name) : "They"} takes it from there.
-      </p>
+      {!compact && (
+        <p className="mt-6 max-w-[30rem] text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
+          Invite {name ? displayName(name) : "them"} to your next team meeting.{" "}
+          {name ? displayName(name) : "They"} takes it from there.
+        </p>
+      )}
     </div>
   );
 }
@@ -157,6 +203,8 @@ const STANDUP: [string, string][] = [
 ];
 
 export default function MinionLanding() {
+  const picker = useMinion();
+
   return (
     <div className="relative overflow-hidden">
       <div
@@ -177,7 +225,7 @@ export default function MinionLanding() {
           </p>
 
           <div className="mt-12">
-            <NameCard />
+            <NameCard picker={picker} />
           </div>
         </div>
 
@@ -292,7 +340,7 @@ export default function MinionLanding() {
             Put them on your next invite.
           </p>
           <div className="mt-6">
-            <NameCard />
+            <NameCard picker={picker} compact />
           </div>
         </div>
       </div>
