@@ -1,32 +1,44 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Linkedin, X, BookOpen, Zap, Lock, Network } from "lucide-react";
-import PillNav from "@/components/PillNav";
-import MinFooter from "@/components/MinFooter";
-import { getDownloadTarget } from "@/lib/download";
-import { IconTile, CARD_SURFACE } from "@/components/MinPrimitives";
+import { Linkedin, X, BookOpen } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import {
+  PageFrame,
+  PageHero,
+  Section,
+  LeadList,
+  Prose,
+  CloseBlock,
+  PillLink,
+  contactHref,
+} from "@/components/page/Kit";
 
-const BELIEFS = [
-  {
-    Icon: Network,
-    tint: "blue" as const,
-    title: "The small stuff is the real cost",
-    body: "Nobody burns out on the hard work. They burn out on scheduling, note taking, and chasing replies. That time is worth taking back.",
-  },
-  {
-    Icon: Zap,
-    tint: "amber" as const,
-    filled: true,
-    title: "You should not have to set it up",
-    body: "A tool you have to feed is another job. min. learns from the work you already do: the meetings you sit in and the mail you already send.",
-  },
-  {
-    Icon: Lock,
-    tint: "blue" as const,
-    title: "You stay in control",
-    body: "Something that sits this close to your work only earns it by being safe. You share your own context with your team, and a 1:1 stays yours.",
-  },
+/**
+ * About, rebuilt in the home page's language.
+ *
+ * What went: the centred column, the "ABOUT MIN." and "WHAT WE BELIEVE" and
+ * "ORIGIN" and "TEAM" eyebrows, the green word in the headline, and the three
+ * up row of icon cards the beliefs used to sit in. The beliefs are the same
+ * three beliefs; they are now three sentences, which is what they always were.
+ *
+ * The two team portraits stay, including Fadi's hand drawn one. They are the
+ * only real artwork on the site and the only place a card still earns itself,
+ * because a person with a face and links is genuinely a discrete object.
+ */
+
+const BELIEFS: [string, string][] = [
+  [
+    "The small stuff is the real cost.",
+    "Nobody burns out on the hard work. They burn out on scheduling, note taking, and chasing replies. That time is worth taking back.",
+  ],
+  [
+    "You should not have to set it up.",
+    "A tool you have to feed is another job. min. learns from the meetings you sit in and the mail you already send.",
+  ],
+  [
+    "You stay in control.",
+    "Something that sits this close to your work only earns it by being safe. You share your own context with your team, and a 1:1 stays yours.",
+  ],
 ];
 
 export default function About() {
@@ -39,259 +51,157 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is the AI teammate that does the little things right. It takes the notes, sorts out the scheduling, remembers what was decided, and follows up, for one person or for a whole team.",
+      "min. is the AI teammate that does the little things. It takes the notes, sorts out the scheduling, remembers what was decided, and follows up, for one person or for a whole team.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
       name: "min.",
-      founder: {
-        "@type": "Person",
-        name: "Eric Wang",
-        jobTitle: "CEO & Co-Founder",
-      },
+      founder: { "@type": "Person", name: "Eric Wang", jobTitle: "CEO & Co-Founder" },
     },
   };
 
   return (
     <>
       <Helmet>
-        <title>About min. | The AI teammate that does the little things right</title>
+        <title>About min. | The AI teammate that does the little things</title>
         <meta
           name="description"
-          content="Why we built min., the AI teammate that does the little things right. The notes, the scheduling, the reminders, and the follow ups, handled, so the work you actually care about gets your attention."
+          content="Why we built min., the AI teammate that does the little things. The notes, the scheduling, the reminders, and the follow ups, handled, so the work you actually care about gets your attention."
         />
         <link rel="canonical" href="https://getmin.ai/about/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
-        <PillNav />
+      <PageFrame>
+        <PageHero
+          title="Somebody has to do the little things."
+          lede="The notes, the scheduling, the reminders, the follow ups. It is a few hours out of everyone's week, every week, and none of it is the work anyone was hired to do. So we built a teammate for it."
+        />
 
-        <main>
-          {/* Hero */}
-          <section className="relative pt-28 md:pt-44 pb-20 overflow-hidden">
-            <div className="relative max-w-4xl mx-auto px-6 text-center">
-              <p className="text-[11px] md:text-xs tracking-[0.2em] uppercase text-gray-400 mb-6">
-                About min.
-              </p>
-              <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-6xl">
-                Somebody has to do
-                <br className="hidden sm:block" />{" "}
-                the <span className="text-moss">little things</span>.
-              </h1>
-              <p className="mt-7 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                The notes, the scheduling, the reminders, the follow ups. It is
-                a few hours out of everyone's week, every week, and none of it
-                is the work anyone was hired to do. So we built a teammate for
-                it.
-              </p>
-            </div>
-          </section>
+        <Section title="What we believe.">
+          <LeadList items={BELIEFS} />
+        </Section>
 
-          {/* What we believe */}
-          <section className="py-16 md:py-20">
-            <div className="max-w-5xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-500 mb-3 text-center">
-                What we believe
-              </p>
-              <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-center mb-12">
-                Three things, anchored.
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {BELIEFS.map((b) => (
-                  <div key={b.title} className={`${CARD_SURFACE} p-6`}>
-                    <div className="mb-4">
-                      <IconTile Icon={b.Icon} tint={b.tint} filled={b.filled} />
-                    </div>
-                    <h3 className="text-gray-900 text-base font-semibold tracking-[-0.01em] mb-2">
-                      {b.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {b.body}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+        <Section title="The small things are never the priority. They are always the problem.">
+          <Prose>
+            <p>
+              Every job comes with a tail of small obligations. Find a time that
+              works for four people. Write up what was decided. Come back to the
+              thread in three months. Ask the person who went quiet whether they
+              are still interested.
+            </p>
+            <p>
+              None of it is hard. All of it takes attention, and attention is the
+              one thing that does not scale. So the small things slip quietly:
+              not because anyone stopped caring, but because there were bigger
+              things in front of them that day.
+            </p>
+            <p>
+              So we built min. You email it, put it on Cc, or add it to the
+              invite, and it handles that tail. It is the same for a team:
+              everyone who was in the room gets the notes, and what was promised
+              comes back when it matters. No setup, no new place to work, nothing
+              to maintain.
+            </p>
+          </Prose>
+        </Section>
 
-          {/* Story */}
-          <section className="py-16 md:py-20">
-            <div className="max-w-2xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-500 mb-3">
-                Origin
-              </p>
-              <h2 className="font-display text-gray-900 text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-8">
-                The small things are never the priority. They are always the problem.
-              </h2>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
-                <p>
-                  Every job comes with a tail of small obligations. Find a time
-                  that works for four people. Write up what was decided. Come
-                  back to the thread in three months. Ask the person who went
-                  quiet whether they are still interested.
-                </p>
-                <p>
-                  None of it is hard. All of it takes attention, and attention
-                  is the one thing that does not scale. So the small things slip
-                  quietly: not because anyone stopped caring, but because there
-                  were bigger things in front of them that day.
-                </p>
-                <p>
-                  So we built min. You email it, put it on Cc, or add it to the
-                  invite, and it handles that tail. It is the same for a team:
-                  everyone who was in the room gets the notes, and what was
-                  promised comes back when it matters. No setup, no new place to
-                  work, nothing to maintain.
-                </p>
-              </div>
-            </div>
-          </section>
+        <Section title="Who builds it." wide>
+          <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
+            <Person
+              name="Eric Wang"
+              role="CEO"
+              bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building min., so no relationship is ever lost to a bad memory."
+              avatar={
+                <Avatar className="h-14 w-14 shrink-0 border border-hair">
+                  <AvatarImage
+                    src="/lovable-uploads/a08e6a56-3aaf-4f91-b83a-909a4d24b497.png"
+                    alt="Eric Wang"
+                  />
+                  <AvatarFallback className="bg-white text-quiet">EW</AvatarFallback>
+                </Avatar>
+              }
+              socials={[
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/zizhouwang/", label: "Eric Wang on LinkedIn" },
+                { Icon: X, href: "https://x.com/ericzizhouwangx", label: "Eric Wang on X" },
+                { Icon: BookOpen, href: "https://ericzizhouw.substack.com/", label: "Eric Wang on Substack" },
+              ]}
+            />
+            <Person
+              name="Fadi Kanaan"
+              role="Head of Operations"
+              bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now getting min. into the hands of the teams whose work runs on relationships."
+              avatar={<FadiAvatar />}
+              socials={[
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/fadi-kanaan-268574155/", label: "Fadi Kanaan on LinkedIn" },
+              ]}
+            />
+          </div>
+        </Section>
 
-          {/* Team */}
-          <section className="py-16 md:py-20">
-            <div className="max-w-5xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-500 mb-6 text-center">
-                Team
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <TeamCard
-                  name="Eric Wang"
-                  title="CEO"
-                  bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building min., so no relationship is ever lost to a bad memory."
-                  avatar={
-                    <Avatar className="w-16 h-16 shrink-0 border border-gray-200">
-                      <AvatarImage
-                        src="/lovable-uploads/a08e6a56-3aaf-4f91-b83a-909a4d24b497.png"
-                        alt="Eric Wang"
-                      />
-                      <AvatarFallback className="bg-gray-50 text-gray-600">
-                        EW
-                      </AvatarFallback>
-                    </Avatar>
-                  }
-                  socials={[
-                    {
-                      Icon: Linkedin,
-                      href: "https://www.linkedin.com/in/zizhouwang/",
-                      label: "Eric Wang on LinkedIn",
-                    },
-                    {
-                      Icon: X,
-                      href: "https://x.com/ericzizhouwangx",
-                      label: "Eric Wang on X",
-                    },
-                    {
-                      Icon: BookOpen,
-                      href: "https://ericzizhouw.substack.com/",
-                      label: "Eric Wang on Substack",
-                    },
-                  ]}
-                />
-                <TeamCard
-                  name="Fadi Kanaan"
-                  title="Head of Operations"
-                  bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now getting min. into the hands of the teams whose work runs on relationships."
-                  avatar={<FadiAvatar />}
-                  socials={[
-                    {
-                      Icon: Linkedin,
-                      href: "https://www.linkedin.com/in/fadi-kanaan-268574155/",
-                      label: "Fadi Kanaan on LinkedIn",
-                    },
-                  ]}
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section id="cta" className="pb-24 pt-8">
-            <div className="max-w-3xl mx-auto px-6 text-center">
-              <h3 className="font-display text-gray-900 text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">
-                Give it something to do today.
-              </h3>
-              <p className="text-gray-600 mb-7 max-w-xl mx-auto">
-                Shoot a hello email to min@getmin.ai, or download the app. Free
-                for one person, forever.
-              </p>
-              <a
-                href={getDownloadTarget().href}
-                className="inline-block rounded-full bg-black text-white text-sm font-medium px-5 py-2.5 hover:bg-gray-800 transition-colors"
-              >
-                {getDownloadTarget().label}
-              </a>
-            </div>
-          </section>
-        </main>
-
-        <MinFooter />
-      </div>
+        <CloseBlock title="Give it something to do today.">
+          <div className="flex flex-wrap items-center gap-3">
+            <PillLink href="mailto:min@getmin.ai?subject=Hi%20min.">
+              Email min@getmin.ai
+            </PillLink>
+            <PillLink href={contactHref("Hello")} tone="quiet">
+              Email us
+            </PillLink>
+          </div>
+        </CloseBlock>
+      </PageFrame>
     </>
   );
 }
 
-/* ───────── Team helpers ───────── */
-
-function TeamCard({
+function Person({
   name,
-  title,
+  role,
   bio,
   avatar,
   socials = [],
 }: {
   name: string;
-  title: string;
+  role: string;
   bio: string;
   avatar: React.ReactNode;
   socials?: { Icon: React.ElementType; href: string; label: string }[];
 }) {
   return (
-    <div className={`${CARD_SURFACE} p-6 md:p-7`}>
-      <div className="flex items-start gap-5">
-        {avatar}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 mb-1 flex-wrap">
-            <h3 className="text-gray-900 text-lg font-semibold tracking-[-0.01em]">
-              {name}
-            </h3>
-            {socials.length > 0 && (
-              <div className="flex items-center gap-2">
-                {socials.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-gray-900 transition-colors"
-                    aria-label={s.label}
-                  >
-                    <s.Icon className="w-4 h-4" strokeWidth={1.75} />
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-          <p className="text-moss text-xs font-medium tracking-wide mb-3">
-            {title}
-          </p>
-          <p className="text-sm text-gray-600 leading-relaxed">{bio}</p>
+    <div className="flex items-start gap-4">
+      {avatar}
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <h3 className="text-[15.5px] font-semibold tracking-[-0.01em] text-ink">
+            {name}
+          </h3>
+          <span className="text-[12.5px] text-quiet">{role}</span>
+          <span className="flex items-center gap-2">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="text-quiet transition-colors hover:text-ink"
+              >
+                <s.Icon className="h-3.5 w-3.5" strokeWidth={1.75} />
+              </a>
+            ))}
+          </span>
         </div>
+        <p className="mt-2 text-[14.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
+          {bio}
+        </p>
       </div>
     </div>
   );
 }
 
-/**
- * Stylized portrait for Fadi Kanaan, modelled on his LinkedIn photo:
- * olive skin, close-cropped buzzcut, full short beard with mustache,
- * translucent rectangular glasses, small hoop earrings, blue polo.
- * Same flat-illustration vocabulary as Eric's avatar (sky-blue circle bg,
- * head proportions, eyes/eyebrows/highlight treatment) so they read as a set.
- */
 function FadiAvatar() {
   return (
-    <div className="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-gray-200 bg-white">
+    <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-hair bg-white">
       <svg
         viewBox="0 0 80 80"
         xmlns="http://www.w3.org/2000/svg"

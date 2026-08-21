@@ -1,40 +1,48 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Check, ArrowRight } from "lucide-react";
-import PillNav from "@/components/PillNav";
-import MinFooter from "@/components/MinFooter";
+import { Check } from "lucide-react";
 import { getDownloadTarget } from "@/lib/download";
+import {
+  PageFrame,
+  PageHero,
+  Section,
+  CloseBlock,
+  PillLink,
+  CONTACT_LABEL,
+  contactHref,
+} from "@/components/page/Kit";
 
 const APP_URL = "https://app.getmin.ai";
 
-const CARD =
-  "rounded-2xl border border-gray-100 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.02)]";
-
 /**
- * The plans are split on who min. is working for, not on how far back it can
- * remember. Recall windows are no longer a thing in the product, and they were
- * a strange thing to sell anyway: nobody wants to buy memory by the month.
+ * Pricing, rebuilt in the home page's language.
  *
- * One person, free, forever. You pay at the point min. starts working across a
- * team, which is also the point it starts saving a team's worth of time.
+ * The plan cards stay. This is the one page where a card earns itself: three
+ * plans read side by side is a genuine comparison, and elevation is doing real
+ * work rather than decorating a paragraph. What changed is that they are built
+ * from the site's own palette and shapes instead of a separate card system,
+ * and the hero rags left like every other page now.
+ *
+ * The FAQ was four more cards. It is a definition list now, hairline separated,
+ * because a question and its answer are not objects that need containers.
+ *
+ * Plans split on who min. is working for, not on how far back it remembers.
  */
 type Plan = {
   name: string;
-  swatch: string;
-  who: { label: string; strong: boolean };
+  who: string;
+  price: { display: string; sub?: string };
   inheritFrom?: string;
   features: string[];
   cta: { label: string; href: string };
   highlighted?: boolean;
-  price: { display: string; sub?: string };
 };
 
 const PLANS: Plan[] = [
   {
     name: "Free",
-    swatch: "bg-gray-400",
+    who: "For you",
     price: { display: "$0", sub: "forever" },
-    who: { label: "For you", strong: false },
     features: [
       "Notes for every meeting you are in",
       "Reminders and follow ups",
@@ -46,9 +54,8 @@ const PLANS: Plan[] = [
   },
   {
     name: "Pro",
-    swatch: "bg-moss",
+    who: "For your team",
     price: { display: "$20", sub: "/ active teammate / mo" },
-    who: { label: "For your team", strong: true },
     inheritFrom: "Free",
     features: [
       "Shared notes for everyone who was there",
@@ -63,9 +70,8 @@ const PLANS: Plan[] = [
   },
   {
     name: "Business",
-    swatch: "bg-gray-900",
+    who: "For your company",
     price: { display: "Custom", sub: "let's talk" },
-    who: { label: "For your company", strong: true },
     inheritFrom: "Pro",
     features: [
       "SSO, SAML, and SCIM",
@@ -73,30 +79,27 @@ const PLANS: Plan[] = [
       "Bring your own database, graph, and vector store",
       "Dedicated onboarding and SLA",
     ],
-    cta: {
-      label: "Contact us",
-      href: "mailto:hello@getmin.ai?subject=min.%20Business%20plan",
-    },
+    cta: { label: CONTACT_LABEL, href: contactHref("min. Business plan") },
   },
 ];
 
-const FAQS = [
-  {
-    q: "Is it really free?",
-    a: "Yes. Everything min. does for you on your own is free, with no sign up, no card, and no time limit. Email min@getmin.ai and it replies. You pay when you want it working across a team: shared notes, team reminders, and rituals.",
-  },
-  {
-    q: "What is an active teammate?",
-    a: "Someone min. actually did something for that month. You can invite the whole company without paying for the whole company, and a teammate who sits out a month is not billed for that month.",
-  },
-  {
-    q: "How do I start using min.?",
-    a: "Shoot a hello email to min@getmin.ai and you are started. You can also CC it on a thread that needs scheduling, or add it to a meeting invite. The desktop app for macOS and Windows adds the full experience.",
-  },
-  {
-    q: "Do you store my email?",
-    a: "No. min. keeps distilled memory and metadata, never your raw mail. We never train on it, sell it, or share it. Our belief is that your context can become one of your biggest professional assets. It's bad for business for us to not take that seriously.",
-  },
+const FAQS: [string, string][] = [
+  [
+    "Is it really free?",
+    "Yes. Everything min. does for you on your own is free, with no sign up, no card, and no time limit. You pay when you want it working across a team: shared notes, team reminders, and rituals.",
+  ],
+  [
+    "What is an active teammate?",
+    "Someone min. actually did something for that month. You can invite the whole company without paying for the whole company, and a teammate who sits out a month is not billed for that month.",
+  ],
+  [
+    "How do I start using min.?",
+    "Shoot a hello email to min@getmin.ai and you are started. You can also CC it on a thread that needs scheduling, or add it to a meeting invite. The desktop app for macOS and Windows adds the full experience.",
+  ],
+  [
+    "Do you store my email?",
+    "No. min. keeps distilled memory and metadata, never your raw mail. We never train on it, sell it, or share it. Our belief is that your context can become one of your biggest professional assets, and it is bad for business for us to not take that seriously.",
+  ],
 ];
 
 const Pricing = () => {
@@ -107,125 +110,108 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing | min., the AI teammate that does the little things right</title>
+        <title>Pricing | min., the AI teammate that does the little things</title>
         <meta
           name="description"
-          content="min., the AI teammate that does the little things right, is free for one person, forever. You pay when it starts working across your team."
+          content="min., the AI teammate that does the little things, is free for one person, forever. You pay when it starts working across your team."
         />
         <link rel="canonical" href="https://getmin.ai/pricing/" />
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
-        <PillNav />
+      <PageFrame>
+        <PageHero
+          title="Free to use."
+          lede="Free for you, forever. You pay when min. starts working across your team."
+        />
 
-        <main className="relative pt-28 md:pt-44 pb-24 md:pb-32">
-          <div className="relative max-w-5xl mx-auto px-6">
-            <header className="text-center mb-14 md:mb-16">
-              <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.05] text-4xl md:text-6xl">
-                Free to <span className="text-moss">use</span>.
-              </h1>
-              <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                Free for you, forever. You pay when min. starts working across
-                your team.
-              </p>
-            </header>
-
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-24 md:mb-28">
-              {PLANS.map((p) => (
-                <PlanCard key={p.name} plan={p} />
-              ))}
-            </section>
-
-            <section className="max-w-2xl mx-auto">
-              <h2 className="font-display text-gray-900 text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-center mb-8">
-                Questions.
-              </h2>
-              <div className="space-y-3">
-                {FAQS.map((f) => (
-                  <div key={f.q} className={`${CARD} p-5 md:p-6`}>
-                    <h3 className="text-gray-900 text-[15px] font-semibold tracking-[-0.01em] mb-1.5">
-                      {f.q}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-[14px]">{f.a}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+        <Section wide>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {PLANS.map((p) => (
+              <PlanCard key={p.name} plan={p} />
+            ))}
           </div>
-        </main>
+        </Section>
 
-        <MinFooter />
-      </div>
+        <Section title="Questions.">
+          <dl className="flex flex-col">
+            {FAQS.map(([q, a]) => (
+              <div key={q} className="border-b border-hair py-5 first:border-t">
+                <dt className="text-[15.5px] font-semibold tracking-[-0.01em] text-ink">
+                  {q}
+                </dt>
+                <dd className="mt-1.5 text-[15px] leading-[1.7] text-quiet [text-wrap:pretty]">
+                  {a}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+
+        <CloseBlock title="Give it something to do today.">
+          <PillLink href="mailto:min@getmin.ai?subject=Hi%20min.">
+            Email min@getmin.ai
+          </PillLink>
+        </CloseBlock>
+      </PageFrame>
     </>
   );
 };
 
 function PlanCard({ plan }: { plan: Plan }) {
-  const isHl = plan.highlighted;
+  const hl = plan.highlighted;
   return (
     <div
-      className={`relative ${CARD} p-6 md:p-7 flex flex-col ${
-        isHl ? "ring-2 ring-gray-900 border-transparent" : ""
+      className={`flex flex-col rounded-xl border bg-white p-6 ${
+        hl
+          ? "border-ink/80 shadow-[0_1px_2px_rgba(12,18,17,0.04),0_16px_40px_-28px_rgba(12,18,17,0.22)]"
+          : "border-hair"
       }`}
     >
-      {isHl && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] tracking-[0.16em] uppercase font-medium px-3 py-1 rounded-full whitespace-nowrap">
-          Most popular
-        </span>
-      )}
-
-      <div className="flex items-center gap-2.5 mb-4">
-        <span className={`w-2.5 h-2.5 rounded-sm ${plan.swatch}`} aria-hidden />
-        <h3 className="text-gray-900 text-base md:text-lg font-semibold tracking-[-0.01em]">
+      <div className="flex items-baseline justify-between gap-3">
+        <h3 className="text-[15.5px] font-semibold tracking-[-0.01em] text-ink">
           {plan.name}
         </h3>
+        <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-quiet">
+          {plan.who}
+        </span>
       </div>
 
-      <div className="mb-4 flex items-baseline gap-1.5 flex-wrap">
-        <span className="text-gray-900 text-4xl md:text-5xl font-semibold tracking-[-0.02em] tabular-nums leading-none">
+      <div className="mt-5 flex items-baseline gap-1.5">
+        <span className="font-display text-[2.4rem] font-semibold leading-none tracking-[-0.03em] tabular-nums text-ink">
           {plan.price.display}
         </span>
         {plan.price.sub && (
-          <span className="text-gray-500 text-[12.5px] leading-tight">{plan.price.sub}</span>
+          <span className="text-[12.5px] leading-tight text-quiet">
+            {plan.price.sub}
+          </span>
         )}
       </div>
 
-      <div className="mb-5">
-        <span
-          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-medium ${
-            plan.who.strong
-              ? "border border-moss/25 bg-moss-soft text-moss"
-              : "border border-gray-200 bg-gray-50 text-gray-600"
-          }`}
-        >
-          {plan.who.label}
-        </span>
-      </div>
-
       {plan.inheritFrom && (
-        <p className="text-[11.5px] text-gray-400 mb-3">Everything in {plan.inheritFrom}, plus</p>
+        <p className="mt-5 text-[12.5px] text-quiet">
+          Everything in {plan.inheritFrom}, plus
+        </p>
       )}
 
-      <ul className="flex-1 space-y-2.5 mb-6">
+      <ul className={`flex-1 space-y-2.5 ${plan.inheritFrom ? "mt-3" : "mt-6"}`}>
         {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2 text-[13.5px]">
-            <Check className="w-4 h-4 text-moss mt-0.5 shrink-0" strokeWidth={2.5} />
-            <span className="text-gray-600">{f}</span>
+          <li key={f} className="flex items-start gap-2.5 text-[13.5px]">
+            <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-moss" strokeWidth={2.5} />
+            <span className="leading-[1.5] text-quiet">{f}</span>
           </li>
         ))}
       </ul>
 
-      <div className="mt-auto">
+      <div className="mt-7">
         <a
           href={plan.cta.href}
-          className={
-            isHl
-              ? "inline-flex w-full items-center justify-center gap-2 rounded-full bg-black text-white text-sm font-semibold px-5 py-2.5 hover:bg-gray-800 transition-colors"
-              : "inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-200 text-gray-700 text-sm font-medium px-5 py-2.5 hover:border-gray-300 hover:text-gray-900 transition-colors"
-          }
+          className={`inline-flex w-full items-center justify-center rounded-full px-5 py-2.5 text-[14px] font-medium transition-colors active:scale-[0.98] ${
+            hl
+              ? "bg-ink text-white hover:bg-ink/90"
+              : "border border-hair text-ink hover:border-quiet/40"
+          }`}
         >
-          <span className="text-center">{plan.cta.label}</span>
-          <ArrowRight className="w-3.5 h-3.5 shrink-0" strokeWidth={2.25} />
+          {plan.cta.label}
         </a>
       </div>
     </div>
