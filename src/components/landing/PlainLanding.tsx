@@ -745,8 +745,7 @@ export default function PlainLanding() {
             The AI teammate that does the little things right.
           </h1>
           <p className="mt-6 max-w-[31rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            min. remembers, schedules, takes notes, and follows up. For you and
-            your team.
+min. remembers, schedules, takes notes, and follows up.
           </p>
 
           <div className="mt-10">
