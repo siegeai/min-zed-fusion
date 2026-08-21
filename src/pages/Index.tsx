@@ -1,21 +1,23 @@
 import { Helmet } from "react-helmet-async";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
-import PlainLanding from "@/components/landing/PlainLanding";
+import MinionLanding from "@/components/landing/MinionLanding";
 
 /**
- * The 2026-08 revamp: one typeset page, understood in fifteen seconds.
- * Plain text does the work; decoration lives in the background only. The
- * older sections remain in the tree but are deliberately not composed here.
+ * The 2026-08 minion brief. One idea: every team gets a named teammate, and
+ * the name is its email address. The hero is the name mechanic rather than a
+ * screenshot, and there is no signup form anywhere on the page: the address is
+ * the call to action. Older landing sections remain in the tree but are
+ * deliberately not composed here.
  */
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | The AI teammate that does the little things right</title>
+        <title>min. | Meet your team's minion</title>
         <meta
           name="description"
-          content="min. books your meetings, takes the notes, remembers your follow ups, and holds your team's context. Email min@getmin.ai to start. Private by default."
+          content="Every team gets a minion: a named teammate who sits in your meetings, holds what the team knows, and answers when you ask. Invite them to your next meeting. Nothing to install."
         />
         <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>
@@ -24,7 +26,7 @@ const Index = () => {
         <PillNav />
 
         <main className="flex-1">
-          <PlainLanding />
+          <MinionLanding />
         </main>
 
         <MinFooter />

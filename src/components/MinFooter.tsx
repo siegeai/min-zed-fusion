@@ -4,8 +4,8 @@ const COLUMNS = [
   {
     heading: "Product",
     links: [
-      { label: "What min. can do", to: "/#does" },
-      { label: "For teams", to: "/#team" },
+      { label: "What they do", to: "/#does" },
+      { label: "Recurring meetings", to: "/#recurring" },
       { label: "Pricing", to: "/pricing" },
     ],
   },
@@ -41,10 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-quiet text-sm leading-relaxed max-w-xs">
-              The AI teammate that does the little things right. min. books your meetings, takes the
-              notes, remembers your follow ups, and holds your team's context.
-              Private by default.
-            </p>
+                Every team gets a minion: a named teammate who sits in your
+                meetings, holds what the team knows, and answers when you ask.
+              </p>
           </div>
 
           {COLUMNS.map((col) => (

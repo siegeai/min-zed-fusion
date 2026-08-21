@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { getDownloadTarget } from "@/lib/download";
 
 const NAV_LINKS = [
-  { label: "What min. can do", to: "/#does" },
+  { label: "What they do", to: "/#does" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },
 ];

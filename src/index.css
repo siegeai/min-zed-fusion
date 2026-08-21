@@ -124,6 +124,14 @@
 
 /* Brand keyframes */
 
+/* The name swap. Overshoots slightly and settles: the one piece of play on the
+   page, and the only thing the motion budget is spent on. */
+@keyframes name-in {
+  0%   { opacity: 0; transform: translateY(10px) scale(0.94); }
+  55%  { opacity: 1; transform: translateY(-3px) scale(1.015); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* Stage swap: a short rise, never a slide. Held to motion-safe at the call site. */
 @keyframes stage-in {
   from { opacity: 0; transform: translateY(6px); }
