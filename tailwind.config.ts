@@ -28,13 +28,15 @@ export default {
 				'4.5': '1.125rem',
 			},
 			colors: {
-				ink: '#0C1211',
-				paper: '#F8F9F8',
-				quiet: '#6B7472',
-				hair: '#E3E6E4',
+				ink: 'rgb(var(--ink) / <alpha-value>)',
+				paper: 'rgb(var(--paper) / <alpha-value>)',
+				surface: 'rgb(var(--surface) / <alpha-value>)',
+				quiet: 'rgb(var(--quiet) / <alpha-value>)',
+				hair: 'rgb(var(--hair) / <alpha-value>)',
+				onink: 'rgb(var(--onink) / <alpha-value>)',
 				moss: {
-					DEFAULT: '#0B6E4F',
-					soft: '#EAF3EE',
+					DEFAULT: 'rgb(var(--moss) / <alpha-value>)',
+					soft: 'rgb(var(--moss-soft) / <alpha-value>)',
 				},
 				brand: {
 					bg: '#161C24',

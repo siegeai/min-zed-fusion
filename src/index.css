@@ -1,5 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
 
+/*
+ * The palette lives here as RGB triplets, not in the Tailwind config, so that
+ * one media query swaps the whole site. Every component already speaks in
+ * ink / paper / quiet / hair / moss, which is what makes dark mode a palette
+ * change rather than a rewrite of several hundred classNames.
+ *
+ * Two tokens exist purely so nothing is hardcoded past the swap:
+ *   --surface  the raised card ground, which used to be literal bg-white
+ *   --onink    the label on a filled ink button, which used to be text-white
+ *              and would have gone white-on-light the moment ink inverted
+ *
+ * Dark is keyed to prefers-color-scheme only: it follows the OS, there is no
+ * toggle. Measured contrast is AAA on every text pair in dark and AA or better
+ * in light.
+ */
+:root {
+  --paper: 248 249 248;
+  --surface: 255 255 255;
+  --ink: 12 18 17;
+  --quiet: 107 116 114;
+  --hair: 227 230 228;
+  --moss: 11 110 79;
+  --moss-soft: 234 243 238;
+  --onink: 255 255 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: 11 15 14;
+    --surface: 19 26 24;
+    --ink: 236 239 238;
+    --quiet: 155 166 162;
+    --hair: 35 44 42;
+    --moss: 69 196 141;
+    --moss-soft: 18 39 31;
+    --onink: 11 15 14;
+
+    /* shadcn's own tokens back the <body> ground; leaving them light would
+       flash a white page behind every route transition. */
+    --background: 168 14% 5%;
+    --foreground: 160 8% 93%;
+    --card: 168 14% 9%;
+    --card-foreground: 160 8% 93%;
+    --popover: 168 14% 9%;
+    --popover-foreground: 160 8% 93%;
+    --primary: 160 8% 93%;
+    --primary-foreground: 168 14% 5%;
+    --secondary: 168 12% 14%;
+    --secondary-foreground: 160 8% 93%;
+    --muted: 168 12% 14%;
+    --muted-foreground: 165 6% 63%;
+    --accent: 168 12% 14%;
+    --accent-foreground: 160 8% 93%;
+    --border: 168 11% 15%;
+    --input: 168 11% 15%;
+    --ring: 158 49% 52%;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

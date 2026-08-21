@@ -74,7 +74,7 @@ function Avatar({ initial, isMin = false }: { initial: string; isMin?: boolean }
     <span
       aria-hidden="true"
       className={`grid h-7 w-7 shrink-0 place-items-center rounded-full text-[11px] font-semibold ${
-        isMin ? "bg-ink text-white" : "bg-hair/60 text-quiet"
+        isMin ? "bg-ink text-onink" : "bg-hair/60 text-quiet"
       }`}
     >
       {initial}
@@ -85,7 +85,7 @@ function Avatar({ initial, isMin = false }: { initial: string; isMin?: boolean }
 /** The stage card. No tilt, no label: the rail names it. */
 function Frame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-hair bg-white shadow-[0_1px_2px_rgba(12,18,17,0.04),0_16px_40px_-28px_rgba(12,18,17,0.22)]">
+    <div className="overflow-hidden rounded-xl border border-hair bg-surface shadow-[0_1px_2px_rgba(12,18,17,0.04),0_16px_40px_-28px_rgba(12,18,17,0.22)]">
       {children}
     </div>
   );
@@ -95,7 +95,7 @@ function GuestAvatar({ initial, tone }: { initial: string; tone: string }) {
   return (
     <span
       aria-hidden="true"
-      className={`grid h-6 w-6 shrink-0 place-items-center rounded-full text-[10px] font-semibold text-white ${tone}`}
+      className={`grid h-6 w-6 shrink-0 place-items-center rounded-full text-[10px] font-semibold ${tone}`}
     >
       {initial}
     </span>
@@ -118,7 +118,7 @@ function SquareAvatar({ initial, tone }: { initial: string; tone: string }) {
   return (
     <span
       aria-hidden="true"
-      className={`grid h-6 w-6 shrink-0 place-items-center rounded-[5px] text-[10px] font-semibold text-white ${tone}`}
+      className={`grid h-6 w-6 shrink-0 place-items-center rounded-[5px] text-[10px] font-semibold ${tone}`}
     >
       {initial}
     </span>
@@ -205,18 +205,18 @@ function NotetakerCard() {
             <p className="text-[12.5px] leading-snug text-ink/75">3 guests, 3 yes</p>
             <ul className="mt-2 space-y-1.5">
               <li className="flex items-center gap-2.5">
-                <GuestAvatar initial="P" tone="bg-rose-400" />
+                <GuestAvatar initial="P" tone="bg-rose-600 text-white" />
                 <span className="text-[12.5px] text-ink/75">
                   Priya Shah{" "}
                   <span className="text-quiet">Organizer</span>
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
-                <GuestAvatar initial="E" tone="bg-indigo-400" />
+                <GuestAvatar initial="E" tone="bg-indigo-600 text-white" />
                 <span className="text-[12.5px] text-ink/75">Eric Wang</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <GuestAvatar initial="m" tone="bg-ink" />
+                <GuestAvatar initial="m" tone="bg-ink text-onink" />
                 <span className="text-[12.5px]">
                   <MinChip />
                 </span>
@@ -370,7 +370,7 @@ function AskCard() {
           <SlackMark className="h-4 w-4 text-white/90" />
           <span
             aria-hidden="true"
-            className="grid h-7 w-7 place-items-center rounded-lg bg-white/15 text-[10px] font-bold text-white"
+            className="grid h-7 w-7 place-items-center rounded-lg bg-surface/15 text-[10px] font-bold text-white"
           >
             N
           </span>
@@ -386,7 +386,7 @@ function AskCard() {
 
           <div className="space-y-3.5 px-4 py-3.5">
             <div className="flex items-start gap-2.5">
-              <SquareAvatar initial="E" tone="bg-indigo-400" />
+              <SquareAvatar initial="E" tone="bg-indigo-600 text-white" />
               <div className="min-w-0 flex-1">
                 <div className="flex items-baseline gap-2">
                   <span className="text-[12.5px] font-bold text-ink">Eric Wang</span>
@@ -402,7 +402,7 @@ function AskCard() {
             </div>
 
             <div className="flex items-start gap-2.5">
-              <SquareAvatar initial="m" tone="bg-ink" />
+              <SquareAvatar initial="m" tone="bg-ink text-onink" />
               <div className="min-w-0 flex-1">
                 <div className="flex items-baseline gap-2">
                   <span className="text-[12.5px] font-bold text-ink">min.</span>
@@ -438,7 +438,7 @@ function RitualCard() {
       </div>
 
       <div className="px-4 py-3.5">
-        <div className="rounded-lg border border-hair border-l-[3px] border-l-[#5B5FC7] bg-white px-3.5 py-3">
+        <div className="rounded-lg border border-hair border-l-[3px] border-l-[#5B5FC7] bg-surface px-3.5 py-3">
           <div className="flex items-center gap-2.5">
             <Avatar initial="m" isMin />
             <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
@@ -602,13 +602,13 @@ function Stage() {
  */
 function Fan() {
   const people = [
-    { initial: "P", name: "Priya", tone: "bg-rose-400" },
-    { initial: "E", name: "Eric", tone: "bg-indigo-400" },
-    { initial: "S", name: "Sam", tone: "bg-amber-400" },
+    { initial: "P", name: "Priya", tone: "bg-rose-600" },
+    { initial: "E", name: "Eric", tone: "bg-indigo-600" },
+    { initial: "S", name: "Sam", tone: "bg-amber-700" },
   ];
   return (
     <div aria-hidden="true" className="w-[17rem] select-none">
-      <div className="rounded-lg border border-hair bg-white px-3.5 py-2.5 text-center shadow-[0_1px_2px_rgba(12,18,17,0.04)]">
+      <div className="rounded-lg border border-hair bg-surface px-3.5 py-2.5 text-center shadow-[0_1px_2px_rgba(12,18,17,0.04)]">
         <p className="text-[12.5px] font-medium text-ink">Weekly design sync</p>
         <p className="mt-0.5 text-[11.5px] text-quiet">min. took the notes</p>
       </div>
@@ -658,7 +658,7 @@ function Fan() {
 function AddressField() {
   const { copied, copy } = useCopy();
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-hair bg-white py-2 pl-6 pr-2 shadow-[0_1px_3px_rgba(12,18,17,0.06)]">
+    <span className="inline-flex items-center gap-1 rounded-full border border-hair bg-surface py-2 pl-6 pr-2 shadow-[0_1px_3px_rgba(12,18,17,0.06)]">
       <a
         href={MAILTO}
         className="font-mono text-[16px] tracking-tight text-ink transition-colors duration-200 hover:text-moss sm:text-[18px]"

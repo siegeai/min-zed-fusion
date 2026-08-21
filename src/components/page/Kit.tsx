@@ -148,8 +148,8 @@ export function PillLink({
 }) {
   const cls =
     tone === "ink"
-      ? "bg-ink text-white hover:bg-ink/90"
-      : "border border-hair bg-white text-ink hover:border-quiet/40";
+      ? "bg-ink text-onink hover:bg-ink/90"
+      : "border border-hair bg-surface text-ink hover:border-quiet/40";
   const base = `inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-[14px] font-medium transition-colors active:scale-[0.98] ${cls}`;
   if (to) return <Link to={to} className={base}>{children}</Link>;
   return <a href={href} className={base}>{children}</a>;

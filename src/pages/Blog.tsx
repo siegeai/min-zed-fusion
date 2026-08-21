@@ -50,19 +50,19 @@ const Blog = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased overflow-x-hidden">
         <PillNav />
 
         <main className="flex-1">
           <section className="pt-28 md:pt-40 pb-12">
             <div className="max-w-3xl mx-auto px-6">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-gray-400 mb-5">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-quiet/70 mb-5">
                 Blog
               </p>
-              <h1 className="font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-5xl">
+              <h1 className="font-display text-ink font-semibold tracking-[-0.025em] leading-[1.08] text-4xl md:text-5xl">
                 Notes from building min.
               </h1>
-              <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-xl">
+              <p className="mt-6 text-quiet text-base md:text-lg leading-relaxed max-w-xl">
                 Relationship context, AI, and what is left to compete on when
                 shipping a feature costs a day.
               </p>
@@ -71,22 +71,22 @@ const Blog = () => {
 
           <section className="pb-24">
             <div className="max-w-3xl mx-auto px-6">
-              <ul className="divide-y divide-gray-200 border-t border-gray-200">
+              <ul className="divide-y divide-hair border-t border-hair">
                 {posts.map((p) => (
                   <li key={p.slug}>
                     <Link
                       to={`/blog/${p.slug}`}
                       className="group block py-8 transition-colors"
                     >
-                      <div className="flex items-center gap-3 text-[12.5px] text-gray-400">
+                      <div className="flex items-center gap-3 text-[12.5px] text-quiet/70">
                         <time dateTime={p.date}>{formatDate(p.date)}</time>
                         <span aria-hidden="true">·</span>
                         <span>{p.readTime}</span>
                       </div>
-                      <h2 className="mt-2 font-display text-[22px] md:text-[26px] font-semibold tracking-[-0.02em] text-gray-900 group-hover:text-moss transition-colors">
+                      <h2 className="mt-2 font-display text-[22px] md:text-[26px] font-semibold tracking-[-0.02em] text-ink group-hover:text-moss transition-colors">
                         {p.title}
                       </h2>
-                      <p className="mt-2.5 text-[15px] leading-relaxed text-gray-600 max-w-2xl">
+                      <p className="mt-2.5 text-[15px] leading-relaxed text-quiet max-w-2xl">
                         {p.excerpt}
                       </p>
                       <span className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium text-moss">

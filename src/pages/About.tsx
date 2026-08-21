@@ -118,7 +118,7 @@ export default function About() {
                     src="/lovable-uploads/a08e6a56-3aaf-4f91-b83a-909a4d24b497.png"
                     alt="Eric Wang"
                   />
-                  <AvatarFallback className="bg-white text-quiet">EW</AvatarFallback>
+                  <AvatarFallback className="bg-surface text-quiet">EW</AvatarFallback>
                 </Avatar>
               }
               socials={[
@@ -201,7 +201,7 @@ function Person({
 
 function FadiAvatar() {
   return (
-    <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-hair bg-white">
+    <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-hair bg-surface">
       <svg
         viewBox="0 0 80 80"
         xmlns="http://www.w3.org/2000/svg"

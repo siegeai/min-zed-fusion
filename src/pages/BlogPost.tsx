@@ -63,7 +63,7 @@ const BlogPost = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-gray-900 font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased overflow-x-hidden">
         <PillNav />
 
         <main className="flex-1">
@@ -71,33 +71,33 @@ const BlogPost = () => {
             <div className="max-w-2xl mx-auto px-6">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-gray-400 hover:text-gray-900 transition-colors"
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-quiet/70 hover:text-ink transition-colors"
               >
                 <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2} />
                 All posts
               </Link>
 
               <header className="mt-7">
-                <div className="flex items-center gap-3 text-[12.5px] text-gray-400">
+                <div className="flex items-center gap-3 text-[12.5px] text-quiet/70">
                   <time dateTime={post.date}>{formatDate(post.date)}</time>
                   <span aria-hidden="true">·</span>
                   <span>{post.readTime}</span>
                 </div>
-                <h1 className="mt-3 font-display text-gray-900 font-semibold tracking-[-0.025em] leading-[1.1] text-[34px] md:text-[44px]">
+                <h1 className="mt-3 font-display text-ink font-semibold tracking-[-0.025em] leading-[1.1] text-[34px] md:text-[44px]">
                   {post.title}
                 </h1>
-                <p className="mt-5 text-gray-600 text-lg leading-relaxed">
+                <p className="mt-5 text-quiet text-lg leading-relaxed">
                   {post.standfirst}
                 </p>
               </header>
 
-              <div className="mt-10 border-t border-gray-200 pt-10">
+              <div className="mt-10 border-t border-hair pt-10">
                 {post.body.map((b, i) => {
                   if (b.t === "h2") {
                     return (
                       <h2
                         key={i}
-                        className="font-display text-gray-900 text-[24px] md:text-[26px] font-semibold tracking-[-0.02em] mt-12 mb-4"
+                        className="font-display text-ink text-[24px] md:text-[26px] font-semibold tracking-[-0.02em] mt-12 mb-4"
                       >
                         {b.text}
                       </h2>
@@ -110,7 +110,7 @@ const BlogPost = () => {
                         href={b.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="my-7 inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-[15px] font-medium text-white transition-colors hover:bg-gray-700"
+                        className="my-7 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[15px] font-medium text-onink transition-colors hover:bg-ink/85"
                       >
                         {b.text}
                         <span aria-hidden="true">&rarr;</span>
@@ -121,32 +121,32 @@ const BlogPost = () => {
                     return (
                       <blockquote
                         key={i}
-                        className="my-7 border-l-2 border-moss/25 pl-5 font-display text-[20px] md:text-[22px] leading-snug tracking-[-0.01em] text-gray-900"
+                        className="my-7 border-l-2 border-moss/25 pl-5 font-display text-[20px] md:text-[22px] leading-snug tracking-[-0.01em] text-ink"
                       >
                         {b.text}
                       </blockquote>
                     );
                   }
                   return (
-                    <p key={i} className="text-[17px] leading-[1.75] text-gray-700 mb-5">
+                    <p key={i} className="text-[17px] leading-[1.75] text-ink/75 mb-5">
                       {b.text}
                     </p>
                   );
                 })}
               </div>
 
-              <div className="mt-14 rounded-2xl border border-gray-200 bg-white px-6 py-6">
-                <p className="font-display text-[19px] font-semibold tracking-[-0.01em] text-gray-900">
+              <div className="mt-14 rounded-2xl border border-hair bg-surface px-6 py-6">
+                <p className="font-display text-[19px] font-semibold tracking-[-0.01em] text-ink">
                   This is what min. is for.
                 </p>
-                <p className="mt-2 text-[15px] leading-relaxed text-gray-600">
+                <p className="mt-2 text-[15px] leading-relaxed text-quiet">
                   It sits on your calls and email and keeps every relationship
                   distilled into one AI: where you stand, action items, history.
                   Free to use, two minute setup.
                 </p>
                 <a
                   href={download.href}
-                  className="mt-5 inline-block rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-700"
+                  className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-onink transition-colors hover:bg-ink/85"
                 >
                   {download.label}
                 </a>

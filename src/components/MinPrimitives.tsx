@@ -12,12 +12,12 @@ export type IconTileSize = "sm" | "md" | "lg" | "xl";
 const TINT_BG: Record<Tint, string> = {
   blue: "bg-moss-soft border-moss/25",
   amber: "bg-amber-50 border-amber-100",
-  slate: "bg-gray-50 border-gray-100",
+  slate: "bg-paper border-hair",
 };
 const TINT_ICON: Record<Tint, string> = {
   blue: "text-moss",
   amber: "text-amber-500",
-  slate: "text-gray-700",
+  slate: "text-ink/75",
 };
 const SIZE_BOX: Record<IconTileSize, string> = {
   sm: "w-9 h-9 rounded-lg",
@@ -66,9 +66,9 @@ export function IconTile({
 }
 
 export const CARD_SURFACE =
-  "rounded-2xl border border-gray-100 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.02)]";
+  "rounded-2xl border border-hair bg-surface shadow-[0_2px_10px_rgba(0,0,0,0.02)]";
 export const CARD_SURFACE_LG =
-  "rounded-3xl border border-gray-100 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.02)]";
+  "rounded-3xl border border-hair bg-surface shadow-[0_2px_10px_rgba(0,0,0,0.02)]";
 export const CARD_INNER_HIGHLIGHT = {} as const;
 
 /** Hero radial glow (positioned absolutely behind the hero text). Subtle on light. */
@@ -100,9 +100,9 @@ export function PillButton({
   const base =
     "inline-flex items-center gap-2 rounded-full text-sm font-medium px-5 py-2.5 transition-colors";
   const variants = {
-    white: "bg-black text-white hover:bg-gray-800",
+    white: "bg-ink text-onink hover:bg-ink/85",
     outline:
-      "border border-gray-200 text-gray-700 hover:text-black hover:border-gray-300",
+      "border border-hair text-ink/75 hover:text-ink hover:border-hair",
   };
   return (
     <a href={href} className={`${base} ${variants[variant]} ${className}`}>

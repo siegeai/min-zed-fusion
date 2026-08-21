@@ -24,7 +24,7 @@ const BlogPostHeader = ({ title, date, readTime, image }: BlogPostHeaderProps) =
       </div>
 
       {/* Hero section */}
-      <div className="bg-white/80 backdrop-blur-sm rounded-lg border border-green-100/60 shadow-lg overflow-hidden mb-12">
+      <div className="bg-surface/80 backdrop-blur-sm rounded-lg border border-green-100/60 shadow-lg overflow-hidden mb-12">
         <div className="h-64 md:h-80 overflow-hidden">
           <img 
             src={image} 
@@ -34,14 +34,14 @@ const BlogPostHeader = ({ title, date, readTime, image }: BlogPostHeaderProps) =
         </div>
         
         <div className="p-8">
-          <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+          <div className="flex items-center gap-2 text-sm text-quiet mb-4">
             <Calendar className="w-4 h-4" />
             <span>{new Date(date).toLocaleDateString()}</span>
             <span>•</span>
             <span>{readTime}</span>
           </div>
           
-          <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-medium text-ink mb-6 leading-tight">
             {title}
           </h2>
         </div>

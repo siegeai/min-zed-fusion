@@ -161,7 +161,7 @@ function PlanCard({ plan }: { plan: Plan }) {
   const hl = plan.highlighted;
   return (
     <div
-      className={`flex flex-col rounded-xl border bg-white p-6 ${
+      className={`flex flex-col rounded-xl border bg-surface p-6 ${
         hl
           ? "border-ink/80 shadow-[0_1px_2px_rgba(12,18,17,0.04),0_16px_40px_-28px_rgba(12,18,17,0.22)]"
           : "border-hair"
@@ -207,7 +207,7 @@ function PlanCard({ plan }: { plan: Plan }) {
           href={plan.cta.href}
           className={`inline-flex w-full items-center justify-center rounded-full px-5 py-2.5 text-[14px] font-medium transition-colors active:scale-[0.98] ${
             hl
-              ? "bg-ink text-white hover:bg-ink/90"
+              ? "bg-ink text-onink hover:bg-ink/90"
               : "border border-hair text-ink hover:border-quiet/40"
           }`}
         >

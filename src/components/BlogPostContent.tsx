@@ -9,7 +9,7 @@ interface BlogPostContentProps {
 
 const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
   return (
-    <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-8">
+    <div className="prose prose-lg max-w-none text-ink/75 leading-relaxed mb-8">
       <p className="text-xl font-light mb-6">{excerpt}</p>
       
       <div className="space-y-6">
@@ -20,7 +20,7 @@ const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
           <p className="text-green-800">It's what happens after it lands.</p>
         </div>
 
-        <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">The Kitchen Drawer Problem</h3>
+        <h3 className="text-2xl font-medium text-ink mt-12 mb-6">The Kitchen Drawer Problem</h3>
         
         <p>Every early team runs into this. You launch something. A few people try it. Suddenly, your inbox turns into a kitchen drawer: investors, customers, bugs, applicants, ideas, spam, all dumped in the same place.</p>
         
@@ -40,7 +40,7 @@ const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
           <p className="text-orange-800 mt-2">You're still stuck reading every email, figuring out what it is, who should handle it, what it's about, and whether it's done. That doesn't scale.</p>
         </div>
 
-        <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Not a Volume Problem - a Structure Problem</h3>
+        <h3 className="text-2xl font-medium text-ink mt-12 mb-6">Not a Volume Problem - a Structure Problem</h3>
         
         <p>Most tools try to help by adding structure outside the inbox. But the chaos starts inside it.</p>
         
@@ -51,7 +51,7 @@ const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
           <p className="text-blue-800 mt-2">It's not about having fewer emails. It's about making them legible.</p>
         </div>
 
-        <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Why Founders Feel It First</h3>
+        <h3 className="text-2xl font-medium text-ink mt-12 mb-6">Why Founders Feel It First</h3>
         
         <ScaleVisualization />
         
@@ -62,7 +62,7 @@ const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
           <p className="text-red-800 mt-2">They stop because it's not sustainable.</p>
         </div>
 
-        <h3 className="text-2xl font-medium text-gray-900 mt-12 mb-6">Email Isn't Broken. It Just Needs Help.</h3>
+        <h3 className="text-2xl font-medium text-ink mt-12 mb-6">Email Isn't Broken. It Just Needs Help.</h3>
         
         <p>The truth is, email is still the front door to your company. Not Intercom. Not Slack. Not some dashboard.</p>
         
@@ -70,7 +70,7 @@ const BlogPostContent = ({ excerpt }: BlogPostContentProps) => {
         
         <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8 border border-green-200/50 text-center">
           <Zap className="w-12 h-12 text-green-600 mx-auto mb-4" />
-          <p className="text-xl font-medium text-gray-900">And the first team that figures out how to keep up without falling behind wins.</p>
+          <p className="text-xl font-medium text-ink">And the first team that figures out how to keep up without falling behind wins.</p>
         </div>
       </div>
     </div>

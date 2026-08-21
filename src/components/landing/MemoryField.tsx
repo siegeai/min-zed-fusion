@@ -15,8 +15,18 @@ import { useEffect, useRef } from "react";
  * and stops, so the composition survives without the movement.
  */
 
-const INK = "12, 18, 17";
-const MOSS = "11, 110, 79";
+/**
+ * Canvas cannot use Tailwind classes, so the field reads the very same CSS
+ * variables the rest of the site is themed from. Without this it would keep
+ * drawing near-black threads on a near-black ground and disappear entirely
+ * the moment the OS is set to dark.
+ */
+function readPalette() {
+  const cs = getComputedStyle(document.documentElement);
+  const v = (name: string, fallback: string) =>
+    cs.getPropertyValue(name).trim().replace(/\s+/g, ", ") || fallback;
+  return { ink: v("--ink", "12, 18, 17"), moss: v("--moss", "11, 110, 79") };
+}
 
 type Node = { x: number; y: number; vx: number; vy: number; r: number };
 
@@ -66,6 +76,7 @@ export default function MemoryField({ className = "" }: { className?: string }) 
     };
 
     const draw = () => {
+      const { ink: INK, moss: MOSS } = readPalette();
       ctx.clearRect(0, 0, w, h);
       const hx = w * hub.nx;
       const hy = h * hub.ny;
@@ -146,9 +157,14 @@ export default function MemoryField({ className = "" }: { className?: string }) 
     });
     ro.observe(canvas);
 
+    const scheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const onScheme = () => draw();
+    scheme.addEventListener("change", onScheme);
+
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      scheme.removeEventListener("change", onScheme);
     };
   }, []);
 

@@ -101,7 +101,7 @@ const JoinCommunity = () => {
 
 
   return (
-    <div className="min-h-screen bg-[#FAFAF9] relative overflow-hidden">
+    <div className="min-h-screen bg-paper relative overflow-hidden">
       <Helmet>
         <title>Join the min. Community | Try it now</title>
         <meta name="description" content="Join our Discord community for instant support, early access to features, and direct communication with the team." />
@@ -128,20 +128,20 @@ const JoinCommunity = () => {
             {/* Hero Section */}
             <div className="text-center mb-16">
               <div className="flex justify-center mb-8">
-                <div className="font-medium text-6xl md:text-7xl text-gray-900">
+                <div className="font-medium text-6xl md:text-7xl text-ink">
                   min.
                 </div>
               </div>
               
-              <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-medium text-ink mb-6 leading-tight">
                 Before you start your trial...
               </h1>
               
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light mb-4">
+              <p className="text-xl text-quiet max-w-2xl mx-auto leading-relaxed font-light mb-4">
                 Join our <a href="https://discord.gg/2prAr9qAwG" target="_blank" rel="noopener noreferrer" className="text-green-600/90 font-medium hover:text-green-700 underline decoration-green-600/30 hover:decoration-green-700 transition-colors">Discord community</a> to get the most out of min.
               </p>
               
-              <p className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
+              <p className="text-base text-quiet max-w-2xl mx-auto leading-relaxed font-light">
                 Trusted by founders and teams who value instant support and direct access to the team building their tools.
               </p>
             </div>
@@ -151,17 +151,17 @@ const JoinCommunity = () => {
               {discordBenefits.map((benefit, index) => (
                 <div 
                   key={index} 
-                  className="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-gray-100/60 hover:bg-white/80 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+                  className="bg-surface/60 backdrop-blur-sm p-6 rounded-xl border border-hair/60 hover:bg-surface/80 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 mt-1">
                       {benefit.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-medium text-gray-900 mb-2">
+                      <h3 className="text-lg font-medium text-ink mb-2">
                         {benefit.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-quiet text-sm leading-relaxed">
                         {benefit.description}
                       </p>
                     </div>
@@ -173,10 +173,10 @@ const JoinCommunity = () => {
             {/* Call to Action */}
             <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 p-10 rounded-2xl border border-green-100/60 shadow-lg mb-8">
               <div className="text-center mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+                <h2 className="text-2xl font-semibold text-ink mb-3">
                   You're one click away from joining
                 </h2>
-                <p className="text-gray-600 leading-relaxed max-w-xl mx-auto">
+                <p className="text-quiet leading-relaxed max-w-xl mx-auto">
                   Our community is where min. comes to life. Get instant answers, shape the product, and connect with other lean teams.
                 </p>
               </div>
