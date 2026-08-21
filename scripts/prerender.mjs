@@ -20,6 +20,7 @@
  * what Helmet renders for real visitors.
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -170,6 +171,88 @@ for (const post of posts) {
   emit(`/blog/${post.slug}`, `${post.title} | min.`, post.description, extraHead);
   rows.push({ route: `/blog/${post.slug}`, title: post.title.slice(0, 52) });
 }
+
+/* ── sitemap ──────────────────────────────────────────────────────────────
+ *
+ * Generated here rather than hand-kept in public/, for the same reason the
+ * HTML above is: a list maintained by hand drifts from the router, and the
+ * drift is silent.
+ *
+ * It had drifted in a way that actively worked against us. Every lastmod read
+ * 2026-08-19 while sixteen commits shipped on the 20th, including a rebuild of
+ * every sub page. lastmod is a crawl scheduling hint, so a stale one tells
+ * Google there is nothing new to come back for, on exactly the pages that had
+ * just changed.
+ *
+ * Dates come from git: the newest commit touching either the page's own source
+ * or the shared chrome every page renders through. That is honest without
+ * anyone having to remember to bump anything, and a change to the nav or the
+ * palette correctly marks every page as modified, because it modified them.
+ */
+function gitDate(paths) {
+  for (const p of paths) {
+    try {
+      const out = execFileSync("git", ["log", "-1", "--format=%cs", "--", p], {
+        cwd: root,
+        encoding: "utf8",
+      }).trim();
+      if (out) return out;
+    } catch {
+      /* not a git checkout, or the path never existed: fall through */
+    }
+  }
+  return null;
+}
+
+const SHARED = [
+  "src/components/PillNav.tsx",
+  "src/components/MinFooter.tsx",
+  "src/components/page/Kit.tsx",
+  "src/index.css",
+  "tailwind.config.ts",
+];
+const sharedDate = gitDate(SHARED) ?? new Date().toISOString().slice(0, 10);
+const newer = (a, b) => (!a ? b : !b ? a : a > b ? a : b);
+
+const sitemapEntries = [
+  { loc: `${SITE}/`, priority: "1.0", changefreq: "daily",
+    lastmod: newer(gitDate(["src/components/landing/PlainLanding.tsx", "src/pages/Index.tsx"]), sharedDate) },
+  ...ROUTES.map(([route, file]) => ({
+    loc: `${SITE}${route}/`,
+    priority: route === "/pricing" ? "0.9" : "0.7",
+    changefreq: "weekly",
+    lastmod: newer(gitDate([`src/pages/${file}`]), sharedDate),
+  })),
+  ...posts.map((post) => ({
+    loc: `${SITE}/blog/${post.slug}/`,
+    priority: "0.6",
+    changefreq: "monthly",
+    // A post's own date is the truth for it; shared chrome does not restate it.
+    lastmod: post.date?.slice(0, 10) ?? sharedDate,
+  })),
+];
+
+writeFileSync(
+  join(dist, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    sitemapEntries
+      .map(
+        (e) =>
+          `  <url>\n` +
+          `    <loc>${e.loc}</loc>\n` +
+          `    <lastmod>${e.lastmod}</lastmod>\n` +
+          `    <changefreq>${e.changefreq}</changefreq>\n` +
+          `    <priority>${e.priority}</priority>\n` +
+          `  </url>`
+      )
+      .join("\n") +
+    `\n</urlset>\n`
+);
+
+const staleDates = sitemapEntries.filter((e) => !/^\d{4}-\d{2}-\d{2}$/.test(e.lastmod));
+if (staleDates.length) throw new Error(`sitemap: bad lastmod on ${staleDates.map((e) => e.loc).join(", ")}`);
+console.log(`  sitemap.xml: ${sitemapEntries.length} urls, newest lastmod ${sitemapEntries.map((e) => e.lastmod).sort().at(-1)}`);
 
 console.log(`\n  prerendered ${rows.length} routes as real files (was: 404 for all of them)`);
 for (const r of rows) console.log(`    ${r.route.padEnd(17)} ${r.title}`);
