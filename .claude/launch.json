@@ -6,6 +6,13 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["vite", "--port", "5173"],
       "port": 5173
+    },
+    {
+      "//": "Second entry so a preview can run while another session holds 5173. No port flag and autoPort, so it takes whatever is free. The Ask min. widget will fail CORS here (the Worker allowlists 5173 only), which is fine for checking layout and copy.",
+      "name": "dev-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite"],
+      "autoPort": true
     }
   ]
 }

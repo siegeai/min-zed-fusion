@@ -219,34 +219,38 @@ function NameCard({ picker, compact = false }: { picker: Picker; compact?: boole
 
       {!compact && (
         <p className="mt-6 max-w-[30rem] text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
-          Invite {name ? displayName(name) : "them"} to your next team meeting.{" "}
-          {name ? displayName(name) : "They"} takes it from there.
+          Invite {name ? displayName(name) : "them"} to your next team meeting.
+          Nothing to install, no account.
         </p>
       )}
     </div>
   );
 }
 
+/**
+ * Four, not five. "Recurring meetings accumulate" used to sit here, but the
+ * section below argues that same point at length and with the only visual on
+ * the page, so stating it twice cost a line and taught nothing.
+ */
 const DOES: [string, string][] = [
   [
-    "They are in your team meetings.",
-    "They take the notes, and the notes belong to the team, not to whoever happened to hit record.",
-  ],
-  [
-    "Recurring meetings accumulate.",
-    "A weekly standup becomes one thing that keeps getting deeper, instead of forty unrelated files.",
+    // Leads on ownership, not attendance: the hero already says they sit in
+    // your meetings, and repeating it here spent the strongest slot on a
+    // sentence the visitor read ten seconds ago.
+    "The notes belong to the team.",
+    "Not to whoever happened to hit record.",
   ],
   [
     "Add them to a doc or a spreadsheet.",
-    "The same as adding a colleague in Google Docs or Sheets. The meeting is usually about a document, and now they can see that too.",
+    "Same as adding a colleague in Google Docs or Sheets.",
   ],
   [
     "Ask them what the team knows.",
-    "In the app, or straight in Slack once they are in your channels.",
+    "In the app, or in Slack.",
   ],
   [
-    "Your team's context, in your other tools.",
-    "They are reachable over MCP, so the same context follows you into whatever AI tool you already use.",
+    "They come with you.",
+    "Reachable over MCP, so your team's context follows you into any AI tool.",
   ],
 ];
 
@@ -284,32 +288,6 @@ export default function MinionLanding() {
           </div>
         </div>
 
-        {/* What happens next. No numbered stages: the verbs are the labels. */}
-        <div className="mt-28 max-w-[38rem] md:mt-32">
-          <h2 className="font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink [text-wrap:balance]">
-            What happens when you invite them.
-          </h2>
-          <div className="mt-7 flex flex-col gap-4 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
-            <p>
-              <span className="text-ink">You put the address on a real invite,</span>{" "}
-              a doc, or a spreadsheet, or you just email it. Nothing to install,
-              no account to make first.
-            </p>
-            <p>
-              <span className="text-ink">The name becomes your team's.</span> The
-              first mail creates the team and the name is yours from then on.
-            </p>
-            <p>
-              <span className="text-ink">They write back and introduce themselves,</span>{" "}
-              with a few things they can do for you.
-            </p>
-            <p>
-              <span className="text-ink">After that they are just in your meetings.</span>{" "}
-              You stop thinking about it.
-            </p>
-          </div>
-        </div>
-
         {/* What they do */}
         <div id="does" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
           <h2 className="font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink [text-wrap:balance]">
@@ -336,14 +314,14 @@ export default function MinionLanding() {
               </h2>
               <div className="mt-7 flex flex-col gap-4 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
                 <p>
-                  Most notetakers hand you a new file every week. Forty standups
-                  is forty documents, and the thing you actually want to know is
-                  spread across all of them.
+                  Most notetakers hand you a new file every week. Forty
+                  standups, forty documents, and what you need is spread across
+                  all of them.
                 </p>
                 <p>
-                  A minion treats the standup as one continuous thing. What was
-                  decided in March is still there in August, attached to the
-                  meeting it came from.
+                  A minion treats the standup as one thing. What was decided in
+                  March is still there in August, attached to the meeting it
+                  came from.
                 </p>
               </div>
             </div>
@@ -367,26 +345,6 @@ export default function MinionLanding() {
                 three.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Against notetakers */}
-        <div className="mt-28 max-w-[38rem] md:mt-32">
-          <h2 className="font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink [text-wrap:balance]">
-            Not a notetaker with a login.
-          </h2>
-          <div className="mt-7 flex flex-col gap-4 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
-            <p>
-              Other notetakers are built for one person, or for a sales team.
-              The recording is yours, the notes are yours, and your colleague
-              starts from nothing.
-            </p>
-            <p>
-              A minion belongs to the team. The context is shared because of how
-              it works, not because somebody remembered to share a link, and the
-              name is what makes that legible: everyone knows who they are and
-              what they were in the room for.
-            </p>
           </div>
         </div>
 
