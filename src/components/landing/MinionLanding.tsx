@@ -237,6 +237,10 @@ const DOES: [string, string][] = [
     "A weekly standup becomes one thing that keeps getting deeper, instead of forty unrelated files.",
   ],
   [
+    "Add them to a doc or a spreadsheet.",
+    "The same as adding a colleague in Google Docs or Sheets. The meeting is usually about a document, and now they can see that too.",
+  ],
+  [
     "Ask them what the team knows.",
     "In the app, or straight in Slack once they are in your channels.",
   ],
@@ -271,7 +275,8 @@ export default function MinionLanding() {
             Meet your team's minion.
           </h1>
           <p className="mt-5 max-w-[32rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            You don't install software. You meet someone.
+            Invite them to a meeting, a doc, or a spreadsheet, like any
+            other teammate. Nothing to install.
           </p>
 
           <div className="mt-12">
@@ -287,7 +292,8 @@ export default function MinionLanding() {
           <div className="mt-7 flex flex-col gap-4 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
             <p>
               <span className="text-ink">You put the address on a real invite,</span>{" "}
-              or you email it. Nothing to install, no account to make first.
+              a doc, or a spreadsheet, or you just email it. No account to make
+              first.
             </p>
             <p>
               <span className="text-ink">The name becomes your team's.</span> The
