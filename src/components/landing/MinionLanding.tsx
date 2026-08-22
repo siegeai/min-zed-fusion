@@ -279,8 +279,7 @@ export default function MinionLanding() {
             Meet your team's minion.
           </h1>
           <p className="mt-5 max-w-[32rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            They sit in your meetings, hold what the team knows, and answer
-            when you ask.
+            They sit in your meetings, docs, and answer when you ask.
           </p>
 
           <div className="mt-12">
