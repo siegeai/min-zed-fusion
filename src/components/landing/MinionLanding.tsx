@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import MemoryField from "./MemoryField";
-import { displayName, suggestMinions, type Minion } from "@/lib/minions";
+import {
+  BATCH_SIZE,
+  displayName,
+  suggestMinions,
+  type Minion,
+} from "@/lib/minions";
 
 /**
  * The landing page, minion brief.
@@ -33,30 +38,75 @@ type Status = "loading" | "ready" | "unavailable";
  * and the page has to be honest about all of them. Inventing a name to fill the
  * gap would put an address on screen that bounces when somebody copies it onto
  * a calendar invite, which breaks the only conversion action on the page.
+ *
+ * One batch is fetched before the first paint and rerolls are served from it,
+ * so clicking "try another name" costs nothing and the toy stays responsive.
+ * The batch tops up in the background once it runs low, because the server caps
+ * a single call at BATCH_SIZE and the full list cannot be pulled at once.
+ *
+ * Exclude carries every name shown this session so the backend keeps handing
+ * back fresh ones. When the pool is genuinely exhausted the backend returns
+ * nothing new, and rather than dead-ending on a disabled button the session
+ * forgets what it has seen and starts the rotation again.
  */
 function useMinion() {
   const [minion, setMinion] = useState<Minion | null>(null);
   const [status, setStatus] = useState<Status>("loading");
-  // Every name shown this session, so "try another" never repeats itself.
+  const queue = useRef<Minion[]>([]);
   const seen = useRef<string[]>([]);
+  const inFlight = useRef(false);
 
-  const pull = useCallback(async () => {
-    setStatus("loading");
-    const [next] = await suggestMinions(1, seen.current);
-    if (next) {
-      seen.current = [...seen.current, next.name].slice(-24);
-      setMinion(next);
-      setStatus("ready");
-    } else {
-      setStatus("unavailable");
+  const topUp = useCallback(async (allowRecycle = true) => {
+    if (inFlight.current) return 0;
+    inFlight.current = true;
+    try {
+      // Exclude what has been SHOWN and what is already QUEUED. Checking only
+      // the shown list let a background top-up enqueue a name that was still
+      // waiting in the queue, so the same name came round twice in a session.
+      const queued = queue.current.map((m) => m.name);
+      const known = new Set([...seen.current, ...queued]);
+      let batch = await suggestMinions(BATCH_SIZE, [...known]);
+      let fresh = batch.filter((m) => !known.has(m.name));
+      // Nothing new came back and we have been running a while: the pool is
+      // exhausted, not broken. Drop the exclusions and go round again.
+      if (!fresh.length && allowRecycle && seen.current.length) {
+        seen.current = [];
+        batch = await suggestMinions(BATCH_SIZE, queued);
+        fresh = batch.filter((m) => !queued.includes(m.name));
+      }
+      queue.current.push(...fresh);
+      return fresh.length;
+    } finally {
+      inFlight.current = false;
     }
   }, []);
 
-  useEffect(() => {
-    void pull();
-  }, [pull]);
+  const take = useCallback(() => {
+    const next = queue.current.shift();
+    if (!next) return false;
+    seen.current = [...seen.current, next.name];
+    setMinion(next);
+    setStatus("ready");
+    if (queue.current.length <= 2) void topUp();
+    return true;
+  }, [topUp]);
 
-  return { minion, status, reroll: pull };
+  const reroll = useCallback(async () => {
+    if (take()) return;
+    await topUp();
+    if (!take()) setStatus("unavailable");
+  }, [take, topUp]);
+
+  useEffect(() => {
+    void (async () => {
+      await topUp();
+      if (!take()) setStatus("unavailable");
+    })();
+    // Deliberately once on mount: topUp and take are stable callbacks.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return { minion, status, reroll };
 }
 
 /**

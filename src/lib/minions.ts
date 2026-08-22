@@ -6,18 +6,23 @@
  * only the backend knows which names actually exist. A page that invents
  * "fulcrum@getmin.ai" and hands it to someone who copies it onto a real
  * calendar invite has broken the single conversion action on the site, which
- * is worse than showing no name at all.
+ * is worse than showing no name at all. So this fails honestly rather than
+ * failing closed: anything other than a good response returns nothing, and the
+ * hero says so.
  *
- * So this fails honestly rather than failing closed: on 404, error, timeout, or
- * a malformed body it returns nothing and the hero shows a retry. The endpoint
- * is not deployed yet (every path on api.getmin.ai 404s as of 21 Aug 2026), so
- * that state is what production shows until it ships.
+ * Contract, verified live 21 Aug 2026: GET /minions/suggest?count=&exclude=,
+ * unauthenticated, access-control-allow-origin *, lowercase names, addresses
+ * always name@getmin.ai.
  *
- * Contract, unchanged: GET /minions/suggest?count=&exclude=, unauthenticated,
- * CORS open, lowercase names. Suggestions are biased away from crowded names
- * server side, which is why "try another" re-calls with exclude rather than
- * cycling a list fetched once.
+ * COUNT IS CLAMPED TO 12 SERVER SIDE. Asking for 49 or 100 returns 12, so the
+ * page cannot pull the whole list in one call. It takes a batch instead and
+ * tops up in the background, which gets the same feel as holding the full list
+ * (one request before the first paint, then rerolls with no network wait)
+ * without pretending the cap is not there.
  */
+
+/** The server's own ceiling. Asking for more is silently truncated to this. */
+export const BATCH_SIZE = 12;
 
 export type Minion = { name: string; address: string };
 
