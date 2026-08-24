@@ -297,7 +297,10 @@ export default function MinionLanding() {
             They sit in your meetings, docs, and answer when you ask.
           </p>
 
-          <div className="mt-12">
+          {/* Anchored: the nav CTA and every in-page call to action scroll
+              here, because copying this address is the only conversion on the
+              site. */}
+          <div id="name" className="mt-12 scroll-mt-28">
             <NameCard picker={picker} />
           </div>
         </div>

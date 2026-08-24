@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import PillNav from "@/components/PillNav";
 import MinFooter from "@/components/MinFooter";
 import { postBySlug, formatDate } from "@/content/posts";
-import { getDownloadTarget } from "@/lib/download";
+
 
 /**
  * One post. Content comes from src/content/posts.ts as typed blocks rather than
@@ -44,7 +44,7 @@ const BlogPost = () => {
     image: "https://getmin.ai/og-cover.png",
   };
 
-  const download = getDownloadTarget();
+  
 
   return (
     <>
@@ -140,16 +140,16 @@ const BlogPost = () => {
                   This is what min. is for.
                 </p>
                 <p className="mt-2 text-[15px] leading-relaxed text-quiet">
-                  It sits on your calls and email and keeps every relationship
-                  distilled into one AI: where you stand, action items, history.
-                  Free to use, two minute setup.
+                  Every team gets a minion. They sit in your meetings, hold
+                    what the team knows, and answer when you ask. Nothing to
+                    install, no account.
                 </p>
-                <a
-                  href={download.href}
-                  className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-onink transition-colors hover:bg-ink/85"
-                >
-                  {download.label}
-                </a>
+                <Link
+                    to="/#name"
+                    className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-onink transition-colors hover:bg-ink/85"
+                  >
+                    Get your minion
+                  </Link>
               </div>
             </div>
           </article>

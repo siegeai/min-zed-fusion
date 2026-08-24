@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion } from "motion/react";
-import { getDownloadTarget } from "@/lib/download";
+
 
 const NAV_LINKS = [
   { label: "What they do", to: "/#does" },
@@ -45,12 +45,12 @@ export default function PillNav() {
             >
               Sign in
             </a>
-            <a
-              href={getDownloadTarget().href}
-              className="whitespace-nowrap bg-ink text-onink px-5 py-2 rounded-full text-sm font-medium hover:bg-ink/85 transition-colors"
-            >
-              {getDownloadTarget().label}
-            </a>
+            <Link
+                to="/#name"
+                className="whitespace-nowrap bg-ink text-onink px-5 py-2 rounded-full text-sm font-medium hover:bg-ink/85 transition-colors"
+              >
+                Get your minion
+              </Link>
           </div>
 
           <button
@@ -84,12 +84,13 @@ export default function PillNav() {
             >
               Sign in
             </a>
-            <a
-              href={getDownloadTarget().href}
-              className="rounded-full bg-ink text-onink text-sm font-medium py-3 text-center"
-            >
-              {getDownloadTarget().label}
-            </a>
+            <Link
+                to="/#name"
+                onClick={() => setOpen(false)}
+                className="rounded-full bg-ink text-onink text-sm font-medium py-3 text-center"
+              >
+                Get your minion
+              </Link>
           </div>
         </div>
       )}

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Check } from "lucide-react";
-import { getDownloadTarget } from "@/lib/download";
+
 import {
   PageFrame,
   PageHero,
@@ -48,9 +48,9 @@ const PLANS: Plan[] = [
       "Reminders and follow ups",
       "Scheduling, just put min. on Cc",
       "Ask it anything it was part of",
-      "Desktop app for macOS and Windows",
+      "Desktop app for private recording, once you are in",
     ],
-    cta: { label: getDownloadTarget().label, href: getDownloadTarget().href },
+    cta: { label: "Get your minion", href: "/#name" },
   },
   {
     name: "Pro",
