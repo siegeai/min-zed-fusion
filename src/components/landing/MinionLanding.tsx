@@ -254,10 +254,25 @@ const DOES: [string, string][] = [
   ],
 ];
 
+/**
+ * One thread across three weeks, not three unrelated notes.
+ *
+ * The section claims a recurring meeting gets deeper rather than longer, so the
+ * example has to be something a single week cannot answer. Each entry here
+ * depends on the one above it: the two week window sets the constraint, the
+ * Monday start turns it into a date, and the open items put that date at risk.
+ * Read any one row alone and you still do not know when billing can cut over.
+ */
 const STANDUP: [string, string][] = [
-  ["Aug 7", "Priya flagged the migration risk on the billing service."],
-  ["Aug 14", "Decided to hold the launch a week rather than ship it half tested."],
-  ["Aug 21", "Sam still owes the comparison table before Thursday."],
+  ["Aug 7", "Priya: billing migration needs two weeks of double writes first."],
+  [
+    "Aug 14",
+    "Launch held a week. Double writes start Monday, so cutover is the 28th at the earliest.",
+  ],
+  [
+    "Aug 21",
+    "Sam owes the rollback plan Thursday. In-flight invoices still unanswered.",
+  ],
 ];
 
 export default function MinionLanding() {
@@ -340,8 +355,7 @@ export default function MinionLanding() {
                 ))}
               </div>
               <p className="mt-4 text-[13.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-                Ask what is blocking the migration and they answer from all
-                three.
+                Ask when billing can cut over and they answer from all three.
               </p>
             </div>
           </div>
