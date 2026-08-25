@@ -19,8 +19,8 @@ async function generateOGImage() {
   try {
     const page = await browser.newPage();
     
-    // Set viewport to exact OG image dimensions
-    await page.setViewport({ width: 1200, height: 630 });
+    // Exact OG dimensions, at 2x so the card stays sharp in chat previews
+    await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 2 });
     
     // Load the HTML file
     const htmlPath = path.join(__dirname, 'public', 'og-image.html');
@@ -30,7 +30,7 @@ async function generateOGImage() {
     await page.goto(htmlUrl, { waitUntil: 'networkidle0' });
     
     // Take screenshot
-    const outputPath = path.join(__dirname, 'public', 'og-image.png');
+    const outputPath = path.join(__dirname, 'public', 'og-cover-minion.png');
     console.log('Generating image...');
     await page.screenshot({
       path: outputPath,
@@ -38,7 +38,7 @@ async function generateOGImage() {
     });
     
     console.log(`✅ OG image generated successfully at: ${outputPath}`);
-    console.log('Image dimensions: 1200x630px');
+    console.log('Image dimensions: 1200x630px @2x');
     
   } catch (error) {
     console.error('❌ Error generating OG image:', error);

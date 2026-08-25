@@ -1,178 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>min. OG Image Generator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        .og-container {
-            width: 1200px;
-            height: 630px;
-            position: relative;
-            background: #FAFAF9;
-            overflow: hidden;
-        }
-        .glow-1 {
-            position: absolute;
-            top: -240px;
-            left: 62%;
-            transform: translateX(-50%);
-            width: 900px;
-            height: 560px;
-            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.10) 0%, transparent 70%);
-        }
-        .content {
-            position: relative;
-            z-index: 10;
-            padding: 72px 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            box-sizing: border-box;
-        }
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 40px;
-            font-weight: 600;
-            color: #0A0A0A;
-            letter-spacing: -0.02em;
-            margin-bottom: 34px;
-        }
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 99px;
-            padding: 8px 16px;
-            font-size: 17px;
-            font-weight: 500;
-            color: #4B5563;
-            margin-bottom: 26px;
-        }
-        .badge-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: #10B981;
-        }
-        .headline {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 64px;
-            font-weight: 600;
-            color: #0A0A0A;
-            line-height: 1.08;
-            letter-spacing: -0.03em;
-            margin-bottom: 26px;
-        }
-        .headline .muted {
-            display: block;
-            font-size: 42px;
-            color: #9CA3AF;
-            margin-bottom: 10px;
-        }
-        .subheadline {
-            font-size: 29px;
-            font-weight: 400;
-            color: #6B7280;
-            line-height: 1.4;
-            max-width: 820px;
-        }
-        .prompt-bar {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 16px;
-            padding: 16px 22px;
-            max-width: 620px;
-            box-shadow: 0 6px 26px rgba(0, 0, 0, 0.05);
-        }
-        .prompt-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: #059669;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-        .prompt-text {
-            font-size: 20px;
-            color: #374151;
-            font-weight: 400;
-        }
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 26px;
-            border-top: 1px solid rgba(0, 0, 0, 0.07);
-        }
-        .domain {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
-            color: #0A0A0A;
-            font-weight: 600;
-        }
-        .features {
-            display: flex;
-            gap: 14px;
-        }
-        .feature-pill {
-            font-size: 16px;
-            color: #4B5563;
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 99px;
-            padding: 7px 16px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>min. OG card</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Source for public/og-cover-minion.png, the card every chat and social preview
+     renders. Rebuild with: node generate-og-image.js
+     Mirrors the landing hero on purpose: the card should show the mechanic (a
+     name that is an email address), because that is the only thing a visitor
+     has to understand before copying it onto an invite. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+
+  .og {
+    width: 1200px; height: 630px; position: relative; overflow: hidden;
+    background: #FAFAF9; color: #0A0A0A;
+    padding: 64px 76px; display: flex; flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+  .og::after {
+    content: ""; position: absolute; top: -230px; right: -140px;
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, rgba(16,185,129,0) 68%);
+  }
+  .og > * { position: relative; z-index: 1; }
+
+  .mark {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 34px; font-weight: 700; letter-spacing: -0.02em;
+  }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 54px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.05;
+  }
+  .sub { margin-top: 16px; font-size: 22px; line-height: 1.5; color: #6B7280; }
+
+  .name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 96px; font-weight: 600; letter-spacing: -0.045em; line-height: 1;
+  }
+  .addr {
+    margin-top: 12px;
+    font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace;
+    font-size: 26px; color: #6B7280; letter-spacing: -0.01em;
+  }
+
+  .foot {
+    margin-top: auto;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(0,0,0,0.08); padding-top: 22px;
+    font-size: 19px; color: #9CA3AF;
+  }
+  .foot .site { font-weight: 600; color: #6B7280; }
+</style>
 </head>
 <body>
-    <div class="og-container">
-        <div class="glow-1"></div>
-
-        <div class="content">
-            <div>
-                <div class="logo">min.</div>
-                <div class="headline">
-                    The AI teammate that<br>does the little things.
-                </div>
-                <div class="subheadline">
-                    It remembers, schedules, takes notes, and follows up.
-                </div>
-            </div>
-
-            <div>
-                <div class="prompt-bar">
-                    <div class="prompt-avatar">✨</div>
-                    <div class="prompt-text">
-                        Remind me to follow up with John in 3 months.
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer">
-                <div class="domain">getmin.ai</div>
-                <div class="features">
-                    <span class="feature-pill">People</span>
-                    <span class="feature-pill">Companies</span>
-                    <span class="feature-pill">Groups</span>
-                </div>
-            </div>
-        </div>
+  <div class="og">
+    <div>
+      <div class="mark">min.</div>
+      <h1 style="margin-top:38px;">Meet your team's minion.</h1>
+      <p class="sub">They sit in your meetings, docs, and answer when you ask.</p>
     </div>
+
+    <div style="margin-top:52px;">
+      <div class="name">Juno</div>
+      <div class="addr">juno@getmin.ai</div>
+    </div>
+
+    <div class="foot">
+      <span class="site">getmin.ai</span>
+      <span>Nothing to install, no account.</span>
+    </div>
+  </div>
 </body>
 </html>
