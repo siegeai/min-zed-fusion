@@ -250,7 +250,7 @@ const DOES: [string, string][] = [
   ],
   [
     "They come with you.",
-    "Reachable over MCP, so your team's context follows you into any AI tool.",
+    "Reachable over MCP, so your team's context follows them into any AI tool of their choosing.",
   ],
 ];
 
