@@ -237,12 +237,12 @@ const DOES: [string, string][] = [
     // Leads on ownership, not attendance: the hero already says they sit in
     // your meetings, and repeating it here spent the strongest slot on a
     // sentence the visitor read ten seconds ago.
-    "The notes belong to the team.",
+    "Take notes that belong to the team.",
     "Not to whoever happened to hit record.",
   ],
   [
     "Add them to a doc or a spreadsheet.",
-    "Same as adding a colleague in Google Docs or Sheets.",
+    "Same as collaborating with a teammate in Google Docs or Sheets.",
   ],
   [
     "Ask them what the team knows.",
