@@ -294,7 +294,7 @@ export default function MinionLanding() {
             Meet your team's minion.
           </h1>
           <p className="mt-5 max-w-[32rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            They sit in your meetings, docs, and answer when you ask.
+            They sit in your meetings, docs, and only answer to your team.
           </p>
 
           {/* Anchored: the nav CTA and every in-page call to action scroll
