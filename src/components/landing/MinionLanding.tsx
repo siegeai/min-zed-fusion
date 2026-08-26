@@ -291,7 +291,7 @@ export default function MinionLanding() {
         {/* Hero */}
         <div className="max-w-[44rem]">
           <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.6rem]">
-            Meet your team's minion.
+            Meet your team's new member.
           </h1>
           <p className="mt-5 max-w-[32rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
             They sit in your meetings, docs, and only answer to your team.
@@ -336,7 +336,7 @@ export default function MinionLanding() {
                   all of them.
                 </p>
                 <p>
-                  A minion treats the standup as one thing. What was decided in
+                  Yours treats the standup as one thing. What was decided in
                   March is still there in August, attached to the meeting it
                   came from.
                 </p>
