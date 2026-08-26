@@ -94,7 +94,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "How do I start using min.?",
-    "Shoot a hello email to min@getmin.ai and you are started. You can also CC it on a thread that needs scheduling, or add it to a meeting invite. The desktop app for macOS and Windows adds the full experience.",
+    "Pick a name on the homepage and put that address on your next team meeting invite. There is no sign up and no account to make first: the first mail creates your team and the name becomes yours. You can also share a Google Doc with it, message it in Slack, or just email it. The desktop app for macOS and Windows adds the full experience.",
   ],
   [
     "Do you store my email?",
@@ -147,10 +147,8 @@ const Pricing = () => {
           </dl>
         </Section>
 
-        <CloseBlock title="Give it something to do today.">
-          <PillLink href="mailto:min@getmin.ai?subject=Hi%20min.">
-            Email min@getmin.ai
-          </PillLink>
+        <CloseBlock title="Give yours a name.">
+          <PillLink to="/#name">Get your minion</PillLink>
         </CloseBlock>
       </PageFrame>
     </>

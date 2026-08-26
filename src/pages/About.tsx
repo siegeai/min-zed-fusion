@@ -10,6 +10,7 @@ import {
   Prose,
   CloseBlock,
   PillLink,
+  CONTACT_LABEL,
   contactHref,
 } from "@/components/page/Kit";
 
@@ -139,13 +140,11 @@ export default function About() {
           </div>
         </Section>
 
-        <CloseBlock title="Give it something to do today.">
+        <CloseBlock title="Give yours a name.">
           <div className="flex flex-wrap items-center gap-3">
-            <PillLink href="mailto:min@getmin.ai?subject=Hi%20min.">
-              Email min@getmin.ai
-            </PillLink>
+            <PillLink to="/#name">Get your minion</PillLink>
             <PillLink href={contactHref("Hello")} tone="quiet">
-              Email us
+              {CONTACT_LABEL}
             </PillLink>
           </div>
         </CloseBlock>
