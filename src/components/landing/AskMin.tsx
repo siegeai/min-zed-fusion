@@ -21,13 +21,18 @@ import {
  * safe to ship before the Worker is deployed.
  */
 
-// One per thing a visitor actually arrives wondering: what it does, how it is
-// not the tool they already have, the feature that surprises people, and the
-// cost. Each maps to a fact in llms.txt, so none of them dead-ends.
+// One per thing a visitor actually arrives wondering: what the coined word
+// means, how this is not the tool they already have, where a minion can be
+// added besides a meeting, and whether trying it costs anything. Each maps to
+// a fact in llms.txt, so none of them dead-ends.
+//
+// "Can it chase someone until they reply?" was retired here. Follow up is real
+// but it is not the story, and leading a visitor to it made min. sound like an
+// outreach tool rather than a teammate the team shares.
 const OPENERS = [
-  "What can min. actually do?",
+  "What is a minion?",
   "How is this different from a notetaker?",
-  "Can it chase someone until they reply?",
+  "Where can I add one besides meetings?",
   "Do I need to sign up to try it?",
 ];
 
@@ -485,8 +490,8 @@ export default function AskMin() {
                 Ask about min.
               </h4>
               <p className="mt-1 text-[12.5px] leading-relaxed text-quiet">
-                Answers come from what min. actually does. Features, pricing,
-                or how to start.
+                Answers come from what min. actually does. How minions work,
+                where they join in, or how to start.
               </p>
             </div>
             <button
