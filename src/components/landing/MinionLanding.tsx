@@ -232,25 +232,30 @@ function NameCard({ picker, compact = false }: { picker: Picker; compact?: boole
  * section below argues that same point at length and with the only visual on
  * the page, so stating it twice cost a line and taught nothing.
  */
+/**
+ * Four, in the order an engineer meets them: the meeting, the accumulation,
+ * the code, the tools they already use.
+ *
+ * "Open the PR" is stated as open-a-PR-you-review, not as fix-your-bugs,
+ * because that is what actually happens and because engineers are the audience
+ * least willing to forgive an overclaim about code they have to merge.
+ */
 const DOES: [string, string][] = [
   [
-    // Leads on ownership, not attendance: the hero already says they sit in
-    // your meetings, and repeating it here spent the strongest slot on a
-    // sentence the visitor read ten seconds ago.
     "Take notes that belong to the team.",
-    "Not to whoever happened to hit record.",
+    "Standups, design reviews, incident calls. Not whoever happened to hit record.",
   ],
   [
-    "Add them to a doc or a spreadsheet.",
-    "Same as collaborating with a teammate in Google Docs or Sheets.",
+    "Ask them what the team decided.",
+    "In Slack or Teams. Why the migration slipped, what you agreed in March.",
   ],
   [
-    "Ask them what the team knows.",
-    "In Slack or Teams.",
+    "Turn a decision into a pull request.",
+    "It opens the PR with the context from the room. You review it and merge it.",
   ],
   [
     "They come with you.",
-    "Reachable over MCP, so your team's context follows them into any AI tool of their choosing.",
+    "Reachable over MCP, so your team's context follows them into Claude Code, Cursor, or any AI tool of their choosing.",
   ],
 ];
 
@@ -271,7 +276,7 @@ const STANDUP: [string, string][] = [
   ],
   [
     "Aug 21",
-    "Sam owes the rollback plan Thursday. In-flight invoices still unanswered.",
+    "Rollback plan still owed. In-flight invoices unanswered, so cutover is at risk.",
   ],
 ];
 
@@ -302,10 +307,11 @@ export default function MinionLanding() {
         {/* Hero */}
         <div className="max-w-[44rem]">
           <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.6rem]">
-            Meet your team's newest member.
+            Meet your engineering team's minion.
           </h1>
           <p className="mt-5 max-w-[32rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            They sit in your meetings, docs, and only answers to your team.
+            They sit in standups and design reviews, hold what the team decided,
+              and open the PR.
           </p>
 
           {/* Anchored: the nav CTA and every in-page call to action scroll
@@ -338,13 +344,13 @@ export default function MinionLanding() {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,32rem)_auto] lg:items-start lg:gap-16">
             <div>
               <h2 className="font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink [text-wrap:balance]">
-                A weekly meeting should get deeper, not longer.
+                Your standup should get deeper, not longer.
               </h2>
               <div className="mt-7 flex flex-col gap-4 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
                 <p>
-                  Most notetakers hand you a new file every week. Forty
-                  standups, forty documents, and what you need is spread across
-                  all of them.
+                  Most notetakers hand you a new file every week. Forty standups, forty
+                  documents, and the reason the migration slipped is spread
+                  across all of them.
                 </p>
                 <p>
                   Yours treats your team knowledge as one thing. What was decided in
@@ -369,7 +375,8 @@ export default function MinionLanding() {
                 ))}
               </div>
               <p className="mt-4 text-[13.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-                Ask when billing can cut over and they answer from all three.
+                Ask why cutover slipped and they answer from all three. Ask for the
+                rollback plan and they open the PR.
               </p>
             </div>
           </div>
