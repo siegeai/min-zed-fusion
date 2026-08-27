@@ -281,36 +281,19 @@ export default function MinionLanding() {
   return (
     <div className="relative">
       {/*
-        The field is fixed to the viewport, so the text scrolls and it does not.
-        Pure CSS: no scroll listener, no transform driven by scroll position,
-        nothing to jank and nothing to clean up. It is the cheapest parallax
-        there is and the only one that cannot fall out of sync with the page.
+        Back to the size and place it always had, on the right and overlapping
+        the column, but fixed to the viewport so the text scrolls past it and
+        it does not move.
 
-        Readability decides the geometry. A field sized as a percentage of the
-        viewport creeps further under the text the narrower the window gets:
-        measured at 1440 it put 68% of itself beneath the reading column, with
-        the brightest thing on it, the moss hub, sitting directly under the
-        recurring-meetings column. So it is anchored to the container edge
-        instead. 50% + 24rem is just inside the 57rem measure, which keeps the
-        field tied to the layout rather than floating, while everything that
-        actually reads sits in the gutter beyond the text.
-
-        50% + 28.5rem is exactly half the 57rem measure, so the field begins
-        where the container ends and the overlap is zero by construction, at
-        every width, rather than small and tuned. That matters more than it
-        sounds: light-mode secondary text measures 4.56:1, a hair over AA, so
-        even six percent of tint behind it drops it to 4.19 and under. Nothing
-        is printed over the field, so nothing can be dimmed by it.
-
-        With readability settled by geometry, the mask is free to be a plain
-        fade rather than a suppressor, and the field can sit at full strength
-        across the gutter.
-
-        Hidden below md, where there is no gutter to put it in.
+        Staying out of the way is the field's job, not the layout's. Moving it
+        into the gutter to guarantee no overlap was the wrong fix: it made the
+        graphic small and timid to solve a problem the graphic can solve
+        itself. It reads where the text is and thins out behind it, so the
+        clear patches travel with the words as you scroll.
       */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-y-0 right-0 z-0 hidden left-[calc(50%+28.5rem)] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.55)_28%,black_60%)] md:block"
+        className="pointer-events-none fixed right-0 top-0 z-0 h-[22rem] w-[92%] [mask-image:linear-gradient(to_right,transparent,black_45%,black_88%,transparent)] md:h-[34rem] md:w-[58%]"
       >
         <MemoryField />
       </div>
