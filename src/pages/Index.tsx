@@ -17,7 +17,7 @@ const Index = () => {
         <title>min. | Meet your team's newest member</title>
         <meta
           name="description"
-          content="Every team gets a minion: a named teammate who sits in your meetings, holds what the team knows, and answers when you ask. Invite them to your next meeting. Nothing to install."
+          content="You got yourself a new teammate. A named AI who sits in on your meetings, Docs and Slack, holds what the team knows, collaborates where you already work."
         />
         <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>

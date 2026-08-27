@@ -41,8 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-quiet text-sm leading-relaxed max-w-xs">
-                Every team gets a minion: a named teammate who sits in your
-                meetings, holds what the team knows, and answers when you ask.
+                You got yourself a new teammate. A named AI who sits in on your
+                meetings, Docs and Slack, holds what the team knows,
+                collaborates where you already work.
               </p>
           </div>
 

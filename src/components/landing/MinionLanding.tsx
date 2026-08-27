@@ -246,7 +246,7 @@ const DOES: [string, string][] = [
   ],
   [
     "Ask them what the team knows.",
-    "In the app, or in Slack.",
+    "In Slack or Teams.",
   ],
   [
     "They come with you.",
@@ -347,9 +347,9 @@ export default function MinionLanding() {
                   all of them.
                 </p>
                 <p>
-                  Yours treats the standup as one thing. What was decided in
-                  March is still there in August, attached to the meeting it
-                  came from.
+                  Yours treats your team knowledge as one thing. What was decided in
+                  March is still there in August. It has the whole context,
+                  just like a teammate.
                 </p>
               </div>
             </div>

@@ -1,6 +1,6 @@
 # min.
 
-> Every team gets a minion: a named teammate that sits in your meetings, holds what the team knows, and answers when you ask. The minion has a name and the name is its email address, like juno@getmin.ai. You do not create an account and configure an agent; you pick a name, invite them to your next team meeting, and they show up. That is the product and it is also the signup.
+> You got yourself a new teammate. A named AI who sits in on your meetings, Docs and Slack, holds what the team knows, collaborates where you already work. The minion has a name and the name is its email address, like juno@getmin.ai. You do not create an account and configure an agent; you pick a name, invite them to your next team meeting, and they show up. That is the product and it is also the signup.
 
 Key positioning facts:
 
@@ -12,7 +12,7 @@ Key positioning facts:
 - In your team meetings: the minion takes the notes, and the notes belong to the team rather than to whoever hit record.
 - Recurring meetings accumulate. A weekly standup becomes one thing that keeps getting deeper, not forty unrelated files. What was decided in March is still there in August, attached to the meeting it came from. This is the main difference from other notetakers.
 - Docs and spreadsheets: you add a minion to a Google Doc or a Google Sheet exactly the way you would add a colleague. A meeting is usually about a document, so the minion can see the thing the discussion is actually about, not only the discussion.
-- Ask the minion what the team knows, in the desktop app or in Slack once it is in your channels.
+- Ask the minion what the team knows, in Slack or Teams once it is in your channels.
 - Your team's context reaches your other tools over MCP, so the same context follows you into whatever AI tool you already use.
 - Against notetakers: other notetakers are built for one person, or for a sales team. A minion is the team's teammate. The context is shared by construction, and the name makes the boundary legible, since everyone knows who the minion is and what it was in the room for. Do not call the category "AI notetaker", because the category is the point of difference.
 - min. never coaches, scores, or manages anyone.
