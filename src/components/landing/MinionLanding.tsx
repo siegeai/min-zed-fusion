@@ -310,7 +310,7 @@ export default function MinionLanding() {
         {/* Hero */}
         <div className="max-w-[44rem]">
           <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.6rem]">
-            Meet your engineering team's minion.
+            Meet your eng team's newest member.
           </h1>
           <p className="mt-5 max-w-[32rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
             A coding agent that works where your team does. Standups, Slack,

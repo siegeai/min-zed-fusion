@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Meet your engineering team's minion</title>
+        <title>min. | Meet your eng team's newest member</title>
         <meta
           name="description"
           content="A coding agent for engineering teams that works where your team does. Standups, Slack, Google Docs and email. It holds what the team decided and opens the PR."
