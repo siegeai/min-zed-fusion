@@ -233,29 +233,32 @@ function NameCard({ picker, compact = false }: { picker: Picker; compact?: boole
  * the page, so stating it twice cost a line and taught nothing.
  */
 /**
- * Four, in the order an engineer meets them: the meeting, the accumulation,
- * the code, the tools they already use.
+ * Organised by SURFACE, not by capability, because the surfaces are the claim.
+ * Coding agents already live in the editor; what they miss is the standup, the
+ * Slack thread and the spec where the work is actually decided. So each item
+ * names a place the team already is, and the last one is the payoff: it ends up
+ * as code.
  *
- * "Open the PR" is stated as open-a-PR-you-review, not as fix-your-bugs,
- * because that is what actually happens and because engineers are the audience
- * least willing to forgive an overclaim about code they have to merge.
+ * "Opens the PR" stays stated as open-a-PR-you-review rather than fixes-bugs.
+ * Engineers are the audience least willing to forgive an overclaim about code
+ * they are being asked to merge.
  */
 const DOES: [string, string][] = [
   [
-    "Take notes that belong to the team.",
-    "Standups, design reviews, incident calls. Not whoever happened to hit record.",
+    "In the meeting.",
+    "Standups, design reviews, incident calls. The notes belong to the team, not to whoever hit record.",
   ],
   [
-    "Ask them what the team decided.",
-    "In Slack or Teams. Why the migration slipped, what you agreed in March.",
+    "In Slack, Teams, or your inbox.",
+    "Ask what the team decided. Or hand them the bug.",
   ],
   [
-    "Turn a decision into a pull request.",
-    "It opens the PR with the context from the room. You review it and merge it.",
+    "In the doc.",
+    "Add them to a spec in Google Docs the way you would add a teammate.",
   ],
   [
-    "They come with you.",
-    "Reachable over MCP, so your team's context follows them into Claude Code, Cursor, or any AI tool of their choosing.",
+    "Then they open the PR.",
+    "With the context from the room, not just the ticket. You review it and merge it, and the same context reaches Claude Code or Cursor over MCP.",
   ],
 ];
 
@@ -310,8 +313,8 @@ export default function MinionLanding() {
             Meet your engineering team's minion.
           </h1>
           <p className="mt-5 max-w-[32rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            They sit in standups and design reviews, hold what the team decided,
-              and open the PR.
+            A coding agent that works where your team does. Standups, Slack,
+              Google Docs, email.
           </p>
 
           {/* Anchored: the nav CTA and every in-page call to action scroll
@@ -375,8 +378,8 @@ export default function MinionLanding() {
                 ))}
               </div>
               <p className="mt-4 text-[13.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-                Ask why cutover slipped and they answer from all three. Ask for the
-                rollback plan and they open the PR.
+                Ask in Slack why cutover slipped and they answer from all three. Ask
+                for the rollback plan and they open the PR.
               </p>
             </div>
           </div>
