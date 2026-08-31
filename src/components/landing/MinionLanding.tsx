@@ -125,6 +125,43 @@ const EYEBROW = "font-mono text-[10.5px] uppercase tracking-[0.16em] text-quiet"
 const CTA =
   "inline-flex items-center rounded-full bg-moss px-6 py-3 text-[14.5px] font-medium text-onink transition-opacity hover:opacity-90";
 
+/**
+ * Every section below the hero is the same two-column row: what this is on the
+ * left, the detail that proves it on the right.
+ *
+ * The page used to be a single 38rem column pinned to the left edge, which left
+ * the right half of a laptop screen empty and made five sections read as one
+ * undifferentiated stack. Splitting the heading out gives each section an
+ * anchor the eye can find while scrolling, and the measure of the reading
+ * column is unchanged, so nothing got harder to read to achieve it.
+ *
+ * It collapses to the old single column below md, where there is no width to
+ * spread into.
+ */
+function Row({
+  id,
+  title,
+  lede,
+  children,
+}: {
+  id?: string;
+  title: string;
+  lede?: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <div id={id} className="mt-24 scroll-mt-28 md:mt-32">
+      <div className="grid gap-x-14 gap-y-6 md:grid-cols-[17rem_minmax(0,38rem)] md:items-start">
+        <div className="md:sticky md:top-28">
+          <h2 className={H2}>{title}</h2>
+          {lede && <p className={`mt-4 ${BODY}`}>{lede}</p>}
+        </div>
+        <div>{children}</div>
+      </div>
+    </div>
+  );
+}
+
 export default function MinionLanding() {
   return (
     <div className="relative">
@@ -140,13 +177,13 @@ export default function MinionLanding() {
         <MemoryField />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[57rem] px-6 pb-28 pt-32 md:pt-[9.5rem]">
+      <div className="relative z-10 mx-auto max-w-[62rem] px-6 pb-28 pt-32 md:pt-[9.5rem]">
         {/* Hero */}
-        <div className="max-w-[44rem]">
-          <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.6rem]">
+        <div className="max-w-[46rem]">
+          <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.9rem]">
             Meet your eng team's newest member.
           </h1>
-          <p className="mt-5 max-w-[33rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
+          <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
             An AI engineer that turns requests into pull requests. For your whole
             team, not just whoever has the editor open.
           </p>
@@ -159,36 +196,31 @@ export default function MinionLanding() {
         </div>
 
         {/* The difference, stated before the mechanic, because a reader who
-            already has Cursor open needs it answered first. The argument is
-            structural rather than a speed adjective: their agent is bound to
-            one person's editor, so work queues behind that person. */}
-        <div id="difference" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
-          <h2 className={H2}>Your coding agent works for one person at a time.</h2>
-          <div className={`mt-7 flex flex-col gap-4 ${BODY}`}>
+            already has Cursor open needs it answered first. */}
+        <Row
+          id="difference"
+          title="Your coding agent works for one person at a time."
+        >
+          <div className={`flex flex-col gap-4 ${BODY}`}>
             <p>
               Cursor and Claude Code live in one engineer's editor. Work moves
               while they are at the keyboard and stops when they are not, so
               everything anyone else notices queues behind whoever is free.
             </p>
-            <p>
+            <p className="text-ink">
               min. is not in an editor. Anyone on the team hands it work
               directly, so the queue stops forming.
             </p>
           </div>
-        </div>
+        </Row>
 
         {/* The loop. */}
-        <div id="loop" className="mt-28 scroll-mt-28 md:mt-32">
-          <div className="max-w-[38rem]">
-            <h2 className={H2}>Hand it the issue. Review the PR.</h2>
-            <p className={`mt-7 ${BODY}`}>
-              It reads the issue, says how it lands in your code, and proposes a
-              plan. Then it asks. You say go; it writes the code in its own
-              sandbox and opens the PR.
-            </p>
-          </div>
-
-          <div className="mt-9 max-w-[40rem] overflow-hidden rounded-2xl border border-hair bg-surface/80">
+        <Row
+          id="loop"
+          title="Hand it the issue. Review the PR."
+          lede="It reads the issue, says how it lands in your code, and proposes a plan. Then it asks."
+        >
+          <div className="overflow-hidden rounded-2xl border border-hair bg-surface/80">
             {/* Thread header: which repo, which issue. Mono, because it is data. */}
             <div className="flex items-baseline justify-between gap-4 border-b border-hair px-5 py-3.5 md:px-6">
               <p className="font-mono text-[12px] text-ink">payments-api</p>
@@ -225,23 +257,22 @@ export default function MinionLanding() {
             </div>
           </div>
 
-          <p className={`mt-7 max-w-[38rem] ${BODY}`}>
-            It asks before it acts. Nothing reaches your main branch that a person
-            did not merge, which leaves the review as the only part that still
-            needs one.
+          <p className={`mt-6 ${BODY}`}>
+            It asks before it acts. Nothing reaches your main branch that a
+            person did not merge, which leaves the review as the only part that
+            still needs one.
           </p>
-        </div>
+        </Row>
 
-        {/* Who can ask it what. */}
-        <div id="access" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
-          <h2 className={H2}>The whole company can reach it.</h2>
-          <p className={`mt-7 ${BODY}`}>
-            One engineer, scoped differently for everyone. Nobody has to learn the
-            codebase to report what is broken in it.
-          </p>
-          <div className="mt-8 flex flex-col">
+        {/* Who can reach it. */}
+        <Row
+          id="access"
+          title="The whole company can reach it."
+          lede="One engineer, scoped differently for everyone. Nobody has to learn the codebase to report what is broken in it."
+        >
+          <div className="grid gap-x-10 sm:grid-cols-2">
             {ACCESS.map(([who, what]) => (
-              <div key={who} className="border-t border-hair py-4 last:border-b">
+              <div key={who} className="border-t border-hair py-4">
                 <p className={EYEBROW}>{who}</p>
                 <p className="mt-2 text-[14.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
                   {what}
@@ -249,12 +280,11 @@ export default function MinionLanding() {
               </div>
             ))}
           </div>
-        </div>
+        </Row>
 
         {/* Scope: one teammate, not one bot per repo. */}
-        <div id="repos" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
-          <h2 className={H2}>One engineer, all your repos.</h2>
-          <div className={`mt-7 flex flex-col gap-4 ${BODY}`}>
+        <Row id="repos" title="One engineer, all your repos.">
+          <div className={`flex flex-col gap-4 ${BODY}`}>
             <p>
               A project is a collection of repos, and it holds them together. A
               change across three services is one conversation.
@@ -264,18 +294,16 @@ export default function MinionLanding() {
               step is in the session when you come back.
             </p>
           </div>
-        </div>
+        </Row>
 
         {/* Close */}
-        <div className="mt-24 max-w-[38rem] border-t border-hair pt-12">
-          <p className="font-display text-[19px] font-semibold tracking-[-0.02em] text-ink">
+        <div className="mt-28 flex flex-col items-start gap-6 border-t border-hair pt-12 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-display text-[21px] font-semibold tracking-[-0.02em] text-ink">
             Hand it the issue. Review the PR.
           </p>
-          <div className="mt-6">
-            <a href="https://app.getmin.ai" className={CTA}>
-              Connect your repos
-            </a>
-          </div>
+          <a href="https://app.getmin.ai" className={CTA}>
+            Connect your repos
+          </a>
         </div>
       </div>
     </div>
