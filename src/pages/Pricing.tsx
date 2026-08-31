@@ -44,11 +44,10 @@ const PLANS: Plan[] = [
     who: "For you",
     price: { display: "$0", sub: "forever" },
     features: [
-      "Notes for every meeting you are in",
-      "Reminders and follow ups",
-      "Scheduling, just put min. on Cc",
-      "Ask it anything it was part of",
-      "Desktop app for private recording, once you are in",
+      "Connect your repos",
+      "Ask it anything about your code",
+      "Hand it an issue and get a plan, with the files it would touch",
+      "Runs in the cloud, so you can close the laptop",
     ],
     cta: { label: "Connect your repos", href: "https://app.getmin.ai" },
   },
@@ -58,10 +57,10 @@ const PLANS: Plan[] = [
     price: { display: "$20", sub: "/ active teammate / mo" },
     inheritFrom: "Free",
     features: [
-      "Shared notes for everyone who was there",
-      "Team reminders: what was promised, who owes what",
-      "Rituals: daily briefs and weekly summaries",
-      "Ask min. in Slack or Teams",
+      "It writes the code and opens the pull request",
+      "One engineer across every repo in a project",
+      "Guests: contractors and partners propose changes as PRs",
+      "Customers: ask-only, without revealing how the code works",
       "Roles and admin",
       "Priority support",
     ],
@@ -86,7 +85,7 @@ const PLANS: Plan[] = [
 const FAQS: [string, string][] = [
   [
     "Is it really free?",
-    "Yes. Everything min. does for you on your own is free, with no sign up, no card, and no time limit. You pay when you want it working across a team: shared notes, team reminders, and rituals.",
+    "Yes. Connecting your repos and asking min. about your code is free, with no card and no time limit. You pay when you want it doing the work: writing the code and opening pull requests across a team.",
   ],
   [
     "What is an active teammate?",
@@ -94,11 +93,15 @@ const FAQS: [string, string][] = [
   ],
   [
     "How do I start using min.?",
-    "Pick a name on the homepage and put that address on your next team meeting invite. There is no sign up and no account to make first: the first mail creates your team and the name becomes yours. You can also share a Google Doc with it, message it in Slack, or just email it. The desktop app for macOS and Windows adds the full experience.",
+    "Connect your repos, then hand it an issue. It reads the issue, tells you how it lands in your code, and proposes a plan before it writes anything.",
   ],
   [
-    "Do you store my email?",
-    "No. min. keeps distilled memory and metadata, never your raw mail. We never train on it, sell it, or share it. Our belief is that your context can become one of your biggest professional assets, and it is bad for business for us to not take that seriously.",
+    "Can it merge its own pull requests?",
+    "No. It works in its own sandbox and opens a pull request for review. Nothing reaches your main branch that a person did not merge, and write access stays with membership.",
+  ],
+  [
+    "Do you train on my code?",
+    "No. We never train on your data, and neither do our model providers. It is never shared, licensed, or sold.",
   ],
 ];
 
@@ -110,10 +113,10 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing | min., the AI teammate that does the little things</title>
+        <title>Pricing | min., the AI engineer on your team</title>
         <meta
           name="description"
-          content="min., the AI teammate that does the little things, is free for one person, forever. You pay when it starts working across your team."
+          content="Connect a repo and ask min. anything about your code for free, forever. You pay when it starts opening pull requests for your team."
         />
         <link rel="canonical" href="https://getmin.ai/pricing/" />
       </Helmet>
@@ -121,7 +124,7 @@ const Pricing = () => {
       <PageFrame>
         <PageHero
           title="Free to use."
-          lede="Free for you, forever. You pay when min. starts working across your team."
+          lede="Ask it about your code for free, forever. You pay when it starts opening pull requests for your team."
         />
 
         <Section wide>
@@ -147,7 +150,7 @@ const Pricing = () => {
           </dl>
         </Section>
 
-        <CloseBlock title="Give yours a name.">
+        <CloseBlock title="Hand it the issue.">
           <PillLink href="https://app.getmin.ai">Connect your repos</PillLink>
         </CloseBlock>
       </PageFrame>

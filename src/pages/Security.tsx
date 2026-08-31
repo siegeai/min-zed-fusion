@@ -68,18 +68,18 @@ export default function Security() {
   return (
     <>
       <Helmet>
-        <title>Security at min. | Your context, protected</title>
+        <title>Security at min. | Your code, protected</title>
         <meta
           name="description"
-          content="9.7 ESOF score, SOC 2 Type II infrastructure, zero training on your data. min. keeps a distilled memory of your meetings and mail, never a copy of your mailbox, and guards it as the foundation, not the afterthought."
+          content="9.7 ESOF score, SOC 2 Type II infrastructure, zero training on your data. min. works in its own sandbox, opens pull requests rather than writing to your default branch, and guards your codebase as the foundation, not the afterthought."
         />
         <link rel="canonical" href="https://getmin.ai/security/" />
       </Helmet>
 
       <PageFrame>
         <PageHero
-          title="Your context, protected."
-          lede="min. keeps a distilled memory of your meetings and mail, never a copy of your mailbox. Built by engineers who shipped infrastructure at DoorDash, Coursera, and Sunnybrook Research Hospital, and guarded from the foundation up."
+          title="Your code, protected."
+          lede="min. works in its own sandbox and opens pull requests rather than writing to your default branch. Built by engineers who shipped infrastructure at DoorDash, Coursera, and Sunnybrook Research Hospital, and guarded from the foundation up."
         >
           {/* The rating as evidence, not as an app-store badge. */}
           <div className="flex items-baseline gap-3">
@@ -96,10 +96,10 @@ export default function Security() {
         <Section title="What we actually keep.">
           <Prose>
             <p>
-              min. keeps distilled memory and metadata, never your raw mail.
-              Message bodies are not stored. What survives is the shape of the
-              work: who you met, what was decided, what was promised, and when
-              it is due.
+              min. reads the repos you connect and does its work in its own
+              sandbox. It opens a pull request for review rather than writing to
+              your default branch, and write access stays with whatever your
+              membership already grants.
             </p>
           </Prose>
         </Section>

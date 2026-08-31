@@ -29,16 +29,16 @@ import {
 
 const BELIEFS: [string, string][] = [
   [
-    "The small stuff is the real cost.",
-    "Nobody burns out on the hard work. They burn out on scheduling, note taking, and chasing replies. That time is worth taking back.",
+    "A plan is worth more than a patch.",
+    "Anyone can generate a diff. The expensive part is knowing which two files to touch, and which migration you do not need. So it tells you what it found before it writes anything.",
   ],
   [
-    "You should not have to set it up.",
-    "A tool you have to feed is another job. min. learns from the meetings you sit in and the mail you already send.",
+    "It asks before it acts.",
+    "An agent that decides on its own is a liability, not a teammate. It proposes, you say go, and what comes back is a pull request a person merges.",
   ],
   [
     "You stay in control.",
-    "Something that sits this close to your work only earns it by being safe. You share your own context with your team, and a 1:1 stays yours.",
+    "Something that sits this close to your codebase only earns it by being safe. It works in its own sandbox, and write access stays with membership.",
   ],
 ];
 
@@ -52,7 +52,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is the AI teammate that does the little things. It takes the notes, sorts out the scheduling, remembers what was decided, and follows up, for one person or for a whole team.",
+      "min. is an AI engineer on your team. It holds your codebase, reads an issue, proposes a plan, and opens a pull request you review and merge.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -64,10 +64,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | The AI teammate that does the little things</title>
+        <title>About min. | An engineer, not an autocomplete</title>
         <meta
           name="description"
-          content="Why we built min., the AI teammate that does the little things. The notes, the scheduling, the reminders, and the follow ups, handled, so the work you actually care about gets your attention."
+          content="Why we built min. Coding agents start every task from nothing. We wanted one that holds your codebase like a teammate who has been here two years, and hands back a pull request instead of a suggestion."
         />
         <link rel="canonical" href="https://getmin.ai/about/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -75,34 +75,31 @@ export default function About() {
 
       <PageFrame>
         <PageHero
-          title="Somebody has to do the little things."
-          lede="The notes, the scheduling, the reminders, the follow ups. It is a few hours out of everyone's week, every week, and none of it is the work anyone was hired to do. So we built a teammate for it."
+          title="An engineer, not an autocomplete."
+          lede="Coding agents live in your editor and start every task from nothing. We wanted one that holds the codebase the way a teammate who has been here two years holds it, and hands back a pull request you can review."
         />
 
         <Section title="What we believe.">
           <LeadList items={BELIEFS} />
         </Section>
 
-        <Section title="The small things are never the priority. They are always the problem.">
+        <Section title="The bottleneck moved.">
           <Prose>
             <p>
-              Every job comes with a tail of small obligations. Find a time that
-              works for four people. Write up what was decided. Come back to the
-              thread in three months. Ask the person who went quiet whether they
-              are still interested.
+              Writing the code stopped being the slow part. The slow part is
+              context: which service owns this, what constraint someone set
+              three weeks ago, why the retry handler looks the way it does.
             </p>
             <p>
-              None of it is hard. All of it takes attention, and attention is the
-              one thing that does not scale. So the small things slip quietly:
-              not because anyone stopped caring, but because there were bigger
-              things in front of them that day.
+              An agent that starts from an empty context re-derives all of that
+              every time, and gets it wrong in ways that are expensive to catch
+              in review. So min. holds the project instead, every repo in it, and
+              starts from what is already true.
             </p>
             <p>
-              So we built min. You email it, put it on Cc, or add it to the
-              invite, and it handles that tail. It is the same for a team:
-              everyone who was in the room gets the notes, and what was promised
-              comes back when it matters. No setup, no new place to work, nothing
-              to maintain.
+              Then it hands back a pull request. Not a suggestion, not a patch
+              applied behind your back: a diff with a plan attached, which is the
+              only unit of work a team can reasonably accept from a machine.
             </p>
           </Prose>
         </Section>
@@ -112,7 +109,7 @@ export default function About() {
             <Person
               name="Eric Wang"
               role="CEO"
-              bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building min., so no relationship is ever lost to a bad memory."
+              bio="Previously shipped product at Coursera, Bbot, and DoorDash. Now building min., so the agent writing your code actually knows the codebase it is writing in."
               avatar={
                 <Avatar className="h-14 w-14 shrink-0 border border-hair">
                   <AvatarImage
@@ -131,7 +128,7 @@ export default function About() {
             <Person
               name="Fadi Kanaan"
               role="Head of Operations"
-              bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now getting min. into the hands of the teams whose work runs on relationships."
+              bio="Built partner channels at ClickLearn, Librestream, and ExpandIT. Now getting min. into the hands of the engineering teams who would rather review a pull request than open one."
               avatar={<FadiAvatar />}
               socials={[
                 { Icon: Linkedin, href: "https://www.linkedin.com/in/fadi-kanaan-268574155/", label: "Fadi Kanaan on LinkedIn" },
@@ -140,7 +137,7 @@ export default function About() {
           </div>
         </Section>
 
-        <CloseBlock title="Give yours a name.">
+        <CloseBlock title="Hand it the issue.">
           <div className="flex flex-wrap items-center gap-3">
             <PillLink href="https://app.getmin.ai">Connect your repos</PillLink>
             <PillLink href={contactHref("Hello")} tone="quiet">

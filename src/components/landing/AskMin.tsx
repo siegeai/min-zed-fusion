@@ -22,17 +22,17 @@ import {
  */
 
 // One per thing a visitor actually arrives wondering: what the coined word
-// means, how this is not the tool they already have, where a minion can be
-// added besides a meeting, and whether trying it costs anything. Each maps to
-// a fact in llms.txt, so none of them dead-ends.
+// means, how this is not the tool they already have, how far it is allowed
+// to go on its own, and whether trying it costs anything. Each maps to a fact
+// in llms.txt, so none of them dead-ends.
 //
-// "Can it chase someone until they reply?" was retired here. Follow up is real
-// but it is not the story, and leading a visitor to it made min. sound like an
-// outreach tool rather than a teammate the team shares.
+// "What is a minion?" and "Where can I add one besides meetings?" were retired
+// when the named agent with its own address left the product. An opener that
+// asks about something that no longer exists is worse than no opener.
 const OPENERS = [
-  "What is a minion?",
-  "How is this different from a notetaker?",
-  "Where can I add one besides meetings?",
+  "How is this different from Copilot or Cursor?",
+  "Can it merge its own pull requests?",
+  "What does it do with an issue?",
   "Do I need to sign up to try it?",
 ];
 
@@ -490,8 +490,7 @@ export default function AskMin() {
                 Ask about min.
               </h4>
               <p className="mt-1 text-[12.5px] leading-relaxed text-quiet">
-                Answers come from what min. actually does. How minions work,
-                where they join in, or how to start.
+                Answers come from what min. actually does. How it works, what it is allowed to do, or how to start.
               </p>
             </div>
             <button

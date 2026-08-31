@@ -44,7 +44,7 @@ const Blog = () => {
         <title>Blog | min.</title>
         <meta
           name="description"
-          content="Notes on relationship context, AI, and building when shipping a feature costs a day. From the team building min."
+          content="Notes on coding agents, codebase context, and building when shipping a feature costs a day. From the team building min."
         />
         <link rel="canonical" href="https://getmin.ai/blog/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>

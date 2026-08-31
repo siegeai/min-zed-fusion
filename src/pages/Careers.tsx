@@ -47,17 +47,17 @@ export default function Careers() {
   return (
     <>
       <Helmet>
-        <title>Careers at min. | Build the AI teammate that does the little things</title>
+        <title>Careers at min. | Build the AI engineer on your team</title>
         <meta
           name="description"
-          content="Help us build the AI teammate that does the little things: the notes, the scheduling, the reminders, the follow ups. Email hello@getmin.ai with what you've built. No traditional postings."
+          content="Help us build the AI engineer that holds a team's codebase, plans a change, and opens the pull request. Email hello@getmin.ai with what you've built. No traditional postings."
         />
         <link rel="canonical" href="https://getmin.ai/careers/" />
       </Helmet>
 
       <PageFrame>
         <PageHero
-          title="Build the teammate that does the little things."
+          title="Build the engineer on every team."
           lede="No job postings. No five round interviews. Email us what you have built and what you want to build next."
         >
           <div className="flex flex-wrap items-center gap-3">
