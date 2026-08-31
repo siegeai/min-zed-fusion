@@ -41,7 +41,7 @@ const BlogPost = () => {
       logo: { "@type": "ImageObject", url: "https://getmin.ai/favicon.png" },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    image: "https://getmin.ai/og-cover-eng.png",
+    image: "https://getmin.ai/og-cover-engineer.png",
   };
 
   
@@ -140,16 +140,15 @@ const BlogPost = () => {
                   This is what min. is for.
                 </p>
                 <p className="mt-2 text-[15px] leading-relaxed text-quiet">
-                  Every team gets a minion. They sit in your meetings, hold
-                    what the team knows, and answer when you ask. Nothing to
-                    install, no account.
+                  An AI engineer that knows your codebase, joins your
+                      standups, and turns issues into pull requests you review.
                 </p>
-                <Link
-                    to="/#name"
-                    className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-onink transition-colors hover:bg-ink/85"
-                  >
-                    Get your minion
-                  </Link>
+                <a
+                      href="https://app.getmin.ai"
+                      className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-onink transition-colors hover:bg-ink/85"
+                    >
+                    Connect your repos
+                    </a>
               </div>
             </div>
           </article>

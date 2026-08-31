@@ -4,20 +4,21 @@ import MinFooter from "@/components/MinFooter";
 import MinionLanding from "@/components/landing/MinionLanding";
 
 /**
- * The 2026-08 minion brief. One idea: every team gets a named teammate, and
- * the name is its email address. The hero is the name mechanic rather than a
- * screenshot, and there is no signup form anywhere on the page: the address is
- * the call to action. Older landing sections remain in the tree but are
- * deliberately not composed here.
+ * The 2026-08-31 brief. One idea: min. is an engineer on your team, and its
+ * home is the codebase. The centrepiece is the issue-to-PR loop, not the
+ * standup timeline, and the front door is connecting a repo rather than the
+ * email invite. Meetings are demoted to what they now are: the reason its
+ * plans carry context a ticket does not. Older landing sections remain in the
+ * tree but are deliberately not composed here.
  */
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | Meet your eng team's newest member</title>
+        <title>min. | The AI engineer on your team</title>
         <meta
           name="description"
-          content="A coding agent for engineering teams that works where your team does. Standups, Slack, Google Docs and email. It holds what the team decided and opens the PR."
+          content="An AI engineer that knows your codebase, joins your standups, and turns issues into pull requests you review. Hand it the issue, review the PR."
         />
         <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>

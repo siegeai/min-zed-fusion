@@ -142,7 +142,7 @@ export default function About() {
 
         <CloseBlock title="Give yours a name.">
           <div className="flex flex-wrap items-center gap-3">
-            <PillLink to="/#name">Get your minion</PillLink>
+            <PillLink href="https://app.getmin.ai">Connect your repos</PillLink>
             <PillLink href={contactHref("Hello")} tone="quiet">
               {CONTACT_LABEL}
             </PillLink>

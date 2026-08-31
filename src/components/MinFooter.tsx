@@ -4,8 +4,8 @@ const COLUMNS = [
   {
     heading: "Product",
     links: [
-      { label: "What they do", to: "/#does" },
-      { label: "Recurring meetings", to: "/#recurring" },
+      { label: "How it works", to: "/#loop" },
+      { label: "It was in the room", to: "/#room" },
       { label: "Pricing", to: "/pricing" },
     ],
   },

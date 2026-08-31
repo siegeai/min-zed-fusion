@@ -50,7 +50,7 @@ const PLANS: Plan[] = [
       "Ask it anything it was part of",
       "Desktop app for private recording, once you are in",
     ],
-    cta: { label: "Get your minion", href: "/#name" },
+    cta: { label: "Connect your repos", href: "https://app.getmin.ai" },
   },
   {
     name: "Pro",
@@ -148,7 +148,7 @@ const Pricing = () => {
         </Section>
 
         <CloseBlock title="Give yours a name.">
-          <PillLink to="/#name">Get your minion</PillLink>
+          <PillLink href="https://app.getmin.ai">Connect your repos</PillLink>
         </CloseBlock>
       </PageFrame>
     </>

@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 
 const NAV_LINKS = [
-  { label: "What they do", to: "/#does" },
+  { label: "How it works", to: "/#loop" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },
 ];
@@ -45,12 +45,12 @@ export default function PillNav() {
             >
               Sign in
             </a>
-            <Link
-                to="/#name"
+            <a
+                href="https://app.getmin.ai"
                 className="whitespace-nowrap bg-ink text-onink px-5 py-2 rounded-full text-sm font-medium hover:bg-ink/85 transition-colors"
               >
-                Get your minion
-              </Link>
+                Connect your repos
+              </a>
           </div>
 
           <button
@@ -84,13 +84,13 @@ export default function PillNav() {
             >
               Sign in
             </a>
-            <Link
-                to="/#name"
+            <a
+                href="https://app.getmin.ai"
                 onClick={() => setOpen(false)}
                 className="rounded-full bg-ink text-onink text-sm font-medium py-3 text-center"
               >
-                Get your minion
-              </Link>
+                Connect your repos
+              </a>
           </div>
         </div>
       )}

@@ -30,7 +30,7 @@ async function generateOGImage() {
     await page.goto(htmlUrl, { waitUntil: 'networkidle0' });
     
     // Take screenshot
-    const outputPath = path.join(__dirname, 'public', 'og-cover-eng.png');
+    const outputPath = path.join(__dirname, 'public', 'og-cover-engineer.png');
     console.log('Generating image...');
     await page.screenshot({
       path: outputPath,

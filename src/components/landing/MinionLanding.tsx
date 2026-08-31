@@ -171,25 +171,25 @@ function NameCard({ picker, compact = false }: { picker: Picker; compact?: boole
         {loading ? (
           // Sized to the real thing so the page does not jump when it lands.
           <div aria-hidden="true" className="pt-2">
-            <div className="h-[3.4rem] w-[9rem] rounded-lg bg-hair/60 sm:h-[4.6rem] sm:w-[12rem]" />
+            <div className={compact ? "h-[1.6rem] w-[5rem] rounded-lg bg-hair/60" : "h-[3.4rem] w-[9rem] rounded-lg bg-hair/60 sm:h-[4.6rem] sm:w-[12rem]"} />
             <div className="mt-4 h-4 w-[11rem] rounded bg-hair/50" />
           </div>
         ) : (
           <>
             <p
               aria-live="polite"
-              className="font-display text-[4rem] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[5.5rem]"
+              className={`font-display font-semibold leading-[1] tracking-[-0.045em] text-ink ${compact ? "text-[1.8rem]" : "text-[4rem] sm:text-[5.5rem]"}`}
             >
               {displayName(name)}
             </p>
-            <p className="mt-3 font-mono text-[15px] tracking-tight text-quiet sm:text-[17px]">
+            <p className={`mt-3 font-mono tracking-tight text-quiet ${compact ? "text-[13.5px]" : "text-[15px] sm:text-[17px]"}`}>
               {minion!.address}
             </p>
           </>
         )}
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-3">
+      <div className={`flex flex-wrap items-center gap-3 ${compact ? "mt-5" : "mt-8"}`}>
         <button
           type="button"
           onClick={copy}
@@ -217,71 +217,88 @@ function NameCard({ picker, compact = false }: { picker: Picker; compact?: boole
         )}
       </div>
 
-      {!compact && (
-        <p className="mt-6 max-w-[30rem] text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
-          Invite {name ? displayName(name) : "them"} to your next team meeting.
-          Nothing to install, no account.
-        </p>
-      )}
+      <p
+        className={`max-w-[30rem] text-quiet [text-wrap:pretty] ${
+          compact ? "mt-5 text-[13.5px] leading-[1.6]" : "mt-6 text-[15.5px] leading-[1.7]"
+        }`}
+      >
+        Its name is its address. Put {name ? displayName(name) : "it"} on your
+        next team meeting invite. Nothing to install, no account.
+      </p>
     </div>
   );
 }
 
 /**
- * Four, not five. "Recurring meetings accumulate" used to sit here, but the
- * section below argues that same point at length and with the only visual on
- * the page, so stating it twice cost a line and taught nothing.
- */
-/**
- * Organised by SURFACE, not by capability, because the surfaces are the claim.
- * Coding agents already live in the editor; what they miss is the standup, the
- * Slack thread and the spec where the work is actually decided. So each item
- * names a place the team already is, and the last one is the payoff: it ends up
- * as code.
+ * The loop, and the centrepiece of the page.
  *
- * "Opens the PR" stays stated as open-a-PR-you-review rather than fixes-bugs.
- * Engineers are the audience least willing to forgive an overclaim about code
- * they are being asked to merge.
+ * One issue, start to finish, in the order it actually happens. The order is
+ * the argument: it reads the issue, says how it hits THIS codebase, proposes a
+ * plan, and then waits. The wait is the row that earns the trust, so it gets
+ * its own line rather than being folded into the plan above it.
+ *
+ * Specifics are load bearing. A file name, a named cause and a file count are
+ * things a diff could disprove, which is the only kind of claim this audience
+ * reads. "Understands your code" is not on the page anywhere, because nothing
+ * about it can be checked.
  */
-const DOES: [string, string][] = [
-  [
-    "In the meeting.",
-    "Standups, design reviews, incident calls. The notes belong to the team, not to whoever hit record.",
-  ],
-  [
-    "In Slack, Teams, or your inbox.",
-    "Ask what the team decided. Or hand them the bug.",
-  ],
-  [
-    "In the doc.",
-    "Add them to a spec in Google Docs the way you would add a teammate.",
-  ],
-  [
-    "Then they open the PR.",
-    "With the context from the room, not just the ticket. You review it and merge it, and the same context reaches Claude Code or Cursor over MCP.",
-  ],
+const LOOP: { label: string; accent?: boolean; body: React.ReactNode }[] = [
+  {
+    label: "Issue #142 · payments-api",
+    body: "Webhook retries double-charge on timeout.",
+  },
+  {
+    label: "min.",
+    body: (
+      <>
+        Traced it to the retry handler in{" "}
+        <span className="font-mono text-[12.5px] text-ink">charge_worker.ts</span>.
+        The idempotency key is minted after the network call, so a timeout mints
+        a second one. Two files, no migration. Want me to do it?
+      </>
+    ),
+  },
+  { label: "You", body: "Do it." },
+  {
+    label: "PR #143 opened",
+    accent: true,
+    body: "2 files changed · awaiting your review.",
+  },
 ];
 
 /**
- * One thread across three weeks, not three unrelated notes.
- *
- * The section claims a recurring meeting gets deeper rather than longer, so the
- * example has to be something a single week cannot answer. Each entry here
- * depends on the one above it: the two week window sets the constraint, the
- * Monday start turns it into a date, and the open items put that date at risk.
- * Read any one row alone and you still do not know when billing can cut over.
+ * Demoted, deliberately. This was the whole product a generation ago and is now
+ * the reason the plan above is right rather than plausible: it was in the room
+ * when the constraint was set. Three dates, compressed to the one thread that
+ * a ticket alone cannot tell you.
  */
 const STANDUP: [string, string][] = [
   ["Aug 7", "Priya: billing migration needs two weeks of double writes first."],
+  ["Aug 14", "Double writes start Monday, so cutover is the 28th at the earliest."],
+  ["Aug 21", "Rollback plan still owed. In-flight invoices unanswered."],
+];
+
+/**
+ * Not a pricing table. The rows split on what someone is allowed to do, and the
+ * last one is the one no other coding agent has an answer for: a customer can
+ * ask about the product without the codebase leaking through the answer.
+ */
+const ACCESS: [string, string][] = [
+  ["Your team", "The whole engineer. It plans, writes the code, and opens the pull request."],
   [
-    "Aug 14",
-    "Launch held a week. Double writes start Monday, so cutover is the 28th at the earliest.",
+    "Guests",
+    "Contractors and partners ask about the code and propose changes as PRs. Write access stays with membership.",
   ],
   [
-    "Aug 21",
-    "Rollback plan still owed. In-flight invoices unanswered, so cutover is at risk.",
+    "Your customers",
+    "Ask-only. It answers what the product does without revealing how the code works, and files a clean issue when the answer is a bug.",
   ],
 ];
+
+const H2 =
+  "font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink [text-wrap:balance]";
+const BODY = "text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]";
+const EYEBROW = "font-mono text-[10.5px] uppercase tracking-[0.16em] text-quiet";
 
 export default function MinionLanding() {
   const picker = useMinion();
@@ -289,15 +306,9 @@ export default function MinionLanding() {
   return (
     <div className="relative">
       {/*
-        Back to the size and place it always had, on the right and overlapping
-        the column, but fixed to the viewport so the text scrolls past it and
-        it does not move.
-
-        Staying out of the way is the field's job, not the layout's. Moving it
-        into the gutter to guarantee no overlap was the wrong fix: it made the
-        graphic small and timid to solve a problem the graphic can solve
-        itself. It reads where the text is and thins out behind it, so the
-        clear patches travel with the words as you scroll.
+        Fixed to the viewport so the text scrolls past it and it does not move.
+        It reads where the text is and thins out behind it, so the clear patches
+        travel with the words as you scroll.
       */}
       <div
         aria-hidden
@@ -312,61 +323,95 @@ export default function MinionLanding() {
           <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.6rem]">
             Meet your eng team's newest member.
           </h1>
-          <p className="mt-5 max-w-[32rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            A coding agent that works where your team does. Standups, Slack,
-              Google Docs, email.
+          <p className="mt-5 max-w-[33rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
+            An AI engineer that knows your codebase, joins your standups, and
+            turns issues into pull requests you review.
           </p>
 
-          {/* Anchored: the nav CTA and every in-page call to action scroll
-              here, because copying this address is the only conversion on the
-              site. */}
-          <div id="name" className="mt-12 scroll-mt-28">
-            <NameCard picker={picker} />
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <a
+              href="https://app.getmin.ai"
+              className="inline-flex items-center rounded-full bg-moss px-6 py-3 text-[14.5px] font-medium text-onink transition-opacity hover:opacity-90"
+            >
+              Connect your repos
+            </a>
+            {/* The name mechanic is still real and still the way it gets into a
+                meeting. It is no longer the front door, so it is a line. */}
+            <a
+              href="#room"
+              className="text-[14.5px] text-quiet underline decoration-hair underline-offset-4 transition-colors hover:text-ink"
+            >
+              Or put it on your next standup
+            </a>
           </div>
         </div>
 
-        {/* What they do */}
-        <div id="does" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
-          <h2 className="font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink [text-wrap:balance]">
-            What they do.
-          </h2>
-          <div className="mt-7 flex flex-col gap-4">
-            {DOES.map(([lead, rest]) => (
-              <p
-                key={lead}
-                className="text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]"
-              >
-                <span className="text-ink">{lead}</span> {rest}
-              </p>
-            ))}
+        {/* The loop. */}
+        <div id="loop" className="mt-28 scroll-mt-28 md:mt-32">
+          <div className="max-w-[38rem]">
+            <h2 className={H2}>Hand it the issue. Review the PR.</h2>
+            <p className={`mt-7 ${BODY}`}>
+              It reads the issue, tells you how it lands in your code, and
+              proposes a plan. Then it asks. When you say go, it writes the code
+              in its own sandbox and opens a pull request.
+            </p>
           </div>
+
+          <div className="mt-9 max-w-[40rem] rounded-2xl border border-hair bg-surface/80 p-6 md:p-8">
+            <div className="flex flex-col">
+              {LOOP.map(({ label, body, accent }) => (
+                <div
+                  key={label}
+                  className="border-t border-hair py-4 first:border-t-0 first:pt-0 last:pb-0"
+                >
+                  <p
+                    className={`font-mono text-[10.5px] uppercase tracking-[0.16em] ${
+                      accent ? "text-moss" : "text-quiet"
+                    }`}
+                  >
+                    {label}
+                  </p>
+                  <p className="mt-2 text-[14.5px] leading-[1.6] text-ink/85 [text-wrap:pretty]">
+                    {body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className={`mt-7 max-w-[38rem] ${BODY}`}>
+            It asks before it acts, and what it hands back is a diff you read.
+            Nothing reaches your main branch that a person did not merge.
+          </p>
         </div>
 
-        {/* The differentiator, and the one place a figure earns itself. */}
-        <div id="recurring" className="mt-28 scroll-mt-28 md:mt-32">
+        {/* Why the plan is right: it was in the room. Supporting act. */}
+        <div id="room" className="mt-28 scroll-mt-28 md:mt-32">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,32rem)_auto] lg:items-start lg:gap-16">
             <div>
-              <h2 className="font-display text-[1.6rem] font-semibold leading-tight tracking-[-0.025em] text-ink [text-wrap:balance]">
-                Your standup should get deeper, not longer.
-              </h2>
-              <div className="mt-7 flex flex-col gap-4 text-[15.5px] leading-[1.7] text-quiet [text-wrap:pretty]">
+              <h2 className={H2}>It was in the room.</h2>
+              <div className={`mt-7 flex flex-col gap-4 ${BODY}`}>
                 <p>
-                  Most notetakers hand you a new file every week. Forty standups, forty
-                  documents, and the reason the migration slipped is spread
-                  across all of them.
+                  It sits in your standups, design reviews and incident calls,
+                  reads the Slack thread, and you add it to the spec in Google
+                  Docs the way you would add a teammate. So a plan comes back
+                  with the constraint someone set three weeks ago, not just the
+                  text of the ticket.
                 </p>
                 <p>
-                  Yours treats your team knowledge as one thing. What was decided in
-                  March is still there in August. It has the whole context,
-                  just like a teammate.
+                  Ask it in Slack why cutover slipped and it answers from all
+                  three standups. Ask for the rollback plan and it opens the PR.
                 </p>
+              </div>
+
+              {/* The invite mechanic: still the way it gets into a meeting. */}
+              <div id="name" className="mt-9 scroll-mt-28">
+                <NameCard picker={picker} compact />
               </div>
             </div>
 
             <div className="lg:w-[19rem]">
-              <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-quiet">
-                Weekly standup
-              </p>
+              <p className={EYEBROW}>Weekly standup</p>
               <div className="mt-4 flex flex-col">
                 {STANDUP.map(([date, note]) => (
                   <div key={date} className="border-t border-hair py-3.5 last:border-b">
@@ -377,21 +422,65 @@ export default function MinionLanding() {
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-[13.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-                Ask in Slack why cutover slipped and they answer from all three. Ask
-                for the rollback plan and they open the PR.
-              </p>
             </div>
           </div>
+        </div>
+
+        {/* Scope: one teammate, not one bot per repo. */}
+        <div className="mt-28 max-w-[38rem] md:mt-32">
+          <h2 className={H2}>One engineer, all your repos.</h2>
+          <div className={`mt-7 flex flex-col gap-4 ${BODY}`}>
+            <p>
+              A project is a collection of repos, and it holds them together. A
+              change that crosses three services is still one conversation with
+              one teammate.
+            </p>
+            <p>
+              It runs in the cloud, so you can type the prompt and close the
+              laptop. Every step is in the session, streamed while it works and
+              still there when you come back.
+            </p>
+          </div>
+        </div>
+
+        {/* Who can ask it what. */}
+        <div className="mt-28 max-w-[38rem] md:mt-32">
+          <h2 className={H2}>Everyone gets the right version.</h2>
+          <div className="mt-8 flex flex-col">
+            {ACCESS.map(([who, what]) => (
+              <div key={who} className="border-t border-hair py-4 last:border-b">
+                <p className={EYEBROW}>{who}</p>
+                <p className="mt-2 text-[14.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
+                  {what}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Models. One line, because it is one line. */}
+        <div className="mt-24 max-w-[38rem] md:mt-28">
+          <p className={BODY}>
+            <span className="text-ink">Your models, your keys.</span>{" "}
+            <span className="font-mono text-[14px] text-ink/80">
+              Claude, GPT, Kimi, DeepSeek
+            </span>
+            .
+          </p>
         </div>
 
         {/* Close */}
         <div className="mt-24 max-w-[38rem] border-t border-hair pt-12">
           <p className="font-display text-[19px] font-semibold tracking-[-0.02em] text-ink">
-            Put them on your next invite.
+            Hand it the issue. Review the PR.
           </p>
           <div className="mt-6">
-            <NameCard picker={picker} compact />
+            <a
+              href="https://app.getmin.ai"
+              className="inline-flex items-center rounded-full bg-moss px-6 py-3 text-[14.5px] font-medium text-onink transition-opacity hover:opacity-90"
+            >
+              Connect your repos
+            </a>
           </div>
         </div>
       </div>
