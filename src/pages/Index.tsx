@@ -18,7 +18,7 @@ const Index = () => {
         <title>min. | The AI engineer on your team</title>
         <meta
           name="description"
-          content="An AI engineer that holds your codebase and turns requests into pull requests you review, for your whole team, not just whoever has the editor open."
+          content="An AI engineer that turns requests into pull requests you review. For your whole team, not just whoever has the editor open."
         />
         <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>

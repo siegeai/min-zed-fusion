@@ -46,14 +46,12 @@ const THREAD: Turn[] = [
     body: (
       <>
         <p>
-          Reproduced it. <span className={CODE}>charge_worker.ts</span> mints the
-          idempotency key <em className="not-italic text-ink">after</em> the
-          network call returns, so a timeout retries with a fresh key and the
-          charge goes through twice.
+          Reproduced it. <span className={CODE}>charge_worker.ts</span> mints the idempotency key <em className="not-italic text-ink">after</em> the
+          network call, so a timeout retries with a fresh key and charges twice.
         </p>
         <p className="mt-3">
-          Fix is to mint it before the call and key the retry off it. Two files,
-          no migration. Want me to do it?
+          Mint it before the call instead. Two files, no migration. Want me to
+          do it?
         </p>
       </>
     ),
@@ -63,8 +61,8 @@ const THREAD: Turn[] = [
     from: "min",
     body: (
       <p>
-        No. Keys minted before the deploy stay valid, and an in-flight retry
-        finishes on the path it started on.
+        No. Keys minted before the deploy stay valid; in-flight retries finish
+        on the path they started on.
       </p>
     ),
   },
@@ -73,7 +71,7 @@ const THREAD: Turn[] = [
     from: "min",
     body: (
       <>
-        <p>Done — running your test suite against the timeout path first.</p>
+        <p>Done. Ran your tests against the timeout path.</p>
         <div className="mt-3 rounded-xl border border-hair bg-surface px-4 py-3">
           <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-moss">
             PR #143 opened
@@ -104,19 +102,19 @@ const THREAD: Turn[] = [
 const ACCESS: [string, string][] = [
   [
     "Your engineers",
-    "The whole engineer. It plans, writes the code, and opens the pull request they review.",
+    "The whole engineer. Plans, writes the code, opens the PR they review.",
   ],
   [
     "Everyone else at the company",
-    "Support, product, design. They describe the problem in their own words; it finds the cause and drafts the fix for an engineer to sign off.",
+    "Support, product, design. Describe the problem in plain words; it finds the cause and drafts the fix.",
   ],
   [
     "Guests",
-    "Contractors and partners ask about the code and propose changes as PRs. Write access stays with membership.",
+    "Contractors and partners propose changes as PRs. Write access stays with membership.",
   ],
   [
     "Your customers",
-    "Ask-only. It answers what the product does without revealing how the code works, and files a clean issue when the answer is a bug.",
+    "Ask-only. Answers what the product does without revealing how it works, and files a clean issue when it is a bug.",
   ],
 ];
 
@@ -149,9 +147,8 @@ export default function MinionLanding() {
             Meet your eng team's newest member.
           </h1>
           <p className="mt-5 max-w-[33rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            An AI engineer that holds your codebase and turns a request into a
-            pull request. Available to your whole team, not just whoever has
-            the editor open.
+            An AI engineer that turns requests into pull requests. For your whole
+            team, not just whoever has the editor open.
           </p>
 
           <div className="mt-10">
@@ -170,14 +167,12 @@ export default function MinionLanding() {
           <div className={`mt-7 flex flex-col gap-4 ${BODY}`}>
             <p>
               Cursor and Claude Code live in one engineer's editor. Work moves
-              while that engineer is at the keyboard and stops when they are
-              not, so everything anyone else notices queues behind whoever is
-              free to look at it. Most of a change's life is spent waiting in
-              that queue, not being written.
+              while they are at the keyboard and stops when they are not, so
+              everything anyone else notices queues behind whoever is free.
             </p>
             <p>
-              min. is not in an editor. It holds the project, and anyone on the
-              team can hand it something directly. The queue stops forming.
+              min. is not in an editor. Anyone on the team hands it work
+              directly, so the queue stops forming.
             </p>
           </div>
         </div>
@@ -187,9 +182,9 @@ export default function MinionLanding() {
           <div className="max-w-[38rem]">
             <h2 className={H2}>Hand it the issue. Review the PR.</h2>
             <p className={`mt-7 ${BODY}`}>
-              It reads the issue, tells you how it lands in your code, and
-              proposes a plan. Then it asks. When you say go, it writes the code
-              in its own sandbox and opens a pull request.
+              It reads the issue, says how it lands in your code, and proposes a
+              plan. Then it asks. You say go; it writes the code in its own
+              sandbox and opens the PR.
             </p>
           </div>
 
@@ -209,7 +204,7 @@ export default function MinionLanding() {
                     className={`flex flex-col ${you ? "items-end" : "items-start"}`}
                   >
                     <p
-                      className={`mb-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-quiet ${
+                      className={`mb-1.5 font-mono text-[10.5px] tracking-[0.06em] text-quiet ${
                         you ? "pr-1" : "pl-1"
                       }`}
                     >
@@ -231,9 +226,9 @@ export default function MinionLanding() {
           </div>
 
           <p className={`mt-7 max-w-[38rem] ${BODY}`}>
-            It asks before it acts, and what it hands back is a diff you read.
-            Nothing reaches your main branch that a person did not merge, which
-            leaves reviewing it as the only part that still needs one.
+            It asks before it acts. Nothing reaches your main branch that a person
+            did not merge, which leaves the review as the only part that still
+            needs one.
           </p>
         </div>
 
@@ -241,9 +236,8 @@ export default function MinionLanding() {
         <div id="access" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
           <h2 className={H2}>The whole company can reach it.</h2>
           <p className={`mt-7 ${BODY}`}>
-            One engineer, and everyone gets the version of it they should have.
-            Nobody has to learn the codebase to report what is broken in it, and
-            nobody outside the team sees how it works.
+            One engineer, scoped differently for everyone. Nobody has to learn the
+            codebase to report what is broken in it.
           </p>
           <div className="mt-8 flex flex-col">
             {ACCESS.map(([who, what]) => (
@@ -263,13 +257,11 @@ export default function MinionLanding() {
           <div className={`mt-7 flex flex-col gap-4 ${BODY}`}>
             <p>
               A project is a collection of repos, and it holds them together. A
-              change that crosses three services is still one conversation with
-              one teammate.
+              change across three services is one conversation.
             </p>
             <p>
-              It runs in the cloud, so you can type the prompt and close the
-              laptop. Every step is in the session, streamed while it works and
-              still there when you come back.
+              It runs in the cloud. Type the prompt and close the laptop; every
+              step is in the session when you come back.
             </p>
           </div>
         </div>
