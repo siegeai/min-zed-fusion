@@ -41,7 +41,7 @@ const BlogPost = () => {
       logo: { "@type": "ImageObject", url: "https://getmin.ai/favicon.png" },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    image: "https://getmin.ai/og-cover-pr.png",
+    image: "https://getmin.ai/og-cover-team.png",
   };
 
   

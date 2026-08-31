@@ -18,47 +18,98 @@ import MemoryField from "./MemoryField";
 /**
  * The loop, and the centrepiece of the page.
  *
- * One issue, start to finish, in the order it actually happens. The order is
- * the argument: it reads the issue, says how it hits THIS codebase, proposes a
- * plan, and then waits. The wait is the row that earns the trust, so it gets
- * its own line rather than being folded into the plan above it.
+ * Written as a conversation because that is what using it is. An earlier
+ * version laid the same beats out as a labelled timeline, which read as a
+ * process diagram: true, but nothing like the thing you actually do.
+ *
+ * The middle exchange is the one that earns the section. Anyone can show an
+ * agent being told to go; showing it answer a sceptical follow-up about
+ * in-flight retries, correctly, is the only way to claim it knows the codebase
+ * without saying "it knows your codebase". The last turn hands back an artifact
+ * rather than a sentence, because a PR is the unit of work being promised.
  *
  * Specifics are load bearing. A file name, a named cause and a file count are
  * things a diff could disprove, which is the only kind of claim this audience
- * reads. "Understands your code" is not on the page anywhere, because nothing
- * about it can be checked.
+ * reads.
  */
-const LOOP: { label: string; accent?: boolean; body: React.ReactNode }[] = [
+type Turn = { from: "you" | "min"; body: React.ReactNode };
+
+const CODE = "rounded bg-ink/[0.07] px-1 py-0.5 font-mono text-[12.5px] text-ink";
+
+const THREAD: Turn[] = [
   {
-    label: "Issue #142 · payments-api",
-    body: "Webhook retries double-charge on timeout.",
+    from: "you",
+    body: "take a look at #142 — webhook retries are double-charging on timeout",
   },
   {
-    label: "min.",
+    from: "min",
     body: (
       <>
-        Traced it to the retry handler in{" "}
-        <span className="font-mono text-[12.5px] text-ink">charge_worker.ts</span>.
-        The idempotency key is minted after the network call, so a timeout mints
-        a second one. Two files, no migration. Want me to do it?
+        <p>
+          Reproduced it. <span className={CODE}>charge_worker.ts</span> mints the
+          idempotency key <em className="not-italic text-ink">after</em> the
+          network call returns, so a timeout retries with a fresh key and the
+          charge goes through twice.
+        </p>
+        <p className="mt-3">
+          Fix is to mint it before the call and key the retry off it. Two files,
+          no migration. Want me to do it?
+        </p>
       </>
     ),
   },
-  { label: "You", body: "Do it." },
+  { from: "you", body: "does that break retries already in flight?" },
   {
-    label: "PR #143 opened",
-    accent: true,
-    body: "2 files changed · awaiting your review.",
+    from: "min",
+    body: (
+      <p>
+        No. Keys minted before the deploy stay valid, and an in-flight retry
+        finishes on the path it started on.
+      </p>
+    ),
+  },
+  { from: "you", body: "do it" },
+  {
+    from: "min",
+    body: (
+      <>
+        <p>Done — running your test suite against the timeout path first.</p>
+        <div className="mt-3 rounded-xl border border-hair bg-surface px-4 py-3">
+          <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-moss">
+            PR #143 opened
+          </p>
+          <p className="mt-1.5 text-[13.5px] leading-snug text-ink">
+            Mint idempotency key before the charge call
+          </p>
+          <p className="mt-1 font-mono text-[11.5px] text-quiet">
+            2 files changed · awaiting your review
+          </p>
+        </div>
+      </>
+    ),
   },
 ];
 
+
 /**
- * Not a pricing table. The rows split on what someone is allowed to do, and the
- * last one is the one no other coding agent has an answer for: a customer can
- * ask about the product without the codebase leaking through the answer.
+ * Not a permissions table, and not a pricing table. This is the section that
+ * carries the whole-company claim, so it is ordered by distance from the code:
+ * the engineers who merge, then everyone who used to have to ask them, then
+ * people outside the company entirely.
+ *
+ * The second row is the one that changes the economics, and the last is the one
+ * no editor-bound agent can do at all, because answering a customer means
+ * answering without the codebase showing through.
  */
 const ACCESS: [string, string][] = [
-  ["Your team", "The whole engineer. It plans, writes the code, and opens the pull request."],
+  [
+    "Your engineers",
+    "The whole engineer. It plans, writes the code, and opens the pull request they review.",
+  ],
+  [
+    "Everyone else at the company",
+    "Support, product, design. They describe the problem in their own words; it finds the cause and drafts the fix for an engineer to sign off.",
+  ],
   [
     "Guests",
     "Contractors and partners ask about the code and propose changes as PRs. Write access stays with membership.",
@@ -98,14 +149,36 @@ export default function MinionLanding() {
             Meet your eng team's newest member.
           </h1>
           <p className="mt-5 max-w-[33rem] text-[17px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            An AI engineer that knows your codebase and turns issues into pull
-            requests you review.
+            An AI engineer that holds your codebase and turns a request into a
+            pull request. Available to your whole team, not just whoever has
+            the editor open.
           </p>
 
           <div className="mt-10">
             <a href="https://app.getmin.ai" className={CTA}>
               Connect your repos
             </a>
+          </div>
+        </div>
+
+        {/* The difference, stated before the mechanic, because a reader who
+            already has Cursor open needs it answered first. The argument is
+            structural rather than a speed adjective: their agent is bound to
+            one person's editor, so work queues behind that person. */}
+        <div id="difference" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
+          <h2 className={H2}>Your coding agent works for one person at a time.</h2>
+          <div className={`mt-7 flex flex-col gap-4 ${BODY}`}>
+            <p>
+              Cursor and Claude Code live in one engineer's editor. Work moves
+              while that engineer is at the keyboard and stops when they are
+              not, so everything anyone else notices queues behind whoever is
+              free to look at it. Most of a change's life is spent waiting in
+              that queue, not being written.
+            </p>
+            <p>
+              min. is not in an editor. It holds the project, and anyone on the
+              team can hand it something directly. The queue stops forming.
+            </p>
           </div>
         </div>
 
@@ -120,32 +193,68 @@ export default function MinionLanding() {
             </p>
           </div>
 
-          <div className="mt-9 max-w-[40rem] rounded-2xl border border-hair bg-surface/80 p-6 md:p-8">
-            <div className="flex flex-col">
-              {LOOP.map(({ label, body, accent }) => (
-                <div
-                  key={label}
-                  className="border-t border-hair py-4 first:border-t-0 first:pt-0 last:pb-0"
-                >
-                  <p
-                    className={`font-mono text-[10.5px] uppercase tracking-[0.16em] ${
-                      accent ? "text-moss" : "text-quiet"
-                    }`}
+          <div className="mt-9 max-w-[40rem] overflow-hidden rounded-2xl border border-hair bg-surface/80">
+            {/* Thread header: which repo, which issue. Mono, because it is data. */}
+            <div className="flex items-baseline justify-between gap-4 border-b border-hair px-5 py-3.5 md:px-6">
+              <p className="font-mono text-[12px] text-ink">payments-api</p>
+              <p className="font-mono text-[11.5px] text-quiet">issue #142</p>
+            </div>
+
+            <div className="flex flex-col gap-5 px-5 py-6 md:px-6">
+              {THREAD.map(({ from, body }, i) => {
+                const you = from === "you";
+                return (
+                  <div
+                    key={i}
+                    className={`flex flex-col ${you ? "items-end" : "items-start"}`}
                   >
-                    {label}
-                  </p>
-                  <p className="mt-2 text-[14.5px] leading-[1.6] text-ink/85 [text-wrap:pretty]">
-                    {body}
-                  </p>
-                </div>
-              ))}
+                    <p
+                      className={`mb-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-quiet ${
+                        you ? "pr-1" : "pl-1"
+                      }`}
+                    >
+                      {you ? "You" : "min."}
+                    </p>
+                    <div
+                      className={`max-w-[88%] text-[14.5px] leading-[1.6] [text-wrap:pretty] ${
+                        you
+                          ? "rounded-2xl rounded-br-md bg-hair/70 px-4 py-2.5 text-ink"
+                          : "rounded-2xl rounded-bl-md border border-hair bg-paper px-4 py-3 text-ink/85"
+                      }`}
+                    >
+                      {body}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <p className={`mt-7 max-w-[38rem] ${BODY}`}>
             It asks before it acts, and what it hands back is a diff you read.
-            Nothing reaches your main branch that a person did not merge.
+            Nothing reaches your main branch that a person did not merge, which
+            leaves reviewing it as the only part that still needs one.
           </p>
+        </div>
+
+        {/* Who can ask it what. */}
+        <div id="access" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
+          <h2 className={H2}>The whole company can reach it.</h2>
+          <p className={`mt-7 ${BODY}`}>
+            One engineer, and everyone gets the version of it they should have.
+            Nobody has to learn the codebase to report what is broken in it, and
+            nobody outside the team sees how it works.
+          </p>
+          <div className="mt-8 flex flex-col">
+            {ACCESS.map(([who, what]) => (
+              <div key={who} className="border-t border-hair py-4 last:border-b">
+                <p className={EYEBROW}>{who}</p>
+                <p className="mt-2 text-[14.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
+                  {what}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Scope: one teammate, not one bot per repo. */}
@@ -162,21 +271,6 @@ export default function MinionLanding() {
               laptop. Every step is in the session, streamed while it works and
               still there when you come back.
             </p>
-          </div>
-        </div>
-
-        {/* Who can ask it what. */}
-        <div id="access" className="mt-28 max-w-[38rem] scroll-mt-28 md:mt-32">
-          <h2 className={H2}>Everyone gets the right version.</h2>
-          <div className="mt-8 flex flex-col">
-            {ACCESS.map(([who, what]) => (
-              <div key={who} className="border-t border-hair py-4 last:border-b">
-                <p className={EYEBROW}>{who}</p>
-                <p className="mt-2 text-[14.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-                  {what}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
 
