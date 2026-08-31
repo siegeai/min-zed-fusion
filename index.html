@@ -135,25 +135,19 @@
 
   <body>
     <div id="root">
-      <!-- Static mirror of the live page for crawlers that don't run JavaScript
-           (GPTBot, ClaudeBot, PerplexityBot, and friends). React replaces this
-           on mount; the copy below must track the rendered site. `hidden`
-           prevents a flash of unstyled text before React mounts; the noscript
-           style restores it for human visitors with JS off. -->
+      <!-- Static mirror of the live page, for crawlers that don't run JavaScript
+           and for visitors with it off. GENERATED at build time from the real
+           landing component by scripts/mirror-entry.tsx, and replaced wholesale
+           between the markers below. Do not write copy here: it was hand-kept
+           until 2026-08-31 and drifted four times, silently, because nothing
+           fails when a duplicate goes stale. `hidden` prevents a flash of
+           unstyled text before React mounts; the noscript style restores it. -->
       <noscript>
         <style>#root > main[hidden] { display: block; }</style>
       </noscript>
-      <main hidden>
-        <h1>Meet your eng team's newest member.</h1>
-        <p>An AI engineer that knows your codebase, joins your standups, and turns issues into pull requests you review.</p>
-        <p>Connect your repos, or put it on your next standup.</p>
-        <p>Hand it the issue. Review the PR. It reads the issue, tells you how it lands in your code, and proposes a plan. Then it asks. When you say go, it writes the code in its own sandbox and opens a pull request. It asks before it acts, and what it hands back is a diff you read. Nothing reaches your main branch that a person did not merge.</p>
-        <p>It was in the room. It sits in your standups, design reviews and incident calls, reads the Slack thread, and you add it to the spec in Google Docs the way you would add a teammate. So a plan comes back with the constraint someone set three weeks ago, not just the text of the ticket. Ask it in Slack why cutover slipped and it answers from all three standups. Ask for the rollback plan and it opens the PR.</p>
-        <p>Its name is its address, like juno@getmin.ai. Put it on your next team meeting invite. Nothing to install, no account.</p>
-        <p>One engineer, all your repos. A project is a collection of repos, and it holds them together, so a change that crosses three services is still one conversation. It runs in the cloud, so you can type the prompt and close the laptop.</p>
-        <p>Everyone gets the right version. Your team get the whole engineer: it plans, writes the code, and opens the pull request. Guests ask about the code and propose changes as PRs, and write access stays with membership. Your customers get ask-only: it answers what the product does without revealing how the code works, and files a clean issue when the answer is a bug.</p>
-        <p>Your models, your keys. Claude, GPT, Kimi, DeepSeek.</p>
-      </main>
+      <!-- mirror:start -->
+      <main hidden></main>
+      <!-- mirror:end -->
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

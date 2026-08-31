@@ -84,7 +84,30 @@ function setTag(html, pattern, replacement) {
   return pattern.test(html) ? html.replace(pattern, replacement) : html;
 }
 
-const template = readFileSync(join(dist, "index.html"), "utf8");
+/* ── crawler mirror ───────────────────────────────────────────────────────
+ *
+ * The hidden <main> inside index.html is the copy a crawler sees when it does
+ * not run JavaScript. It used to be written by hand next to the markup it
+ * duplicated, and it drifted four times without ever failing a build.
+ * scripts/mirror-entry.tsx renders the real component instead, so it cannot.
+ *
+ * Only the homepage gets one. Every route was previously served the HOMEPAGE's
+ * mirror, which told a crawler that /pricing and /security were about the
+ * landing page. No mirror is better than the wrong one: these routes still
+ * ship their own title, description and canonical below.
+ */
+const rawTemplate = readFileSync(join(dist, "index.html"), "utf8");
+const MIRROR = /[ \t]*<!-- mirror:start -->[\s\S]*?<!-- mirror:end -->\n?/;
+if (!MIRROR.test(rawTemplate)) {
+  throw new Error("prerender: mirror markers missing from index.html");
+}
+
+const { renderMirror } = await import("../.mirror-ssr/mirror-entry.js");
+const mirrorBlock = `      <main hidden>\n${renderMirror()}\n      </main>\n`;
+writeFileSync(join(dist, "index.html"), rawTemplate.replace(MIRROR, mirrorBlock));
+console.log(`  crawler mirror: ${mirrorBlock.trim().split("\n").length - 2} blocks rendered from the live component`);
+
+const template = rawTemplate.replace(MIRROR, "");
 const rows = [];
 let missing = 0;
 

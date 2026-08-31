@@ -25,3 +25,4 @@ dist-ssr
 # Worker build/deps
 worker/node_modules
 worker/.wrangler
+.mirror-ssr
