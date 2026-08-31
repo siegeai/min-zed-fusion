@@ -41,9 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-quiet text-sm leading-relaxed max-w-xs">
-                You got yourself a new teammate. A named AI who sits in on your
-                meetings, Docs and Slack, holds what the team knows,
-                collaborates where you already work.
+                An AI engineer that holds your codebase and turns a request
+                  into a pull request your team reviews. Available to everyone,
+                  not just whoever has the editor open.
               </p>
           </div>
 

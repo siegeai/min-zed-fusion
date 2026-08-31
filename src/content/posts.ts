@@ -12,6 +12,8 @@
 
 export type Block =
   | { t: "p"; text: string }
+  /** A dated editor's note. For a post whose framing the product has moved past. */
+  | { t: "note"; text: string }
   | { t: "h2"; text: string }
   | { t: "quote"; text: string }
   | { t: "cta"; text: string; href: string };
@@ -34,12 +36,17 @@ export const POSTS: Post[] = [
     slug: "worlds-first-relationship-ai",
     title: "World’s first relationship AI that helps you win.",
     excerpt:
-      "min. is live on Product Hunt. Why this is the first relationship AI, why notetakers, CRMs and memory apps do not qualify, and why winning is the point.",
+      "Written in August 2026, when min. launched on Product Hunt as relationship AI. Kept as a record of what we thought then, not of what min. is now.",
     date: "2026-08-13",
     readTime: "3 min read",
     standfirst:
       "We launched on Product Hunt today. Big claims deserve a defense, so here is the case for both halves of this one.",
     body: [
+      {
+        t: "note",
+        text:
+          "Written in August 2026, when min. was positioned as relationship AI and launching on Product Hunt. min. is now an AI engineer that holds your codebase and turns requests into pull requests your team reviews. This post is kept as a record of what we thought at the time, not as a description of the product.",
+      },
       { t: "p", text: "min. is live on Product Hunt today." },
       {
         t: "cta",

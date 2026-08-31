@@ -117,6 +117,19 @@ const BlogPost = () => {
                       </a>
                     );
                   }
+                  if (b.t === "note") {
+                    return (
+                      <aside
+                        key={i}
+                        className="mb-8 rounded-xl border border-hair bg-surface px-5 py-4 text-[14.5px] leading-[1.65] text-quiet"
+                      >
+                        <p className="mb-1.5 font-mono text-[10.5px] uppercase tracking-[0.16em] text-quiet">
+                          Editor's note
+                        </p>
+                        {b.text}
+                      </aside>
+                    );
+                  }
                   if (b.t === "quote") {
                     return (
                       <blockquote

@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
         <title>Privacy Policy | min.</title>
         <meta
           name="description"
-          content="How min. handles your data. min. keeps distilled memory and metadata, never your raw email. We do not train on it, sell it, or share it."
+          content="How min. handles your data, including the repositories you connect. min. works in an isolated sandbox and proposes changes as pull requests. We do not train on your data, sell it, or share it."
         />
         <link rel="canonical" href="https://getmin.ai/privacy/" />
       </Helmet>
@@ -123,6 +123,14 @@ const PrivacyPolicy = () => {
                       No email content is permanently stored
                     </strong>
                   </li>
+                  <li>
+                    <strong className="text-ink">
+                      Repository and source code data from the repositories you
+                      connect
+                    </strong>
+                    , accessed so min. can answer questions about your code and
+                    propose changes
+                  </li>
                   <li>Usage data and analytics to improve our service</li>
                   <li>
                     Payment information (processed securely through third-party
@@ -135,6 +143,14 @@ const PrivacyPolicy = () => {
                   dynamically from your email provider's APIs and processed in
                   real-time only.
                 </p>
+                <p>
+                  <strong className="text-ink">Your code:</strong> min.
+                  works on your repositories inside an isolated sandbox. It
+                  proposes changes as pull requests for a person on your team to
+                  review and merge; it does not write to your default branch,
+                  and write access is governed by the permissions your
+                  repository host already grants.
+                </p>
               </Section>
 
               <Section id="how-we-use" title="2. How We Use Your Information">
@@ -144,7 +160,12 @@ const PrivacyPolicy = () => {
                   to:
                 </p>
                 <ul className="list-disc pl-6 space-y-1.5 marker:text-quiet/70">
-                  <li>Provide and improve our AI communication services</li>
+                  <li>Provide and improve our AI engineering services</li>
+                  <li>
+                    Read the repositories you connect in order to answer
+                    questions, plan changes, and open pull requests for your
+                    review
+                  </li>
                   <li>
                     Process and manage your communications through our AI
                     agents
