@@ -103,9 +103,9 @@ const THREAD: Turn[] = [
  * role because that is where it is worth something.
  */
 const ACCESS: [string, string][] = [
-  ["Engineers", "min. writes the implementation and opens the PR. Design and merge stay yours."],
+  ["Engineers", "Architect and design from anywhere. min. executes, completely in the cloud."],
   ["Product", "Describe the feature in plain words. min. hands back a pull request."],
-  ["Sales", "min. answers a prospect's technical question from the real code, without exposing it."],
+  ["Sales", "min. answers a prospect's technical question from the real code, securely."],
   ["Support", "min. reproduces the bug, finds the cause, files the issue. Often with the fix attached."],
 ];
 
