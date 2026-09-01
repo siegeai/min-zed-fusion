@@ -106,7 +106,7 @@ const ACCESS: [string, string][] = [
   ["Engineers", "Architect and design from anywhere. min. executes, completely in the cloud."],
   ["Product", "Describe the feature in plain words. min. hands back a pull request."],
   ["Sales", "min. answers a prospect's technical question from the real code, securely."],
-  ["Support", "min. reproduces the bug, finds the cause, files the issue. Often with the fix attached."],
+  ["Support", "min. reproduces the bug, files the issue. Fixes the bug, opens the PR."],
 ];
 
 const H2 =
