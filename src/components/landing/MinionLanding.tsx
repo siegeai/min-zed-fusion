@@ -176,12 +176,12 @@ export default function MinionLanding() {
         {/* Hero */}
         <div className="max-w-[46rem]">
           <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.9rem]">
-            I'm min., your dev team's newest member.
+            I'm your dev team's newest member.
           </h1>
           <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
             I'm your AI engineer. I turn requests into pull requests: you
-              architect, I execute. Share me with your PMs, support, sales.
-              Reach me anytime in Slack.
+            architect, I execute. Share me with product, sales, and support.
+            I'm a Slack message away.
           </p>
 
           <div className="mt-10">
