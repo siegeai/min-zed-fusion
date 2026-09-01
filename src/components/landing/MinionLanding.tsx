@@ -221,8 +221,8 @@ export default function MinionLanding() {
         {/* The loop. */}
         <Row
           id="loop"
-          title="Tell min. the bug. Review the PR."
-          lede="min. already knows your codebase and the issue behind it, so a user's bug report is enough: min. reproduces the problem, shows how it lands in your code, and proposes the fix before asking to go ahead."
+          title="Give me any task. Review the PR."
+          lede="Work with min. to resolve bugs and build features, completely in the cloud, from anywhere, on any device."
         >
           <div className="overflow-hidden rounded-2xl border border-hair bg-surface/80">
             {/* Thread header: which repo, which issue. Mono, because it is data. */}
