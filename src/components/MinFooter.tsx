@@ -41,10 +41,9 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-quiet text-sm leading-relaxed max-w-xs">
-                I'm min., an AI engineer. I know your codebase and turn requests
-                  into pull requests your team reviews. Available to everyone,
-                  not just whoever has the editor open.
-              </p>
+              I'm min., an AI engineer. I help teams ship epically fast by
+              unlocking everyone's building potential. Easy and free to start.
+            </p>
           </div>
 
           {COLUMNS.map((col) => (
