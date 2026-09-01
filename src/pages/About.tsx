@@ -52,7 +52,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is an AI engineer on your team. min. holds your codebase, reads an issue, proposes a plan, and opens a pull request you review and merge.",
+      "min. is an AI engineer on your team. min. knows your codebase, reads an issue, proposes a plan, and opens a pull request you review and merge.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -67,7 +67,7 @@ export default function About() {
         <title>About min. | An engineer, not an autocomplete</title>
         <meta
           name="description"
-          content="Why we built min. Coding agents start every task from nothing. We wanted one that holds your codebase like a teammate who has been here two years, and hands back a pull request instead of a suggestion."
+          content="Why we built min. Coding agents start every task from nothing. We wanted one that knows your codebase like a teammate who has been here two years, and hands back a pull request instead of a suggestion."
         />
         <link rel="canonical" href="https://getmin.ai/about/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -76,7 +76,7 @@ export default function About() {
       <PageFrame>
         <PageHero
           title="An engineer, not an autocomplete."
-          lede="Coding agents live in your editor and start every task from nothing. We wanted one that holds the codebase the way a teammate who has been here two years holds it, and hands back a pull request you can review."
+          lede="Coding agents live in your editor and start every task from nothing. We wanted one that knows the codebase the way a teammate two years in knows it, and hands back a pull request you can review."
         />
 
         <Section title="What we believe.">
@@ -93,7 +93,7 @@ export default function About() {
             <p>
               An agent that starts from an empty context re-derives all of that
               every time, and gets it wrong in ways that are expensive to catch
-              in review. So min. holds the project instead, every repo in it, and
+              in review. So min. keeps the whole project in context, every repo in it, and
               starts from what is already true.
             </p>
             <p>

@@ -39,15 +39,19 @@ const CODE = "rounded bg-ink/[0.07] px-1 py-0.5 font-mono text-[12.5px] text-ink
 const THREAD: Turn[] = [
   {
     from: "you",
-    body: "take a look at #142, webhook retries are double-charging on timeout",
+    body: "a customer says they got charged twice for the same invoice this morning",
   },
   {
     from: "min",
     body: (
       <>
         <p>
-          Reproduced it. <span className={CODE}>charge_worker.ts</span> mints the idempotency key <em className="not-italic text-ink">after</em> the
-          network call, so a timeout retries with a fresh key and charges twice.
+          That's the webhook-timeout double charge — issue{" "}
+          <span className={CODE}>#142</span>, three users have hit it.
+          Reproduced it: <span className={CODE}>charge_worker.ts</span> mints
+          the idempotency key <em className="not-italic text-ink">after</em>{" "}
+          the network call, so a timeout retries with a fresh key and charges
+          twice.
         </p>
         <p className="mt-3">
           Mint it before the call instead. Two files, no migration. Want me to
@@ -222,8 +226,8 @@ export default function MinionLanding() {
         {/* The loop. */}
         <Row
           id="loop"
-          title="Hand min. the issue. Review the PR."
-          lede="min. reads the issue, says how it lands in your code, and proposes a plan before asking to go ahead."
+          title="Tell min. the bug. Review the PR."
+          lede="min. already holds your codebase and the issue behind it, so a user's bug report is enough — it reproduces the problem, shows how it lands in your code, and proposes the fix before asking to go ahead."
         >
           <div className="overflow-hidden rounded-2xl border border-hair bg-surface/80">
             {/* Thread header: which repo, which issue. Mono, because it is data. */}
@@ -279,8 +283,8 @@ export default function MinionLanding() {
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p>
-              Frontend, backend, landing page. min. holds a whole project at
-              once, so a change that spans the API, the web app and the
+              Frontend, backend, landing page. min. has every repo in the
+              project checked out, so a change that spans the API, the web app and the
               marketing site is one request, and min. opens a PR in every repo the
               change touched.
             </p>

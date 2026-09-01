@@ -50,7 +50,7 @@ export default function Careers() {
         <title>Careers at min. | Build the AI engineer on your team</title>
         <meta
           name="description"
-          content="Help us build the AI engineer that holds a team's codebase, plans a change, and opens the pull request. Email hello@getmin.ai with what you've built. No traditional postings."
+          content="Help us build the AI engineer that knows a team's codebase, plans a change, and opens the pull request. Email hello@getmin.ai with what you've built. No traditional postings."
         />
         <link rel="canonical" href="https://getmin.ai/careers/" />
       </Helmet>
