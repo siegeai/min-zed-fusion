@@ -36,23 +36,48 @@ function PostHogPageView() {
   return null;
 }
 
+/**
+ * Restores scroll on navigation, and honours a #hash target.
+ *
+ * The hash case had two holes and "All your repos" in the footer hit both.
+ * Coming from another route, the target section has to mount before it can be
+ * found, and a single 60ms timeout either won that race or gave up and sent
+ * you to the top of the page, which read as a dead link. And because the
+ * effect only watched pathname and hash, clicking a link to the hash you were
+ * already on changed no state, so nothing happened at all.
+ *
+ * Polling on animation frames removes the race, and location.key changes on
+ * every navigation, so clicking the same link twice scrolls twice.
+ */
 function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
   useEffect(() => {
-    if (hash) {
-      const id = hash.slice(1);
-      // Defer past route render so the target node exists in the DOM.
-      const t = setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-        else window.scrollTo(0, 0);
-      }, 60);
-      return () => clearTimeout(t);
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
     }
-    window.scrollTo(0, 0);
-  }, [pathname, hash]);
+    const id = decodeURIComponent(hash.slice(1));
+    let tries = 0;
+    let timer = 0;
+    const find = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+      // Polling on a timer rather than animation frames: rAF is paused in a
+      // hidden tab, so a link opened in the background would never resolve its
+      // hash. 40 x 50ms is a comfortable margin over a route mount without
+      // stranding the visitor if the id genuinely does not exist.
+      if (++tries < 40) timer = window.setTimeout(find, 50);
+      else window.scrollTo(0, 0);
+    };
+    find();
+    return () => window.clearTimeout(timer);
+  }, [pathname, hash, key]);
   return null;
 }
+
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
