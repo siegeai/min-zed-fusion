@@ -139,7 +139,7 @@ export default function About() {
 
         <CloseBlock title="Tell it the bug.">
           <div className="flex flex-wrap items-center gap-3">
-            <PillLink href="https://app.getmin.ai">Meet your engineer</PillLink>
+            <PillLink href="https://app.getmin.ai">Put me to work</PillLink>
             <PillLink href={contactHref("Hello")} tone="quiet">
               {CONTACT_LABEL}
             </PillLink>

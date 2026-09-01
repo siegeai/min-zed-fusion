@@ -186,7 +186,7 @@ export default function MinionLanding() {
 
           <div className="mt-10">
             <a href="https://app.getmin.ai" className={CTA}>
-              Meet your engineer
+              Put me to work
             </a>
           </div>
         </div>
@@ -317,7 +317,7 @@ export default function MinionLanding() {
             Give me any task. Review the PR.
           </p>
           <a href="https://app.getmin.ai" className={CTA}>
-            Meet your engineer
+            Put me to work
           </a>
         </div>
       </div>
