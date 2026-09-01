@@ -161,7 +161,7 @@ const Pricing = () => {
           </dl>
         </Section>
 
-        <CloseBlock title="Hand it the issue.">
+        <CloseBlock title="Tell it the bug.">
           <PillLink href="https://app.getmin.ai">Start free</PillLink>
         </CloseBlock>
       </PageFrame>

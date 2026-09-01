@@ -45,7 +45,7 @@ export const POSTS: Post[] = [
       {
         t: "note",
         text:
-          "Written in August 2026, when min. was positioned as relationship AI and launching on Product Hunt. min. is now an AI engineer that holds your codebase and turns requests into pull requests your team reviews. This post is kept as a record of what we thought at the time, not as a description of the product.",
+          "Written in August 2026, when min. was positioned as relationship AI and launching on Product Hunt. min. is now an AI engineer that knows your codebase and turns requests into pull requests your team reviews. This post is kept as a record of what we thought at the time, not as a description of the product.",
       },
       { t: "p", text: "min. is live on Product Hunt today." },
       {

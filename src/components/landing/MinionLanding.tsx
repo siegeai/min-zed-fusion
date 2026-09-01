@@ -278,18 +278,15 @@ export default function MinionLanding() {
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p>
-              Frontend, backend, landing page. min. has every repo in the
-              project checked out, so a change that spans the API, the web app and the
-              marketing site is one request, and min. opens a PR in every repo the
-              change touched.
+              Frontend, backend, landing page — min. has them all checked out.
+              One request, and min. opens a PR in every repo the change touched.
             </p>
             <p className="text-ink">
-              No re-explaining the same feature to a fresh agent in every
-              checkout.
+              No re-explaining the feature to a fresh agent in every checkout.
             </p>
             <p>
-              min. runs in the cloud, so you can type the prompt and close the
-              laptop. Every step is in the session when you come back.
+              min. runs in the cloud. Type the prompt, close the laptop — every
+              step is in the session when you come back.
             </p>
           </div>
         </Row>
