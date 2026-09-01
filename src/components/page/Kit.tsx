@@ -26,7 +26,7 @@ export const contactHref = (subject?: string) =>
 
 export function PageFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden bg-paper font-sans text-ink antialiased">
+    <div className="flex min-h-screen flex-col overflow-x-clip bg-paper font-sans text-ink antialiased">
       <PillNav />
       <main className="flex-1">{children}</main>
       <MinFooter />

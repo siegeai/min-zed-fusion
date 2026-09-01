@@ -184,7 +184,7 @@ export default function MinionLanding() {
         {/* Hero */}
         <div className="max-w-[46rem]">
           <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.9rem]">
-            Meet your eng team's newest member.
+            Meet your dev team's newest member.
           </h1>
           <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
             An AI engineer that turns requests into pull requests. For your whole
@@ -268,7 +268,36 @@ export default function MinionLanding() {
           </p>
         </Row>
 
-        {/* Who can reach it. */}
+        {/* Multi-repo. The complaint this answers is concrete: a product is
+            several repos, a change crosses them, and an agent living in one
+            checkout makes you drive each one and re-explain yourself. */}
+        <Row
+          id="repos"
+          title="One engineer. Every repo."
+          lede="Your product is not one repo, and neither is a change to it."
+        >
+          <div className={`flex flex-col gap-4 ${BODY}`}>
+            <p>
+              Frontend, backend, landing page. min. holds a whole project at
+              once, so a change that spans the API, the web app and the
+              marketing site is one request, and it opens a PR in each repo it
+              touched.
+            </p>
+            <p className="text-ink">
+              No re-explaining the same feature to a fresh agent in every
+              checkout.
+            </p>
+            <p>
+              It runs in the cloud, so you can type the prompt and close the
+              laptop. Every step is in the session when you come back.
+            </p>
+          </div>
+        </Row>
+
+        {/* Who can reach it. Deliberately the LAST section: a footer link can
+            only scroll its target to the top if there is a viewport's worth of
+            page below it, so whatever ends up last here cannot be linked from
+            the footer. #repos is, so it moved above this. */}
         <Row
           id="access"
           title="The whole company can reach it."
@@ -283,20 +312,6 @@ export default function MinionLanding() {
                 </p>
               </div>
             ))}
-          </div>
-        </Row>
-
-        {/* Scope: one teammate, not one bot per repo. */}
-        <Row id="repos" title="One engineer, all your repos.">
-          <div className={`flex flex-col gap-4 ${BODY}`}>
-            <p>
-              A project is a collection of repos, and it holds them together. A
-              change across three services is one conversation.
-            </p>
-            <p>
-              It runs in the cloud. Type the prompt and close the laptop; every
-              step is in the session when you come back.
-            </p>
           </div>
         </Row>
 

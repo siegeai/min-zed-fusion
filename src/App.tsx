@@ -49,6 +49,9 @@ function PostHogPageView() {
  * Polling on animation frames removes the race, and location.key changes on
  * every navigation, so clicking the same link twice scrolls twice.
  */
+/** Clears the floating pill nav, which is fixed over the top of the page. */
+const HASH_OFFSET = 96;
+
 function ScrollToTop() {
   const { pathname, hash, key } = useLocation();
   useEffect(() => {
@@ -62,7 +65,12 @@ function ScrollToTop() {
     const find = () => {
       const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Move the window explicitly rather than calling scrollIntoView, which
+        // delegates to whichever box it decides is the scroll container. The
+        // page wrapper used to be one of those by accident, and the scroll went
+        // to a container that could not scroll.
+        const top = el.getBoundingClientRect().top + window.scrollY - HASH_OFFSET;
+        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
         return;
       }
       // Polling on a timer rather than animation frames: rAF is paused in a

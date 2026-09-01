@@ -23,7 +23,7 @@ const Index = () => {
         <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased overflow-x-hidden selection:bg-moss-soft selection:text-ink">
+      <div className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased overflow-x-clip selection:bg-moss-soft selection:text-ink">
         <PillNav />
 
         <main className="flex-1">

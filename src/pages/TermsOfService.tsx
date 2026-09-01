@@ -50,7 +50,7 @@ const TermsOfService = () => {
         <link rel="canonical" href="https://getmin.ai/terms/" />
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased overflow-x-clip">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-moss text-onink px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-blue-400"

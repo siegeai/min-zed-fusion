@@ -50,7 +50,7 @@ const Blog = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased overflow-x-clip">
         <PillNav />
 
         <main className="flex-1">
