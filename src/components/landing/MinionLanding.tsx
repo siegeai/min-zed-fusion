@@ -278,14 +278,14 @@ export default function MinionLanding() {
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p>
-              Frontend, backend, landing page — min. has them all checked out.
+              Frontend, backend, landing page: min. has them all checked out.
               One request, and min. opens a PR in every repo the change touched.
             </p>
             <p className="text-ink">
               No re-explaining the feature to a fresh agent in every checkout.
             </p>
             <p>
-              min. runs in the cloud. Type the prompt, close the laptop — every
+              min. runs in the cloud. Type the prompt, close the laptop; every
               step is in the session when you come back.
             </p>
           </div>
