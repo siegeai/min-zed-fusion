@@ -276,7 +276,7 @@ export default function MinionLanding() {
               request, and I open a PR in every repo the change touched.
             </p>
             <p className="text-ink">
-              You never re-explain the feature to a fresh agent in every checkout.
+              You never re-explain yourself with me.
             </p>
             <p>
               I run in the cloud. Type the prompt, close the laptop; review my
