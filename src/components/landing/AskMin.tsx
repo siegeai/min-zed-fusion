@@ -10,7 +10,7 @@ import {
 } from "@/lib/ask";
 
 /**
- * "Ask min." — the site's own chat widget.
+ * "Ask min.", the site's own chat widget.
  *
  * The API key lives in the Cloudflare Worker at ASK_ENDPOINT, never here: this
  * bundle is public. The Worker owns the system prompt and the guardrails too,
@@ -117,7 +117,7 @@ function recordQuestion() {
       JSON.stringify({ date: today(), count: askedToday() + 1 }),
     );
   } catch {
-    // Storage unavailable: the cap silently does not apply. Acceptable — the
+    // Storage unavailable: the cap silently does not apply. Acceptable, since the
     // Worker still rate-limits, and this was only ever a nudge.
   }
 }
@@ -355,7 +355,7 @@ export default function AskMin() {
 
   useEffect(() => () => abortRef.current?.abort(), []);
 
-  // Persist only once a turn has settled — mid-stream state would store a
+  // Persist only once a turn has settled. Mid-stream state would store a
   // half-written answer, and the empty placeholder bubble is dropped by then.
   useEffect(() => {
     if (!busy) saveHistory(messages);

@@ -4,7 +4,7 @@ import MemoryField from "./MemoryField";
  * The landing page.
  *
  * One idea: min. is an engineer on your team and its home is the codebase. The
- * page is the loop and nothing else — hand it an issue, review the PR — plus
+ * page is the loop and nothing else (hand it an issue, review the PR) plus
  * the two facts a reader needs before they can picture using it: it works
  * across a project's repos, and not everyone who talks to it gets the same
  * version of it.
@@ -39,7 +39,7 @@ const CODE = "rounded bg-ink/[0.07] px-1 py-0.5 font-mono text-[12.5px] text-ink
 const THREAD: Turn[] = [
   {
     from: "you",
-    body: "take a look at #142 — webhook retries are double-charging on timeout",
+    body: "take a look at #142, webhook retries are double-charging on timeout",
   },
   {
     from: "min",

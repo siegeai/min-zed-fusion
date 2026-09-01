@@ -108,6 +108,44 @@ writeFileSync(join(dist, "index.html"), rawTemplate.replace(MIRROR, mirrorBlock)
 console.log(`  crawler mirror: ${mirrorBlock.trim().split("\n").length - 2} blocks rendered from the live component`);
 
 const template = rawTemplate.replace(MIRROR, "");
+
+/* ── copy guard ────────────────────────────────────────────────────────────
+ *
+ * No em or en dashes in anything a visitor reads. They are a house rule and
+ * they are also the single most reliable tell that a line was not written by
+ * a person, so this fails the build rather than trusting a review to catch it.
+ *
+ * Source files rather than dist, because every route except "/" renders on the
+ * client, so the built HTML does not contain their copy to scan.
+ */
+const COPY_FILES = [
+  "index.html",
+  "public/llms.txt",
+  "public/og-image.html",
+  "src/content/posts.ts",
+  "src/components/MinFooter.tsx",
+  "src/components/PillNav.tsx",
+  "src/components/page/Kit.tsx",
+  "src/components/landing/MinionLanding.tsx",
+  "src/components/landing/AskMin.tsx",
+  ...ROUTES.map(([, file]) => `src/pages/${file}`),
+];
+
+const dashHits = [];
+for (const rel of COPY_FILES) {
+  const full = join(root, rel);
+  if (!existsSync(full)) continue;
+  readFileSync(full, "utf8").split("\n").forEach((line, i) => {
+    if (/[\u2014\u2013]/.test(line)) dashHits.push(`${rel}:${i + 1}  ${line.trim().slice(0, 90)}`);
+  });
+}
+if (dashHits.length) {
+  throw new Error(
+    `copy guard: em/en dash in ${dashHits.length} place(s). Use a comma, colon or full stop.\n  ` +
+      dashHits.join("\n  ")
+  );
+}
+console.log(`  copy guard: ${COPY_FILES.length} files clean of em/en dashes`);
 const rows = [];
 let missing = 0;
 
