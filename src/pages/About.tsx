@@ -84,8 +84,8 @@ export default function About() {
             <p>
               The results were immediate. We ship twice as fast, and the
               product is built by the whole team instead of being the burden
-              of whoever can code. The technical people architect and conduct
-              now. min. does the grunt work.
+              of whoever can code. The technical people became architects
+              and conductors. min. does the grunt work of coding things up!
             </p>
           </Prose>
         </Section>
