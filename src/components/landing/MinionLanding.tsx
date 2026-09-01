@@ -103,22 +103,10 @@ const THREAD: Turn[] = [
  * role because that is where it is worth something.
  */
 const ACCESS: [string, string][] = [
-  [
-    "Engineers",
-    "They become architects. min. writes the implementation and opens the PR; the design, and the merge, stay theirs.",
-  ],
-  [
-    "Product",
-    "Describe a feature or an experiment in plain words, get a pull request back. No sprint booked to find out whether it works.",
-  ],
-  [
-    "Sales",
-    "The best sales engineer you have. It answers a prospect's technical question from the real codebase without exposing how it works, and builds the spike a deal is waiting on.",
-  ],
-  [
-    "Support",
-    "A ticket comes in; it reproduces the bug, finds the cause, and files an issue an engineer can act on. Often with the fix already attached.",
-  ],
+  ["Engineers", "It writes the implementation and opens the PR. Design and merge stay yours."],
+  ["Product", "Describe the feature in plain words. Get a pull request back."],
+  ["Sales", "Answers a prospect's technical question from the real code, without exposing it."],
+  ["Support", "Reproduces the bug, finds the cause, files the issue. Often with the fix attached."],
 ];
 
 const H2 =
@@ -312,8 +300,8 @@ export default function MinionLanding() {
             the footer. #repos is, so it moved above this. */}
         <Row
           id="access"
-          title="The whole company can reach it."
-          lede="One engineer, and everyone works with it the way their job needs. Nobody has to learn the codebase to change the product."
+          title="Building software has never been this collaborative."
+          lede="Whoever spots the problem can start the fix."
         >
           <div className="grid gap-x-10 sm:grid-cols-2">
             {ACCESS.map(([who, what]) => (
