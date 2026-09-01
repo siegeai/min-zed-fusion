@@ -294,14 +294,19 @@ export default function MinionLanding() {
           </div>
         </Row>
 
-        {/* Who can reach it. Deliberately the LAST section: a footer link can
+        {/* The roles. This is the payoff for the thesis at the top of the
+            page, so it must not restate it: "whoever spots the problem can
+            start the fix" already appears up there almost word for word, and
+            two headings making the same claim makes the page feel padded. The
+            rows carry this section; it does not need a lede.
+
+            Deliberately the LAST section: a footer link can
             only scroll its target to the top if there is a viewport's worth of
             page below it, so whatever ends up last here cannot be linked from
             the footer. #repos is, so it moved above this. */}
         <Row
           id="access"
-          title="Building software has never been this collaborative."
-          lede="Whoever spots the problem can start the fix."
+          title="Same engineer. Different job."
         >
           <div className="grid gap-x-10 sm:grid-cols-2">
             {ACCESS.map(([who, what]) => (
