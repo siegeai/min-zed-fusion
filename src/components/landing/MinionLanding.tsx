@@ -103,10 +103,10 @@ const THREAD: Turn[] = [
  * role because that is where it is worth something.
  */
 const ACCESS: [string, string][] = [
-  ["Engineers", "It writes the implementation and opens the PR. Design and merge stay yours."],
-  ["Product", "Describe the feature in plain words. Get a pull request back."],
-  ["Sales", "Answers a prospect's technical question from the real code, without exposing it."],
-  ["Support", "Reproduces the bug, finds the cause, files the issue. Often with the fix attached."],
+  ["Engineers", "min. writes the implementation and opens the PR. Design and merge stay yours."],
+  ["Product", "Describe the feature in plain words. min. hands back a pull request."],
+  ["Sales", "min. answers a prospect's technical question from the real code, without exposing it."],
+  ["Support", "min. reproduces the bug, finds the cause, files the issue. Often with the fix attached."],
 ];
 
 const H2 =
@@ -176,7 +176,8 @@ export default function MinionLanding() {
           </h1>
           <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
             An AI engineer that turns requests into pull requests. Anyone at the
-            company can hand it work, and your engineers still ship it.
+            company can hand min. work, and your engineers still ship the
+            result.
           </p>
 
           <div className="mt-10">
@@ -205,8 +206,8 @@ export default function MinionLanding() {
               not they write code.
             </p>
             <p>
-              Support hands it a ticket, product hands it a spec, an engineer
-              hands it an issue, and it works the same codebase for all three.
+              Support hands min. a ticket, product a spec, an engineer an issue,
+              and min. works the same codebase for all three.
               An agent living in one engineer's editor cannot do that, because
               work only moves while that engineer is at the keyboard.
             </p>
@@ -221,8 +222,8 @@ export default function MinionLanding() {
         {/* The loop. */}
         <Row
           id="loop"
-          title="Hand it the issue. Review the PR."
-          lede="It reads the issue, says how it lands in your code, and proposes a plan. Then it asks."
+          title="Hand min. the issue. Review the PR."
+          lede="min. reads the issue, says how it lands in your code, and proposes a plan before asking to go ahead."
         >
           <div className="overflow-hidden rounded-2xl border border-hair bg-surface/80">
             {/* Thread header: which repo, which issue. Mono, because it is data. */}
@@ -262,9 +263,9 @@ export default function MinionLanding() {
           </div>
 
           <p className={`mt-6 ${BODY}`}>
-            It asks before it acts. Nothing reaches your main branch that a
-            person did not merge, which leaves the review as the only part that
-            still needs one.
+            min. asks before acting. Nothing reaches your main branch that a person
+            did not merge, which leaves the review as the only part that still
+            needs one.
           </p>
         </Row>
 
@@ -280,15 +281,15 @@ export default function MinionLanding() {
             <p>
               Frontend, backend, landing page. min. holds a whole project at
               once, so a change that spans the API, the web app and the
-              marketing site is one request, and it opens a PR in each repo it
-              touched.
+              marketing site is one request, and min. opens a PR in every repo the
+              change touched.
             </p>
             <p className="text-ink">
               No re-explaining the same feature to a fresh agent in every
               checkout.
             </p>
             <p>
-              It runs in the cloud, so you can type the prompt and close the
+              min. runs in the cloud, so you can type the prompt and close the
               laptop. Every step is in the session when you come back.
             </p>
           </div>
@@ -323,7 +324,7 @@ export default function MinionLanding() {
         {/* Close */}
         <div className="mt-28 flex flex-col items-start gap-6 border-t border-hair pt-12 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-display text-[21px] font-semibold tracking-[-0.02em] text-ink">
-            Hand it the issue. Review the PR.
+            Hand min. the issue. Review the PR.
           </p>
           <a href="https://app.getmin.ai" className={CTA}>
             Connect your repos
