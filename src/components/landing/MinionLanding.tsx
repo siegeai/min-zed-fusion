@@ -46,7 +46,7 @@ const THREAD: Turn[] = [
     body: (
       <>
         <p>
-          That's the webhook-timeout double charge — issue{" "}
+          That's the webhook-timeout double charge: issue{" "}
           <span className={CODE}>#142</span>, three users have hit it.
           Reproduced it: <span className={CODE}>charge_worker.ts</span> mints
           the idempotency key <em className="not-italic text-ink">after</em>{" "}
@@ -201,7 +201,7 @@ export default function MinionLanding() {
             start the fix without being able to write code. */}
         <Row
           id="multiplayer"
-          title="Everyone builds. Engineers still ship."
+          title="Everyone builds."
           lede="One AI engineer, working with every team."
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
@@ -210,15 +210,10 @@ export default function MinionLanding() {
               not they write code.
             </p>
             <p>
-              Support hands min. a ticket, product a spec, an engineer an issue,
-              and min. works the same codebase for all three.
-              An agent living in one engineer's editor cannot do that, because
-              work only moves while that engineer is at the keyboard.
-            </p>
-            <p>
-              So nobody is the bottleneck, and engineers stop being the only
-              door into the codebase. They still own the design and the merge,
-              which is the part that needed them.
+              Support hands min. a ticket. Product hands min. a spec.
+              Engineering hands min. an issue. min. works all three in the same
+              codebase. An agent tied to one engineer's editor can't, because
+              it only works while that engineer is at the keyboard.
             </p>
           </div>
         </Row>
@@ -227,7 +222,7 @@ export default function MinionLanding() {
         <Row
           id="loop"
           title="Tell min. the bug. Review the PR."
-          lede="min. already holds your codebase and the issue behind it, so a user's bug report is enough — it reproduces the problem, shows how it lands in your code, and proposes the fix before asking to go ahead."
+          lede="min. already knows your codebase and the issue behind it, so a user's bug report is enough: min. reproduces the problem, shows how it lands in your code, and proposes the fix before asking to go ahead."
         >
           <div className="overflow-hidden rounded-2xl border border-hair bg-surface/80">
             {/* Thread header: which repo, which issue. Mono, because it is data. */}
@@ -328,7 +323,7 @@ export default function MinionLanding() {
         {/* Close */}
         <div className="mt-28 flex flex-col items-start gap-6 border-t border-hair pt-12 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-display text-[21px] font-semibold tracking-[-0.02em] text-ink">
-            Hand min. the issue. Review the PR.
+            Tell min. the bug. Review the PR.
           </p>
           <a href="https://app.getmin.ai" className={CTA}>
             Connect your repos

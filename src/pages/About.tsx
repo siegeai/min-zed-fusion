@@ -52,7 +52,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is an AI engineer on your team. min. knows your codebase, reads an issue, proposes a plan, and opens a pull request you review and merge.",
+      "min. is an AI engineer on your team. min. knows your codebase and its issues: describe a bug, and min. connects it to the issue it already knows, proposes a plan, and opens a pull request you review and merge.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -137,7 +137,7 @@ export default function About() {
           </div>
         </Section>
 
-        <CloseBlock title="Hand it the issue.">
+        <CloseBlock title="Tell it the bug.">
           <div className="flex flex-wrap items-center gap-3">
             <PillLink href="https://app.getmin.ai">Connect your repos</PillLink>
             <PillLink href={contactHref("Hello")} tone="quiet">
