@@ -4,7 +4,7 @@ const COLUMNS = [
   {
     heading: "Product",
     links: [
-      { label: "How min. works", to: "/#loop" },
+      { label: "What I do", to: "/#loop" },
       { label: "All your repos", to: "/#repos" },
       { label: "Pricing", to: "/pricing" },
     ],

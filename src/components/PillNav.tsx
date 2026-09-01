@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 
 const NAV_LINKS = [
-  { label: "How min. works", to: "/#loop" },
+  { label: "What I do", to: "/#loop" },
   { label: "Pricing", to: "/pricing" },
   { label: "Security", to: "/security" },
 ];
