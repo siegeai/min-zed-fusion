@@ -206,8 +206,8 @@ export default function MinionLanding() {
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p className="text-ink">
-              The person who noticed the problem can start the fix, whether or
-              not they write code.
+              Whoever spots the problem can start the fix, regardless of
+              whether they code.
             </p>
             <p>
               Support hands me a ticket. Product hands me a spec. Engineering
