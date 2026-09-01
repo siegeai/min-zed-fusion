@@ -490,7 +490,7 @@ export default function AskMin() {
                 Ask about min.
               </h4>
               <p className="mt-1 text-[12.5px] leading-relaxed text-quiet">
-                Answers come from what min. actually does. How min. works, what it may do, or how to start.
+                I only answer from what I actually do. How I work, what I may do, or how to start.
               </p>
             </div>
             <button

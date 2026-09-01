@@ -41,8 +41,8 @@ export default function MinFooter() {
               min.
             </Link>
             <p className="text-quiet text-sm leading-relaxed max-w-xs">
-                An AI engineer that knows your codebase and turns a request
-                  into a pull request your team reviews. Available to everyone,
+                I'm min., an AI engineer. I know your codebase and turn requests
+                  into pull requests your team reviews. Available to everyone,
                   not just whoever has the editor open.
               </p>
           </div>

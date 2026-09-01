@@ -51,7 +51,7 @@ const PLANS: Plan[] = [
     price: { display: "$0", sub: "no card" },
     features: [
       "The best coding models, not a cut-down one",
-      "The whole loop: min. plans, writes the code, and opens the PR",
+      "The whole loop: I plan, write the code, and open the PR",
       "Up to 5 seats, enough for your whole small team",
       "A generous shared usage pool every month",
       "Every repo you connect",
@@ -104,11 +104,11 @@ const FAQS: [string, string][] = [
   ],
   [
     "What happens when the pool runs out?",
-    "min. stops and tells you. Nothing is deleted and no card is charged. Top up pooled tokens, shared across everyone and good for the whole month, or wait for the month to roll over.",
+    "I stop and tell you. Nothing is deleted and no card is charged. Top up pooled tokens, shared across everyone and good for the whole month, or wait for the month to roll over.",
   ],
   [
     "Can it merge its own pull requests?",
-    "No. min. works in its own sandbox and opens a pull request for review. Nothing reaches your main branch that a person did not merge, and write access stays with membership.",
+    "No. I work in my own sandbox and open a pull request for review. Nothing reaches your main branch that a person did not merge, and write access stays with membership.",
   ],
   [
     "Do you train on my code?",

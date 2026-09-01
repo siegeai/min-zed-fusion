@@ -107,10 +107,10 @@ const THREAD: Turn[] = [
  * role because that is where it is worth something.
  */
 const ACCESS: [string, string][] = [
-  ["For engineers", "Architect and design from anywhere. min. executes, completely in the cloud."],
-  ["For product managers", "Describe the feature in plain words. min. hands back a pull request."],
-  ["For sales", "min. answers a prospect's technical question from the real code, securely."],
-  ["For support", "min. reproduces the bug, files the issue. Fixes the bug, opens the PR."],
+  ["For engineers", "You architect and design from anywhere. I execute, completely in the cloud."],
+  ["For product managers", "Describe the feature in plain words. I hand back a pull request."],
+  ["For sales", "I answer a prospect's technical question from the real code, securely."],
+  ["For support", "I reproduce the bug and file the issue. Then I fix it and open the PR."],
 ];
 
 const H2 =
@@ -176,12 +176,11 @@ export default function MinionLanding() {
         {/* Hero */}
         <div className="max-w-[46rem]">
           <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.9rem]">
-            Meet your dev team's newest member.
+            I'm min., your dev team's newest member.
           </h1>
           <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            An AI engineer that turns requests into pull requests. Anyone at the
-            company can hand min. work, and your engineers still ship the
-            result.
+            I'm an AI engineer. I turn requests into pull requests: you
+              architect, I implement, and nothing merges without your review.
           </p>
 
           <div className="mt-10">
@@ -202,7 +201,7 @@ export default function MinionLanding() {
         <Row
           id="multiplayer"
           title="Everyone builds."
-          lede="One AI engineer, working with every team."
+          lede="One AI engineer, working with every team on the same codebase."
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p className="text-ink">
@@ -210,8 +209,8 @@ export default function MinionLanding() {
               not they write code.
             </p>
             <p>
-              Support hands min. a ticket. Product hands min. a spec.
-                Engineering hands min. a task. min. works with all three.
+              Support hands me a ticket. Product hands me a spec. Engineering
+                hands me a task. I work with all three.
                 Building is now more collaborative than ever. Shipping great
                 software has never been faster.
             </p>
@@ -222,7 +221,7 @@ export default function MinionLanding() {
         <Row
           id="loop"
           title="Give me any task. Review the PR."
-          lede="Work with min. to resolve bugs and build features, completely in the cloud, from anywhere, on any device."
+          lede="I fix bugs and build features with you, completely in the cloud, from anywhere, on any device."
         >
           <div className="overflow-hidden rounded-2xl border border-hair bg-surface/80">
             {/* Thread header: which repo, which issue. Mono, because it is data. */}
@@ -253,7 +252,7 @@ export default function MinionLanding() {
                           : "rounded-2xl rounded-bl-md border border-hair bg-paper px-4 py-3 text-ink/85"
                       }`}
                     >
-                      {body}
+                      {typeof body === "string" ? <p>{body}</p> : body}
                     </div>
                   </div>
                 );
@@ -267,20 +266,20 @@ export default function MinionLanding() {
             checkout makes you drive each one and re-explain yourself. */}
         <Row
           id="repos"
-          title="One engineer. Every repo."
+          title="I have every repo checked out."
           lede="Your product is not one repo, and neither is a change to it."
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p>
-              Frontend, backend, landing page: min. has them all checked out.
-              One request, and min. opens a PR in every repo the change touched.
+              Frontend, backend, landing page: I work across all of them. One
+              request, and I open a PR in every repo the change touched.
             </p>
             <p className="text-ink">
-              No re-explaining the feature to a fresh agent in every checkout.
+              You never re-explain the feature to a fresh agent in every checkout.
             </p>
             <p>
-              min. runs in the cloud. Type the prompt, close the laptop;
-              review the completed PR later.
+              I run in the cloud. Type the prompt, close the laptop; review my
+              finished PR later.
             </p>
           </div>
         </Row>
@@ -297,7 +296,7 @@ export default function MinionLanding() {
             the footer. #repos is, so it moved above this. */}
         <Row
           id="access"
-          title="Same engineer. Different job."
+          title="Same engineer, whatever your job."
         >
           <div className="grid gap-x-10 sm:grid-cols-2">
             {ACCESS.map(([who, what]) => (
@@ -314,7 +313,7 @@ export default function MinionLanding() {
         {/* Close */}
         <div className="mt-28 flex flex-col items-start gap-6 border-t border-hair pt-12 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-display text-[21px] font-semibold tracking-[-0.02em] text-ink">
-            Hand min. a task. Review the PR.
+            Give me any task. Review the PR.
           </p>
           <a href="https://app.getmin.ai" className={CTA}>
             Meet your engineer

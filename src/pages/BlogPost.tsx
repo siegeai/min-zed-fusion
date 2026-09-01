@@ -41,7 +41,7 @@ const BlogPost = () => {
       logo: { "@type": "ImageObject", url: "https://getmin.ai/favicon.png" },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    image: "https://getmin.ai/og-cover-meet.png",
+    image: "https://getmin.ai/og-cover-voice.png",
   };
 
   
@@ -153,8 +153,8 @@ const BlogPost = () => {
                   This is what min. is for.
                 </p>
                 <p className="mt-2 text-[15px] leading-relaxed text-quiet">
-                  An AI engineer that knows your codebase, joins your
-                      standups, and turns issues into pull requests you review.
+                  I'm min., an AI engineer. I know your codebase and turn
+                      requests into pull requests you review.
                 </p>
                 <a
                       href="https://app.getmin.ai"
