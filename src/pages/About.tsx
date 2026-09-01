@@ -79,7 +79,7 @@ export default function About() {
             <p>
               So we built min.: an AI engineer anyone on the team can hand
               work to. Support files the bug, product describes the feature,
-              min. writes the code, and an engineer reviews the PR.
+              min. writes the code, and I review the PR.
             </p>
             <p>
               The results were immediate. We ship twice as fast, and the
