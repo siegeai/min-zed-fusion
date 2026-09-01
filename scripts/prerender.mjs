@@ -84,6 +84,16 @@ function setTag(html, pattern, replacement) {
   return pattern.test(html) ? html.replace(pattern, replacement) : html;
 }
 
+/**
+ * Escapes a value for use inside a String.replace REPLACEMENT.
+ *
+ * "$" is special there: a description containing "$20" was read as capture
+ * group $2 followed by "0", which on the pricing page expanded to the closing
+ * quote and truncated the meta tag mid-sentence. It shipped that way. Any copy
+ * with a price in it hits this, so every interpolation below goes through lit().
+ */
+const lit = (v) => String(v).replace(/\$/g, "$$$$");
+
 /* ── crawler mirror ───────────────────────────────────────────────────────
  *
  * The hidden <main> inside index.html is the copy a crawler sees when it does
@@ -104,7 +114,7 @@ if (!MIRROR.test(rawTemplate)) {
 
 const { renderMirror } = await import("../.mirror-ssr/mirror-entry.js");
 const mirrorBlock = `      <main hidden>\n${renderMirror()}\n      </main>\n`;
-writeFileSync(join(dist, "index.html"), rawTemplate.replace(MIRROR, mirrorBlock));
+writeFileSync(join(dist, "index.html"), rawTemplate.replace(MIRROR, () => mirrorBlock));
 console.log(`  crawler mirror: ${mirrorBlock.trim().split("\n").length - 2} blocks rendered from the live component`);
 
 const template = rawTemplate.replace(MIRROR, "");
@@ -156,14 +166,14 @@ function emit(route, title, description, extraHead = "") {
   let html = template;
 
   if (title) {
-    html = setTag(html, /<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
-    html = setTag(html, /(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
-    html = setTag(html, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
+    html = setTag(html, /<title>[\s\S]*?<\/title>/, `<title>${lit(esc(title))}</title>`);
+    html = setTag(html, /(<meta property="og:title" content=")[^"]*(")/, `$1${lit(esc(title))}$2`);
+    html = setTag(html, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${lit(esc(title))}$2`);
   }
   if (description) {
-    html = setTag(html, /(<meta name="description" content=")[^"]*(")/, `$1${esc(description)}$2`);
-    html = setTag(html, /(<meta property="og:description" content=")[^"]*(")/, `$1${esc(description)}$2`);
-    html = setTag(html, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(description)}$2`);
+    html = setTag(html, /(<meta name="description" content=")[^"]*(")/, `$1${lit(esc(description))}$2`);
+    html = setTag(html, /(<meta property="og:description" content=")[^"]*(")/, `$1${lit(esc(description))}$2`);
+    html = setTag(html, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${lit(esc(description))}$2`);
   }
 
   // Trailing slash: GitHub Pages serves dist/<route>/index.html at "/route/"
@@ -174,15 +184,25 @@ function emit(route, title, description, extraHead = "") {
   }
 
   const canonical = `${SITE}${route}/`;
-  html = setTag(html, /(<meta property="og:url" content=")[^"]*(")/, `$1${canonical}$2`);
+  html = setTag(html, /(<meta property="og:url" content=")[^"]*(")/, `$1${lit(canonical)}$2`);
   html = /<link rel="canonical"/.test(html)
-    ? html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${canonical}" />`)
+    ? html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${lit(canonical)}" />`)
     : html.replace("</head>", `    <link rel="canonical" href="${canonical}" />\n  </head>`);
 
-  if (extraHead) html = html.replace("</head>", `${extraHead}\n  </head>`);
+  if (extraHead) html = html.replace("</head>", `${lit(extraHead)}\n  </head>`);
 
   const outDir = join(dist, route.replace(/^\//, ""));
   if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
+  // The bug above was silent for a full deploy, so verify rather than trust.
+  for (const [label, value] of [["title", title], ["description", description]]) {
+    if (value && !html.includes(esc(value))) {
+      throw new Error(
+        `prerender: ${route} ${label} was mangled on the way into the HTML.\n` +
+          `  wanted: ${value}\n` +
+          `  got:    ${html.match(new RegExp(`<meta name="${label}" content="([^"]*)"`))?.[1] ?? "(missing)"}`
+      );
+    }
+  }
   writeFileSync(join(outDir, "index.html"), html);
 }
 
