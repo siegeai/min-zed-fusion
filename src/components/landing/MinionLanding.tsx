@@ -267,8 +267,8 @@ export default function MinionLanding() {
             checkout makes you drive each one and re-explain yourself. */}
         <Row
           id="repos"
-          title="I have every repo checked out."
-          lede="Your product is not one repo, and neither is a change to it."
+          title="I know every repo like the back of my hand."
+          lede="Your product spans multiple repos. I work with all of them all at once."
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p>
