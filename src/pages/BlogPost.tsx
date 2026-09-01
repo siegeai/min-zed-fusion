@@ -41,7 +41,7 @@ const BlogPost = () => {
       logo: { "@type": "ImageObject", url: "https://getmin.ai/favicon.png" },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    image: "https://getmin.ai/og-cover-named.png",
+    image: "https://getmin.ai/og-cover-meet.png",
   };
 
   
@@ -160,7 +160,7 @@ const BlogPost = () => {
                       href="https://app.getmin.ai"
                       className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-onink transition-colors hover:bg-ink/85"
                     >
-                    Connect your repos
+                    Meet your engineer
                     </a>
               </div>
             </div>

@@ -241,7 +241,7 @@ for (const post of posts) {
       logo: { "@type": "ImageObject", url: `${SITE}/favicon.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    image: `${SITE}/og-cover-named.png`,
+    image: `${SITE}/og-cover-meet.png`,
   };
   const extraHead = [
     `    <meta property="article:published_time" content="${post.date}" />`,

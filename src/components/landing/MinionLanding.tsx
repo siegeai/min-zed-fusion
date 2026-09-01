@@ -186,7 +186,7 @@ export default function MinionLanding() {
 
           <div className="mt-10">
             <a href="https://app.getmin.ai" className={CTA}>
-              Connect your repos
+              Meet your engineer
             </a>
           </div>
         </div>
@@ -260,12 +260,6 @@ export default function MinionLanding() {
               })}
             </div>
           </div>
-
-          <p className={`mt-6 ${BODY}`}>
-            min. asks before acting. Nothing reaches your main branch that a person
-            did not merge, which leaves the review as the only part that still
-            needs one.
-          </p>
         </Row>
 
         {/* Multi-repo. The complaint this answers is concrete: a product is
@@ -323,7 +317,7 @@ export default function MinionLanding() {
             Tell min. the bug. Review the PR.
           </p>
           <a href="https://app.getmin.ai" className={CTA}>
-            Connect your repos
+            Meet your engineer
           </a>
         </div>
       </div>

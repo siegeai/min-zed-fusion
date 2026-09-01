@@ -49,7 +49,7 @@ export default function PillNav() {
                 href="https://app.getmin.ai"
                 className="whitespace-nowrap bg-ink text-onink px-5 py-2 rounded-full text-sm font-medium hover:bg-ink/85 transition-colors"
               >
-                Connect your repos
+                Meet your engineer
               </a>
           </div>
 
@@ -89,7 +89,7 @@ export default function PillNav() {
                 onClick={() => setOpen(false)}
                 className="rounded-full bg-ink text-onink text-sm font-medium py-3 text-center"
               >
-                Connect your repos
+                Meet your engineer
               </a>
           </div>
         </div>
