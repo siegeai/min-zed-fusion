@@ -90,31 +90,34 @@ const THREAD: Turn[] = [
 
 
 /**
- * Not a permissions table, and not a pricing table. This is the section that
- * carries the whole-company claim, so it is ordered by distance from the code:
- * the engineers who merge, then everyone who used to have to ask them, then
- * people outside the company entirely.
+ * Roles, not permission levels.
  *
- * The second row is the one that changes the economics, and the last is the one
- * no editor-bound agent can do at all, because answering a customer means
- * answering without the codebase showing through.
+ * This section used to list who may do what, which described the access model
+ * and sold nothing. What a reader needs is their own job on the page: the
+ * engineer who stops implementing, the PM who stops queueing, the AE who stops
+ * borrowing an engineer for a call, the support rep who stops writing tickets
+ * nobody can act on.
+ *
+ * The sales row carries the capability no editor-bound agent has, which is
+ * answering from the real codebase without exposing it. It is stated inside a
+ * role because that is where it is worth something.
  */
 const ACCESS: [string, string][] = [
   [
-    "Your engineers",
-    "The whole engineer. Plans, writes the code, opens the PR they review.",
+    "Engineers",
+    "They become architects. min. writes the implementation and opens the PR; the design, and the merge, stay theirs.",
   ],
   [
-    "Everyone else at the company",
-    "Support, product, design. Describe the problem in plain words; it finds the cause and drafts the fix.",
+    "Product",
+    "Describe a feature or an experiment in plain words, get a pull request back. No sprint booked to find out whether it works.",
   ],
   [
-    "Guests",
-    "Contractors and partners propose changes as PRs. Write access stays with membership.",
+    "Sales",
+    "The best sales engineer you have. It answers a prospect's technical question from the real codebase without exposing how it works, and builds the spike a deal is waiting on.",
   ],
   [
-    "Your customers",
-    "Ask-only. Answers what the product does without revealing how it works, and files a clean issue when it is a bug.",
+    "Support",
+    "A ticket comes in; it reproduces the bug, finds the cause, and files an issue an engineer can act on. Often with the fix already attached.",
   ],
 ];
 
@@ -208,8 +211,9 @@ export default function MinionLanding() {
               everything anyone else notices queues behind whoever is free.
             </p>
             <p className="text-ink">
-              min. is not in an editor. Anyone on the team hands it work
-              directly, so the queue stops forming.
+              min. is not a tool someone has to drive. It is an engineer. It holds
+              the codebase, takes work from anyone on the team, and hands back
+              pull requests. The queue stops forming.
             </p>
           </div>
         </Row>
@@ -268,7 +272,7 @@ export default function MinionLanding() {
         <Row
           id="access"
           title="The whole company can reach it."
-          lede="One engineer, scoped differently for everyone. Nobody has to learn the codebase to report what is broken in it."
+          lede="One engineer, and everyone works with it the way their job needs. Nobody has to learn the codebase to change the product."
         >
           <div className="grid gap-x-10 sm:grid-cols-2">
             {ACCESS.map(([who, what]) => (
