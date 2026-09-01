@@ -23,7 +23,7 @@ import {
 
 // One per thing a visitor actually arrives wondering: what the coined word
 // means, how this is not the tool they already have, how far it is allowed
-// to go on its own, and whether trying it costs anything. Each maps to a fact
+// to go on its own, and what trying it costs. Each maps to a fact
 // in llms.txt, so none of them dead-ends.
 //
 // "What is a minion?" and "Where can I add one besides meetings?" were retired
@@ -33,7 +33,7 @@ const OPENERS = [
   "How is this different from Copilot or Cursor?",
   "Can it merge its own pull requests?",
   "What does it do with an issue?",
-  "Do I need to sign up to try it?",
+  "Do I have to pay to try it?",
 ];
 
 type Msg = { role: "user" | "assistant"; content: string };
