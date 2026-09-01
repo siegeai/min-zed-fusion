@@ -279,8 +279,8 @@ export default function MinionLanding() {
               No re-explaining the feature to a fresh agent in every checkout.
             </p>
             <p>
-              min. runs in the cloud. Type the prompt, close the laptop; every
-              step is in the session when you come back.
+              min. runs in the cloud. Type the prompt, close the laptop;
+              review the completed PR later.
             </p>
           </div>
         </Row>
