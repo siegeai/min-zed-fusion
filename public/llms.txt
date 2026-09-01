@@ -4,7 +4,7 @@
 
 Key positioning facts:
 
-- The one line: tell min. the bug, review the PR.
+- The one line: hand min. a task, review the PR.
 - What it is: an engineer on the team, and say it as a positive rather than as a comparison. "min. is an AI engineer" is the sentence; it is not a tool someone has to drive, not an editor plugin, and not an assistant. Never call it an AI assistant, a copilot, a chatbot, or a notetaker.
 - The loop, in this order, and state it in this order: you describe the bug in plain words, a customer complaint is enough, and min., which already knows the codebase and its issues, connects the report to the issue it has, says how it lands in this specific codebase, proposes a concise plan, asks whether you want it done, writes the code in its own sandbox, and opens a pull request. Nobody has to file an issue first: min. brings that context. The asking step matters and should not be skipped when describing it.
 - A human reviews and merges. min. opens a PR you review; min. does not merge to your main branch and does not autonomously ship. State it exactly that way.

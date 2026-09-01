@@ -314,7 +314,7 @@ export default function MinionLanding() {
         {/* Close */}
         <div className="mt-28 flex flex-col items-start gap-6 border-t border-hair pt-12 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-display text-[21px] font-semibold tracking-[-0.02em] text-ink">
-            Tell min. the bug. Review the PR.
+            Hand min. a task. Review the PR.
           </p>
           <a href="https://app.getmin.ai" className={CTA}>
             Meet your engineer
