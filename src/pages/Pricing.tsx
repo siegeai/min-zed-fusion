@@ -45,7 +45,7 @@ const PLANS: Plan[] = [
     price: { display: "$0", sub: "no card" },
     features: [
       "The best coding models, not a cut-down one",
-      "The whole loop: it plans, writes the code, and opens the PR",
+      "The whole loop: min. plans, writes the code, and opens the PR",
       "Generous monthly limits",
       "Every repo you connect",
     ],
@@ -108,7 +108,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "Can it merge its own pull requests?",
-    "No. It works in its own sandbox and opens a pull request for review. Nothing reaches your main branch that a person did not merge, and write access stays with membership.",
+    "No. min. works in its own sandbox and opens a pull request for review. Nothing reaches your main branch that a person did not merge, and write access stays with membership.",
   ],
   [
     "Do you train on my code?",

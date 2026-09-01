@@ -22,7 +22,7 @@ import {
  */
 
 const INQUIRIES: [string, string][] = [
-  ["Sales.", "Ready to bring min. to your team, or you want to see what it does on your own calendar and inbox."],
+  ["Sales.", "Ready to bring min. to your team, or you want to see what min. does with your own repos."],
   ["Support.", "Something is not working, or you want more out of min. across your team."],
   ["Partnerships.", "Integrations, agencies, and co-marketing."],
   ["Investors and press.", "Media inquiries and investment conversations."],

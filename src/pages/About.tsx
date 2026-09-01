@@ -30,15 +30,15 @@ import {
 const BELIEFS: [string, string][] = [
   [
     "A plan is worth more than a patch.",
-    "Anyone can generate a diff. The expensive part is knowing which two files to touch, and which migration you do not need. So it tells you what it found before it writes anything.",
+    "Anyone can generate a diff. The expensive part is knowing which two files to touch, and which migration you do not need. So min. tells you what it found before writing anything.",
   ],
   [
-    "It asks before it acts.",
-    "An agent that decides on its own is a liability, not a teammate. It proposes, you say go, and what comes back is a pull request a person merges.",
+    "min. asks before acting.",
+    "An agent that decides on its own is a liability, not a teammate. min. proposes, you say go, and what comes back is a pull request a person merges.",
   ],
   [
     "You stay in control.",
-    "Something that sits this close to your codebase only earns it by being safe. It works in its own sandbox, and write access stays with membership.",
+    "Something that sits this close to your codebase only earns it by being safe. min. works in its own sandbox, and write access stays with membership.",
   ],
 ];
 
@@ -52,7 +52,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is an AI engineer on your team. It holds your codebase, reads an issue, proposes a plan, and opens a pull request you review and merge.",
+      "min. is an AI engineer on your team. min. holds your codebase, reads an issue, proposes a plan, and opens a pull request you review and merge.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -97,7 +97,7 @@ export default function About() {
               starts from what is already true.
             </p>
             <p>
-              Then it hands back a pull request. Not a suggestion, not a patch
+              Then min. hands back a pull request. Not a suggestion, not a patch
               applied behind your back: a diff with a plan attached, which is the
               only unit of work a team can reasonably accept from a machine.
             </p>

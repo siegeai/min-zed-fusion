@@ -97,8 +97,7 @@ export default function Security() {
           <Prose>
             <p>
               min. reads the repos you connect and does its work in its own
-              sandbox. It opens a pull request for review rather than writing to
-              your default branch, and write access stays with whatever your
+              sandbox. min. opens a pull request for review rather than writing to your default branch, and write access stays with whatever your
               membership already grants.
             </p>
           </Prose>

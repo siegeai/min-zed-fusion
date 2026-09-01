@@ -147,7 +147,7 @@ const PrivacyPolicy = () => {
                   <strong className="text-ink">Your code:</strong> min.
                   works on your repositories inside an isolated sandbox. It
                   proposes changes as pull requests for a person on your team to
-                  review and merge; it does not write to your default branch,
+                  review and merge; min. does not write to your default branch,
                   and write access is governed by the permissions your
                   repository host already grants.
                 </p>
