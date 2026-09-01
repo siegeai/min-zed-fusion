@@ -26,7 +26,11 @@ const APP_URL = "https://app.getmin.ai";
  * The FAQ was four more cards. It is a definition list now, hairline separated,
  * because a question and its answer are not objects that need containers.
  *
- * Plans split on who min. is working for, not on how far back it remembers.
+ * Two axes, kept separate. SEATS are cheap access, per person, so everyone who
+ * hands min. work has a way in. USAGE (the model compute min. spends doing the
+ * work) is POOLED: one shared allowance across the whole team, topped up with
+ * pooled tokens, never metered per head. So a hundred people cost a hundred cheap
+ * seats, not a hundred usage allowances most of them never spend.
  */
 type Plan = {
   name: string;
@@ -38,52 +42,44 @@ type Plan = {
   highlighted?: boolean;
 };
 
+// NOTE: the dollar figures below (per-seat price + included pool) are
+// PLACEHOLDERS. Set them to the real numbers before this ships.
 const PLANS: Plan[] = [
   {
     name: "Free",
-    who: "For you",
+    who: "Free to start",
     price: { display: "$0", sub: "no card" },
     features: [
       "The best coding models, not a cut-down one",
       "The whole loop: min. plans, writes the code, and opens the PR",
-      "Generous monthly limits",
+      "Up to 5 seats, enough for your whole small team",
+      "A generous shared usage pool every month",
       "Every repo you connect",
     ],
-    cta: { label: "Start free", href: "https://app.getmin.ai" },
+    cta: { label: "Start free", href: APP_URL },
   },
   {
-    name: "Pro",
-    who: "For one engineer",
-    price: { display: "$20", sub: "/ month" },
+    name: "Team",
+    who: "For your team",
+    price: { display: "$20", sub: "/ seat / month" },
     inheritFrom: "Free",
     features: [
-      "Much higher limits",
-      "$20 of model usage included each month",
-      "Pick the model yourself, or let min. choose",
-      "Priority queue when it is busy",
+      "A seat for everyone who hands min. work: eng, product, support",
+      "One shared usage pool across the whole team, not per seat",
+      "Top up pooled tokens anytime; unused seats never waste usage",
+      "Pick the model yourself, or let min. choose · priority queue",
+      "Shared context across every repo · roles, admin, central billing",
     ],
     cta: { label: "Start free", href: APP_URL },
     highlighted: true,
   },
   {
-    name: "Teams",
-    who: "For your engineers",
-    price: { display: "$40", sub: "/ engineer / mo" },
-    inheritFrom: "Pro",
-    features: [
-      "Product, sales and support seats are free",
-      "Shared context across every repo in a project",
-      "Guests: propose changes as PRs without write access",
-      "Roles, admin, and centralised billing",
-    ],
-    cta: { label: "Start free", href: APP_URL },
-  },
-  {
     name: "Enterprise",
-    who: "For your company",
+    who: "For scale",
     price: { display: "Custom", sub: "let's talk" },
-    inheritFrom: "Teams",
+    inheritFrom: "Team",
     features: [
+      "Committed pooled usage at volume pricing",
       "SSO, SAML, and SCIM",
       "SOC 2 Type II and data residency",
       "Bring your own database, graph, and vector store",
@@ -96,15 +92,19 @@ const PLANS: Plan[] = [
 const FAQS: [string, string][] = [
   [
     "Do I have to pay to try it?",
-    "No. You can try min. with the best coding models on the free plan, and the limits are generous. You do need an account, but not a card.",
+    "No. The free plan runs the best coding models and the whole loop, with up to five seats and a generous shared usage pool. You need an account, but not a card.",
   ],
   [
-    "What happens when I hit the limit?",
-    "min. stops and tells you. Nothing is deleted and no card is charged. You can wait for the month to roll over or move to Pro.",
+    "How do seats and usage work?",
+    "Two separate things. A seat is access: cheap, per person, so anyone can hand min. work. Usage is the model compute min. spends doing that work, and it comes from ONE pool your whole team shares. Seats scale with your team; usage scales with how much you actually build.",
   ],
   [
-    "Why are product, sales and support seats free?",
-    "Because they are the point. min. is worth having when anyone can hand it a problem, and charging a full engineering seat for someone who files two bugs a month would stop that happening. You pay for the engineers.",
+    "Why pool the usage instead of giving each seat its own?",
+    "Because most people hand min. the odd problem and a few lean on it all day. Pooling means the whole team draws from one allowance, the heavy users and the occasional ones share it, so you're not buying a full usage bucket for every seat that barely touches it.",
+  ],
+  [
+    "What happens when the pool runs out?",
+    "min. stops and tells you. Nothing is deleted and no card is charged. Top up pooled tokens, shared across everyone and good for the whole month, or wait for the month to roll over.",
   ],
   [
     "Can it merge its own pull requests?",
@@ -127,7 +127,7 @@ const Pricing = () => {
         <title>Pricing | min., the AI engineer on your team</title>
         <meta
           name="description"
-          content="min. is free to start, with the best coding models and generous limits. Pro is $20 a month, Teams is $40 per engineer, and product, sales and support seats are free."
+          content="min. is free to start, with the best coding models and the whole loop. Then cheap per-seat access and one shared usage pool for your whole team. You never buy a usage allowance per head."
         />
         <link rel="canonical" href="https://getmin.ai/pricing/" />
       </Helmet>
@@ -135,11 +135,11 @@ const Pricing = () => {
       <PageFrame>
         <PageHero
           title="Start free."
-          lede="The best coding models and the whole loop on the free plan, with generous limits. You pay when you outgrow them."
+          lede="The best coding models and the whole loop, free to start. As your team grows, seats stay cheap and usage comes from one shared pool, so a hundred people don't mean a hundred usage bills."
         />
 
         <Section wide>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 min-[1400px]:grid-cols-4">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {PLANS.map((p) => (
               <PlanCard key={p.name} plan={p} />
             ))}
