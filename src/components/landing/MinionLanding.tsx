@@ -211,9 +211,9 @@ export default function MinionLanding() {
             </p>
             <p>
               Support hands min. a ticket. Product hands min. a spec.
-              Engineering hands min. an issue. min. works all three in the same
-              codebase. An agent tied to one engineer's editor can't, because
-              it only works while that engineer is at the keyboard.
+                Engineering hands min. a task. min. works with all three.
+                Building is now more collaborative than ever. Shipping great
+                software has never been faster.
             </p>
           </div>
         </Row>
