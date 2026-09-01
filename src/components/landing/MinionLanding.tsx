@@ -179,8 +179,9 @@ export default function MinionLanding() {
             I'm min., your dev team's newest member.
           </h1>
           <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            I'm an AI engineer. I turn requests into pull requests: you
-              architect, I implement, and nothing merges without your review.
+            I'm your AI engineer. I turn requests into pull requests: you
+              architect, I execute. Share me with your PMs, support, sales.
+              Reach me anytime in Slack.
           </p>
 
           <div className="mt-10">
