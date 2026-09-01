@@ -198,7 +198,7 @@ export default function MinionLanding() {
         <Row
           id="multiplayer"
           title="Everyone builds. Engineers still ship."
-          lede="Not two cursors in one file. One engineer the whole company works with."
+          lede="One AI engineer, working with every team."
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p className="text-ink">
