@@ -187,8 +187,8 @@ export default function MinionLanding() {
             Meet your dev team's newest member.
           </h1>
           <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            An AI engineer that turns requests into pull requests. For your whole
-            team, not just whoever has the editor open.
+            An AI engineer that turns requests into pull requests. Anyone at the
+            company can hand it work, and your engineers still ship it.
           </p>
 
           <div className="mt-10">
@@ -198,22 +198,34 @@ export default function MinionLanding() {
           </div>
         </div>
 
-        {/* The difference, stated before the mechanic, because a reader who
-            already has Cursor open needs it answered first. */}
+        {/* The most valuable block on the page, so it states what min. is
+            rather than what Cursor is not. The competitor now gets one clause
+            in the second paragraph, where it belongs.
+
+            "Multiplayer" is the idea, but the shallow reading of that word is a
+            shared cursor in an editor, which is not this and is not
+            interesting. The claim is that the person who noticed a problem can
+            start the fix without being able to write code. */}
         <Row
-          id="difference"
-          title="Your coding agent works for one person at a time."
+          id="multiplayer"
+          title="Everyone builds. Engineers still ship."
+          lede="Not two cursors in one file. One engineer the whole company works with."
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
-            <p>
-              Cursor and Claude Code live in one engineer's editor. Work moves
-              while they are at the keyboard and stops when they are not, so
-              everything anyone else notices queues behind whoever is free.
-            </p>
             <p className="text-ink">
-              min. is not a tool someone has to drive. It is an engineer. It holds
-              the codebase, takes work from anyone on the team, and hands back
-              pull requests. The queue stops forming.
+              The person who noticed the problem can start the fix, whether or
+              not they write code.
+            </p>
+            <p>
+              Support hands it a ticket, product hands it a spec, an engineer
+              hands it an issue, and it works the same codebase for all three.
+              An agent living in one engineer's editor cannot do that, because
+              work only moves while that engineer is at the keyboard.
+            </p>
+            <p>
+              So nobody is the bottleneck, and engineers stop being the only
+              door into the codebase. They still own the design and the merge,
+              which is the part that needed them.
             </p>
           </div>
         </Row>
