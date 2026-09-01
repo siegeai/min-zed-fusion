@@ -6,7 +6,6 @@ import {
   PageFrame,
   PageHero,
   Section,
-  LeadList,
   Prose,
   CloseBlock,
   PillLink,
@@ -15,32 +14,22 @@ import {
 } from "@/components/page/Kit";
 
 /**
- * About, rebuilt in the home page's language.
+ * About is the founding story, told by the founder, and nothing else.
  *
- * What went: the centred column, the "ABOUT MIN." and "WHAT WE BELIEVE" and
- * "ORIGIN" and "TEAM" eyebrows, the green word in the headline, and the three
- * up row of icon cards the beliefs used to sit in. The beliefs are the same
- * three beliefs; they are now three sentences, which is what they always were.
+ * It used to open on category positioning ("an engineer, not an autocomplete")
+ * and a beliefs list, which is the marketing site's job and the marketing site
+ * does it better. What only THIS page can say is why min. exists: Eric was the
+ * only one who could code, so Eric was the queue. The beliefs section went;
+ * anything it said that mattered is one clause in the story now.
+ *
+ * Voice: the rest of the site speaks as min. This page deliberately does not.
+ * A founding story told by the product about its own founders would be absurd,
+ * so the "I" here is Eric.
  *
  * The two team portraits stay, including Fadi's hand drawn one. They are the
- * only real artwork on the site and the only place a card still earns itself,
- * because a person with a face and links is genuinely a discrete object.
+ * only real artwork on the site, and a person with a face and links is
+ * genuinely a discrete object.
  */
-
-const BELIEFS: [string, string][] = [
-  [
-    "A plan is worth more than a patch.",
-    "Anyone can generate a diff. The expensive part is knowing which two files to touch, and which migration you do not need. So min. tells you what it found before writing anything.",
-  ],
-  [
-    "min. asks before acting.",
-    "An agent that decides on its own is a liability, not a teammate. min. proposes, you say go, and what comes back is a pull request a person merges.",
-  ],
-  [
-    "You stay in control.",
-    "Something that sits this close to your codebase only earns it by being safe. min. works in its own sandbox, and write access stays with membership.",
-  ],
-];
 
 export default function About() {
   useEffect(() => {
@@ -52,7 +41,7 @@ export default function About() {
     "@type": "AboutPage",
     name: "About min.",
     description:
-      "min. is an AI engineer on your team. min. knows your codebase and its issues: describe a bug, and min. connects it to the issue it already knows, proposes a plan, and opens a pull request you review and merge.",
+      "Why min. exists: our founder was the only engineer on the team, so every bug and feature waited on him. min. is the AI engineer that lets everyone start the work, while engineers review and merge.",
     url: "https://getmin.ai/about",
     mainEntity: {
       "@type": "Organization",
@@ -64,10 +53,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About min. | An engineer, not an autocomplete</title>
+        <title>About min. | I was the bottleneck</title>
         <meta
           name="description"
-          content="Why we built min. Coding agents start every task from nothing. We wanted one that knows your codebase like a teammate who has been here two years, and hands back a pull request instead of a suggestion."
+          content="I was the only one who could code, so every bug and feature waited on me. We built min. so anyone on the team can start the work. We ship twice as fast now."
         />
         <link rel="canonical" href="https://getmin.ai/about/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -75,31 +64,28 @@ export default function About() {
 
       <PageFrame>
         <PageHero
-          title="An engineer, not an autocomplete."
-          lede="Coding agents live in your editor and start every task from nothing. We wanted one that knows the codebase the way a teammate two years in knows it, and hands back a pull request you can review."
+          title="I was the bottleneck."
+          lede="min. exists because of a problem we kept running into building our own products. Here is the whole story."
         />
 
-        <Section title="What we believe.">
-          <LeadList items={BELIEFS} />
-        </Section>
-
-        <Section title="The bottleneck moved.">
+        <Section title="The story.">
           <Prose>
             <p>
-              Writing the code stopped being the slow part. The slow part is
-              context: which service owns this, what constraint someone set
-              three weeks ago, why the retry handler looks the way it does.
+              I was the only one on the team who could code. So every bug,
+              every feature request, every "can we just" ended in my queue. My
+              teammates could see exactly what needed fixing, and all they
+              could do was wait for me.
             </p>
             <p>
-              An agent that starts from an empty context re-derives all of that
-              every time, and gets it wrong in ways that are expensive to catch
-              in review. So min. keeps the whole project in context, every repo in it, and
-              starts from what is already true.
+              So we built min.: an AI engineer anyone on the team can hand
+              work to. Support files the bug, product describes the feature,
+              min. writes the code, and an engineer reviews the PR.
             </p>
             <p>
-              Then min. hands back a pull request. Not a suggestion, not a patch
-              applied behind your back: a diff with a plan attached, which is the
-              only unit of work a team can reasonably accept from a machine.
+              The results were immediate. We ship twice as fast, and the
+              product is built by the whole team instead of being the burden
+              of whoever can code. The technical people architect and conduct
+              now. min. does the grunt work.
             </p>
           </Prose>
         </Section>
@@ -137,7 +123,7 @@ export default function About() {
           </div>
         </Section>
 
-        <CloseBlock title="Tell it the bug.">
+        <CloseBlock title="Stop being the bottleneck.">
           <div className="flex flex-wrap items-center gap-3">
             <PillLink href="https://app.getmin.ai">Put me to work</PillLink>
             <PillLink href={contactHref("Hello")} tone="quiet">
