@@ -104,7 +104,7 @@ const THREAD: Turn[] = [
  */
 const ACCESS: [string, string][] = [
   ["For senior engineers", "You architect and review. I implement, in my own sandbox, on every repo."],
-  ["For engineering managers", "Point me at the backlog. Tickets stop waiting for whoever is free."],
+  ["For engineering managers", "You triage, I investigate. I reproduce the report, size the fix, and say where it lands in the code."],
   ["For product managers", "Describe the feature in plain words. I hand back a pull request."],
   ["For the codebase", "Migrations, flaky tests, dependency bumps: hand me the chores nobody has time for."],
 ];
@@ -205,10 +205,12 @@ export default function MinionLanding() {
               whether they code.
             </p>
             <p>
-              Your PM hands me a spec. Your manager hands me a ticket. You hand
-              me the migration you keep deferring. I work all three at once; an
-              agent in one engineer's editor moves only while that engineer
-              drives it. The backlog stops queueing behind whoever is free.
+              Support reports a bug and I reproduce it, find where it lands in
+              the code, and draft the fix. Your EM triages with me instead of
+              borrowing an engineer. Your PM hands me a spec and gets a PR
+              back. You hand me the migration you keep deferring. An agent in
+              one engineer's editor moves only while that engineer drives it;
+              the backlog stops queueing behind whoever is free.
             </p>
           </div>
         </Row>
