@@ -283,9 +283,10 @@ export default function MinionLanding() {
 
         {/* The roles. This is the payoff for the thesis at the top of the
             page, so it must not restate it: "whoever spots the problem can
-            start the fix" already appears up there almost word for word, and
-            two headings making the same claim makes the page feel padded. The
-            rows carry this section; it does not need a lede.
+            start the fix" already appears up there, and two headings making
+            the same claim makes the page feel padded. The lede stays to one
+            line on shared participation: the same engineer for everyone in
+            the rows below, leaving that sentence to the multiplayer section.
 
             Deliberately the LAST section: a footer link can
             only scroll its target to the top if there is a viewport's worth of
@@ -294,6 +295,7 @@ export default function MinionLanding() {
         <Row
           id="access"
           title="Same engineer, whatever your job."
+          lede="I'm the same engineer whoever's driving, everyone on this list builds with me."
         >
           <div className="grid gap-x-10 sm:grid-cols-2">
             {ACCESS.map(([who, what]) => (
