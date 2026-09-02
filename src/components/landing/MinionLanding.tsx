@@ -3,16 +3,15 @@ import MemoryField from "./MemoryField";
 /**
  * The landing page.
  *
- * One idea: min. is an engineer on your team and its home is the codebase. The
- * page is the loop and nothing else (hand it an issue, review the PR) plus
- * the two facts a reader needs before they can picture using it: it works
- * across a project's repos, and not everyone who talks to it gets the same
- * version of it.
+ * One idea: your GitHub repos get a DEDICATED engineer, and min. lives there,
+ * not in anyone's editor. The audience is engineering teams: managers, product
+ * managers, senior engineers. The page is the loop (hand me a task, review the
+ * PR) plus the two facts that audience needs before they can picture it: I keep
+ * every repo checked out, and the whole team can hand me work without the
+ * backlog queueing behind one engineer.
  *
- * Two things were deliberately removed rather than reworded. The named agent
- * with its own email address is gone from the product, so the name picker and
- * the invite mechanic went with it. The meetings section went too: it argued
- * for context the page no longer needs to argue for.
+ * Sales and support left the page in the 2026-09 repositioning: they are real
+ * users but not the pitch, and llms.txt tells the bot the same.
  */
 
 /**
@@ -96,21 +95,18 @@ const THREAD: Turn[] = [
 /**
  * Roles, not permission levels.
  *
- * This section used to list who may do what, which described the access model
- * and sold nothing. What a reader needs is their own job on the page: the
- * engineer who stops implementing, the PM who stops queueing, the AE who stops
- * borrowing an engineer for a call, the support rep who stops writing tickets
- * nobody can act on.
- *
- * The sales row carries the capability no editor-bound agent has, which is
- * answering from the real codebase without exposing it. It is stated inside a
- * role because that is where it is worth something.
+ * One row per person we actually sell to: the senior engineer who stops
+ * implementing, the manager whose backlog stops queueing, the PM who gets a
+ * PR instead of a sprint slot. The fourth row is the codebase itself, because
+ * "the chores nobody has time for" is the daily pain every one of those three
+ * recognises. Sales and support left in the 2026-09 repositioning: real users,
+ * not the pitch.
  */
 const ACCESS: [string, string][] = [
-  ["For engineers", "You architect and design from anywhere. I execute, completely in the cloud."],
+  ["For senior engineers", "You architect and review. I implement, in my own sandbox, on every repo."],
+  ["For engineering managers", "Point me at the backlog. Tickets stop waiting for whoever is free."],
   ["For product managers", "Describe the feature in plain words. I hand back a pull request."],
-  ["For sales", "I answer a prospect's technical question from the real code, securely."],
-  ["For support", "I reproduce the bug and file the issue. Then I fix it and open the PR."],
+  ["For the codebase", "Migrations, flaky tests, dependency bumps: hand me the chores nobody has time for."],
 ];
 
 const H2 =
@@ -176,12 +172,12 @@ export default function MinionLanding() {
         {/* Hero */}
         <div className="max-w-[46rem]">
           <h1 className="font-display text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink [text-wrap:balance] md:text-[2.9rem]">
-            I'm your dev team's newest member.
+            I'm the engineer who lives in your repos.
           </h1>
           <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            I'm your AI engineer. I turn requests into pull requests: you
-            architect, I execute. Share me with product, sales, and support.
-            I'm a Slack message away.
+            Connect your GitHub and your repos get a dedicated engineer. I turn
+            tasks into pull requests: you architect, I execute. I'm a Slack
+            message away.
           </p>
 
           <div className="mt-10">
@@ -192,17 +188,16 @@ export default function MinionLanding() {
         </div>
 
         {/* The most valuable block on the page, so it states what min. is
-            rather than what Cursor is not. The competitor now gets one clause
-            in the second paragraph, where it belongs.
+            rather than what Cursor is not. The competitor gets one clause in
+            the second paragraph, where it belongs.
 
-            "Multiplayer" is the idea, but the shallow reading of that word is a
-            shared cursor in an editor, which is not this and is not
-            interesting. The claim is that the person who noticed a problem can
-            start the fix without being able to write code. */}
+            The claim, retargeted at the eng org: the whole team hands min.
+            work, so the backlog stops queueing behind whichever senior
+            engineer is free. */}
         <Row
           id="multiplayer"
           title="Everyone builds."
-          lede="I work with every team, all on the same codebase."
+          lede="I take work from your whole team: managers, PMs, engineers."
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p className="text-ink">
@@ -210,10 +205,10 @@ export default function MinionLanding() {
               whether they code.
             </p>
             <p>
-              Support hands me a ticket. Product hands me a spec. Engineering
-                hands me a task. I work with all three.
-                Building is now more collaborative than ever. Shipping great
-                software has never been faster.
+              Your PM hands me a spec. Your manager hands me a ticket. You hand
+              me the migration you keep deferring. I work all three at once; an
+              agent in one engineer's editor moves only while that engineer
+              drives it. The backlog stops queueing behind whoever is free.
             </p>
           </div>
         </Row>
@@ -267,8 +262,8 @@ export default function MinionLanding() {
             checkout makes you drive each one and re-explain yourself. */}
         <Row
           id="repos"
-          title="I know every repo like the back of my hand."
-          lede="Your product spans multiple repos. I work with all of them all at once."
+          title="I live in your repos."
+          lede="Every repo checked out, the whole project in context, all the time."
         >
           <div className={`flex flex-col gap-4 ${BODY}`}>
             <p>

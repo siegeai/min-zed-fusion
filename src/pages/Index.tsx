@@ -15,10 +15,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>min. | The AI engineer on your team</title>
+        <title>min. | The AI engineer in your repos</title>
         <meta
           name="description"
-          content="I'm min., an AI engineer on your team. Give me any task: I know your codebase, write the fix, and open a pull request your engineers review."
+          content="I'm min., a dedicated engineer for your GitHub repos. Give me any task: I know the whole codebase, write the fix, and open a pull request your team reviews."
         />
         <link rel="canonical" href="https://getmin.ai/" />
       </Helmet>

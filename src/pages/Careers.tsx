@@ -47,7 +47,7 @@ export default function Careers() {
   return (
     <>
       <Helmet>
-        <title>Careers at min. | Build the AI engineer on your team</title>
+        <title>Careers at min. | Build the AI engineer in your repos</title>
         <meta
           name="description"
           content="Help us build the AI engineer that knows a team's codebase, plans a change, and opens the pull request. Email hello@getmin.ai with what you've built. No traditional postings."
@@ -57,7 +57,7 @@ export default function Careers() {
 
       <PageFrame>
         <PageHero
-          title="Build the engineer on every team."
+          title="Build the engineer who lives in every repo."
           lede="No job postings. No five round interviews. Email us what you have built and what you want to build next."
         >
           <div className="flex flex-wrap items-center gap-3">

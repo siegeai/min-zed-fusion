@@ -64,7 +64,7 @@ const PLANS: Plan[] = [
     price: { display: "$20", sub: "/ seat / month" },
     inheritFrom: "Free",
     features: [
-      "A seat for everyone who hands min. work: eng, product, support",
+      "A seat for everyone who hands me work: engineers, managers, PMs",
       "One shared usage pool across the whole team, not per seat",
       "Top up pooled tokens anytime; unused seats never waste usage",
       "Pick the model yourself, or let min. choose · priority queue",
@@ -96,7 +96,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "How do seats and usage work?",
-    "Two separate things. A seat is access: cheap, per person, so anyone can hand min. work. Usage is the model compute min. spends doing that work, and it comes from ONE pool your whole team shares. Seats scale with your team; usage scales with how much you actually build.",
+    "Two separate things. A seat is access: cheap, per person, so anyone on the team can hand me work. Usage is the model compute I spend doing that work, and it comes from ONE pool your whole team shares. Seats scale with your team; usage scales with how much you actually build.",
   ],
   [
     "Why pool the usage instead of giving each seat its own?",
@@ -124,7 +124,7 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing | min., the AI engineer on your team</title>
+        <title>Pricing | min., the AI engineer in your repos</title>
         <meta
           name="description"
           content="min. is free to start, with the best coding models and the whole loop. Then cheap per-seat access and one shared usage pool for your whole team. You never buy a usage allowance per head."
