@@ -103,7 +103,7 @@ const THREAD: Turn[] = [
  * not the pitch.
  */
 const ACCESS: [string, string][] = [
-  ["For senior engineers", "You architect and review. I implement, in my own sandbox, on every repo."],
+  ["For senior engineers", "You design and review. I implement, in my own sandbox, on every repo."],
   ["For engineering managers", "You triage, I investigate. I reproduce the report, size the fix, and say where it lands in the code."],
   ["For product managers", "Describe the feature in plain words. I hand back a pull request."],
   ["For the codebase", "Migrations, flaky tests, dependency bumps: hand me the chores nobody has time for."],
@@ -175,9 +175,8 @@ export default function MinionLanding() {
             I'm the engineer who lives in your repos.
           </h1>
           <p className="mt-5 max-w-[36rem] text-[17.5px] leading-[1.6] text-quiet [text-wrap:pretty]">
-            Connect your GitHub and your repos get a dedicated engineer. I turn
-            tasks into pull requests: you architect, I execute. I'm a Slack
-            message away.
+            Connect your GitHub and your repos get a dedicated engineer. Hand
+            me any task and I hand back a pull request your team reviews.
           </p>
 
           <div className="mt-10">
